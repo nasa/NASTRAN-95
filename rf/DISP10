@@ -1,0 +1,641 @@
+APR.95
+$$$$$$$$
+BEGIN    DISP 10 - MODAL COMPLEX EIGENVALUE ANALYSIS - APR. 1995 $
+****CARD   1-  6,  8- 25, 56- 62
+****RFMT 187-195,197-204,207-209
+$$$$
+PRECHK   ALL $
+****CARD   1-  6,  8- 25, 56- 62
+****RFMT 187-195,197-204,207-209
+$$$$
+FILE     GOD=SAVE/GMD=SAVE/LAMA=APPEND/PHIA=APPEND $
+****CARD   1-  6,  8- 25, 56- 62
+****RFMT 187-195,197-204,207-209
+$$$$
+PARAM    //*MPY*/CARDNO/0/0 $
+****CARD   1-  6,  8- 12, 14, 15, 19- 24, 56- 62
+****FILE 101,112,117,118,121,126
+$$$$
+GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/
+         NOGPDT/MINUS1=-1 $
+****CARD   1
+****FILE  94
+$$$$
+ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $
+****CARD   8
+****FILE 128
+$$$$
+EQUIV    MPTA,MPT/ISOP $
+****CARD   8
+****FILE 128
+$$$$
+PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $
+****CARD   1
+****FILE 127
+$$$$
+GP2      GEOM2,EQEXIN/ECT $
+****CARD   1,  2,  4,  5, 16
+****FILE  95
+$$$$
+PARAML   PCDB//*PRES*////JUMPPLOT $
+****SBST   7
+****CARD  18
+****FILE 122,125
+$$$$
+PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $
+****SBST   7
+****CARD  18
+****FILE 122
+$$$$
+COND     P1,JUMPPLOT $
+****SBST   7
+****CARD   1,  2,  4,  5, 16, 18
+****FILE 122,125
+$$$$
+PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/
+         S,N,JUMPPLOT $
+****SBST   7
+****CARD   1,  2,  4,  5, 16, 18
+****FILE 122
+$$$$
+PRTMSG   PLTSETX// $
+****SBST   7
+****CARD   1,  2,  4,  5, 16, 18
+****FILE 122
+$$$$
+PARAM    //*MPY*/PLTFLG/1/1 $
+****SBST   7
+****CARD   1,  2,  4,  5, 16, 18
+****FILE 125
+$$$$
+PARAM    //*MPY*/PFILE/0/0 $
+****SBST   7
+****CARD   1,  2,  4,  5, 16, 18
+****FILE 125
+$$$$
+COND     P1,JUMPPLOT $
+****SBST   7
+****CARD   1,  2,  4,  5, 16, 18
+****FILE 125
+$$$$
+PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/
+         NSIL/LUSET/JUMPPLOT/PLTFLG/S,N,PFILE $
+****SBST   7
+****CARD   1,  2,  4,  5, 16, 18
+****FILE 125
+$$$$
+PRTMSG   PLOTX1// $
+****SBST   7
+****CARD   1,  2,  4,  5, 16, 18
+****FILE 125
+$$$$
+LABEL    P1 $
+****SBST   7
+****CARD   1,  2,  4,  5, 16, 18
+****FILE 122,125
+$$$$
+GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $
+****CARD   1,  2, 13
+****FILE  96
+$$$$
+TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,
+         PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $
+****CARD   1-  6, 13, 16
+****FILE  97
+$$$$
+EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $
+****CARD   1-  6,  8- 25, 56- 62
+****FILE  97
+$$$$
+COND     ERROR5,NOSIMP $
+****CARD   1,  2,  5,  6,  8, 16
+****FILE  97
+$$$$
+PARAM    //*ADD*/NOKGGX/1/0 $
+****CARD   1-  3,  6,  8, 24
+****FILE 124
+$$$$
+PARAM    //*ADD*/NOMGG/1/0 $
+****CARD   1-  3,  5,  8, 24
+****FILE 124
+****RFMT 187,190-192
+$$$$
+EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/
+         S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/
+         C,Y,CPROD/C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/
+         C,Y,CPTUBE/C,Y,CPQDPLT/C,Y,CPTRPLT/C,Y,CPTRBSC/
+         C,Y,VOLUME/C,Y,SURFACE $
+****CARD   1-  3,  5,  6,  8, 13, 24
+****FILE 124
+****RFMT 187,190-192
+$$$$
+PURGE    KGGX/NOKGGX $
+****CARD   1-  3,  6,  8
+****FILE  98
+$$$$
+COND     JMPKGGX,NOKGGX $
+****CARD   1-  3,  6,  8
+****FILE  98
+$$$$
+EMA      GPECT,KDICT,KELM/KGGX $
+****CARD   1-  3,  6,  8
+****FILE  98
+$$$$
+PURGE    KDICT,KELM/MINUS1 $
+****CARD   1-  3,  6,  8
+****FILE 124
+$$$$
+LABEL    JMPKGGX $
+****CARD   1-  3,  6,  8
+****FILE  98
+$$$$
+COND     ERROR1,NOMGG $
+****CARD   1-  3,  5,  8, 14, 24
+****FILE 124
+****RFMT 187,190-192
+$$$$
+EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $
+****CARD   1-  3,  5,  8, 14, 24
+****FILE  99
+****RFMT 187,190-192
+$$$$
+PURGE    MDICT,MELM/MINUS1 $
+****CARD   1-  3,  5,  8, 14, 24
+****FILE 124
+$$$$
+COND     LGPWG,GRDPNT $
+****SBST   8
+****CARD   1-  3,  5,  8, 14, 15, 24
+****FILE 126
+$$$$
+GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/C,Y,WTMASS $
+****SBST   8
+****CARD   1-  3,  5,  8, 14, 15, 24
+****FILE 126
+$$$$
+OFP      OGPWG,,,,,//S,N,CARDNO $
+****SBST   8
+****CARD   1-  3,  5,  8, 14, 15, 24
+****FILE 126
+$$$$
+LABEL    LGPWG $
+****SBST   8
+****CARD   1-  3,  5,  8, 14, 15, 24
+****FILE 126
+$$$$
+EQUIV    KGGX,KGG/NOGENL $
+****CARD   1-  4,  6,  8
+****FILE 100
+$$$$
+COND     LBL11,NOGENL $
+****CARD   1-  4,  6,  8
+****FILE 100
+$$$$
+SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $
+****CARD   1-  4,  6,  8
+****FILE 100
+$$$$
+LABEL    LBL11 $
+****CARD   1-  4,  6,  8
+****FILE 100
+$$$$
+GPSTGEN  KGG,SIL/GPST
+****CARD   1-  4,  6,  8
+****FILE 102
+$$$$
+PARAM    //*MPY*/NSKIP/0/0 $
+****CARD   1,  9- 12
+****FILE 101
+$$$$
+GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,,USET,
+         ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/
+         S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/
+         C,Y,ASETOUT/C,Y,AUTOSPC $
+****CARD   1-  4,  6,  8- 12, 17, 20
+****FILE 101
+$$$$
+OFP      OGPST,,,,,//S,N,CARDNO $
+****CARD   1-  4,  6,  8- 10, 20
+****FILE 101
+$$$$
+PARAM    //*AND*/NOSR/REACT/SINGLE $
+****CARD   1,  9- 12
+****FILE 101
+$$$$
+PURGE    GM,GMD/MPCF1/GO,GOD/OMIT/KFS/SINGLE/QPC/NOSR/KLR,KRR,MLR,MRR,
+         DM,MR/REACT $
+****CARD   1,  9- 12
+****FILE 103,105-107,109,110,115,120
+$$$$
+EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1 $
+****CARD   1-  6,  8,  9, 14, 24
+****FILE 104
+$$$$
+COND     LBL2,MPCF1 $
+****CARD   1-  6,  8,  9, 14, 24
+****FILE 103,104
+$$$$
+MCE1     USET,RG/GM $
+****CARD   1,  9
+****FILE 103
+$$$$
+MCE2     USET,GM,KGG,MGG,,/KNN,MNN,, $
+****CARD   1-  6,  8,  9, 14, 24
+****FILE 104
+$$$$
+LABEL    LBL2 $
+****CARD   1-  6,  8,  9, 14, 24
+****FILE 103,104
+$$$$
+EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE $
+****CARD   1-  6,  8- 10, 14, 24
+****FILE 105
+$$$$
+COND     LBL3,SINGLE $
+****CARD   1-  6,  8- 10, 14, 24
+****FILE 105
+$$$$
+SCE1     USET,KNN,MNN,,/KFF,KFS,,MFF,, $
+****CARD   1-  6,  8- 10, 14, 24
+****FILE 105
+$$$$
+LABEL    LBL3 $
+****CARD   1-  6,  8- 10, 14, 24
+****FILE 105
+$$$$
+EQUIV    KFF,KAA/OMIT $
+****CARD   1-  4,  6,  8- 11
+****FILE 106
+$$$$
+EQUIV    MFF,MAA/OMIT $
+****CARD   1-  5,  8- 11, 14, 24
+****FILE 123
+$$$$
+COND     LBL5,OMIT $
+****CARD   1-  6,  8- 11, 14, 24
+****FILE 106,123
+$$$$
+SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $
+****CARD   1-  4,  6,  8- 11
+****FILE 106
+$$$$
+SMP2     USET,GO,MFF/MAA $
+****CARD   1-  6,  8- 11, 14, 24
+****FILE 123
+$$$$
+LABEL    LBL5 $
+****CARD   1-  6,  8- 11, 14, 24
+****FILE 106,123
+$$$$
+COND     LBL6,REACT $
+****CARD   1-  6,  8- 12, 14, 24
+****FILE 107-110
+$$$$
+RBMG1    USET,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $
+****CARD   1-  6,  8- 12, 14, 24
+****FILE 107
+$$$$
+RBMG2    KLL/LLL $
+****CARD   1-  4,  6,  8- 12
+****FILE 108
+$$$$
+RBMG3    LLL,KLR,KRR/DM $
+****CARD   1-  4,  6,  8- 12
+****FILE 109
+$$$$
+RBMG4    DM,MLL,MLR,MRR/MR $
+****CARD   1-  6,  8- 12, 14, 24
+****FILE 110
+$$$$
+LABEL    LBL6 $
+****CARD   1-  6,  8- 12, 14, 24
+****FILE 107-110
+$$$$
+DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,TFPOOL,,,,,,EED,EQDYN/
+         LUSET/S,N,LUSETD/NOTFL/NODLT/NOPSDL/
+         NOFRL/NONLFT/NOTRL/S,N,NOEED//S,N,NOUE $
+****CARD   1,  9- 12, 56, 58, 60
+****FILE 111
+$$$$
+COND     ERROR2,NOEED $
+****CARD   1,  9- 12, 56, 58, 60
+****FILE 111
+****RFMT 187-195,197-204,207-209
+$$$$
+EQUIV    GO,GOD/NOUE/GM,GMD/NOUE  $
+****CARD   1-  6,  8- 12, 14, 22- 24, 56- 59
+****FILE 115
+$$$$
+PARAM    //*MPY*/NEIGV/1/-1 $
+****CARD   1-  6,  8- 12, 14, 24
+****FILE 112
+$$$$
+READ     KAA,MAA,MR,DM,EED,USET,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/S,N,
+         NEIGV $
+****CARD   1-  6,  8- 12, 14, 24, 58, 59
+****FILE 112
+$$$$
+OFP      OEIGS,,,,,//S,N,CARDNO $
+****CARD   1-  6,  8- 12, 14, 24, 58, 59
+****FILE 112
+$$$$
+COND     ERROR4,NEIGV $
+****CARD   1-  6,  8- 12, 14, 24, 58, 59
+****FILE 112
+****RFMT 187-195,197-204,207-209
+$$$$
+OFP      LAMA,,,,,//S,N,CARDNO $
+****CARD   1-  6,  8- 12, 14, 24, 58, 59
+****FILE 112
+$$$$
+PARAM    //*ADD*/NEVER/1/0 $
+****CARD  22, 23
+****FILE 117-121
+$$$$
+PARAM    //*MPY*/REPEATE/1/-1 $
+****CARD   1-  6,  8- 14, 16, 22, 23, 56- 62
+****FILE 113
+****RFMT 187-195,197-204,207-209
+$$$$
+LABEL    LBL13 $
+****SBST   1,  3
+****CARD   1-  6,  8- 16, 18, 19, 21- 23, 56- 62
+****FILE 113
+****RFMT 187-195,197-204,207-209
+$$$$
+PURGE    PHIH,CLAMA,OPHIH,CPHID,CPHIP,QPC,OQPC1,OCPHIP,OESC1,OEFC1,
+         K2PP,M2PP,B2PP,K2DD,M2DD,B2DD/NEVER $
+****CARD  22, 23
+****FILE 117-121
+$$$$
+CASE     CASECC,/CASEXX/*CEIGN*/S,N,REPEATE/S,N,NOLOOP $
+****CARD   1-  6,  8- 14, 16, 19, 21- 23, 25, 56- 62
+****FILE 113
+****RFMT 187-195,197-204,207-209
+$$$$
+MTRXIN   CASEXX,MATPOOL,EQDYN,,TFPOOL/K2PP,M2PP,B2PP/LUSETD/S,N,
+         NOK2PP/S,N,NOM2PP/S,N,NOB2PP $
+****CARD   1, 22, 23, 56, 57
+****FILE 114
+$$$$
+PURGE    K2DD/NOK2PP/M2DD/NOM2PP/B2DD/NOB2PP $
+****CARD   1-  6,  8- 11, 22, 23, 56, 57
+****FILE 114
+$$$$
+EQUIV    M2PP,M2DD/NOSET/B2PP,B2DD/NOSET/K2PP,K2DD/NOSET $
+****CARD   1-  6,  8- 11, 22, 23, 56, 57
+****FILE 114
+$$$$
+GKAD     USETD,GM,GO,,,,,K2PP,M2PP,B2PP/,,,GMD,GOD,K2DD,
+         M2DD,B2DD/*CMPLEV*/*DISP*/*MODAL*/0.0/
+         0.0/0.0/NOK2PP/NOM2PP/NOB2PP/
+         MPCF1/SINGLE/OMIT/NOUE/-1/-1/
+         -1/-1 $
+****CARD   1-  6,  8- 11, 14, 22- 24, 56, 57
+****FILE 115
+$$$$
+GKAM     USETD,PHIA,MI,LAMA,DIT,M2DD,B2DD,K2DD,CASEXX/MHH,BHH,KHH,PHIDH/
+         NOUE/C,Y,LMODES=0/C,Y,LFREQ=0.0/C,Y,HFREQ=-1.0/
+         NOM2PP/NOB2PP/NOK2PP/S,N,NONCUP/S,N,FMODE $
+****CARD   1-  6,  8- 12, 14, 22- 24, 56- 59, 62
+****FILE 116
+$$$$
+CEAD     KHH,BHH,MHH,EED,CASEXX/PHIH,CLAMA,OCEIGS,/S,N,EIGVS $
+****CARD   1-  6,  8- 12, 14, 22- 24, 56- 62
+****FILE 117
+$$$$
+OFP      OCEIGS,,,,,//S,N,CARDNO $
+****CARD  56- 62
+****FILE 117
+$$$$
+COND     LBL17,EIGVS $
+****CARD   1-  6,  8- 12, 14, 19, 21- 24, 56- 62
+****FILE 117,118
+$$$$
+OFP      CLAMA,,,,,//S,N,CARDNO $
+****CARD   1-  6,  8- 12, 14, 22- 24
+****FILE 117
+$$$$
+VDR      CASEXX,EQDYN,USETD,PHIH,CLAMA,,/OPHIH,/*CEIGEN*/*MODAL*/
+         NOSORT2/S,N,NOH/S,N,NOP/FMODE $
+****CARD  19, 21
+****FILE 118
+$$$$
+COND     LBL16,NOH $
+****CARD  21
+****FILE 118
+$$$$
+OFP      OPHIH,,,,,//S,N,CARDNO $
+****CARD  21
+****FILE 118
+$$$$
+LABEL    LBL16 $
+****CARD  21
+****FILE 117,118
+$$$$
+COND     LBL17,NOP $
+****CARD   1-  6,  8- 12, 14, 22- 24, 56- 62
+****FILE 119
+$$$$
+DDR1     PHIH,PHIDH/CPHID $
+****CARD   1-  6,  8- 12, 14, 22- 24, 56- 62
+****FILE 119
+$$$$
+EQUIV    CPHID,CPHIP/NOA $
+****CARD   1-  6,  8- 12, 14, 22- 24, 56- 62
+****FILE 120
+****RFMT 187-195,197-204,207-209
+$$$$
+COND     LBLNOA,NOA $
+****CARD   1-  6,  8- 12, 14, 22- 24, 56- 62
+****FILE 120
+****RFMT 187-195,197-204,207-209
+$$$$
+SDR1     USETD,,CPHID,,,GOD,GMD,,KFS,,/CPHIP,,QPC/1/*DYNAMICS* $
+****CARD   1-  6,  8- 12, 14, 22- 24, 56- 62
+****FILE 120
+****RFMT 187-195,197-204,207-209
+$$$$
+LABEL    LBLNOA $
+****CARD   1-  6,  8- 12, 14, 22- 24, 56- 62
+****FILE 120
+****RFMT 187-195,197-204,207-209
+$$$$
+SDR2     CASEXX,CSTM,MPT,DIT,EQDYN,SILD,,,,CLAMA,QPC,CPHIP,EST,,,/
+         ,OQPC1,OCPHIP,OESC1,OEFC1,,,/*CEIGEN* $
+****CARD  19
+****FILE 121
+$$$$
+OFP      OCPHIP,OQPC1,OEFC1,OESC1,,//S,N,CARDNO $
+****CARD  19
+****FILE 121
+$$$$
+LABEL    LBL17 $
+****CARD   1-  6,  8- 12, 14, 19, 21- 24, 56- 62
+$$$$
+COND     FINIS,REPEATE $
+****SBST   1,  3
+****CARD  22, 23
+****RFMT 187-195,197-204,207-209
+$$$$
+REPT     LBL13,100 $
+****SBST   1,  3
+****CARD  22, 23
+****RFMT 187-195,197-204,207-209
+$$$$
+PRTPARM  //-3/*MDLCEAD* $
+****SBST   1,  3
+****CARD  22, 23
+****RFMT 187-195,197-204,207-209
+$$$$
+JUMP     FINIS $
+****CARD   1-  6,  8- 25, 56- 62
+****RFMT 187-195,197-204,207-209
+$$$$
+LABEL    ERROR2 $
+****CARD   1,  9- 12, 56, 58, 60
+****FILE 101
+****RFMT 187-195,197-204,207-209
+$$$$
+PRTPARM  //-2/*MDLCEAD* $
+****CARD   1,  9- 12, 56, 58, 60
+****FILE 101
+****RFMT 187-195,197-204,207-209
+$$$$
+LABEL    ERROR1 $
+****CARD   1-  3,  5,  8, 14, 24
+****FILE 124
+****RFMT 187-195,197-204,207-209
+$$$$
+PRTPARM  //-1/*MDLCEAD* $
+****CARD   1-  3,  5,  8, 14, 24
+****FILE 124
+****RFMT 187-195,197-204,207-209
+$$$$
+LABEL    ERROR4 $
+****CARD   1-  6,  8- 12, 14, 24, 58, 59
+****FILE 112
+****RFMT 187-195,197-204,207-209
+$$$$
+PRTPARM  //-4/*MDLCEAD* $
+****CARD   1-  6,  8- 12, 14, 24, 58, 59
+****FILE 112
+****RFMT 187-195,197-204,207-209
+$$$$
+LABEL    ERROR5 $
+****CARD   1,  2,  5,  6,  8, 16
+****FILE  97
+****RFMT 187-195,197-204,207-209
+$$$$
+PRTPARM  //-5/*MDLCEAD* $
+****CARD   1,  2,  5,  6,  8, 16
+****FILE  97
+****RFMT 187-195,197-204,207-209
+$$$$
+LABEL    FINIS $
+****CARD   1-  6,  8- 25, 56- 62
+****RFMT 187-195,197-204,207-209
+$$$$
+PURGE    DUMMY/MINUS1 $
+****CARD   1-  6,  8- 25, 56- 62
+****RFMT 187-195,197-204,207-209
+$$$$
+END      $
+****CARD   1-  6,  8- 25, 56- 62
+****RFMT 187-195,197-204,207-209
+$$$$
+$*CARD BITS
+  1    AXIC     AXIF     CELAS1   CELAS2   CELAS3   CELAS4   CMASS1
+  1    CMASS2
+  1    CMASS3   CMASS4   CORD1C   CORD1R   CORD1S   CORD2C   CORD2R
+  1    CORD2S
+  1    GRDSET   GRID     GRIDB    POINTAX  RINGAX   RINGFL   SECTAX
+  1    SEQGP    SPOINT
+  2    ADUM1    ADUM2    ADUM3    ADUM4    ADUM5    ADUM6    ADUM7
+  2    ADUM8
+  2    ADUM9    BAROR    CBAR     CCONEAX  CDUM1    CDUM2    CDUM3
+  2    CDUM4
+  2    CDUM5    CDUM6    CDUM7    CDUM8    CDUM9    CELBOW   CHEXA1
+  2    CHEXA2
+  2    CIHEX1   CIHEX2   CIHEX3   CIS2D8   CONROD   CQDMEM   CQDMEM1
+  2    CQDMEM2  CQDPLT   CQUAD1   CQUAD2   CROD     CSHEAR   CTETRA
+  2    CTORDRG  CQUAD4   CTRIA3
+  2    CTRAPAX  CTRAPRG  CTRBSC   CTRIA1   CTRIA2   CTRIAAX  CTRIARG
+  2    CTRIM6
+  2    CTRMEM   CTRPLT   CTRPLT1  CTRSHL   CTUBE    CTWIST   CWEDGE
+  3    PBAR     PCONEAX  PDUM1    PDUM2    PDUM3    PDUM4    PDUM5
+  3    PDUM6
+  3    PDUM7    PDUM8    PDUM9    PELBOW   PIHEX    PIS2D8   PQDMEM
+  3    PQDMEM1  PQDMEM2  PQDPLT   PQUAD1   PQUAD2   PROD     PSHEAR
+  3    PTORDRG  PSHELL   PCOMP    PCOMP1   PCOMP2
+  3    PTRAPAX  PTRBSC   PTRIA1   PTRIA2   PTRIAAX  PTRIM6   PTRMEM
+  3    PTRPLT   PTRPLT1  PTRSHL   PTUBE    PTWIST
+  4    GENEL
+  5    CONM1    CONM2    PMASS
+  6    PELAS
+  8    MAT1     MAT2     MAT3     MATT1    MATT2    MATT3    MAT8
+  8    MAT6     TABLEM1  TABLEM2  TABLEM3  TABLEM4  TEMPMT$  TEMPMX$
+  9    AXISYM$  CRIGD1   CRIGD2   CRIGD3   CRIGDR   CRROD    CRBAR
+  9    CRTRPLT  CRBE1    CRBE2    CRBE3    CRSPLINE MPC      MPCADD
+  9    MPCAX    MPC$
+ 10    SPC      SPC1     SPCADD   SPCAX    SPC$
+ 11    ASET     ASET1    OMIT     OMIT1    OMITAX   SUPAX    SUPORT
+ 13    TEMP     TEMPAX   TEMPD    TEMPP1   TEMPP2   TEMPP3   TEMPRB
+ 14    WTMASS
+ 15    GRDPNT
+ 16    PLOTEL
+ 17    ASETOUT
+ 18    PLOT$
+ 19    POUT$
+ 20    AUTOSPC
+ 21    AOUT$
+ 22    LOOP$
+ 23    LOOP1$
+ 24    COUPMASS CPBAR    CPDPLT   CPQUAD1  CPQUAD2  CPROD    CPTRBSC
+ 24    CPTRIA1  CPTRIA2  CPTRPLT  CPTUBE
+ 25    NOLOOP$
+ 56    EPOINT   SEQEP    TF
+ 57    DMIG     DMIAX    B2PP$    K2PP$    M2PP$    TF$
+ 58    EIGR
+ 59    METHOD$
+ 60    EIGC     EIGP
+ 61    CMETHOD$
+ 62    LFREQ    LMODES   HFREQ    SDAMP$   TABDMP1
+$$$$
+$*FILE BITS
+ 94    BGPDT    CSTM     EQEXIN   GPDT     GPL      SIL
+ 95    ECT
+ 96    GPTT
+ 97    EST      GEI      GPECT    MPTX     PCOMPS   EPTX
+ 98    KGGX
+ 99    MGG
+100    KGG
+101    ASET     RG       USET     OGPST
+102    GPST
+103    GM
+104    KNN      MNN
+105    KFF      KFS      MFF
+106    GO       KOO      LOO      KAA
+107    KLL      KLR      KRR      MLL      MLR      MRR
+108    LLL
+109    DM
+110    MR
+111    EED      EQDYN    GPLD     SILD     TFPOOL   USETD
+112    LAMA     MI       PHIA     OEIGS
+113    CASEXX
+114    B2PP     K2PP     M2PP
+115    GMD      GOD      B2DD     K2DD     M2DD
+116    BHH      KHH      MHH      PHIDH
+117    CLAMA    OCEIGS   PHIH
+118    OPHIH
+119    CPHID
+120    CPHIP    QPC
+121    OCPHIP   OEFC1    OESC1    OQPC1
+122    ELSETS   GPSETS   PLTPAR   PLTSETX
+123    MAA
+124    KDICT    KELM     MDICT    MELM
+125    PLOTX1
+126    OGPWG
+127    BGPDP    SIP
+128    MPT
+$*

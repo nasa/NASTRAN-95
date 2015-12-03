@@ -1,0 +1,81 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$           Long, Narrow, 5 x 100 Orthotropic Plate (INPUT, 1-4-1)
+$ 
+$ A. Description
+$ 
+$ A long, narrow, orthotropic plate is modeled and analyzed to illustrate
+$ NASTRAN operations with spill logic for problems too large for available core.
+$ Other features of this problem include grid point resequencing, use of
+$ orthotropic materials, application of quarter symmetry, and use of the INPUT
+$ module.
+$ 
+$ This model could be run if desired with an optimal bandwidth by simply
+$ deleting the SEQGP cards from the bulk data.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters
+$ 
+$    Material Elastic Properties
+$ 
+$    |             |     |                     |                |
+$    | sigma sub 1 |     | 4.0+6  2.0+6   0.   |  epsilon sub 1 |
+$    | sigma sub 2 |  =  | 2.0+6  6.0+6   0.   |  epsilon sub 2 |
+$    | tau sub 12  |     |   0.     0.   3.0+6 |  gamma sub 12  |
+$    |             |     |                     |                |
+$ 
+$ 
+$    I = .0833333 (area moment of inertia per unit width)
+$ 
+$ C. Results
+$ 
+$ The displacement and stress results from NASTRAN are presented along with
+$ theoretical results in Tables 1 and 2. The theoretical results are from an
+$ infinitely long continuous plate analyzed in Section 37 of Reference 4.
+$ 
+$ Table 1. NASTRAN and Theoretical Displacements for Long, Narrow, Orthotropic
+$ Plate
+$                            ---------------------------
+$                                                      4
+$                                   Z DISPLACEMENT X 10
+$                                   --------------------
+$                            GRID   THEORY      NASTRAN
+$                            ---------------------------
+$                              1     3.048       3.037
+$                              2     2.899       2.889
+$                              3     2.466       2.457
+$                              4     1.792       1.785
+$                              5     0.942       0.939
+$                              7     2.949       2.940
+$                             13     2.723       2.714
+$                             19     2.446       2.435
+$                             25     2.157       2.145
+$                             31     1.880       1.866
+$                             37     1.625       1.611
+$                             43     1.397       1.383
+$                            ---------------------------
+$ 
+$ Table 2. NASTRAN and Theoretical Stresses for Long, Narrow, Orthotropic Plate
+$           ------------------------------------------------------------
+$                    STRESS X           STRESS Y          SHEAR STRESS
+$           EL.   ----------------   ----------------   ----------------
+$           ID.   THEORY   NASTRAN   THEORY   NASTRAN   THEORY   NASTRAN
+$           ------------------------------------------------------------
+$            1    19.05    18.90     20.35    20.40     -0.39    -0.39
+$            2    17.19    17.05     18.36    18.40     -1.12    -1.13
+$            3    13.64    13.53     14.57    14.60     -1.74    -1.76
+$            4     8.76     8.69      9.35     9.38     -2.19    -2.22
+$            5     3.02     2.99      3.22     3.23     -2.43    -2.46
+$            7    15.86    15.76     12.91    12.90     -0.84    -0.88
+$           13    13.27    13.20      8.28     8.23     -1.03    -1.06
+$           19    11.14    11.08      5.38     5.33     -1.07    -1.09
+$           25     9.37     9.33      3.55     3.51     -1.02    -1.04
+$           31     7.90     7.86      2.38     2.36     -0.94    -0.95
+$           37     6.67     6.63      1.64     1.63     -0.84    -0.85
+$           ------------------------------------------------------------
+$     
+$ APPLICABLE REFERENCES
+$ 
+$ 4. S. Timoshemko, THEORY OF PLATES AND SHELLS. McGraw Hill, 1940. 
+$-------------------------------------------------------------------------------

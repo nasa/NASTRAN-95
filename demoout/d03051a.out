@@ -1,0 +1,306 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D03051A,NASTRAN                                                           
+     APP   HEAT                                                                      
+     DIAG  18                                                                        
+     SOL   3,1                                                                       
+     TIME  10                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                          
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                          
+                  3      OLOAD    = ALL                                                                  
+                  4      SPCFORCE = ALL                                                                  
+                  5      THERMAL(PRINT,PUNCH) = ALL                                                      
+                  6      ELFORCE  = ALL                                                                  
+                  7      TEMPERATURE(MATERIAL) = 201                                                     
+                  8      SPC  = 350                                                                      
+                  9      LOAD = 252                                                                      
+                 10      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    25, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CBAR    1       101     1       2       .0      1.0     .0      1               
+                    2-        CHBDY   5       105     POINT   1                                       +HBDY5  
+                    3-        +HBDY5                                  -1.0    .0      .0                      
+                    4-        CONROD  3       2       3       200     3.14159                                 
+                    5-        CROD    2       102     3       4                                               
+                    6-        CTUBE   4       103     4       5                                               
+                    7-        GRID    1               .0      .0      .0                                      
+                    8-        GRID    2               1.0     .0      .0                                      
+                    9-        GRID    3               2.0     .0      .0                                      
+                   10-        GRID    4               3.0     .0      .0                                      
+                   11-        GRID    5               4.0     .0      .0                                      
+                   12-        MAT4    200     1.0                                                             
+                   13-        MATT4   200     200                                                             
+                   14-        PARAM   EPSHT   .001                                                    HEAT    
+                   15-        PARAM   IRES    1                                                               
+                   16-        PARAM   MAXIT   30                                                      HEAT    
+                   17-        PBAR    101     200     3.14159                                                 
+                   18-        PHBDY   105             3.14159                                                 
+                   19-        PROD    102     200     3.14159                                                 
+                   20-        PTUBE   103     200     2.0     .0                                              
+                   21-        QVOL    252     12.5    1       THRU    4                                       
+                   22-        SPC     350     5               .0                                              
+                   23-        TABLEM3 200     .0      1.0                                             +T200   
+                   24-        +T200   .0      1.0     100.0   2.0     ENDT                                    
+                   25-        TEMPD   201     .0                                                              
+                              ENDDATA
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+ *** USER POTENTIALLY FATAL MESSAGE  10,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION PLTSET     INSTRUCTION NO.  73
+     DEFAULT OPTION FOR INPUT DATA BLOCKS - MAKE SURE MISSING BLOCKS ARE NOT REQUIRED.
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     SMALL PROBLEM SIZE
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION HBDY     ELEMENTS (ELEMENT TYPE  52) STARTING WITH ID        5
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION CONROD   ELEMENTS (ELEMENT TYPE  10) STARTING WITH ID        3
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ROD      ELEMENTS (ELEMENT TYPE   1) STARTING WITH ID        2
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TUBE     ELEMENTS (ELEMENT TYPE   3) STARTING WITH ID        4
+1D I A G   1 8   O U T P U T   F R O M   S S G H T
+
+ ITERATION    EPSILON-P         LAMBDA-1          EPSILON-T
+ ============================================================
+     1       1.000000E+00
+     2       6.585351E-01      3.192800E+00      2.079706E-01
+     3       6.299834E-01      1.489739E+00      6.463923E-01
+     4       4.832392E-01      1.749551E+00      2.119281E-01
+     5       3.915366E-01      1.454908E+00      3.041978E-01
+     6       2.979599E-01      1.564117E+00      1.272904E-01
+     7       2.344898E-01      1.438207E+00      1.421456E-01
+     8       1.780509E-01      1.490380E+00      7.118138E-02
+     9       1.370210E-01      1.429408E+00      6.702822E-02
+    10       1.032997E-01      1.454308E+00      3.822901E-02
+    11       7.840265E-02      1.422585E+00      3.227841E-02
+    12       5.889187E-02      1.433990E+00      2.008985E-02
+    13       4.444201E-02      1.416476E+00      1.586762E-02
+    14       3.337733E-02      1.421287E+00      1.044161E-02
+    15       2.515225E-02      1.411121E+00      7.925143E-03
+    16       1.891298E-02      1.412784E+00      5.398339E-03
+    17       1.425180E-02      1.406512E+00      4.004070E-03
+    18       1.072626E-02      1.406675E+00      2.786384E-03
+    19       8.080334E-03      1.402646E+00      2.039429E-03
+    20       6.081851E-03      1.402095E+00      1.438285E-03
+    21       4.578402E-03      1.399533E+00      1.044450E-03
+    22       3.442797E-03      1.398797E+00      7.424342E-04
+0*** USER INFORMATION MESSAGE 3086, ENTERING SSGHT EXIT MODE BY REASON NUMBER  1 ( NORMAL CONVERGENCE )
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+0                HRULV                                                                                                              
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       1- S).
+             1  S  1.96349E+01        2  S  3.92699E+01        3  S  3.92699E+01        4  S  3.92699E+01
+0COLUMN       2 (       2- S).
+             1  S -1.90214E+01        2  S -3.06796E+01        3  S -8.59027E+00        4  S  2.82252E+01
+0COLUMN       3 (       3- S).
+             1  S  1.87151E+01        2  S  2.65366E+01        3  S -3.12429E+00        4  S -3.04123E+01
+0COLUMN       4 (       4- S).
+             1  S -1.60118E+01        2  S -1.91177E+01        3  S  9.49944E+00        4  S  2.14074E+01
+0COLUMN       5 (       5- H).
+             1  S  1.42884E+01        2  S  1.41609E+01        3  S -1.23302E+01        4  S -1.45467E+01
+0COLUMN       6 (       6- H).
+             1  S -1.17292E+01        2  S -9.50749E+00        3  S  1.16736E+01        4  S  8.98419E+00
+0COLUMN       7 (       7- H).
+             1  S  9.86324E+00        2  S  6.27757E+00        3  S -1.04189E+01        4  S -5.50787E+00
+0COLUMN       8 (       8- H).
+             1  S -7.89212E+00        2  S -3.87889E+00        3  S  8.41557E+00        4  S  3.27641E+00
+0COLUMN       9 (       9- H).
+             1  S  6.38913E+00        2  S  2.24918E+00        3  S -6.66665E+00        4  S -1.94247E+00
+0COLUMN      10 (      10- H).
+             1  S -5.02248E+00        2  S -1.18323E+00        3  S  5.05543E+00        4  S  1.13950E+00
+0COLUMN      11 (      11- H).
+             1  S  3.96622E+00        2  S  4.97742E-01        3  S -3.79263E+00        4  S -6.67389E-01
+0COLUMN      12 (      12- H).
+             1  S -3.07744E+00        2  S -9.73969E-02        3  S  2.78403E+00        4  S  3.89328E-01
+0COLUMN      13 (      13- H).
+             1  S  2.38991E+00        2  S -1.33118E-01        3  S -2.02930E+00        4  S -2.26959E-01
+0COLUMN      14 (      14- H).
+             1  S -1.83594E+00        2  S  2.41852E-01        3  S  1.46181E+00        4  S  1.32095E-01
+0COLUMN      15 (      15- H).
+             1  S  1.40919E+00        2  S -2.84363E-01        3  S -1.04790E+00        4  S -7.68738E-02
+0COLUMN      16 (      16- H).
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+0                HRULV                                                                                                              
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+             1  S -1.07416E+00        2  S  2.83340E-01        3  S  7.46101E-01        4  S  4.46930E-02
+0COLUMN      17 (      17- H).
+             1  S  8.17505E-01        2  S -2.62115E-01        3  S -5.29427E-01        4  S -2.59705E-02
+0COLUMN      18 (      18- H).
+             1  S -6.19293E-01        2  S  2.30103E-01        3  S  3.74077E-01        4  S  1.51062E-02
+0COLUMN      19 (      19- H).
+             1  S  4.68277E-01        2  S -1.95786E-01        3  S -2.63710E-01        4  S -8.81958E-03
+0COLUMN      20 (      20- H).
+             1  S -3.52966E-01        2  S  1.62445E-01        3  S  1.85432E-01        4  S  5.09644E-03
+0COLUMN      21 (      21- H).
+             1  S  2.65610E-01        2  S -1.32492E-01        3  S -1.30180E-01        4  S -2.94495E-03
+0COLUMN      22 (      22- H).
+             1  S -1.99371E-01        2  S  1.06476E-01        3  S  9.11942E-02        4  S  1.70898E-03
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      7.316550E+01   6.954588E+01   5.811366E+01   3.693061E+01   0.0                                          
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      1.963494E+01   3.926987E+01   3.926987E+01   3.926989E+01   1.963495E+01                                 
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             5      S     -1.570795E+02                                                                                             
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+             1    BAR         -3.619629E+00                                       3.619629E+00
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                                 H E A T   F L O W   I N T O   H B D Y   E L E M E N T S   (CHBDY)
+ 
+ 
+                          ELEMENT-ID      APPLIED-LOAD       CONVECTION       RADIATION           TOTAL
+                                   5      0.000000E+00      0.000000E+00      0.000000E+00      0.000000E+00
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+             3    CONROD      -1.143221E+01                                       1.143221E+01
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+             2    ROD         -2.118305E+01                                       2.118305E+01
+1     NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+             4    TUBE        -3.693061E+01                                       3.693061E+01
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  NONLINEAR HEAT TRANSFER IN AN INFINITE SLAB                        
+ DATE:  5/17/95
+ END TIME: 15:42:39
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

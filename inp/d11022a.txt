@@ -1,0 +1,114 @@
+$-------------------------------------------------------------------------------
+$      RIGID FORMAT No. 11, Frequency Response Analysis - Modal Formulation
+$                Frequency Response of a 500-Cell String (11-2-1)
+$             Frequency Response of a 500-Cell String (INPUT, 11-2-2)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the solution of a large frequency response problem
+$ using modal coordinates. When large numbers of frequency steps are used, or
+$ the problem is very large, the relative efficiency of the modal formulation is
+$ more attractive than the direct formulation. The structural model consists of
+$ scalar points, springs, and masses which simulate the transverse motions of a
+$ string under tension, T, with a mass per length of mu. A duplicate model is
+$ obtained via the INPUT module to generate the scalar springs and masses.
+$ 
+$ Selected scalar point displacements and scalar element forces are plotted
+$ versus frequency. The magnitude and phase of the displacements are plotted
+$ separately, each on one-half of the plotter frame. The magnitude plots for the
+$ selected points are all drawn on a whole plotter frame for comparisons. The
+$ center spring element has the magnitude of its internal force plotted versus
+$ frequency.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    m   =  10  - mass
+$     i
+$             7
+$    K   =  10  - spring rate
+$     i
+$ 
+$    N   =  500 - number of cells
+$ 
+$    where
+$               T
+$      K   =  -------  ,  m   =  mu delta x
+$       i     delta x      i
+$ 
+$ 2. Loads
+$ 
+$    The load on each point is:
+$ 
+$                                   3
+$      P (w)  =  delta xp   =  10 pi
+$       i                x
+$ 
+$    where p  is the load per length of string.
+$           x
+$ 
+$    The steady state frequency response is desired from .1 to 10 cycles per
+$    second in 15 logarithmic increments.
+$ 
+$ 3. Real Eigenvalue Data
+$ 
+$    Method: FEER
+$ 
+$    Center of neighborhood: 10.5
+$ 
+$    Normalization: maximum deflection
+$ 
+$    Number of modes used in formulation: 20
+$ 
+$ C. Theory
+$ 
+$ The analysis of the string is given in Reference 11, Chapter 6. The response,
+$ xi , of mode number n is given by the equation:
+$   n
+$ 
+$                                     n pi x
+$            integral o to l P(x) sin(------) dx
+$                                        l
+$    xi   =  -----------------------------------                             (1)
+$      n                            2 n pi x   2    2
+$            [integral o to l mu sin (------)[w  - w ]
+$                                       l      n
+$ 
+$ where w , the natural frequencies, are (n pi/N)sqrt(K /m ) for the theoretical
+$        n                                             i  i
+$ continuous string.
+$ 
+$ For a uniform load:
+$                                          2p l    2P N      4  2
+$                             n pi x         x       i     10 pi
+$    integral o to l P(x) sin(------) dx = ----  = ----  = ------            (2)
+$                               l          n pi    n pi      n
+$ 
+$                                                Nm
+$                          2 n pi x       ul       i           3
+$    integral o to l mu sin (------) dx = --  =  --- = 2.5 x 10              (3)
+$                              l          2       2
+$ 
+$ The displacement of the center point is:
+$ 
+$      l                  n pi
+$    u(-)  =  sum xi  sin ----  = xi  - xi  + xi  -xi  + ...                 (4)
+$      2            n      2        1     3     5    7
+$ 
+$ D. Results
+$ 
+$      At f = 0.1, the response due to 20 modes is:
+$ 
+$        l
+$      u(-)  =  .97895 (Theory)
+$        2
+$ 
+$      u     =  .97888 (NASTRAN)
+$       251
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 11. I. S. Sokolnikoff and R. M. Redheffer, MATHEMATICS OF PHYSICS AND MODERN
+$     ENGINEERING. McGraw-Hill, 1958.
+$-------------------------------------------------------------------------------

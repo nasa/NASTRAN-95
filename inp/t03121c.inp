@@ -1,0 +1,44 @@
+NASTRAN FILES = OPTP                                                            
+ID    T03121C,NASTRAN                                                           
+$                                                                               
+$     INSERT T03121A (NOT T03121B) CHECKPOINT DICTIONARY                        
+$                                                                               
+READFILE RSCARDS                                                                
+TIME  10                                                                        
+SOL   3,0                                                                       
+APP   DISP                                                                      
+$ INSERT HYDRO MODAL DMAP ALTERS (COSHYD2) AFTER THIS CARD                      
+READFILE COSHYD2                                                                
+$ INSERT HYDRO MODAL DMAP ALTERS (COSHYD2) BEFORE THIS CARD                     
+CEND                                                                            
+TITLE    = HYDROELASTIC MODAL FORMULATION RESTART WITH NEW FLUID MODEL          
+SUBTITLE = NASTRAN TEST PROBLEM NO. T03-12-1C                                   
+$ REFERENCE PROBLEM IV.3                                                        
+SPC  = 10                                                                       
+DISP = ALL                                                                      
+SUBCASE 2                                                                       
+    LABEL  = MODES WITH FLUID INCLUDED                                          
+    METHOD = 60                                                                 
+    SPCF   = ALL                                                                
+BEGIN BULK                                                                      
+$                                                                               
+$ NEW FLUID MODEL                                                               
+$                                                                               
+/       1       4                                                               
+CFWEDGE 1       200     1       2       3       5       6       7               
+CFWEDGE 2       200     2       4       3       6       8       7               
+CFFREE  1       100     5               2       100     5                       
+CFLSTR  1       100     101     104                                             
+CFLSTR  2       100     102     103     104                                     
+$                                                                               
+$ *** NOTE *** AT LEAST ONE GRID MUST BE ALTERED IN TO FORCE                    
+$              REEXECUTION OF PROPER MODULES                                    
+$                                                                               
+/       14                                                                      
+GRID    1               .0      .0      .0                                      
+$                                                                               
+$ PARAMETER TO SKIP RECOMPUTATION OF UNCHANGED STRUCTURE                        
+$                                                                               
+PARAM   OLDSTR  -1                                                              
+ENDDATA                                                                         
+                                                                                

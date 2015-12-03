@@ -1,0 +1,158 @@
+ID    T08022A,NASTRAN                                                           
+APP   DISP                                                                      
+SOL   8                                                                         
+DIAG  14                                                                        
+TIME  20                                                                        
+$                                                                               
+READFILE COSDFVA                                                                
+$                                                                               
+CEND                                                                            
+TITLE    = ROTATING CYCLIC STRUCTURE (TIME DEP. LOADS, PHYSICAL I/O)            
+SUBTITLE = NASTRAN TEST PROBLEM NO. T08-02-2A                                   
+$                                                                               
+   SPC   = 30                                                                   
+   TSTEP = 1                                                                    
+OUTPUT                                                                          
+   SET 1 = 8,16,18                                                              
+   SET 2 = 11                                                                   
+   OLOAD = 1                                                                    
+   DISP(SORT2,PHASE)   = 1                                                      
+   STRESS(SORT2,PHASE) = 2                                                      
+      SUBCASE 1                                                                 
+         LABEL = SEGMENT 1                                                      
+         DLOAD = 1   $ TIME DEPENDENT LOADS                                     
+      SUBCASE 2                                                                 
+         LABEL = SEGMENT 2                                                      
+         DLOAD = 2   $ TIME DEPENDENT LOADS                                     
+      SUBCASE 3                                                                 
+         LABEL = SEGMENT 3                                                      
+         DLOAD = 3   $ TIME DEPENDENT LOADS                                     
+      SUBCASE 4                                                                 
+         LABEL = SEGMENT 4                                                      
+         DLOAD = 4   $ TIME DEPENDENT LOADS                                     
+      SUBCASE 5                                                                 
+         LABEL = SEGMENT 5                                                      
+         DLOAD = 5   $ TIME DEPENDENT LOADS                                     
+      SUBCASE 6                                                                 
+         LABEL = SEGMENT 6                                                      
+         DLOAD = 6   $ TIME DEPENDENT LOADS                                     
+      SUBCASE 7                                                                 
+         LABEL = SEGMENT 7                                                      
+         DLOAD = 7   $ TIME DEPENDENT LOADS                                     
+      SUBCASE 8                                                                 
+         LABEL = SEGMENT 8                                                      
+         DLOAD = 8   $ TIME DEPENDENT LOADS                                     
+      SUBCASE 9                                                                 
+         LABEL = SEGMENT 9                                                      
+         DLOAD = 9   $ TIME DEPENDENT LOADS                                     
+      SUBCASE 10                                                                
+         LABEL = SEGMENT 10                                                     
+         DLOAD = 10  $ TIME DEPENDENT LOADS                                     
+      SUBCASE 11                                                                
+         LABEL = SEGMENT 11                                                     
+         DLOAD = 11  $ TIME DEPENDENT LOADS                                     
+      SUBCASE 12                                                                
+         LABEL = SEGMENT 12                                                     
+         DLOAD = 12  $ TIME DEPENDENT LOADS                                     
+BEGIN BULK                                                                      
+CORD2C  1               0.0     0.0     0.0     1.0     0.0     0.0     +COR12  
++COR12  0.0     1.0     0.0                                                     
+CQUAD2  4       2       2       3       7       6                               
+CQUAD2  5       2       6       7       12      11                              
+CQUAD2  6       2       3       4       8       7                               
+CQUAD2  7       2       7       8       13      12                              
+CQUAD2  8       2       4       5       9       8                               
+CQUAD2  10      2       8       15      14      13                              
+CQUAD2  11      3       9       16      18      15                              
+CQUAD2  12      3       16      17      19      18                              
+CTRIA2  1       1       1       6       10                                      
+CTRIA2  2       1       1       2       6                                       
+CTRIA2  3       1       10      6       11                                      
+CTRIA2  9       1       8       9       15                                      
+CYJOIN  1               1       2       3       4       5                       
+CYJOIN  2               10      11      12      13      14                      
+DAREA   1       8       3       -1.0                                            
+DAREA   1       16      3        1.0                                            
+DAREA   1       18      3        1.0                                            
+DAREA   2       8       3       -0.5                                            
+DAREA   2       16      3        0.5                                            
+DAREA   2       18      3        0.5                                            
+DAREA   3       8       3        0.5                                            
+DAREA   3       16      3       -0.5                                            
+DAREA   3       18      3       -0.5                                            
+DAREA   4       8       3        1.0                                            
+DAREA   4       16      3       -1.0                                            
+DAREA   4       18      3       -1.0                                            
+DAREA   5       8       3        0.5                                            
+DAREA   5       16      3       -0.5                                            
+DAREA   5       18      3       -0.5                                            
+DAREA   6       8       3       -0.5                                            
+DAREA   6       16      3        0.5                                            
+DAREA   6       18      3        0.5                                            
+DAREA   7       8       3       -1.0                                            
+DAREA   7       16      3        1.0                                            
+DAREA   7       18      3        1.0                                            
+DAREA   8       8       3       -0.5                                            
+DAREA   8       16      3        0.5                                            
+DAREA   8       18      3        0.5                                            
+DAREA   9       8       3        0.5                                            
+DAREA   9       16      3       -0.5                                            
+DAREA   9       18      3       -0.5                                            
+DAREA   10      8       3        1.0                                            
+DAREA   10      16      3       -1.0                                            
+DAREA   10      18      3       -1.0                                            
+DAREA   11      8       3        0.5                                            
+DAREA   11      16      3       -0.5                                            
+DAREA   11      18      3       -0.5                                            
+DAREA   12      8       3       -0.5                                            
+DAREA   12      16      3        0.5                                            
+DAREA   12      18      3        0.5                                            
+GRDSET            1                               1                             
+GRID    1               2.0     30.0    0.0                                     
+GRID    2               3.1     30.0    0.0                                     
+GRID    3               4.3     30.0    0.0                                     
+GRID    4               5.2     30.0    0.0                                     
+GRID    5               7.1     30.0    0.0                                     
+GRID    6               3.1     45.0    0.0                                     
+GRID    7               4.3     45.0    0.0                                     
+GRID    8               5.2     45.0    0.0                                     
+GRID    9               7.1     40.0    0.0                                     
+GRID    10              2.0     60.0    0.0                                     
+GRID    11              3.1     60.0    0.0                                     
+GRID    12              4.3     60.0    0.0                                     
+GRID    13              5.2     60.0    0.0                                     
+GRID    14              7.1     60.0    0.0                                     
+GRID    15              7.1     50.0    0.0                                     
+GRID    16              8.5     40.0    -.25                                    
+GRID    17              9.7     40.0    -.50                                    
+GRID    18              8.5     50.0    0.25                                    
+GRID    19              9.7     50.0    0.50                                    
+MAT1    1       30.0+6          .3      7.4-4                                   
+PARAM   CYCIO   +1                                                              
+PARAM   G       .02                                                             
+PARAM   GKAD    FREQRESP                                                        
+PARAM   KMAX    2                                                               
+PARAM   KMIN    2                                                               
+PARAM   LGKAD   1                                                               
+PARAM   LMAX    1                                                               
+PARAM   NSEGS   12                                                              
+PARAM   RPS     600.0                                                           
+PQUAD2  2       1       .25                                                     
+PQUAD2  3       1       .125                                                    
+PTRIA2  1       1       .25                                                     
+SPC1    30      123456  1       10                                              
+SPC1    30      6       1       THRU    19                                      
+TLOAD2  1       1                       0.0     5.5131-41813.854 -90.0          
+TLOAD2  2       2                       0.0     5.5131-41813.854 -90.0          
+TLOAD2  3       3                       0.0     5.5131-41813.854 -90.0          
+TLOAD2  4       4                       0.0     5.5131-41813.854 -90.0          
+TLOAD2  5       5                       0.0     5.5131-41813.854 -90.0          
+TLOAD2  6       6                       0.0     5.5131-41813.854 -90.0          
+TLOAD2  7       7                       0.0     5.5131-41813.854 -90.0          
+TLOAD2  8       8                       0.0     5.5131-41813.854 -90.0          
+TLOAD2  9       9                       0.0     5.5131-41813.854 -90.0          
+TLOAD2  10      10                      0.0     5.5131-41813.854 -90.0          
+TLOAD2  11      11                      0.0     5.5131-41813.854 -90.0          
+TLOAD2  12      12                      0.0     5.5131-41813.854 -90.0          
+TSTEP   1       10      4.5943-5 1                                              
+ENDDATA                                                                         

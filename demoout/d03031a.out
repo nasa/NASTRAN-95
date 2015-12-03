@@ -1,0 +1,1092 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D03031A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   3,3                                                                       
+     TIME  20                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                 
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                          
+                  3              METHOD = 1                                                              
+                  4              AXISYMMETRIC = FLUID                                                    
+                  5         OUTPUT                                                                       
+                  6              HARMONICS = ALL                                                         
+                  7              SET 1 = 1 THRU 1000,1090,2090,3090,4090,5090,6089,7090,8090,            
+                  8                      9090,10089,11090,12089,13089,14090,15090,16089,17090,           
+                  9                      18089,19090,20089                                               
+                 10              PRESSURE = 1                                                            
+                 11      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   552, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        AXIF    100     10.0    1.255014.0      YES                             +AXIF   
+                    2-        +AXIF   1                                                                       
+                    3-        CFLUID2 1       1135    1090                                                    
+                    4-        CFLUID2 5       2150    1135                                                    
+                    5-        CFLUID2 11      3157    2150                                                    
+                    6-        CFLUID2 19      4162    3157                                                    
+                    7-        CFLUID2 29      5165    4162                                                    
+                    8-        CFLUID2 41      6167    5165                                                    
+                    9-        CFLUID2 55      7168    6167                                                    
+                   10-        CFLUID2 71      8170    7168                                                    
+                   11-        CFLUID2 89      9171    8170                                                    
+                   12-        CFLUID2 109     10171   9171                                                    
+                   13-        CFLUID2 131     11172   10171                                                   
+                   14-        CFLUID2 155     12173   11172                                                   
+                   15-        CFLUID2 181     13173   12173                                                   
+                   16-        CFLUID2 209     14174   13173                                                   
+                   17-        CFLUID2 239     15174   14174                                                   
+                   18-        CFLUID2 271     16174   15174                                                   
+                   19-        CFLUID2 305     17175   16174                                                   
+                   20-        CFLUID2 341     18175   17175                                                   
+                   21-        CFLUID2 379     19175   18175                                                   
+                   22-        CFLUID2 419     20175   19175                                                   
+                   23-        CFLUID3 2       2120    2090    1090                                            
+                   24-        CFLUID3 3       1090    1135    2120                                            
+                   25-        CFLUID3 4       2150    2120    1135                                            
+                   26-        CFLUID3 6       3112    3090    2090                                            
+                   27-        CFLUID3 7       2090    2120    3112                                            
+                   28-        CFLUID3 8       3135    3112    2120                                            
+                   29-        CFLUID3 9       2120    2150    3135                                            
+                   30-        CFLUID3 10      3157    3135    2150                                            
+                   31-        CFLUID3 12      4108    4090    3090                                            
+                   32-        CFLUID3 13      3090    3112    4108                                            
+                   33-        CFLUID3 14      4126    4108    3112                                            
+                   34-        CFLUID3 15      3112    3135    4126                                            
+                   35-        CFLUID3 16      4144    4126    3135                                            
+                   36-        CFLUID3 17      3135    3157    4144                                            
+                   37-        CFLUID3 18      4162    4144    3157                                            
+                   38-        CFLUID3 20      5105    5090    4090                                            
+                   39-        CFLUID3 21      4090    4108    5105                                            
+                   40-        CFLUID3 22      5120    5105    4108                                            
+                   41-        CFLUID3 23      4108    4126    5120                                            
+                   42-        CFLUID3 24      5135    5120    4126                                            
+                   43-        CFLUID3 25      4126    4144    5135                                            
+                   44-        CFLUID3 26      5150    5135    4144                                            
+                   45-        CFLUID3 27      4144    4162    5150                                            
+                   46-        CFLUID3 28      5165    5150    4162                                            
+                   47-        CFLUID3 30      6102    6089    5090                                            
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CFLUID3 31      5090    5105    6102                                            
+                   49-        CFLUID3 32      6115    6102    5105                                            
+                   50-        CFLUID3 33      5105    5120    6115                                            
+                   51-        CFLUID3 34      6128    6115    5120                                            
+                   52-        CFLUID3 35      5120    5135    6128                                            
+                   53-        CFLUID3 36      6141    6128    5135                                            
+                   54-        CFLUID3 37      5135    5150    6141                                            
+                   55-        CFLUID3 38      6154    6141    5150                                            
+                   56-        CFLUID3 39      5150    5165    6154                                            
+                   57-        CFLUID3 40      6167    6154    5165                                            
+                   58-        CFLUID3 42      7101    7090    6089                                            
+                   59-        CFLUID3 43      6089    6102    7101                                            
+                   60-        CFLUID3 44      7112    7101    6102                                            
+                   61-        CFLUID3 45      6102    6115    7112                                            
+                   62-        CFLUID3 46      7123    7112    6115                                            
+                   63-        CFLUID3 47      6115    6128    7123                                            
+                   64-        CFLUID3 48      7135    7123    6128                                            
+                   65-        CFLUID3 49      6128    6141    7135                                            
+                   66-        CFLUID3 50      7146    7135    6141                                            
+                   67-        CFLUID3 51      6141    6154    7146                                            
+                   68-        CFLUID3 52      7157    7146    6154                                            
+                   69-        CFLUID3 53      6154    6167    7157                                            
+                   70-        CFLUID3 54      7168    7157    6167                                            
+                   71-        CFLUID3 56      8100    8090    7090                                            
+                   72-        CFLUID3 57      7090    7101    8100                                            
+                   73-        CFLUID3 58      8110    8100    7101                                            
+                   74-        CFLUID3 59      7101    7112    8110                                            
+                   75-        CFLUID3 60      8120    8110    7112                                            
+                   76-        CFLUID3 61      7112    7123    8120                                            
+                   77-        CFLUID3 62      8130    8120    7123                                            
+                   78-        CFLUID3 63      7123    7135    8130                                            
+                   79-        CFLUID3 64      8140    8130    7135                                            
+                   80-        CFLUID3 65      7135    7146    8140                                            
+                   81-        CFLUID3 66      8150    8140    7146                                            
+                   82-        CFLUID3 67      7146    7157    8150                                            
+                   83-        CFLUID3 68      8160    8150    7157                                            
+                   84-        CFLUID3 69      7157    7168    8160                                            
+                   85-        CFLUID3 70      8170    8160    7168                                            
+                   86-        CFLUID3 72      9099    9090    8090                                            
+                   87-        CFLUID3 73      8090    8100    9099                                            
+                   88-        CFLUID3 74      9108    9099    8100                                            
+                   89-        CFLUID3 75      8100    8110    9108                                            
+                   90-        CFLUID3 76      9117    9108    8110                                            
+                   91-        CFLUID3 77      8110    8120    9117                                            
+                   92-        CFLUID3 78      9126    9117    8120                                            
+                   93-        CFLUID3 79      8120    8130    9126                                            
+                   94-        CFLUID3 80      9135    9126    8130                                            
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CFLUID3 81      8130    8140    9135                                            
+                   96-        CFLUID3 82      9144    9135    8140                                            
+                   97-        CFLUID3 83      8140    8150    9144                                            
+                   98-        CFLUID3 84      9153    9144    8150                                            
+                   99-        CFLUID3 85      8150    8160    9153                                            
+                  100-        CFLUID3 86      9162    9153    8160                                            
+                  101-        CFLUID3 87      8160    8170    9162                                            
+                  102-        CFLUID3 88      9171    9162    8170                                            
+                  103-        CFLUID3 90      10098   10089   9090                                            
+                  104-        CFLUID3 91      9090    9099    10098                                           
+                  105-        CFLUID3 92      10106   10098   9099                                            
+                  106-        CFLUID3 93      9099    9108    10106                                           
+                  107-        CFLUID3 94      10114   10106   9108                                            
+                  108-        CFLUID3 95      9108    9117    10114                                           
+                  109-        CFLUID3 96      10122   10114   9117                                            
+                  110-        CFLUID3 97      9117    9126    10122                                           
+                  111-        CFLUID3 98      10130   10122   9126                                            
+                  112-        CFLUID3 99      9126    9135    10130                                           
+                  113-        CFLUID3 100     10139   10130   9135                                            
+                  114-        CFLUID3 101     9135    9144    10139                                           
+                  115-        CFLUID3 102     10147   10139   9144                                            
+                  116-        CFLUID3 103     9144    9153    10147                                           
+                  117-        CFLUID3 104     10155   10147   9153                                            
+                  118-        CFLUID3 105     9153    9162    10155                                           
+                  119-        CFLUID3 106     10163   10155   9162                                            
+                  120-        CFLUID3 107     9162    9171    10163                                           
+                  121-        CFLUID3 108     10171   10163   9171                                            
+                  122-        CFLUID3 110     11097   11090   10089                                           
+                  123-        CFLUID3 111     10089   10098   11097                                           
+                  124-        CFLUID3 112     11105   11097   10098                                           
+                  125-        CFLUID3 113     10098   10106   11105                                           
+                  126-        CFLUID3 114     11112   11105   10106                                           
+                  127-        CFLUID3 115     10106   10114   11112                                           
+                  128-        CFLUID3 116     11120   11112   10114                                           
+                  129-        CFLUID3 117     10114   10122   11120                                           
+                  130-        CFLUID3 118     11127   11120   10122                                           
+                  131-        CFLUID3 119     10122   10130   11127                                           
+                  132-        CFLUID3 120     11135   11127   10130                                           
+                  133-        CFLUID3 121     10130   10139   11135                                           
+                  134-        CFLUID3 122     11142   11135   10139                                           
+                  135-        CFLUID3 123     10139   10147   11142                                           
+                  136-        CFLUID3 124     11150   11142   10147                                           
+                  137-        CFLUID3 125     10147   10155   11150                                           
+                  138-        CFLUID3 126     11157   11150   10155                                           
+                  139-        CFLUID3 127     10155   10163   11157                                           
+                  140-        CFLUID3 128     11165   11157   10163                                           
+                  141-        CFLUID3 129     10163   10171   11165                                           
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        CFLUID3 130     11172   11165   10171                                           
+                  143-        CFLUID3 132     12096   12089   11090                                           
+                  144-        CFLUID3 133     11090   11097   12096                                           
+                  145-        CFLUID3 134     12103   12096   11097                                           
+                  146-        CFLUID3 135     11097   11105   12103                                           
+                  147-        CFLUID3 136     12110   12103   11105                                           
+                  148-        CFLUID3 137     11105   11112   12110                                           
+                  149-        CFLUID3 138     12117   12110   11112                                           
+                  150-        CFLUID3 139     11112   11120   12117                                           
+                  151-        CFLUID3 140     12124   12117   11120                                           
+                  152-        CFLUID3 141     11120   11127   12124                                           
+                  153-        CFLUID3 142     12131   12124   11127                                           
+                  154-        CFLUID3 143     11127   11135   12131                                           
+                  155-        CFLUID3 144     12138   12131   11135                                           
+                  156-        CFLUID3 145     11135   11142   12138                                           
+                  157-        CFLUID3 146     12145   12138   11142                                           
+                  158-        CFLUID3 147     11142   11150   12145                                           
+                  159-        CFLUID3 148     12152   12145   11150                                           
+                  160-        CFLUID3 149     11150   11157   12152                                           
+                  161-        CFLUID3 150     12159   12152   11157                                           
+                  162-        CFLUID3 151     11157   11165   12159                                           
+                  163-        CFLUID3 152     12166   12159   11165                                           
+                  164-        CFLUID3 153     11165   11172   12166                                           
+                  165-        CFLUID3 154     12173   12166   11172                                           
+                  166-        CFLUID3 156     13096   13089   12089                                           
+                  167-        CFLUID3 157     12089   12096   13096                                           
+                  168-        CFLUID3 158     13102   13096   12096                                           
+                  169-        CFLUID3 159     12096   12103   13102                                           
+                  170-        CFLUID3 160     13109   13102   12103                                           
+                  171-        CFLUID3 161     12103   12110   13109                                           
+                  172-        CFLUID3 162     13115   13109   12110                                           
+                  173-        CFLUID3 163     12110   12117   13115                                           
+                  174-        CFLUID3 164     13122   13115   12117                                           
+                  175-        CFLUID3 165     12117   12124   13122                                           
+                  176-        CFLUID3 166     13128   13122   12124                                           
+                  177-        CFLUID3 167     12124   12131   13128                                           
+                  178-        CFLUID3 168     13134   13128   12131                                           
+                  179-        CFLUID3 169     12131   12138   13134                                           
+                  180-        CFLUID3 170     13141   13134   12138                                           
+                  181-        CFLUID3 171     12138   12145   13141                                           
+                  182-        CFLUID3 172     13147   13141   12145                                           
+                  183-        CFLUID3 173     12145   12152   13147                                           
+                  184-        CFLUID3 174     13154   13147   12152                                           
+                  185-        CFLUID3 175     12152   12159   13154                                           
+                  186-        CFLUID3 176     13160   13154   12159                                           
+                  187-        CFLUID3 177     12159   12166   13160                                           
+                  188-        CFLUID3 178     13167   13160   12166                                           
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  189-        CFLUID3 179     12166   12173   13167                                           
+                  190-        CFLUID3 180     13173   13167   12173                                           
+                  191-        CFLUID3 182     14096   14090   13089                                           
+                  192-        CFLUID3 183     13089   13096   14096                                           
+                  193-        CFLUID3 184     14102   14096   13096                                           
+                  194-        CFLUID3 185     13096   13102   14102                                           
+                  195-        CFLUID3 186     14108   14102   13102                                           
+                  196-        CFLUID3 187     13102   13109   14108                                           
+                  197-        CFLUID3 188     14114   14108   13109                                           
+                  198-        CFLUID3 189     13109   13115   14114                                           
+                  199-        CFLUID3 190     14120   14114   13115                                           
+                  200-        CFLUID3 191     13115   13122   14120                                           
+                  201-        CFLUID3 192     14126   14120   13122                                           
+                  202-        CFLUID3 193     13122   13128   14126                                           
+                  203-        CFLUID3 194     14132   14126   13128                                           
+                  204-        CFLUID3 195     13128   13134   14132                                           
+                  205-        CFLUID3 196     14138   14132   13134                                           
+                  206-        CFLUID3 197     13134   13141   14138                                           
+                  207-        CFLUID3 198     14144   14138   13141                                           
+                  208-        CFLUID3 199     13141   13147   14144                                           
+                  209-        CFLUID3 200     14150   14144   13147                                           
+                  210-        CFLUID3 201     13147   13154   14150                                           
+                  211-        CFLUID3 202     14156   14150   13154                                           
+                  212-        CFLUID3 203     13154   13160   14156                                           
+                  213-        CFLUID3 204     14162   14156   13160                                           
+                  214-        CFLUID3 205     13160   13167   14162                                           
+                  215-        CFLUID3 206     14168   14162   13167                                           
+                  216-        CFLUID3 207     13167   13173   14168                                           
+                  217-        CFLUID3 208     14174   14168   13173                                           
+                  218-        CFLUID3 210     15095   15090   14090                                           
+                  219-        CFLUID3 211     14090   14096   15095                                           
+                  220-        CFLUID3 212     15101   15095   14096                                           
+                  221-        CFLUID3 213     14096   14102   15101                                           
+                  222-        CFLUID3 214     15106   15101   14102                                           
+                  223-        CFLUID3 215     14102   14108   15106                                           
+                  224-        CFLUID3 216     15112   15106   14108                                           
+                  225-        CFLUID3 217     14108   14114   15112                                           
+                  226-        CFLUID3 218     15118   15112   14114                                           
+                  227-        CFLUID3 219     14114   14120   15118                                           
+                  228-        CFLUID3 220     15123   15118   14120                                           
+                  229-        CFLUID3 221     14120   14126   15123                                           
+                  230-        CFLUID3 222     15129   15123   14126                                           
+                  231-        CFLUID3 223     14126   14132   15129                                           
+                  232-        CFLUID3 224     15135   15129   14132                                           
+                  233-        CFLUID3 225     14132   14138   15135                                           
+                  234-        CFLUID3 226     15140   15135   14138                                           
+                  235-        CFLUID3 227     14138   14144   15140                                           
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  236-        CFLUID3 228     15146   15140   14144                                           
+                  237-        CFLUID3 229     14144   14150   15146                                           
+                  238-        CFLUID3 230     15151   15146   14150                                           
+                  239-        CFLUID3 231     14150   14156   15151                                           
+                  240-        CFLUID3 232     15157   15151   14156                                           
+                  241-        CFLUID3 233     14156   14162   15157                                           
+                  242-        CFLUID3 234     15163   15157   14162                                           
+                  243-        CFLUID3 235     14162   14168   15163                                           
+                  244-        CFLUID3 236     15168   15163   14168                                           
+                  245-        CFLUID3 237     14168   14174   15168                                           
+                  246-        CFLUID3 238     15174   15168   14174                                           
+                  247-        CFLUID3 240     16095   16089   15090                                           
+                  248-        CFLUID3 241     15090   15095   16095                                           
+                  249-        CFLUID3 242     16100   16095   15095                                           
+                  250-        CFLUID3 243     15095   15101   16100                                           
+                  251-        CFLUID3 244     16105   16100   15101                                           
+                  252-        CFLUID3 245     15101   15106   16105                                           
+                  253-        CFLUID3 246     16111   16105   15106                                           
+                  254-        CFLUID3 247     15106   15112   16111                                           
+                  255-        CFLUID3 248     16116   16111   15112                                           
+                  256-        CFLUID3 249     15112   15118   16116                                           
+                  257-        CFLUID3 250     16121   16116   15118                                           
+                  258-        CFLUID3 251     15118   15123   16121                                           
+                  259-        CFLUID3 252     16127   16121   15123                                           
+                  260-        CFLUID3 253     15123   15129   16127                                           
+                  261-        CFLUID3 254     16132   16127   15129                                           
+                  262-        CFLUID3 255     15129   15135   16132                                           
+                  263-        CFLUID3 256     16137   16132   15135                                           
+                  264-        CFLUID3 257     15135   15140   16137                                           
+                  265-        CFLUID3 258     16142   16137   15140                                           
+                  266-        CFLUID3 259     15140   15146   16142                                           
+                  267-        CFLUID3 260     16148   16142   15146                                           
+                  268-        CFLUID3 261     15146   15151   16148                                           
+                  269-        CFLUID3 262     16153   16148   15151                                           
+                  270-        CFLUID3 263     15151   15157   16153                                           
+                  271-        CFLUID3 264     16158   16153   15157                                           
+                  272-        CFLUID3 265     15157   15163   16158                                           
+                  273-        CFLUID3 266     16164   16158   15163                                           
+                  274-        CFLUID3 267     15163   15168   16164                                           
+                  275-        CFLUID3 268     16169   16164   15168                                           
+                  276-        CFLUID3 269     15168   15174   16169                                           
+                  277-        CFLUID3 270     16174   16169   15174                                           
+                  278-        CFLUID3 272     17095   17090   16089                                           
+                  279-        CFLUID3 273     16089   16095   17095                                           
+                  280-        CFLUID3 274     17100   17095   16095                                           
+                  281-        CFLUID3 275     16095   16100   17100                                           
+                  282-        CFLUID3 276     17105   17100   16100                                           
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  283-        CFLUID3 277     16100   16105   17105                                           
+                  284-        CFLUID3 278     17110   17105   16105                                           
+                  285-        CFLUID3 279     16105   16111   17110                                           
+                  286-        CFLUID3 280     17115   17110   16111                                           
+                  287-        CFLUID3 281     16111   16116   17115                                           
+                  288-        CFLUID3 282     17120   17115   16116                                           
+                  289-        CFLUID3 283     16116   16121   17120                                           
+                  290-        CFLUID3 284     17125   17120   16121                                           
+                  291-        CFLUID3 285     16121   16127   17125                                           
+                  292-        CFLUID3 286     17130   17125   16127                                           
+                  293-        CFLUID3 287     16127   16132   17130                                           
+                  294-        CFLUID3 288     17135   17130   16132                                           
+                  295-        CFLUID3 289     16132   16137   17135                                           
+                  296-        CFLUID3 290     17140   17135   16137                                           
+                  297-        CFLUID3 291     16137   16142   17140                                           
+                  298-        CFLUID3 292     17145   17140   16142                                           
+                  299-        CFLUID3 293     16142   16148   17145                                           
+                  300-        CFLUID3 294     17150   17145   16148                                           
+                  301-        CFLUID3 295     16148   16153   17150                                           
+                  302-        CFLUID3 296     17155   17150   16153                                           
+                  303-        CFLUID3 297     16153   16158   17155                                           
+                  304-        CFLUID3 298     17160   17155   16158                                           
+                  305-        CFLUID3 299     16158   16164   17160                                           
+                  306-        CFLUID3 300     17165   17160   16164                                           
+                  307-        CFLUID3 301     16164   16169   17165                                           
+                  308-        CFLUID3 302     17170   17165   16169                                           
+                  309-        CFLUID3 303     16169   16174   17170                                           
+                  310-        CFLUID3 304     17175   17170   16174                                           
+                  311-        CFLUID3 306     18094   18089   17090                                           
+                  312-        CFLUID3 307     17090   17095   18094                                           
+                  313-        CFLUID3 308     18099   18094   17095                                           
+                  314-        CFLUID3 309     17095   17100   18099                                           
+                  315-        CFLUID3 310     18104   18099   17100                                           
+                  316-        CFLUID3 311     17100   17105   18104                                           
+                  317-        CFLUID3 312     18108   18104   17105                                           
+                  318-        CFLUID3 313     17105   17110   18108                                           
+                  319-        CFLUID3 314     18113   18108   17110                                           
+                  320-        CFLUID3 315     17110   17115   18113                                           
+                  321-        CFLUID3 316     18118   18113   17115                                           
+                  322-        CFLUID3 317     17115   17120   18118                                           
+                  323-        CFLUID3 318     18123   18118   17120                                           
+                  324-        CFLUID3 319     17120   17125   18123                                           
+                  325-        CFLUID3 320     18127   18123   17125                                           
+                  326-        CFLUID3 321     17125   17130   18127                                           
+                  327-        CFLUID3 322     18132   18127   17130                                           
+                  328-        CFLUID3 323     17130   17135   18132                                           
+                  329-        CFLUID3 324     18137   18132   17135                                           
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  330-        CFLUID3 325     17135   17140   18137                                           
+                  331-        CFLUID3 326     18142   18137   17140                                           
+                  332-        CFLUID3 327     17140   17145   18142                                           
+                  333-        CFLUID3 328     18146   18142   17145                                           
+                  334-        CFLUID3 329     17145   17150   18146                                           
+                  335-        CFLUID3 330     18151   18146   17150                                           
+                  336-        CFLUID3 331     17150   17155   18151                                           
+                  337-        CFLUID3 332     18156   18151   17155                                           
+                  338-        CFLUID3 333     17155   17160   18156                                           
+                  339-        CFLUID3 334     18161   18156   17160                                           
+                  340-        CFLUID3 335     17160   17165   18161                                           
+                  341-        CFLUID3 336     18165   18161   17165                                           
+                  342-        CFLUID3 337     17165   17170   18165                                           
+                  343-        CFLUID3 338     18170   18165   17170                                           
+                  344-        CFLUID3 339     17170   17175   18170                                           
+                  345-        CFLUID3 340     18175   18170   17175                                           
+                  346-        CFLUID3 342     19094   19090   18089                                           
+                  347-        CFLUID3 343     18089   18094   19094                                           
+                  348-        CFLUID3 344     19099   19094   18094                                           
+                  349-        CFLUID3 345     18094   18099   19099                                           
+                  350-        CFLUID3 346     19103   19099   18099                                           
+                  351-        CFLUID3 347     18099   18104   19103                                           
+                  352-        CFLUID3 348     19108   19103   18104                                           
+                  353-        CFLUID3 349     18104   18108   19108                                           
+                  354-        CFLUID3 350     19112   19108   18108                                           
+                  355-        CFLUID3 351     18108   18113   19112                                           
+                  356-        CFLUID3 352     19117   19112   18113                                           
+                  357-        CFLUID3 353     18113   18118   19117                                           
+                  358-        CFLUID3 354     19121   19117   18118                                           
+                  359-        CFLUID3 355     18118   18123   19121                                           
+                  360-        CFLUID3 356     19126   19121   18123                                           
+                  361-        CFLUID3 357     18123   18127   19126                                           
+                  362-        CFLUID3 358     19130   19126   18127                                           
+                  363-        CFLUID3 359     18127   18132   19130                                           
+                  364-        CFLUID3 360     19135   19130   18132                                           
+                  365-        CFLUID3 361     18132   18137   19135                                           
+                  366-        CFLUID3 362     19139   19135   18137                                           
+                  367-        CFLUID3 363     18137   18142   19139                                           
+                  368-        CFLUID3 364     19144   19139   18142                                           
+                  369-        CFLUID3 365     18142   18146   19144                                           
+                  370-        CFLUID3 366     19148   19144   18146                                           
+                  371-        CFLUID3 367     18146   18151   19148                                           
+                  372-        CFLUID3 368     19153   19148   18151                                           
+                  373-        CFLUID3 369     18151   18156   19153                                           
+                  374-        CFLUID3 370     19157   19153   18156                                           
+                  375-        CFLUID3 371     18156   18161   19157                                           
+                  376-        CFLUID3 372     19162   19157   18161                                           
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  377-        CFLUID3 373     18161   18165   19162                                           
+                  378-        CFLUID3 374     19166   19162   18165                                           
+                  379-        CFLUID3 375     18165   18170   19166                                           
+                  380-        CFLUID3 376     19171   19166   18170                                           
+                  381-        CFLUID3 377     18170   18175   19171                                           
+                  382-        CFLUID3 378     19175   19171   18175                                           
+                  383-        CFLUID3 380     20094   20089   19090                                           
+                  384-        CFLUID3 381     19090   19094   20094                                           
+                  385-        CFLUID3 382     20098   20094   19094                                           
+                  386-        CFLUID3 383     19094   19099   20098                                           
+                  387-        CFLUID3 384     20102   20098   19099                                           
+                  388-        CFLUID3 385     19099   19103   20102                                           
+                  389-        CFLUID3 386     20107   20102   19103                                           
+                  390-        CFLUID3 387     19103   19108   20107                                           
+                  391-        CFLUID3 388     20111   20107   19108                                           
+                  392-        CFLUID3 389     19108   19112   20111                                           
+                  393-        CFLUID3 390     20115   20111   19112                                           
+                  394-        CFLUID3 391     19112   19117   20115                                           
+                  395-        CFLUID3 392     20119   20115   19117                                           
+                  396-        CFLUID3 393     19117   19121   20119                                           
+                  397-        CFLUID3 394     20124   20119   19121                                           
+                  398-        CFLUID3 395     19121   19126   20124                                           
+                  399-        CFLUID3 396     20128   20124   19126                                           
+                  400-        CFLUID3 397     19126   19130   20128                                           
+                  401-        CFLUID3 398     20132   20128   19130                                           
+                  402-        CFLUID3 399     19130   19135   20132                                           
+                  403-        CFLUID3 400     20137   20132   19135                                           
+                  404-        CFLUID3 401     19135   19139   20137                                           
+                  405-        CFLUID3 402     20141   20137   19139                                           
+                  406-        CFLUID3 403     19139   19144   20141                                           
+                  407-        CFLUID3 404     20145   20141   19144                                           
+                  408-        CFLUID3 405     19144   19148   20145                                           
+                  409-        CFLUID3 406     20149   20145   19148                                           
+                  410-        CFLUID3 407     19148   19153   20149                                           
+                  411-        CFLUID3 408     20154   20149   19153                                           
+                  412-        CFLUID3 409     19153   19157   20154                                           
+                  413-        CFLUID3 410     20158   20154   19157                                           
+                  414-        CFLUID3 411     19157   19162   20158                                           
+                  415-        CFLUID3 412     20162   20158   19162                                           
+                  416-        CFLUID3 413     19162   19166   20162                                           
+                  417-        CFLUID3 414     20167   20162   19166                                           
+                  418-        CFLUID3 415     19166   19171   20167                                           
+                  419-        CFLUID3 416     20171   20167   19171                                           
+                  420-        CFLUID3 417     19171   19175   20171                                           
+                  421-        CFLUID3 418     20175   20171   19175                                           
+                  422-        CORD2S  100     0       .0      .0      10.0    .0      .0      20.0    +CORD2S 
+                  423-        +CORD2S .0      1.0     .0                                                      
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  424-        EIGR    1       INV     .1      .5      6       7               1.0-5   +EIGR-1 
+                  425-        +EIGR-1 MAX                                                                     
+                  426-        FREEPT  4090            109     90.0    118     180.0   127     270.0           
+                  427-        FREEPT  8090            209     90.0    218     180.0   227     270.0           
+                  428-        FREEPT  12089           309     90.0    318     180.0   327     270.0           
+                  429-        FREEPT  16089           409     90.0    418     180.0   427     270.0           
+                  430-        FSLIST          AXIS    1090    2090    3090    4090    5090    6089    +1-FSL  
+                  431-        +1-FSL  7090    8090    9090    10089   11090   12089   13089   14090   +2-FSL  
+                  432-        +2-FSL  15090   16089   17090   18089   19090   20089                           
+                  433-        RINGFL  1090    .50000  90.0000         1135    .50000  135.000                 
+                  434-        RINGFL  2090    1.00000 90.0000         2120    1.00000 120.000                 
+                  435-        RINGFL  2150    1.00000 150.000                                                 
+                  436-        RINGFL  3090    1.50000 90.0000         3112    1.50000 112.500                 
+                  437-        RINGFL  3135    1.50000 135.000         3157    1.50000 157.500                 
+                  438-        RINGFL  4090    2.00000 90.0000         4108    2.00000 108.000                 
+                  439-        RINGFL  4126    2.00000 126.000         4144    2.00000 144.000                 
+                  440-        RINGFL  4162    2.00000 162.000                                                 
+                  441-        RINGFL  5090    2.50000 90.0000         5105    2.50000 105.000                 
+                  442-        RINGFL  5120    2.50000 120.000         5135    2.50000 135.000                 
+                  443-        RINGFL  5150    2.50000 150.000         5165    2.50000 165.000                 
+                  444-        RINGFL  6089    3.00000 90.0000         6102    3.00000 102.857                 
+                  445-        RINGFL  6115    3.00000 115.714         6128    3.00000 128.571                 
+                  446-        RINGFL  6141    3.00000 141.429         6154    3.00000 154.286                 
+                  447-        RINGFL  6167    3.00000 167.143                                                 
+                  448-        RINGFL  7090    3.50000 90.0000         7101    3.50000 101.250                 
+                  449-        RINGFL  7112    3.50000 112.500         7123    3.50000 123.750                 
+                  450-        RINGFL  7135    3.50000 135.000         7146    3.50000 146.250                 
+                  451-        RINGFL  7157    3.50000 157.500         7168    3.50000 168.750                 
+                  452-        RINGFL  8090    4.00000 90.0000         8100    4.00000 100.000                 
+                  453-        RINGFL  8110    4.00000 110.000         8120    4.00000 120.000                 
+                  454-        RINGFL  8130    4.00000 130.000         8140    4.00000 140.000                 
+                  455-        RINGFL  8150    4.00000 150.000         8160    4.00000 160.000                 
+                  456-        RINGFL  8170    4.00000 170.000                                                 
+                  457-        RINGFL  9090    4.50000 90.0000         9099    4.50000 99.0000                 
+                  458-        RINGFL  9108    4.50000 108.000         9117    4.50000 117.000                 
+                  459-        RINGFL  9126    4.50000 126.000         9135    4.50000 135.000                 
+                  460-        RINGFL  9144    4.50000 144.000         9153    4.50000 153.000                 
+                  461-        RINGFL  9162    4.50000 162.000         9171    4.50000 171.000                 
+                  462-        RINGFL  10089   5.00000 90.0000         10098   5.00000 98.1818                 
+                  463-        RINGFL  10106   5.00000 106.364         10114   5.00000 114.545                 
+                  464-        RINGFL  10122   5.00000 122.727         10130   5.00000 130.909                 
+                  465-        RINGFL  10139   5.00000 139.091         10147   5.00000 147.273                 
+                  466-        RINGFL  10155   5.00000 155.455         10163   5.00000 163.636                 
+                  467-        RINGFL  10171   5.00000 171.818                                                 
+                  468-        RINGFL  11090   5.50000 90.0000         11097   5.50000 97.5000                 
+                  469-        RINGFL  11105   5.50000 105.000         11112   5.50000 112.500                 
+                  470-        RINGFL  11120   5.50000 120.000         11127   5.50000 127.500                 
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  471-        RINGFL  11135   5.50000 135.000         11142   5.50000 142.500                 
+                  472-        RINGFL  11150   5.50000 150.000         11157   5.50000 157.500                 
+                  473-        RINGFL  11165   5.50000 165.000         11172   5.50000 172.500                 
+                  474-        RINGFL  12089   6.00000 90.0000         12096   6.00000 96.9231                 
+                  475-        RINGFL  12103   6.00000 103.846         12110   6.00000 110.769                 
+                  476-        RINGFL  12117   6.00000 117.692         12124   6.00000 124.615                 
+                  477-        RINGFL  12131   6.00000 131.538         12138   6.00000 138.462                 
+                  478-        RINGFL  12145   6.00000 145.385         12152   6.00000 152.308                 
+                  479-        RINGFL  12159   6.00000 159.231         12166   6.00000 166.154                 
+                  480-        RINGFL  12173   6.00000 173.077                                                 
+                  481-        RINGFL  13089   6.50000 90.0000         13096   6.50000 96.4286                 
+                  482-        RINGFL  13102   6.50000 102.857         13109   6.50000 109.286                 
+                  483-        RINGFL  13115   6.50000 115.714         13122   6.50000 122.143                 
+                  484-        RINGFL  13128   6.50000 128.571         13134   6.50000 135.000                 
+                  485-        RINGFL  13141   6.50000 141.429         13147   6.50000 147.857                 
+                  486-        RINGFL  13154   6.50000 154.286         13160   6.50000 160.714                 
+                  487-        RINGFL  13167   6.50000 167.143         13173   6.50000 173.571                 
+                  488-        RINGFL  14090   7.00000 90.0000         14096   7.00000 96.0000                 
+                  489-        RINGFL  14102   7.00000 102.000         14108   7.00000 108.000                 
+                  490-        RINGFL  14114   7.00000 114.000         14120   7.00000 120.000                 
+                  491-        RINGFL  14126   7.00000 126.000         14132   7.00000 132.000                 
+                  492-        RINGFL  14138   7.00000 138.000         14144   7.00000 144.000                 
+                  493-        RINGFL  14150   7.00000 150.000         14156   7.00000 156.000                 
+                  494-        RINGFL  14162   7.00000 162.000         14168   7.00000 168.000                 
+                  495-        RINGFL  14174   7.00000 174.000                                                 
+                  496-        RINGFL  15090   7.50000 90.0000         15095   7.50000 95.6250                 
+                  497-        RINGFL  15101   7.50000 101.250         15106   7.50000 106.875                 
+                  498-        RINGFL  15112   7.50000 112.500         15118   7.50000 118.125                 
+                  499-        RINGFL  15123   7.50000 123.750         15129   7.50000 129.375                 
+                  500-        RINGFL  15135   7.50000 135.000         15140   7.50000 140.625                 
+                  501-        RINGFL  15146   7.50000 146.250         15151   7.50000 151.875                 
+                  502-        RINGFL  15157   7.50000 157.500         15163   7.50000 163.125                 
+                  503-        RINGFL  15168   7.50000 168.750         15174   7.50000 174.375                 
+                  504-        RINGFL  16089   8.00000 90.0000         16095   8.00000 95.2941                 
+                  505-        RINGFL  16100   8.00000 100.588         16105   8.00000 105.882                 
+                  506-        RINGFL  16111   8.00000 111.176         16116   8.00000 116.471                 
+                  507-        RINGFL  16121   8.00000 121.765         16127   8.00000 127.059                 
+                  508-        RINGFL  16132   8.00000 132.353         16137   8.00000 137.647                 
+                  509-        RINGFL  16142   8.00000 142.941         16148   8.00000 148.235                 
+                  510-        RINGFL  16153   8.00000 153.529         16158   8.00000 158.824                 
+                  511-        RINGFL  16164   8.00000 164.118         16169   8.00000 169.412                 
+                  512-        RINGFL  16174   8.00000 174.706                                                 
+                  513-        RINGFL  17090   8.50000 90.0000         17095   8.50000 95.0000                 
+                  514-        RINGFL  17100   8.50000 100.000         17105   8.50000 105.000                 
+                  515-        RINGFL  17110   8.50000 110.000         17115   8.50000 115.000                 
+                  516-        RINGFL  17120   8.50000 120.000         17125   8.50000 125.000                 
+                  517-        RINGFL  17130   8.50000 130.000         17135   8.50000 135.000                 
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  518-        RINGFL  17140   8.50000 140.000         17145   8.50000 145.000                 
+                  519-        RINGFL  17150   8.50000 150.000         17155   8.50000 155.000                 
+                  520-        RINGFL  17160   8.50000 160.000         17165   8.50000 165.000                 
+                  521-        RINGFL  17170   8.50000 170.000         17175   8.50000 175.000                 
+                  522-        RINGFL  18089   9.00000 90.0000         18094   9.00000 94.7368                 
+                  523-        RINGFL  18099   9.00000 99.4737         18104   9.00000 104.211                 
+                  524-        RINGFL  18108   9.00000 108.947         18113   9.00000 113.684                 
+                  525-        RINGFL  18118   9.00000 118.421         18123   9.00000 123.158                 
+                  526-        RINGFL  18127   9.00000 127.895         18132   9.00000 132.632                 
+                  527-        RINGFL  18137   9.00000 137.368         18142   9.00000 142.105                 
+                  528-        RINGFL  18146   9.00000 146.842         18151   9.00000 151.579                 
+                  529-        RINGFL  18156   9.00000 156.316         18161   9.00000 161.053                 
+                  530-        RINGFL  18165   9.00000 165.789         18170   9.00000 170.526                 
+                  531-        RINGFL  18175   9.00000 175.263                                                 
+                  532-        RINGFL  19090   9.50000 90.0000         19094   9.50000 94.5000                 
+                  533-        RINGFL  19099   9.50000 99.0000         19103   9.50000 103.500                 
+                  534-        RINGFL  19108   9.50000 108.000         19112   9.50000 112.500                 
+                  535-        RINGFL  19117   9.50000 117.000         19121   9.50000 121.500                 
+                  536-        RINGFL  19126   9.50000 126.000         19130   9.50000 130.500                 
+                  537-        RINGFL  19135   9.50000 135.000         19139   9.50000 139.500                 
+                  538-        RINGFL  19144   9.50000 144.000         19148   9.50000 148.500                 
+                  539-        RINGFL  19153   9.50000 153.000         19157   9.50000 157.500                 
+                  540-        RINGFL  19162   9.50000 162.000         19166   9.50000 166.500                 
+                  541-        RINGFL  19171   9.50000 171.000         19175   9.50000 175.500                 
+                  542-        RINGFL  20089   10.0000 90.0000         20094   10.0000 94.2857                 
+                  543-        RINGFL  20098   10.0000 98.5714         20102   10.0000 102.857                 
+                  544-        RINGFL  20107   10.0000 107.143         20111   10.0000 111.429                 
+                  545-        RINGFL  20115   10.0000 115.714         20119   10.0000 120.000                 
+                  546-        RINGFL  20124   10.0000 124.286         20128   10.0000 128.571                 
+                  547-        RINGFL  20132   10.0000 132.857         20137   10.0000 137.143                 
+                  548-        RINGFL  20141   10.0000 141.429         20145   10.0000 145.714                 
+                  549-        RINGFL  20149   10.0000 150.000         20154   10.0000 154.286                 
+                  550-        RINGFL  20158   10.0000 158.571         20162   10.0000 162.857                 
+                  551-        RINGFL  20167   10.0000 167.143         20171   10.0000 171.429                 
+                  552-        RINGFL  20175   10.0000 175.714                                                 
+                              ENDDATA
+0*** USER INFORMATION MESSAGE - GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     THE PRESENCE OF AXISYMMETRIC FLUID DATA
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT      109
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT      118
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT      127
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.      209 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.      218 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.      227 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.      309 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.      318 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.      327 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.      409 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.      418 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.      427 NOT CONNECTED
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION FLUID2   ELEMENTS (ELEMENT TYPE  43) STARTING WITH ID     1003
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION FLUID3   ELEMENTS (ELEMENT TYPE  44) STARTING WITH ID     2003
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION FLMASS   ELEMENTS (ELEMENT TYPE  46) STARTING WITH ID  1000003
+                        2 ROOTS BELOW   5.132194E+00
+                        4 ROOTS BELOW   5.377697E+00
+                        4 ROOTS BELOW   5.377697E+00
+                        0 ROOTS BELOW   1.555683E+00
+                        6 ROOTS BELOW   8.973466E+00
+                        0 ROOTS BELOW   1.557665E+00
+                        6 ROOTS BELOW   8.976109E+00
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (INVERSE POWER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .         7
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         7
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        54
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         7*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.16E-07
+0                                                                              . . .         7
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         2
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* 1 OR MORE ROOT OUTSIDE FR.RANGE.
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+
+                                     ****************************************************************
+                                     *                                                              *
+                                     *
++                                             NASTRAN INFORMATION MESSAGE 3307, POTENTIALLY         *
+                                     *         2 EIGENVALUE(S) AT LOW FREQ. END NOT FOUND           *
+                                     *                                                              *
+                                     *        (THIS MESSAGE CAN BE SUPPRESSED BY DIAG 37)           *
+                                     ****************************************************************
+
+        1         3        1.560435E+00        1.249174E+00        1.988121E-01        1.233787E+01        1.925244E+01             
+        2         5        1.560435E+00        1.249174E+00        1.988121E-01        1.233787E+01        1.925244E+01             
+        3         1        5.377697E+00        2.318986E+00        3.690781E-01        6.774343E+00        3.643036E+01             
+        4         2        5.377697E+00        2.318986E+00        3.690781E-01        6.774343E+00        3.643036E+01             
+        5         4        8.973466E+00        2.995574E+00        4.767605E-01        4.047668E+00        3.632161E+01             
+        6         6        8.973466E+00        2.995574E+00        4.767605E-01        4.047668E+00        3.632161E+01             
+        7         7        1.294017E+01        3.597245E+00        5.725194E-01        3.198689E+00        4.139159E+01             
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.156043E+01    (CYCLIC FREQUENCY =  1.988121E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           109      S      1.589668E-02                                                                                             
+           118      S     -2.334529E-02                                                                                             
+           127      S     -1.589668E-02                                                                                             
+           209      S      3.036201E-02                                                                                             
+           218      S     -4.458854E-02                                                                                             
+           227      S     -3.036201E-02                                                                                             
+           309      S      4.231367E-02                                                                                             
+           318      S     -6.214031E-02                                                                                             
+           327      S     -4.231367E-02                                                                                             
+           409      S      5.065786E-02                                                                                             
+           418      S     -7.439428E-02                                                                                             
+           427      S     -5.065786E-02                                                                                             
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.156043E+01    (CYCLIC FREQUENCY =  1.988121E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           1*     1090   5.125281E-02    2090   1.013905E-01    3090   1.508833E-01    4090   1.995056E-01    5090   2.470584E-01
+           1*     6089   2.933193E-01    7090   3.380589E-01    8090   3.810475E-01    9090   4.220590E-01   10089   4.608718E-01
+           1*    11090   4.972700E-01   12089   5.310425E-01   13089   5.619829E-01   14090   5.898870E-01   15090   6.145507E-01
+           1*    16089   6.357632E-01   17090   6.532989E-01   18089   6.669012E-01   19090   6.762550E-01   20089   6.809376E-01
+           1      1090   7.526801E-02    2090   1.488984E-01    3090   2.215816E-01    4090   2.929866E-01    5090   3.628209E-01
+           1      6089   4.307581E-01    7090   4.964609E-01    8090   5.595924E-01    9090   6.198204E-01   10089   6.768195E-01
+           1     11090   7.302725E-01   12089   7.798696E-01   13089   8.253074E-01   14090   8.662866E-01   15090   9.025066E-01
+           1     16089   9.336585E-01   17090   9.594108E-01   18089   9.793867E-01   19090   9.931232E-01   20089   1.000000E+00
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.156043E+01    (CYCLIC FREQUENCY =  1.988121E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           109      S      2.334528E-02                                                                                             
+           118      S      1.589668E-02                                                                                             
+           127      S     -2.334528E-02                                                                                             
+           209      S      4.458854E-02                                                                                             
+           218      S      3.036201E-02                                                                                             
+           227      S     -4.458854E-02                                                                                             
+           309      S      6.214031E-02                                                                                             
+           318      S      4.231367E-02                                                                                             
+           327      S     -6.214031E-02                                                                                             
+           409      S      7.439427E-02                                                                                             
+           418      S      5.065785E-02                                                                                             
+           427      S     -7.439427E-02                                                                                             
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.156043E+01    (CYCLIC FREQUENCY =  1.988121E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           1*     1090   7.526801E-02    2090   1.488984E-01    3090   2.215816E-01    4090   2.929866E-01    5090   3.628209E-01
+           1*     6089   4.307581E-01    7090   4.964609E-01    8090   5.595924E-01    9090   6.198204E-01   10089   6.768195E-01
+           1*    11090   7.302725E-01   12089   7.798696E-01   13089   8.253074E-01   14090   8.662866E-01   15090   9.025066E-01
+           1*    16089   9.336585E-01   17090   9.594108E-01   18089   9.793867E-01   19090   9.931232E-01   20089   1.000000E+00
+           1      1090  -5.125281E-02    2090  -1.013905E-01    3090  -1.508833E-01    4090  -1.995056E-01    5090  -2.470584E-01
+           1      6089  -2.933193E-01    7090  -3.380589E-01    8090  -3.810475E-01    9090  -4.220590E-01   10089  -4.608718E-01
+           1     11090  -4.972700E-01   12089  -5.310425E-01   13089  -5.619829E-01   14090  -5.898870E-01   15090  -6.145507E-01
+           1     16089  -6.357632E-01   17090  -6.532989E-01   18089  -6.669012E-01   19090  -6.762550E-01   20089  -6.809376E-01
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.537770E+01    (CYCLIC FREQUENCY =  3.690781E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           109      S      4.974199E-02                                                                                             
+           118      S     -6.400827E-02                                                                                             
+           127      S     -4.974199E-02                                                                                             
+           209      S      6.003302E-02                                                                                             
+           218      S     -7.725082E-02                                                                                             
+           227      S     -6.003302E-02                                                                                             
+           309      S      2.830808E-02                                                                                             
+           318      S     -3.642700E-02                                                                                             
+           327      S     -2.830808E-02                                                                                             
+           409      S     -1.615319E-02                                                                                             
+           418      S      2.078602E-02                                                                                             
+           427      S      1.615320E-02                                                                                             
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.537770E+01    (CYCLIC FREQUENCY =  3.690781E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           1*     1090   1.883588E-01    2090   3.573058E-01    3090   5.044234E-01    4090   6.242689E-01    5090   7.117764E-01
+           1*     6089   7.633172E-01    7090   7.771183E-01    8090   7.534228E-01    9090   6.944861E-01   10089   6.044371E-01
+           1*    11090   4.890248E-01   12089   3.552704E-01   13089   2.110474E-01   14090   6.461761E-02   15090  -7.584647E-02
+           1*    16089  -2.027249E-01   17090  -3.093650E-01   18089  -3.904220E-01   19090  -4.420857E-01   20089  -4.621605E-01
+           1      1090   2.423812E-01    2090   4.597830E-01    3090   6.490948E-01    4090   8.033126E-01    5090   9.159176E-01
+           1      6089   9.822407E-01    7090   1.000000E+00    8090   9.695085E-01    9090   8.936684E-01   10089   7.777928E-01
+           1     11090   6.292797E-01   12089   4.571639E-01   13089   2.715769E-01   14090   8.315028E-02   15090  -9.759963E-02
+           1     16089  -2.608674E-01   17090  -3.980926E-01   18089  -5.023971E-01   19090  -5.688782E-01   20089  -5.947106E-01
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.537770E+01    (CYCLIC FREQUENCY =  3.690781E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           109      S      6.400827E-02                                                                                             
+           118      S      4.974198E-02                                                                                             
+           127      S     -6.400826E-02                                                                                             
+           209      S      7.725082E-02                                                                                             
+           218      S      6.003302E-02                                                                                             
+           227      S     -7.725082E-02                                                                                             
+           309      S      3.642699E-02                                                                                             
+           318      S      2.830808E-02                                                                                             
+           327      S     -3.642699E-02                                                                                             
+           409      S     -2.078602E-02                                                                                             
+           418      S     -1.615319E-02                                                                                             
+           427      S      2.078602E-02                                                                                             
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.537770E+01    (CYCLIC FREQUENCY =  3.690781E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           1*     1090   2.423812E-01    2090   4.597830E-01    3090   6.490948E-01    4090   8.033126E-01    5090   9.159176E-01
+           1*     6089   9.822407E-01    7090   1.000000E+00    8090   9.695085E-01    9090   8.936684E-01   10089   7.777928E-01
+           1*    11090   6.292797E-01   12089   4.571639E-01   13089   2.715769E-01   14090   8.315028E-02   15090  -9.759963E-02
+           1*    16089  -2.608674E-01   17090  -3.980926E-01   18089  -5.023971E-01   19090  -5.688782E-01   20089  -5.947106E-01
+           1      1090  -1.883588E-01    2090  -3.573058E-01    3090  -5.044234E-01    4090  -6.242689E-01    5090  -7.117764E-01
+           1      6089  -7.633172E-01    7090  -7.771183E-01    8090  -7.534228E-01    9090  -6.944861E-01   10089  -6.044371E-01
+           1     11090  -4.890248E-01   12089  -3.552704E-01   13089  -2.110474E-01   14090  -6.461761E-02   15090   7.584647E-02
+           1     16089   2.027249E-01   17090   3.093650E-01   18089   3.904220E-01   19090   4.420857E-01   20089   4.621605E-01
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.897347E+01    (CYCLIC FREQUENCY =  4.767605E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           109      S     -6.135512E-02                                                                                             
+           118      S     -7.968038E-02                                                                                             
+           127      S      6.135511E-02                                                                                             
+           209      S     -1.652395E-02                                                                                             
+           218      S     -2.145924E-02                                                                                             
+           227      S      1.652394E-02                                                                                             
+           309      S      3.474438E-02                                                                                             
+           318      S      4.512167E-02                                                                                             
+           327      S     -3.474438E-02                                                                                             
+           409      S      5.793199E-03                                                                                             
+           418      S      7.523486E-03                                                                                             
+           427      S     -5.793199E-03                                                                                             
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.897347E+01    (CYCLIC FREQUENCY =  4.767605E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           1*     1090  -3.064950E-01    2090  -5.473943E-01    3090  -7.059278E-01    4090  -7.700152E-01    5090  -7.370769E-01
+           1*     6089  -6.168988E-01    7090  -4.305745E-01    8090  -2.073778E-01    9090   1.962719E-02   10089   2.184766E-01
+           1*    11090   3.629191E-01   12089   4.360468E-01   13089   4.324118E-01   14090   3.583437E-01   15090   2.304676E-01
+           1*    16089   7.270546E-02   17090  -8.772898E-02   18089  -2.246875E-01   19090  -3.170863E-01   20089  -3.519157E-01
+           1      1090   3.980377E-01    2090   7.108877E-01    3090   9.167713E-01    4090   1.000000E+00    5090   9.572240E-01
+           1      6089   8.011515E-01    7090   5.591767E-01    8090   2.693165E-01    9090  -2.548937E-02   10089  -2.837302E-01
+           1     11090  -4.713142E-01   12089  -5.662833E-01   13089  -5.615628E-01   14090  -4.653722E-01   15090  -2.993027E-01
+           1     16089  -9.442081E-02   17090   1.139315E-01   18089   2.917963E-01   19090   4.117923E-01   20089   4.570244E-01
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.897347E+01    (CYCLIC FREQUENCY =  4.767605E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          6
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           109      S      7.968039E-02                                                                                             
+           118      S     -6.135512E-02                                                                                             
+           127      S     -7.968039E-02                                                                                             
+           209      S      2.145924E-02                                                                                             
+           218      S     -1.652395E-02                                                                                             
+           227      S     -2.145925E-02                                                                                             
+           309      S     -4.512168E-02                                                                                             
+           318      S      3.474438E-02                                                                                             
+           327      S      4.512168E-02                                                                                             
+           409      S     -7.523486E-03                                                                                             
+           418      S      5.793200E-03                                                                                             
+           427      S      7.523486E-03                                                                                             
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.897347E+01    (CYCLIC FREQUENCY =  4.767605E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          6
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           1*     1090   3.980377E-01    2090   7.108877E-01    3090   9.167713E-01    4090   1.000000E+00    5090   9.572240E-01
+           1*     6089   8.011515E-01    7090   5.591767E-01    8090   2.693165E-01    9090  -2.548937E-02   10089  -2.837302E-01
+           1*    11090  -4.713142E-01   12089  -5.662833E-01   13089  -5.615628E-01   14090  -4.653722E-01   15090  -2.993027E-01
+           1*    16089  -9.442081E-02   17090   1.139315E-01   18089   2.917963E-01   19090   4.117923E-01   20089   4.570244E-01
+           1      1090   3.064950E-01    2090   5.473943E-01    3090   7.059278E-01    4090   7.700152E-01    5090   7.370769E-01
+           1      6089   6.168988E-01    7090   4.305745E-01    8090   2.073778E-01    9090  -1.962719E-02   10089  -2.184766E-01
+           1     11090  -3.629191E-01   12089  -4.360468E-01   13089  -4.324118E-01   14090  -3.583437E-01   15090  -2.304676E-01
+           1     16089  -7.270546E-02   17090   8.772898E-02   18089   2.246875E-01   19090   3.170863E-01   20089   3.519157E-01
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.129402E+02    (CYCLIC FREQUENCY =  5.725194E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          7
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           109      S      6.377520E-02                                                                                             
+           118      S     -6.919532E-02                                                                                             
+           127      S     -6.377520E-02                                                                                             
+           209      S     -3.548566E-02                                                                                             
+           218      S      3.850154E-02                                                                                             
+           227      S      3.548566E-02                                                                                             
+           309      S      2.354290E-03                                                                                             
+           318      S     -2.554432E-03                                                                                             
+           327      S     -2.354290E-03                                                                                             
+           409      S      2.182782E-02                                                                                             
+           418      S     -2.368284E-02                                                                                             
+           427      S     -2.182782E-02                                                                                             
+1     VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-03-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.129402E+02    (CYCLIC FREQUENCY =  5.725194E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          7
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           1*     1090   5.019624E-01    2090   8.240456E-01    3090   9.216686E-01    4090   8.003877E-01    5090   5.111621E-01
+           1*     6089   1.418436E-01    7090  -2.062296E-01    8090  -4.453500E-01    9090  -5.239123E-01   10089  -4.380154E-01
+           1*    11090  -2.293369E-01   12089   2.954667E-02   13089   2.576922E-01   14090   3.894098E-01   15090   3.921722E-01
+           1*    16089   2.739421E-01   17090   7.831539E-02   18089  -1.305122E-01   19090  -2.880350E-01   20089  -3.487471E-01
+           1      1090   5.446239E-01    2090   8.940805E-01    3090   1.000000E+00    4090   8.684109E-01    5090   5.546042E-01
+           1      6089   1.538976E-01    7090  -2.237575E-01    8090  -4.831997E-01    9090  -5.684381E-01   10089  -4.752405E-01
+           1     11090  -2.488268E-01   12089   3.205848E-02   13089   2.795930E-01   14090   4.225042E-01   15090   4.255010E-01
+           1     16089   2.972229E-01   17090   8.497076E-02   18089  -1.416039E-01   19090  -3.125136E-01   20089  -3.783854E-01
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  VIBRATION OF A LIQUID IN A HALF FILLED RIGID SPHERE.               
+ DATE:  5/17/95
+ END TIME: 15:40:59
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

@@ -1,0 +1,224 @@
+NASTRAN FILES=PLT2                                                              
+ID    D05011A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   5,1                                                                       
+TIME  26                                                                        
+CEND                                                                            
+TITLE    = SYMMETRIC BUCKLING OF A CYLINDER                                     
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                          
+           SPC  = 1                                                             
+OUTPUT                                                                          
+           SET 1 = 1 THRU 33                                                    
+           SET 2 = 2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,         
+                   74,78                                                        
+   DISPLACEMENTS = 1                                                            
+        SPCFORCE = ALL                                                          
+         ELFORCE = 2                                                            
+        ELSTRESS = 2                                                            
+$                                                                               
+SUBCASE 1                                                                       
+ LABEL =         STATIC SOLUTION                                                
+ LOAD  = 100                                                                    
+ OUTPUT                                                                         
+ OLOAD = ALL                                                                    
+$                                                                               
+SUBCASE 2                                                                       
+ LABEL =         BUCKLING SOLUTION                                              
+METHOD = 300                                                                    
+$                                                                               
+$                                                                               
+PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                            
+OUTPUT(PLOT)                                                                    
+PLOTTER NASTPLT                                                                 
+        SET 1 INCLUDE TRIA1                                                     
+$                                                                               
+        PERSPECTIVE PROJECTION                                                  
+        AXES Y, X, MZ                                                           
+        MAXIMUM DEFORMATION 3.0                                                 
+        FIND SCALE,ORIGIN 1, VANTAGE POINT                                      
+PTITLE = PERSPECTIVE VIEW OF MODEL                                              
+PLOT LABELS,SYMBOLS 6,5                                                         
+$                                                                               
+        ORTHOGRAPHIC PROJECTION                                                 
+        MAXIMUM DEFORMATION  3.0                                                
+        FIND SCALE, ORIGIN 2                                                    
+PTITLE = STATIC LOAD UNDERLAY OF CYLINDRICAL SURFACE                            
+PLOT STATIC DEFORMATION 0,1, ORIGIN 2, LABELS, SHAPE                            
+PTITLE = MODE SHAPES OF CYLINDRICAL SURFACE WITH VECTORS                        
+PLOT MODAL DEFORMATION  2, RANGE 0.5, 3.0,                                      
+        ORIGIN 2, VECTOR R, SYMBOLS 5,6                                         
+        VIEW 0.0, 0.0, 0.0                                                      
+        FIND SCALE, ORIGIN 1                                                    
+PTITLE = LONGITUDINAL EDGE VIEW SHOWING BUCKLING MODES                          
+PLOT MODAL DEFORMATION 0,2, RANGE 0.0, 200.0, ORIGIN 1, SHAPE                   
+BEGIN BULK                                                                      
+CNGRNT  1       5       9       13      17      21      25      29      +CNG11  
++CNG11  33      37      41      45      49      53      57      61      +CNG12  
++CNG12  65      69      73      77                                              
+CNGRNT  2       6       10      14      18      22      26      30      +CNG21  
++CNG21  34      38      42      46      50      54      58      62      +CNG22  
++CNG22  66      70      74      78                                              
+CNGRNT  3       7       11      15      19      23      27      31      +CNG31  
++CNG31  35      39      43      47      51      55      59      63      +CNG32  
++CNG32  67      71      75      79                                              
+CNGRNT  4       8       12      16      20      24      28      32      +CNG41  
++CNG41  36      40      44      48      52      56      60      64      +CNG42  
++CNG42  68      72      76      80                                              
+CORD2C  100     0       25.0    .0      80.0    50.0    .0      80.0    +CORD100
++CORD10025.0    .0      .0                                                      
+CTRIA1  1       200     1       2       51      .0                              
+CTRIA1  2       200     1       4       51      .0                              
+CTRIA1  3       200     4       5       51      .0                              
+CTRIA1  4       200     5       2       51      .0                              
+CTRIA1  5       200     2       3       52      .0                              
+CTRIA1  6       200     2       5       52      .0                              
+CTRIA1  7       200     5       6       52      .0                              
+CTRIA1  8       200     6       3       52      .0                              
+CTRIA1  9       200     4       5       54      .0                              
+CTRIA1  10      200     4       7       54      .0                              
+CTRIA1  11      200     7       8       54      .0                              
+CTRIA1  12      200     8       5       54      .0                              
+CTRIA1  13      200     5       6       55      .0                              
+CTRIA1  14      200     5       8       55      .0                              
+CTRIA1  15      200     8       9       55      .0                              
+CTRIA1  16      200     9       6       55      .0                              
+CTRIA1  17      200     7       8       57      .0                              
+CTRIA1  18      200     7       10      57      .0                              
+CTRIA1  19      200     10      11      57      .0                              
+CTRIA1  20      200     11      8       57      .0                              
+CTRIA1  21      200     8       9       58      .0                              
+CTRIA1  22      200     8       11      58      .0                              
+CTRIA1  23      200     11      12      58      .0                              
+CTRIA1  24      200     12      9       58      .0                              
+CTRIA1  25      200     10      11      60      .0                              
+CTRIA1  26      200     10      13      60      .0                              
+CTRIA1  27      200     13      14      60      .0                              
+CTRIA1  28      200     14      11      60      .0                              
+CTRIA1  29      200     11      12      61      .0                              
+CTRIA1  30      200     11      14      61      .0                              
+CTRIA1  31      200     14      15      61      .0                              
+CTRIA1  32      200     15      12      61      .0                              
+CTRIA1  33      200     13      14      63      .0                              
+CTRIA1  34      200     13      16      63      .0                              
+CTRIA1  35      200     16      17      63      .0                              
+CTRIA1  36      200     17      14      63      .0                              
+CTRIA1  37      200     14      15      64      .0                              
+CTRIA1  38      200     14      17      64      .0                              
+CTRIA1  39      200     17      18      64      .0                              
+CTRIA1  40      200     18      15      64      .0                              
+CTRIA1  41      200     16      17      66      .0                              
+CTRIA1  42      200     16      19      66      .0                              
+CTRIA1  43      200     19      20      66      .0                              
+CTRIA1  44      200     20      17      66      .0                              
+CTRIA1  45      200     17      18      67      .0                              
+CTRIA1  46      200     17      20      67      .0                              
+CTRIA1  47      200     20      21      67      .0                              
+CTRIA1  48      200     21      18      67      .0                              
+CTRIA1  49      200     19      20      69      .0                              
+CTRIA1  50      200     19      22      69      .0                              
+CTRIA1  51      200     22      23      69      .0                              
+CTRIA1  52      200     23      20      69      .0                              
+CTRIA1  53      200     20      21      70      .0                              
+CTRIA1  54      200     20      23      70      .0                              
+CTRIA1  55      200     23      24      70      .0                              
+CTRIA1  56      200     24      21      70      .0                              
+CTRIA1  57      200     22      23      72      .0                              
+CTRIA1  58      200     22      25      72      .0                              
+CTRIA1  59      200     25      26      72      .0                              
+CTRIA1  60      200     26      23      72      .0                              
+CTRIA1  61      200     23      24      73      .0                              
+CTRIA1  62      200     23      26      73      .0                              
+CTRIA1  63      200     26      27      73      .0                              
+CTRIA1  64      200     27      24      73      .0                              
+CTRIA1  65      200     25      26      75      .0                              
+CTRIA1  66      200     25      28      75      .0                              
+CTRIA1  67      200     28      29      75      .0                              
+CTRIA1  68      200     29      26      75      .0                              
+CTRIA1  69      200     26      27      76      .0                              
+CTRIA1  70      200     26      29      76      .0                              
+CTRIA1  71      200     29      30      76      .0                              
+CTRIA1  72      200     30      27      76      .0                              
+CTRIA1  73      200     28      29      78      .0                              
+CTRIA1  74      200     28      31      78      .0                              
+CTRIA1  75      200     31      32      78      .0                              
+CTRIA1  76      200     32      29      78      .0                              
+CTRIA1  77      200     29      30      79      .0                              
+CTRIA1  78      200     29      32      79      .0                              
+CTRIA1  79      200     32      33      79      .0                              
+CTRIA1  80      200     33      30      79      .0                              
+EIGB    300     UDET    .10     2.5     4       4       0       1.5E-05 +EIGB300
++EIGB300MAX                                                                     
+FORCE   1       1       100     1.0+3   .0      .0      .5                      
+FORCE   1       2       100     1.0+3   .0      .0      1.0                     
+FORCE   1       3       100     1.0+3   .0      .0      .5                      
+FORCE   1       31      100     1.0+3   .0      .0      -0.5                    
+FORCE   1       32      100     1.0+3   .0      .0      -1.0                    
+FORCE   1       33      100     1.0+3   .0      .0      -0.5                    
+GRDSET                                                  462                     
+GRID    1       100     80.0    -3.0    -25.0   100                             
+GRID    2       100     80.0    .0      -25.0   100                             
+GRID    3       100     80.0    3.0     -25.0   100                             
+GRID    4       100     80.0    -3.0    -20.0   100                             
+GRID    5       100     80.0    .0      -20.0   100                             
+GRID    6       100     80.0    3.0     -20.0   100                             
+GRID    7       100     80.0    -3.0    -15.0   100                             
+GRID    8       100     80.0    .0      -15.0   100                             
+GRID    9       100     80.0    3.0     -15.0   100                             
+GRID    10      100     80.0    -3.0    -10.0   100                             
+GRID    11      100     80.0    .0      -10.0   100                             
+GRID    12      100     80.0    3.0     -10.0   100                             
+GRID    13      100     80.0    -3.0    -05.0   100                             
+GRID    14      100     80.0    .0      -05.0   100                             
+GRID    15      100     80.0    3.0     -05.0   100                             
+GRID    16      100     80.0    -3.0    +0.0    100                             
+GRID    17      100     80.0    .0      +0.0    100                             
+GRID    18      100     80.0    3.0     +0.0    100                             
+GRID    19      100     80.0    -3.0    +5.0    100                             
+GRID    20      100     80.0    .0      +5.0    100                             
+GRID    21      100     80.0    3.0     +5.0    100                             
+GRID    22      100     80.0    -3.0    10.0    100                             
+GRID    23      100     80.0    .0      10.0    100                             
+GRID    24      100     80.0    3.0     10.0    100                             
+GRID    25      100     80.0    -3.0    15.0    100                             
+GRID    26      100     80.0    .0      15.0    100                             
+GRID    27      100     80.0    3.0     15.0    100                             
+GRID    28      100     80.0    -3.0    20.0    100                             
+GRID    29      100     80.0    .0      20.0    100                             
+GRID    30      100     80.0    3.0     20.0    100                             
+GRID    31      100     80.0    -3.0    25.0    100                             
+GRID    32      100     80.0    .0      25.0    100                             
+GRID    33      100     80.0    3.0     25.0    100                             
+GRID    51      100     80.0    -1.5    -22.5   100                             
+GRID    52      100     80.0    1.5     -22.5   100                             
+GRID    54      100     80.0    -1.5    -17.5   100                             
+GRID    55      100     80.0    1.5     -17.5   100                             
+GRID    57      100     80.0    -1.5    -12.5   100                             
+GRID    58      100     80.0    1.5     -12.5   100                             
+GRID    60      100     80.0    -1.5    -07.5   100                             
+GRID    61      100     80.0    1.5     -07.5   100                             
+GRID    63      100     80.0    -1.5    -02.5   100                             
+GRID    64      100     80.0    1.5     -02.5   100                             
+GRID    66      100     80.0    -1.5    2.5     100                             
+GRID    67      100     80.0    1.5     2.5     100                             
+GRID    69      100     80.0    -1.5    7.5     100                             
+GRID    70      100     80.0    1.5     7.5     100                             
+GRID    72      100     80.0    -1.5    12.5    100                             
+GRID    73      100     80.0    1.5     12.5    100                             
+GRID    75      100     80.0    -1.5    17.5    100                             
+GRID    76      100     80.0    1.5     17.5    100                             
+GRID    78      100     80.0    -1.5    22.5    100                             
+GRID    79      100     80.0    1.5     22.5    100                             
+LOAD    100     1.0     1.89745 1                                               
+MAT1    400     10000.00        .0                                              
+PARAM   IRES    1                                                               
+PTRIA1  200     400     2.5     400     1.30208                         +PTRIA1*
++PTRIA1*1.51022 0.00                                                            
+SEQGP   51      2.5     52      3.5     54      5.5     55      6.5             
+SEQGP   57      8.5     58      9.5     60      11.5    61      12.5            
+SEQGP   63      14.5    64      15.5    66      17.5    67      18.5            
+SEQGP   69      20.5    70      21.5    72      23.5    73      24.5            
+SEQGP   75      26.5    76      27.5    78      29.5    79      30.5            
+SPC     50038   17      3       .0                                              
+SPC1    50037   1       1       2       3       31      32      33              
+SPCADD  1       50037   50038                                                   
+ENDDATA                                                                         

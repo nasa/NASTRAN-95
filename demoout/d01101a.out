@@ -1,0 +1,452 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01101A,NASTRAN                                                           
+     SOL   1,0                                                                       
+     TIME  9                                                                         
+     APP   DISPLACEMENT                                                              
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = THERMAL BENDING OF A BAR.                                            
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                          
+                  3      TEMPERATURE(LOAD) = 20                                                          
+                  4              OUTPUT                                                                  
+                  5         DISPLACEMENT = ALL                                                           
+                  6             SPCFORCE = ALL                                                           
+                  7              OLOAD   = ALL                                                           
+                  8              ELFORCE = ALL                                                           
+                  9              STRESS  = ALL                                                           
+                 10      SUBCASE 1                                                                       
+                 11              LABEL =   CONSTRAINTS ARE - FIXED AND FREE ENDS.                        
+                 12              SPC = 1                                                                 
+                 13      SUBCASE 2                                                                       
+                 14              LABEL =   CONSTRAINTS ARE - FIXED AND SIMPLY SUPPORTED ENDS.            
+                 15              SPC = 2                                                                 
+                 16      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    64, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        BAROR                                   .0      1.00    .0      1               
+                    2-        CBAR    101     10      1       2                                               
+                    3-        CBAR    102     10      2       3                                               
+                    4-        CBAR    103     10      3       4                                               
+                    5-        CBAR    104     10      4       5                                               
+                    6-        CBAR    105     10      5       6                                               
+                    7-        CBAR    106     10      6       7                                               
+                    8-        CBAR    107     10      7       8                                               
+                    9-        CBAR    108     10      8       9                                               
+                   10-        CBAR    109     10      9       10                                              
+                   11-        CBAR    110     10      10      11                                              
+                   12-        CBAR    111     10      11      12                                              
+                   13-        CBAR    112     10      12      13                                              
+                   14-        CBAR    113     10      13      14                                              
+                   15-        CBAR    114     10      14      15                                              
+                   16-        GRDSET                                                  345                     
+                   17-        GRID    1               .0      .0      .0                                      
+                   18-        GRID    2               2.4     .0      .0                                      
+                   19-        GRID    3               3.7     .0      .0                                      
+                   20-        GRID    4               4.7     .0      .0                                      
+                   21-        GRID    5               5.5     .0      .0                                      
+                   22-        GRID    6               6.2     .0      .0                                      
+                   23-        GRID    7               7.2     .0      .0                                      
+                   24-        GRID    8               7.8     .0      .0                                      
+                   25-        GRID    9               8.3     .0      .0                                      
+                   26-        GRID    10              8.7     .0      .0                                      
+                   27-        GRID    11              9.0     .0      .0                                      
+                   28-        GRID    12              9.3     .0      .0                                      
+                   29-        GRID    13              9.6     .0      .0                                      
+                   30-        GRID    14              9.8     .0      .0                                      
+                   31-        GRID    15              10.0    .0      .0                                      
+                   32-        MAT1    10      1.0+7           .3              1.3-5   .0                      
+                   33-        PBAR    10      10      .52     .0689333.0337333                        +BAR    
+                   34-        +BAR    .0              .3              .5              -0.5                    
+                   35-        SPC     1       1       126     .0                                              
+                   36-        SPC     2       1       126     .0      15      2       .0                      
+                   37-        TEMPRB  20      101     .0      .0      .0      2.35083 .0      .0      +1T     
+                   38-        +1T     .0      .0      .0      .0      .0      .373248 1.728   -1.728          
+                   39-        TEMPRB  20      102     .0      .0      2.35083 8.61375 .0      .0      +2T     
+                   40-        +2T     .0      .373248 1.728   -1.728  .0      1.36763 6.33163 -6.33163        
+                   41-        TEMPRB  20      103     .0      .0      8.61375 17.6555 .0      .0      +3T     
+                   42-        +3T     .0      1.36763 6.33163 -6.33163.0      2.80322 12.9779 -12.9779        
+                   43-        TEMPRB  20      104     .0      .0      17.6555 28.2928 .0      .0      +4T     
+                   44-        +4T     .0      2.80322 12.9779 -12.9779.0      4.49213 20.7969 -20.7969        
+                   45-        TEMPRB  20      105     .0      .0      28.2928 40.5287 .0      .0      +5T     
+                   46-        +5T     .0      4.49213 20.7969 -20.7969.0      6.43486 29.791  -29.791         
+                   47-        TEMPRB  20      106     .0      .0      40.5287 63.4724 .0      .0      +6T     
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        +6T     .0      6.43486 29.791  -29.791 .0      10.0777 46.656  -46.656         
+                   49-        TEMPRB  20      107     .0      .0      63.4724 80.6995 .0      .0      +7T     
+                   50-        +7T     .0      10.0777 46.656  -46.656 .0      12.8129 59.319  -59.319         
+                   51-        TEMPRB  20      108     .0      .0      80.6995 97.2348 .0      .0      +8T     
+                   52-        +8T     .0      12.8129 59.319  -59.319 .0      15.4383 71.4734 -71.4734        
+                   53-        TEMPRB  20      109     .0      .0      97.2348 111.981 .0      .0      +9T     
+                   54-        +9T     .0      15.4383 71.4734 -71.4734.0      17.7796 82.3129 -82.3129        
+                   55-        TEMPRB  20      110     .0      .0      111.981 123.97  .0      .0      +10T    
+                   56-        +10T    .0      17.7796 82.3129 -82.3129.0      19.683  91.125  -91.125         
+                   57-        TEMPRB  20      111     .0      .0      123.97  136.784 .0      .0      +11T    
+                   58-        +11T    .0      19.683  91.125  -91.125 .0      21.7176 100.545 -100.545        
+                   59-        TEMPRB  20      112     .0      .0      136.784 150.453 .0      .0      +12T    
+                   60-        +12T    .0      21.7176 100.545 -100.545.0      23.8879 110.592 -110.592        
+                   61-        TEMPRB  20      113     .0      .0      150.453 160.054 .0      .0      +13T    
+                   62-        +13T    .0      23.8879 110.592 -110.592.0      25.4122 117.649 -117.649        
+                   63-        TEMPRB  20      114     .0      .0      160.054 170.054 .0      .0      +14T    
+                   64-        +14T    .0      25.4122 117.649 -117.649.0      27.0    125.0   -125.0          
+                              ENDDATA
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            2
+                                        PROFILE             29
+                                        MAX WAVEFRONT        2
+                                        AVG WAVEFRONT    1.933
+                                        RMS WAVEFRONT    1.949
+                                        RMS BANDWIDTH    1.949
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            2
+                                        PROFILE             29
+                                        MAX WAVEFRONT        2
+                                        AVG WAVEFRONT    1.933
+                                        RMS WAVEFRONT    1.949
+                                        RMS BANDWIDTH    1.949
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        2         2
+                                        PROFILE (P)                         29        29
+                                        MAXIMUM WAVEFRONT (C-MAX)            2         2
+                                        AVERAGE WAVEFRONT (C-AVG)        1.933     1.933
+                                        RMS WAVEFRONT (C-RMS)            1.949     1.949
+                                        RMS BANDWITCH (B-RMS)            1.949     1.949
+                                        NUMBER OF GRID POINTS (N)                     15
+                                        NUMBER OF ELEMENTS (NON-RIGID)                14
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           2
+                                        MINIMUM NODAL DEGREE                           1
+                                        NUMBER OF UNIQUE EDGES                        14
+                                        MATRIX DENSITY, PERCENT                   19.111
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID      101
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   1.7497619E-12
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     2, EPSILON SUB E =   1.0778023E-13
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0       CONSTRAINTS ARE - FIXED AND FREE ENDS.                                                               SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      0.0           -2.933817E-05   0.0            0.0            0.0           -3.667279E-05                  
+             3      G      0.0           -1.257693E-04   0.0            0.0            0.0           -1.293234E-04                  
+             4      G      0.0           -3.306724E-04   0.0            0.0            0.0           -3.000733E-04                  
+             5      G      0.0           -6.589283E-04   0.0            0.0            0.0           -5.390043E-04                  
+             6      G      0.0           -1.139334E-03   0.0            0.0            0.0           -8.521419E-04                  
+             7      G      0.0           -2.304624E-03   0.0            0.0            0.0           -1.528149E-03                  
+             8      G      0.0           -3.383476E-03   0.0            0.0            0.0           -2.090419E-03                  
+             9      G      0.0           -4.568779E-03   0.0            0.0            0.0           -2.668706E-03                  
+            10      G      0.0           -5.742496E-03   0.0            0.0            0.0           -3.212666E-03                  
+            11      G      0.0           -6.774144E-03   0.0            0.0            0.0           -3.672770E-03                  
+            12      G      0.0           -7.950997E-03   0.0            0.0            0.0           -4.181241E-03                  
+            13      G      0.0           -9.288054E-03   0.0            0.0            0.0           -4.741353E-03                  
+            14      G      0.0           -1.027627E-02   0.0            0.0            0.0           -5.145011E-03                  
+            15      G      0.0           -1.134775E-02   0.0            0.0            0.0           -5.574150E-03                  
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0       CONSTRAINTS ARE - FIXED AND SIMPLY SUPPORTED ENDS.                                                   SUBCASE 2              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      0.0            8.726722E-04   0.0            0.0            0.0            6.823210E-04                  
+             3      G      0.0            1.917093E-03   0.0            0.0            0.0            8.972513E-04                  
+             4      G      0.0            2.840327E-03   0.0            0.0            0.0            9.239523E-04                  
+             5      G      0.0            3.546124E-03   0.0            0.0            0.0            8.184709E-04                  
+             6      G      0.0            4.051537E-03   0.0            0.0            0.0            6.042290E-04                  
+             7      G      0.0            4.401627E-03   0.0            0.0            0.0            4.056478E-05                  
+             8      G      0.0            4.279935E-03   0.0            0.0            0.0           -4.706409E-04                  
+             9      G      0.0            3.913174E-03   0.0            0.0            0.0           -1.015735E-03                  
+            10      G      0.0            3.404911E-03   0.0            0.0            0.0           -1.539269E-03                  
+            11      G      0.0            2.877122E-03   0.0            0.0            0.0           -1.987629E-03                  
+            12      G      0.0            2.207190E-03   0.0            0.0            0.0           -2.487418E-03                  
+            13      G      0.0            1.379200E-03   0.0            0.0            0.0           -3.041913E-03                  
+            14      G      0.0            7.310949E-04   0.0            0.0            0.0           -3.443528E-03                  
+            15      G      0.0            0.0            0.0            0.0            0.0           -3.871987E-03                  
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0       CONSTRAINTS ARE - FIXED AND FREE ENDS.                                                               SUBCASE 1              
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -8.777737E+00   0.0            0.0            0.0           -7.629395E-06                  
+             2      G      0.0           -3.439463E+01   0.0            0.0            0.0           -2.288818E-05                  
+             3      G      0.0           -3.785376E+01   0.0            0.0            0.0           -2.288818E-05                  
+             4      G      0.0           -3.812915E+01   0.0            0.0            0.0           -4.577637E-05                  
+             5      G      0.0           -3.748755E+01   0.0            0.0            0.0            9.155273E-05                  
+             6      G      0.0           -4.896338E+01   0.0            0.0            0.0           -6.103516E-05                  
+             7      G      0.0           -5.169019E+01   0.0            0.0            0.0           -2.441406E-04                  
+             8      G      0.0           -3.906006E+01   0.0            0.0            0.0           -2.441406E-04                  
+             9      G      0.0           -3.400879E+01   0.0            0.0            0.0           -2.441406E-04                  
+            10      G      0.0           -2.775781E+01   0.0            0.0            0.0           -1.220703E-04                  
+            11      G      0.0           -2.464453E+01   0.0            0.0            0.0           -4.882812E-04                  
+            12      G      0.0           -2.554297E+01   0.0            0.0            0.0           -7.324219E-04                  
+            13      G      0.0           -2.187305E+01   0.0            0.0            0.0            4.882812E-04                  
+            14      G      0.0           -1.788281E+01   0.0            0.0            0.0            1.220703E-03                  
+            15      G      0.0            4.480664E+02   0.0            0.0            0.0           -1.523909E+03                  
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0       CONSTRAINTS ARE - FIXED AND SIMPLY SUPPORTED ENDS.                                                   SUBCASE 2              
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -8.777737E+00   0.0            0.0            0.0           -7.629395E-06                  
+             2      G      0.0           -3.439463E+01   0.0            0.0            0.0           -2.288818E-05                  
+             3      G      0.0           -3.785376E+01   0.0            0.0            0.0           -2.288818E-05                  
+             4      G      0.0           -3.812915E+01   0.0            0.0            0.0           -4.577637E-05                  
+             5      G      0.0           -3.748755E+01   0.0            0.0            0.0            9.155273E-05                  
+             6      G      0.0           -4.896338E+01   0.0            0.0            0.0           -6.103516E-05                  
+             7      G      0.0           -5.169019E+01   0.0            0.0            0.0           -2.441406E-04                  
+             8      G      0.0           -3.906006E+01   0.0            0.0            0.0           -2.441406E-04                  
+             9      G      0.0           -3.400879E+01   0.0            0.0            0.0           -2.441406E-04                  
+            10      G      0.0           -2.775781E+01   0.0            0.0            0.0           -1.220703E-04                  
+            11      G      0.0           -2.464453E+01   0.0            0.0            0.0           -4.882812E-04                  
+            12      G      0.0           -2.554297E+01   0.0            0.0            0.0           -7.324219E-04                  
+            13      G      0.0           -2.187305E+01   0.0            0.0            0.0            4.882812E-04                  
+            14      G      0.0           -1.788281E+01   0.0            0.0            0.0            1.220703E-03                  
+            15      G      0.0            4.480664E+02   0.0            0.0            0.0           -1.523909E+03                  
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0       CONSTRAINTS ARE - FIXED AND FREE ENDS.                                                               SUBCASE 1              
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -1.119155E-09   0.0            0.0            0.0           -4.037770E-05                  
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0       CONSTRAINTS ARE - FIXED AND SIMPLY SUPPORTED ENDS.                                                   SUBCASE 2              
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -2.346715E+01   0.0            0.0            0.0           -2.346715E+02                  
+            15      G      0.0            2.346715E+01   0.0            0.0            0.0            0.0                           
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0       CONSTRAINTS ARE - FIXED AND FREE ENDS.                                                               SUBCASE 1              
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+          101     3.890592E-05  0.0            4.348356E-05  0.0           -1.907349E-06  0.0            0.0            0.0         
+          102     3.242493E-05  0.0            6.217956E-05  0.0           -2.288818E-05  0.0            0.0            0.0         
+          103     4.577637E-05  0.0            2.670288E-04  0.0           -2.212524E-04  0.0            0.0            0.0         
+          104    -1.220703E-04  0.0           -1.220701E-05  0.0           -1.373291E-04  0.0            0.0            0.0         
+          105     6.866455E-04  0.0           -8.087154E-04  0.0            2.136230E-03  0.0            0.0            0.0         
+          106    -5.493164E-04  0.0            1.525879E-04  0.0           -7.019043E-04  0.0            0.0            0.0         
+          107     2.441406E-04  0.0           -4.956058E-03  0.0            8.666992E-03  0.0            0.0            0.0         
+          108    -5.187988E-03  0.0           -6.408691E-03  0.0            2.441406E-03  0.0            0.0            0.0         
+          109     9.277344E-03  0.0            4.492192E-03  0.0            1.196289E-02  0.0            0.0            0.0         
+          110    -1.342773E-03  0.0           -1.562500E-03  0.0            7.324219E-04  0.0            0.0            0.0         
+          111    -1.464844E-03  0.0            3.881839E-03  0.0           -1.782227E-02  0.0            0.0            0.0         
+          112     1.647949E-02  0.0           -4.116214E-02  0.0            1.921387E-01  0.0            0.0            0.0         
+          113     8.789062E-03  0.0           -1.541991E-01  0.0            8.149414E-01  0.0            0.0            0.0         
+          114    -7.849121E-02  0.0           -6.589357E-02  0.0           -6.298828E-02  0.0            0.0            0.0         
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0       CONSTRAINTS ARE - FIXED AND SIMPLY SUPPORTED ENDS.                                                   SUBCASE 2              
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+          101     2.346715E+02  0.0            1.783503E+02  0.0            2.346717E+01  0.0            0.0            0.0         
+          102     1.783505E+02  0.0            1.478437E+02  0.0            2.346679E+01  0.0            0.0            0.0         
+          103     1.478440E+02  0.0            1.243761E+02  0.0            2.346792E+01  0.0            0.0            0.0         
+          104     1.243749E+02  0.0            1.056023E+02  0.0            2.346568E+01  0.0            0.0            0.0         
+          105     1.056037E+02  0.0            8.917683E+01  0.0            2.346698E+01  0.0            0.0            0.0         
+          106     8.917719E+01  0.0            6.570914E+01  0.0            2.346805E+01  0.0            0.0            0.0         
+          107     6.570728E+01  0.0            5.163488E+01  0.0            2.345398E+01  0.0            0.0            0.0         
+          108     5.162762E+01  0.0            3.989984E+01  0.0            2.345557E+01  0.0            0.0            0.0         
+          109     3.988428E+01  0.0            3.050450E+01  0.0            2.344946E+01  0.0            0.0            0.0         
+          110     3.049866E+01  0.0            2.344843E+01  0.0            2.350073E+01  0.0            0.0            0.0         
+          111     2.348291E+01  0.0            1.641950E+01  0.0            2.354468E+01  0.0            0.0            0.0         
+          112     1.641492E+01  0.0            9.401021E+00  0.0            2.337964E+01  0.0            0.0            0.0         
+          113     9.399414E+00  0.0            4.686430E+00  0.0            2.356494E+01  0.0            0.0            0.0         
+          114     4.696899E+00  0.0            3.251553E-03  0.0            2.346826E+01  0.0            0.0            0.0         
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0       CONSTRAINTS ARE - FIXED AND FREE ENDS.                                                               SUBCASE 1              
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0    101     0.0           -1.693199E-04  -2.821998E-04   2.821998E-04   0.0            2.821998E-04  -2.821998E-04                 
+             0.0            4.315995E+01  -7.183636E+01   7.183636E+01                  7.183636E+01  -7.183636E+01                 
+0    102     0.0            4.316000E+01  -7.183629E+01   7.183629E+01   0.0            7.183629E+01  -7.183629E+01                 
+             0.0            1.581441E+02  -2.632186E+02   2.632186E+02                  2.632186E+02  -2.632186E+02                 
+0    103     0.0            1.581442E+02  -2.632185E+02   2.632185E+02   0.0            2.632185E+02  -2.632185E+02                 
+             0.0            3.241448E+02  -5.395214E+02   5.395214E+02                  5.395214E+02  -5.395214E+02                 
+0    104     0.0            3.241465E+02  -5.395185E+02   5.395185E+02   0.0            5.395185E+02  -5.395185E+02                 
+             0.0            5.194424E+02  -8.645649E+02   8.645649E+02                  8.645649E+02  -8.645649E+02                 
+0    105     0.0            5.194394E+02  -8.645699E+02   8.645699E+02   0.0            8.645699E+02  -8.645699E+02                 
+             0.0            7.440912E+02  -1.238459E+03   1.238459E+03                  1.238459E+03  -1.238459E+03                 
+0    106     0.0            7.440900E+02  -1.238460E+03   1.238460E+03   0.0            1.238460E+03  -1.238460E+03                 
+             0.0            1.165322E+03  -1.939575E+03   1.939575E+03                  1.939575E+03  -1.939575E+03                 
+0    107     0.0            1.165322E+03  -1.939576E+03   1.939576E+03   0.0            1.939576E+03  -1.939576E+03                 
+             0.0            1.481625E+03  -2.465967E+03   2.465967E+03                  2.465967E+03  -2.465967E+03                 
+0    108     0.0            1.481626E+03  -2.465965E+03   2.465965E+03   0.0            2.465965E+03  -2.465965E+03                 
+             0.0            1.785206E+03  -2.971233E+03   2.971233E+03                  2.971233E+03  -2.971233E+03                 
+0    109     0.0            1.785138E+03  -2.971347E+03   2.971347E+03   0.0            2.971347E+03  -2.971347E+03                 
+             0.0            2.055892E+03  -3.421944E+03   3.421944E+03                  3.421944E+03  -3.421944E+03                 
+0    110     0.0            2.055917E+03  -3.421902E+03   3.421902E+03   0.0            3.421902E+03  -3.421902E+03                 
+             0.0            2.276047E+03  -3.788189E+03   3.788189E+03                  3.788189E+03  -3.788189E+03                 
+0    111     0.0            2.276047E+03  -3.788189E+03   3.788189E+03   0.0            3.788189E+03  -3.788189E+03                 
+             0.0            2.511271E+03  -4.179918E+03   4.179918E+03                  4.179918E+03  -4.179918E+03                 
+0    112     0.0            2.511217E+03  -4.180010E+03   4.180010E+03   0.0            4.180010E+03  -4.180010E+03                 
+             0.0            2.762420E+03  -4.597217E+03   4.597217E+03                  4.597217E+03  -4.597217E+03                 
+0    113     0.0            2.762202E+03  -4.597579E+03   4.597579E+03   0.0            4.597579E+03  -4.597579E+03                 
+             0.0            2.939191E+03  -4.889742E+03   4.889742E+03                  4.889742E+03  -4.889742E+03                 
+0    114     0.0            2.938862E+03  -4.890291E+03   4.890291E+03   0.0            4.890291E+03  -4.890291E+03                 
+             0.0            3.122393E+03  -5.196012E+03   5.196012E+03                  5.196012E+03  -5.196012E+03                 
+1     THERMAL BENDING OF A BAR.                                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-10-1A                                                                                   
+0       CONSTRAINTS ARE - FIXED AND SIMPLY SUPPORTED ENDS.                                                   SUBCASE 2              
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0    101     0.0           -1.021298E+03  -1.702164E+03   1.702164E+03   0.0            1.702164E+03  -1.702164E+03                 
+             0.0           -7.330262E+02  -1.365480E+03   1.365480E+03                  1.365480E+03  -1.365480E+03                 
+0    102     0.0           -7.330271E+02  -1.365481E+03   1.365481E+03   0.0            1.365481E+03  -1.365481E+03                 
+             0.0           -4.852762E+02  -1.335586E+03   1.335586E+03                  1.335586E+03  -1.335586E+03                 
+0    103     0.0           -4.852775E+02  -1.335588E+03   1.335588E+03   0.0            1.335588E+03  -1.335588E+03                 
+             0.0           -2.171429E+02  -1.441667E+03   1.441667E+03                  1.441667E+03  -1.441667E+03                 
+0    104     0.0           -2.171376E+02  -1.441659E+03   1.441659E+03   0.0            1.441659E+03  -1.441659E+03                 
+             0.0            5.985757E+01  -1.630540E+03   1.630540E+03                  1.630540E+03  -1.630540E+03                 
+0    105     0.0            5.985153E+01  -1.630550E+03   1.630550E+03   0.0            1.630550E+03  -1.630550E+03                 
+             0.0            3.559871E+02  -1.885299E+03   1.885299E+03                  1.885299E+03  -1.885299E+03                 
+0    106     0.0            3.559856E+02  -1.885301E+03   1.885301E+03   0.0            1.885301E+03  -1.885301E+03                 
+             0.0            8.793545E+02  -2.416188E+03   2.416188E+03                  2.416188E+03  -2.416188E+03                 
+0    107     0.0            8.793627E+02  -2.416174E+03   2.416174E+03   0.0            2.416174E+03  -2.416174E+03                 
+             0.0            1.256887E+03  -2.840530E+03   2.840530E+03                  2.840530E+03  -2.840530E+03                 
+0    108     0.0            1.256919E+03  -2.840478E+03   2.840478E+03   0.0            2.840478E+03  -2.840478E+03                 
+             0.0            1.611533E+03  -3.260688E+03   3.260688E+03                  3.260688E+03  -3.260688E+03                 
+0    109     0.0            1.611601E+03  -3.260575E+03   3.260575E+03   0.0            3.260575E+03  -3.260575E+03                 
+             0.0            1.923155E+03  -3.643172E+03   3.643172E+03                  3.643172E+03  -3.643172E+03                 
+0    110     0.0            1.923180E+03  -3.643130E+03   3.643130E+03   0.0            3.643130E+03  -3.643130E+03                 
+             0.0            2.173992E+03  -3.958281E+03   3.958281E+03                  3.958281E+03  -3.958281E+03                 
+0    111     0.0            2.173842E+03  -3.958531E+03   3.958531E+03   0.0            3.958531E+03  -3.958531E+03                 
+             0.0            2.439830E+03  -4.298987E+03   4.298987E+03                  4.298987E+03  -4.298987E+03                 
+0    112     0.0            2.439850E+03  -4.298954E+03   4.298954E+03   0.0            4.298954E+03  -4.298954E+03                 
+             0.0            2.721327E+03  -4.665705E+03   4.665705E+03                  4.665705E+03  -4.665705E+03                 
+0    113     0.0            2.721334E+03  -4.665693E+03   4.665693E+03   0.0            4.665693E+03  -4.665693E+03                 
+             0.0            2.918125E+03  -4.924853E+03   4.924853E+03                  4.924853E+03  -4.924853E+03                 
+0    114     0.0            2.918079E+03  -4.924929E+03   4.924929E+03   0.0            4.924929E+03  -4.924929E+03                 
+             0.0            3.122092E+03  -5.196513E+03   5.196513E+03                  5.196513E+03  -5.196513E+03                 
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  THERMAL BENDING OF A BAR.                                          
+ DATE:  5/17/95
+ END TIME: 15: 0:56
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

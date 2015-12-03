@@ -1,0 +1,210 @@
+$-------------------------------------------------------------------------------
+$                     RIGID FORMAT No. 1, Static Analysis
+$               Delta Wing with Biconvex Cross Section (1-1-1)
+$ Delta Wing, Biconvex Cross Section Using QDMEM1 and QDMEM2 Elements (1-1-2)
+$      Delta Wing, Biconvex Cross Section Using QDMEM1 Elements (1-1-3)
+$      Delta Wing, Biconvex Cross Section Using QDMEM2 Elements (1-1-4)
+$
+$ A. Description
+$
+$ This series illustrates the use of various NASTRAN elements in the solution of
+$ an actual structural problem. The delta wing model is composed of membrane,
+$ shear panel, and rod elements. Due to the existence of symmetry or
+$ antisymmetry in the structure and loading conditions, only one-quarter of the
+$ wing needs to be modeled. The midplane of the wing (the plane dividing the
+$ wing into upper and lower halves) is a plane of symmetry, as is the center
+$ plane (the plane that divides the wing into left and right halves). The
+$ loading conditions are antisymmetrical with respect to the midplane of the
+$ wing and symmetric with respect to the center plane.
+$
+$ B. Input
+$
+$ The surface skin of the wing is modeled with membrane elements while the ribs
+$ and spars are modeled with a combination of shear panels and rods. The shear
+$ load carrying capability of ribs and span is represented by shear panels. The
+$ bending stiffness of the ribs and spars is modeled with rod elements placed in
+$ the plane of the skin surface.
+$
+$ Since a quarter model is used, the loading conditions require that an
+$ antisymmetric boundary be provided on the midplane and a symmetric boundary
+$ must be provided on the center plane. These boundary conditions are provided
+$ by constraining all grid points on the midplane in the x and y directions and
+$ all grid points on the center plane in the x direction. Supports for the
+$ structure are provided by constraining grid points 13, 33, 53, 73, and 93 in
+$ the z direction. Since no rotational rigidity is provided by the elements used
+$ in the model, all rotational degrees of freedom have been removed by the use
+$ of the GRDSET card.
+$
+$ The problem is first modeled (Problem 1-1-1) with a load on the trailing
+$ edge and a checkpoint is requested. The modified restart (Problem 1-1-1A)
+$ capability is used to perform the analysis associated with the leading edge
+$ loading condition. The ability of NASTRAN to change rigid formats on a restart
+$ is demonstrated by the third case (Problem 1-1-1B). The natural modes of the
+$ structure are extracted using the Inverse Power method. Since the symmetric
+$ boundary conditions are used, only the modes with symmetric motion about the
+$ center line will be extracted. If the unsymmetric modes were required, a
+$ separate run with the appropriate boundary conditions could be submitted.
+$
+$ A second variation (Problem 1-1-2) of the basic problem is obtained by
+$ replacing the quadrilateral membrane elements (QDMEM) with the QDMEM1 and
+$ QDMEM2 elements. This modification demonstrates the ability to reproduce
+$ previously derived theoretical results. The SORT2 format of the printed output
+$ allows the results obtained with a leading and trailing load to be compared. A
+$ third case (Problem 1-1-3) is modeled with all QDMEM elements replaced by
+$ QDMEM1 (Reference 26) elements. A grid point force balance is requested to
+$ verify that the static equilibrium of forces at a grid point (due to the load,
+$ constraints, and element forces) is zero. A fourth modeling of the wing
+$ (Problem 1-1-4) uses QDMEM2 elements in place of the QDMEM elements. In this
+$ case, element strain energy is requested to exhibit the energy transmitted by
+$ each of the elements due to the load and resultant deflections.
+$
+$ 1. Parameters
+$
+$                6      2
+$ E   = 10.4 x 10  lb/in           (modulus of elasticity)
+$
+$                6      2
+$ G   =  4.0 x 10  lb/in           (shear modulus)
+$
+$                  -4       2   4
+$ p   =  2.523 x 10   lb sec /in   (density)
+$
+$ 2. Constraints
+$
+$ theta sub x  = theta sub y  = theta sub z   = 0.0      All grid points
+$
+$ U   =  0.0               Grids 13, 33, 53, 73, and 93
+$  z
+$
+$ U   =  0.0               Grids 11, 31, 51, 71, and 91
+$  x
+$
+$ U   =  U   =  0.0        Grids 1, 2, 3, 4, 5, 6, 21, 22, 23, 24, 25, 26, 41,
+$  x      y                      42, 43, 44, 45, 61, 62, 63, 64, 81, 82, and 83
+$
+$ 3. Loads
+$
+$ Problems 1-1-1, 1-1-2, 1-1-3, 1-1-4
+$
+$     Grid 16   F   = -500.0  (trailing edge)
+$                z
+$ Problem 1-1-2
+$
+$     Grid 36   F   = -500.0  (leading edge)
+$                z
+$
+$ 4. Eigenvalue extraction data
+$
+$ Method:  Inverse Power
+$
+$ Region of interest:  30.0 <= f <= 160.0
+$
+$ Number of desired roots:  3
+$
+$ Number of estimated roots:  1
+$
+$ C. Results
+$
+$ No closed-form or theoretical solution exists for this problem. However, a
+$ passive analog computer simulation (Reference 1) and a laboratory test
+$ (Reference 2) have been performed for this structural model. The displacements
+$ calculated by NASTRAN and the experimentally measured and simulated
+$ displacements are shown in Tables 1 and 2. The natural frequencies and modal
+$ displacements are shown in Tables 3 and 4. Table 5 presents the displacements
+$ for the static loading conditions when elements 1 through 9 are CQDMEM1
+$ elements and the other quadrilaterals are CQDMEM2 elements.
+$
+$ Table 1. NASTRAN and Experimental Deflections - Concentrated Load on Outboard
+$          Trailing Edge
+$            --------------------------------------------------------
+$                                      Z DISPLACEMENT
+$             GRID         ------------------------------------------
+$            NUMBER        NASTRAN        EXPERIMENTAL         ANALOG
+$            --------------------------------------------------------
+$               14           -.082           -.08               -.080
+$               15           -.221           -.22               -.210
+$               16           -.424           -.39               -.400
+$               34           -.063           -.07               -.061
+$               35           -.162           -.16               -.157
+$               36           -.293           -.28               -.286
+$               54           -.043           -.05               -.044
+$               55           -.104           -.12               -.144
+$               74           -.025           -.03               -.030
+$            --------------------------------------------------------
+$ 
+$ Table 2. NASTRAN and Experimental Deflections - Concentrated Load on Outboard
+$          Leading Edge.
+$            --------------------------------------------------------
+$                                      Z DISPLACEMENT
+$             GRID         ------------------------------------------
+$            NUMBER        NASTRAN        EXPERIMENTAL         ANALOG
+$            --------------------------------------------------------
+$               14           -.063           -.06               -.060
+$               15           -.163           -.15               -.157
+$               16           -.293           -.28               -.286
+$               34           -.057           -.06               -.057
+$               35           -.148           -.15               -.150
+$               36           -.280           -.30               -.290
+$               54           -.046           -.05               -.048
+$               55           -.118           -.13               -.127
+$               74           -.030           -.04               -.035
+$            --------------------------------------------------------
+$ 
+$            Table 3. NASTRAN and Analog Computer Analysis Eigenvalues
+$                     -----------------------------------------
+$                     Mode No.   NASTRAN (cps.)   ANALOG (cps.)
+$                     -----------------------------------------
+$                        1             40.9           41.3
+$                        2            115.3          131.0
+$                        3            156.2          167.0
+$                     -----------------------------------------
+$ 
+$                   Table 4. Mode Displacements For First Mode
+$                            -------------------------
+$                                      Z DISPLACEMENT
+$                             GRID    ----------------
+$                            NUMBER   NASTRAN   ANALOG
+$                            -------------------------
+$                               14      .250     .273
+$                               15      .601     .630
+$                               16     1.000    1.000
+$                               34      .210     .239
+$                               35      .504     .558
+$                               36      .854     .902
+$                               54      .162     .192
+$                               55      .391     .462
+$                               74      .112     .148
+$                            -------------------------
+$ 
+$                     Table 5. Comparison of Z Displacements
+$          ---------------------------------------------------------------
+$                     Trailing Edge Load             Leading Edge Load
+$                    --------------------------   ------------------------
+$                                   CQDMEM1 and                CQDMEM1 and
+$          Grid      CQDMEM         CQDMEM2       CQDMEM       CQDMEM2
+$          Point     Elements       Elements      Elements     Elements
+$          ---------------------------------------------------------------
+$           14        -.082           -.082         -.063        -.064
+$           15        -.221           -.224         -.163        -.167
+$           16        -.424           -.433         -.293        -.300
+$           34        -.063           -.064         -.057        -.059
+$           35        -.162           -.166         -.148        -.154
+$           36        -.293           -.300         -.280        -.294
+$           54        -.043           -.044         -.046        -.047
+$           55        -.104           -.108         -.118        -.123
+$           74        -.025           -.026         -.030        -.031
+$          ---------------------------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$
+$ 1. Richard H. MacNeal and Stanley U. Benscoter, "Analysis of Multicell Delta
+$    Wings on Cal-Tech Analog Computer", NACA TN 3114, 1953.
+$
+$ 2. George W. Zender, "Comparison of Theoretical Stresses and Deflections of
+$    Multicell Wings with Experimental Results Obtained from Plastic Models",
+$    NACA TN 3913.
+$
+$ 26. Adelman, Howard E.; Walz, Joseph E.; and Rogers, James L., Jr.:  "An
+$     Isoparametric Quadrilateral Membrane Element for NASTRAN", NASA TN X-2637,
+$     September, 1972, pp. 315-336. 
+$-------------------------------------------------------------------------------

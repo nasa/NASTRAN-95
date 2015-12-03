@@ -1,0 +1,465 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01171A,NASTRAN                                                           
+     APP   DISP                                                                      
+     SOL   1,0                                                                       
+     TIME  10                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     ELEMENT STRESS PRECISION CHECKS                                                                                               
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                 
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                          
+                  3      LABEL    = ELEMENT STRESS PRECISION CHECKS                                      
+                  4      SPC = 10                                                                        
+                  5      OUTPUT                                                                          
+                  6      DISPLACEMENT = ALL                                                              
+                  7      ELSTRESS = ALL                                                                  
+                  8      NCHECK = 12                                                                     
+                  9      SUBCASE 1                                                                       
+                 10      LABEL = LOAD IN LONGITUDINAL DIRECTION                                          
+                 11      LOAD  = 1                                                                       
+                 12      SUBCASE 2                                                                       
+                 13      LABEL = LOAD IN TRANSVERSE DIRECTION                                            
+                 14      LOAD  = 2                                                                       
+                 15      SUBCASE 3                                                                       
+                 16      LABEL = LOAD NORMAL TO SURFACE                                                  
+                 17      LOAD  = 3                                                                       
+                 18      SUBCASE 4                                                                       
+                 19      LABEL = THERMAL LOAD                                                            
+                 20      TEMP(LOAD) = 4                                                                  
+                 21      SPC = 20                                                                        
+                 22      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    40, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     ELEMENT STRESS PRECISION CHECKS                                                                                               
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CQUAD2  11      10      11      12      22      21      .0                      
+                    2-        CQUAD2  12      10      12      13      23      22      .0                      
+                    3-        CQUAD2  21      20      21      22      32      31      .0                      
+                    4-        CQUAD2  22      20      22      23      33      32      .0                      
+                    5-        CQUAD2  31      30      31      32      42      41      .0                      
+                    6-        CQUAD2  32      30      32      33      43      42      .0                      
+                    7-        CQUAD2  41      40      41      42      52      51      .0                      
+                    8-        CQUAD2  42      40      42      43      53      52      .0                      
+                    9-        FORCE   1       51              100.0   .0      1.0     .0                      
+                   10-        FORCE   1       52              400.0   .0      1.0     .0                      
+                   11-        FORCE   1       53              100.0   .0      1.0     .0                      
+                   12-        FORCE   2       52              1000.0  1.0     .0      .0                      
+                   13-        FORCE   3       52              100.0   .0      .0      1.0                     
+                   14-        GRDSET                                                  6                       
+                   15-        GRID    11              .0      .0      .0                                      
+                   16-        GRID    12              10.0    .0      .0                                      
+                   17-        GRID    13              20.0    .0      .0                                      
+                   18-        GRID    21              .0      10.0    .0                                      
+                   19-        GRID    22              10.0    10.0    .0                                      
+                   20-        GRID    23              20.0    10.0    .0                                      
+                   21-        GRID    31              .0      20.0    .0                                      
+                   22-        GRID    32              10.0    20.0    .0                                      
+                   23-        GRID    33              20.0    20.0    .0                                      
+                   24-        GRID    41              .0      30.0    .0                                      
+                   25-        GRID    42              10.0    30.0    .0                                      
+                   26-        GRID    43              20.0    30.0    .0                                      
+                   27-        GRID    51              .0      40.0    .0                                      
+                   28-        GRID    52              10.0    40.0    .0                                      
+                   29-        GRID    53              20.0    40.0    .0                                      
+                   30-        MAT1    10      1.0E3           .0              1.0E-6  70.0                    
+                   31-        MAT1    20      1.0E5           .0              1.0E-6  70.0                    
+                   32-        MAT1    30      1.0E7           .0              1.0E-6  70.0                    
+                   33-        MAT1    40      1.0E9           .0              1.0E-6  70.0                    
+                   34-        PQUAD2  10      10      1.0     .0      20      20      1.0     .0              
+                   35-        PQUAD2  30      30      1.0     .0      40      40      1.0     .0              
+                   36-        SPC1    10      23      11      13                                              
+                   37-        SPC1    10      12345   12                                                      
+                   38-        SPC1    20      12345   11      THRU    13                                      
+                   39-        SPC1    20      12345   51      THRU    53                                      
+                   40-        TEMPD   4       170.0                                                           
+                              ENDDATA
+0*** USER WARNING MESSAGE 2251, TWO OF THE E, G AND NU ON MAT1 CARD       10 ARE ZEROS OR BLANKS.
+     POTENTIAL ERROR MAY OCCUR LATER
+0*** USER WARNING MESSAGE 2251, TWO OF THE E, G AND NU ON MAT1 CARD       20 ARE ZEROS OR BLANKS.
+     POTENTIAL ERROR MAY OCCUR LATER
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+
+      ELEMENT STRESS PRECISION CHECKS                                                                                               
+
+
+
+
+0*** USER WARNING MESSAGE 2251, TWO OF THE E, G AND NU ON MAT1 CARD       30 ARE ZEROS OR BLANKS.
+     POTENTIAL ERROR MAY OCCUR LATER
+0*** USER WARNING MESSAGE 2251, TWO OF THE E, G AND NU ON MAT1 CARD       40 ARE ZEROS OR BLANKS.
+     POTENTIAL ERROR MAY OCCUR LATER
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     ELEMENT STRESS PRECISION CHECKS                                                                                               
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            5
+                                        PROFILE             61
+                                        MAX WAVEFRONT        5
+                                        AVG WAVEFRONT    4.067
+                                        RMS WAVEFRONT    4.235
+                                        RMS BANDWIDTH    4.266
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            5
+                                        PROFILE             61
+                                        MAX WAVEFRONT        5
+                                        AVG WAVEFRONT    4.067
+                                        RMS WAVEFRONT    4.235
+                                        RMS BANDWIDTH    4.266
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        5         5
+                                        PROFILE (P)                         61        61
+                                        MAXIMUM WAVEFRONT (C-MAX)            5         5
+                                        AVERAGE WAVEFRONT (C-AVG)        4.067     4.067
+                                        RMS WAVEFRONT (C-RMS)            4.235     4.235
+                                        RMS BANDWITCH (B-RMS)            4.266     4.266
+                                        NUMBER OF GRID POINTS (N)                     15
+                                        NUMBER OF ELEMENTS (NON-RIGID)                 8
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           8
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                        38
+                                        MATRIX DENSITY, PERCENT                   40.444
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD2    ELEMENTS (ELEMENT TYPE  18) STARTING WITH ID       11
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -6.1119436E-11
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     2, EPSILON SUB E =   3.9226826E-09
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     3, EPSILON SUB E =  -7.0352350E-08
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     4, EPSILON SUB E =   6.4355009E-17
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     ELEMENT STRESS PRECISION CHECKS                                                                                               
+0     E L E M E N T   P R E C I S I O N   C H E C K
+    SIGNIFICANT DIGITS FOR SUBCASE =      1,      1 = LOAD
+       TYPE     EID     MX     MY    MXY     VX     VY    SX1    SY1   SXY1    SX2    SY2   SXY2
+0     QUAD2      11   15.7   15.7   15.7   15.7   15.7   15.7   15.7    8.5   15.7   15.7    8.5
+0     QUAD2      12   15.7   15.7   15.7   15.7   15.7   15.7   15.7    8.5   15.7   15.7    8.5
+0     QUAD2      21   15.7   15.7   15.7   15.7   15.7   15.7   13.4    8.6   15.7   13.4    8.6
+0     QUAD2      22   15.7   15.7   15.7   15.7   15.7   15.7   13.4    8.6   15.7   13.4    8.6
+0     QUAD2      31   15.7   15.7   15.7   15.7   15.7   15.7   11.3    8.7   15.7   11.3    8.7
+0     QUAD2      32   15.7   15.7   15.7   15.7   15.7   15.7   11.3    8.7   15.7   11.3    8.7
+0     QUAD2      41   15.7   15.7   15.7   15.7   15.7   13.7    9.3    8.8   13.7    9.3    8.8
+0     QUAD2      42   15.7   15.7   15.7   15.7   15.7   13.7    9.3    8.8   13.7    9.3    8.8
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     ELEMENT STRESS PRECISION CHECKS                                                                                               
+0     E L E M E N T   P R E C I S I O N   C H E C K
+    SIGNIFICANT DIGITS FOR SUBCASE =      2,      2 = LOAD
+       TYPE     EID     MX     MY    MXY     VX     VY    SX1    SY1   SXY1    SX2    SY2   SXY2
+0     QUAD2      21   15.7   15.7   15.7   15.7   15.7   11.3   13.2   12.6   11.3   13.2   12.6
+0     QUAD2      22   15.7   15.7   15.7   15.7   15.7   11.3   13.2   12.6   11.3   13.2   12.6
+0     QUAD2      31   15.7   15.7   15.7   15.7   15.7    8.4   11.0   10.4    8.4   11.0   10.4
+0     QUAD2      32   15.7   15.7   15.7   15.7   15.7    8.4   11.0   10.4    8.4   11.0   10.4
+0     QUAD2      41   15.7   15.7   15.7   15.7   15.7    8.2    8.4    8.1    8.2    8.4    8.1
+0     QUAD2      42   15.7   15.7   15.7   15.7   15.7    8.2    8.4    8.1    8.2    8.4    8.1
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     ELEMENT STRESS PRECISION CHECKS                                                                                               
+0     E L E M E N T   P R E C I S I O N   C H E C K
+    SIGNIFICANT DIGITS FOR SUBCASE =      3,      3 = LOAD
+       TYPE     EID     MX     MY    MXY     VX     VY    SX1    SY1   SXY1    SX2    SY2   SXY2
+0     QUAD2      21   15.7   13.1   11.8   11.6   11.7   15.7   13.1   11.8   15.7   13.1   11.8
+0     QUAD2      22   15.7   13.1   11.8   11.6   11.7   15.7   13.1   11.8   15.7   13.1   11.8
+0     QUAD2      31   15.6   10.9    9.1    9.2    9.5   15.6   10.9    9.1   15.6   10.9    9.1
+0     QUAD2      32   15.6   10.9    9.1    9.2    9.5   15.6   10.9    9.1   15.6   10.9    9.1
+0     QUAD2      41   15.5    9.4    8.2   15.7    8.0   15.5    9.4    8.2   15.5    9.4    8.2
+0     QUAD2      42   15.5    9.4    8.2   15.7    8.0   15.5    9.4    8.2   15.5    9.4    8.2
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     ELEMENT STRESS PRECISION CHECKS                                                                                               
+0     E L E M E N T   P R E C I S I O N   C H E C K
+    SIGNIFICANT DIGITS FOR SUBCASE =      4,      0 = LOAD
+       TYPE     EID     MX     MY    MXY     VX     VY    SX1    SY1   SXY1    SX2    SY2   SXY2
+0     QUAD2      31   15.7   15.7   15.7   15.7   15.7   15.0   11.8   13.6   15.0   11.8   13.6
+0     QUAD2      32   15.7   15.7   15.7   15.7   15.7   15.0   11.8   13.6   15.0   11.8   13.6
+0     QUAD2      41   15.7   15.7   15.7   15.7   15.7   15.7   10.2   14.9   15.7   10.2   14.9
+0     QUAD2      42   15.7   15.7   15.7   15.7   15.7   15.7   10.2   14.9   15.7   10.2   14.9
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     LOAD IN LONGITUDINAL DIRECTION                                                                         SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G      1.136627E-08   0.0            0.0            0.0            0.0            0.0                           
+            12      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            13      G     -1.136839E-08   0.0            0.0            0.0            0.0            0.0                           
+            21      G      2.331782E-08   3.000000E-01   0.0            0.0            0.0            0.0                           
+            22      G     -4.557625E-12   3.000000E-01   0.0            0.0            0.0            0.0                           
+            23      G     -2.332694E-08   3.000000E-01   0.0            0.0            0.0            0.0                           
+            31      G      3.511839E-08   3.030000E-01   0.0            0.0            0.0            0.0                           
+            32      G     -7.360022E-12   3.030000E-01   0.0            0.0            0.0            0.0                           
+            33      G     -3.513312E-08   3.030000E-01   0.0            0.0            0.0            0.0                           
+            41      G      3.251075E-08   3.030300E-01   0.0            0.0            0.0            0.0                           
+            42      G     -1.013840E-11   3.030300E-01   0.0            0.0            0.0            0.0                           
+            43      G     -3.253103E-08   3.030300E-01   0.0            0.0            0.0            0.0                           
+            51      G     -3.321615E-08   3.030302E-01   0.0            0.0            0.0            0.0                           
+            52      G     -1.291650E-11   3.030304E-01   0.0            0.0            0.0            0.0                           
+            53      G      3.319032E-08   3.030302E-01   0.0            0.0            0.0            0.0                           
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     LOAD IN TRANSVERSE DIRECTION                                                                           SUBCASE 2              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G      4.001586E-01   0.0            0.0            0.0            0.0            0.0                           
+            12      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            13      G      4.001586E-01   0.0            0.0            0.0            0.0            0.0                           
+            21      G      2.600476E+00   2.800000E+00   0.0            0.0            0.0            0.0                           
+            22      G      2.599683E+00  -2.131248E-11   0.0            0.0            0.0            0.0                           
+            23      G      2.600476E+00  -2.800000E+00   0.0            0.0            0.0            0.0                           
+            31      G      5.420080E+00   2.820000E+00   0.0            0.0            0.0            0.0                           
+            32      G      5.420078E+00  -2.152550E-11   0.0            0.0            0.0            0.0                           
+            33      G      5.420080E+00  -2.820000E+00   0.0            0.0            0.0            0.0                           
+            41      G      8.240239E+00   2.820120E+00   0.0            0.0            0.0            0.0                           
+            42      G      8.240239E+00  -2.152745E-11   0.0            0.0            0.0            0.0                           
+            43      G      8.240239E+00  -2.820120E+00   0.0            0.0            0.0            0.0                           
+            51      G      1.106036E+01   2.820120E+00   0.0            0.0            0.0            0.0                           
+            52      G      1.106036E+01  -2.152767E-11   0.0            0.0            0.0            0.0                           
+            53      G      1.106036E+01  -2.820120E+00   0.0            0.0            0.0            0.0                           
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     LOAD NORMAL TO SURFACE                                                                                 SUBCASE 3              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G      0.0            0.0            0.0            9.594370E+00   3.892732E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            13      G      0.0            0.0            0.0            9.594370E+00  -3.892732E-01   0.0                           
+            21      G      0.0            0.0            1.568320E+02   2.574604E+01   5.975270E-02   0.0                           
+            22      G      0.0            0.0            1.563638E+02   2.584833E+01   2.478003E-08   0.0                           
+            23      G      0.0            0.0            1.568320E+02   2.574604E+01  -5.975265E-02   0.0                           
+            31      G      0.0            0.0            4.153883E+02   2.594679E+01   6.801047E-04   0.0                           
+            32      G      0.0            0.0            4.153853E+02   2.594758E+01   2.525376E-08   0.0                           
+            33      G      0.0            0.0            4.153883E+02   2.594679E+01  -6.800542E-04   0.0                           
+            41      G      0.0            0.0            6.748639E+02   2.594809E+01   1.421553E-06   0.0                           
+            42      G      0.0            0.0            6.748639E+02   2.594809E+01   2.525925E-08   0.0                           
+            43      G      0.0            0.0            6.748639E+02   2.594809E+01  -1.371035E-06   0.0                           
+            51      G      0.0            0.0            9.343448E+02   2.594809E+01  -1.628650E-06   0.0                           
+            52      G      0.0            0.0            9.343448E+02   2.594809E+01   2.525915E-08   0.0                           
+            53      G      0.0            0.0            9.343448E+02   2.594809E+01   1.679169E-06   0.0                           
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     THERMAL LOAD                                                                                           SUBCASE 4              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            12      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            13      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            21      G     -1.020553E-03  -2.915823E-03   0.0            0.0            0.0            0.0                           
+            22      G     -1.897354E-19  -3.004177E-03   0.0            0.0            0.0            0.0                           
+            23      G      1.020553E-03  -2.915823E-03   0.0            0.0            0.0            0.0                           
+            31      G     -9.535098E-04  -1.924571E-03   0.0            0.0            0.0            0.0                           
+            32      G      1.084202E-19  -2.074629E-03   0.0            0.0            0.0            0.0                           
+            33      G      9.535098E-04  -1.924571E-03   0.0            0.0            0.0            0.0                           
+            41      G     -6.980164E-04  -9.129202E-04   0.0            0.0            0.0            0.0                           
+            42      G     -2.710505E-20  -1.087072E-03   0.0            0.0            0.0            0.0                           
+            43      G      6.980164E-04  -9.129202E-04   0.0            0.0            0.0            0.0                           
+            51      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            52      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            53      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     LOAD IN LONGITUDINAL DIRECTION                                                                         SUBCASE 1              
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 2 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      11   -5.000000E-01     -1.734433E-06   3.000000E+01   9.536743E-07    90.0000    3.000000E+01   -1.907349E-06   1.500000E+01 
+             5.000000E-01     -1.734433E-06   3.000000E+01   9.536743E-07    90.0000    3.000000E+01   -1.907349E-06   1.500000E+01 
+0      12   -5.000000E-01     -1.734539E-06   3.000000E+01  -9.536743E-07   -90.0000    3.000000E+01   -1.907349E-06   1.500000E+01 
+             5.000000E-01     -1.734539E-06   3.000000E+01  -9.536743E-07   -90.0000    3.000000E+01   -1.907349E-06   1.500000E+01 
+0      21   -5.000000E-01     -2.922406E-04   3.000000E+01   2.441406E-04    89.9995    3.000000E+01   -2.918243E-04   1.500015E+01 
+             5.000000E-01     -2.922406E-04   3.000000E+01   2.441406E-04    89.9995    3.000000E+01   -2.918243E-04   1.500015E+01 
+0      22   -5.000000E-01     -2.922407E-04   3.000000E+01  -2.441406E-04   -89.9995    3.000000E+01   -2.918243E-04   1.500015E+01 
+             5.000000E-01     -2.922407E-04   3.000000E+01  -2.441406E-04   -89.9995    3.000000E+01   -2.918243E-04   1.500015E+01 
+0      31   -5.000000E-01     -3.382332E-02   3.000000E+01   3.125000E-02    89.9404    3.000003E+01   -3.385544E-02   1.501694E+01 
+             5.000000E-01     -3.382332E-02   3.000000E+01   3.125000E-02    89.9404    3.000003E+01   -3.385544E-02   1.501694E+01 
+0      32   -5.000000E-01     -3.382332E-02   3.000000E+01  -3.125000E-02   -89.9404    3.000003E+01   -3.385544E-02   1.501694E+01 
+             5.000000E-01     -3.382332E-02   3.000000E+01  -3.125000E-02   -89.9404    3.000003E+01   -3.385544E-02   1.501694E+01 
+0      41   -5.000000E-01      3.411746E-02   3.000000E+01   4.500000E+00    81.6414    3.066118E+01   -6.270628E-01   1.564412E+01 
+             5.000000E-01      3.411746E-02   3.000000E+01   4.500000E+00    81.6414    3.066118E+01   -6.270628E-01   1.564412E+01 
+0      42   -5.000000E-01      3.411717E-02   3.000000E+01  -4.500000E+00   -81.6414    3.066118E+01   -6.270628E-01   1.564412E+01 
+             5.000000E-01      3.411717E-02   3.000000E+01  -4.500000E+00   -81.6414    3.066118E+01   -6.270628E-01   1.564412E+01 
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     LOAD IN TRANSVERSE DIRECTION                                                                           SUBCASE 2              
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 2 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      11   -5.000000E-01     -2.004755E+01   1.400000E+02   5.000000E+01    74.0011    1.543362E+02   -3.438375E+01   9.435998E+01 
+             5.000000E-01     -2.004755E+01   1.400000E+02   5.000000E+01    74.0011    1.543362E+02   -3.438375E+01   9.435998E+01 
+0      12   -5.000000E-01      2.004756E+01  -1.400000E+02   5.000000E+01    15.9989    3.438376E+01   -1.543362E+02   9.435998E+01 
+             5.000000E-01      2.004756E+01  -1.400000E+02   5.000000E+01    15.9989    3.438376E+01   -1.543362E+02   9.435998E+01 
+0      21   -5.000000E-01     -3.974609E+00   1.000000E+02   5.000146E+01    68.0577    1.201433E+02   -2.411792E+01   7.213062E+01 
+             5.000000E-01     -3.974609E+00   1.000000E+02   5.000146E+01    68.0577    1.201433E+02   -2.411792E+01   7.213062E+01 
+0      22   -5.000000E-01      3.972656E+00  -1.000000E+02   5.000195E+01    21.9427    2.411658E+01   -1.201439E+02   7.213026E+01 
+             5.000000E-01      3.972656E+00  -1.000000E+02   5.000195E+01    21.9427    2.411658E+01   -1.201439E+02   7.213026E+01 
+0      31   -5.000000E-01     -7.500000E-01   6.000000E+01   5.000000E+01    60.6393    8.812834E+01   -2.887834E+01   5.850334E+01 
+             5.000000E-01     -7.500000E-01   6.000000E+01   5.000000E+01    60.6393    8.812834E+01   -2.887834E+01   5.850334E+01 
+0      32   -5.000000E-01      7.500000E-01  -6.000001E+01   5.000000E+01    29.3607    2.887834E+01   -8.812835E+01   5.850334E+01 
+             5.000000E-01      7.500000E-01  -6.000001E+01   5.000000E+01    29.3607    2.887834E+01   -8.812835E+01   5.850334E+01 
+0      41   -5.000000E-01      6.400000E+01   1.600000E+01   3.200000E+01    26.5651    8.000000E+01    0.0            4.000000E+01 
+             5.000000E-01      6.400000E+01   1.600000E+01   3.200000E+01    26.5651    8.000000E+01    0.0            4.000000E+01 
+0      42   -5.000000E-01     -6.400000E+01  -1.600108E+01   3.200000E+01    63.4346   -8.621216E-04   -8.000021E+01   3.999968E+01 
+             5.000000E-01     -6.400000E+01  -1.600108E+01   3.200000E+01    63.4346   -8.621216E-04   -8.000021E+01   3.999968E+01 
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     LOAD NORMAL TO SURFACE                                                                                 SUBCASE 3              
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 2 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      11   -5.000000E-01      1.122579E+01   1.050000E+03   2.090967E+02    79.0355    1.090510E+03   -2.928381E+01   5.598969E+02 
+             5.000000E-01     -1.122579E+01  -1.050000E+03  -2.090967E+02   -10.9645    2.928381E+01   -1.090510E+03   5.598969E+02 
+0      12   -5.000000E-01      1.122599E+01   1.050000E+03  -2.090971E+02   -79.0355    1.090510E+03   -2.928387E+01   5.598970E+02 
+             5.000000E-01     -1.122599E+01  -1.050000E+03   2.090971E+02    10.9645    2.928387E+01   -1.090510E+03   5.598970E+02 
+0      21   -5.000000E-01      1.509965E+02   7.499062E+02   2.887031E+02    68.0236    8.664114E+02    3.449139E+01   4.159600E+02 
+             5.000000E-01     -1.509965E+02  -7.499062E+02  -2.887031E+02   -21.9764   -3.449139E+01   -8.664114E+02   4.159600E+02 
+0      22   -5.000000E-01      1.509964E+02   7.499062E+02  -2.887031E+02   -68.0236    8.664114E+02    3.449130E+01   4.159600E+02 
+             5.000000E-01     -1.509964E+02  -7.499062E+02   2.887031E+02    21.9764   -3.449130E+01   -8.664114E+02   4.159600E+02 
+0      31   -5.000000E-01      1.747801E+02   4.537500E+02   9.600000E+01    72.7312    4.835933E+02    1.449368E+02   1.693282E+02 
+             5.000000E-01     -1.747801E+02  -4.537500E+02  -9.600000E+01   -17.2688   -1.449368E+02   -4.835933E+02   1.693282E+02 
+0      32   -5.000000E-01      1.747801E+02   4.560000E+02  -1.020000E+02   -72.0212    4.891000E+02    1.416801E+02   1.737100E+02 
+             5.000000E-01     -1.747801E+02  -4.560000E+02   1.020000E+02    17.9788   -1.416801E+02   -4.891000E+02   1.737100E+02 
+0      41   -5.000000E-01     -1.563726E+03  -1.488000E+03  -1.536000E+03   -45.7060    1.060352E+01   -3.062330E+03   1.536467E+03 
+             5.000000E-01      1.563726E+03   1.488000E+03   1.536000E+03    44.2940    3.062330E+03   -1.060352E+01   1.536467E+03 
+0      42   -5.000000E-01     -1.563726E+03  -1.488000E+03  -1.536000E+03   -45.7060    1.060352E+01   -3.062330E+03   1.536467E+03 
+             5.000000E-01      1.563726E+03   1.488000E+03   1.536000E+03    44.2940    3.062330E+03   -1.060352E+01   1.536467E+03 
+1     RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-17-1A                                                                                   
+0     THERMAL LOAD                                                                                           SUBCASE 4              
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 2 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      11   -5.000000E-01     -4.897237E-02  -3.960000E-01  -2.772269E-02    -4.5388   -4.677166E-02   -3.982007E-01   1.757145E-01 
+             5.000000E-01     -4.897237E-02  -3.960000E-01  -2.772269E-02    -4.5388   -4.677166E-02   -3.982007E-01   1.757145E-01 
+0      12   -5.000000E-01     -4.897237E-02  -3.960000E-01   2.772269E-02     4.5388   -4.677166E-02   -3.982007E-01   1.757145E-01 
+             5.000000E-01     -4.897237E-02  -3.960000E-01   2.772269E-02     4.5388   -4.677166E-02   -3.982007E-01   1.757145E-01 
+0      21   -5.000000E-01     -1.296883E-01  -3.959990E-01  -4.284244E-01   -36.3673    1.857963E-01   -7.114835E-01   4.486399E-01 
+             5.000000E-01     -1.296883E-01  -3.959990E-01  -4.284244E-01   -36.3673    1.857963E-01   -7.114835E-01   4.486399E-01 
+0      22   -5.000000E-01     -1.296883E-01  -3.959990E-01   4.284244E-01    36.3673    1.857963E-01   -7.114835E-01   4.486399E-01 
+             5.000000E-01     -1.296883E-01  -3.959990E-01   4.284244E-01    36.3673    1.857963E-01   -7.114835E-01   4.486399E-01 
+0      31   -5.000000E-01     -1.742369E+02  -3.958740E-01  -1.717905E+01   -84.4100    1.285507E+00   -1.759183E+02   8.860188E+01 
+             5.000000E-01     -1.742369E+02  -3.958740E-01  -1.717905E+01   -84.4100    1.285507E+00   -1.759183E+02   8.860188E+01 
+0      32   -5.000000E-01     -1.742369E+02  -3.959351E-01   1.717905E+01    84.4100    1.285446E+00   -1.759183E+02   8.860185E+01 
+             5.000000E-01     -1.742369E+02  -3.959351E-01   1.717905E+01    84.4100    1.285446E+00   -1.759183E+02   8.860185E+01 
+0      41   -5.000000E-01     -6.509918E+04  -3.906250E-01   1.309662E+04    79.0410    2.535605E+03   -6.763517E+04   3.508539E+04 
+             5.000000E-01     -6.509918E+04  -3.906250E-01   1.309662E+04    79.0410    2.535605E+03   -6.763517E+04   3.508539E+04 
+0      42   -5.000000E-01     -6.509918E+04  -3.906250E-01  -1.309662E+04   -79.0410    2.535605E+03   -6.763517E+04   3.508539E+04 
+             5.000000E-01     -6.509918E+04  -3.906250E-01  -1.309662E+04   -79.0410    2.535605E+03   -6.763517E+04   3.508539E+04 
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  RECTANGULAR PLATE WITH VARIABLE MODULI OF ELASTICITY               
+ DATE:  5/17/95
+ END TIME: 15:13:42
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

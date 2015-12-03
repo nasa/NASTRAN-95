@@ -1,0 +1,142 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$        Fully Stressed Design of a Plate with a Reinforced Hole (1-16-1)
+$ 
+$ A. Description
+$ 
+$ A flat plate with a reinforced hole in the center is optimized for stresses
+$ due to a uniform end load. Restrictions on the minimum thickness are
+$ maintained. This problem has been investigated by G. G. Pope (Reference 21).
+$ 
+$ Due to symmetry, only one quadrant is modeled. Due to the membrane load all
+$ rotations and normal displacements are constrained. The QDMEM and TRMEM
+$ elements are used for the plate and ROD elements for the reinforcement around
+$ the hole.
+$ 
+$ The problem demonstrates several features unique to fully stressed design
+$ capability in NASTRAN. These features are:
+$ 
+$ 1. Elements with no limits on the range of the property change, i.e., the ROD
+$    has no PLIMIT data.
+$ 
+$ 2. Elements with a lower limit on the property optimization card. All membrane
+$    elements are required to have a resultant thickness which must not be less
+$    than a minimum thickness. This minimum is determined from the thickness
+$    obtained when the plate without a hole is subjected to an end load at a
+$    prescribed stress limit.
+$ 
+$ 3. Elements whose stress is not inspected but being in an area of nearly
+$    uniform stress have their properties changed due to another element's
+$    stress. Element 7 has no stress request but does have the same property
+$    identification number as element 17. This type of optimization can save
+$    computer time at the expense of a design that may not be truly optimized.
+$ 
+$ 4. A property whose value depends on the maximum stress of elements. Elements
+$    5 and 15 have the same property card. This option may be necessary if
+$    insufficient core is allocated.
+$ 
+$ 5. Temperature dependent stress limits for material 3.
+$ 
+$ 6. Using one stress limit only. The membrane elements use the maximum
+$    principle shear only. This is 1/2 the major principle stress allowed. This
+$    stress limit was chosen to better model the octahedral limit in Reference
+$    21. The rod elements use only the tension and compression stress
+$    appropriate to the given property, namely area.
+$ 
+$ 7. An additional load case that was not included in the fully stressed design
+$    because a stress request was not made. The second subcase may be considered
+$    a displacement verification of this load case.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    l  = 30.0 in      (total length)
+$    w  = 20.0 in      (total width)
+$    d  = 10.0 in      (hole diameter)
+$    t  =  3.348  in   (initial plate thickness)
+$     o             2
+$    A  =  1.674  in   (initial rod cross sectional area)
+$     o         6
+$    E  = 30.x10   psi (modulus of elasticity)
+$    v  =  0.3         (Poisson's ratio)
+$    t  = 1.0 in       (lower limit for plate thickness corresponding to a
+$     e                       3
+$                      25.0x10  maximum principle stress)
+$ 
+$ 2. Boundary conditions:
+$ 
+$    on y = 0 plane, u  = 0 (symmetry)
+$                     y
+$    on x = 0 plane, u  = 0 (symmetry)
+$                     x
+$    all points u  = theta  = theta  = theta  = 0 (permanent constraints)
+$                z        x        y        z
+$ 3. Loads:
+$                                               3
+$    First subcase:  uniform load, F   = 25.0x10  lb/in
+$                                   10
+$    Second subcase:  at grid points 69 and 79, F   = -1000.0 lb
+$                                                12
+$                     at grid point 78, F   = -2000.0 lb
+$                                        12
+$              (contact load on rim of hole - displacement check only)
+$ 
+$ C. Theory
+$ 
+$ The theoretical approach developed for the property optimization technique in
+$ NASTRAN is contained in the NASTRAN Theoretical Manual, Section 4.4. This
+$ technique is a fully stressed design approach. A mathematical programming
+$ technique is used in reference 21, from which the example problem was taken.
+$ 
+$ The two techniques might be expected to give similar results when the same
+$ model is used. However, reference 21 employs elements which allow varying
+$ properties and stresses, while NASTRAN elements allow only constant properties
+$ and constant stresses. Somewhat different geometry is used in the NASTRAN
+$ model, i.e., the use of quadrilateral elements for illustration. Additional
+$ features of the NASTRAN model are discussed in items 3, 4, and 5 of Part A.
+$ 
+$ D. Results
+$ 
+$ The optimization process in this problem is terminated at 5 iteratlons. The
+$ initial weight to final weight ratio is 2.70 compared to Pope's results of
+$ 2.63. Tables 1 and 2 show the optimized nondimensional properties of the
+$ elements around the arch. Note that the results from reference 2l are averaged
+$ to provide an equivalent constant property element for comparison.
+$ 
+$             Table 1. Optimized Nondimensional Thickness Comparisons
+$               ----------------------------------------------------
+$                             Original     Reference 21     NASTRAN
+$                               t/t        Average t/t       t/t
+$                Element           e                  e         e
+$               ----------------------------------------------------
+$                  37          3.348          1.24          1.00
+$                  38          3.348          1.00          1.04
+$                  39          3.348          1.00          1.00
+$                  46          3.348          2.10          1.14
+$                  47          3.348          1.34          2.00
+$                  57          3.348          3.32          1.34
+$                  59          3.348          3.19          4.40
+$                  67          3.348          4.58          5.47
+$                  68          3.348          3.26          1.00
+$                  69          3.348          4.52          5.49
+$               ----------------------------------------------------
+$ 
+$                Table 2. Optimized Nondimensional Area Comparisons
+$             ---------------------------------------------------------
+$                           Original     Reference 21     NASTRAN
+$                             A/dt       Average A/dt      A/dt
+$              Element            e                  e         e
+$             ---------------------------------------------------------
+$                101        .1674           .0249         .00716
+$                102        .1674           .0238        0.0 effective
+$                103        .1674           .0636         .05019
+$                104        .1674           .1880         .1839
+$                105        .1674           .3540         .3287
+$             ---------------------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 21. Pope, G. G., "Optimum Design of Stressed Skin Structures", AIAA Journal,
+$     Vol. 11, No. 11, pp 1545-1552, November 1973.
+$-------------------------------------------------------------------------------

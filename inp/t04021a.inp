@@ -1,0 +1,41 @@
+NASTRAN FILES=NPTP                                                              
+ID    T04021A,NASTRAN                                                           
+DIAG   14                                                                       
+TIME   10                                                                       
+CHKPNT YES                                                                      
+APP    DISP                                                                     
+SOL    4,6                                                                      
+ALTER  2,2 $                                                                    
+ALTER  91 $                                                                     
+CHKPNT   KDGG $                                                                 
+EXIT $                                                                          
+ENDALTER $                                                                      
+CEND                                                                            
+TITLE    = HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM         
+SUBTITLE = NASTRAN TEST PROBLEM NO. T04-02-1A                                   
+$ REFERENCE PROBLEM III.1                                                       
+SPC  = 10                                                                       
+LOAD = 10                                                                       
+DISP = ALL                                                                      
+SUBCASE 1                                                                       
+  LABEL = STATIC SOLUTION                                                       
+SUBCASE 2                                                                       
+  LABEL = DIFFERENTIAL STIFFNESS SOLUTION                                       
+BEGIN BULK                                                                      
+CQUAD2  101     100     101     102     106     105                             
+CQUAD2  102     100     102     104     108     106                             
+CQUAD2  103     100     104     103     107     108                             
+CQUAD2  104     100     101     103     104     102                             
+GRID    101             0.0     0.0     0.0                                     
+GRID    102             6.0     0.0     0.0                                     
+GRID    103             0.0     12.0    0.0                                     
+GRID    104             6.0     12.0    0.0                                     
+GRID    105             0.0     0.0     12.0                                    
+GRID    106             6.0     0.0     12.0                                    
+GRID    107             0.0     12.0    12.0                                    
+GRID    108             6.0     12.0    12.0                                    
+MAT1    100     10.6+6          .3      .92-3                                   
+PLOAD2  10      1.0     101     THRU    104                                     
+PQUAD2  100     100     .06                                                     
+SPC1    10      12356   101     103     105     107                             
+ENDDATA                                                                         

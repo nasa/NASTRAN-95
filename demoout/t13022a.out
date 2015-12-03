@@ -1,0 +1,1505 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T13022A,NASTRAN                                                           
+     APP   DISP                                                                      
+     DIAG  38                                                                        
+     SOL   13                                                                        
+     TIME  20                                                                        
+     $                                                                               
+     $   THIS PROBLEM DEMONSTRATES THE EFFECTS OF PRESSURE ON THE DYNAMICS OF        
+     $   PRE-STIFFENED STRUCTURE USEING CPSE3 AND CPSE4 DIFFERNTIAL STIFFNESS        
+     $   ELEMENTS                                                                    
+     $                                                                               
+     $   THIS FREE-FREE UNIT LENGTH CYLINDER PROBLEM GIVES THE FOLLOWING             
+     $   NATURAL FREQUENCIES (HZ)                                                    
+     $                                                                               
+     $        WITHOUT THE PRESSURE        WITH  THE PRESSURE                         
+     $        STIFFNESS ELEMENTS          STIFFNESS ELEMENTS                         
+     $        --------------------        ------------------                         
+     $               3.4432                     0.0053                               
+     $               4.6821                     5.3927                               
+     $              13.2614                    13.6570                               
+     $              22.4341                    22.6865                               
+     $              33.1777                    33.3529                               
+     $              46.1936                    46.3210                               
+     $              61.9870                    62.0752                               
+     $              81.8336                    81.8986                               
+     $                                                                               
+     $   THE FOLLOWING DMAP ALTER ALLOWS SOL 13 TO USE DIFFERENT BOUNDARY            
+     $   CONDITION SPC'S FOR THE STATIC SOLUTION (SUBCASE 1 AND 2) AND THE           
+     $   NORMAL MODE SOLUTION (SUBCASE 3)                                            
+     $                                                                               
+     $   THIS DMAP ALTER WILL CAUSE A NUMBER OF WARNING MESSAGES OF POTENTIAL        
+     $   ERRORS PRINTED, BUT IT WORKS OK                                             
+     $                                                                               
+     ALTER  117 $  AFTER OFP MODULE AND BEFORE DPD IN RIGID FORMAT 13                
+     GP4    CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,ASET,OGPST/          
+            LUSET/S,N,MPCF1/S,N,MPCF2/,S,N,SINGLE/S,N,OMIT/S,N,REACT/                
+            S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/C,Y,ASETOUT/              
+            S,N,AUTOSPC $                                                            
+     PARAM  //*AND*/NOSR/SINGLE/REACT $                                              
+     PURGE  GM/MPCF1/GO,KOO,LOO,PO,UOOV,RUOV/OMIT/PS,KFS,KSS/SINGLE/QG/NOSR $        
+     OFP    OGPST,,,,,//S,N,CARDNO $                                                 
+     LABEL  LBL15D $                                                                 
+     EQUIV  KGG,KNN/MPCF1 $                                                          
+     COND   LBL16D,MPCF1 $                                                           
+     MCE1   USET,RG/GM $                                                             
+     MCE2   USET,GM,KGG,,,/KNN,,, $                                                  
+     LABEL  LBL16D $                                                                 
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     5
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     EQUIV  KNN,KFF/SINGLE $                                                         
+     COND   LBL17D,SINGLE $                                                          
+     SCE1   USET,KNN,,,/KFF,KFS,KSS,,, $                                             
+     LABEL  LBL17D $                                                                 
+     EQUIV  KFF,KAA/OMIT $                                                           
+     COND   LBL18D,OMIT $                                                            
+     SMP1   USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                                        
+     LABEL  LBL18D $                                                                 
+     EQUIV  KDGG,KDNN/MPCF2 /MGG,MNN/MPCF2 $                                         
+     COND   LBL19D,MPCF2 $                                                           
+     MCE2   USET,GM,KDGG,MGG,,/KDNN,MNN,, $                                          
+     LABEL  LBL19D $                                                                 
+     EQUIV  KDNN,KDFF/SINGLE /MNN,MFF/SINGLE $                                       
+     COND   LBL20D,SINGLE $                                                          
+     SCE1   USET,KDNN,MNN,,/KDFF,KDFS,KDSS,MFF,, $                                   
+     LABEL  LBL20D $                                                                 
+     EQUIV  KDFF,KDAA/OMIT /MFF,MAA/OMIT $                                           
+     COND   LBL21D,OMIT $                                                            
+     SMP2   USET,GO,KDFF/KDAA $                                                      
+     SMP2   USET,GO,MFF/MAA $                                                        
+     LABEL  LBL21D $                                                                 
+     PARAM  //*ADD*/DSCOSET/-1/0 $                                                   
+     PARAM  //*MPY*/NDSKIP/0/0 $                                                     
+     DSMG2  MPT,KAA,KDAA,KFS,KDFS,KSS,KDSS,PL,PS,YS,UOOV/KBLL,KBFS,KBSS,             
+            PBL,PBS,YBS,UBOOV/S,N,NDSKIP/S,N,REPEATD/DSCOSET $                       
+     ENDALTER $                                                                      
+     $                                                                               
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     6
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL            
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T13-02-2A                                   
+                  3      LABEL  = NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS        
+                  4      ECHO   = BOTH                                                                   
+                  5      DISP   = ALL                                                                    
+                  6      $                                                                               
+                  7      SUBCASE  1                                                                      
+                  8      LABEL  = STATIC SOLUTION                                                        
+                  9      LOAD   = 1                                                                      
+                 10      SPC    = 1                                                                      
+                 11      OLOAD  = ALL                                                                    
+                 12      $                                                                               
+                 13      SUBCASE  2                                                                      
+                 14      LABEL  = SECOND ORDER STATICS SOLUTION                                          
+                 15      SPC    = 4                                                                      
+                 16      DSCOEFFICIENT = DEFAULT                                                         
+                 17      $                                                                               
+                 18      SUBCASE  3                                                                      
+                 19      LABEL  = NORMAL MODES WITH DIFFERENTIAL STIFFNESS                               
+                 20      SPC    = 4                                                                      
+                 21      METHOD = 1                                                                      
+                 22      $                                                                               
+                 23      BEGIN BULK                                                                      
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+0                                             I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              -FF-    PARAM,COUPMASS,1                                                                              
+                              -FF-    CORD2C,1  0  0. 0. 0.  0. 0. 1.                                                               
+                              -FF-    ,      1. 0. 0.                                                                               
+                              -FF-    GRID,  1  1  5.0   0.0  0.5,, 345                                                             
+                              -FF-    GRID,  2  1  5.0   0.0 -0.5,  ==                                                              
+                              -FF-    GRID,  3  1  5.0  11.0  0.5,  ==                                                              
+                              -FF-    GRID,  4  1  5.0  11.0 -0.5,  ==                                                              
+                              -FF-    GRID,  5  1  5.0  22.0  0.5,  ==                                                              
+                              -FF-    GRID,  6  1  5.0  22.0 -0.5,  ==                                                              
+                              -FF-    GRID,  7  1  5.0  33.0  0.5,  ==                                                              
+                              -FF-    GRID,  8  1  5.0  33.0 -0.5,  ==                                                              
+                              -FF-    GRID,  9  1  5.0  45.0  0.5,  ==                                                              
+                              -FF-    GRID, 10  1  5.0  45.0 -0.5,  ==                                                              
+                              -FF-    GRID, 11  1  5.0  56.0  0.5,  ==                                                              
+                              -FF-    GRID, 12  1  5.0  56.0 -0.5,  ==                                                              
+                              -FF-    GRID, 13  1  5.0  67.0  0.5,  ==                                                              
+                              -FF-    GRID, 14  1  5.0  67.0 -0.5,  ==                                                              
+                              -FF-    GRID, 15  1  5.0  78.0  0.5,  ==                                                              
+                              -FF-    GRID, 16  1  5.0  78.0 -0.5,  ==                                                              
+                              -FF-    GRID, 17  1  5.0  90.0  0.5,  ==                                                              
+                              -FF-    GRID, 18  1  5.0  90.0 -0.5,  ==                                                              
+                              $                                                                                             
+                              $ SPC=1 FOR SYMMETRY-SYMMETRY BC'S                                                            
+                              $                                                                                             
+                              -FF-    SPC, 1  1 26,,  2 26                                                                          
+                              -FF-    SPC, 1 17 16,, 18 16                                                                          
+                              $                                                                                             
+                              $ SPC=2 FOR SYMMETRY-ANTISYMMETRY BC'S                                                        
+                              $                                                                                             
+                              -FF-    SPC, 2  1  1,,  2  1                                                                          
+                              -FF-    SPC, 2 17 16,, 18 16                                                                          
+                              $                                                                                             
+                              $ SPC=3 FOR ANTISYMMETRY-SYMMETRY BC'S                                                        
+                              $                                                                                             
+                              -FF-    SPC, 3  1 26,,  2 26                                                                          
+                              -FF-    SPC, 3 17  2,, 18  2                                                                          
+                              $                                                                                             
+                              $ SPC=4 FOR ANTISYMMETRY-ANTISYMMETRY BC'S                                                    
+                              $                                                                                             
+                              -FF-    SPC, 4, 1, 1,,  2, 1                                                                          
+                              -FF-    SPC, 4,17, 2,, 18, 2                                                                          
+                              $                                                                                             
+                              -FF-    CQUAD2, 1, 1, 1, 2, 4, 3                                                                      
+                              -FF-    =(7), *(1),=,*(2), ///                                                                        
+                              -FF-    PQUAD2, 1, 1, 0.1                                                                             
+                              $                                                                                             
+                              -FF-    CPSE3, 10  2  1  2  4                                                                         
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+
+      NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+
+                                              I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              -FF-    =(3), *(1),=,*(2), //                                                                         
+                              -FF-    CPSE3, 15  2  4  3  1                                                                         
+                              -FF-    =(3), *(1),=,*(2), //                                                                         
+                              $                                                                                             
+                              -FF-    CPSE4, 20  2  9 10 12 11                                                                      
+                              -FF-    =(3), *(1),=,*(2), ///                                                                        
+                              $                                                                                             
+                              -FF-    PPSE,  2  1000.                                                                               
+                              -FF-    PLOAD2,1  1000. 1 THRU 8                                                                      
+                              -FF-    MAT1,  1  1.0E7,, 0.33   4.28                                                                 
+                              -FF-    EIGR,  1  FEER,,  1.0E-8,, 10                                                                 
+                              -FF-    , MAX                                                                                         
+                              ENDDATA                                                                                       
+
+
+                        TOTAL COUNT=     59
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CORD2C  1       0       0.      0.      0.      0.      0.      1.      +C0N0001
+                    2-        +C0N00011.      0.      0.                                                      
+                    3-        CPSE3   10      2       1       2       4                                       
+                    4-        CPSE3   11      2       3       4       6                                       
+                    5-        CPSE3   12      2       5       6       8                                       
+                    6-        CPSE3   13      2       7       8       10                                      
+                    7-        CPSE3   15      2       4       3       1                                       
+                    8-        CPSE3   16      2       6       5       3                                       
+                    9-        CPSE3   17      2       8       7       5                                       
+                   10-        CPSE3   18      2       10      9       7                                       
+                   11-        CPSE4   20      2       9       10      12      11                              
+                   12-        CPSE4   21      2       11      12      14      13                              
+                   13-        CPSE4   22      2       13      14      16      15                              
+                   14-        CPSE4   23      2       15      16      18      17                              
+                   15-        CQUAD2  1       1       1       2       4       3                               
+                   16-        CQUAD2  2       1       3       4       6       5                               
+                   17-        CQUAD2  3       1       5       6       8       7                               
+                   18-        CQUAD2  4       1       7       8       10      9                               
+                   19-        CQUAD2  5       1       9       10      12      11                              
+                   20-        CQUAD2  6       1       11      12      14      13                              
+                   21-        CQUAD2  7       1       13      14      16      15                              
+                   22-        CQUAD2  8       1       15      16      18      17                              
+                   23-        EIGR    1       FEER            1.0E-8          10                      +C0N0002
+                   24-        +C0N0002MAX                                                                     
+                   25-        GRID    1       1       5.0     0.0     0.5             345                     
+                   26-        GRID    2       1       5.0     0.0     -0.5            345                     
+                   27-        GRID    3       1       5.0     11.0    0.5             345                     
+                   28-        GRID    4       1       5.0     11.0    -0.5            345                     
+                   29-        GRID    5       1       5.0     22.0    0.5             345                     
+                   30-        GRID    6       1       5.0     22.0    -0.5            345                     
+                   31-        GRID    7       1       5.0     33.0    0.5             345                     
+                   32-        GRID    8       1       5.0     33.0    -0.5            345                     
+                   33-        GRID    9       1       5.0     45.0    0.5             345                     
+                   34-        GRID    10      1       5.0     45.0    -0.5            345                     
+                   35-        GRID    11      1       5.0     56.0    0.5             345                     
+                   36-        GRID    12      1       5.0     56.0    -0.5            345                     
+                   37-        GRID    13      1       5.0     67.0    0.5             345                     
+                   38-        GRID    14      1       5.0     67.0    -0.5            345                     
+                   39-        GRID    15      1       5.0     78.0    0.5             345                     
+                   40-        GRID    16      1       5.0     78.0    -0.5            345                     
+                   41-        GRID    17      1       5.0     90.0    0.5             345                     
+                   42-        GRID    18      1       5.0     90.0    -0.5            345                     
+                   43-        MAT1    1       1.0E7           0.33    4.28                                    
+                   44-        PARAM   COUPMASS1                                                               
+                   45-        PLOAD2  1       1000.   1       THRU    8                                       
+                   46-        PPSE    2       1000.                                                           
+                   47-        PQUAD2  1       1       0.1                                                     
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+
+      NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        SPC     1       1       26              2       26                              
+                   49-        SPC     1       17      16              18      16                              
+                   50-        SPC     2       1       1               2       1                               
+                   51-        SPC     2       17      16              18      16                              
+                   52-        SPC     3       1       26              2       26                              
+                   53-        SPC     3       17      2               18      2                               
+                   54-        SPC     4       1       1               2       1                               
+                   55-        SPC     4       17      2               18      2                               
+                              ENDDATA
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0*** USER WARNING MESSAGE   27,
+     LABEL NAMED LBL15D   NOT REFERENCED
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION GP4        INSTRUCTION NO. 117
+     DATA BLOCK NAMED RG       ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION GP4        INSTRUCTION NO. 117
+     DATA BLOCK NAMED YS       ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION GP4        INSTRUCTION NO. 117
+     DATA BLOCK NAMED USET     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION GP4        INSTRUCTION NO. 117
+     DATA BLOCK NAMED ASET     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION GP4        INSTRUCTION NO. 117
+     DATA BLOCK NAMED OGPST    ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MCE1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED GM       ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MCE2       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KNN      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KFF      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KFS      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KSS      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SMP1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED GO       ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SMP1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KAA      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SMP1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KOO      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SMP1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED LOO      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MCE2       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KDNN     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MCE2       INSTRUCTION NO. 117
+     DATA BLOCK NAMED MNN      ALREADY APPEARED AS OUTPUT
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KDFF     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KDFS     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KDSS     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO. 117
+     DATA BLOCK NAMED MFF      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SMP2       INSTRUCTION NO. 117
+     DATA BLOCK NAMED KDAA     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SMP2       INSTRUCTION NO. 117
+     DATA BLOCK NAMED MAA      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION DSMG2      INSTRUCTION NO. 117
+     DATA BLOCK NAMED KBLL     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION DSMG2      INSTRUCTION NO. 117
+     DATA BLOCK NAMED KBFS     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION DSMG2      INSTRUCTION NO. 117
+     DATA BLOCK NAMED KBSS     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION DSMG2      INSTRUCTION NO. 117
+     DATA BLOCK NAMED PBL      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION DSMG2      INSTRUCTION NO. 117
+     DATA BLOCK NAMED PBS      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION DSMG2      INSTRUCTION NO. 117
+     DATA BLOCK NAMED YBS      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION DSMG2      INSTRUCTION NO. 117
+     DATA BLOCK NAMED UBOOV    ALREADY APPEARED AS OUTPUT
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            4
+                                        PROFILE             59
+                                        MAX WAVEFRONT        4
+                                        AVG WAVEFRONT    3.278
+                                        RMS WAVEFRONT    3.375
+                                        RMS BANDWIDTH    3.375
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            4
+                                        PROFILE             59
+                                        MAX WAVEFRONT        4
+                                        AVG WAVEFRONT    3.278
+                                        RMS WAVEFRONT    3.375
+                                        RMS BANDWIDTH    3.375
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        4         4
+                                        PROFILE (P)                         59        59
+                                        MAXIMUM WAVEFRONT (C-MAX)            4         4
+                                        AVERAGE WAVEFRONT (C-AVG)        3.278     3.278
+                                        RMS WAVEFRONT (C-RMS)            3.375     3.375
+                                        RMS BANDWITCH (B-RMS)            3.375     3.375
+                                        NUMBER OF GRID POINTS (N)                     18
+                                        NUMBER OF ELEMENTS (NON-RIGID)                20
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           5
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                        41
+                                        MATRIX DENSITY, PERCENT                   30.864
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION PSE3     ELEMENTS (ELEMENT TYPE  85) STARTING WITH ID       10
+     (STEPPING THRU ONLY. NO REAL COMPUTATION HERE FOR THIS DIFFERENTIAL STIFFNESS ELEMENT)
+     ELEMENT       10 IS BEING PROCESSED
+     ELEMENT       11 IS BEING PROCESSED
+     ELEMENT       12 IS BEING PROCESSED
+     ELEMENT       13 IS BEING PROCESSED
+     ELEMENT       15 IS BEING PROCESSED
+     ELEMENT       16 IS BEING PROCESSED
+     ELEMENT       17 IS BEING PROCESSED
+     ELEMENT       18 IS BEING PROCESSED
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION PSE4     ELEMENTS (ELEMENT TYPE  86) STARTING WITH ID       20
+     (STEPPING THRU ONLY. NO REAL COMPUTATION HERE FOR THIS DIFFERENTIAL STIFFNESS ELEMENT)
+     ELEMENT       20 IS BEING PROCESSED
+     ELEMENT       21 IS BEING PROCESSED
+     ELEMENT       22 IS BEING PROCESSED
+     ELEMENT       23 IS BEING PROCESSED
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD2    ELEMENTS (ELEMENT TYPE  18) STARTING WITH ID        1
+     ELEMENT        1 IS BEING PROCESSED
+0*** SYSTEM INFORMATION MESSAGE 3107
+     EMGOLD CALLED BY EMGPRO TO PROCESS QUAD2    ELEMENTS.
+     ELEMENT        2 IS BEING PROCESSED
+     ELEMENT        3 IS BEING PROCESSED
+     ELEMENT        4 IS BEING PROCESSED
+     ELEMENT        5 IS BEING PROCESSED
+     ELEMENT        6 IS BEING PROCESSED
+     ELEMENT        7 IS BEING PROCESSED
+     ELEMENT        8 IS BEING PROCESSED
+
+
+
+ *** EMG ELEMENT PROCESSING TIME =         0 SECONDS
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   2.6358998E-16
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     STATIC SOLUTION                                                                                        SUBCASE  1             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      2.216026E-02   0.0            0.0            0.0            0.0            0.0                           
+             2      G      2.216026E-02   0.0            0.0            0.0            0.0            0.0                           
+             3      G      2.175305E-02   4.231199E-03   0.0            0.0            0.0           -4.259074E-07                  
+             4      G      2.175305E-02   4.231199E-03   0.0            0.0            0.0           -4.259074E-07                  
+             5      G      2.054661E-02   8.307146E-03   0.0            0.0            0.0           -1.572640E-06                  
+             6      G      2.054661E-02   8.307146E-03   0.0            0.0            0.0           -1.572640E-06                  
+             7      G      1.858569E-02   1.207857E-02   0.0            0.0            0.0           -2.567732E-06                  
+             8      G      1.858569E-02   1.207857E-02   0.0            0.0            0.0           -2.567732E-06                  
+             9      G      1.567295E-02   1.567984E-02   0.0            0.0            0.0           -2.669212E-06                  
+            10      G      1.567295E-02   1.567984E-02   0.0            0.0            0.0           -2.669212E-06                  
+            11      G      1.239461E-02   1.838563E-02   0.0            0.0            0.0           -2.673929E-06                  
+            12      G      1.239461E-02   1.838563E-02   0.0            0.0            0.0           -2.673929E-06                  
+            13      G      8.660035E-03   2.041586E-02   0.0            0.0            0.0           -1.747645E-06                  
+            14      G      8.660035E-03   2.041586E-02   0.0            0.0            0.0           -1.747645E-06                  
+            15      G      4.606345E-03   2.169510E-02   0.0            0.0            0.0           -6.270882E-07                  
+            16      G      4.606345E-03   2.169510E-02   0.0            0.0            0.0           -6.270882E-07                  
+            17      G      0.0            2.217958E-02   0.0            0.0            0.0            0.0                           
+            18      G      0.0            2.217958E-02   0.0            0.0            0.0            0.0                           
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     STATIC SOLUTION                                                                                        SUBCASE  1             
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      2.385112E+02   2.296603E+01   0.0            0.0            0.0            0.0                           
+             2      G      2.385112E+02   2.296603E+01   0.0            0.0            0.0            0.0                           
+             3      G      4.682583E+02   9.102011E+01   0.0            0.0            0.0            0.0                           
+             4      G      4.682583E+02   9.102011E+01   0.0            0.0            0.0            0.0                           
+             5      G      4.422876E+02   1.786958E+02   0.0            0.0            0.0            0.0                           
+             6      G      4.422876E+02   1.786958E+02   0.0            0.0            0.0            0.0                           
+             7      G      4.156252E+02   2.750964E+02   0.0            0.0            0.0            0.0                           
+             8      G      4.156252E+02   2.750964E+02   0.0            0.0            0.0            0.0                           
+             9      G      3.554982E+02   3.493470E+02   0.0            0.0            0.0            0.0                           
+            10      G      3.554982E+02   3.493470E+02   0.0            0.0            0.0            0.0                           
+            11      G      2.667475E+02   3.954695E+02   0.0            0.0            0.0            0.0                           
+            12      G      2.667475E+02   3.954695E+02   0.0            0.0            0.0            0.0                           
+            13      G      1.863875E+02   4.391016E+02   0.0            0.0            0.0            0.0                           
+            14      G      1.863875E+02   4.391016E+02   0.0            0.0            0.0            0.0                           
+            15      G      9.936905E+01   4.884141E+02   0.0            0.0            0.0            0.0                           
+            16      G      9.936905E+01   4.884141E+02   0.0            0.0            0.0            0.0                           
+            17      G      2.731550E+01   2.598896E+02   0.0            0.0            0.0            0.0                           
+            18      G      2.731550E+01   2.598896E+02   0.0            0.0            0.0            0.0                           
+0*** DS1 MODULE PROCESSING QUAD2    ELEMENTS (ELEM.TYPE  18)
+0*** DS1 MODULE PROCESSING PSE3     ELEMENTS (ELEM.TYPE  85)
+0*** DS1 MODULE PROCESSING PSE4     ELEMENTS (ELEM.TYPE  86)
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    DET                 3.675462E+03
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    POWER                    211
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    19
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+
+      NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+
+
+
+
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   1.9704693E-16
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    20
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     SECOND ORDER STATICS SOLUTION                                                                          SUBCASE  2             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      2.227929E-02   0.0            0.0            0.0            0.0            0.0                           
+             2      G      2.225735E-02   0.0            0.0            0.0            0.0            0.0                           
+             3      G      2.186038E-02   4.249917E-03   0.0            0.0            0.0            1.415515E-05                  
+             4      G      2.185755E-02   4.250106E-03   0.0            0.0            0.0           -1.353971E-05                  
+             5      G      2.064550E-02   8.343394E-03   0.0            0.0            0.0           -1.464868E-06                  
+             6      G      2.064639E-02   8.344118E-03   0.0            0.0            0.0            2.192695E-06                  
+             7      G      1.867405E-02   1.213061E-02   0.0            0.0            0.0            6.227188E-06                  
+             8      G      1.867433E-02   1.213117E-02   0.0            0.0            0.0           -5.712843E-06                  
+             9      G      1.574199E-02   1.574223E-02   0.0            0.0            0.0            1.042461E-06                  
+            10      G      1.575029E-02   1.575036E-02   0.0            0.0            0.0           -6.314226E-07                  
+            11      G      1.245085E-02   1.846157E-02   0.0            0.0            0.0           -7.730518E-06                  
+            12      G      1.245210E-02   1.846254E-02   0.0            0.0            0.0            7.888706E-06                  
+            13      G      8.699303E-03   2.049990E-02   0.0            0.0            0.0            6.515077E-07                  
+            14      G      8.698958E-03   2.049855E-02   0.0            0.0            0.0            6.512094E-08                  
+            15      G      4.626940E-03   2.178283E-02   0.0            0.0            0.0            1.323104E-06                  
+            16      G      4.626904E-03   2.178256E-02   0.0            0.0            0.0           -3.952430E-07                  
+            17      G      0.0            2.226867E-02   0.0            0.0            0.0            0.0                           
+            18      G      0.0            2.226882E-02   0.0            0.0            0.0            0.0                           
+                        0 ROOTS BELOW   9.318945E+01
+0*** USER WARNING MESSAGE 2399
+     ONLY THE FIRST   13 EIGENSOLUTIONS CLOSEST TO THE SHIFT POINT (F1 OR ZERO) PASS THE FEER ACCURACY TEST FOR EIGENVECTORS.
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    21
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+
+      NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+
+
+
+
+0*** USER INFORMATION MESSAGE 2392
+       20 MORE ACCURATE EIGENSOLUTIONS THAN THE   10 REQUESTED HAVE BEEN FOUND.
+     USE DIAG 16 TO DETERMINE ERROR BOUNDS
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    22
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y         (FEER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .        30
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         1
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        29
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         0*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.00E+00
+0                                                                              . . .         0
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         0
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* NORMAL TERMINATION              
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    23
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS                                                               
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1         1       -5.200633E-04        2.280490E-02        3.629512E-03        3.334377E+00       -1.734087E-03             
+        2         2        1.148113E+03        3.388382E+01        5.392778E+00        4.198688E+00        4.820569E+03             
+        3         3        7.363285E+03        8.580959E+01        1.365702E+01        2.088782E+00        1.538029E+04             
+        4         4        2.031876E+04        1.425439E+02        2.268657E+01        1.163266E+00        2.363612E+04             
+        5         5        4.391661E+04        2.095629E+02        3.335297E+01        5.851693E-01        2.569865E+04             
+        6         6        8.470649E+04        2.910438E+02        4.632106E+01        3.365201E-01        2.850544E+04             
+        7         7        1.521238E+05        3.900305E+02        6.207528E+01        2.027228E-01        3.083897E+04             
+        8         8        2.647969E+05        5.145842E+02        8.189862E+01        1.238523E-01        3.279571E+04             
+        9         9        4.059232E+05        6.371210E+02        1.014010E+02        9.731219E-02        3.950127E+04             
+       10        10        4.656545E+05        6.823888E+02        1.086055E+02        7.505807E-02        3.495113E+04             
+       11        11        4.880577E+05        6.986112E+02        1.111874E+02        7.236713E-02        3.531933E+04             
+       12        12        5.175546E+05        7.194127E+02        1.144981E+02        2.079408E+00        1.076208E+06             
+       13        13        5.264872E+05        7.255944E+02        1.154819E+02        6.238417E-02        3.284447E+04             
+       14        14        5.737294E+05        7.574493E+02        1.205518E+02        1.882974E-01        1.080318E+05             
+       15        15        6.449959E+05        8.031163E+02        1.278199E+02        6.497490E-02        4.190854E+04             
+       16        16        6.818846E+05        8.257631E+02        1.314243E+02        3.505687E-01        2.390474E+05             
+       17        17        7.739552E+05        8.797473E+02        1.400161E+02        7.938562E-02        6.144091E+04             
+       18        18        8.581119E+05        9.263433E+02        1.474321E+02        5.913965E-02        5.074844E+04             
+       19        19        1.122226E+06        1.059352E+03        1.686011E+02        3.491664E-02        3.918436E+04             
+       20        20        1.319601E+06        1.148739E+03        1.828275E+02        1.660402E-02        2.191068E+04             
+       21        21        1.443134E+06        1.201305E+03        1.911937E+02        8.716222E-03        1.257868E+04             
+       22        22        1.752231E+06        1.323719E+03        2.106764E+02        2.802464E-02        4.910565E+04             
+       23        23        1.958166E+06        1.399345E+03        2.227127E+02        2.582115E-02        5.056211E+04             
+       24        24        2.176176E+06        1.475187E+03        2.347833E+02        1.636614E-02        3.561562E+04             
+       25        25        3.379296E+06        1.838286E+03        2.925723E+02        3.944539E-02        1.332976E+05             
+       26        26        3.780728E+06        1.944410E+03        3.094624E+02        2.589798E-02        9.791322E+04             
+       27        27        5.718344E+06        2.391306E+03        3.805881E+02        1.231468E-02        7.041956E+04             
+       28        28        8.170006E+06        2.858322E+03        4.549161E+02        1.483917E-02        1.212361E+05             
+       29        29        1.097182E+07        3.312374E+03        5.271807E+02        2.078518E-01        2.280513E+06             
+       30        30        1.407611E+07        3.751814E+03        5.971198E+02        2.560950E-01        3.604821E+06             
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    24
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE = -0.520063E-03    (CYCLIC FREQUENCY =  3.629512E-03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            1.000000E+00   0.0            0.0            0.0            2.000667E-01                  
+             2      G      0.0            9.999651E-01   0.0            0.0            0.0            1.999269E-01                  
+             3      G     -1.908410E-01   9.816075E-01   0.0            0.0            0.0            2.000407E-01                  
+             4      G     -1.907709E-01   9.816125E-01   0.0            0.0            0.0            1.999528E-01                  
+             5      G     -3.746443E-01   9.271507E-01   0.0            0.0            0.0            2.000039E-01                  
+             6      G     -3.745567E-01   9.271846E-01   0.0            0.0            0.0            1.999895E-01                  
+             7      G     -5.446662E-01   8.386309E-01   0.0            0.0            0.0            1.999732E-01                  
+             8      G     -5.445940E-01   8.386805E-01   0.0            0.0            0.0            2.000203E-01                  
+             9      G     -7.071064E-01   7.070700E-01   0.0            0.0            0.0            1.999639E-01                  
+            10      G     -7.070841E-01   7.071183E-01   0.0            0.0            0.0            2.000293E-01                  
+            11      G     -8.290259E-01   5.591757E-01   0.0            0.0            0.0            1.999731E-01                  
+            12      G     -8.290218E-01   5.591900E-01   0.0            0.0            0.0            2.000197E-01                  
+            13      G     -9.204891E-01   3.907233E-01   0.0            0.0            0.0            1.999921E-01                  
+            14      G     -9.204896E-01   3.907251E-01   0.0            0.0            0.0            2.000007E-01                  
+            15      G     -9.781311E-01   2.079078E-01   0.0            0.0            0.0            1.999963E-01                  
+            16      G     -9.781314E-01   2.079081E-01   0.0            0.0            0.0            1.999965E-01                  
+            17      G     -9.999831E-01   0.0            0.0            0.0            0.0            1.999961E-01                  
+            18      G     -9.999833E-01   0.0            0.0            0.0            0.0            1.999967E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    25
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.114811E+04    (CYCLIC FREQUENCY =  5.392778E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            7.022527E-01   0.0            0.0            0.0           -4.264880E-01                  
+             2      G      0.0            7.023212E-01   0.0            0.0            0.0           -4.262322E-01                  
+             3      G      3.958028E-01   7.402491E-01   0.0            0.0            0.0           -3.953770E-01                  
+             4      G      3.956809E-01   7.402345E-01   0.0            0.0            0.0           -3.952509E-01                  
+             5      G      7.215863E-01   8.363265E-01   0.0            0.0            0.0           -3.066410E-01                  
+             6      G      7.214682E-01   8.362672E-01   0.0            0.0            0.0           -3.066946E-01                  
+             7      G      9.277601E-01   9.429422E-01   0.0            0.0            0.0           -1.729430E-01                  
+             8      G      9.276996E-01   9.428833E-01   0.0            0.0            0.0           -1.730459E-01                  
+             9      G      9.995540E-01   1.000000E+00   0.0            0.0            0.0           -5.738299E-04                  
+            10      G      9.995390E-01   9.999688E-01   0.0            0.0            0.0           -6.336584E-04                  
+            11      G      9.511512E-01   9.400648E-01   0.0            0.0            0.0            1.596613E-01                  
+            12      G      9.511493E-01   9.400570E-01   0.0            0.0            0.0            1.596337E-01                  
+            13      G      8.464879E-01   7.459146E-01   0.0            0.0            0.0            2.962070E-01                  
+            14      G      8.464882E-01   7.459136E-01   0.0            0.0            0.0            2.962032E-01                  
+            15      G      7.471026E-01   4.292031E-01   0.0            0.0            0.0            3.899603E-01                  
+            16      G      7.471028E-01   4.292027E-01   0.0            0.0            0.0            3.899601E-01                  
+            17      G      7.021719E-01   0.0            0.0            0.0            0.0            4.268138E-01                  
+            18      G      7.021720E-01   0.0            0.0            0.0            0.0            4.268131E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    26
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.736328E+04    (CYCLIC FREQUENCY =  1.365702E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            2.592006E-01   0.0            0.0            0.0           -8.251778E-01                  
+             2      G      0.0            2.593047E-01   0.0            0.0            0.0           -8.248793E-01                  
+             3      G      7.028197E-01   3.265361E-01   0.0            0.0            0.0           -5.935042E-01                  
+             4      G      7.027041E-01   3.264912E-01   0.0            0.0            0.0           -5.934954E-01                  
+             5      G      9.999775E-01   4.135539E-01   0.0            0.0            0.0           -2.857688E-02                  
+             6      G      1.000000E+00   4.134965E-01   0.0            0.0            0.0           -2.891196E-02                  
+             7      G      7.688274E-01   2.920586E-01   0.0            0.0            0.0            5.538954E-01                  
+             8      G      7.689914E-01   2.921148E-01   0.0            0.0            0.0            5.537457E-01                  
+             9      G      1.838008E-01  -1.823897E-01   0.0            0.0            0.0            8.261285E-01                  
+            10      G      1.838716E-01  -1.822406E-01   0.0            0.0            0.0            8.262684E-01                  
+            11      G     -2.657393E-01  -7.270606E-01   0.0            0.0            0.0            5.933034E-01                  
+            12      G     -2.657235E-01  -7.270131E-01   0.0            0.0            0.0            5.934606E-01                  
+            13      G     -4.143413E-01  -9.986625E-01   0.0            0.0            0.0            2.872062E-02                  
+            14      G     -4.143428E-01  -9.986581E-01   0.0            0.0            0.0            2.875072E-02                  
+            15      G     -3.368415E-01  -7.494626E-01   0.0            0.0            0.0           -5.536869E-01                  
+            16      G     -3.368425E-01  -7.494622E-01   0.0            0.0            0.0           -5.536879E-01                  
+            17      G     -2.585606E-01   0.0            0.0            0.0            0.0           -8.273371E-01                  
+            18      G     -2.585612E-01   0.0            0.0            0.0            0.0           -8.273359E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    27
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.203188E+05    (CYCLIC FREQUENCY =  2.268657E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            1.243893E-01   0.0            0.0            0.0           -9.924301E-01                  
+             2      G      0.0            1.244775E-01   0.0            0.0            0.0           -9.923384E-01                  
+             3      G      7.274161E-01   1.938724E-01   0.0            0.0            0.0           -4.027984E-01                  
+             4      G      7.274176E-01   1.938059E-01   0.0            0.0            0.0           -4.029730E-01                  
+             5      G      5.957062E-01   1.536468E-01   0.0            0.0            0.0            6.660170E-01                  
+             6      G      5.958953E-01   1.536494E-01   0.0            0.0            0.0            6.656891E-01                  
+             7      G     -1.528727E-01  -2.364795E-01   0.0            0.0            0.0            9.469200E-01                  
+             8      G     -1.526571E-01  -2.363157E-01   0.0            0.0            0.0            9.469684E-01                  
+             9      G     -5.806563E-01  -5.816519E-01   0.0            0.0            0.0            2.303042E-03                  
+            10      G     -5.805819E-01  -5.815051E-01   0.0            0.0            0.0            2.535185E-03                  
+            11      G     -2.796358E-01  -2.149846E-01   0.0            0.0            0.0           -9.074092E-01                  
+            12      G     -2.796243E-01  -2.149456E-01   0.0            0.0            0.0           -9.072647E-01                  
+            13      G      1.315227E-01   5.418631E-01   0.0            0.0            0.0           -7.373115E-01                  
+            14      G      1.315209E-01   5.418665E-01   0.0            0.0            0.0           -7.372910E-01                  
+            15      G      1.998304E-01   7.547558E-01   0.0            0.0            0.0            3.116229E-01                  
+            16      G      1.998295E-01   7.547567E-01   0.0            0.0            0.0            3.116220E-01                  
+            17      G      1.212636E-01   0.0            0.0            0.0            0.0            9.999976E-01                  
+            18      G      1.212630E-01   0.0            0.0            0.0            0.0            1.000000E+00                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    28
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.439166E+05    (CYCLIC FREQUENCY =  3.335297E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -6.050985E-02   0.0            0.0            0.0            9.832539E-01                  
+             2      G      0.0           -6.056796E-02   0.0            0.0            0.0            9.833542E-01                  
+             3      G     -5.745658E-01  -1.151010E-01   0.0            0.0            0.0            3.250911E-02                  
+             4      G     -5.746443E-01  -1.150370E-01   0.0            0.0            0.0            3.267936E-02                  
+             5      G     -5.778468E-02   3.893030E-02   0.0            0.0            0.0           -9.819034E-01                  
+             6      G     -5.792462E-02   3.887764E-02   0.0            0.0            0.0           -9.819184E-01                  
+             7      G      4.861737E-01   3.213957E-01   0.0            0.0            0.0           -9.555130E-02                  
+             8      G      4.861907E-01   3.212996E-01   0.0            0.0            0.0           -9.581662E-02                  
+             9      G      4.271409E-02  -3.888064E-02   0.0            0.0            0.0            9.917422E-01                  
+            10      G      4.274698E-02  -3.880567E-02   0.0            0.0            0.0            9.916905E-01                  
+            11      G     -3.278294E-01  -4.870205E-01   0.0            0.0            0.0            3.402243E-02                  
+            12      G     -3.278151E-01  -4.869861E-01   0.0            0.0            0.0            3.412078E-02                  
+            13      G     -7.111858E-02  -1.234451E-02   0.0            0.0            0.0           -9.836213E-01                  
+            14      G     -7.111891E-02  -1.234188E-02   0.0            0.0            0.0           -9.835930E-01                  
+            15      G      1.140703E-01   5.726753E-01   0.0            0.0            0.0           -9.460600E-02                  
+            16      G      1.140696E-01   5.726743E-01   0.0            0.0            0.0           -9.460796E-02                  
+            17      G      5.480491E-02   0.0            0.0            0.0            0.0            1.000000E+00                  
+            18      G      5.480458E-02   0.0            0.0            0.0            0.0            9.999983E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    29
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.847065E+05    (CYCLIC FREQUENCY =  4.632106E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          6
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            2.920824E-02   0.0            0.0            0.0           -9.890158E-01                  
+             2      G      0.0            2.924457E-02   0.0            0.0            0.0           -9.891880E-01                  
+             3      G      4.166937E-01   6.844005E-02   0.0            0.0            0.0            3.401803E-01                  
+             4      G      4.167831E-01   6.838705E-02   0.0            0.0            0.0            3.401048E-01                  
+             5      G     -2.595836E-01  -1.321875E-01   0.0            0.0            0.0            7.520615E-01                  
+             6      G     -2.595526E-01  -1.321120E-01   0.0            0.0            0.0            7.522645E-01                  
+             7      G     -1.958294E-01  -9.753346E-02   0.0            0.0            0.0           -8.689411E-01                  
+             8      G     -1.959468E-01  -9.754854E-02   0.0            0.0            0.0           -8.687085E-01                  
+             9      G      3.136575E-01   3.144741E-01   0.0            0.0            0.0           -1.080066E-02                  
+            10      G      3.135862E-01   3.143389E-01   0.0            0.0            0.0           -1.089117E-02                  
+            11      G     -6.127381E-02  -1.412648E-01   0.0            0.0            0.0            9.218851E-01                  
+            12      G     -6.129195E-02  -1.413102E-01   0.0            0.0            0.0            9.217232E-01                  
+            13      G     -1.518691E-01  -3.056022E-01   0.0            0.0            0.0           -6.310054E-01                  
+            14      G     -1.518676E-01  -3.056037E-01   0.0            0.0            0.0           -6.310368E-01                  
+            15      G      6.467055E-02   3.810263E-01   0.0            0.0            0.0           -4.824385E-01                  
+            16      G      6.467155E-02   3.810273E-01   0.0            0.0            0.0           -4.824339E-01                  
+            17      G      2.571111E-02   0.0            0.0            0.0            0.0            9.999996E-01                  
+            18      G      2.571163E-02   0.0            0.0            0.0            0.0            1.000000E+00                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    30
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.152124E+06    (CYCLIC FREQUENCY =  6.207528E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          7
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -1.243322E-02   0.0            0.0            0.0            9.670635E-01                  
+             2      G      0.0           -1.245218E-02   0.0            0.0            0.0            9.672013E-01                  
+             3      G     -2.525488E-01  -3.576179E-02   0.0            0.0            0.0           -6.462266E-01                  
+             4      G     -2.526078E-01  -3.572497E-02   0.0            0.0            0.0           -6.462263E-01                  
+             5      G      3.134035E-01   1.313207E-01   0.0            0.0            0.0           -9.650955E-02                  
+             6      G      3.134222E-01   1.312517E-01   0.0            0.0            0.0           -9.661575E-02                  
+             7      G     -1.657488E-01  -1.192648E-01   0.0            0.0            0.0            7.784813E-01                  
+             8      G     -1.657443E-01  -1.192113E-01   0.0            0.0            0.0            7.784851E-01                  
+             9      G     -1.132812E-02   6.748960E-03   0.0            0.0            0.0           -9.837554E-01                  
+            10      G     -1.133028E-02   6.735579E-03   0.0            0.0            0.0           -9.836889E-01                  
+            11      G      1.540093E-01   2.049285E-01   0.0            0.0            0.0            6.542906E-01                  
+            12      G      1.540028E-01   2.049149E-01   0.0            0.0            0.0            6.542678E-01                  
+            13      G     -1.311176E-01  -3.199880E-01   0.0            0.0            0.0            9.755252E-02                  
+            14      G     -1.311181E-01  -3.199899E-01   0.0            0.0            0.0            9.753636E-02                  
+            15      G      3.302807E-02   2.021973E-01   0.0            0.0            0.0           -7.877339E-01                  
+            16      G      3.302836E-02   2.021984E-01   0.0            0.0            0.0           -7.877339E-01                  
+            17      G      1.306160E-02   0.0            0.0            0.0            0.0            9.999972E-01                  
+            18      G      1.306170E-02   0.0            0.0            0.0            0.0            1.000000E+00                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    31
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.264797E+06    (CYCLIC FREQUENCY =  8.189862E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          8
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            6.345713E-03   0.0            0.0            0.0           -9.890900E-01                  
+             2      G      0.0            6.352602E-03   0.0            0.0            0.0           -9.891421E-01                  
+             3      G      1.121750E-01   1.593497E-02   0.0            0.0            0.0            8.928921E-01                  
+             4      G      1.121926E-01   1.591521E-02   0.0            0.0            0.0            8.929169E-01                  
+             5      G     -1.910078E-01  -7.287797E-02   0.0            0.0            0.0           -6.226808E-01                  
+             6      G     -1.910277E-01  -7.283792E-02   0.0            0.0            0.0           -6.227056E-01                  
+             7      G      2.123573E-01   1.365341E-01   0.0            0.0            0.0            2.425420E-01                  
+             8      G      2.124321E-01   1.365100E-01   0.0            0.0            0.0            2.423785E-01                  
+             9      G     -1.814787E-01  -1.821576E-01   0.0            0.0            0.0            5.378373E-02                  
+            10      G     -1.814098E-01  -1.820461E-01   0.0            0.0            0.0            5.378030E-02                  
+            11      G      1.268417E-01   1.927239E-01   0.0            0.0            0.0           -4.611249E-01                  
+            12      G      1.268673E-01   1.927716E-01   0.0            0.0            0.0           -4.609511E-01                  
+            13      G     -5.547592E-02  -1.442477E-01   0.0            0.0            0.0            7.884430E-01                  
+            14      G     -5.547800E-02  -1.442526E-01   0.0            0.0            0.0            7.884928E-01                  
+            15      G      4.627754E-03   5.104284E-02   0.0            0.0            0.0           -9.646926E-01                  
+            16      G      4.625866E-03   5.103564E-02   0.0            0.0            0.0           -9.647071E-01                  
+            17      G      4.227266E-04   0.0            0.0            0.0            0.0            1.000000E+00                  
+            18      G      4.220544E-04   0.0            0.0            0.0            0.0            9.999880E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    32
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.405923E+06    (CYCLIC FREQUENCY =  1.014010E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          9
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            1.564126E-02   0.0            0.0            0.0           -9.916259E-01                  
+             2      G      0.0            1.564446E-02   0.0            0.0            0.0           -9.916999E-01                  
+             3      G      9.951463E-03   1.434308E-02   0.0            0.0            0.0            1.000000E+00                  
+             4      G      9.986355E-03   1.434851E-02   0.0            0.0            0.0            9.999357E-01                  
+             5      G     -3.750071E-02  -1.498943E-03   0.0            0.0            0.0           -9.682799E-01                  
+             6      G     -3.746050E-02  -1.477037E-03   0.0            0.0            0.0           -9.682114E-01                  
+             7      G      2.652701E-02   2.538989E-02   0.0            0.0            0.0            9.541721E-01                  
+             8      G      2.651192E-02   2.536707E-02   0.0            0.0            0.0            9.543173E-01                  
+             9      G     -5.158884E-03  -6.473966E-03   0.0            0.0            0.0           -9.470764E-01                  
+            10      G     -5.195362E-03  -6.505636E-03   0.0            0.0            0.0           -9.471522E-01                  
+            11      G      1.009702E-02   1.757251E-03   0.0            0.0            0.0            9.329941E-01                  
+            12      G      1.009987E-02   1.767672E-03   0.0            0.0            0.0            9.329042E-01                  
+            13      G     -5.406916E-03  -3.383079E-02   0.0            0.0            0.0           -9.239667E-01                  
+            14      G     -5.399241E-03  -3.381125E-02   0.0            0.0            0.0           -9.239365E-01                  
+            15      G      2.035466E-02   3.361567E-02   0.0            0.0            0.0            8.897182E-01                  
+            16      G      2.035505E-02   3.361475E-02   0.0            0.0            0.0            8.897488E-01                  
+            17      G      1.702928E-02   0.0            0.0            0.0            0.0           -9.049585E-01                  
+            18      G      1.702955E-02   0.0            0.0            0.0            0.0           -9.049788E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    33
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.465654E+06    (CYCLIC FREQUENCY =  1.086055E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         10
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -1.843599E-02   0.0            0.0            0.0            7.681016E-01                  
+             2      G      0.0            1.863965E-02   0.0            0.0            0.0           -7.677790E-01                  
+             3      G     -2.644366E-01  -5.338820E-02   0.0            0.0            0.0            1.050538E-01                  
+             4      G      2.643443E-01   5.364258E-02   0.0            0.0            0.0           -1.051109E-01                  
+             5      G     -7.073864E-02  -8.139038E-03   0.0            0.0            0.0           -7.719904E-01                  
+             6      G      7.061783E-02   8.262429E-03   0.0            0.0            0.0            7.721495E-01                  
+             7      G      2.271622E-01   1.555667E-01   0.0            0.0            0.0           -3.329950E-01                  
+             8      G     -2.272324E-01  -1.556239E-01   0.0            0.0            0.0            3.330174E-01                  
+             9      G      7.127886E-02   4.635365E-02   0.0            0.0            0.0            8.923870E-01                  
+            10      G     -7.134094E-02  -4.644728E-02   0.0            0.0            0.0           -8.923150E-01                  
+            11      G     -1.477745E-01  -2.281726E-01   0.0            0.0            0.0            2.186599E-01                  
+            12      G      1.477869E-01   2.280434E-01   0.0            0.0            0.0           -2.188822E-01                  
+            13      G     -4.360352E-02  -5.880691E-02   0.0            0.0            0.0           -8.274580E-01                  
+            14      G      4.370588E-02   5.870263E-02   0.0            0.0            0.0            8.275553E-01                  
+            15      G      5.326303E-02   2.705336E-01   0.0            0.0            0.0           -2.314932E-01                  
+            16      G     -5.310618E-02  -2.706142E-01   0.0            0.0            0.0            2.312387E-01                  
+            17      G      1.567807E-02   0.0            0.0            0.0            0.0            1.000000E+00                  
+            18      G     -1.549479E-02   0.0            0.0            0.0            0.0           -9.999415E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    34
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.488058E+06    (CYCLIC FREQUENCY =  1.111874E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         11
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            1.965163E-02   0.0            0.0            0.0           -5.788874E-01                  
+             2      G      0.0           -2.071602E-02   0.0            0.0            0.0            5.779193E-01                  
+             3      G      2.245782E-01   5.180693E-02   0.0            0.0            0.0           -2.665999E-01                  
+             4      G     -2.241724E-01  -5.280618E-02   0.0            0.0            0.0            2.663532E-01                  
+             5      G      1.940385E-01   6.300920E-02   0.0            0.0            0.0            3.881719E-01                  
+             6      G     -1.933733E-01  -6.364004E-02   0.0            0.0            0.0           -3.888303E-01                  
+             7      G     -5.889940E-02  -6.287779E-02   0.0            0.0            0.0            6.551802E-01                  
+             8      G      5.953036E-02   6.278674E-02   0.0            0.0            0.0           -6.552444E-01                  
+             9      G     -1.959857E-01  -1.964215E-01   0.0            0.0            0.0            1.064207E-02                  
+            10      G      1.963187E-01   1.968525E-01   0.0            0.0            0.0           -1.101448E-02                  
+            11      G     -9.688177E-02  -1.063754E-01   0.0            0.0            0.0           -5.369784E-01                  
+            12      G      9.681775E-02   1.070717E-01   0.0            0.0            0.0            5.378127E-01                  
+            13      G      4.706968E-02   1.634758E-01   0.0            0.0            0.0           -6.230667E-01                  
+            14      G     -4.763388E-02  -1.628603E-01   0.0            0.0            0.0            6.229098E-01                  
+            15      G      7.386551E-02   3.249733E-01   0.0            0.0            0.0            9.182185E-02                  
+            16      G     -7.476906E-02  -3.245350E-01   0.0            0.0            0.0           -9.075315E-02                  
+            17      G      2.446101E-02   0.0            0.0            0.0            0.0            1.000000E+00                  
+            18      G     -2.551911E-02   0.0            0.0            0.0            0.0           -9.999213E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    35
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.517555E+06    (CYCLIC FREQUENCY =  1.144981E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         12
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            1.000000E+00   0.0            0.0            0.0            8.379720E-01                  
+             2      G      0.0            9.984191E-01   0.0            0.0            0.0            9.218167E-01                  
+             3      G     -3.356315E-01   8.778641E-01   0.0            0.0            0.0            1.970781E-01                  
+             4      G     -3.601255E-01   8.732536E-01   0.0            0.0            0.0            1.841247E-01                  
+             5      G     -6.096761E-01   5.282988E-01   0.0            0.0            0.0            7.653171E-01                  
+             6      G     -6.043793E-01   5.319284E-01   0.0            0.0            0.0            6.941699E-01                  
+             7      G     -6.013781E-01   9.644271E-02   0.0            0.0            0.0           -3.663571E-02                  
+             8      G     -5.870678E-01   1.055928E-01   0.0            0.0            0.0           -1.976654E-03                  
+             9      G     -3.324322E-01  -3.385343E-01   0.0            0.0            0.0            2.425030E-01                  
+            10      G     -3.386381E-01  -3.453794E-01   0.0            0.0            0.0            2.625327E-01                  
+            11      G      3.991072E-02  -6.139910E-01   0.0            0.0            0.0           -5.321742E-01                  
+            12      G      4.123510E-02  -6.118892E-01   0.0            0.0            0.0           -5.696548E-01                  
+            13      G      5.065225E-01  -5.833578E-01   0.0            0.0            0.0           -7.111059E-02                  
+            14      G      5.092160E-01  -5.790248E-01   0.0            0.0            0.0           -3.050098E-02                  
+            15      G      8.500749E-01  -3.879117E-01   0.0            0.0            0.0           -8.280164E-01                  
+            16      G      8.456295E-01  -4.092866E-01   0.0            0.0            0.0           -8.002169E-01                  
+            17      G      9.984502E-01   0.0            0.0            0.0            0.0           -2.403564E-01                  
+            18      G      9.970610E-01   0.0            0.0            0.0            0.0           -3.297737E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    36
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.526487E+06    (CYCLIC FREQUENCY =  1.154819E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         13
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -1.401311E-02   0.0            0.0            0.0            1.000000E+00                  
+             2      G      0.0            1.609644E-02   0.0            0.0            0.0           -9.979921E-01                  
+             3      G     -2.660059E-01  -4.678367E-02   0.0            0.0            0.0           -2.946998E-01                  
+             4      G      2.652818E-01   4.868281E-02   0.0            0.0            0.0            2.949576E-01                  
+             5      G      1.355993E-01   6.810873E-02   0.0            0.0            0.0           -7.755613E-01                  
+             6      G     -1.368603E-01  -6.707685E-02   0.0            0.0            0.0            7.771531E-01                  
+             7      G      1.254282E-01   7.062425E-02   0.0            0.0            0.0            7.887670E-01                  
+             8      G     -1.266022E-01  -7.046972E-02   0.0            0.0            0.0           -7.887939E-01                  
+             9      G     -1.771581E-01  -1.792649E-01   0.0            0.0            0.0            1.193080E-01                  
+            10      G      1.764347E-01   1.785782E-01   0.0            0.0            0.0           -1.189202E-01                  
+            11      G      4.426894E-03   2.939919E-02   0.0            0.0            0.0           -8.395743E-01                  
+            12      G     -4.357041E-03  -3.065059E-02   0.0            0.0            0.0            8.385826E-01                  
+            13      G      8.394316E-02   1.865113E-01   0.0            0.0            0.0            3.576829E-01                  
+            14      G     -8.289730E-02  -1.877196E-01   0.0            0.0            0.0           -3.579073E-01                  
+            15      G     -2.366211E-02  -1.480946E-01   0.0            0.0            0.0            5.238459E-01                  
+            16      G      2.542731E-02   1.472681E-01   0.0            0.0            0.0           -5.254533E-01                  
+            17      G     -5.047119E-03   0.0            0.0            0.0            0.0           -8.319814E-01                  
+            18      G      7.125952E-03   0.0            0.0            0.0            0.0            8.312953E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    37
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.573729E+06    (CYCLIC FREQUENCY =  1.205518E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         14
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -4.359880E-02   0.0            0.0            0.0            8.568853E-01                  
+             2      G      0.0            4.287216E-02   0.0            0.0            0.0           -8.567839E-01                  
+             3      G     -3.444123E-01  -9.875555E-02   0.0            0.0            0.0            5.922774E-01                  
+             4      G      3.446687E-01   9.822816E-02   0.0            0.0            0.0           -5.928878E-01                  
+             5      G     -4.660559E-01  -1.904376E-01   0.0            0.0            0.0            2.174488E-02                  
+             6      G      4.662974E-01   1.901426E-01   0.0            0.0            0.0           -2.222851E-02                  
+             7      G     -3.328567E-01  -1.833570E-01   0.0            0.0            0.0           -5.380988E-01                  
+             8      G      3.332728E-01   1.833985E-01   0.0            0.0            0.0            5.383717E-01                  
+             9      G     -2.024109E-02   3.858486E-02   0.0            0.0            0.0           -9.357002E-01                  
+            10      G      2.050263E-02  -3.841669E-02   0.0            0.0            0.0            9.351533E-01                  
+            11      G      1.780141E-01   3.135513E-01   0.0            0.0            0.0           -4.536605E-01                  
+            12      G     -1.780460E-01  -3.132346E-01   0.0            0.0            0.0            4.542360E-01                  
+            13      G      1.700800E-01   4.042099E-01   0.0            0.0            0.0            1.073944E-02                  
+            14      G     -1.703443E-01  -4.038030E-01   0.0            0.0            0.0           -1.077765E-02                  
+            15      G      9.960520E-02   3.518693E-01   0.0            0.0            0.0            3.780988E-01                  
+            16      G     -1.001232E-01  -3.516805E-01   0.0            0.0            0.0           -3.778151E-01                  
+            17      G      3.895551E-02   0.0            0.0            0.0            0.0            1.000000E+00                  
+            18      G     -3.958843E-02   0.0            0.0            0.0            0.0           -9.994742E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    38
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.644996E+06    (CYCLIC FREQUENCY =  1.278199E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         15
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            1.077652E-02   0.0            0.0            0.0           -9.735528E-01                  
+             2      G      0.0           -1.075887E-02   0.0            0.0            0.0            9.733527E-01                  
+             3      G      1.922394E-01   3.369290E-02   0.0            0.0            0.0            5.613964E-01                  
+             4      G     -1.922595E-01  -3.373517E-02   0.0            0.0            0.0           -5.612121E-01                  
+             5      G     -1.865825E-01  -7.633983E-02   0.0            0.0            0.0            1.777692E-01                  
+             6      G      1.865938E-01   7.643049E-02   0.0            0.0            0.0           -1.778268E-01                  
+             7      G      1.114065E-01   8.042765E-02   0.0            0.0            0.0           -8.519841E-01                  
+             8      G     -1.114330E-01  -8.047715E-02   0.0            0.0            0.0            8.519387E-01                  
+             9      G      3.045596E-02   2.266680E-02   0.0            0.0            0.0            9.883876E-01                  
+            10      G     -3.044618E-02  -2.265261E-02   0.0            0.0            0.0           -9.882218E-01                  
+            11      G     -8.714605E-02  -1.163944E-01   0.0            0.0            0.0           -6.527758E-01                  
+            12      G      8.714325E-02   1.163790E-01   0.0            0.0            0.0            6.526239E-01                  
+            13      G      1.129446E-01   2.691582E-01   0.0            0.0            0.0           -1.872493E-01                  
+            14      G     -1.129418E-01  -2.691630E-01   0.0            0.0            0.0            1.873535E-01                  
+            15      G     -7.436579E-03  -8.302300E-02   0.0            0.0            0.0            9.496505E-01                  
+            16      G      7.441982E-03   8.302313E-02   0.0            0.0            0.0           -9.496939E-01                  
+            17      G      6.327450E-07   0.0            0.0            0.0            0.0           -9.999894E-01                  
+            18      G      1.116538E-05   0.0            0.0            0.0            0.0            1.000000E+00                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    39
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.681885E+06    (CYCLIC FREQUENCY =  1.314243E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         16
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -4.143526E-02   0.0            0.0            0.0            3.012355E-01                  
+             2      G      0.0            4.137767E-02   0.0            0.0            0.0           -2.927229E-01                  
+             3      G     -1.914635E-01  -8.062024E-02   0.0            0.0            0.0            7.652254E-01                  
+             4      G      1.925248E-01   8.076181E-02   0.0            0.0            0.0           -7.727025E-01                  
+             5      G     -5.034750E-01  -2.376618E-01   0.0            0.0            0.0            4.465614E-01                  
+             6      G      5.017952E-01   2.371431E-01   0.0            0.0            0.0           -4.446293E-01                  
+             7      G     -4.760379E-01  -3.287199E-01   0.0            0.0            0.0            1.465996E-03                  
+             8      G      4.771007E-01   3.296076E-01   0.0            0.0            0.0            1.823001E-03                  
+             9      G     -4.652660E-01  -4.680362E-01   0.0            0.0            0.0            2.872824E-01                  
+            10      G      4.650967E-01   4.678141E-01   0.0            0.0            0.0           -2.939982E-01                  
+            11      G     -4.159769E-01  -5.861627E-01   0.0            0.0            0.0           -3.050179E-01                  
+            12      G      4.155560E-01   5.858536E-01   0.0            0.0            0.0            3.094571E-01                  
+            13      G     -2.011509E-01  -3.931033E-01   0.0            0.0            0.0           -5.679711E-01                  
+            14      G      2.015535E-01   3.936951E-01   0.0            0.0            0.0            5.660707E-01                  
+            15      G     -1.010258E-01  -2.938567E-01   0.0            0.0            0.0           -2.505577E-01                  
+            16      G      1.011685E-01   2.931429E-01   0.0            0.0            0.0            2.484877E-01                  
+            17      G     -4.466690E-02   0.0            0.0            0.0            0.0           -9.966330E-01                  
+            18      G      4.465631E-02   0.0            0.0            0.0            0.0            1.000000E+00                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    40
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.773955E+06    (CYCLIC FREQUENCY =  1.400161E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         17
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -4.176574E-03   0.0            0.0            0.0           -9.620442E-01                  
+             2      G      0.0           -4.189732E-03   0.0            0.0            0.0           -9.936900E-01                  
+             3      G     -8.871204E-02  -1.360837E-02   0.0            0.0            0.0            9.188021E-01                  
+             4      G     -9.016973E-02  -1.374730E-02   0.0            0.0            0.0            9.284890E-01                  
+             5      G      1.594141E-01   6.097342E-02   0.0            0.0            0.0           -7.674198E-01                  
+             6      G      1.606633E-01   6.137214E-02   0.0            0.0            0.0           -7.737234E-01                  
+             7      G     -1.928168E-01  -1.231221E-01   0.0            0.0            0.0            5.125007E-01                  
+             8      G     -1.937204E-01  -1.235991E-01   0.0            0.0            0.0            5.165494E-01                  
+             9      G      1.892304E-01   1.865611E-01   0.0            0.0            0.0            4.360770E-03                  
+            10      G      1.904479E-01   1.873198E-01   0.0            0.0            0.0            9.757719E-03                  
+            11      G     -1.395495E-01  -2.122275E-01   0.0            0.0            0.0           -3.449765E-01                  
+            12      G     -1.397568E-01  -2.123524E-01   0.0            0.0            0.0           -3.495222E-01                  
+            13      G      8.016175E-02   1.918633E-01   0.0            0.0            0.0            6.210759E-01                  
+            14      G      8.033673E-02   1.925016E-01   0.0            0.0            0.0            6.266881E-01                  
+            15      G     -2.373563E-02  -1.324526E-01   0.0            0.0            0.0           -8.427296E-01                  
+            16      G     -2.331320E-02  -1.322570E-01   0.0            0.0            0.0           -8.523687E-01                  
+            17      G     -9.849630E-03   0.0            0.0            0.0            0.0            1.000000E+00                  
+            18      G     -9.280056E-03   0.0            0.0            0.0            0.0            9.931021E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    41
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.858112E+06    (CYCLIC FREQUENCY =  1.474321E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         18
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            5.062176E-03   0.0            0.0            0.0           -9.760255E-01                  
+             2      G      0.0           -4.983522E-03   0.0            0.0            0.0            9.776507E-01                  
+             3      G      1.017905E-01   1.592169E-02   0.0            0.0            0.0            8.637494E-01                  
+             4      G     -1.015798E-01  -1.585724E-02   0.0            0.0            0.0           -8.650308E-01                  
+             5      G     -1.664687E-01  -6.371764E-02   0.0            0.0            0.0           -5.728456E-01                  
+             6      G      1.660980E-01   6.367897E-02   0.0            0.0            0.0            5.729196E-01                  
+             7      G      1.883097E-01   1.223424E-01   0.0            0.0            0.0            1.407639E-01                  
+             8      G     -1.881109E-01  -1.222704E-01   0.0            0.0            0.0           -1.396067E-01                  
+             9      G     -1.600693E-01  -1.598931E-01   0.0            0.0            0.0            1.004013E-01                  
+            10      G      1.600823E-01   1.599384E-01   0.0            0.0            0.0           -1.020627E-01                  
+            11      G      9.840610E-02   1.509490E-01   0.0            0.0            0.0           -5.377904E-01                  
+            12      G     -9.860366E-02  -1.511687E-01   0.0            0.0            0.0            5.386818E-01                  
+            13      G     -3.969763E-02  -1.044763E-01   0.0            0.0            0.0            8.413116E-01                  
+            14      G      3.985805E-02   1.047308E-01   0.0            0.0            0.0           -8.413646E-01                  
+            15      G     -1.327919E-03   9.819654E-03   0.0            0.0            0.0           -9.877970E-01                  
+            16      G      1.374315E-03  -1.009996E-02   0.0            0.0            0.0            9.866938E-01                  
+            17      G     -5.882789E-04   0.0            0.0            0.0            0.0            1.000000E+00                  
+            18      G      6.330072E-04   0.0            0.0            0.0            0.0           -9.985011E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    42
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.112223E+07    (CYCLIC FREQUENCY =  1.686011E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         19
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            1.680901E-03   0.0            0.0            0.0           -7.702415E-01                  
+             2      G      0.0           -1.566423E-03   0.0            0.0            0.0            7.930604E-01                  
+             3      G      2.218080E-02   3.335202E-03   0.0            0.0            0.0            7.795970E-01                  
+             4      G     -1.901737E-02  -2.883441E-03   0.0            0.0            0.0           -7.973612E-01                  
+             5      G     -3.956430E-02  -1.364900E-02   0.0            0.0            0.0           -7.911267E-01                  
+             6      G      3.517153E-02   1.193830E-02   0.0            0.0            0.0            7.928597E-01                  
+             7      G      4.843251E-02   3.272124E-02   0.0            0.0            0.0            8.264033E-01                  
+             8      G     -4.548318E-02  -3.063853E-02   0.0            0.0            0.0           -8.116649E-01                  
+             9      G     -4.158313E-03  -4.928707E-03   0.0            0.0            0.0           -9.027756E-01                  
+            10      G      4.538882E-03   4.909017E-03   0.0            0.0            0.0            8.795611E-01                  
+            11      G      1.277094E-02   1.605242E-02   0.0            0.0            0.0            8.658656E-01                  
+            12      G     -1.475008E-02  -1.855193E-02   0.0            0.0            0.0           -8.506373E-01                  
+            13      G     -1.734871E-02  -3.653962E-02   0.0            0.0            0.0           -8.646517E-01                  
+            14      G      1.915737E-02   4.062516E-02   0.0            0.0            0.0            8.627247E-01                  
+            15      G      1.201880E-02   5.811064E-02   0.0            0.0            0.0            8.834072E-01                  
+            16      G     -1.253620E-02  -6.156785E-02   0.0            0.0            0.0           -8.968958E-01                  
+            17      G      2.601049E-03   0.0            0.0            0.0            0.0           -9.780911E-01                  
+            18      G     -3.035790E-03   0.0            0.0            0.0            0.0            1.000000E+00                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    43
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.131960E+07    (CYCLIC FREQUENCY =  1.828275E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         20
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            4.415379E-03   0.0            0.0            0.0           -1.928814E-01                  
+             2      G      0.0            5.590766E-03   0.0            0.0            0.0            1.000000E+00                  
+             3      G      3.190516E-02   5.929251E-03   0.0            0.0            0.0            1.907969E-01                  
+             4      G      7.388076E-02   1.324565E-02   0.0            0.0            0.0           -7.820632E-01                  
+             5      G     -4.772769E-02  -1.916412E-02   0.0            0.0            0.0           -3.564162E-01                  
+             6      G     -1.037183E-01  -4.068987E-02   0.0            0.0            0.0            4.567186E-01                  
+             7      G      1.494553E-02   1.122246E-02   0.0            0.0            0.0            5.810568E-01                  
+             8      G      9.367429E-02   6.140788E-02   0.0            0.0            0.0           -1.153748E-01                  
+             9      G      4.880819E-02   3.784684E-02   0.0            0.0            0.0           -4.045693E-01                  
+            10      G     -4.186876E-02  -4.875673E-02   0.0            0.0            0.0           -4.155214E-01                  
+            11      G     -6.019552E-02  -9.145004E-02   0.0            0.0            0.0            2.008447E-01                  
+            12      G      1.320452E-03   6.782805E-04   0.0            0.0            0.0            4.218172E-01                  
+            13      G      5.377495E-02   1.248217E-01   0.0            0.0            0.0            1.756696E-01                  
+            14      G      1.321567E-02   2.999962E-02   0.0            0.0            0.0           -2.764466E-01                  
+            15      G     -2.063295E-02  -1.048134E-01   0.0            0.0            0.0           -5.857372E-01                  
+            16      G     -8.052472E-03  -2.476056E-02   0.0            0.0            0.0            1.021302E-01                  
+            17      G     -7.811151E-03   0.0            0.0            0.0            0.0            8.336141E-01                  
+            18      G     -7.728989E-03   0.0            0.0            0.0            0.0            1.538579E-02                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    44
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.144313E+07    (CYCLIC FREQUENCY =  1.911937E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         21
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            4.098476E-03   0.0            0.0            0.0            2.595256E-02                  
+             2      G      0.0            5.852876E-03   0.0            0.0            0.0            3.901586E-01                  
+             3      G      3.799985E-03   3.058942E-03   0.0            0.0            0.0           -2.334655E-01                  
+             4      G      4.745021E-02   9.680659E-03   0.0            0.0            0.0           -5.698911E-02                  
+             5      G     -2.284219E-02  -9.376865E-03   0.0            0.0            0.0            2.349418E-01                  
+             6      G     -5.468070E-02  -2.119111E-02   0.0            0.0            0.0           -1.636932E-01                  
+             7      G      2.544495E-02   1.418498E-02   0.0            0.0            0.0           -1.931941E-01                  
+             8      G      3.384056E-02   2.160585E-02   0.0            0.0            0.0            4.071678E-01                  
+             9      G     -2.167047E-02  -2.936584E-02   0.0            0.0            0.0            1.024659E-01                  
+            10      G      2.395803E-02   1.735817E-02   0.0            0.0            0.0           -5.337440E-01                  
+            11      G      1.615573E-02   1.993732E-02   0.0            0.0            0.0            1.547792E-02                  
+            12      G     -4.108285E-02  -6.859185E-02   0.0            0.0            0.0            3.458541E-01                  
+            13      G     -5.163135E-03  -8.833445E-03   0.0            0.0            0.0           -4.693551E-02                  
+            14      G      4.207499E-02   9.487152E-02   0.0            0.0            0.0           -2.420180E-02                  
+            15      G      4.423479E-03   2.807801E-02   0.0            0.0            0.0            1.950799E-02                  
+            16      G     -2.496865E-02  -9.910906E-02   0.0            0.0            0.0           -2.757837E-01                  
+            17      G      1.355728E-03   0.0            0.0            0.0            0.0           -5.173450E-01                  
+            18      G     -1.228135E-02   0.0            0.0            0.0            0.0            1.000000E+00                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    45
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.175223E+07    (CYCLIC FREQUENCY =  2.106764E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         22
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            2.564228E-02   0.0            0.0            0.0            5.952873E-01                  
+             2      G      0.0            2.162351E-02   0.0            0.0            0.0           -7.742673E-01                  
+             3      G      3.839498E-02   2.333190E-02   0.0            0.0            0.0            4.351062E-01                  
+             4      G     -7.883438E-02   5.934840E-03   0.0            0.0            0.0           -2.400088E-01                  
+             5      G      8.832233E-03   1.002148E-03   0.0            0.0            0.0           -7.463344E-01                  
+             6      G      2.479162E-02   1.376702E-02   0.0            0.0            0.0            6.354020E-01                  
+             7      G     -8.407011E-02  -7.364263E-02   0.0            0.0            0.0            6.751722E-01                  
+             8      G      4.960324E-02   1.064829E-02   0.0            0.0            0.0           -7.681195E-01                  
+             9      G      6.999538E-02   4.367406E-02   0.0            0.0            0.0            1.000000E+00                  
+            10      G     -1.843426E-02  -6.248400E-02   0.0            0.0            0.0           -7.468254E-01                  
+            11      G      4.633419E-02   3.139224E-02   0.0            0.0            0.0           -9.810494E-01                  
+            12      G      2.464755E-03  -1.454693E-02   0.0            0.0            0.0            5.601512E-01                  
+            13      G     -4.272550E-02  -1.062472E-01   0.0            0.0            0.0            3.898786E-01                  
+            14      G      1.720355E-02   4.159661E-02   0.0            0.0            0.0           -2.695730E-01                  
+            15      G     -3.082184E-03   9.279401E-02   0.0            0.0            0.0            6.270042E-01                  
+            16      G     -9.936079E-03  -8.904519E-03   0.0            0.0            0.0           -3.751683E-01                  
+            17      G     -3.135178E-02   0.0            0.0            0.0            0.0           -2.889804E-01                  
+            18      G     -1.911560E-02   0.0            0.0            0.0            0.0           -1.214693E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    46
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.195817E+07    (CYCLIC FREQUENCY =  2.227127E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         23
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            9.474006E-03   0.0            0.0            0.0            4.346042E-01                  
+             2      G      0.0            3.961074E-03   0.0            0.0            0.0           -3.457832E-01                  
+             3      G      1.549356E-02   9.714011E-03   0.0            0.0            0.0            9.352357E-01                  
+             4      G     -2.870801E-03   1.412583E-03   0.0            0.0            0.0           -9.285750E-01                  
+             5      G      9.429370E-02   3.781954E-02   0.0            0.0            0.0           -5.449356E-01                  
+             6      G     -9.414382E-02  -3.938472E-02   0.0            0.0            0.0            3.053449E-01                  
+             7      G     -4.382861E-02  -3.667103E-02   0.0            0.0            0.0           -8.010556E-01                  
+             8      G      5.345270E-03   3.587535E-03   0.0            0.0            0.0            1.000000E+00                  
+             9      G      2.990630E-02   2.430152E-02   0.0            0.0            0.0           -5.617539E-01                  
+            10      G      2.064585E-02   5.542045E-03   0.0            0.0            0.0            7.556299E-01                  
+            11      G     -3.258572E-02  -5.366122E-02   0.0            0.0            0.0           -5.813008E-01                  
+            12      G      4.213659E-02   5.776031E-02   0.0            0.0            0.0            5.341025E-02                  
+            13      G     -2.118915E-02  -3.725390E-02   0.0            0.0            0.0            7.875460E-01                  
+            14      G     -1.185010E-02  -3.698484E-02   0.0            0.0            0.0           -5.031782E-01                  
+            15      G      9.795603E-03   9.884554E-02   0.0            0.0            0.0           -2.379803E-02                  
+            16      G      3.787396E-03  -7.401022E-03   0.0            0.0            0.0            2.479520E-01                  
+            17      G     -1.365503E-02   0.0            0.0            0.0            0.0           -8.171623E-01                  
+            18      G      1.388472E-03   0.0            0.0            0.0            0.0            2.378805E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    47
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.217618E+07    (CYCLIC FREQUENCY =  2.347833E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         24
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -5.019812E-03   0.0            0.0            0.0            1.827151E-01                  
+             2      G      0.0            3.112553E-03   0.0            0.0            0.0           -5.293785E-01                  
+             3      G     -5.213214E-02  -1.083145E-02   0.0            0.0            0.0            9.046907E-01                  
+             4      G      4.285168E-03   4.617852E-03   0.0            0.0            0.0           -7.472562E-01                  
+             5      G      3.954001E-02   1.734378E-02   0.0            0.0            0.0            1.000000E+00                  
+             6      G      1.672632E-03   1.690572E-03   0.0            0.0            0.0           -8.370885E-01                  
+             7      G      2.680980E-02   1.148826E-02   0.0            0.0            0.0            2.414088E-01                  
+             8      G     -2.504288E-02  -1.592353E-02   0.0            0.0            0.0           -5.410938E-01                  
+             9      G     -2.045512E-02  -2.295117E-02   0.0            0.0            0.0            3.149854E-01                  
+            10      G     -7.113110E-03  -6.493937E-03   0.0            0.0            0.0           -2.564448E-01                  
+            11      G      2.013019E-03   5.061319E-03   0.0            0.0            0.0            6.252480E-01                  
+            12      G      9.250824E-03   1.959045E-02   0.0            0.0            0.0           -4.414684E-01                  
+            13      G      1.286030E-02   2.446576E-02   0.0            0.0            0.0            3.735097E-01                  
+            14      G     -4.442502E-03  -1.365315E-02   0.0            0.0            0.0           -5.828649E-01                  
+            15      G      2.434385E-03   7.254926E-03   0.0            0.0            0.0            2.381630E-02                  
+            16      G     -6.261670E-03  -3.705767E-02   0.0            0.0            0.0           -5.285481E-02                  
+            17      G     -3.695319E-03   0.0            0.0            0.0            0.0            2.599898E-03                  
+            18      G     -2.916319E-03   0.0            0.0            0.0            0.0            2.057214E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    48
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.337930E+07    (CYCLIC FREQUENCY =  2.925723E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         25
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            4.904684E-02   0.0            0.0            0.0            1.000000E+00                  
+             2      G      0.0            1.311864E-01   0.0            0.0            0.0           -5.615481E-01                  
+             3      G      3.848193E-02   1.421093E-04   0.0            0.0            0.0            6.120048E-02                  
+             4      G     -5.563680E-02   6.973462E-02   0.0            0.0            0.0            1.598889E-02                  
+             5      G      1.121404E-02  -1.233675E-01   0.0            0.0            0.0            1.618258E-02                  
+             6      G     -7.173613E-03  -3.914959E-03   0.0            0.0            0.0            8.749572E-02                  
+             7      G      1.235863E-01  -9.347244E-02   0.0            0.0            0.0           -2.457853E-01                  
+             8      G      3.992196E-02  -5.509943E-03   0.0            0.0            0.0           -5.037362E-02                  
+             9      G      4.913897E-02  -6.311754E-02   0.0            0.0            0.0           -5.249950E-01                  
+            10      G     -4.872219E-02   6.917641E-02   0.0            0.0            0.0           -2.075837E-01                  
+            11      G     -3.563253E-02  -4.125509E-02   0.0            0.0            0.0            3.262766E-01                  
+            12      G     -1.450529E-01   3.078431E-02   0.0            0.0            0.0            3.404969E-01                  
+            13      G      1.513368E-03   1.626483E-02   0.0            0.0            0.0            4.180804E-01                  
+            14      G     -1.249759E-01   1.004203E-01   0.0            0.0            0.0            6.178392E-01                  
+            15      G      1.239290E-01  -1.664983E-02   0.0            0.0            0.0           -7.366379E-02                  
+            16      G     -7.600737E-02   5.336131E-02   0.0            0.0            0.0           -3.263422E-01                  
+            17      G      2.376319E-01   0.0            0.0            0.0            0.0           -3.305171E-01                  
+            18      G     -1.209612E-03   0.0            0.0            0.0            0.0           -6.193898E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    49
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.378073E+07    (CYCLIC FREQUENCY =  3.094624E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         26
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            1.438172E-01   0.0            0.0            0.0            1.000000E+00                  
+             2      G      0.0           -1.383269E-01   0.0            0.0            0.0           -5.805678E-01                  
+             3      G      2.514647E-02   1.396348E-01   0.0            0.0            0.0            7.749102E-02                  
+             4      G      1.801882E-02  -1.354128E-01   0.0            0.0            0.0           -1.603501E-01                  
+             5      G     -7.610769E-02   7.623267E-02   0.0            0.0            0.0            7.706849E-02                  
+             6      G      3.935407E-02  -9.862430E-02   0.0            0.0            0.0           -8.865640E-02                  
+             7      G     -3.045652E-02   7.950126E-02   0.0            0.0            0.0            6.931782E-02                  
+             8      G      5.587149E-02  -5.676528E-02   0.0            0.0            0.0            6.977551E-02                  
+             9      G     -4.061788E-02   1.006378E-02   0.0            0.0            0.0           -1.716513E-01                  
+            10      G      3.169246E-02   5.030515E-04   0.0            0.0            0.0           -3.992353E-02                  
+            11      G     -2.579434E-02  -2.057293E-02   0.0            0.0            0.0            1.771608E-01                  
+            12      G      2.145563E-02  -3.105558E-02   0.0            0.0            0.0            5.384135E-02                  
+            13      G      6.876895E-04   1.867251E-04   0.0            0.0            0.0            8.215211E-02                  
+            14      G     -2.157815E-03   4.727187E-02   0.0            0.0            0.0            1.712440E-01                  
+            15      G      4.738265E-02  -3.067874E-02   0.0            0.0            0.0            7.975996E-02                  
+            16      G     -6.803244E-02   2.954710E-02   0.0            0.0            0.0           -1.918197E-01                  
+            17      G      1.109316E-01   0.0            0.0            0.0            0.0            1.158327E-01                  
+            18      G     -6.252280E-02   0.0            0.0            0.0            0.0           -1.710514E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    50
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.571834E+07    (CYCLIC FREQUENCY =  3.805881E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         27
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -6.555416E-02   0.0            0.0            0.0            7.080632E-01                  
+             2      G      0.0           -3.483012E-02   0.0            0.0            0.0            1.000000E+00                  
+             3      G      8.195019E-02   9.332635E-04   0.0            0.0            0.0            2.736642E-01                  
+             4      G      8.710062E-02   2.205751E-02   0.0            0.0            0.0            2.799255E-01                  
+             5      G      3.539782E-02   7.428082E-02   0.0            0.0            0.0           -7.412059E-01                  
+             6      G      3.176091E-02   5.436600E-02   0.0            0.0            0.0           -7.399773E-01                  
+             7      G     -6.727316E-02  -1.217390E-02   0.0            0.0            0.0           -7.282311E-01                  
+             8      G     -4.809498E-02  -3.175561E-02   0.0            0.0            0.0           -7.617958E-01                  
+             9      G     -3.098870E-02  -7.660427E-02   0.0            0.0            0.0            1.431498E-01                  
+            10      G     -8.031639E-03  -9.711184E-02   0.0            0.0            0.0            8.537432E-02                  
+            11      G      5.407592E-03  -1.405719E-02   0.0            0.0            0.0            7.447642E-01                  
+            12      G     -1.065603E-02   7.473582E-03   0.0            0.0            0.0            7.804128E-01                  
+            13      G      1.628484E-02   5.688581E-02   0.0            0.0            0.0            4.011762E-01                  
+            14      G     -2.372972E-02   7.074666E-02   0.0            0.0            0.0            4.036725E-01                  
+            15      G      1.670857E-02   5.131457E-02   0.0            0.0            0.0           -4.889504E-01                  
+            16      G      4.715198E-03   4.694119E-02   0.0            0.0            0.0           -4.120600E-01                  
+            17      G      1.337976E-02   0.0            0.0            0.0            0.0           -8.538974E-01                  
+            18      G      2.366182E-02   0.0            0.0            0.0            0.0           -7.810042E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    51
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.817001E+07    (CYCLIC FREQUENCY =  4.549161E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         28
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0           -1.240588E-01   0.0            0.0            0.0            9.634864E-01                  
+             2      G      0.0           -2.277335E-02   0.0            0.0            0.0            7.659667E-01                  
+             3      G      6.283390E-02   3.184974E-02   0.0            0.0            0.0            5.258089E-01                  
+             4      G      3.127934E-02   4.486299E-02   0.0            0.0            0.0            5.450770E-01                  
+             5      G      4.451809E-03   9.419473E-02   0.0            0.0            0.0           -7.713561E-02                  
+             6      G      3.079568E-02   2.214468E-02   0.0            0.0            0.0           -1.288096E-01                  
+             7      G      3.622530E-02  -1.367164E-02   0.0            0.0            0.0           -6.397517E-01                  
+             8      G      7.917430E-02  -6.966471E-02   0.0            0.0            0.0           -6.543939E-01                  
+             9      G      1.551330E-02  -8.755369E-03   0.0            0.0            0.0           -8.792543E-01                  
+            10      G     -3.946207E-02   6.296684E-02   0.0            0.0            0.0           -7.983139E-01                  
+            11      G     -3.029547E-02  -3.427879E-02   0.0            0.0            0.0           -5.277839E-01                  
+            12      G     -6.284352E-02  -2.550134E-02   0.0            0.0            0.0           -5.327125E-01                  
+            13      G     -1.738163E-02  -5.136554E-02   0.0            0.0            0.0            1.991128E-01                  
+            14      G      2.378358E-02  -7.305844E-02   0.0            0.0            0.0            1.942263E-01                  
+            15      G     -1.298033E-02  -2.320697E-02   0.0            0.0            0.0            8.253684E-01                  
+            16      G      1.216887E-02  -2.398375E-02   0.0            0.0            0.0            7.461016E-01                  
+            17      G     -1.646592E-02   0.0            0.0            0.0            0.0            1.000000E+00                  
+            18      G     -2.659759E-02   0.0            0.0            0.0            0.0            9.338990E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    52
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.109718E+08    (CYCLIC FREQUENCY =  5.271807E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         29
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            6.306864E-01   0.0            0.0            0.0            9.074771E-01                  
+             2      G      0.0            1.500047E-01   0.0            0.0            0.0           -1.420328E-01                  
+             3      G      7.494743E-02  -4.255546E-01   0.0            0.0            0.0           -1.311725E-01                  
+             4      G      6.124309E-02  -2.898491E-01   0.0            0.0            0.0           -2.025004E-02                  
+             5      G     -2.116179E-02   3.676016E-02   0.0            0.0            0.0            3.335792E-01                  
+             6      G     -2.214274E-01   4.726125E-01   0.0            0.0            0.0            5.477368E-01                  
+             7      G     -4.528701E-02   1.035470E-01   0.0            0.0            0.0            5.299209E-01                  
+             8      G      1.911004E-01  -3.593395E-01   0.0            0.0            0.0            3.009409E-01                  
+             9      G     -3.606528E-02  -2.550558E-03   0.0            0.0            0.0            4.412903E-01                  
+            10      G     -2.264526E-02   6.098498E-02   0.0            0.0            0.0            5.558437E-01                  
+            11      G      6.642874E-02  -7.025607E-02   0.0            0.0            0.0            6.819184E-01                  
+            12      G     -9.737381E-02   3.810512E-02   0.0            0.0            0.0            7.162649E-01                  
+            13      G     -3.203722E-02   1.959370E-02   0.0            0.0            0.0            8.135302E-01                  
+            14      G     -2.617797E-02   2.559471E-03   0.0            0.0            0.0            8.732265E-01                  
+            15      G      4.556058E-02  -4.038391E-03   0.0            0.0            0.0            8.755918E-01                  
+            16      G      1.144764E-01  -2.319191E-02   0.0            0.0            0.0            6.187912E-01                  
+            17      G     -1.407236E-01   0.0            0.0            0.0            0.0            1.000000E+00                  
+            18      G     -5.802941E-02   0.0            0.0            0.0            0.0            7.277485E-01                  
+1     FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL             /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    53
+      NASTRAN TEST PROBLEM NO. T13-02-2A                                                                                            
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE  3             
+      EIGENVALUE =  0.140761E+08    (CYCLIC FREQUENCY =  5.971198E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         30
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            6.165289E-01   0.0            0.0            0.0            6.196898E-01                  
+             2      G      0.0           -6.060836E-01   0.0            0.0            0.0            6.974009E-01                  
+             3      G      6.350111E-02  -5.218132E-01   0.0            0.0            0.0            5.027527E-01                  
+             4      G     -7.426060E-02   5.191436E-01   0.0            0.0            0.0            1.000000E+00                  
+             5      G     -7.740908E-02   3.239703E-01   0.0            0.0            0.0            7.424201E-01                  
+             6      G      1.190608E-01  -3.010810E-01   0.0            0.0            0.0            4.450397E-01                  
+             7      G      2.787450E-02  -1.012868E-01   0.0            0.0            0.0            3.910620E-01                  
+             8      G     -1.823312E-02   7.760706E-02   0.0            0.0            0.0            4.444542E-01                  
+             9      G      5.200273E-02  -4.583009E-02   0.0            0.0            0.0            5.746799E-01                  
+            10      G     -1.235368E-01   7.961313E-02   0.0            0.0            0.0            5.946550E-01                  
+            11      G     -6.951255E-02   6.206733E-02   0.0            0.0            0.0            5.530833E-01                  
+            12      G      1.604146E-01  -1.001038E-01   0.0            0.0            0.0            4.700455E-01                  
+            13      G      2.793421E-02  -1.494810E-02   0.0            0.0            0.0            4.960886E-01                  
+            14      G     -5.897827E-02   3.197725E-02   0.0            0.0            0.0            4.851473E-01                  
+            15      G     -3.634839E-02   1.980999E-02   0.0            0.0            0.0            3.274574E-01                  
+            16      G     -1.039602E-02   1.539380E-02   0.0            0.0            0.0            5.089122E-01                  
+            17      G      1.076792E-01   0.0            0.0            0.0            0.0            1.346582E-01                  
+            18      G     -2.968676E-02   0.0            0.0            0.0            0.0            4.079057E-01                  
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL          
+ DATE:  5/18/95
+ END TIME: 10:59: 5
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

@@ -1,0 +1,156 @@
+$-------------------------------------------------------------------------------
+$               RIGID FORMAT No. 4, Differential Stiffness Analysis
+$           Differential Stiffness Analysis for a Hanging Cable (4-1-1)
+$ 
+$ A. Description
+$ 
+$ NASTRAN provides an iteration procedure for nonlinear differential stiffness
+$ (or geometric stiffness) solutions. As described in Section 7 of the NASTRAN
+$ Theoretical Manual, the internal loads are recalculated for each iteration.
+$ The changes in direction of these internal loads are used to correct the
+$ previous solution. External loads retain their original orientation; however,
+$ they do travel with the grid point.
+$ 
+$ A classical nonlinear geometric problem is that of a hanging cable which
+$ assumes the shape of a catenary when a uniform gravity load is applied. The
+$ model is given a circular shape initially. The resulting displacements of the
+$ grid points, when added to their original locations, provide a close
+$ approximation to the catenary.
+$ 
+$ B. Input
+$ 
+$ The NASTRAN model consists of nine BAR elements connected to ten GRID points
+$ evenly spaced on a quarter circle. The bending stiffness of the elements is a
+$ nominally small value necessary to provide a non-singular, linear solution.
+$ 
+$ The axial stiffness of the elements is a sufficiently large value to limit
+$ extensional displacements. The basic parameters are
+$ 
+$    R = 10.0 ft      (initial radius)
+$ 
+$    w = 1.288 lb/ft  (Height per length)
+$ 
+$    L = 5 pi
+$ 
+$ C. Theory
+$ 
+$ The coordinate positions of the initial circular shape are defined by the
+$ equations
+$ 
+$    x = R cos theta                                                         (1)
+$ 
+$    y = R sin theta                                                         (2)
+$ 
+$    s = R theta                                                             (3)
+$ 
+$ where s is the arc length and is measured in radians. Solving Equation (3) for
+$ theta and substituting into Equations (1) and (2), the expressions for the
+$ circular shape are
+$    _
+$    x = R cos (s/R)                                                         (4)
+$    _
+$    y = R sin (s/R)                                                         (5)
+$ 
+$ The differential equation for the deformed shape (see Reference 25) is
+$ 
+$    dy'     w           2  1/2
+$    ---  =  - ( 1 + (y')  )                                                 (6)
+$    dx      H
+$ 
+$ where
+$ 
+$    w is the weight per unit length
+$ 
+$    H is the tension at x = 0,
+$ 
+$    y' = dy/dx is the slope of the resulting curve
+$ 
+$ Dividing both sides of Equation (6) by the radical term and integrating,
+$ results in the equation
+$ 
+$        -1        wx
+$    sinh   y'  =  -- + C                                                    (7)
+$                  H     1
+$ 
+$ Since y' = 0 at x = 0 and C  = a, then
+$                            1
+$ 
+$                wx
+$    y' = sinh ( -- )                                                        (8)
+$                H
+$ 
+$ Integrating again and applying the known boundary condition y = 0 at x = 0,
+$ the equation for the shape is
+$ 
+$          H         wx
+$    y  =  -  [ cosh -- -1 ]                                                 (9)
+$          W         H
+$ 
+$ Since the length of the cable is known but the horizontal force H is unknown,
+$ the two may be related by integrating for the arc length L which is
+$ 
+$                 wx
+$          H        o
+$    L  =  - sinh ---                                                       (10)
+$          w       H
+$ 
+$ 
+$ where x  is one-half the distance between supports. If w, x , and L are given,
+$        o                                                   o
+$ Equation (10) is solved for H (for x  = 10.0, w/H = .1719266) and Equation (9)
+$                                     o
+$ is evaluated to obtain the actual shape. However, for a given position s along
+$ the cable, the coordinates x and y would be
+$ 
+$          H     -1   ws
+$    x  =  - sinh   ( -- )                                                  (11)
+$          w          H
+$ 
+$          H           ws  2  1/2
+$    y  =  - [ ( 1 + ( -- )  )    - 1 ]                                     (12)
+$          w           H
+$ 
+$ The location of points on the initial circular shape are defined in the
+$ coordinate system used for the deflected shape using
+$           _
+$    x   =  x                                                               (13)
+$     o
+$               _
+$    y   =  R - y                                                           (14)
+$     o
+$ 
+$ The deflections of points on the cable are computed with the equations
+$ 
+$    u   =  x - x                                                           (15)
+$     x          o
+$ 
+$    u   =  y - y                                                           (16)
+$     y          o
+$ 
+$ D. Results
+$ 
+$ NASTRAN and theoretical results are presented In Table 1 below. Deflections
+$ are measured from the initial shape at selected locations.
+$ 
+$         Table 1. Comparison of NASTRAN Results to Theoretical Predictions
+$      ----------------------------------------------------------------------
+$                                   u   - Horizontal       u   - Vertical
+$      Grid                          x                      y
+$      Point       s     theta      Theory      NASTRAN    Theory     NASTRAN
+$      ----------------------------------------------------------------------
+$      11       13.962     10      -.4856       -.4739    -.1119      -.0408
+$ 
+$      13       10.472     30      -.8043       -.7666    -.2286      -.1269
+$ 
+$      15        6.981     50      -.5175       -.4612     .0030       .1470
+$ 
+$      17        3.491     70      -.1110       -.0877     .5698       .7973
+$ 
+$      19         .0       90       .0           .0        .9338      1.2167
+$      ----------------------------------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 25. Spiegel, Murray R.:  Applied Differential Equations. Prentice-Hall, Inc.,
+$     1958, pp. 105-108.
+$-------------------------------------------------------------------------------

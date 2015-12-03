@@ -1,0 +1,65 @@
+ID    D05021A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   5,0                                                                       
+TIME  10                                                                        
+CEND                                                                            
+TITLE    =  BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                 
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                          
+LABEL    =  CONCENTRATED  LOAD  AT THE CENTER ALONG Y-AXIS                      
+OUTPUT                                                                          
+DISP  =  ALL                                                                    
+ELSTRESS = ALL                                                                  
+SPC   =  2                                                                      
+SUBCASE 1                                                                       
+LABEL = STATIC SOLUTION                                                         
+LOAD  = 3                                                                       
+OLOAD = ALL                                                                     
+SUBCASE 2                                                                       
+LABEL = BUCKLING SOLUTION                                                       
+METHOD= 4                                                                       
+BEGIN BULK                                                                      
+CTRSHL  1       6       1       2       3       5       7       4       +TR1    
++TR1                                                                            
+CTRSHL  2       7       9       8       7       5       3       6       +TR2    
++TR2                                                                            
+CTRSHL  3       8       7       8       9       11      13      10      +TR3    
++TR3                                                                            
+CTRSHL  4       9       15      14      13      11      9       12      +TR4    
++TR4                                                                            
+EIGB    4       INV     .0      10.0    1       1       0               +ABC    
++ABC    MAX                                                                     
+FORCE   3       13              1.6666+2        -1.0                            
+FORCE   3       14              6.6666+2        -1.0                            
+FORCE   3       15              1.6666+2        -1.0                            
+GRDSET                                                  56                      
+GRID    1               .0      .0      .0                                      
+GRID    2                                                                       
+GRID    3               1.495349.0      .0                                      
+GRID    4                                                                       
+GRID    5                                                                       
+GRID    6                                                                       
+GRID    7               .0      1.5     .0                                      
+GRID    8                                                                       
+GRID    9               1.2476741.5     .0                                      
+GRID    10                                                                      
+GRID    11                                                                      
+GRID    12                                                                      
+GRID    13              .0      3.0     .0                                      
+GRID    14                                                                      
+GRID    15              1.0     3.0     .0                                      
+MAT1    5       3.0+7   1.5+7                                                   
+PTRSHL  6       5       2.990698        2.4953485       2.229135        +PT1    
++PT1    1.294828                                                        +PT2    
++PT2                                                                            
+PTRSHL  7       5       2.495348        2.9906985       1.294828        +PT3    
++PT3    2.229135                                                        +PT4    
++PT4                                                                            
+PTRSHL  8       5       2.495348        2.0     5       1.294828        +PT5    
++PT5    .666667                                                         +PT6    
++PT6                                                                            
+PTRSHL  9       5       2.0             2.4953485       .666667         +PT7    
++PT7    1.294828                                                        +PT8    
++PT8                                                                            
+SPC1    2       1       4       7       10      13                              
+SPC1    2       1234    1       2       3                                       
+ENDDATA                                                                         

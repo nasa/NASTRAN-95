@@ -1,0 +1,352 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01062A,NASTRAN                                                           
+     APP   DISP                                                                      
+     SOL   1,1                                                                       
+     TIME  5                                                                         
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-06-2A                                                                                   
+0     TRAPEZOIDAL RING ELEMENTS                                                                                                     
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE = SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)              
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-06-2A                          
+                  3      LABEL = TRAPEZOIDAL RING ELEMENTS                                               
+                  4      ECHO  = BOTH                                                                    
+                  5      SPC   = 16                                                                      
+                  6      TEMPERATURE(LOAD) = 16                                                          
+                  7          OUTPUT                                                                      
+                  8          SET 1 = 1,3,5,7,9,11,13,15,17,19,21,23,25,26                                
+                  9          DISP  = 1                                                                   
+                 10          ELSTRESS = ALL                                                              
+                 11      BEGIN BULK                                                                      
+1     SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-06-2A                                                                                   
+0     TRAPEZOIDAL RING ELEMENTS                                                                                                     
+0                                             I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              -FF-    CTRAPRG, 1,1,3,4,2,.0,12                                                                      
+                              -FF-    =(11), *(1) *(2),///, ==                                                                      
+                              -FF-    GRDSET, 8)2456                                                                                
+                              -FF-    GRID,1,,.0                                                                                    
+                              -FF-    =(3),*(2),,*(.005)                                                                            
+                              -FF-    GRID,2,,.0,,.01                                                                               
+                              -FF-    =(3),*(2),,*(.005),==                                                                         
+                              -FF-    GRID,9,,.02                                                                                   
+                              -FF-    =(8),*(2),,%(.10)                                                                             
+                              -FF-    GRID,10,,.02,,.01                                                                             
+                              -FF-    =(8),*(2),,%(.10),==                                                                          
+                              -FF-    MAT1,12,1.0+7,,.3,.2587-3,1.0-7,.0                                                            
+                              -FF-    SPC,16,1,13,.0,2,1,.0                                                                         
+                              -FF-    TEMP,16,1,100.,2,100.,3,99.75                                                                 
+                              -FF-    =,=,4,99.75,5,99.0,6,99.0                                                                     
+                              -FF-    =,=,7,97.75,8,97.75,9,96.0                                                                    
+                              -FF-    =,=,10,96.0,11,91.0,12,91.0                                                                   
+                              -FF-    =,=,13,84.0,14,84.0,15,75.0                                                                   
+                              -FF-    =,=,16,75.0,17,64.0,18,64.0                                                                   
+                              -FF-    =,=,19,51.0,20,51.0,21,36.0                                                                   
+                              -FF-    =,=,22,36.0,23,19.0,24,19.0                                                                   
+                              -FF-    =,=,25,.0,26,.0                                                                               
+                              ENDDATA                                                                                       
+
+
+                        TOTAL COUNT=     22
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-06-2A                                                                                   
+0     TRAPEZOIDAL RING ELEMENTS                                                                                                     
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CTRAPRG 1       1       3       4       2       .0      12                      
+                    2-        CTRAPRG 2       3       5       6       4       .0      12                      
+                    3-        CTRAPRG 3       5       7       8       6       .0      12                      
+                    4-        CTRAPRG 4       7       9       10      8       .0      12                      
+                    5-        CTRAPRG 5       9       11      12      10      .0      12                      
+                    6-        CTRAPRG 6       11      13      14      12      .0      12                      
+                    7-        CTRAPRG 7       13      15      16      14      .0      12                      
+                    8-        CTRAPRG 8       15      17      18      16      .0      12                      
+                    9-        CTRAPRG 9       17      19      20      18      .0      12                      
+                   10-        CTRAPRG 10      19      21      22      20      .0      12                      
+                   11-        CTRAPRG 11      21      23      24      22      .0      12                      
+                   12-        CTRAPRG 12      23      25      26      24      .0      12                      
+                   13-        GRDSET                                                  2456                    
+                   14-        GRID    1               .0                                                      
+                   15-        GRID    2               .0              .01                                     
+                   16-        GRID    3               .005                                                    
+                   17-        GRID    4               .005            .01                                     
+                   18-        GRID    5               0.01                                                    
+                   19-        GRID    6               0.01            .01                                     
+                   20-        GRID    7               0.015                                                   
+                   21-        GRID    8               0.015           .01                                     
+                   22-        GRID    9               .02                                                     
+                   23-        GRID    10              .02             .01                                     
+                   24-        GRID    11              0.03                                                    
+                   25-        GRID    12              0.03            .01                                     
+                   26-        GRID    13              0.04                                                    
+                   27-        GRID    14              0.04            .01                                     
+                   28-        GRID    15              0.049999                                                
+                   29-        GRID    16              0.049999        .01                                     
+                   30-        GRID    17              0.059999                                                
+                   31-        GRID    18              0.059999        .01                                     
+                   32-        GRID    19              0.069999                                                
+                   33-        GRID    20              0.069999        .01                                     
+                   34-        GRID    21              0.079999                                                
+                   35-        GRID    22              0.079999        .01                                     
+                   36-        GRID    23              0.089999                                                
+                   37-        GRID    24              0.089999        .01                                     
+                   38-        GRID    25              .0999999                                                
+                   39-        GRID    26              .0999999        .01                                     
+                   40-        MAT1    12      1.0+7           .3      .2587-3 1.0-7   .0                      
+                   41-        SPC     16      1       13      .0      2       1       .0                      
+                   42-        TEMP    16      1       100.    2       100.    3       99.75                   
+                   43-        TEMP    16      4       99.75   5       99.0    6       99.0                    
+                   44-        TEMP    16      7       97.75   8       97.75   9       96.0                    
+                   45-        TEMP    16      10      96.0    11      91.0    12      91.0                    
+                   46-        TEMP    16      13      84.0    14      84.0    15      75.0                    
+                   47-        TEMP    16      16      75.0    17      64.0    18      64.0                    
+1     SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-06-2A                                                                                   
+
+      TRAPEZOIDAL RING ELEMENTS                                                                                                     
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        TEMP    16      19      51.0    20      51.0    21      36.0                    
+                   49-        TEMP    16      22      36.0    23      19.0    24      19.0                    
+                   50-        TEMP    16      25      .0      26      .0                                      
+                              ENDDATA
+1     SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-06-2A                                                                                   
+0     TRAPEZOIDAL RING ELEMENTS                                                                                                     
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            4
+                                        PROFILE             87
+                                        MAX WAVEFRONT        4
+                                        AVG WAVEFRONT    3.346
+                                        RMS WAVEFRONT    3.425
+                                        RMS BANDWIDTH    3.425
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            4
+                                        PROFILE             87
+                                        MAX WAVEFRONT        4
+                                        AVG WAVEFRONT    3.346
+                                        RMS WAVEFRONT    3.425
+                                        RMS BANDWIDTH    3.425
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        4         4
+                                        PROFILE (P)                         87        87
+                                        MAXIMUM WAVEFRONT (C-MAX)            4         4
+                                        AVERAGE WAVEFRONT (C-AVG)        3.346     3.346
+                                        RMS WAVEFRONT (C-RMS)            3.425     3.425
+                                        RMS BANDWITCH (B-RMS)            3.425     3.425
+                                        NUMBER OF GRID POINTS (N)                     26
+                                        NUMBER OF ELEMENTS (NON-RIGID)                12
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           5
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                        61
+                                        MATRIX DENSITY, PERCENT                   21.893
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TRAPRG   ELEMENTS (ELEMENT TYPE  37) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   3.7422619E-15
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+1     SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-06-2A                                                                                   
+0     TRAPEZOIDAL RING ELEMENTS                                                                                                     
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             3      G      4.137360E-08   0.0            1.617717E-10   0.0            0.0            0.0                           
+             5      G      8.247039E-08   0.0            6.340413E-10   0.0            0.0            0.0                           
+             7      G      1.230677E-07   0.0            1.444813E-09   0.0            0.0            0.0                           
+             9      G      1.628901E-07   0.0            2.402780E-09   0.0            0.0            0.0                           
+            11      G      2.390438E-07   0.0            5.696757E-09   0.0            0.0            0.0                           
+            13      G      3.093353E-07   0.0            1.021218E-08   0.0            0.0            0.0                           
+            15      G      3.717776E-07   0.0            1.604540E-08   0.0            0.0            0.0                           
+            17      G      4.244424E-07   0.0            2.317959E-08   0.0            0.0            0.0                           
+            19      G      4.653766E-07   0.0            3.161614E-08   0.0            0.0            0.0                           
+            21      G      4.926359E-07   0.0            4.136072E-08   0.0            0.0            0.0                           
+            23      G      5.042610E-07   0.0            5.237185E-08   0.0            0.0            0.0                           
+            25      G      4.983738E-07   0.0            6.487632E-08   0.0            0.0            0.0                           
+            26      G      4.983734E-07   0.0            4.975213E-08   0.0            0.0            0.0                           
+1     SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-06-2A                                                                                   
+0     TRAPEZOIDAL RING ELEMENTS                                                                                                     
+ 
+                  S T R E S S E S   F O R   T H E   T R A P E Z O I D A L   R I N G S     ( C T R A P R G )
+     EL      STRESS               RADIAL                CIRCUMFERENTIAL                AXIAL                     SHEAR
+     ID       POINT                 (X)                     (THETA)                     (Z)                       (ZX)
+0       1       1              -2.474084E+01             -2.474084E+01             -2.192535E-01              1.244398E-01          
+                2              -2.430251E+01             -2.430251E+01             -2.983093E-02              1.244507E-01          
+                3              -2.430240E+01             -2.430240E+01             -2.975464E-02             -1.244431E-01          
+                4              -2.474074E+01             -2.474074E+01             -2.191925E-01             -1.244507E-01          
+                5              -2.452162E+01             -2.452162E+01             -1.244965E-01              0.0                   
+0       2       1              -2.504778E+01             -2.462190E+01             -3.492126E-01              3.632956E-01          
+                2              -2.387746E+01             -2.366457E+01              9.442139E-02              3.633766E-01          
+                3              -2.387675E+01             -2.366402E+01              9.480286E-02             -3.633041E-01          
+                4              -2.504720E+01             -2.462160E+01             -3.489380E-01             -3.633881E-01          
+                5              -2.448892E+01             -2.420509E+01             -1.538544E-01             -7.629395E-06          
+0       3       1              -2.522212E+01             -2.424078E+01             -4.818726E-01              6.237602E-01          
+                2              -2.327802E+01             -2.262379E+01              2.147827E-01              6.236801E-01          
+                3              -2.327855E+01             -2.262399E+01              2.145233E-01             -6.237488E-01          
+                4              -2.522252E+01             -2.424072E+01             -4.819794E-01             -6.236725E-01          
+                5              -2.427483E+01             -2.348958E+01             -1.581726E-01              3.814697E-06          
+0       4       1              -2.536441E+01             -2.351797E+01             -6.793976E-01              7.369118E-01          
+                2              -2.244093E+01             -2.105617E+01              7.702179E-01              7.369151E-01          
+                3              -2.244093E+01             -2.105614E+01              7.702484E-01             -7.369156E-01          
+                4              -2.536433E+01             -2.351794E+01             -6.793365E-01             -7.369156E-01          
+                5              -2.392735E+01             -2.234474E+01              2.072144E-02             -3.814697E-06          
+0       5       1              -2.714058E+01             -2.307025E+01             -1.243896E+00              1.266930E+00          
+                2              -1.945882E+01             -1.674527E+01              1.370346E+00              1.266838E+00          
+                3              -1.945917E+01             -1.674548E+01              1.370163E+00             -1.266930E+00          
+                4              -2.714093E+01             -2.307036E+01             -1.244003E+00             -1.266838E+00          
+                5              -2.340160E+01             -2.014528E+01             -3.860474E-02              0.0                   
+0       6       1              -2.735017E+01             -2.012727E+01             -2.011673E+00              1.736618E+00          
+                2              -1.641437E+01             -1.099722E+01              1.977554E+00              1.736641E+00          
+                3              -1.641426E+01             -1.099725E+01              1.977570E+00             -1.736629E+00          
+                4              -2.735011E+01             -2.012733E+01             -2.011673E+00             -1.736652E+00          
+                5              -2.197900E+01             -1.578801E+01             -1.137848E-01              1.907349E-06          
+0       7       1              -2.697226E+01             -1.552203E+01             -2.547272E+00              2.243713E+00          
+                2              -1.292029E+01             -3.759888E+00              2.530609E+00              2.243796E+00          
+                3              -1.291992E+01             -3.759750E+00              2.530731E+00             -2.243710E+00          
+                4              -2.697200E+01             -1.552194E+01             -2.547134E+00             -2.243801E+00          
+                5              -2.004155E+01             -9.863541E+00             -1.036987E-01              9.536743E-06          
+1     SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-06-2A                                                                                   
+0     TRAPEZOIDAL RING ELEMENTS                                                                                                     
+ 
+                  S T R E S S E S   F O R   T H E   T R A P E Z O I D A L   R I N G S     ( C T R A P R G )
+     EL      STRESS               RADIAL                CIRCUMFERENTIAL                AXIAL                     SHEAR
+     ID       POINT                 (X)                     (THETA)                     (Z)                       (ZX)
+0       8       1              -2.609070E+01             -9.404327E+00             -3.113785E+00              2.743942E+00          
+                2              -8.908096E+00              4.997101E+00              3.093231E+00              2.743805E+00          
+                3              -8.908569E+00              4.996872E+00              3.093002E+00             -2.743942E+00          
+                4              -2.609113E+01             -9.404495E+00             -3.113983E+00             -2.743805E+00          
+                5              -1.759444E+01             -2.424957E+00             -1.051941E-01              7.629395E-06          
+0       9       1              -2.469939E+01             -1.770554E+00             -3.674408E+00              3.244736E+00          
+                2              -4.389793E+00              1.526328E+01              3.656456E+00              3.244522E+00          
+                3              -4.390526E+00              1.526283E+01              3.656136E+00             -3.244740E+00          
+                4              -2.470012E+01             -1.770905E+00             -3.674744E+00             -3.244526E+00          
+                5              -1.463948E+01              6.525696E+00             -1.036224E-01              1.335144E-05          
+0      10       1              -2.279849E+01              7.373878E+00             -4.232887E+00              3.747604E+00          
+                2               6.298294E-01              2.703056E+01              4.204529E+00              3.747757E+00          
+                3               6.303558E-01              2.703069E+01              4.204758E+00             -3.747625E+00          
+                4              -2.279811E+01              7.373940E+00             -4.232796E+00             -3.747774E+00          
+                5              -1.117837E+01              1.698226E+01             -1.084290E-01             -8.583069E-06          
+0      11       1              -2.041618E+01              1.801087E+01             -4.815178E+00              4.234894E+00          
+                2               6.176689E+00              4.033392E+01              4.837578E+00              4.235077E+00          
+                3               6.177483E+00              4.033425E+01              4.837898E+00             -4.234901E+00          
+                4              -2.041544E+01              1.801109E+01             -4.814880E+00             -4.235088E+00          
+                5              -7.213608E+00              2.895280E+01             -8.286285E-02              9.536743E-06          
+0      12       1              -1.739697E+01              3.023093E+01             -5.265419E+00              4.809036E+00          
+                2               1.210247E+01              5.496722E+01              4.996686E+00              4.808831E+00          
+                3               1.210190E+01              5.496686E+01              4.996335E+00             -4.809010E+00          
+                4              -1.739769E+01              3.023065E+01             -5.265694E+00             -4.808800E+00          
+                5              -2.741693E+00              4.237949E+01             -2.285347E-01              3.814697E-06          
+1     SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-06-2A                                                                                   
+
+      TRAPEZOIDAL RING ELEMENTS                                                                                                     
+
+
+
+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  SOLID DISC WITH RADIALLY VARYING THERMAL LOAD (FREE-FIELD)         
+ DATE:  5/17/95
+ END TIME: 14:57: 7
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

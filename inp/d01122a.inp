@@ -1,0 +1,65 @@
+ID    D01122A,NASTRAN                                                           
+APP   HEAT                                                                      
+DIAG  14                                                                        
+SOL   1,0                                                                       
+TIME  10                                                                        
+CEND                                                                            
+TITLE    = LINEAR STEADY STATE CONDUCTION THROUGH A WASHER                      
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-12-2A                          
+LABEL    = RING ELEMENTS, FILM HEAT TRANSFER                                    
+OUTPUT                                                                          
+OLOAD    = ALL                                                                  
+SPCFORCE = ALL                                                                  
+THERMAL (PRINT,PUNCH) = ALL                                                     
+ELFORCE  = ALL                                                                  
+SPC = 350                                                                       
+BEGIN BULK                                                                      
+CHBDY   14      100     REV     1       12                              +HBDY14 
++HBDY14 23      23                                                              
+CTRAPRG 7       4       5       16      15      .0      200                     
+CTRAPRG 8       5       6       17      16      .0      200                     
+CTRAPRG 9       6       7       18      17      .0      200                     
+CTRAPRG 10      7       8       19      18      .0      200                     
+CTRAPRG 11      8       9       20      19      .0      200                     
+CTRAPRG 12      9       10      21      20      .0      200                     
+CTRAPRG 13      10      11      22      21      .0      200                     
+CTRIARG 1       1       13      12      -45.0   200                             
+CTRIARG 2       1       2       13      .0      200                             
+CTRIARG 3       2       14      13      -45.0   200                             
+CTRIARG 4       2       3       14      .0      200                             
+CTRIARG 5       3       15      14      -45.0   200                             
+CTRIARG 6       3       4       15      .0      200                             
+GRID    1               1.0     .0      .0                                      
+GRID    2               1.1     .0      .0                                      
+GRID    3               1.2     .0      .0                                      
+GRID    4               1.3     .0      .0                                      
+GRID    5               1.4     .0      .0                                      
+GRID    6               1.5     .0      .0                                      
+GRID    7               1.6     .0      .0                                      
+GRID    8               1.7     .0      .0                                      
+GRID    9               1.8     .0      .0                                      
+GRID    10              1.9     .0      .0                                      
+GRID    11              2.0     .0      .0                                      
+GRID    12              1.0     .0      .1                                      
+GRID    13              1.1     .0      .1                                      
+GRID    14              1.2     .0      .1                                      
+GRID    15              1.3     .0      .1                                      
+GRID    16              1.4     .0      .1                                      
+GRID    17              1.5     .0      .1                                      
+GRID    18              1.6     .0      .1                                      
+GRID    19              1.7     .0      .1                                      
+GRID    20              1.8     .0      .1                                      
+GRID    21              1.9     .0      .1                                      
+GRID    22              2.0     .0      .1                                      
+MAT4    200     1.0                                                             
+MAT4    300     1.0                                                             
+PHBDY   100     300                                                             
+SEQGP   12      1.1     13      2.1     14      3.1     15      4.1             
+SEQGP   16      5.1     17      6.1     18      7.1     19      8.1             
+SEQGP   20      9.1     21      10.1    22      11.1    23      1.0.5           
+SPC     352     23              488.5                                           
+SPC1    351     1       11      22                                              
+SPCADD  350     351     352                                                     
+SPOINT  23                                                                      
+TEMPD   201     .0                                                              
+ENDDATA                                                                         

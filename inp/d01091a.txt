@@ -1,0 +1,195 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$            Thermal and Applied Loads on HEXA2 Solid Elements (1-9-1)
+$          Thermal and Applied Loads on TRIM6 Membrane Elements (1-9-2)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates a static analysis of a cantilevered beam under two
+$ loading conditions: axial stress and thermal expansion. The analysis is
+$ performed twice, once with a model consisting of HEXA2 solid hexahedron
+$ elements (Problem 1-9-1) and once with a model built using the TRIM6 higher
+$ order triangular membrane element (Problem 1-9-2).
+$ 
+$ Forty HEXA2 elements are used to model a symmetric quarter of the 4 x 4 x 20
+$ beam. Symmetric boundary conditions are used on both the vertical and the
+$ horizontal planes of symmetry.
+$ 
+$ Ten TRIM6 elements are used to model one half of the 4 x 4 x 20 beam. Symmetry
+$ boundary conditions are used on the vertical plane of symmetry (see Reference
+$ 31, pp. 168-172).
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    l =  20.0          (length)
+$ 
+$    w = 4.0            (width)
+$ 
+$    h = 4.0            (height)
+$ 
+$                6
+$    E = 3.0 x 10       (modulus of elasticity)
+$ 
+$    v = 0.2            (Poisson's ratio)
+$ 
+$    alpha = .001       (thermal expansion coefficient)
+$ 
+$    T  = 10 deg.       (reference temperature)
+$     o
+$ 
+$ 2. Support Boundary Constraints:
+$ 
+$    HEXA2 Model                  TRIM6 Model
+$ 
+$    u  = 0 at x = 0              u  = u  = 0 at x = 0
+$     x                            x    y
+$ 
+$    u  = 0 at y = 0              u  = 0      at y = 0
+$     y                            y
+$ 
+$    u  = 0 at z = 0              u  = 0      at all grid points
+$     z                            z
+$ 
+$ 3. Loads
+$ 
+$    Subcase 1 (HEXA2 Model):
+$ 
+$    An axial force F  distributed for uniform pressure over the end of the
+$                    x
+$    beam where
+$ 
+$                    3
+$        F  = 24 x 10  (total axial force)
+$         x
+$ 
+$    Subcase 1 (TRIM6 Model):
+$ 
+$                    3
+$        F  = 24 x 10  (total axial force)
+$         x
+$ 
+$        Total force on symmetric part = 24/2 = 12.
+$ 
+$                +----->1
+$                |
+$                +----->4      Force divided into the ratio of
+$                |                           1 x 12    2 x 12    1 x 12
+$          - - - +----->1      1:4:1, i.e.,  ------- , ------- , ------
+$                                              6         6         6
+$ 
+$    Subcase 2 (Both Models):
+$ 
+$        T = 60 deg. (uniform temperature field)
+$ 
+$        T  = 10 deg. (reference temperature)
+$         o
+$ 
+$    Subcase 3 (TRIM6 Model Only):
+$ 
+$                +----->1
+$                |      
+$                +----->2      Force divided into the ratio of
+$                |                           1 x 12    2 x 12    1 x 12
+$          - - - +----->1      1:2:1, i.e.,  ------- , ------- , ------
+$                                              4         4         4
+$ 
+$ 
+$ C. Theory
+$ 
+$ 1. Subcase 1 and Subcase 3
+$ 
+$ The distributed axial load is equivalent to a stress field of:
+$ 
+$                  3
+$   å    = 1.5 x 10                                                          (1)
+$    xx
+$ 
+$ and
+$ 
+$   sigma   = sigma   = tai   = tai   = tai   = 0                            (2)
+$        yy        zz      xy      xz      yz
+$ 
+$ The displacement field is
+$ 
+$        sigma
+$             xx              -3
+$   u  = -------  x = 0.5 x 10  x                                            (3)
+$    x    E
+$ 
+$        -vsigma
+$               xx               -3
+$   u  = ---------  y = -0.1 x 10  y                                         (4)
+$    y     E
+$ 
+$ and
+$ 
+$        -vsigma
+$               xx               -3
+$   u  = ---------  z = -0.1 x 10  z                                         (5)
+$    z     E
+$ 
+$ 2. Subcase 2
+$ 
+$ The uniform expansion due to temperature will not cause any stress. The
+$ strains, however, are uniform and equal. Therefore, the displacements are
+$ 
+$   u  =  sigma(T-T )x = .05x                                                (6)
+$    x             o
+$ 
+$   u  =  sigma(T-T )y = .05y                                                (7)
+$    y             o
+$ 
+$   and
+$ 
+$   u  =  sigma(T-T )z = .05z                                                (8)
+$    z             o
+$ 
+$ where T is the uniform temperature and T  is the reference temperature.
+$                                         o
+$ 
+$ D. Results
+$ 
+$ The results of both subcases are exact to the single precision limits of the
+$ particular computer used. Table 1 presents the theoretical solutions and the
+$ results of the TRIM6 finite element model analysis.
+$ 
+$                    Table 1. TRIM6 and Theoretical Solutions
+$ --------------------------------------------------------------------
+$                  Pressure Load                  Temperature Load
+$      -------------------------------------    ---------------------
+$                   Subcase       Subcase
+$      Exact Sol.      1             3
+$          -3          -3            -3                      Subcase
+$   X   (10  )      (10  )        (10  )        Exact Sol.     2
+$ --------------------------------------------------------------------
+$   0        0           0            0              0         0.
+$ 
+$   2        1           0.98         0.98           0.1       0.109
+$ 
+$   4        2           1.98         1.98           0.2       0.2093
+$ 
+$   6        3           2.98         2.981          0.3       0.3093
+$ 
+$   8        4           3.98         3.98           0.4       0.4093
+$ 
+$  10        5           4.98         4.981          0.5       0.5093
+$ 
+$  12        6           5.98         5.981          0.6       0.6093
+$ 
+$  14        7           6.98         6.98           0.7       0.7093
+$ 
+$  16        8           7.98         7.98           0.8       0.8093
+$ 
+$  18        9           8.98         8.99           0.9       0.9093
+$ 
+$  20       10           9.98        10.026          1.0       1.00937
+$ --------------------------------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 31. Narayanaswami, R.: Addition of Higher Order Plate and Shell Elements into
+$     NASTRAN Computer Program, Technical Report 76-T19, Old Dominion University
+$     Research Foundation, Norfolk, Virginia, December, 1976.
+$-------------------------------------------------------------------------------

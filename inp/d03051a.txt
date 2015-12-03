@@ -1,0 +1,105 @@
+$-------------------------------------------------------------------------------
+$            RIGID FORMAT No. 3 (APP HEAT), Nonlinear Heat Conduction
+$               Nonlinear Heat Transfer in an Infinite Slab (3-5-1)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates NASTRAN's capability to solve nonlinear steady state
+$ heat conduction problems. The infinite slab is subjected to uniform heat
+$ addition per unit volume. There is no heat flux on one face and the other face
+$ is kept at zero degrees. The conductivity is temperature dependent. This is a
+$ one dimensional problem, since there is no temperature gradient parallel to
+$ the surfaces of the slab.
+$ 
+$ B. Input
+$ 
+$ Linear elements BAR, CONROD, ROD, and TUBE with areas of pi square units and
+$ boundary condition element HBDY (POINT) are used. The heat addition is
+$ specified on a QVOL card and is referenced in Case Control by a LOAD card. The
+$ area factor for the HBDY is given on the PHBDY card and heat flux is zero. The
+$ initial temperatures are given on a TEMPD card and referenced in Case Control
+$ by a TEMP (MATERIAL) card. The conductlvity is specified on a MAT4 card and is
+$ made temperature dependent by the MATT4 card referencing table TABLEM3. The
+$ convergence parameter, the maximum number of iterations, and an option to have
+$ the residual vector output are specified on PARAM cards. The temperature at
+$ the outer surface is specified by an SPC card. Temperature output is punched
+$ on TEMP bulk data cards for future use in static analysis.
+$ 
+$ C. Theory
+$ 
+$ The conductivity, k, is defined by
+$ 
+$    k(T) = 1 + T/l00                                                        (1)
+$ 
+$ where T is the temperature.
+$ 
+$ The heat flow per area, q, is
+$ 
+$               dT                 dT
+$    q(x) = - k -- = - (1 + T/100) --                                        (2)
+$               dx                 dx
+$ 
+$ The heat input per volume, q , affects the heat flow by the equatIon
+$                             v
+$ 
+$    dq(x)
+$    ----- = q                                                               (3)
+$      dx     v
+$ 
+$ A convenient substitution of variables in Equations (2) and (3) is
+$ 
+$                                     2
+$    u = - integral of q(x)dx = (T + T /200)                                 (4)
+$ 
+$ Differentiation and substitution for q in Equation (3) results in the second-
+$ order equation in u:
+$ 
+$     2
+$    d u
+$    --- = -q                                                                (5)
+$      2     v
+$    dx
+$ 
+$ From the following boundary conditions
+$ 
+$    u = 0 at x = l
+$ 
+$ and
+$ 
+$    du
+$    -- = 0 at x = 0
+$    dx
+$ 
+$ the solution to Equation (5) is
+$ 
+$        q
+$         v    2    2
+$    u = -- ( l  - x  )                                                      (6)
+$        2
+$ 
+$ Therefore the solution for the temperature is
+$ 
+$                               2    2       1/2
+$    T = 100 [ -1 +/- (1 + q  (l  - x  )/100)   ]                            (7)
+$                           v
+$ 
+$ Since heat is flowing into the system, the positive temperature solution will
+$ occur.
+$ 
+$ D. Results
+$ 
+$ A comparison with NASTRAN results is shown in Table 1.
+$ 
+$            Table 1. Comparison of Theoretical and NASTRAN Temperatures
+$                 for Nonlinear Heat Conduction in an Infinite Slab
+$                 ----------------------------------
+$                 Grid     Theoretical      NASTRAN
+$                 Point    Temperature      Solution
+$                 ----------------------------------
+$                   1          73.20         73.13
+$                   2          69.56         69.53
+$                   3          58.11         58.11
+$                   4          36.93         36.93
+$                   5           0.00          0.00
+$                 ----------------------------------
+$-------------------------------------------------------------------------------

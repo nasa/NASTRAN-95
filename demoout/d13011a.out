@@ -1,0 +1,650 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D13011A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   13,0                                                                      
+     TIME  25                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                    
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                          
+                  3           SPC = 2                                                                    
+                  4           SET 1 = 11,21,31,41,51,61,71,81,91                                         
+                  5           DISPLACEMENT = 1                                                           
+                  6           ELFORCE = 1                                                                
+                  7      SUBCASE 20                                                                      
+                  8         LABEL = STATICS SOLUTION.                                                    
+                  9          LOAD = 100                                                                  
+                 10         OLOAD = ALL                                                                  
+                 11      SUBCASE 40                                                                      
+                 12         LABEL = SECOND ORDER STATICS SOLUTION.                                       
+                 13         DSCOEFFICIENT = DEFAULT                                                      
+                 14      SUBCASE 80                                                                      
+                 15         LABEL = NORMAL MODES WITH DIFFERENTIAL STIFFNESS EFFECTS                     
+                 16        METHOD = 101                                                                  
+                 17      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   209, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        BAROR                                   .0      1.      .0      1               
+                    2-        CBAR    1       1       1       2                                               
+                    3-        CBAR    2       1       2       3                                               
+                    4-        CBAR    3       1       3       4                                               
+                    5-        CBAR    4       1       4       5                                               
+                    6-        CBAR    5       1       5       6                                               
+                    7-        CBAR    6       1       6       7                                               
+                    8-        CBAR    7       1       7       8                                               
+                    9-        CBAR    8       1       8       9                                               
+                   10-        CBAR    9       1       9       10                                              
+                   11-        CBAR    10      1       10      11                                              
+                   12-        CBAR    11      1       11      12                                              
+                   13-        CBAR    12      1       12      13                                              
+                   14-        CBAR    13      1       13      14                                              
+                   15-        CBAR    14      1       14      15                                              
+                   16-        CBAR    15      1       15      16                                              
+                   17-        CBAR    16      1       16      17                                              
+                   18-        CBAR    17      1       17      18                                              
+                   19-        CBAR    18      1       18      19                                              
+                   20-        CBAR    19      1       19      20                                              
+                   21-        CBAR    20      1       20      21                                              
+                   22-        CBAR    21      1       21      22                                              
+                   23-        CBAR    22      1       22      23                                              
+                   24-        CBAR    23      1       23      24                                              
+                   25-        CBAR    24      1       24      25                                              
+                   26-        CBAR    25      1       25      26                                              
+                   27-        CBAR    26      1       26      27                                              
+                   28-        CBAR    27      1       27      28                                              
+                   29-        CBAR    28      1       28      29                                              
+                   30-        CBAR    29      1       29      30                                              
+                   31-        CBAR    30      1       30      31                                              
+                   32-        CBAR    31      1       31      32                                              
+                   33-        CBAR    32      1       32      33                                              
+                   34-        CBAR    33      1       33      34                                              
+                   35-        CBAR    34      1       34      35                                              
+                   36-        CBAR    35      1       35      36                                              
+                   37-        CBAR    36      1       36      37                                              
+                   38-        CBAR    37      1       37      38                                              
+                   39-        CBAR    38      1       38      39                                              
+                   40-        CBAR    39      1       39      40                                              
+                   41-        CBAR    40      1       40      41                                              
+                   42-        CBAR    41      1       41      42                                              
+                   43-        CBAR    42      1       42      43                                              
+                   44-        CBAR    43      1       43      44                                              
+                   45-        CBAR    44      1       44      45                                              
+                   46-        CBAR    45      1       45      46                                              
+                   47-        CBAR    46      1       46      47                                              
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CBAR    47      1       47      48                                              
+                   49-        CBAR    48      1       48      49                                              
+                   50-        CBAR    49      1       49      50                                              
+                   51-        CBAR    50      1       50      51                                              
+                   52-        CBAR    51      1       51      52                                              
+                   53-        CBAR    52      1       52      53                                              
+                   54-        CBAR    53      1       53      54                                              
+                   55-        CBAR    54      1       54      55                                              
+                   56-        CBAR    55      1       55      56                                              
+                   57-        CBAR    56      1       56      57                                              
+                   58-        CBAR    57      1       57      58                                              
+                   59-        CBAR    58      1       58      59                                              
+                   60-        CBAR    59      1       59      60                                              
+                   61-        CBAR    60      1       60      61                                              
+                   62-        CBAR    61      1       61      62                                              
+                   63-        CBAR    62      1       62      63                                              
+                   64-        CBAR    63      1       63      64                                              
+                   65-        CBAR    64      1       64      65                                              
+                   66-        CBAR    65      1       65      66                                              
+                   67-        CBAR    66      1       66      67                                              
+                   68-        CBAR    67      1       67      68                                              
+                   69-        CBAR    68      1       68      69                                              
+                   70-        CBAR    69      1       69      70                                              
+                   71-        CBAR    70      1       70      71                                              
+                   72-        CBAR    71      1       71      72                                              
+                   73-        CBAR    72      1       72      73                                              
+                   74-        CBAR    73      1       73      74                                              
+                   75-        CBAR    74      1       74      75                                              
+                   76-        CBAR    75      1       75      76                                              
+                   77-        CBAR    76      1       76      77                                              
+                   78-        CBAR    77      1       77      78                                              
+                   79-        CBAR    78      1       78      79                                              
+                   80-        CBAR    79      1       79      80                                              
+                   81-        CBAR    80      1       80      81                                              
+                   82-        CBAR    81      1       81      82                                              
+                   83-        CBAR    82      1       82      83                                              
+                   84-        CBAR    83      1       83      84                                              
+                   85-        CBAR    84      1       84      85                                              
+                   86-        CBAR    85      1       85      86                                              
+                   87-        CBAR    86      1       86      87                                              
+                   88-        CBAR    87      1       87      88                                              
+                   89-        CBAR    88      1       88      89                                              
+                   90-        CBAR    89      1       89      90                                              
+                   91-        CBAR    90      1       90      91                                              
+                   92-        CBAR    91      1       91      92                                              
+                   93-        CBAR    92      1       92      93                                              
+                   94-        CBAR    93      1       93      94                                              
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CBAR    94      1       94      95                                              
+                   96-        CBAR    95      1       95      96                                              
+                   97-        CBAR    96      1       96      97                                              
+                   98-        CBAR    97      1       97      98                                              
+                   99-        CBAR    98      1       98      99                                              
+                  100-        CBAR    99      1       99      100                                             
+                  101-        CBAR    100     1       100     101                                             
+                  102-        EIGR    101     INV     .0      200.0   3       3       3       1.-4    +EIG1   
+                  103-        +EIG1   MAX                                                                     
+                  104-        FORCE1  100     101     3423.17 101     1                                       
+                  105-        GRDSET                                                  345                     
+                  106-        GRID    1               .0                                                      
+                  107-        GRID    2               1.0                                                     
+                  108-        GRID    3               2.0                                                     
+                  109-        GRID    4               3.0                                                     
+                  110-        GRID    5               4.0                                                     
+                  111-        GRID    6               5.0                                                     
+                  112-        GRID    7               6.0                                                     
+                  113-        GRID    8               7.0                                                     
+                  114-        GRID    9               8.0                                                     
+                  115-        GRID    10              9.0                                                     
+                  116-        GRID    11              10.0                                                    
+                  117-        GRID    12              11.0                                                    
+                  118-        GRID    13              12.0                                                    
+                  119-        GRID    14              13.0                                                    
+                  120-        GRID    15              14.0                                                    
+                  121-        GRID    16              15.0                                                    
+                  122-        GRID    17              16.0                                                    
+                  123-        GRID    18              17.0                                                    
+                  124-        GRID    19              18.0                                                    
+                  125-        GRID    20              19.0                                                    
+                  126-        GRID    21              20.0                                                    
+                  127-        GRID    22              21.0                                                    
+                  128-        GRID    23              22.0                                                    
+                  129-        GRID    24              23.0                                                    
+                  130-        GRID    25              24.0                                                    
+                  131-        GRID    26              25.0                                                    
+                  132-        GRID    27              26.0                                                    
+                  133-        GRID    28              27.0                                                    
+                  134-        GRID    29              28.0                                                    
+                  135-        GRID    30              29.0                                                    
+                  136-        GRID    31              30.0                                                    
+                  137-        GRID    32              31.0                                                    
+                  138-        GRID    33              32.0                                                    
+                  139-        GRID    34              33.0                                                    
+                  140-        GRID    35              34.0                                                    
+                  141-        GRID    36              35.0                                                    
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        GRID    37              36.0                                                    
+                  143-        GRID    38              37.0                                                    
+                  144-        GRID    39              38.0                                                    
+                  145-        GRID    40              39.0                                                    
+                  146-        GRID    41              40.0                                                    
+                  147-        GRID    42              41.0                                                    
+                  148-        GRID    43              42.0                                                    
+                  149-        GRID    44              43.0                                                    
+                  150-        GRID    45              44.0                                                    
+                  151-        GRID    46              45.0                                                    
+                  152-        GRID    47              46.0                                                    
+                  153-        GRID    48              47.0                                                    
+                  154-        GRID    49              48.0                                                    
+                  155-        GRID    50              49.0                                                    
+                  156-        GRID    51              50.0                                                    
+                  157-        GRID    52              51.0                                                    
+                  158-        GRID    53              52.0                                                    
+                  159-        GRID    54              53.0                                                    
+                  160-        GRID    55              54.0                                                    
+                  161-        GRID    56              55.0                                                    
+                  162-        GRID    57              56.0                                                    
+                  163-        GRID    58              57.0                                                    
+                  164-        GRID    59              58.0                                                    
+                  165-        GRID    60              59.0                                                    
+                  166-        GRID    61              60.0                                                    
+                  167-        GRID    62              61.0                                                    
+                  168-        GRID    63              62.0                                                    
+                  169-        GRID    64              63.0                                                    
+                  170-        GRID    65              64.0                                                    
+                  171-        GRID    66              65.0                                                    
+                  172-        GRID    67              66.0                                                    
+                  173-        GRID    68              67.0                                                    
+                  174-        GRID    69              68.0                                                    
+                  175-        GRID    70              69.0                                                    
+                  176-        GRID    71              70.0                                                    
+                  177-        GRID    72              71.0                                                    
+                  178-        GRID    73              72.0                                                    
+                  179-        GRID    74              73.0                                                    
+                  180-        GRID    75              74.0                                                    
+                  181-        GRID    76              75.0                                                    
+                  182-        GRID    77              76.0                                                    
+                  183-        GRID    78              77.0                                                    
+                  184-        GRID    79              78.0                                                    
+                  185-        GRID    80              79.0                                                    
+                  186-        GRID    81              80.0                                                    
+                  187-        GRID    82              81.0                                                    
+                  188-        GRID    83              82.0                                                    
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  189-        GRID    84              83.0                                                    
+                  190-        GRID    85              84.0                                                    
+                  191-        GRID    86              85.0                                                    
+                  192-        GRID    87              86.0                                                    
+                  193-        GRID    88              87.0                                                    
+                  194-        GRID    89              88.0                                                    
+                  195-        GRID    90              89.0                                                    
+                  196-        GRID    91              90.0                                                    
+                  197-        GRID    92              91.0                                                    
+                  198-        GRID    93              92.0                                                    
+                  199-        GRID    94              93.0                                                    
+                  200-        GRID    95              94.0                                                    
+                  201-        GRID    96              95.0                                                    
+                  202-        GRID    97              96.0                                                    
+                  203-        GRID    98              97.0                                                    
+                  204-        GRID    99              98.0                                                    
+                  205-        GRID    100             99.0                                                    
+                  206-        GRID    101             100.0                                                   
+                  207-        MAT1    22      10.4E6          .3      2.0E-4                                  
+                  208-        PBAR    1       22      2.0     .666667 .666667                                 
+                  209-        SPC     2       1       12      .0      101     2       .0                      
+                              ENDDATA
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            2
+                                        PROFILE            201
+                                        MAX WAVEFRONT        2
+                                        AVG WAVEFRONT    1.990
+                                        RMS WAVEFRONT    1.993
+                                        RMS BANDWIDTH    1.993
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            2
+                                        PROFILE            201
+                                        MAX WAVEFRONT        2
+                                        AVG WAVEFRONT    1.990
+                                        RMS WAVEFRONT    1.993
+                                        RMS BANDWIDTH    1.993
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        2         2
+                                        PROFILE (P)                        201       201
+                                        MAXIMUM WAVEFRONT (C-MAX)            2         2
+                                        AVERAGE WAVEFRONT (C-AVG)        1.990     1.990
+                                        RMS WAVEFRONT (C-RMS)            1.993     1.993
+                                        RMS BANDWITCH (B-RMS)            1.993     1.993
+                                        NUMBER OF GRID POINTS (N)                    101
+                                        NUMBER OF ELEMENTS (NON-RIGID)               100
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           2
+                                        MINIMUM NODAL DEGREE                           1
+                                        NUMBER OF UNIQUE EDGES                       100
+                                        MATRIX DENSITY, PERCENT                    2.951
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   1.6605491E-14
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     STATICS SOLUTION.                                                                                      SUBCASE 20             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G     -1.645755E-03   0.0            0.0            0.0            0.0            0.0                           
+            21      G     -3.291510E-03   0.0            0.0            0.0            0.0            0.0                           
+            31      G     -4.937264E-03   0.0            0.0            0.0            0.0            0.0                           
+            41      G     -6.583019E-03   0.0            0.0            0.0            0.0            0.0                           
+            51      G     -8.228774E-03   0.0            0.0            0.0            0.0            0.0                           
+            61      G     -9.874528E-03   0.0            0.0            0.0            0.0            0.0                           
+            71      G     -1.152028E-02   0.0            0.0            0.0            0.0            0.0                           
+            81      G     -1.316604E-02   0.0            0.0            0.0            0.0            0.0                           
+            91      G     -1.481179E-02   0.0            0.0            0.0            0.0            0.0                           
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     STATICS SOLUTION.                                                                                      SUBCASE 20             
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -3.423170E+03   0.0            0.0            0.0            0.0            0.0                           
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     STATICS SOLUTION.                                                                                      SUBCASE 20             
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+           11     0.0           0.0            0.0           0.0            0.0           0.0           -3.423168E+03   0.0         
+           21     0.0           0.0            0.0           0.0            0.0           0.0           -3.423172E+03   0.0         
+           31     0.0           0.0            0.0           0.0            0.0           0.0           -3.423180E+03   0.0         
+           41     0.0           0.0            0.0           0.0            0.0           0.0           -3.423172E+03   0.0         
+           51     0.0           0.0            0.0           0.0            0.0           0.0           -3.423156E+03   0.0         
+           61     0.0           0.0            0.0           0.0            0.0           0.0           -3.423172E+03   0.0         
+           71     0.0           0.0            0.0           0.0            0.0           0.0           -3.423188E+03   0.0         
+           81     0.0           0.0            0.0           0.0            0.0           0.0           -3.423156E+03   0.0         
+           91     0.0           0.0            0.0           0.0            0.0           0.0           -3.423156E+03   0.0         
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0                                                                                                                                   
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    DET                 2.938762E+05
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0                                                                                                                                   
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    POWER                   2206
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   1.6605491E-14
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     SECOND ORDER STATICS SOLUTION.                                                                         SUBCASE 40             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G     -1.645755E-03   0.0            0.0            0.0            0.0            0.0                           
+            21      G     -3.291510E-03   0.0            0.0            0.0            0.0            0.0                           
+            31      G     -4.937264E-03   0.0            0.0            0.0            0.0            0.0                           
+            41      G     -6.583019E-03   0.0            0.0            0.0            0.0            0.0                           
+            51      G     -8.228774E-03   0.0            0.0            0.0            0.0            0.0                           
+            61      G     -9.874528E-03   0.0            0.0            0.0            0.0            0.0                           
+            71      G     -1.152028E-02   0.0            0.0            0.0            0.0            0.0                           
+            81      G     -1.316604E-02   0.0            0.0            0.0            0.0            0.0                           
+            91      G     -1.481179E-02   0.0            0.0            0.0            0.0            0.0                           
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     SECOND ORDER STATICS SOLUTION.                                                                         SUBCASE 40             
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+           11     0.0           0.0            0.0           0.0            0.0           0.0           -3.423168E+03   0.0         
+           21     0.0           0.0            0.0           0.0            0.0           0.0           -3.423172E+03   0.0         
+           31     0.0           0.0            0.0           0.0            0.0           0.0           -3.423180E+03   0.0         
+           41     0.0           0.0            0.0           0.0            0.0           0.0           -3.423172E+03   0.0         
+           51     0.0           0.0            0.0           0.0            0.0           0.0           -3.423156E+03   0.0         
+           61     0.0           0.0            0.0           0.0            0.0           0.0           -3.423172E+03   0.0         
+           71     0.0           0.0            0.0           0.0            0.0           0.0           -3.423188E+03   0.0         
+           81     0.0           0.0            0.0           0.0            0.0           0.0           -3.423156E+03   0.0         
+           91     0.0           0.0            0.0           0.0            0.0           0.0           -3.423156E+03   0.0         
+                        2 ROOTS BELOW   7.895683E+05
+                        3 ROOTS BELOW   1.300175E+06
+                        1 ROOTS BELOW   2.360860E+05
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (INVERSE POWER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .         3
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         3
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        20
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         6*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.93E-08
+0                                                                              . . .         2
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         1
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* NO. OF ROOTS DESIRED WERE FOUND.
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+
+                                     ****************************************************************
+                                     *                                                              *
+                                     *
++                                       NASTRAN INFORMATION MESSAGE 3308, LOWEST EIGENVALUE FOUND   *
+                                     *  AS INDICATED BY THE STURM'S SEQUENCE OF THE DYNAMIC MATRIX  *
+                                     *                                                              *
+                                     *        (THIS MESSAGE CAN BE SUPPRESSED BY DIAG 37)           *
+                                     ****************************************************************
+
+        1         3        8.437918E+03        9.185814E+01        1.461968E+01        2.000000E-02        1.687584E+02             
+        2         2        2.363627E+05        4.861714E+02        7.737659E+01        1.999999E-02        4.727252E+03             
+        3         1        1.291607E+06        1.136489E+03        1.808778E+02        2.000000E-02        2.583214E+04             
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS EFFECTS                                                       SUBCASE 80             
+      EIGENVALUE =  0.843792E+04    (CYCLIC FREQUENCY =  1.461968E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G      2.957333E-18   3.090170E-01   0.0            0.0            0.0            2.987832E-02                  
+            21      G      5.841847E-18   5.877853E-01   0.0            0.0            0.0            2.541602E-02                  
+            31      G      8.582515E-18   8.090171E-01   0.0            0.0            0.0            1.846582E-02                  
+            41      G      1.111185E-17   9.510566E-01   0.0            0.0            0.0            9.708056E-03                  
+            51      G      1.336758E-17   1.000000E+00   0.0            0.0            0.0           -3.963003E-10                  
+            61      G      1.529415E-17   9.510565E-01   0.0            0.0            0.0           -9.708056E-03                  
+            71      G      1.684414E-17   8.090171E-01   0.0            0.0            0.0           -1.846582E-02                  
+            81      G      1.797936E-17   5.877853E-01   0.0            0.0            0.0           -2.541602E-02                  
+            91      G      1.867187E-17   3.090170E-01   0.0            0.0            0.0           -2.987832E-02                  
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS EFFECTS                                                       SUBCASE 80             
+      EIGENVALUE =  0.236363E+06    (CYCLIC FREQUENCY =  7.737659E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G     -1.814206E-28  -5.877850E-01   0.0            0.0            0.0           -5.083202E-02                  
+            21      G     -3.583741E-28  -9.510562E-01   0.0            0.0            0.0           -1.941611E-02                  
+            31      G     -5.265032E-28  -9.510563E-01   0.0            0.0            0.0            1.941609E-02                  
+            41      G     -6.816679E-28  -5.877853E-01   0.0            0.0            0.0            5.083201E-02                  
+            51      G     -8.200478E-28  -2.232630E-07   0.0            0.0            0.0            6.283184E-02                  
+            61      G     -9.382355E-28   5.877850E-01   0.0            0.0            0.0            5.083204E-02                  
+            71      G     -1.033320E-27   9.510565E-01   0.0            0.0            0.0            1.941613E-02                  
+            81      G     -1.102962E-27   9.510567E-01   0.0            0.0            0.0           -1.941610E-02                  
+            91      G     -1.145445E-27   5.877854E-01   0.0            0.0            0.0           -5.083204E-02                  
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS EFFECTS                                                       SUBCASE 80             
+      EIGENVALUE =  0.129161E+07    (CYCLIC FREQUENCY =  1.808778E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G      8.480357E-22  -8.090171E-01   0.0            0.0            0.0           -5.539744E-02                  
+            21      G      1.675190E-21  -9.510567E-01   0.0            0.0            0.0            2.912415E-02                  
+            31      G      2.461096E-21  -3.090172E-01   0.0            0.0            0.0            8.963493E-02                  
+            41      G      3.186401E-21   5.877851E-01   0.0            0.0            0.0            7.624803E-02                  
+            51      G      3.833246E-21   1.000000E+00   0.0            0.0            0.0            1.407593E-08                  
+            61      G      4.385704E-21   5.877854E-01   0.0            0.0            0.0           -7.624801E-02                  
+            71      G      4.830172E-21  -3.090168E-01   0.0            0.0            0.0           -8.963493E-02                  
+            81      G      5.155704E-21  -9.510563E-01   0.0            0.0            0.0           -2.912416E-02                  
+            91      G      5.354287E-21  -8.090168E-01   0.0            0.0            0.0            5.539742E-02                  
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS EFFECTS                                                       SUBCASE 80             
+      EIGENVALUE =  0.843792E+04    (CYCLIC FREQUENCY =  1.461968E+01 HZ)
+
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+           11    -2.114000E+03  0.0           -2.318000E+03  0.0            2.040000E+02  0.0            6.092737E-12   0.0         
+           21    -4.022000E+03  0.0           -4.194000E+03  0.0            1.720000E+02  0.0            5.859077E-12   0.0         
+           31    -5.536000E+03  0.0           -5.656000E+03  0.0            1.200000E+02  0.0            5.481157E-12   0.0         
+           41    -6.512000E+03  0.0           -6.576000E+03  0.0            6.400000E+01  0.0            4.968262E-12   0.0         
+           51    -6.844000E+03  0.0           -6.844000E+03  0.0            0.0           0.0            4.333034E-12   0.0         
+           61    -6.512000E+03  0.0           -6.440000E+03  0.0           -7.200000E+01  0.0            3.591127E-12   0.0         
+           71    -5.540000E+03  0.0           -5.404000E+03  0.0           -1.360000E+02  0.0            2.760764E-12   0.0         
+           81    -4.026000E+03  0.0           -3.846000E+03  0.0           -1.800000E+02  0.0            1.862482E-12   0.0         
+           91    -2.117000E+03  0.0           -1.909000E+03  0.0           -2.080000E+02  0.0            9.182655E-13   0.0         
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS EFFECTS                                                       SUBCASE 80             
+      EIGENVALUE =  0.236363E+06    (CYCLIC FREQUENCY =  7.737659E+01 HZ)
+
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+           11     1.609200E+04  0.0            1.745600E+04  0.0           -1.364000E+03  0.0           -3.737653E-22   0.0         
+           21     2.603600E+04  0.0            2.651600E+04  0.0           -4.800000E+02  0.0           -3.594318E-22   0.0         
+           31     2.603600E+04  0.0            2.546000E+04  0.0            5.760000E+02  0.0           -3.362465E-22   0.0         
+           41     1.609400E+04  0.0            1.467000E+04  0.0            1.424000E+03  0.0           -3.047837E-22   0.0         
+           51     0.0           0.0           -1.719250E+03  0.0            1.719250E+03  0.0           -2.658158E-22   0.0         
+           61    -1.609000E+04  0.0           -1.745000E+04  0.0            1.360000E+03  0.0           -2.202998E-22   0.0         
+           71    -2.604400E+04  0.0           -2.652400E+04  0.0            4.800000E+02  0.0           -1.693668E-22   0.0         
+           81    -2.604400E+04  0.0           -2.545200E+04  0.0           -5.920000E+02  0.0           -1.142576E-22   0.0         
+           91    -1.609800E+04  0.0           -1.467000E+04  0.0           -1.428000E+03  0.0           -5.633552E-23   0.0         
+1     NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS EFFECTS                                                       SUBCASE 80             
+      EIGENVALUE =  0.129161E+07    (CYCLIC FREQUENCY =  1.808778E+02 HZ)
+
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+           11     4.986000E+04  0.0            5.305200E+04  0.0           -3.192000E+03  0.0            1.747136E-15   0.0         
+           21     5.861200E+04  0.0            5.656400E+04  0.0            2.048000E+03  0.0            1.680137E-15   0.0         
+           31     1.904500E+04  0.0            1.344500E+04  0.0            5.600000E+03  0.0            1.571761E-15   0.0         
+           41    -3.622600E+04  0.0           -4.075800E+04  0.0            4.532000E+03  0.0            1.424682E-15   0.0         
+           51    -6.163200E+04  0.0           -6.136000E+04  0.0           -2.720000E+02  0.0            1.242530E-15   0.0         
+           61    -3.622600E+04  0.0           -3.137400E+04  0.0           -4.852000E+03  0.0            1.029782E-15   0.0         
+           71     1.904500E+04  0.0            2.447700E+04  0.0           -5.432000E+03  0.0            7.916777E-16   0.0         
+           81     5.861600E+04  0.0            6.015200E+04  0.0           -1.536000E+03  0.0            5.340848E-16   0.0         
+           91     4.985800E+04  0.0            4.623400E+04  0.0            3.624000E+03  0.0            2.633188E-16   0.0         
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                  
+ DATE:  5/17/95
+ END TIME: 16:23:19
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

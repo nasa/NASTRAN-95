@@ -1,0 +1,94 @@
+$-------------------------------------------------------------------------------
+$            RIGID FORMAT No. 1 (APP HEAT), Heat Conduction Analysis
+$             Linear Steady State Heat Conduction Through a Washer
+$                         Using Solid Elements (1-12-1)
+$             Linear Steady State Heat Conduction Through a Washer
+$                         Using Ring Elements (1-12-2)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the capability of NASTRAN to solve heat conduction
+$ problems. The washer has a radial heat conduction with the temperature
+$ specified at the outside and a film heat transfer condition at the inner edge.
+$ Due to symmetry about the axis and the assumption of negligible axial
+$ gradients, the temperature depends only upon the radius.
+$ 
+$ B. Input
+$ 
+$ In the first NASTRAN model, the solid elements (HEXA1, HEXA2, WEDGE, and
+$ TETRA) and boundary condition element (HBDY, type AREA4) are used. The
+$ conductivity of the material is specified on a MAT4 card. Temperatures are
+$ specified at the outer boundary with SPC cards. Punched temperature output is
+$ placed on TEMP bulk data cards suitable for static analysis.
+$ 
+$ Another variation of the problem uses solid of revolution elements (TRIARG and
+$ TRAPRG) and boundary condition element (HBDY, type REV). The conductivity of
+$ the material and the convective film coefficient are specified on a MAT4 card.
+$ The CHBDY card references a scalar point at which the ambient temperature is
+$ specified using an SPC card. An SPC1 card is used to constrain the temperature
+$ to zero degrees at gridpoInts on the outer surface.
+$ 
+$ C. Theory
+$ 
+$ The mathematical theory for the continuum is simple, and can be solved in
+$ closed form. The differential equation is
+$ 
+$      1  a      aU
+$      -  --  (rk--) = 0                                                     (1)
+$      r  ar     ar
+$ 
+$ The boundary conditions are
+$ 
+$         aU
+$      -k -- = H(U  - U) at r = r                                            (2)
+$         ar      a              1
+$ 
+$ and
+$ 
+$     U = 0 at r = r                                                         (3)
+$                    2
+$ 
+$ The solution is
+$ 
+$                    HU
+$                      a
+$      U(r) = --------------------    ln(r /r)
+$             (k/r ) + H ln(r /r )        2
+$                 1          2  1
+$ 
+$           = 288.516 ln(2/r)
+$ 
+$ D. Results
+$ 
+$ A comparison with the NASTRAN results is shown in Table 1.
+$ 
+$           Table 1. Comparison of Theoretical and NASTRAN Temperatures
+$                         for Heat Conduction in a Washer
+$     ------------------------------------------------------------------------
+$                  Theoretical    NASTRAN Temperatures   NASTRAN Temperatures
+$      r(radius)   Temperatures         (Solids)*             (Rings)*
+$     ------------------------------------------------------------------------
+$         1.0         199.984          202.396                  199.932
+$ 
+$         1.1         172.486          173.904                  172.448
+$ 
+$         1.2         147.381          148.833                  147.355
+$ 
+$         1.3         124.288          124.783                  124.269
+$ 
+$         1.4         102.906          102.852                  102.894
+$ 
+$         1.5          83.001           82.913                   82.992
+$ 
+$         1.6          64.380           64.306                   64.375
+$ 
+$         1.7          46.889           46.832                   46.886
+$ 
+$         1.8          30.398           30.356                   30.397
+$ 
+$         1.9          14.799           14.773                   14.798
+$ 
+$         2.0           0.000            0.000                    0.000
+$     ------------------------------------------------------------------------
+$       * These are the average temperatures at a radius.
+$-------------------------------------------------------------------------------

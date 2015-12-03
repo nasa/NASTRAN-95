@@ -1,0 +1,48 @@
+      SUBROUTINE PKTRQ2 (NTYPE)
+C THIS ROUTINE CALCULATES PHASE II OUTPUT FOR PLA4
+C
+C     NTYPE = 1 TRI-MEMBRANE
+C     NTYPE = 2 QUAD-MEMBRANE
+C
+C     PH1OUT CONTAINS THE FOLLOWING
+C     *** NTYPE = 1 ***
+C     ELEMENT ID
+C     3 SILS
+C     5 DUMMY-S
+C     3 S ARRAYS EACH 3X3
+C
+C     *** NTYPE = 2 ***
+C     ELEMENT ID
+C     4 SILS
+C     4 DUMMY-S
+C     4 S ARRAYS EACH 3X3
+C
+      DIMENSION NSIL(4), SI(36)
+C
+      COMMON /PLA4UV/ IVEC, Z(24)
+      COMMON /PLA4ES/ PH1OUT(300)
+      COMMON /PLA42S/ STRESS(3),VEC(3),TEMP,DELTA,NSIZE,NPOINT,
+     1   DUM(315)
+C
+      EQUIVALENCE
+     1            (NSIL(1),PH1OUT(2))
+     2,           (SI(1),PH1OUT(10))
+C
+C
+C                        I=NSIZE
+C     STRESS VECTOR = (SUMMATION  (S ) (U ))
+C                        I=1        I    I
+C
+      NSIZE = NTYPE + 2
+      DO 20 I = 1,NSIZE
+C     POINTER TO DISPLACEMENT VECTOR
+      NPOINT = IVEC + NSIL(I) -1
+C
+      CALL GMMATS( SI(9*I-8),3,3,0,  Z(NPOINT),3,1,0, VEC(1))
+C
+      DO 30 J=1,3
+   30 STRESS(J) = STRESS(J) + VEC(J)
+   20 CONTINUE
+C
+      RETURN
+      END

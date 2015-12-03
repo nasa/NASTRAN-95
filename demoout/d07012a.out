@@ -1,0 +1,635 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D07012A,NASTRAN                                                           
+     TIME  15                                                                        
+     APP   DISP                                                                      
+     SOL   7,1                                                                       
+     DIAG  14                                                                        
+     ALTER 1 $                                                                       
+     PARAM   //C,N,NOP/V,N,TRUE=-1 $                                                 
+     INPUT,  ,,,,/,G2,,,/C,N,5 $                                                     
+     EQUIV   G2,GEOM2/TRUE $                                                         
+     ENDALTER $                                                                      
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = COMPLEX EIGENVALUES OF A 500 CELL STRING                             
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                          
+                  3       CMETHOD = 1 $ FEER                                                             
+                  4      OUTPUT                                                                          
+                  5         SET 1 = 1,51,101,151,201,251,301,351,401,451,501                             
+                  6          DISP = 1                                                                    
+                  7      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =     5, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        EIGC    1       FEER    MAX                                             +CFEER  
+                    2-        +CFEER  -1.0    12.0                                                            
+                    3-        EIGC    7       DET     MAX                     1.0-5                   +EIGC7  
+                    4-        +EIGC7  -.5     5.0     -.9     16.0    10.0    2       2                       
+                    5-        PARAM   G       .10                                                             
+                              ENDDATA
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 07 - DIRECT COMPLEX EIGENVALUE ANALYSIS - APR. 1995 $     
+
+       1  PARAM   //C,N,NOP/V,N,TRUE=-1 $                                         
+
+       1  INPUT,  ,,,,/,G2,,,/C,N,5 $                                             
+
+       1  EQUIV   G2,GEOM2/TRUE $                                                 
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     GOD=SAVE/GMD=SAVE $                                            
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   S,N,NOGPDT/MINUS1=-1 $                                         
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+       9  PURGE    USET,GM,GO,KAA,BAA,MAA,K4AA,KFS,EST,ECT,PLTSETX,PLTPAR,GPSETS, 
+                   ELSETS/NOGPDT $                                                
+
+      10  COND     LBL5,NOGPDT $                                                  
+
+      11  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      12  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      13  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      14  COND     P1,JUMPPLOT $                                                  
+
+      15  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      16  PRTMSG   PLTSETX// $                                                    
+
+      17  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      18  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      19  COND     P1,JUMPPLOT $                                                  
+
+      20  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/JUMPPLOT/PLTFLG/S,N,PFILE $                         
+
+      21  PRTMSG   PLOTX1// $                                                     
+
+      22  LABEL    P1 $                                                           
+
+      23  GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $                              
+
+      24  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP=-1/1/S,N,NOGENL=-1/GENEL/         
+                   S,N,COMPS $                                                    
+
+      25  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      26  PURGE    K4GG,MGG,BGG,K4NN,K4FF,K4AA,MNN,MFF,MAA,BNN,BFF,BAA,           
+                   KGGX/NOSIMP $                                                  
+
+      27  COND     LBL1,NOSIMP $                                                  
+
+      28  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      29  PARAM    //*ADD*/NOMGG/1/0 $                                            
+
+      30  PARAM    //*ADD*/NOBGG=-1/1/0 $                                         
+
+      31  PARAM    //*ADD*/NOK4GG/1/0 $                                           
+
+      32  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,BELM,BDICT,/S,N, 
+                   NOKGGX/S,N,NOMGG/S,N,NOBGG/S,N,NOK4GG//C,Y,COUPMASS/           
+                   C,Y,CPBAR/C,Y,CPROD/C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/       
+                   C,Y,CPTRIA2/C,Y,CPTUBE/C,Y,CPQDPLT/C,Y,CPTRPLT/C,Y,CPTRBSC/    
+                   C,Y,VOLUME/C,Y,SURFACE $                                       
+
+      33  PURGE    KGGX/NOKGGX/MGG/NOMGG $                                        
+
+      34  COND     LBLKGGX,NOKGGX $                                               
+
+      35  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      36  LABEL    LBLKGGX $                                                      
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      37  COND     LBLMGG,NOMGG $                                                 
+
+      38  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      39  PURGE    MDICT,MELM/MINUS1 $                                            
+
+      40  LABEL    LBLMGG $                                                       
+
+      41  COND     LBLBGG,NOBGG $                                                 
+
+      42  EMA      GPECT,BDICT,BELM/BGG $                                         
+
+      43  PURGE    BDICT,BELM/MINUS1 $                                            
+
+      44  LABEL    LBLBGG $                                                       
+
+      45  COND     LBLK4GG,NOK4GG $                                               
+
+      46  EMA      GPECT,KDICT,KELM/K4GG/NOK4GG $                                 
+
+      47  LABEL    LBLK4GG $                                                      
+
+      48  PURGE    KDICT,KELM/MINUS1 $                                            
+
+      49  PURGE    MNN,MFF,MAA/NOMGG $                                            
+
+      50  PURGE    BNN,BFF,BAA/NOBGG $                                            
+
+      51  COND     LBL1,GRDPNT $                                                  
+
+      52  COND     ERROR3,NOMGG $                                                 
+
+      53  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT/C,Y,WTMASS $            
+
+      54  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      55  LABEL    LBL1 $                                                         
+
+      56  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      57  COND     LBL11,NOGENL $                                                 
+
+      58  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      59  LABEL    LBL11 $                                                        
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      60  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      61  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      62  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,,USET,             
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      63  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      64  PURGE    GM,GMD/MPCF1/GO,GOD/OMIT/KFS,QPC/SINGLE $                      
+
+      65  EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1/ BGG,BNN/MPCF1/K4GG,K4NN/MPCF1 $   
+
+      66  COND     LBL2,MPCF1 $                                                   
+
+      67  MCE1     USET,RG/GM $                                                   
+
+      68  MCE2     USET,GM,KGG,MGG,BGG,K4GG/KNN,MNN,BNN,K4NN $                    
+
+      69  LABEL    LBL2 $                                                         
+
+      70  EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE/BNN,BFF/SINGLE/K4NN,K4FF/SINGLE $
+
+      71  COND     LBL3,SINGLE $                                                  
+
+      72  SCE1     USET,KNN,MNN,BNN,K4NN/KFF,KFS,,MFF,BFF,K4FF $                  
+
+      73  LABEL    LBL3 $                                                         
+
+      74  EQUIV    KFF,KAA/OMIT/ MFF,MAA/OMIT/BFF,BAA/OMIT/K4FF,K4AA/OMIT $       
+
+      75  COND     LBL5,OMIT $                                                    
+
+      76  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      77  COND     LBLM,NOMGG $                                                   
+
+      78  SMP2     USET,GO,MFF/MAA $                                              
+
+      79  LABEL    LBLM $                                                         
+
+      80  COND     LBLB,NOBGG $                                                   
+
+      81  SMP2     USET,GO,BFF/BAA $                                              
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      82  LABEL    LBLB $                                                         
+
+      83  COND     LBL5,NOK4GG $                                                  
+
+      84  SMP2     USET,GO,K4FF/K4AA $                                            
+
+      85  LABEL    LBL5 $                                                         
+
+      86  DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,TFPOOL,,,,,,EED,EQDYN/   
+                   LUSET/S,N,LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/                     
+                   NONLFT/NOTRL/S,N,NOEED/123/S,N,NOUE $                          
+
+      87  COND     ERROR1,NOEED $                                                 
+
+      88  EQUIV    GO,GOD/NOUE/GM,GMD/NOUE $                                      
+
+      89  PARAM    //*ADD*/NEVER/1/0 $                                            
+
+      90  PARAM    //*MPY*/REPEATE/1/-1 $                                         
+
+      91  BMG      MATPOOL,BGPDT,EQEXIN,CSTM/BDPOOL/S,N,NOKBFL/S,N,NOABFL/        
+                   S,N,MFACT $                                                    
+
+      92  PARAM    //*AND*/NOFL/NOABFL/NOKBFL $                                   
+
+      93  PURGE    KBFL/NOKBFL/ ABFL/NOABFL $                                     
+
+      94  COND     LBL13,NOFL $                                                   
+
+      95  MTRXIN,  ,BDPOOL,EQDYN,,/ABFL,KBFL,/LUSETD/S,N,NOABFL/S,N,NOKBFL/       
+                   0 $                                                            
+
+      96  LABEL    LBL13 $                                                        
+
+      97  PURGE    PHID,CLAMA,OPHID,OQPC1,OCPHIP,OESC1,OEFC1,CPHIP,QPC,           
+                   K2PP,M2PP,B2PP,K2DD,M2DD,B2DD/NEVER $                          
+
+      98  CASE     CASECC,/CASEXX/*CEIGN*/S,N,REPEATE/S,N,NOLOOP $                
+
+      99  MTRXIN   CASEXX,MATPOOL,EQDYN,,TFPOOL/K2DPP,M2DPP,B2PP/LUSETD/S,N,      
+                   NOK2DPP/S,N,NOM2DPP/S,N,NOB2PP $                               
+
+     100  PARAM    //*AND*/NOM2PP/NOABFL/NOM2DPP $                                
+
+     101  PARAM    //*AND*/NOK2PP/NOFL  /NOK2DPP $                                
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     102  EQUIV    K2DPP,K2PP/NOFL/M2DPP,M2PP/NOABFL $                            
+
+     103  COND     LBLFL2,NOFL $                                                  
+
+     104  ADD5     ABFL,KBFL,K2DPP,,/K2PP/(-1.0,0.0) $                            
+
+     105  COND     LBLFL2,NOABFL $                                                
+
+     106  TRNSP    ABFL/ABFLT $                                                   
+
+     107  ADD      ABFLT,M2DPP/M2PP/MFACT/(1.0,0.0) $                             
+
+     108  LABEL    LBLFL2 $                                                       
+
+     109  PARAM    //*AND*/BDEBA/NOUE/NOB2PP $                                    
+
+     110  PARAM    //*AND*/MDEMA/NOUE/NOM2PP $                                    
+
+     111  PARAM    //*AND*/KDEK2/NOGENL/NOSIMP $                                  
+
+     112  PURGE    K2DD/NOK2PP/M2DD/NOM2PP/B2DD/NOB2PP $                          
+
+     113  EQUIV    M2PP,M2DD/NOA/B2PP,B2DD/NOA/K2PP,K2DD/NOA/                     
+                    MAA,MDD/MDEMA/BAA,BDD/BDEBA $                                 
+
+     114  COND     LBL18,NOGPDT $                                                 
+
+     115  GKAD     USETD,GM,GO,KAA,BAA,MAA,K4AA,K2PP,M2PP,B2PP/KDD,BDD,MDD,GMD,   
+                   GOD,K2DD,M2DD,B2DD/*CMPLEV*/*DISP*/*DIRECT*/C,Y,G=0.0/         
+                   0.0/0.0/NOK2PP/NOM2PP/NOB2PP/                                  
+                   MPCF1/SINGLE/OMIT/NOUE/NOK4GG/NOBGG/                           
+                   KDEK2/-1 $                                                     
+
+     116  LABEL    LBL18 $                                                        
+
+     117  EQUIV    B2DD,BDD/NOBGG/ M2DD,MDD/NOSIMP/ K2DD,KDD/KDEK2 $              
+
+     118  CEAD     KDD,BDD,MDD,EED,CASEXX/PHID,CLAMA,OCEIGS,/S,N,EIGVS $          
+
+     119  OFP      OCEIGS,CLAMA,,,,//S,N,CARDNO $                                 
+
+     120  COND     LBL16,EIGVS $                                                  
+
+     121  VDR      CASEXX,EQDYN,USETD,PHID,CLAMA,,/OPHID,/*CEIGN*/*DIRECT*/       
+                   0/S,N,NOD/S,N,NOP/0 $                                          
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     122  COND     LBL15,NOD $                                                    
+
+     123  OFP      OPHID,,,,,//S,N,CARDNO $                                       
+
+     124  LABEL    LBL15 $                                                        
+
+     125  COND     LBL16,NOP $                                                    
+
+     126  EQUIV    PHID,CPHIP/NOA $                                               
+
+     127  COND     LBL17,NOA $                                                    
+
+     128  SDR1     USETD,, PHID,,,GOD,GMD,,KFS,,/CPHIP,,QPC/1/*DYNAMICS* $        
+
+     129  LABEL    LBL17 $                                                        
+
+     130  SDR2     CASEXX,CSTM,MPT,DIT,EQDYN,SILD,,,,CLAMA,QPC,CPHIP,EST,,,/      
+                   ,OQPC1,OCPHIP,OESC1,OEFC1,,,/*CEIG* $                          
+
+     131  OFP      OCPHIP,OQPC1,OEFC1,OESC1,,//S,N,CARDNO $                       
+
+     132  LABEL    LBL16 $                                                        
+
+     136  JUMP     FINIS $                                                        
+
+     137  LABEL    ERROR1 $                                                       
+
+     138  PRTPARM  //-1/*DIRCEAD* $                                               
+
+     139  LABEL    ERROR3 $                                                       
+
+     140  PRTPARM  //-3/*DIRCEAD* $                                               
+
+     141  LABEL    FINIS $                                                        
+
+     142  PURGE    DUMMY/MINUS1 $                                                 
+
+     143  END      $                                                              
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+0                                                                                                                                   
+
+
+                    * U T I L I T Y   M O D U L E   I N P U T *
+
+
+                    INPUT DATA ECHO (DATA READ VIA FORTRAN, REMEMBER TO RIGHT ADJUST)
+
+
+                    *   1  **   2  **   3  **   4  **   5  **   6  **   7  **   8  **   9  **  10  *
+
+
+
+                          500 1.0E+07 0.0E+00 1.0E+01 6.3E+00
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION DAMP4    ELEMENTS (ELEMENT TYPE  23) STARTING WITH ID  2000002
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ELAS4    ELEMENTS (ELEMENT TYPE  14) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION MASS4    ELEMENTS (ELEMENT TYPE  28) STARTING WITH ID  1000002
+0*** USER WARNING MESSAGE 3150
+
+     DESIRED NUMBER OF EIGENVALUES       0   INVALID. SET = 1.
+
+
+0*** USER INFORMATION MESSAGE 3028      B =    2     BBAR =    2
+                                        C =    0     CBAR =    0
+                                        R =    3
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH1 (N =   499)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3165
+
+         3 SOLUTIONS HAVE BEEN ACCEPTED AND   9 SOLUTIONS HAVE BEEN REJECTED.
+
+
+0*** USER INFORMATION MESSAGE 3166
+
+     2 MORE ACCURATE EIGENSOLUTIONS THAN THE    1 REQUESTED HAVE BEEN FOUND FOR NEIGHBORHOOD  1 OF  1
+
+     CENTERED AT  -1.00000000D+00  1.20000000D+01. USE DIAG 12 TO DETERMINE ERROR ESTIMATES.
+
+
+0*** USER INFORMATION MESSAGE 3160
+
+     MINIMUM OPEN CORE NOT USED BY FEER  1956994 WORDS (     7827K BYTES).
+
+
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                       C O M P L E X   E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (FEER METHOD)
+0
+0
+0                                   NUMBER OF EIGENVALUES EXTRACTED  . . . . . . . . .        3
+0                                   NUMBER OF STARTING POINTS USED . . . . . . . . . .        1
+0                                   NUMBER OF STARTING POINT OR SHIFT POINT MOVES  . .        0
+0                                   TOTAL NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .        1
+0                                   TOTAL NUMBER OF VECTOR ITERATIONS  . . . . . . . .       11
+0
+0                                   REASON FOR TERMINATION . . . . . . . . . . . . . .        0*
+
+0                                       (* NORMAL TERMINATION              
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.7.3)
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+0                                                                                                                                   
+ 
+                                        C O M P L E X   E I G E N V A L U E   S U M M A R Y
+0                ROOT     EXTRACTION                  EIGENVALUE                     FREQUENCY              DAMPING
+                  NO.        ORDER             (REAL)           (IMAG)                (CYCLES)            COEFFICIENT
+                      1           2         -6.291610E-01     6.283138E+00          9.999925E-01          2.002697E-01              
+                      2           1         -9.427287E-01     1.257801E+01          2.001853E+00          1.499010E-01              
+                      3           3         -1.256423E+00     1.887015E+01          3.003278E+00          1.331652E-01              
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+0                                                                                                                                   
+      COMPLEX EIGENVALUE = -6.291610E-01,  6.283138E+00    (CYCLIC FREQUENCY =  9.999925E-01HZ)
+                                       C O M P L E X   E I G E N V E C T O R   NO.          1
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0           51      S      3.090178E-01                                                                                             
+                          -2.708081E-07                                                                                             
+0          101      S      5.877855E-01                                                                                             
+                           1.741698E-07                                                                                             
+0          151      S      8.090159E-01                                                                                             
+                           2.492660E-07                                                                                             
+0          201      S      9.510562E-01                                                                                             
+                           4.779254E-08                                                                                             
+0          251      S      1.000000E+00                                                                                             
+                           0.0                                                                                                      
+0          301      S      9.510567E-01                                                                                             
+                          -1.930243E-07                                                                                             
+0          351      S      8.090178E-01                                                                                             
+                          -3.785461E-07                                                                                             
+0          401      S      5.877855E-01                                                                                             
+                          -5.418331E-08                                                                                             
+0          451      S      3.090166E-01                                                                                             
+                           3.527991E-07                                                                                             
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+0                                                                                                                                   
+      COMPLEX EIGENVALUE = -9.427287E-01,  1.257801E+01    (CYCLIC FREQUENCY =  2.001853E+00HZ)
+                                       C O M P L E X   E I G E N V E C T O R   NO.          2
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0           51      S     -5.877852E-01                                                                                             
+                           1.598926E-08                                                                                             
+0          101      S     -9.510565E-01                                                                                             
+                          -6.663403E-08                                                                                             
+0          151      S     -9.510565E-01                                                                                             
+                          -1.006823E-08                                                                                             
+0          201      S     -5.877852E-01                                                                                             
+                          -1.512422E-08                                                                                             
+0          251      S      4.733862E-09                                                                                             
+                          -2.046830E-09                                                                                             
+0          301      S      5.877852E-01                                                                                             
+                           1.512422E-08                                                                                             
+0          351      S      9.510565E-01                                                                                             
+                           4.118171E-08                                                                                             
+0          401      S      9.510565E-01                                                                                             
+                           4.118171E-08                                                                                             
+0          451      S      5.877852E-01                                                                                             
+                           9.463058E-09                                                                                             
+1     COMPLEX EIGENVALUES OF A 500 CELL STRING                              /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                                                                                   
+0                                                                                                                                   
+      COMPLEX EIGENVALUE = -1.256423E+00,  1.887015E+01    (CYCLIC FREQUENCY =  3.003278E+00HZ)
+                                       C O M P L E X   E I G E N V E C T O R   NO.          3
+                                                          (REAL/IMAGINARY)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0           51      S     -8.090213E-01                                                                                             
+                           3.231901E-06                                                                                             
+0          101      S     -9.510603E-01                                                                                             
+                           1.040824E-06                                                                                             
+0          151      S     -3.090079E-01                                                                                             
+                          -3.091190E-06                                                                                             
+0          201      S      5.877863E-01                                                                                             
+                           2.610405E-07                                                                                             
+0          251      S      1.000000E+00                                                                                             
+                           0.0                                                                                                      
+0          301      S      5.877883E-01                                                                                             
+                           5.838824E-07                                                                                             
+0          351      S     -3.090220E-01                                                                                             
+                           5.590288E-06                                                                                             
+0          401      S     -9.510583E-01                                                                                             
+                           1.446354E-06                                                                                             
+0          451      S     -8.090150E-01                                                                                             
+                          -3.641407E-06                                                                                             
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  COMPLEX EIGENVALUES OF A 500 CELL STRING                           
+ DATE:  5/17/95
+ END TIME: 15:54:14
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

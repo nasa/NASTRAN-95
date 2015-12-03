@@ -1,0 +1,174 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$                 Thermal and Pressure Loads on a Long Pipe Using
+$                     Linear Isoparametric Elements (1-13-1)
+$                 Thermal and Pressure Loads on a Long Pipe Using
+$                    Quadratic Isoparametric Elements (1-13-2)
+$                 Thermal and Pressure Loads on a Long Pipe Using
+$                      Cubic Isoparametric Elements (1-13-3)
+$ 
+$ A. Description
+$ 
+$ These problems demonstrate the use of the linear, quadratic, and cubic
+$ isoparametric solid elements, IHEX1, IHEX2, and IHEX3, respectively. A long
+$ pipe, assumed to be in a state of plane strain, is subjected to an internal
+$ pressure and a thermal gradient in the radial direction.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    r       = a =  4 in.        (radius to the inner surface)
+$     inner
+$ 
+$    r       = b =  5 in.        (radius to the outer surface)
+$     outer
+$ 
+$                6
+$    E = 30. x 10    psi          (Young's Modulus)
+$ 
+$    v = 0.3                      (Poisson's Ratio)
+$ 
+$                      -5
+$    alpha = 1.428 x 10           (thermal expansion coefficient)
+$ 
+$                           2
+$                  -4 lb-sec
+$    p = 7.535 x 10   --------    (mass density)
+$                         4
+$                       in
+$ 
+$    p = 10 psi                   (inner surface pressure)
+$ 
+$    T  = 100.0 deg. F            (inner surface temperature)
+$     i
+$ 
+$    T  = 0.0 deg. F              (outer surface temperature)
+$     o
+$ 
+$ 2. Boundary Conditions:
+$ 
+$    u sub theta = 0 at all points on the right side
+$ 
+$    u sub theta = 0 at all points on the left side
+$ 
+$    u  = 0 at all points on the bottom surface
+$     z
+$ 
+$    u  = 0 at all points on the top surface
+$     z
+$ 
+$ 3. Loads:
+$ 
+$    Subcase 1,
+$ 
+$      p = 10 psi    (internal pressure)
+$ 
+$    Subcase 2,
+$ 
+$            (T -T
+$              i  o)      (b)       100       (5)
+$      T  =  --------   ln(-)  =  --------  ln(-)  , where r is any radius.
+$       r        (b)      (r)     ln(1.25)    (r)
+$              ln(-)
+$                (a)
+$ 
+$ C. Theory
+$ 
+$ 1. Subcase 1
+$ 
+$ The normal stresses due to the pressure load (Reference 24) are obtained by
+$ 
+$                 2 2                2
+$                a b      p        pa
+$    sigma  =  - -------  --  +  -------                                     (1)
+$         r        2  2    2       2  2
+$                (b -a )  r      (b -a )
+$ 
+$                          2 2                2
+$                         a b      p        pa
+$    sigma sub theta  =   -------  --  +  -------                            (2)
+$                           2  2    2       2  2
+$                         (b -a )  r      (b -a )
+$ 
+$ and
+$                      2
+$                    pa
+$    sigma  =  2v  -------                                                   (3)
+$         z          2  2
+$                  (b -a )
+$ 
+$ where r is the radius and all shearing stresses are zero.
+$ 
+$ The displacement in the radial direction is
+$ 
+$                             2                     2 2
+$         (l-2v)(l+v)       pa        (l+v)   l   pa b
+$    u  = -----------  r  -------  +  ------  -   -------                    (4)
+$     r        E            2  2        E     r     2  2
+$                         (b -a )                 (b -a )
+$ 
+$ and all other displacements are zero.
+$ 
+$ 2. Subcase 2
+$ 
+$ The stresses in the radial and tangential directions due to the thermal load
+$ (Reference 24) are given by
+$ 
+$             alphaET      +             2           2        +
+$                    i     |    (b)     a           b     (b) |
+$    sigma  = -----------  |- ln(-) - -------  (l - --) ln(-) |              (5)
+$         r           (b)  |    (r)     2  2         2    (a) |
+$             2(l-v)ln(-)  |          (b -a )       r         |
+$                     (a)  +                                  +
+$ and
+$ 
+$                  alphaET      +               2           2        +
+$                         i     |      (b)     a           b     (b) |
+$    sigma       = -----------  |l - ln(-) - -------  (l + --) ln(-) |       (6)
+$         theta            (b)  |      (r)     2  2         2    (a) |
+$                  2(l-v)ln(-)  |            (b -a )       r         |
+$                          (a)  +                                    +
+$ 
+$ The stress in the axial direction is obtained via the procedure contained in
+$ the reference as
+$ 
+$                  alphaET      +        2                      +
+$                         i     |      2a  v     (b)        (b) |
+$    sigma       = -----------  |v -  -------  ln(-) - 2  ln(-) |            (7)
+$         theta            (b)  |       2  2     (a)        (r) |
+$                  2(l-v)ln(-)  |     (b -a )                   |
+$                          (a)  +                               +
+$ 
+$ All shearing stresses are zero.
+$ 
+$ The displacement in the radial direction is
+$ 
+$                              ++      +                   +
+$                          T   ||      |   2 2             |
+$         (l + v)           i  ||   l  |  a b          (b) |
+$    u  = -------  alpha ----- || - -  |-----------  ln(-) |
+$     r   (l + v)          (b) ||   r  |    2  2       (a) |
+$                        ln(-) ||      | 2(b -a )          |
+$                          (a) ++      +                   +
+$ 
+$             +                                            +  ++
+$             |                               2            |  ||
+$          r  |     (b)              (      2a        (b)) |  ||
+$        + -  | 2 ln(-) + l + (l-2v) ( l - -------  ln(-)) |  ||             (8)
+$          4  |     (r)              (       2  2     (a)) |  ||
+$             |                            (b -a )         |  ||
+$             +                                            +  ++
+$ 
+$ D. Results
+$ 
+$ Note that five IHEX1 elements were used along the radial thickness, whereas
+$ one element was used for each of the IHEX2 and IHEX3 cases. Two values for the
+$ stress occur at the boundary of two adjacent IHEX1 elements, resulting in a
+$ sawtooth pattern.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 24. Timoshenko, S. P. and J. N. Goodier, Theory of Elasticity, McGraw-Hill,
+$     Inc., 1961.
+$-------------------------------------------------------------------------------

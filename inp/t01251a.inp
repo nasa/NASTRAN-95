@@ -1,0 +1,66 @@
+ID    T01251A,NASTRAN                                                           
+SOL   1,0                                                                       
+APP   DISP                                                                      
+TIME  30                                                                        
+DIAG  48                                                                        
+CEND                                                                            
+TITLE    = LAMINATED COMPOSITE PLATE - PURE TWIST LOADING                       
+SUBTITLE = NASTRAN TEST PROBLEM NO. T01-25-1A                                   
+$                                                                               
+$   MODEL: A SQUARE PLATE OF A 4X4 MESH WITH THREE CORNERS                      
+$          PINNED AND A TRANSVERSE POINT LOAD AT THE FREE                       
+$          CORNER TO SIMULATE A PURE TWIST LOADING.  THE                        
+$          LAMINATE LAYUP IS OF A CROSS-PLY CONFIGURATION                       
+$          [0/90/0].                                                            
+$                                                                               
+$       * * T3 DEFLECTION AT GRID 1 * *                                         
+$                                                                               
+$              THEORETICAL                                                      
+$        -----------------------------------------------                        
+$              -3.750E-2                                                        
+$                                                                               
+$                                                                               
+$       * * TAU FOR ELEMENT 1, ALL LAYERS * *                                   
+$                                                                               
+$              THEORETICAL                                                      
+$        -----------------------------------------------                        
+$       PLY 1  -5.0E1                                                           
+$       PLY 2   0.0                                                             
+$       PLY 3   5.0E1                                                           
+$                                                                               
+$                                                                               
+$                                                                               
+$   REFERENCES:  JONES R. M., MECHANICS OF COMPOSITE MATERIALS.                 
+$               M GRAW-HILL BOOK COMPANY.  (PAGE 181)                           
+$                                                                               
+$                                                                               
+$                                                                               
+SPC   = 1                                                                       
+SUBCASE 1                                                                       
+LABEL = LAYER STRESS REQUEST                                                    
+DISP  = ALL                                                                     
+STRESS(LAYER) = ALL                                                             
+FORCE = ALL                                                                     
+LOAD  = 1                                                                       
+BEGIN BULK                                                                      
+CQUAD4  1       3       1       2       5       4                               
+CQUAD4  2       3       2       3       6       5                               
+CQUAD4  3       3       4       5       8       7                               
+CQUAD4  4       3       5       6       9       8                               
+FORCE   1       1               1.0     0.0     0.0     -1.0                    
+GRID    1               0.0     0.0                                             
+GRID    2               2.5     0.0                                             
+GRID    3               5.0     0.0                                             
+GRID    4               0.0     2.5                                             
+GRID    5               2.5     2.5                                             
+GRID    6               5.0     2.5                                             
+GRID    7               0.0     5.0                                             
+GRID    8               2.5     5.0                                             
+GRID    9               5.0     5.0                                             
+MAT8    3       2.0  E+75.0  E+5.25     25.0E+04                        +MAT8   
++MAT8                           1.6 E+051.2 E+042.0 E+053.0 E+041.5 E+04        
+PCOMP1  3                       1.2 E+04HILL    3       .0666666        +PCOMP1 
++PCOMP1 0.0     90.0    0.0                                                     
+SPC1    1       6       1       2       4       5       6       8               
+SPC1    1       1236    3       7       9                                       
+ENDDATA                                                                         

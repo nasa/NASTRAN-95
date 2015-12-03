@@ -1,0 +1,85 @@
+$-------------------------------------------------------------------------------
+$        RIGID FORMAT No. 15, Normal Modes Analysis Using Cyclic Symmetry
+$        Modal Analysis of a Circular Plate Using Cyclic Symmetry (15-1-1)
+$ 
+$ A. Description
+$ 
+$ The natural frequencies of a constant thickness circular plate with six radial
+$ stiffeners and a central hole are obtained using the rotational symmetry
+$ option. The structure is simply supported at the outer circumference.
+$ 
+$ The finite element model represents only sixty degrees of the plate. Note that
+$ since the stiffeners are on the symmetry boundary, only 1/2 of the actual
+$ properties are used. The bulk data cards demonstrated are the CYJOIN and
+$ PARAM.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    R  =  1.0          (outside radius)
+$     o
+$ 
+$    R  =   .14         (inside radius)
+$     i
+$ 
+$    t  =   .01         (plate thickness)
+$ 
+$    a  =   .06         (height and width of stiffeners)
+$                  6
+$    E  = 10.6 x 10     (modulus of elasticity)
+$ 
+$    v  =   .325        (Poisson's ratio)
+$                   -4
+$    p  =  2.59 x 10    (mass density of plate and stiffeners)
+$ 
+$ 2. Boundary conditions:
+$ 
+$    u  = u      = theta  = 0    (all points)
+$     r    theta        z
+$ 
+$    u  = theta  = 0              (along r = 1.0)
+$     z        r
+$ 
+$ 3. Eigenvalue extraction data:
+$ 
+$    Method: Inverse power
+$ 
+$    Region of interest: 0.0 <= f <= 8000
+$ 
+$    Number of desired roots: 3
+$ 
+$    Normalization: maximum
+$ 
+$ 4. Cyclic symmetry parameters:
+$ 
+$    CTYPE ROT
+$ 
+$    KINDEX 2
+$ 
+$    NSEGS 6
+$ 
+$ C. Results
+$ 
+$ Solutions can be obtained using the dihedral symmetry or rotational symmetry
+$ described here.
+$ 
+$ Results are accurate to approximately six significant figures.
+$ 
+$                           Table 1. Natural Frequencies
+$                               ---------------------
+$                               Mode   Frequency (Hz)
+$                               ---------------------
+$                                1        4288.2
+$ 
+$                                2        4288.2
+$ 
+$                                3        6844.3
+$ 
+$                                4        6844.3
+$ 
+$                                5       11524.3
+$ 
+$                                6       11524.3
+$                               ---------------------
+$-------------------------------------------------------------------------------

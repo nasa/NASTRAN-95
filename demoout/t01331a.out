@@ -1,0 +1,728 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T01331A,NASTRAN                                                           
+     SOL   1,0                                                                       
+     APP   DISP                                                                      
+     TIME  30                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+0     LAMINATED COMPOSITE SHELL                                                                                                     
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = CTRIA3 3-NODE SHELL ROOF TEST                                        
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T01-33-1A                                   
+                  3      LABEL    = LAMINATED COMPOSITE SHELL                                            
+                  4      $                                                                               
+                  5      $                                                                               
+                  6      $    MODEL: LAMINATED COMPOSITE SHELL ROOF MODEL.                               
+                  7      $           SYMMETRIC ANGLE PLY LAYUP                                           
+                  8      $           [ 45/-45/15/-15/-15/15/-45/45 ]                                     
+                  9      $                                                                               
+                 10      $                                                                               
+                 11      $       * * COMPARISION OF T1 DEFLECTIONS AT * *                                
+                 12      $       * * GRID POINTS 34,35,36,43,44,45    * *                                
+                 13      $                                                                               
+                 14      $                COSMIC/NASTRAN           MSC/NASTRAN                           
+                 15      $   USING:     CTRIA3      CQUAD4      CTRIA3     CQUAD4                        
+                 16      $           -----------------------------------------------                     
+                 17      $   GRID 34    -0.9839    -1.1187     -0.9928    -1.0662                        
+                 18      $   GRID 35    -1.2566    -1.4143     -1.2466    -1.3441                        
+                 19      $   GRID 36    -1.5126    -1.6911     -1.5300    -1.6074                        
+                 20      $   GRID 43    -1.2343    -1.3918     -1.2262    -1.3267                        
+                 21      $   GRID 44    -1.5792    -1.7590     -1.5955    -1.6739                        
+                 22      $   GRID 45    -1.9093    -2.1082     -1.9309    -2.0079                        
+                 23      $                                                                               
+                 24      $                                                                               
+                 25      SPC  = 1                                                                        
+                 26      LOAD = 1                                                                        
+                 27      DISP = ALL                                                                      
+                 28      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   358, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+0     LAMINATED COMPOSITE SHELL                                                                                                     
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CORD2C  1               0.0     0.0     0.0     -1.0    0.0     0.0     +MOR1001
+                    2-        +MOR10010.0     0.0     1.0                                                     
+                    3-        CORD2R  2       0       0.0     0.0     0.0     0.0     0.0     1.0     +C2     
+                    4-        +C2     1.0     0.0     0.0                                                     
+                    5-        CORD2R  3       0       0.0     0.0     0.0     0.0     0.0     1.0     +C3     
+                    6-        +C3     1.0     0.0     0.0                                                     
+                    7-        CRIGD1  1       81      5001                                                    
+                    8-        CTRIA3  1       1       1       2       10                                      
+                    9-        CTRIA3  2       1       10      2       11      45.000                          
+                   10-        CTRIA3  3       1       2       3       11                                      
+                   11-        CTRIA3  4       1       11      3       12      45.000                          
+                   12-        CTRIA3  5       1       3       4       12                                      
+                   13-        CTRIA3  6       1       12      4       13      45.000                          
+                   14-        CTRIA3  7       1       4       5       13                                      
+                   15-        CTRIA3  8       1       13      5       14      45.000                          
+                   16-        CTRIA3  9       1       5       6       14                                      
+                   17-        CTRIA3  10      1       14      6       15      45.000                          
+                   18-        CTRIA3  11      1       6       7       15                                      
+                   19-        CTRIA3  12      1       15      7       16      45.000                          
+                   20-        CTRIA3  13      1       7       8       16                                      
+                   21-        CTRIA3  14      1       16      8       17      45.000                          
+                   22-        CTRIA3  15      1       8       9       17                                      
+                   23-        CTRIA3  16      1       17      9       18      45.000                          
+                   24-        CTRIA3  17      1       10      11      19                                      
+                   25-        CTRIA3  18      1       19      11      20      45.000                          
+                   26-        CTRIA3  19      1       11      12      20                                      
+                   27-        CTRIA3  20      1       20      12      21      45.000                          
+                   28-        CTRIA3  21      1       12      13      21                                      
+                   29-        CTRIA3  22      1       21      13      22      45.000                          
+                   30-        CTRIA3  23      1       13      14      22                                      
+                   31-        CTRIA3  24      1       22      14      23      45.000                          
+                   32-        CTRIA3  25      1       14      15      23                                      
+                   33-        CTRIA3  26      1       23      15      24      45.000                          
+                   34-        CTRIA3  27      1       15      16      24                                      
+                   35-        CTRIA3  28      1       24      16      25      45.000                          
+                   36-        CTRIA3  29      1       16      17      25                                      
+                   37-        CTRIA3  30      1       25      17      26      45.000                          
+                   38-        CTRIA3  31      1       17      18      26                                      
+                   39-        CTRIA3  32      1       26      18      27      45.000                          
+                   40-        CTRIA3  33      1       19      20      28                                      
+                   41-        CTRIA3  34      1       28      20      29      45.000                          
+                   42-        CTRIA3  35      1       20      21      29                                      
+                   43-        CTRIA3  36      1       29      21      30      45.000                          
+                   44-        CTRIA3  37      1       21      22      30                                      
+                   45-        CTRIA3  38      1       30      22      31      45.000                          
+                   46-        CTRIA3  39      1       22      23      31                                      
+                   47-        CTRIA3  40      1       31      23      32      45.000                          
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+
+      LAMINATED COMPOSITE SHELL                                                                                                     
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CTRIA3  41      1       23      24      32                                      
+                   49-        CTRIA3  42      1       32      24      33      45.000                          
+                   50-        CTRIA3  43      1       24      25      33                                      
+                   51-        CTRIA3  44      1       33      25      34      45.000                          
+                   52-        CTRIA3  45      1       25      26      34                                      
+                   53-        CTRIA3  46      1       34      26      35      45.000                          
+                   54-        CTRIA3  47      1       26      27      35                                      
+                   55-        CTRIA3  48      1       35      27      36      45.000                          
+                   56-        CTRIA3  49      1       28      29      37                                      
+                   57-        CTRIA3  50      1       37      29      38      45.000                          
+                   58-        CTRIA3  51      1       29      30      38                                      
+                   59-        CTRIA3  52      1       38      30      39      45.000                          
+                   60-        CTRIA3  53      1       30      31      39                                      
+                   61-        CTRIA3  54      1       39      31      40      45.000                          
+                   62-        CTRIA3  55      1       31      32      40                                      
+                   63-        CTRIA3  56      1       40      32      41      45.000                          
+                   64-        CTRIA3  57      1       32      33      41                                      
+                   65-        CTRIA3  58      1       41      33      42      45.000                          
+                   66-        CTRIA3  59      1       33      34      42                                      
+                   67-        CTRIA3  60      1       42      34      43      45.000                          
+                   68-        CTRIA3  61      1       34      35      43                                      
+                   69-        CTRIA3  62      1       43      35      44      45.000                          
+                   70-        CTRIA3  63      1       35      36      44                                      
+                   71-        CTRIA3  64      1       44      36      45      45.000                          
+                   72-        CTRIA3  65      1       37      38      46                                      
+                   73-        CTRIA3  66      1       46      38      47      45.000                          
+                   74-        CTRIA3  67      1       38      39      47                                      
+                   75-        CTRIA3  68      1       47      39      48      45.000                          
+                   76-        CTRIA3  69      1       39      40      48                                      
+                   77-        CTRIA3  70      1       48      40      49      45.000                          
+                   78-        CTRIA3  71      1       40      41      49                                      
+                   79-        CTRIA3  72      1       49      41      50      45.000                          
+                   80-        CTRIA3  73      1       41      42      50                                      
+                   81-        CTRIA3  74      1       50      42      51      45.000                          
+                   82-        CTRIA3  75      1       42      43      51                                      
+                   83-        CTRIA3  76      1       51      43      52      45.000                          
+                   84-        CTRIA3  77      1       43      44      52                                      
+                   85-        CTRIA3  78      1       52      44      53      45.000                          
+                   86-        CTRIA3  79      1       44      45      53                                      
+                   87-        CTRIA3  80      1       53      45      54      45.000                          
+                   88-        CTRIA3  81      1       46      47      55                                      
+                   89-        CTRIA3  82      1       55      47      56      45.000                          
+                   90-        CTRIA3  83      1       47      48      56                                      
+                   91-        CTRIA3  84      1       56      48      57      45.000                          
+                   92-        CTRIA3  85      1       48      49      57                                      
+                   93-        CTRIA3  86      1       57      49      58      45.000                          
+                   94-        CTRIA3  87      1       49      50      58                                      
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+
+      LAMINATED COMPOSITE SHELL                                                                                                     
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CTRIA3  88      1       58      50      59      45.000                          
+                   96-        CTRIA3  89      1       50      51      59                                      
+                   97-        CTRIA3  90      1       59      51      60      45.000                          
+                   98-        CTRIA3  91      1       51      52      60                                      
+                   99-        CTRIA3  92      1       60      52      61      45.000                          
+                  100-        CTRIA3  93      1       52      53      61                                      
+                  101-        CTRIA3  94      1       61      53      62      45.000                          
+                  102-        CTRIA3  95      1       53      54      62                                      
+                  103-        CTRIA3  96      1       62      54      63      45.000                          
+                  104-        CTRIA3  97      1       55      56      64                                      
+                  105-        CTRIA3  98      1       64      56      65      45.000                          
+                  106-        CTRIA3  99      1       56      57      65                                      
+                  107-        CTRIA3  100     1       65      57      66      45.000                          
+                  108-        CTRIA3  101     1       57      58      66                                      
+                  109-        CTRIA3  102     1       66      58      67      45.000                          
+                  110-        CTRIA3  103     1       58      59      67                                      
+                  111-        CTRIA3  104     1       67      59      68      45.000                          
+                  112-        CTRIA3  105     1       59      60      68                                      
+                  113-        CTRIA3  106     1       68      60      69      45.000                          
+                  114-        CTRIA3  107     1       60      61      69                                      
+                  115-        CTRIA3  108     1       69      61      70      45.000                          
+                  116-        CTRIA3  109     1       61      62      70                                      
+                  117-        CTRIA3  110     1       70      62      71      45.000                          
+                  118-        CTRIA3  111     1       62      63      71                                      
+                  119-        CTRIA3  112     1       71      63      72      45.000                          
+                  120-        CTRIA3  113     1       64      65      73                                      
+                  121-        CTRIA3  114     1       73      65      74      45.000                          
+                  122-        CTRIA3  115     1       65      66      74                                      
+                  123-        CTRIA3  116     1       74      66      75      45.000                          
+                  124-        CTRIA3  117     1       66      67      75                                      
+                  125-        CTRIA3  118     1       75      67      76      45.000                          
+                  126-        CTRIA3  119     1       67      68      76                                      
+                  127-        CTRIA3  120     1       76      68      77      45.000                          
+                  128-        CTRIA3  121     1       68      69      77                                      
+                  129-        CTRIA3  122     1       77      69      78      45.000                          
+                  130-        CTRIA3  123     1       69      70      78                                      
+                  131-        CTRIA3  124     1       78      70      79      45.000                          
+                  132-        CTRIA3  125     1       70      71      79                                      
+                  133-        CTRIA3  126     1       79      71      80      45.000                          
+                  134-        CTRIA3  127     1       71      72      80                                      
+                  135-        CTRIA3  128     1       80      72      81      45.000                          
+                  136-        GRID    1       1       25.000  0.000   0.000   1                               
+                  137-        GRID    2       1       25.000  5.000   0.000   1                               
+                  138-        GRID    3       1       25.000  10.000  0.000   1                               
+                  139-        GRID    4       1       25.000  15.000  0.000   1                               
+                  140-        GRID    5       1       25.000  20.000  0.000   1                               
+                  141-        GRID    6       1       25.000  25.000  0.000   1                               
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+
+      LAMINATED COMPOSITE SHELL                                                                                                     
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        GRID    7       1       25.000  30.000  0.000   1                               
+                  143-        GRID    8       1       25.000  35.000  0.000   1                               
+                  144-        GRID    9       1       25.000  40.000  0.000   1                               
+                  145-        GRID    10      1       25.000  0.000   3.125   1                               
+                  146-        GRID    11      1       25.000  5.000   3.125   1                               
+                  147-        GRID    12      1       25.000  10.000  3.125   1                               
+                  148-        GRID    13      1       25.000  15.000  3.125   1                               
+                  149-        GRID    14      1       25.000  20.000  3.125   1                               
+                  150-        GRID    15      1       25.000  25.000  3.125   1                               
+                  151-        GRID    16      1       25.000  30.000  3.125   1                               
+                  152-        GRID    17      1       25.000  35.000  3.125   1                               
+                  153-        GRID    18      1       25.000  40.000  3.125   1                               
+                  154-        GRID    19      1       25.000  0.000   6.250   1                               
+                  155-        GRID    20      1       25.000  5.000   6.250   1                               
+                  156-        GRID    21      1       25.000  10.000  6.250   1                               
+                  157-        GRID    22      1       25.000  15.000  6.250   1                               
+                  158-        GRID    23      1       25.000  20.000  6.250   1                               
+                  159-        GRID    24      1       25.000  25.000  6.250   1                               
+                  160-        GRID    25      1       25.000  30.000  6.250   1                               
+                  161-        GRID    26      1       25.000  35.000  6.250   1                               
+                  162-        GRID    27      1       25.000  40.000  6.250   1                               
+                  163-        GRID    28      1       25.000  0.000   9.375   1                               
+                  164-        GRID    29      1       25.000  5.000   9.375   1                               
+                  165-        GRID    30      1       25.000  10.000  9.375   1                               
+                  166-        GRID    31      1       25.000  15.000  9.375   1                               
+                  167-        GRID    32      1       25.000  20.000  9.375   1                               
+                  168-        GRID    33      1       25.000  25.000  9.375   1                               
+                  169-        GRID    34      1       25.000  30.000  9.375   1                               
+                  170-        GRID    35      1       25.000  35.000  9.375   1                               
+                  171-        GRID    36      1       25.000  40.000  9.375   1                               
+                  172-        GRID    37      1       25.000  0.000   12.500  1                               
+                  173-        GRID    38      1       25.000  5.000   12.500  1                               
+                  174-        GRID    39      1       25.000  10.000  12.500  1                               
+                  175-        GRID    40      1       25.000  15.000  12.500  1                               
+                  176-        GRID    41      1       25.000  20.000  12.500  1                               
+                  177-        GRID    42      1       25.000  25.000  12.500  1                               
+                  178-        GRID    43      1       25.000  30.000  12.500  1                               
+                  179-        GRID    44      1       25.000  35.000  12.500  1                               
+                  180-        GRID    45      1       25.000  40.000  12.500  1                               
+                  181-        GRID    46      1       25.000  0.000   15.625  1                               
+                  182-        GRID    47      1       25.000  5.000   15.625  1                               
+                  183-        GRID    48      1       25.000  10.000  15.625  1                               
+                  184-        GRID    49      1       25.000  15.000  15.625  1                               
+                  185-        GRID    50      1       25.000  20.000  15.625  1                               
+                  186-        GRID    51      1       25.000  25.000  15.625  1                               
+                  187-        GRID    52      1       25.000  30.000  15.625  1                               
+                  188-        GRID    53      1       25.000  35.000  15.625  1                               
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+
+      LAMINATED COMPOSITE SHELL                                                                                                     
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  189-        GRID    54      1       25.000  40.000  15.625  1                               
+                  190-        GRID    55      1       25.000  0.000   18.750  1                               
+                  191-        GRID    56      1       25.000  5.000   18.750  1                               
+                  192-        GRID    57      1       25.000  10.000  18.750  1                               
+                  193-        GRID    58      1       25.000  15.000  18.750  1                               
+                  194-        GRID    59      1       25.000  20.000  18.750  1                               
+                  195-        GRID    60      1       25.000  25.000  18.750  1                               
+                  196-        GRID    61      1       25.000  30.000  18.750  1                               
+                  197-        GRID    62      1       25.000  35.000  18.750  1                               
+                  198-        GRID    63      1       25.000  40.000  18.750  1                               
+                  199-        GRID    64      1       25.000  0.000   21.875  1                               
+                  200-        GRID    65      1       25.000  5.000   21.875  1                               
+                  201-        GRID    66      1       25.000  10.000  21.875  1                               
+                  202-        GRID    67      1       25.000  15.000  21.875  1                               
+                  203-        GRID    68      1       25.000  20.000  21.875  1                               
+                  204-        GRID    69      1       25.000  25.000  21.875  1                               
+                  205-        GRID    70      1       25.000  30.000  21.875  1                               
+                  206-        GRID    71      1       25.000  35.000  21.875  1                               
+                  207-        GRID    72      1       25.000  40.000  21.875  1                               
+                  208-        GRID    73      1       25.000  0.000   25.000  1                               
+                  209-        GRID    74      1       25.000  5.000   25.000  1                               
+                  210-        GRID    75      1       25.000  10.000  25.000  1                               
+                  211-        GRID    76      1       25.000  15.000  25.000  1                               
+                  212-        GRID    77      1       25.000  20.000  25.000  1                               
+                  213-        GRID    78      1       25.000  25.000  25.000  1                               
+                  214-        GRID    79      1       25.000  30.000  25.000  1                               
+                  215-        GRID    80      1       25.000  35.000  25.000  1                               
+                  216-        GRID    81      1       25.000  40.000  25.000  1                               
+                  217-        GRID    5001    1       25.0    40.0    25.0    3                               
+                  218-        MAT8    1       20.0 E+70.5 E+070.25    0.25 E+70.25 E+70.25 E+7                
+                  219-        PARAM   AUTOSPC 1                                                               
+                  220-        PCOMP   1                                                               +PC1    
+                  221-        +PC1    1       .03125  45.0    YES                     -45.0   YES     +PC2    
+                  222-        +PC2    1       .03125  15.0    YES                     -15.0   YES     +PC3    
+                  223-        +PC3    1       .03125  -15.0   YES                     15.0    YES     +PC4    
+                  224-        +PC4    1       .03125  -45.0   YES                     45.0    YES             
+                  225-        PLOAD   1       -0.9E+0224      25      33                                      
+                  226-        PLOAD   1       -0.9E+0220      12      21                                      
+                  227-        PLOAD   1       -0.9E+0257      49      58                                      
+                  228-        PLOAD   1       -0.9E+0212      13      21                                      
+                  229-        PLOAD   1       -0.9E+0249      50      58                                      
+                  230-        PLOAD   1       -0.9E+0221      13      22                                      
+                  231-        PLOAD   1       -0.9E+021       2       10                                      
+                  232-        PLOAD   1       -0.9E+0213      14      22                                      
+                  233-        PLOAD   1       -0.9E+0210      2       11                                      
+                  234-        PLOAD   1       -0.9E+0222      14      23                                      
+                  235-        PLOAD   1       -0.9E+022       3       11                                      
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+
+      LAMINATED COMPOSITE SHELL                                                                                                     
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  236-        PLOAD   1       -0.9E+0214      15      23                                      
+                  237-        PLOAD   1       -0.9E+0211      3       12                                      
+                  238-        PLOAD   1       -0.9E+0223      15      24                                      
+                  239-        PLOAD   1       -0.9E+023       4       12                                      
+                  240-        PLOAD   1       -0.9E+0215      16      24                                      
+                  241-        PLOAD   1       -0.9E+0212      4       13                                      
+                  242-        PLOAD   1       -0.9E+0224      16      25                                      
+                  243-        PLOAD   1       -0.9E+024       5       13                                      
+                  244-        PLOAD   1       -0.9E+0216      17      25                                      
+                  245-        PLOAD   1       -0.9E+0213      5       14                                      
+                  246-        PLOAD   1       -0.9E+0225      17      26                                      
+                  247-        PLOAD   1       -0.9E+025       6       14                                      
+                  248-        PLOAD   1       -0.9E+0217      18      26                                      
+                  249-        PLOAD   1       -0.9E+0214      6       15                                      
+                  250-        PLOAD   1       -0.9E+0226      18      27                                      
+                  251-        PLOAD   1       -0.9E+026       7       15                                      
+                  252-        PLOAD   1       -0.9E+0219      20      28                                      
+                  253-        PLOAD   1       -0.9E+0215      7       16                                      
+                  254-        PLOAD   1       -0.9E+0228      20      29                                      
+                  255-        PLOAD   1       -0.9E+027       8       16                                      
+                  256-        PLOAD   1       -0.9E+0220      21      29                                      
+                  257-        PLOAD   1       -0.9E+0216      8       17                                      
+                  258-        PLOAD   1       -0.9E+0229      21      30                                      
+                  259-        PLOAD   1       -0.9E+028       9       17                                      
+                  260-        PLOAD   1       -0.9E+0221      22      30                                      
+                  261-        PLOAD   1       -0.9E+0217      9       18                                      
+                  262-        PLOAD   1       -0.9E+0230      22      31                                      
+                  263-        PLOAD   1       -0.9E+0210      11      19                                      
+                  264-        PLOAD   1       -0.9E+0222      23      31                                      
+                  265-        PLOAD   1       -0.9E+0219      11      20                                      
+                  266-        PLOAD   1       -0.9E+0231      23      32                                      
+                  267-        PLOAD   1       -0.9E+0211      12      20                                      
+                  268-        PLOAD   1       -0.9E+0223      24      32                                      
+                  269-        PLOAD   1       -0.9E+0248      49      57                                      
+                  270-        PLOAD   1       -0.9E+0232      24      33                                      
+                  271-        PLOAD   1       -0.9E+0244      36      45                                      
+                  272-        PLOAD   1       -0.9E+0269      61      70                                      
+                  273-        PLOAD   1       -0.9E+0237      38      46                                      
+                  274-        PLOAD   1       -0.9E+0233      25      34                                      
+                  275-        PLOAD   1       -0.9E+0258      50      59                                      
+                  276-        PLOAD   1       -0.9E+0225      26      34                                      
+                  277-        PLOAD   1       -0.9E+0250      51      59                                      
+                  278-        PLOAD   1       -0.9E+0234      26      35                                      
+                  279-        PLOAD   1       -0.9E+0259      51      60                                      
+                  280-        PLOAD   1       -0.9E+0226      27      35                                      
+                  281-        PLOAD   1       -0.9E+0251      52      60                                      
+                  282-        PLOAD   1       -0.9E+0235      27      36                                      
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+
+      LAMINATED COMPOSITE SHELL                                                                                                     
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  283-        PLOAD   1       -0.9E+0260      52      61                                      
+                  284-        PLOAD   1       -0.9E+0228      29      37                                      
+                  285-        PLOAD   1       -0.9E+0252      53      61                                      
+                  286-        PLOAD   1       -0.9E+0237      29      38                                      
+                  287-        PLOAD   1       -0.9E+0261      53      62                                      
+                  288-        PLOAD   1       -0.9E+0229      30      38                                      
+                  289-        PLOAD   1       -0.9E+0253      54      62                                      
+                  290-        PLOAD   1       -0.9E+0238      30      39                                      
+                  291-        PLOAD   1       -0.9E+0262      54      63                                      
+                  292-        PLOAD   1       -0.9E+0230      31      39                                      
+                  293-        PLOAD   1       -0.9E+0255      56      64                                      
+                  294-        PLOAD   1       -0.9E+0239      31      40                                      
+                  295-        PLOAD   1       -0.9E+0264      56      65                                      
+                  296-        PLOAD   1       -0.9E+0231      32      40                                      
+                  297-        PLOAD   1       -0.9E+0256      57      65                                      
+                  298-        PLOAD   1       -0.9E+0240      32      41                                      
+                  299-        PLOAD   1       -0.9E+0265      57      66                                      
+                  300-        PLOAD   1       -0.9E+0232      33      41                                      
+                  301-        PLOAD   1       -0.9E+0257      58      66                                      
+                  302-        PLOAD   1       -0.9E+0241      33      42                                      
+                  303-        PLOAD   1       -0.9E+0266      58      67                                      
+                  304-        PLOAD   1       -0.9E+0233      34      42                                      
+                  305-        PLOAD   1       -0.9E+0258      59      67                                      
+                  306-        PLOAD   1       -0.9E+0242      34      43                                      
+                  307-        PLOAD   1       -0.9E+0267      59      68                                      
+                  308-        PLOAD   1       -0.9E+0234      35      43                                      
+                  309-        PLOAD   1       -0.9E+0259      60      68                                      
+                  310-        PLOAD   1       -0.9E+0243      35      44                                      
+                  311-        PLOAD   1       -0.9E+0268      60      69                                      
+                  312-        PLOAD   1       -0.9E+0235      36      44                                      
+                  313-        PLOAD   1       -0.9E+0260      61      69                                      
+                  314-        PLOAD   1       -0.9E+0275      67      76                                      
+                  315-        PLOAD   1       -0.9E+0242      43      51                                      
+                  316-        PLOAD   1       -0.9E+0267      68      76                                      
+                  317-        PLOAD   1       -0.9E+0261      62      70                                      
+                  318-        PLOAD   1       -0.9E+0246      38      47                                      
+                  319-        PLOAD   1       -0.9E+0270      62      71                                      
+                  320-        PLOAD   1       -0.9E+0238      39      47                                      
+                  321-        PLOAD   1       -0.9E+0262      63      71                                      
+                  322-        PLOAD   1       -0.9E+0247      39      48                                      
+                  323-        PLOAD   1       -0.9E+0271      63      72                                      
+                  324-        PLOAD   1       -0.9E+0239      40      48                                      
+                  325-        PLOAD   1       -0.9E+0264      65      73                                      
+                  326-        PLOAD   1       -0.9E+0248      40      49                                      
+                  327-        PLOAD   1       -0.9E+0273      65      74                                      
+                  328-        PLOAD   1       -0.9E+0240      41      49                                      
+                  329-        PLOAD   1       -0.9E+0265      66      74                                      
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+
+      LAMINATED COMPOSITE SHELL                                                                                                     
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  330-        PLOAD   1       -0.9E+0249      41      50                                      
+                  331-        PLOAD   1       -0.9E+0274      66      75                                      
+                  332-        PLOAD   1       -0.9E+0241      42      50                                      
+                  333-        PLOAD   1       -0.9E+0266      67      75                                      
+                  334-        PLOAD   1       -0.9E+0250      42      51                                      
+                  335-        PLOAD   1       -0.9E+0269      70      78                                      
+                  336-        PLOAD   1       -0.9E+0253      45      54                                      
+                  337-        PLOAD   1       -0.9E+0278      70      79                                      
+                  338-        PLOAD   1       -0.9E+0251      43      52                                      
+                  339-        PLOAD   1       -0.9E+0276      68      77                                      
+                  340-        PLOAD   1       -0.9E+0243      44      52                                      
+                  341-        PLOAD   1       -0.9E+0268      69      77                                      
+                  342-        PLOAD   1       -0.9E+0252      44      53                                      
+                  343-        PLOAD   1       -0.9E+0277      69      78                                      
+                  344-        PLOAD   1       -0.9E+0244      45      53                                      
+                  345-        PLOAD   1       -0.9E+0280      72      81                                      
+                  346-        PLOAD   1       -0.9E+0279      71      80                                      
+                  347-        PLOAD   1       -0.9E+0247      48      56                                      
+                  348-        PLOAD   1       -0.9E+0246      47      55                                      
+                  349-        PLOAD   1       -0.9E+0270      71      79                                      
+                  350-        PLOAD   1       -0.9E+0255      47      56                                      
+                  351-        PLOAD   1       -0.9E+0271      72      80                                      
+                  352-        PLOAD   1       -0.9E+0256      48      57                                      
+                  353-        SPC1    1       12      1       2       3       4       5       6       +SP10001
+                  354-        +SP100017       8       9                                                       
+                  355-        SPC1    1       26      1       10      19      28      37      46      +SP10005
+                  356-        +SP1000555      64      73                                                      
+                  357-        SPC1    1       35      73      74      75      76      77      78      +SP10003
+                  358-        +SP1000379      80      81                                                      
+                              ENDDATA
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+0     LAMINATED COMPOSITE SHELL                                                                                                     
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           10
+                                        PROFILE            737
+                                        MAX WAVEFRONT       10
+                                        AVG WAVEFRONT    9.099
+                                        RMS WAVEFRONT    9.339
+                                        RMS BANDWIDTH    9.450
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH           10
+                                        PROFILE            597
+                                        MAX WAVEFRONT       10
+                                        AVG WAVEFRONT    7.370
+                                        RMS WAVEFRONT    7.696
+                                        RMS BANDWIDTH    7.696
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       10        10
+                                        PROFILE (P)                        737       597
+                                        MAXIMUM WAVEFRONT (C-MAX)           10        10
+                                        AVERAGE WAVEFRONT (C-AVG)        9.099     7.370
+                                        RMS WAVEFRONT (C-RMS)            9.339     7.696
+                                        RMS BANDWITCH (B-RMS)            9.450     7.696
+                                        NUMBER OF GRID POINTS (N)                     82
+                                        NUMBER OF ELEMENTS (NON-RIGID)               128
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           6
+                                        MINIMUM NODAL DEGREE                           2
+                                        NUMBER OF UNIQUE EDGES                       208
+                                        MATRIX DENSITY, PERCENT                    7.575
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF NON-ACTIVE GRID POINTS                  1
+                                        NO. OF SEQGP CARDS GENERATED                  21
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+0     LAMINATED COMPOSITE SHELL                                                                                                     
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       1       2       2       3       4       4       7
+                         SEQGP          5      11       6      16       7      22       8      29
+                         SEQGP          9      37      10       3      11       5      12       8
+                         SEQGP         13      12      14      17      15      23      16      30
+                         SEQGP         17      38      18      46      19       6      20       9
+                         SEQGP         21      13      22      18      23      24      24      31
+                         SEQGP         25      39      26      47      27      54      28      10
+                         SEQGP         29      14      30      19      31      25      32      32
+                         SEQGP         33      40      34      48      35      55      36      61
+                         SEQGP         37      15      38      20      39      26      40      33
+                         SEQGP         41      41      42      49      43      56      44      62
+                         SEQGP         45      67      46      21      47      27      48      34
+                         SEQGP         49      42      50      50      51      57      52      63
+                         SEQGP         53      68      54      72      55      28      56      35
+                         SEQGP         57      43      58      51      59      58      60      64
+                         SEQGP         61      69      62      73      63      76      64      36
+                         SEQGP         65      44      66      52      67      59      68      65
+                         SEQGP         69      70      70      74      71      77      72      79
+                         SEQGP         73      45      74      53      75      60      76      66
+                         SEQGP         77      71      78      75      79      78      80      80
+                         SEQGP         81      81    5001      82
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT     5001
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TRIA3    ELEMENTS (ELEMENT TYPE  83) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113, RIGID ELEMENTS ARE BEING PROCESSED IN GP4
+
+0*** USER INFORMATION MESSAGE 2435, AT USER'S REQUEST, ALL POTENTIAL SINGULARITIES HAVE BEEN REMOVED BY THE
+     APPLICATION OF SINGLE POINT CONSTRAINTS.  REFER TO PRINTOUT OF AUTOMATICALLY GENERATED SPC1 CARDS FOR DETAILS.
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+0     LAMINATED COMPOSITE SHELL                                                                                                     
+
+
+                                A U T O M A T I C A L L Y   G E N E R A T E D   S P C 1   C A R D S
+                CARD 
+                COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++
+
+                   1-        SPC1           1       4       1       9      10      18      19      27
+                   2-        SPC1           1       4      28      36      37      45      46      54
+                   3-        SPC1           1       4      55      63      64      72
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -4.7590930E-13
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+0     LAMINATED COMPOSITE SHELL                                                                                                     
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            1.476632E-02   0.0            1.361577E-02   0.0                           
+             2      G      0.0            0.0            1.612430E-02   3.240866E-02   7.457401E-03   1.813536E-03                  
+             3      G      0.0            0.0            1.942165E-02   1.313583E-01  -7.714266E-03  -5.444879E-04                  
+             4      G      0.0            0.0            2.215707E-02   1.976693E-01  -2.931338E-02  -1.561425E-03                  
+             5      G      0.0            0.0            2.054041E-02   2.512435E-01  -5.650781E-02  -2.533445E-03                  
+             6      G      0.0            0.0            9.672613E-03   2.884153E-01  -8.757029E-02  -3.402307E-03                  
+             7      G      0.0            0.0           -1.624593E-02   3.007700E-01  -1.200356E-01  -4.131102E-03                  
+             8      G      0.0            0.0           -6.365567E-02   2.776172E-01  -1.504282E-01  -4.490628E-03                  
+             9      G      0.0            0.0           -1.393812E-01   0.0           -1.643894E-01  -5.448328E-03                  
+            10      G      4.368079E-02   0.0            1.470382E-02   0.0            1.151774E-02   0.0                           
+            11      G      2.826460E-02  -3.264060E-03   1.605108E-02   8.395085E-02   8.155212E-03   1.493468E-02                  
+            12      G     -1.482767E-02  -3.972459E-03   1.922503E-02   1.250123E-01  -5.081127E-03   2.591116E-02                  
+            13      G     -7.955507E-02   4.956496E-05   2.184063E-02   1.604297E-01  -2.528225E-02   3.501230E-02                  
+            14      G     -1.617897E-01   1.051909E-02   2.020436E-02   1.832168E-01  -5.096499E-02   4.241037E-02                  
+            15      G     -2.565453E-01   2.873135E-02   9.543336E-03   1.904393E-01  -8.039025E-02   4.734479E-02                  
+            16      G     -3.567530E-01   5.541636E-02  -1.573480E-02   1.797232E-01  -1.114484E-01   4.872810E-02                  
+            17      G     -4.531212E-01   9.051100E-02  -6.169983E-02   1.563872E-01  -1.420324E-01   4.565817E-02                  
+            18      G     -5.343322E-01   1.328572E-01  -1.344101E-01   0.0           -1.650818E-01   3.715053E-02                  
+            19      G      8.354100E-02   0.0            1.460463E-02   0.0            8.452275E-03   0.0                           
+            20      G      5.485845E-02  -6.135860E-03   1.576311E-02   8.662643E-02   6.857768E-03   2.687921E-02                  
+            21      G     -2.710051E-02  -7.396240E-03   1.850582E-02   1.249557E-01  -4.624480E-03   4.874576E-02                  
+            22      G     -1.524425E-01   4.739210E-04   2.065561E-02   1.543775E-01  -2.283171E-02   6.676696E-02                  
+            23      G     -3.120428E-01   2.086394E-02   1.880291E-02   1.705106E-01  -4.615084E-02   8.086339E-02                  
+            24      G     -4.952009E-01   5.623502E-02   8.573799E-03   1.721471E-01  -7.276708E-02   9.005840E-02                  
+            25      G     -6.886350E-01   1.078973E-01  -1.504324E-02   1.632245E-01  -1.009693E-01   9.333318E-02                  
+            26      G     -8.776217E-01   1.757793E-01  -5.733755E-02   1.534654E-01  -1.296031E-01   9.074441E-02                  
+            27      G     -1.049165E+00   2.584161E-01  -1.236248E-01   0.0           -1.518993E-01   8.408474E-02                  
+            28      G      1.165276E-01   0.0            1.401822E-02   0.0            5.616561E-03   0.0                           
+            29      G      7.638280E-02  -8.429412E-03   1.489280E-02   9.887142E-02   5.185642E-03   3.709026E-02                  
+            30      G     -3.927647E-02  -9.976242E-03   1.701572E-02   1.280838E-01  -4.640824E-03   6.886442E-02                  
+            31      G     -2.181161E-01   1.456804E-03   1.851162E-02   1.488879E-01  -2.028534E-02   9.518006E-02                  
+            32      G     -4.463317E-01   3.076087E-02   1.643791E-02   1.580755E-01  -4.040500E-02   1.153411E-01                  
+            33      G     -7.077197E-01   8.141617E-02   7.045454E-03   1.553744E-01  -6.342491E-02   1.283439E-01                  
+            34      G     -9.838973E-01   1.552549E-01  -1.391041E-02   1.444551E-01  -8.793311E-02   1.336525E-01                  
+            35      G     -1.256662E+00   2.523483E-01  -5.089923E-02   1.320272E-01  -1.130087E-01   1.322963E-01                  
+            36      G     -1.512646E+00   3.712141E-01  -1.084606E-01   0.0           -1.328700E-01   1.278532E-01                  
+            37      G      1.416514E-01   0.0            1.274414E-02   0.0            2.554011E-03   0.0                           
+            38      G      9.209165E-02  -1.009583E-02   1.328759E-02   1.049389E-01   3.458405E-03   4.545155E-02                  
+            39      G     -5.137526E-02  -1.167173E-02   1.472694E-02   1.227285E-01  -4.346095E-03   8.551659E-02                  
+            40      G     -2.747473E-01   2.899270E-03   1.556273E-02   1.362093E-01  -1.685280E-02   1.189154E-01                  
+            41      G     -5.604916E-01   3.978036E-02   1.343083E-02   1.394321E-01  -3.318005E-02   1.443206E-01                  
+            42      G     -8.878148E-01   1.033430E-01   5.308664E-03   1.329748E-01  -5.205030E-02   1.606955E-01                  
+            43      G     -1.234267E+00   1.959281E-01  -1.222982E-02   1.214676E-01  -7.233547E-02   1.680550E-01                  
+            44      G     -1.579237E+00   3.178310E-01  -4.279045E-02   1.141291E-01  -9.345141E-02   1.683716E-01                  
+            45      G     -1.909306E+00   4.676761E-01  -9.003444E-02   0.0           -1.103693E-01   1.663368E-01                  
+            46      G      1.585378E-01   0.0            1.070311E-02   0.0           -3.328169E-04   0.0                           
+            47      G      1.020917E-01  -1.115414E-02   1.092876E-02   9.868991E-02   1.837582E-03   5.151105E-02                  
+1     CTRIA3 3-NODE SHELL ROOF TEST                                         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T01-33-1A                                                                                            
+0     LAMINATED COMPOSITE SHELL                                                                                                     
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            48      G     -6.221554E-02  -1.256684E-02   1.171812E-02   1.181452E-01  -3.483321E-03   9.817949E-02                  
+            49      G     -3.200939E-01   4.571117E-03   1.201176E-02   1.233944E-01  -1.286091E-02   1.375043E-01                  
+            50      G     -6.512788E-01   4.746797E-02   1.006676E-02   1.199054E-01  -2.532743E-02   1.673537E-01                  
+            51      G     -1.031257E+00   1.212685E-01   3.596507E-03   1.095177E-01  -3.989143E-02   1.866436E-01                  
+            52      G     -1.434353E+00   2.287850E-01  -9.991133E-03   9.726882E-02  -5.572496E-02   1.959046E-01                  
+            53      G     -1.838202E+00   3.705619E-01  -3.339333E-02   8.642069E-02  -7.228898E-02   1.979190E-01                  
+            54      G     -2.229472E+00   5.453926E-01  -6.932449E-02   0.0           -8.547089E-02   1.981847E-01                  
+            55      G      1.688758E-01   0.0            7.928717E-03   0.0           -1.660477E-03   0.0                           
+            56      G      1.080009E-01  -1.169143E-02   7.812442E-03   1.191570E-01   1.410223E-03   5.540279E-02                  
+            57      G     -7.047816E-02  -1.286582E-02   8.058028E-03   1.048704E-01  -2.586255E-03   1.070393E-01                  
+            58      G     -3.529196E-01   6.135373E-03   8.046384E-03   1.046178E-01  -8.673639E-03   1.509623E-01                  
+            59      G     -7.173160E-01   5.337093E-02   6.576134E-03   9.723432E-02  -1.716859E-02   1.842807E-01                  
+            60      G     -1.136188E+00   1.346255E-01   2.061665E-03   8.429071E-02  -2.724381E-02   2.058199E-01                  
+            61      G     -1.581390E+00   2.530920E-01  -7.243004E-03   7.151503E-02  -3.817934E-02   2.166686E-01                  
+            62      G     -2.029629E+00   4.095342E-01  -2.309459E-02   7.429370E-02  -5.004311E-02   2.203675E-01                  
+            63      G     -2.467970E+00   6.029455E-01  -4.722723E-02   0.0           -6.007985E-02   2.227727E-01                  
+            64      G      1.701814E-01   0.0            4.341663E-03   0.0           -6.951284E-03   0.0                           
+            65      G      1.092746E-01  -1.175825E-02   4.012782E-03   5.440501E-02  -1.511940E-03   5.643111E-02                  
+            66      G     -7.531665E-02  -1.281391E-02   4.029745E-03   1.019095E-01  -9.911228E-04   1.113292E-01                  
+            67      G     -3.725972E-01   7.206552E-03   3.976562E-03   9.881937E-02  -4.479321E-03   1.592970E-01                  
+            68      G     -7.591181E-01   5.706110E-02   3.171894E-03   8.436855E-02  -1.003476E-02   1.954991E-01                  
+            69      G     -1.204372E+00   1.429999E-01   7.929749E-04   6.339598E-02  -1.680592E-02   2.186134E-01                  
+            70      G     -1.677765E+00   2.684474E-01  -4.026213E-03   4.313004E-02  -2.403194E-02   2.302631E-01                  
+            71      G     -2.155000E+00   4.342829E-01  -1.209223E-02   1.261481E-02  -3.079128E-02   2.346718E-01                  
+            72      G     -2.624267E+00   6.396778E-01  -2.407039E-02   0.0           -3.432401E-02   2.395364E-01                  
+            73      G      1.669937E-01   0.0            0.0           -6.855841E-02   0.0            0.0                           
+            74      G      1.072162E-01  -1.189289E-02   0.0            1.943815E-01   0.0            5.693102E-02                  
+            75      G     -7.771769E-02  -1.293489E-02   0.0            1.544966E-01   0.0            1.154741E-01                  
+            76      G     -3.814609E-01   7.503990E-03   0.0            1.241305E-01   0.0            1.650839E-01                  
+            77      G     -7.779929E-01   5.849572E-02   0.0            8.962285E-02   0.0            2.022918E-01                  
+            78      G     -1.235319E+00   1.464317E-01   0.0            5.829030E-02   0.0            2.257639E-01                  
+            79      G     -1.721251E+00   2.747352E-01   0.0            4.354972E-02   0.0            2.374775E-01                  
+            80      G     -2.211147E+00   4.441631E-01   0.0            9.365188E-02   0.0            2.441724E-01                  
+            81      G     -2.697874E+00   6.538841E-01   0.0           -3.394067E-01   0.0            2.429941E-01                  
+          5001      G      0.0           -1.233256E+00  -2.487000E+00  -2.429941E-01  -2.181664E-01  -2.600006E-01                  
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  CTRIA3 3-NODE SHELL ROOF TEST                                      
+ DATE:  5/17/95
+ END TIME: 16:42:30
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

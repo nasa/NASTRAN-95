@@ -1,0 +1,389 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T01181A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   1,0                                                                       
+     TIME  20                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = 3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                 
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T01-18-1A                                   
+                  3      LABEL    = POINT TEMPERATURE AND GRAVITY LOAD                                   
+                  4          LOAD = 10                                                                   
+                  5          TEMPERATURE(LOAD) = 2                                                       
+                  6          SPC  = 1                                                                    
+                  7      OUTPUT                                                                          
+                  8          DISPLACEMENTS = ALL                                                         
+                  9          ELSTRESS  = ALL                                                             
+                 10          OLOAD     = ALL                                                             
+                 11          ELFORCE   = ALL                                                             
+                 12          SPCFORCES = ALL                                                             
+                 13      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    52, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CBAR    1       20      13      1       0.      0.      1.0     1               
+                    2-        CBAR    3       20      2       3       0.      0.      1.      1               
+                    3-        CBAR    4       21      3       4       0.      0.      1.      1               
+                    4-        CBAR    5       20      4       5       0.      0.      1.      1               
+                    5-        CBAR    6       20      5       6       0.      0.      1.      1               
+                    6-        CBAR    8       20      7       8       0.      0.      1.      1               
+                    7-        CBAR    9       20      5       9       0.      0.      1.      1               
+                    8-        CBAR    11      20      10      11      0.      1.      0.      1               
+                    9-        CBAR    12      20      11      12      0.      1.      0.      1               
+                   10-        CELAS2  101     1.0+4   9       1       14      1                               
+                   11-        CELAS2  102     1.0+5   11      2       15      2                               
+                   12-        CELBOW  2       10      1       2       -15.0   0.0     0.0     1               
+                   13-        CELBOW  7       10      6       7       -15.0   0.0     0.0     1               
+                   14-        CELBOW  10      10      9       10      0.0     0.0     15.0    1               
+                   15-        FORCE   1       3               1000.   0.      1.      0.                      
+                   16-        FORCE   1       4               -200.   0.      1.      0.                      
+                   17-        FORCE   1       8               3000.   1.      0.      0.                      
+                   18-        FORCE   1       8               2000.   0.      0.      1.                      
+                   19-        FORCE   1       8               1000.   0.      1.      0.                      
+                   20-        GRAV    3       0       1.      0.      -1.     0.                              
+                   21-        GRID    1               0.      105.    0.                                      
+                   22-        GRID    2               -15.    120.    0.                                      
+                   23-        GRID    3               -120.   120.    0.                                      
+                   24-        GRID    4               -133.   120.    0.                                      
+                   25-        GRID    5               -200.   120.    0.                                      
+                   26-        GRID    6               -200.   225.    0.                                      
+                   27-        GRID    7               -215.   240.    0.                                      
+                   28-        GRID    8               -440.   240.    0.                                      
+                   29-        GRID    9               -235.   120.    0.                                      
+                   30-        GRID    10              -250.   120.    15.                                     
+                   31-        GRID    11              -250.   120.    120.                                    
+                   32-        GRID    12              -250.   120.    240.                                    
+                   33-        GRID    13              0.      0.      0.                                      
+                   34-        GRID    14              -245.   120.    0.                                      
+                   35-        GRID    15              -250.   130.    120.                                    
+                   36-        GRID    16              -240.   120.    240.                                    
+                   37-        GRID    17              -250.   130.    240.                                    
+                   38-        GRID    18              -250.   120.    250.                                    
+                   39-        LOAD    10      1.      1.      1       1.      3                               
+                   40-        MAT1    11      27.9+6          0.333           6.81-6  0.                      
+                   41-        PBAR    20      11      16.085  211.33  211.33  422.66  6.61                    
+                   42-        PBAR    21      11      54.915  551.8   551.8   1103.6  6.61                    
+                   43-        PELBOW  10      11      16.085  211.33  211.33  422.66  6.61            +P1     
+                   44-        +P1     5.37    0.      5.37    90.     5.37    180.    5.37    270.    +P2     
+                   45-        +P2     2.0     2.0     1.0     1.0     5.767   5.767   15.     90.             
+                   46-        SPC     1       12      1       0.2                                             
+                   47-        SPC     1       12      3       0.3                                             
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+
+      POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        SPC     1       12      2       0.1                                             
+                   49-        SPC1    1       123     12                                                      
+                   50-        SPC1    1       456     12                                                      
+                   51-        SPC1    1       123456  13      THRU    18                                      
+                   52-        TEMPD   2       740.                                                            
+                              ENDDATA
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           13
+                                        PROFILE             50
+                                        MAX WAVEFRONT        5
+                                        AVG WAVEFRONT    3.333
+                                        RMS WAVEFRONT    3.464
+                                        RMS BANDWIDTH    4.442
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            3
+                                        PROFILE             33
+                                        MAX WAVEFRONT        3
+                                        AVG WAVEFRONT    2.200
+                                        RMS WAVEFRONT    2.266
+                                        RMS BANDWIDTH    2.352
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       13         3
+                                        PROFILE (P)                         50        33
+                                        MAXIMUM WAVEFRONT (C-MAX)            5         3
+                                        AVERAGE WAVEFRONT (C-AVG)        3.333     2.200
+                                        RMS WAVEFRONT (C-RMS)            3.464     2.266
+                                        RMS BANDWITCH (B-RMS)            4.442     2.352
+                                        NUMBER OF GRID POINTS (N)                     18
+                                        NUMBER OF ELEMENTS (NON-RIGID)                14
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           3
+                                        MINIMUM NODAL DEGREE                           1
+                                        NUMBER OF UNIQUE EDGES                        14
+                                        MATRIX DENSITY, PERCENT                   19.111
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF NON-ACTIVE GRID POINTS                  3
+                                        NO. OF SEQGP CARDS GENERATED                   5
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       2       2       3       3       5       4       7
+                         SEQGP          5       9       6       8       7       6       8       4
+                         SEQGP          9      11      10      12      11      14      12      13
+                         SEQGP         13       1      14      10      15      15      16      16
+                         SEQGP         17      17      18      18
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT       16
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT       17
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT       18
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ELAS2    ELEMENTS (ELEMENT TYPE  12) STARTING WITH ID      101
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ELBOW    ELEMENTS (ELEMENT TYPE  81) STARTING WITH ID        2
+0*** SYSTEM WARNING MESSAGE 4015, ELEMENT THERMAL AND DEFORMATION LOADING NOT COMPUTED FOR ILLEGAL ELEMENT TYPE       81
+                                  IN MODULE SSG1.
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   9.4749783E-16
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      5.038649E-01   5.281864E-01  -9.195849E-02  -8.692930E-04  -3.550957E-03  -6.353205E-03                  
+             2      G      5.702674E-01   5.672655E-01  -1.586360E-01   8.661342E-05  -4.651631E-03  -1.457964E-04                  
+             3      G      4.356607E-02   4.153025E-01  -6.545666E-01   3.464240E-03  -3.912368E-03   2.039121E-03                  
+             4      G     -2.185780E-02   3.891372E-01  -7.043164E-01   3.624396E-03  -3.736268E-03   1.979320E-03                  
+             5      G     -3.579434E-01   3.214919E-01  -8.441837E-01   5.779644E-03  -7.963566E-05  -3.861917E-04                  
+             6      G     -3.297779E-02   8.503972E-01  -7.838152E-02   8.183773E-03   1.131487E-02  -4.868690E-03                  
+             7      G      5.035120E-02   9.397321E-01   2.813487E-01   1.104570E-02   1.796971E-02  -6.450568E-03                  
+             8      G     -1.082010E+00   2.556206E+00   5.612461E+00   1.104570E-02   2.655589E-02  -7.551208E-03                  
+             9      G     -5.337445E-01   3.278520E-01  -8.476988E-01   5.006436E-03   4.606084E-05  -3.554765E-05                  
+            10      G     -5.032873E-01   2.636950E-01  -8.314428E-01   3.545830E-03   3.285278E-03  -3.686313E-04                  
+            11      G     -8.863562E-02   3.850545E-02  -3.034362E-01   4.114572E-04   3.966885E-03  -1.966034E-04                  
+            12      G      2.000000E-01   1.000000E-01   3.000000E-01   0.0            0.0            0.0                           
+            13      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            14      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            15      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            16      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            17      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            18      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            2.261114E+06   0.0            0.0            0.0            0.0                           
+             2      G      2.261539E+06  -4.248972E+02   0.0            0.0            0.0            0.0                           
+             3      G      5.459469E+06   6.100100E+02   0.0            0.0            0.0            0.0                           
+             4      G     -5.459469E+06  -4.644000E+02   0.0            0.0            0.0            0.0                           
+             5      G      0.0           -2.262223E+06   0.0            0.0            0.0            0.0                           
+             6      G      0.0            2.261114E+06   0.0            0.0            0.0            0.0                           
+             7      G      2.261539E+06  -8.214973E+02   0.0            0.0            0.0            0.0                           
+             8      G     -2.258539E+06   2.563750E+02   2.000000E+03   0.0            0.0            0.0                           
+             9      G     -2.261539E+06  -1.935472E+02   0.0            0.0            0.0            0.0                           
+            10      G      0.0           -4.248972E+02  -2.261539E+06   0.0            0.0            0.0                           
+            11      G      0.0           -7.436250E+02  -2.500000E-01   0.0            0.0            0.0                           
+            12      G      0.0           -3.966000E+02   2.261539E+06   0.0            0.0            0.0                           
+            13      G      0.0           -2.261886E+06   0.0            0.0            0.0            0.0                           
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            12      G      2.072750E+03   3.925337E+03  -4.831085E+03   1.915076E+05  -3.192748E+05   7.246777E+03                  
+            13      G     -1.040994E+04   4.409537E+03   2.831085E+03   1.974457E+05   1.495861E+05   9.032761E+05                  
+            14      G      5.337445E+03   0.0            0.0            0.0            0.0            0.0                           
+            15      G      0.0           -3.850545E+03   0.0            0.0            0.0            0.0                           
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+            1    -1.974457E+05  9.032763E+05   9.981820E+04 -1.897681E+05  -2.831085E+03  1.040995E+04  -4.062500E+03  -1.495861E+05
+            3    -1.071200E+05 -2.913541E+05   1.901440E+05  4.597294E+04  -2.831086E+03 -3.212639E+03  -1.041000E+04  -1.422845E+05
+            4     1.901760E+05  4.596800E+04   2.269920E+05  9.568000E+04  -2.832000E+03 -3.824000E+03  -1.041050E+04  -1.422845E+05
+            5     2.269480E+05  9.566725E+04   4.166313E+05  3.206700E+05  -2.831094E+03 -3.358250E+03  -1.041000E+04  -1.422845E+05
+            6     2.400001E+05  4.092075E+05   3.000033E+04  9.420772E+04   1.999998E+03  2.999998E+03  -9.902500E+02   4.800000E+05
+            8     4.500000E+05  5.768425E+04   0.0           9.375000E-02   2.000000E+03  2.563740E+02  -3.000000E+03   0.0         
+            9    -6.336800E+04 -8.853700E+04   1.057214E+05 -2.960138E+04  -4.831125E+03 -1.683875E+03  -7.410000E+03   9.771544E+04
+           11     1.200704E+05 -1.470939E+05   2.319408E+05  7.054481E+04  -1.065432E+03 -2.072750E+03  -4.831250E+03   7.246777E+03
+           12     2.319409E+05  7.054481E+04  -1.915076E+05  3.192748E+05   3.528738E+03 -2.072750E+03  -4.831000E+03   7.246778E+03
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+ 
+                              F O R C E S   I N   S C A L A R   S P R I N G S        ( C E L A S 2 )
+      ELEMENT         FORCE            ELEMENT         FORCE            ELEMENT         FORCE            ELEMENT         FORCE
+        ID.                              ID.                              ID.                              ID.
+          101     -5.337444E+03            102      3.850545E+03                                                                    
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+ 
+                          F O R C E S    I N    C U R V E D    B E A M    E L E M E N T S        ( C E L B O W )
+
+     ELEMENT           -BENDING MOMENT-                     -SHEAR-                  -AXIAL FORCE-       -TORQUE-
+       ID.       PLANE-1 END-A  PLANE-2 END-A     PLANE-1 END-A  PLANE-2 END-A             END-A             END-A
+                         END-B          END-B             END-B                            END-B             END-B
+
+
+            2     -2.122910E+06   9.981812E+04     -5.746718E+05  -2.831094E+03     -5.678993E+05     -1.495862E+05                 
+                  -2.021324E+06  -1.071198E+05      5.678993E+05                    -5.746718E+05     -1.422845E+05                 
+
+
+            7     -2.406891E+06   2.999988E+04     -5.672623E+05   2.000000E+03     -5.648269E+05      4.799998E+05                 
+                  -2.370360E+06   4.499998E+05      5.648269E+05                    -5.672623E+05      1.446701E-01                 
+
+
+           10     -2.206959E+06  -2.960150E+04     -5.690932E+05  -1.490344E+03     -5.663349E+05      9.771600E+04                 
+                  -2.165584E+06   1.200712E+05      5.663349E+05                    -5.690932E+05      7.246349E+03                 
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0      1     0.0            0.0            0.0            0.0           -2.525645E+02  -2.525645E+02  -2.525645E+02                 
+             0.0            0.0            0.0            0.0                          -2.525645E+02  -2.525645E+02                 
+0      3     0.0            0.0            0.0            0.0           -6.471868E+02  -6.471868E+02  -6.471868E+02                 
+             0.0            0.0            0.0            0.0                          -6.471868E+02  -6.471868E+02                 
+0      4     0.0            0.0            0.0            0.0           -1.895748E+02  -1.895748E+02  -1.895748E+02                 
+             0.0            0.0            0.0            0.0                          -1.895748E+02  -1.895748E+02                 
+0      5     0.0            0.0            0.0            0.0           -6.471868E+02  -6.471868E+02  -6.471868E+02                 
+             0.0            0.0            0.0            0.0                          -6.471868E+02  -6.471868E+02                 
+0      6     0.0            0.0            0.0            0.0           -6.156357E+01  -6.156357E+01  -6.156357E+01                 
+             0.0            0.0            0.0            0.0                          -6.156357E+01  -6.156357E+01                 
+0      8     0.0            0.0            0.0            0.0           -1.865092E+02  -1.865092E+02  -1.865092E+02                 
+             0.0            0.0            0.0            0.0                          -1.865092E+02  -1.865092E+02                 
+0      9     0.0            0.0            0.0            0.0           -4.606777E+02  -4.606777E+02  -4.606777E+02                 
+             0.0            0.0            0.0            0.0                          -4.606777E+02  -4.606777E+02                 
+0     11     0.0            0.0            0.0            0.0           -3.003575E+02  -3.003575E+02  -3.003575E+02                 
+             0.0            0.0            0.0            0.0                          -3.003575E+02  -3.003575E+02                 
+0     12     0.0            0.0            0.0            0.0           -3.003419E+02  -3.003419E+02  -3.003419E+02                 
+             0.0            0.0            0.0            0.0                          -3.003419E+02  -3.003419E+02                 
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+ 
+                              S T R E S S E S   I N   S C A L A R   S P R I N G S        ( C E L A S 2 )
+      ELEMENT         STRESS           ELEMENT         STRESS           ELEMENT         STRESS           ELEMENT         STRESS
+        ID.                              ID.                              ID.                              ID.
+          101      0.0                     102      0.0                                                                             
+1     3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T01-18-1A                                                                                            
+0     POINT TEMPERATURE AND GRAVITY LOAD                                                                                            
+ 
+                          S T R E S S E S    I N    C U R V E D    B E A M    E L E M E N T S        ( C E L B O W )
+
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0      2    -2.536428E+03   5.394420E+04   2.536423E+03  -5.394420E+04  -3.530614E+04   1.863805E+04  -8.925034E+04                 
+             2.721968E+03   5.136284E+04  -2.721972E+03  -5.136284E+04  -3.572719E+04   1.563566E+04  -8.709003E+04                 
+0      7    -7.623117E+02   6.116029E+04   7.623063E+02  -6.116029E+04  -3.511514E+04   2.604515E+04  -9.627542E+04                 
+            -1.143472E+04   6.023202E+04   1.143471E+04  -6.023202E+04  -3.526654E+04   2.496548E+04  -9.549856E+04                 
+0     10     7.521888E+02   5.607993E+04  -7.521937E+02  -5.607993E+04  -3.520888E+04   2.087104E+04  -9.128881E+04                 
+            -3.051067E+03   5.502856E+04   3.051062E+03  -5.502856E+04  -3.538037E+04   1.964819E+04  -9.040892E+04                 
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)               
+ DATE:  5/17/95
+ END TIME: 16:31:53
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

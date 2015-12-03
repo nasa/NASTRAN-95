@@ -1,0 +1,145 @@
+NASTRAN  FILES=(NPTP,PLT2)                                                      
+ID    D01021A,NASTRAN                                                           
+CHKPNT   YES                                                                    
+TIME     15                                                                     
+APP      DISPLACEMENT                                                           
+SOL      1,1                                                                    
+CEND                                                                            
+TITLE    = SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY        
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                          
+LOAD = 1                                                                        
+SPC  = 2                                                                        
+OUTPUT                                                                          
+DISP   = ALL                                                                    
+SPCF   = ALL                                                                    
+STRESS = ALL                                                                    
+PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                            
+OUTPUT(PLOT)                                                                    
+PLOTTER NASTPLT                                                                 
+   MAXIMUM DEFORMATION  6.0                                                     
+$                                                                               
+$ ALL ELEMENTS                                                                  
+   SET 1 = ELEMENTS TRIA2                                                       
+$                                                                               
+$ PLOTEL - EDGES AND CENTERLINE                                                 
+   SET 2 = PLOTEL                                                               
+$                                                                               
+     VIEW 20.0, 30.0, 0.0                                                       
+     FIND SCALE  ORIGIN 1 SET 1                                                 
+PTITLE = UNDEFORMED SECTION TRIA2 ELEMENTS                                      
+PLOT LABEL(BOTH), SYMBOLS 6,SHRINK                                              
+PTITLE = SECTION TRIA2 ELEMENTS WITH UNDERLAY                                   
+   PLOT STATIC DEFORMATION 0,1, SET 1, ORIGIN 1,SHAPE, LABELS                   
+$                                                                               
+$                                                                               
+        PERSPECTIVE PROJECTION                                                  
+$                                                                               
+MAXIMUM DEFORMATION 6.0                                                         
+     FIND SCALE, SET 2, ORIGIN 1000                                             
+   FIND SCALE,ORIGIN 1000, SET  1,VANT POINT,REGION 0.35,0.1, 0.9, 0.8          
+PTITLE = SECTION PLOTEL ELEMENTS (PERSPECTIVE PROJECTION)                       
+PLOT SET 2,  ORIGIN 1000, LABELS                                                
+PTITLE = FULL MODEL (VIA SYMMETRY) TRIA2 ELEMENTS - PERSPECTIVE                 
+PLOT    SET 1,  ORIGIN 1000, SYMBOLS 9, SHAPE,SHRINK,                           
+        SET 1, ORIGIN 1000 SYMBOLS 9 SHAPE      SYMMETRY X,                     
+        SET 1, ORIGIN 1000 SYMBOLS 9 SHAPE      SYMMETRY Y,                     
+        SET 1, ORIGIN 1000 SYMBOLS 9 SHAPE      SYMMETRY XY                     
+PTITLE = FULL MODEL (VIA SYMMETRY) PLOTEL ELEMENTS - PERSPECTIVE                
+PLOT STATIC DEFORMATION 0,1,                                                    
+        SET 2, ORIGIN 1000, SHAPE,                                              
+        SET 2, ORIGIN 1000, SHAPE, SYMMETRY X,                                  
+        SET 2, ORIGIN 1000, SHAPE, SYMMETRY Y,                                  
+        SET 2, ORIGIN 1000, SHAPE, SYMMETRY XY                                  
+BEGIN BULK                                                                      
+CORD2S  2               .0      .0      .0      .0      .0      1.      +COR1   
++COR1   1.000   .000    .000                                                    
+CTRIA2  1       31      1       6       26      .0                              
+CTRIA2  2       31      6       11      26      .0                              
+CTRIA2  3       31      2       7       1       .0                              
+CTRIA2  4       31      6       1       7       .0                              
+CTRIA2  5       31      7       12      6       .0                              
+CTRIA2  6       31      11      6       12      .0                              
+CTRIA2  7       31      12      16      11      .0                              
+CTRIA2  8       31      3       8       2       .0                              
+CTRIA2  9       31      7       2       8       .0                              
+CTRIA2  10      31      8       13      7       .0                              
+CTRIA2  11      31      12      7       13      .0                              
+CTRIA2  12      31      13      17      12      .0                              
+CTRIA2  13      31      16      12      17      .0                              
+CTRIA2  14      31      17      20      16      .0                              
+CTRIA2  15      31      4       9       3       .0                              
+CTRIA2  16      31      8       3       9       .0                              
+CTRIA2  17      31      9       14      8       .0                              
+CTRIA2  18      31      13      8       14      .0                              
+CTRIA2  19      31      14      18      13      .0                              
+CTRIA2  20      31      17      13      18      .0                              
+CTRIA2  21      31      18      21      17      .0                              
+CTRIA2  22      31      20      17      21      .0                              
+CTRIA2  23      31      21      23      20      .0                              
+CTRIA2  24      31      5       10      4       .0                              
+CTRIA2  25      31      9       4       10      .0                              
+CTRIA2  26      31      10      15      9       .0                              
+CTRIA2  27      31      14      9       15      .0                              
+CTRIA2  28      31      15      19      14      .0                              
+CTRIA2  29      31      18      14      19      .0                              
+CTRIA2  30      31      19      22      18      .0                              
+CTRIA2  31      31      21      18      22      .0                              
+CTRIA2  32      31      22      24      21      .0                              
+CTRIA2  33      31      23      21      24      .0                              
+CTRIA2  34      31      24      25      23      .0                              
+GRDSET          2                               2                               
+GRID    1               90.     7.      .0                                      
+GRID    2               90.     14.0    .0                                      
+GRID    3               90.     21.0    .0                                      
+GRID    4               90.     28.0    .0                                      
+GRID    5               90.     35.0    .0                                      
+GRID    6               90.     7.0     45.0                                    
+GRID    7               90.     14.0    30.0                                    
+GRID    8               90.     21.0    22.5                                    
+GRID    9               90.     28.0    18.0                                    
+GRID    10              90.     35.0    15.0                                    
+GRID    11              90.     7.0     90.0                                    
+GRID    12              90.     14.0    60.0                                    
+GRID    13              90.     21.0    45.0                                    
+GRID    14              90.     28.0    36.0                                    
+GRID    15              90.     35.0    30.0                                    
+GRID    16              90.     14.0    90.0                                    
+GRID    17              90.     21.0    67.5                                    
+GRID    18              90.     28.0    54.0                                    
+GRID    19              90.     35.0    45.0                                    
+GRID    20              90.     21.0    90.0                                    
+GRID    21              90.     28.0    72.0                                    
+GRID    22              90.     35.0    60.0                                    
+GRID    23              90.     28.0    90.0                                    
+GRID    24              90.     35.0    75.0                                    
+GRID    25              90.     35.0    90.0                                    
+GRID    26      0       .0      .0      90.0    0                               
+MAT1    1       3.+6            .1666                                           
+PLOAD2  1       -1.0    1       2       3       4       5       6               
+PLOAD2  1       -1.0    7       8       9       10      11      12              
+PLOAD2  1       -1.0    13      14      15      16      17      18              
+PLOAD2  1       -1.0    19      20      21      22      23      24              
+PLOAD2  1       -1.0    25      26      27      28      29      30              
+PLOAD2  1       -1.0    31      32      33      34                              
+PLOTEL  50      26      1               51      1       2                       
+PLOTEL  52      2       3               53      3       4                       
+PLOTEL  54      4       5               55      5       10                      
+PLOTEL  56      10      15              57      15      19                      
+PLOTEL  58      19      22              59      22      24                      
+PLOTEL  60      24      25              61      25      23                      
+PLOTEL  62      23      20              63      20      16                      
+PLOTEL  64      16      11              65      11      26                      
+PLOTEL  66      3       8               67      8       13                      
+PLOTEL  68      13      17              69      17      20                      
+PTRIA2  31      1       3.                                                      
+SPC     1       26      12456   .0                                              
+SPC1    1       345     1       2       3       4       11      16      +SPC1-2 
++SPC1-2 20      23                                                              
+SPC1    1       123456  5       10      15      19      22      24      +SPC1-1 
++SPC1-1 25                                                                      
+SPC1    2       2       10      15      19      22      24                      
+SPC1    2       345     1       2       3       4       11      16      +SPC2-1 
++SPC2-1 20      23                                                              
+SPC1    2       2345    5       25                                              
+SPC1    2       12456   26                                                      
+ENDDATA                                                                         

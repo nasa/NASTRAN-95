@@ -1,0 +1,625 @@
+     NASTRAN FILES=NPTP                                                              
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T04021A,NASTRAN                                                           
+     DIAG   14                                                                       
+     TIME   10                                                                       
+     CHKPNT YES                                                                      
+     APP    DISP                                                                     
+     SOL    4,6                                                                      
+     ALTER  2,2 $                                                                    
+     ALTER  91 $                                                                     
+     CHKPNT   KDGG $                                                                 
+     EXIT $                                                                          
+     ENDALTER $                                                                      
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     5
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+0ECHO OF FIRST CARD IN CHECKPOINT DICTIONARY TO BE PUNCHED OUT FOR THIS PROBLEM
+0   RESTART   T04021A ,NASTRAN , 5/18/95,   37515,
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     6
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM         
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T04-02-1A                                   
+                  3      $ REFERENCE PROBLEM III.1                                                       
+                  4      SPC  = 10                                                                       
+                  5      LOAD = 10                                                                       
+                  6      DISP = ALL                                                                      
+                  7      SUBCASE 1                                                                       
+                  8        LABEL = STATIC SOLUTION                                                       
+                  9      SUBCASE 2                                                                       
+                 10        LABEL = DIFFERENTIAL STIFFNESS SOLUTION                                       
+                 11      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    16, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CQUAD2  101     100     101     102     106     105                             
+                    2-        CQUAD2  102     100     102     104     108     106                             
+                    3-        CQUAD2  103     100     104     103     107     108                             
+                    4-        CQUAD2  104     100     101     103     104     102                             
+                    5-        GRID    101             0.0     0.0     0.0                                     
+                    6-        GRID    102             6.0     0.0     0.0                                     
+                    7-        GRID    103             0.0     12.0    0.0                                     
+                    8-        GRID    104             6.0     12.0    0.0                                     
+                    9-        GRID    105             0.0     0.0     12.0                                    
+                   10-        GRID    106             6.0     0.0     12.0                                    
+                   11-        GRID    107             0.0     12.0    12.0                                    
+                   12-        GRID    108             6.0     12.0    12.0                                    
+                   13-        MAT1    100     10.6+6          .3      .92-3                                   
+                   14-        PLOAD2  10      1.0     101     THRU    104                                     
+                   15-        PQUAD2  100     100     .06                                                     
+                   16-        SPC1    10      12356   101     103     105     107                             
+                              ENDDATA
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 04 - DIFFERENTIAL STIFFNESS ANALYSIS - APR. 1995 $        
+
+       3  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       4  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   S,N,NOGPDT/MINUS1=-1 $                                         
+
+       5  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       6  EQUIV    MPTA,MPT/ISOP $                                                
+
+       7  COND     ERROR3,NOGPDT $                                                
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      12  COND     P1,JUMPPLOT $                                                  
+
+      13  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      14  PRTMSG   PLTSETX// $                                                    
+
+      15  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      16  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      17  COND     P1,JUMPPLOT $                                                  
+
+      18  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE $                 
+
+      19  PRTMSG   PLOTX1// $                                                     
+
+      20  LABEL    P1 $                                                           
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/SLT,GPTT/S,N,NOGRAV $                       
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      22  PARAM    //*AND*/NOMGG/NOGRAV/V,Y,GRDPNT=-1 $                           
+
+      23  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/S,N,GENEL/S,N,COMPS $
+
+      24  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      25  COND     ERROR1,NOSIMP $                                                
+
+      26  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      27  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/                           
+                   C,Y,CPROD/C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/     
+                   C,Y,CPTUBE/C,Y,CPQDPLT/C,Y,CPTRPLT/C,Y,CPTRBSC/                
+                   C,Y,VOLUME/C,Y,SURFACE $                                       
+
+      28  PURGE    KGGX/NOKGGX/MGG/NOMGG $                                        
+
+      29  COND     JMPKGG,NOKGGX $                                                
+
+      30  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      31  PURGE    KDICT,KELM/MINUS1 $                                            
+
+      32  LABEL    JMPKGG $                                                       
+
+      33  COND     JMPMGG,NOMGG $                                                 
+
+      34  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      35  PURGE    MDICT,MELM/MINUS1 $                                            
+
+      36  LABEL    JMPMGG $                                                       
+
+      37  COND     LBL1,GRDPNT $                                                  
+
+      38  COND     ERROR4,NOMGG $                                                 
+
+      39  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT/C,Y,WTMASS $            
+
+      40  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      41  LABEL    LBL1 $                                                         
+
+      42  EQUIV    KGGX,KGG/NOGENL $                                              
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      43  COND     LBL11,NOGENL $                                                 
+
+      44  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      45  LABEL    LBL11 $                                                        
+
+      46  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      47  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      48  CASE     CASECC,/CASEXX/*TRANRESP*/0/NOLOOP $                           
+
+      49  GP4      CASEXX,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      50  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      51  COND     ERROR5,NOL $                                                   
+
+      52  COND     LBL4D,REACT $                                                  
+
+      53  JUMP     ERROR2 $                                                       
+
+      54  LABEL    LBL4D $                                                        
+
+      55  PURGE    GM/MPCF1/GO,KOO,LOO,PO,UOOV,RUOV/OMIT/PS,KFS,KSS,QG,           
+                   YBS,PBS,KBFS,KBSS,KDFS,KDSS/SINGLE $                           
+
+      56  EQUIV    KGG,KNN/MPCF1 $                                                
+
+      57  COND     LBL2,MPCF1 $                                                   
+
+      58  MCE1     USET,RG/GM $                                                   
+
+      59  MCE2     USET,GM,KGG,,,/KNN,,, $                                        
+
+      60  LABEL    LBL2 $                                                         
+
+      61  EQUIV    KNN,KFF/SINGLE $                                               
+
+      62  COND     LBL3,SINGLE $                                                  
+
+      63  SCE1     USET,KNN,,,/KFF,KFS,KSS,,, $                                   
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      64  LABEL    LBL3 $                                                         
+
+      65  EQUIV    KFF,KAA/OMIT $                                                 
+
+      66  COND     LBL5,OMIT $                                                    
+
+      67  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      68  LABEL    LBL5 $                                                         
+
+      69  RBMG2    KAA/LLL $                                                      
+
+      70  SSG1     SLT,BGPDT,CSTM,SIL,EST,MPT,GPTT,EDT,MGG,CASEXX,DIT,PCOMPS/     
+                   PG,,,,/LUSET/1/COMPS $                                         
+
+      71  EQUIV    PG,PL/NOSET $                                                  
+
+      72  COND     LBL10,NOSET $                                                  
+
+      73  SSG2     USET,GM,YS,KFS,GO,,PG/,PO,PS,PL $                              
+
+      74  LABEL    LBL10 $                                                        
+
+      75  SSG3     LLL,KAA,PL,LOO,KOO,PO/ULV,UOOV,RULV,RUOV/OMIT/V,Y,IRES=-1/     
+                   1/S,N,EPSI $                                                   
+
+      76  COND     LBL9,IRES $                                                    
+
+      77  MATGPR   GPL,USET,SIL,RULV//*L* $                                       
+
+      78  MATGPR   GPL,USET,SIL,RUOV//*O* $                                       
+
+      79  LABEL    LBL9 $                                                         
+
+      80  SDR1     USET,,ULV,UOOV,YS,GO,GM,PS,KFS,KSS,/UGV,PG1,QG/1/*DS0* $       
+
+      81  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDP,,QG,UGV,EST,,PG, 
+                   PCOMPS/OPG1,OQG1,OUGV1,OES1,OEF1,PUGV1,OES1L,OEF1L/            
+                   *DS0*////COMPS $                                               
+
+      82  OFP      OUGV1,OPG1,OQG1,OEF1,OES1,//S,N,CARDNO $                       
+
+      83  OFP      OEF1L,OES1L,,,,//S,N,CARDNO $                                  
+
+      84  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      85  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
+
+      86  COND     P2,JUMPPLOT $                                                  
+
+      87  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,PUGV1,,GPECT,OES1,
+                   OES1L,/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $           
+
+      88  PRTMSG   PLOTX2// $                                                     
+
+      89  LABEL    P2 $                                                           
+
+      90  TA1      ECT,EPT,BGPDT,SIL,GPTT,,CSTM,/X1,X2,X3,ECPT,GPCT,,,/LUSET/     
+                   NOSIMP/0/NOGENL/GENEL $                                        
+
+      91  DSMG1    CASECC,GPTT,SIL,EDT,UGV,CSTM,MPT,ECPT,GPCT,DIT/KDGG/           
+                   DSCOSET $                                                      
+
+      91  CHKPNT   KDGG $                                                         
+
+      91  EXIT $                                                                  
+
+      92  PARAM    //*ADD*/SHIFT/-1/0 $                                           
+
+      93  PARAM    //*ADD*/COUNT/ALWAYS=-1/NEVER= 1 $                             
+
+      94  PARAMR   //*ADD*/DSEPSI/0.0/0.0 $                                       
+
+      95  PARAML   YS//*NULL*////NOYS $                                           
+
+      96  LABEL    OUTLPTOP $                                                     
+
+      97  EQUIV    PG,PG1/NOYS $                                                  
+
+      98  PARAM    //*KLOCK*/TO $                                                 
+
+      99  EQUIV    KDGG,KDNN/MPCF1 $                                              
+
+     100  COND     LBL2D,MPCF1 $                                                  
+
+     101  MCE2     USET,GM,KDGG,,,/KDNN,,, $                                      
+
+     102  LABEL    LBL2D $                                                        
+
+     103  EQUIV    KDNN,KDFF/SINGLE $                                             
+
+     104  COND     LBL3D,SINGLE $                                                 
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     105  SCE1     USET,KDNN,,,/KDFF,KDFS,KDSS,,, $                               
+
+     106  LABEL    LBL3D $                                                        
+
+     107  EQUIV    KDFF,KDAA/OMIT $                                               
+
+     108  COND     LBL5D,OMIT $                                                   
+
+     109  SMP2     USET,GO,KDFF/KDAA $                                            
+
+     110  LABEL    LBL5D $                                                        
+
+     111  ADD      KAA,KDAA/KBLL/(1.0,0.0)/(1.0,0.0) $                            
+
+     112  ADD      KFS,KDFS/KBFS/(1.0,0.0)/(1.0,0.0) $                            
+
+     113  ADD      KSS,KDSS/KBSS/(1.0,0.0)/(1.0,0.0) $                            
+
+     114  COND     PGOK,NOYS $                                                    
+
+     115  MPYAD    KBSS,YS,/PSS/0/1/1/1 $                                         
+
+     116  MPYAD    KBFS,YS,/PFS/0/1/1/1 $                                         
+
+     117  UMERGE   USET,PFS,PSS/PN/*N*/*F*/*S* $                                  
+
+     118  EQUIV    PN,PGX/MPCF1 $                                                 
+
+     119  COND     LBL6D,MPCF1 $                                                  
+
+     120  UMERGE   USET,PN,/PGX/*G*/*N*/*M* $                                     
+
+     121  LABEL    LBL6D $                                                        
+
+     122  ADD      PGX,PG/PGG/(-1.0,0.0)/(1.0,0.0) $                              
+
+     123  EQUIV    PGG,PG1/ALWAYS $                                               
+
+     124  LABEL    PGOK $                                                         
+
+     125  ADD      PG1,/PG0/(1.0,0.0) $                                           
+
+     126  RBMG2    KBLL/LBLL/S,N,POWER/S,N,DET $                                  
+
+     127  PRTPARM  //0/*DET* $                                                    
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     128  PRTPARM  //0/*POWER* $                                                  
+
+     129  LABEL    INLPTOP $                                                      
+
+     130  PARAM    //*KLOCK*/TI $                                                 
+
+     131  SSG2     USET,GM,YS,KDFS,GO,,PG1/,PBO,PBS,PBL $                         
+
+     132  SSG3     LBLL,KBLL,PBL,,,/UBLV,,RUBLV,/-1/V,Y,IRES/NDSKIP/S,N,          
+                   EPSI $                                                         
+
+     133  COND     LBL9D,IRES $                                                   
+
+     134  MATGPR   GPL,USET,SIL,RUBLV//*L* $                                      
+
+     135  LABEL    LBL9D $                                                        
+
+     136  SDR1     USET,,UBLV,,YS,GO,GM,PBS,KBFS,KBSS,/UBGV,,QBG/1/*DS1* $        
+
+     137  ADD      UBGV,UGV/DUGV/(-1.0,0.0)/(1.0,0.0) $                           
+
+     138  DSMG1    CASECC,GPTT,SIL,EDT,DUGV,CSTM,MPT,ECPT,GPCT,DIT/DKDGG/         
+                   DSCOSET $                                                      
+
+     139  MPYAD    DKDGG,UBGV,PG0/PGI1/0/1/1/0 $                                  
+
+     140  DSCHK    PG1,PGI1,UBGV//C,Y,EPSIO=1.E-5/S,N,DSEPSI/C,Y,NT=10/TO/        
+                   TI/S,N,DONE/S,N,SHIFT/S,N,COUNT/C,Y,BETAD=4 $                  
+
+     141  COND     DONE,DONE $                                                    
+
+     142  COND     SHIFT,SHIFT $                                                  
+
+     143  EQUIV    PG,PG1/NEVER/PGI1,PG1/ALWAYS/PG1,PGI1/NEVER $                  
+
+     144  REPT     INLPTOP,1000 $                                                 
+
+     145  TABPT    PGI1,PG1,PG,,// $                                              
+
+     146  LABEL    SHIFT $                                                        
+
+     147  ADD      DKDGG,KDGG/KDGG1/(-1.0,0.0)/(1.0,0.0) $                        
+
+     148  EQUIV    UBGV,UGV/ALWAYS/KDGG1,KDGG/ALWAYS $                            
+
+     149  EQUIV    KDGG,KDGG1/NEVER/UGV,UBGV/NEVER $                              
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     150  REPT     OUTLPTOP,1000 $                                                
+
+     151  TABPT    KDGG1,KDGG,UGV,,// $                                           
+
+     152  LABEL    DONE $                                                         
+
+     153  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDP,,QBG,UBGV,EST,,, 
+                   PCOMPS/,OQBG1,OUBGV1,OESB1,OEFB1,PUBGV1,OESB1L,OEFB1L/         
+                   *DS1*////COMPS $                                               
+
+     154  OFP      OUBGV1,OQBG1,OEFB1,OESB1,,//S,N,CARDNO $                       
+
+     155  OFP      OEFB1L,OESB1L,,,,//S,N,CARDNO $                                
+
+     156  COND     P3,JUMPPLOT $                                                  
+
+     157  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,PUBGV1,,GPECT,    
+                   OESB1,OESB1L,/PLOTX3/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,           
+                   PFILE $                                                        
+
+     158  PRTMSG   PLOTX3// $                                                     
+
+     159  LABEL    P3 $                                                           
+
+     160  JUMP     FINIS $                                                        
+
+     161  LABEL    ERROR1 $                                                       
+
+     162  PRTPARM  //-1/*DIFFSTIF* $                                              
+
+     163  LABEL    ERROR2 $                                                       
+
+     164  PRTPARM  //-2/*DIFFSTIF* $                                              
+
+     165  LABEL    ERROR3 $                                                       
+
+     166  PRTPARM  //-3/*DIFFSTIF* $                                              
+
+     167  LABEL    ERROR4 $                                                       
+
+     168  PRTPARM  //-4/*DIFFSTIF* $                                              
+
+     169  LABEL    ERROR5 $                                                       
+
+     170  PRTPARM  //-5/*DIFFSTIF* $                                              
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     171  LABEL    FINIS $                                                        
+
+     172  PURGE    DUMMY/MINUS1 $                                                 
+
+     173  END      $                                                              
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+0                                                                                                                                   
+         CONTINUATION OF CHECKPOINT DICTIONARY
+ 
+         1,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =      6
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     SMALL PROBLEM SIZE
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD2    ELEMENTS (ELEMENT TYPE  18) STARTING WITH ID      101
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK MGG      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK MGG      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -1.6989752E-16
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+0     STATIC SOLUTION                                                                                        SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      0.0            0.0            0.0           -7.671032E-07   0.0            0.0                           
+           102      G      2.224633E-05  -1.299485E-05  -4.611534E-05   8.379199E-07   8.715010E-06  -3.245583E-06                  
+           103      G      0.0            0.0            0.0            7.671032E-07   0.0            0.0                           
+           104      G      2.224633E-05   1.299485E-05  -4.611534E-05  -8.379199E-07   8.715010E-06   3.245583E-06                  
+           105      G      0.0            0.0            0.0           -3.946867E-07   0.0            0.0                           
+           106      G      5.633597E-05  -2.364832E-05  -4.450864E-05   1.616037E-06  -5.854478E-07  -3.669899E-06                  
+           107      G      0.0            0.0            0.0            3.946867E-07   0.0            0.0                           
+           108      G      5.633597E-05   2.364832E-05  -4.450864E-05  -1.616037E-06  -5.854478E-07   3.669899E-06                  
+1     HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    19
+      NASTRAN TEST PROBLEM NO. T04-02-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+         2,   REENTER AT DMAP SEQUENCE NUMBER    92
+         3,   KDGG    ,   FLAGS = 0,   REEL =  1,   FILE =      7
+         4,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =      8
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  HYDROELASTIC ULLAGE PRESSURE, DIFFERENTIAL STIFFNESS PROBLEM       
+ DATE:  5/18/95
+ END TIME: 10:25:23
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

@@ -1,0 +1,60 @@
+NASTRAN FILES=NPTP                                                              
+ID    T03121A,NASTRAN                                                           
+DIAG  14                                                                        
+TIME  10                                                                        
+SOL   3,0                                                                       
+APP   DISP                                                                      
+CHKPNT  YES                                                                     
+$ INSERT HYDRO MODAL DMAP ALTERS (COSHYD2) AFTER THIS CARD                      
+READFILE COSHYD2                                                                
+$ INSERT HYDRO MODAL DMAP ALTERS (COSHYD2) BEFORE THIS CARD                     
+CEND                                                                            
+TITLE    = HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT              
+SUBTITLE = NASTRAN TEST PROBLEM NO. T03-12-1A                                   
+$ REFERENCE PROBLEM IV.1                                                        
+SPC  = 10                                                                       
+DISP = ALL                                                                      
+SUBCASE 1                                                                       
+    LABEL  = MODES OF EMPTY STRUCTURE                                           
+    METHOD = 50                                                                 
+SUBCASE 2                                                                       
+    LABEL  = MODES WITH FLUID INCLUDED                                          
+    METHOD = 60                                                                 
+    SPCF   = ALL                                                                
+BEGIN BULK                                                                      
+CFFREE  1       100     6                                                       
+CFHEX2  1       200     1       2       4       3       5       6       +CFH1   
++CFH1   8       7                                                               
+CFLSTR  1       100     101     THRU    104                                     
+CQUAD2  101     100     101     102     106     105                             
+CQUAD2  102     100     102     104     108     106                             
+CQUAD2  103     100     104     103     107     108                             
+CQUAD2  104     100     101     103     104     102                             
+EIGR    50      GIV     0.0     2600.0  10      10      0               +EMOD1  
++EMOD1  MAX                                                                     
+EIGR    60      GIV     0.0     10.0    6       6       0               +E1     
++E1     MAX                                                                     
+GRAV    100             386.0   0.0     0.0     -1.0                            
+GRID    1               0.0     0.0     0.0                                     
+GRID    2               6.0     0.0     0.0                                     
+GRID    3               0.0     12.0    0.0                                     
+GRID    4               6.0     12.0    0.0                                     
+GRID    5               0.0     0.0     12.0                                    
+GRID    6               6.0     0.0     12.0                                    
+GRID    7               0.0     12.0    12.0                                    
+GRID    8               6.0     12.0    12.0                                    
+GRID    101             0.0     0.0     0.0                                     
+GRID    102             6.0     0.0     0.0                                     
+GRID    103             0.0     12.0    0.0                                     
+GRID    104             6.0     12.0    0.0                                     
+GRID    105             0.0     0.0     12.0                                    
+GRID    106             6.0     0.0     12.0                                    
+GRID    107             0.0     12.0    12.0                                    
+GRID    108             6.0     12.0    12.0                                    
+MAT1    100     10.6+6          .3      .92-3                                   
+MATF    200     9.355-4                                                         
+OMIT1   4       101     103     105     107                                     
+OMIT1   456     102     104     106     108                                     
+PQUAD2  100     100     .06                                                     
+SPC1    10      1256    101     103     105     107                             
+ENDDATA                                                                         

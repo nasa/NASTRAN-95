@@ -1,0 +1,52 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$     Shallow Spherical Shell Subjected to External Pressure Loading (1-7-1)
+$ 
+$ A. Description
+$ 
+$ The shallow spherical shell problem (see Problem 1-2-1) is again solved to
+$ demonstrate the applicability of the shell cap generalization of the toroidal
+$ ring element to this type of problem.
+$ 
+$ B. Input
+$ 
+$ The shallow spherical shell with a built-in edge is subjected to an external
+$ pressure loading of 1 psi. Due to symmetry, only one half of the shell was
+$ analyzed.
+$  
+$ 1. Parameters
+$ 
+$      r = 90.0 in.           (radius)
+$ 
+$      t = 3.0 in.            (thickness)
+$                   6      2
+$      E = 3.0  x 10  lb/in   (modulus of elasticity)
+$ 
+$      v = .1666              (Poisson's ratio)
+$ 
+$ 2. Constraints
+$ 
+$      u  =  0.0              all Grids
+$       2
+$ 
+$      u   = u   = 0.0        Grid 1
+$       1     4
+$ 
+$      u   = u   = u   = 0.0  Grid 14
+$       1     3     4
+$ 
+$ 3. Loads
+$ 
+$ Forces and moments are applied to the grid points to simulate an external
+$ pressure load of 1 psi.
+$ 
+$ C. Results
+$ 
+$ The meridional bending moment is taken to characterize the behavior predicted
+$ for this structure. The exact solution from Reference 4 and the 13-element
+$ NASTRAN model solution are quite close.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 4. S. Timoshemko, THEORY OF PLATES AND SHELLS. McGraw Hill, 1940.
+$-------------------------------------------------------------------------------

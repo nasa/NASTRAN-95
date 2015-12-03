@@ -1,0 +1,221 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01141A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   1,0                                                                       
+     TIME  5                                                                         
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     STATIC ANALYSIS OF A BEAM USING GENERAL ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-14-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = STATIC ANALYSIS OF A BEAM USING GENERAL ELEMENTS                     
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-14-1A                          
+                  3      DISPLACEMENT = ALL                                                              
+                  4      ELFORCE = ALL                                                                   
+                  5      SUBCASE 1                                                                       
+                  6      LABEL = AXIAL LOAD                                                              
+                  7              LOAD = 1                                                                
+                  8      SUBCASE 2                                                                       
+                  9      LABEL = BENDING LOAD                                                            
+                 10              LOAD = 2                                                                
+                 11      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    33, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     STATIC ANALYSIS OF A BEAM USING GENERAL ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-14-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CBAR    6       1       6       7       .0      1.0     .0      1               
+                    2-        FORCE   1       7               1.      1.                                      
+                    3-        FORCE   2       7               1.              1.                              
+                    4-        GENEL   1               2       1       2       2       2       6       +G11    
+                    5-        +G11    Z       .1666667.0      .0      .66666671.0     2.0                     
+                    6-        GENEL   2               2       1       2       2       2       6       +G21    
+                    7-        +G21    3       1       3       2       3       6                       +G22    
+                    8-        +G22    K       6.      .0      .0      -6.     .0      .0      6.      +G23    
+                    9-        +G23    3.      .0      -6.     3.      2.      .0      -3.     1.      +G24    
+                   10-        +G24    6.      .0      .0      6.      -3.     2.                              
+                   11-        GENEL   3               3       1       3       2       3       6       +G31    
+                   12-        +G31    UD              4       1       4       2       4       6       +G32    
+                   13-        +G32    K       6.      .0      .0      6.      3.      2.              +G33    
+                   14-        +G33    S       1.      .0      .0      .0      1.      -1.     .0      +G34    
+                   15-        +G34    .0      1.                                                              
+                   16-        GENEL   4               4       1       4       2       4       6       +G41    
+                   17-        +G41    UD              5       1       5       2       5       6       +G42    
+                   18-        +G42    K       6.      .0      .0      6.      3.      2.                      
+                   19-        GENEL   5               5       1       5       2       5       6       +G51    
+                   20-        +G51    UD              6       1       6       2       6       6       +G52    
+                   21-        +G52    Z       .166666 .0      .0      .666667 -1.     2.              +G53    
+                   22-        +G53    S       1.      .0      .0      .0      1.      -1.     .0      +G54    
+                   23-        +G54    .0      1.                                                              
+                   24-        GRDSET                                                  345                     
+                   25-        GRID    1               .0      .0      .0              123456                  
+                   26-        GRID    2               1.      .0      .0                                      
+                   27-        GRID    3               2.      .0      .0                                      
+                   28-        GRID    4               3.      .0      .0                                      
+                   29-        GRID    5               4.      .0      .0                                      
+                   30-        GRID    6               5.      .0      .0                                      
+                   31-        GRID    7               6.0     .0      .0                                      
+                   32-        MAT1    1       6.              .3                                              
+                   33-        PBAR    1       1       1.      .083333                                         
+                              ENDDATA
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     SMALL PROBLEM SIZE
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     STATIC ANALYSIS OF A BEAM USING GENERAL ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-14-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT        1
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT        2
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT        3
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.        4 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.        5 NOT CONNECTED
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        6
+0*** SYSTEM WARNING MESSAGE 2363, SSG2B FORCED MPYAD COMPATIBILITY OF MATRIX ON  103, FROM (   24,    1), TO (   24,    2)
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -5.9211875E-16
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     2, EPSILON SUB E =   2.8965307E-13
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+1     STATIC ANALYSIS OF A BEAM USING GENERAL ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-14-1A                                                                                   
+0     AXIAL LOAD                                                                                             SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      1.666667E-01   0.0            0.0            0.0            0.0            0.0                           
+             3      G      3.333334E-01   0.0            0.0            0.0            0.0            0.0                           
+             4      G      5.000001E-01   0.0            0.0            0.0            0.0            0.0                           
+             5      G      6.666667E-01   0.0            0.0            0.0            0.0            0.0                           
+             6      G      8.333327E-01   0.0            0.0            0.0            0.0            0.0                           
+             7      G      9.999993E-01   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A BEAM USING GENERAL ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-14-1A                                                                                   
+0     BENDING LOAD                                                                                           SUBCASE 2              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      0.0            5.666667E+00   0.0            0.0            0.0            1.100000E+01                  
+             3      G      0.0            2.133333E+01   0.0            0.0            0.0            2.000000E+01                  
+             4      G      0.0            4.500000E+01   0.0            0.0            0.0            2.700000E+01                  
+             5      G      0.0            7.466666E+01   0.0            0.0            0.0            3.200000E+01                  
+             6      G      0.0            1.083333E+02   0.0            0.0            0.0            3.500000E+01                  
+             7      G      0.0            1.440000E+02   0.0            0.0            0.0            3.600000E+01                  
+1     STATIC ANALYSIS OF A BEAM USING GENERAL ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-14-1A                                                                                   
+0     AXIAL LOAD                                                                                             SUBCASE 1              
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+            6     0.0           0.0            0.0           0.0            0.0           0.0            1.000000E+00   0.0         
+1     STATIC ANALYSIS OF A BEAM USING GENERAL ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-14-1A                                                                                   
+0     BENDING LOAD                                                                                           SUBCASE 2              
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+            6     9.999695E-01  0.0           -3.051758E-05  0.0            1.000000E+00  0.0            0.0            0.0         
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  STATIC ANALYSIS OF A BEAM USING GENERAL ELEMENTS                   
+ DATE:  5/17/95
+ END TIME: 15: 7:36
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

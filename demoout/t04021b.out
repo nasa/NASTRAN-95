@@ -1,0 +1,1194 @@
+     NASTRAN FILES = OPTP                                                            
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T04021B,NASTRAN                                                           
+     $ INSERT CHECKPOINT DICTIONARY                                                  
+0*** $   ... READFILE FROM-  RSCARDS                                                 
+     RESTART  T04021A ,NASTRAN , 5/18/95,   37515,                                   
+              1,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =      6               
+              2,   REENTER AT DMAP SEQUENCE NUMBER    92                             
+              3,   KDGG    ,   FLAGS = 0,   REEL =  1,   FILE =      7               
+              4,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =      8               
+     $ END OF CHECKPOINT DICTIONARY                                                  
+0*** $   END READFILE                                                                
+     TIME  10                                                                        
+     APP   DISP                                                                      
+     SOL   3,0                                                                       
+     $ INSERT HYDRO DIRECT DMAP ALTERS (COSHYD1) AFTER THIS CARD                     
+0*** $   ... READFILE FROM-  COSHYD1                                                 
+     $ COSMIC ALTERS FOR HYDROELASTIC ANALYSIS - DIRECT FORMULATION (COSHYD1)        
+     $ ALTER    1,1 $  COSMIC/NASTRAN RF 3.  REPLACING BEGIN                         
+     DELETE BEGIN $                                                                  
+     XDMAP    GO,ERR=2 $                                                             
+     BEGIN    HYDROELASTIC ANALYSIS - DIRECT FORMULATION $                           
+     $ ALTER    3 $  AFTER PRECHK/FILE                                               
+     INSERT FILE $                                                                   
+     COMPOFF  NEWM,NEWMODE $                                                         
+     $ ALTER    46 $  AFTER OFP/COND/PURGE                                           
+     INSERT GP4,3 $                                                                  
+     FLBMG    GEOM2,ECT,BGPDT,SIL,MPT,GEOM3,CSTM,USET,EQEXIN/USETF,USETS,AF,         
+              DKGG/S,N,NOGRAV/S,N,NOFREE/S,N,TILT $                                  
+     VEC      USETF/PV1/*G*/*X*/*Y* $                                                
+     PARTN    KGG,PV1,/KXX,,,KYY $                                                   
+     PARTN    MGG,PV1,/MXX,,, $                                                      
+     PARTN    RG,PV1,/RX,,,/1 $                                                      
+     EQUIV    RX,RG $                                                                
+     PARTN    AF,PV1,/,,AXY,AYY $                                                    
+     COND     DIRECT1,NOGRAV $                                                       
+     PARTN    DKGG,PV1,/DKXX,,,DKYY $                                                
+     COND     DIRECT1,NOFREE $                                                       
+     VEC      USETF/PV2/*Y*/*FR*/*COMP* $                                            
+     PARTN    AYY,,PV2/AFRY,,,/0 $                                                   
+     PARTN    DKYY,PV2,/DKFRFR,,, $                                                  
+     LABEL    DIRECT1 $                                                              
+     COMPOFF  NOSTRUC,OLDSTR $                                                       
+     COMPON   2,DIFSTIF $                                                            
+     PARAMR   //*COMPLEX*//V,Y,DIFSCALE=1.0/0.0/DIFSCAL/// $                         
+     ADD      KXX,KDGG/KGG/(1.0,0.0)/DIFSCAL $                                       
+     COMPOFF  1,DIFSTIF $                                                            
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     5
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     EQUIV    KXX,KGG $                                                              
+     EQUIV    MXX,MGG $                                                              
+     $ ALTER    49,50 $  REPLACING MCE1, MCE2                                        
+     DELETE MCE1,MCE2 $                                                              
+     MCE1     USETS,RG/GM $                                                          
+     MCE2     USETS,GM,KGG,MGG,,/KNN,MNN,, $                                         
+     $ ALTER    54,54 $  REPLACING SCE1                                              
+     DELETE SCE1 $                                                                   
+     SCE1     USETS,KNN,MNN,,/KFF,KFS,,MFF,, $                                       
+     $ ALTER    59,60 $  REPLACING SMP1, SMP2                                        
+     DELETE SMP1,SMP2 $                                                              
+     SMP1     USETS,KFF,,,/GO,KAA,KOO,LOO,,,,, $                                     
+     SMP2     USETS,GO,MFF/MAA $                                                     
+     $ ALTER    61 $  ALTER LABEL LBL5                                               
+     INSERT SMP2,1 $                                                                 
+     LABEL    NOSTRUC $                                                              
+     PURGE    DKAA/NOGRAV $                                                          
+     COND     DIRECT4,NOGRAV $                                                       
+     EQUIV    DKXX,DKNN/MPCF1 $                                                      
+     COND     DIRECT2,MPCF2 $                                                        
+     MCE2     USETS,GM,DKXX,,,/DKNN,,, $                                             
+     LABEL    DIRECT2 $                                                              
+     EQUIV    DKNN,DKFF/SINGLE $                                                     
+     COND     DIRECT3,SINGLE $                                                       
+     SCE1     USETS,DKNN,,,/DKFF,,,,, $                                              
+     LABEL    DIRECT3 $                                                              
+     EQUIV    DKFF,DKAA/OMIT $                                                       
+     COND     DIRECT4,OMIT $                                                         
+     SMP2     USETS,GO,DKFF/DKAA $                                                   
+     LABEL    DIRECT4 $                                                              
+     GFSMA    AXY,AFRY,KYY,DKAA,DKFRFR,KAA,MAA,GM,GO,USETS,USETF,,,/KMAT,            
+              MMAT,GIA,,HC/NOGRAV/NOFREE/V,Y,KCOMP/V,Y,COMPTYP/FORM=-1 $             
+     EQUIV    KMAT,KAA//MMAT,MAA $                                                   
+     $ ALTER    63,63 $  REPLACING RBMG1                                             
+     DELETE RBMG1 $                                                                  
+     RBMG1    USETF,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                                
+     $ ALTER    67 $  AFTER LABEL LBL6                                               
+     INSERT DPD,-1 $                                                                 
+     LABEL    NEWM $                                                                 
+     $ ALTER    68,68 $  REPLACING DPD                                               
+     DELETE DPD $                                                                    
+     DPD      DYNAMICS,GPL,SIL,USETF/GPLD,SILD,USETD,,,,,,,EED,EQDYN/LUSET/          
+              LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/NONLFT/NOTRL/S,N,NOEED//NOUE $         
+     $ ALTER    71,71 $  REPLACING READ                                              
+     DELETE READ $                                                                   
+     READ     KAA,MAA,MR,DM,EED,USETF,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/             
+              S,N,NEIGV $                                                            
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     6
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     $ ALTER    75,75 $  REPLACING SDR1                                              
+     DELETE SDR1 $                                                                   
+     COND     NOCOMP,COMPTYP $                                                       
+     MPYAD    HC,PHIA,/PHIAC/0/1/0 $                                                 
+     EQUIV    PHIAC,PHIA $                                                           
+     LABEL    NOCOMP $                                                               
+     MPYAD    GIA,PHIA,/PHII/0/1/0 $                                                 
+     EQUIV    PHII,PHIY/NOFREE $                                                     
+     COND     DIRECT5,NOFREE $                                                       
+     VEC      USETF/PV3/*A*/*COMP*/*FR* $                                            
+     PARTN    PHIA,,PV3/PHIAB,PHIFR,,/0 $                                            
+     EQUIV    PHIAB,PHIA $                                                           
+     MERGE    PHIFR,PHII,,,,PV2/PHIY/0 $                                             
+     LABEL    DIRECT5 $                                                              
+     SDR1     USETS,,PHIA,,,GO,GM,,KFS,,/PHIX,,QX/1/*REIG* $                         
+     MERGE    PHIX,PHIY,,,,PV1/PHIG/0 $                                              
+     MERGE    QX,,,,,PV1/QG/0 $                                                      
+     $ ALTER    77,77 $  REPLACING EQMCK                                             
+     DELETE EQMCK $                                                                  
+     EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USETS,KGG,GM,PHIG,LAMA,QG,CSTM/            
+              OQM1/V,Y,OPT=0/V,Y,GRDEQ/-1 $                                          
+     ENDALTER $                                                                      
+0*** $   END READFILE                                                                
+     $ INSERT HYDRO DIRECT DMAP ALTERS (COSHYD1) BEFORE THIS CARD                    
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+0*** SWITCHED SOLUTION FOR RESTART - OLD SOLUTION =   4, NEW SOLUTION =   3, BIT NUMBER = 190
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                   
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T04-02-1B                                   
+                  3      $ REFERENCE PROBLEM III.2                                                       
+                  4      DISP   = ALL                                                                    
+                  5      SPCF   = ALL                                                                    
+                  6      METHOD = 50                                                                     
+                  7      SPC    = 10                                                                     
+                  8      BEGIN BULK                                                                      
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+0                                             I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              $                                                                                             
+                              $ *** NOTE - STRUCTURE BULK DATA IS ON RESTART TAPE                                           
+                              $                                                                                             
+                              GRID    1               0.0     0.0     0.0                                                   
+                              GRID    2               6.0     0.0     0.0                                                   
+                              GRID    3               0.0     12.0    0.0                                                   
+                              GRID    4               6.0     12.0    0.0                                                   
+                              GRID    5               0.0     0.0     12.0                                                  
+                              GRID    6               6.0     0.0     12.0                                                  
+                              GRID    7               0.0     12.0    12.0                                                  
+                              GRID    8               6.0     12.0    12.0                                                  
+                              CFHEX2  1       200     1       2       4       3       5       6       +C1                   
+                              +C1     8       7                                                                             
+                              CFFREE  1       100     6                                                                     
+                              CFLSTR  1       100     101     THRU    104                                                   
+                              MATF    200     9.355-4                                                                       
+                              OMIT1   4       101     103     105     107                                                   
+                              OMIT1   456     102     104     106     108                                                   
+                              GRAV    100             386.0   0.0     0.0     -1.0                                          
+                              EIGR    50      GIV     0.0     20.0    6       6       0               +E12                  
+                              +E12    MAX                                                                                   
+                              $                                                                                             
+                              $ PARAMETERS TO TRIGGER ADDITION OF ULLAGE PRESSURE                                           
+                              $                                                                                             
+                              PARAM   DIFSTIF -1                                                                            
+                              PARAM   DIFSCALE 14.7                                                                         
+                              ENDDATA                                                                                       
+
+
+                        TOTAL COUNT=     26
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CFFREE  1       100     6                                                       
+                    2-        CFHEX2  1       200     1       2       4       3       5       6       +C1     
+                    3-        +C1     8       7                                                               
+                    4-        CFLSTR  1       100     101     THRU    104                                     
+                    5-        CQUAD2  101     100     101     102     106     105                             
+                    6-        CQUAD2  102     100     102     104     108     106                             
+                    7-        CQUAD2  103     100     104     103     107     108                             
+                    8-        CQUAD2  104     100     101     103     104     102                             
+                    9-        EIGR    50      GIV     0.0     20.0    6       6       0               +E12    
+                   10-        +E12    MAX                                                                     
+                   11-        GRAV    100             386.0   0.0     0.0     -1.0                            
+                   12-        GRID    1               0.0     0.0     0.0                                     
+                   13-        GRID    2               6.0     0.0     0.0                                     
+                   14-        GRID    3               0.0     12.0    0.0                                     
+                   15-        GRID    4               6.0     12.0    0.0                                     
+                   16-        GRID    5               0.0     0.0     12.0                                    
+                   17-        GRID    6               6.0     0.0     12.0                                    
+                   18-        GRID    7               0.0     12.0    12.0                                    
+                   19-        GRID    8               6.0     12.0    12.0                                    
+                   20-        GRID    101             0.0     0.0     0.0                                     
+                   21-        GRID    102             6.0     0.0     0.0                                     
+                   22-        GRID    103             0.0     12.0    0.0                                     
+                   23-        GRID    104             6.0     12.0    0.0                                     
+                   24-        GRID    105             0.0     0.0     12.0                                    
+                   25-        GRID    106             6.0     0.0     12.0                                    
+                   26-        GRID    107             0.0     12.0    12.0                                    
+                   27-        GRID    108             6.0     12.0    12.0                                    
+                   28-        MAT1    100     10.6+6          .3      .92-3                                   
+                   29-        MATF    200     9.355-4                                                         
+                   30-        OMIT1   4       101     103     105     107                                     
+                   31-        OMIT1   456     102     104     106     108                                     
+                   32-        PARAM   DIFSCALE14.7                                                            
+                   33-        PARAM   DIFSTIF -1                                                              
+                   34-        PLOAD2  10      1.0     101     THRU    104                                     
+                   35-        PQUAD2  100     100     .06                                                     
+                   36-        SPC1    10      12356   101     103     105     107                             
+                              ENDDATA
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 4145, THIS IS A MODIFIED RESTART INVOLVING RIGID FORMAT SWITCH.
+0*** USER INFORMATION MESSAGE. CASE CONTROL AND BULK DATA DECK CHANGES AFFECTING THIS RESTART ARE INDICATED BELOW.
+
+0*** USER INFORMATION MESSAGE. EFFECTIVE CASE CONTROL DECK CHANGES
+ -----------------------------------
+
+
+ MASK WORD - BIT POSITION ---- FLAG NAME ---- PACKED BIT POSITION
+
+    17
+                   4           METHOD$                62
+                  17           POUT$                  19
+0*** USER INFORMATION MESSAGE. EFFECTIVE BULK DATA DECK CHANGES
+ --------------------------------
+
+
+ MASK WORD - BIT POSITION - CARD/PARAM NAME - PACKED BIT POSITION
+
+     1
+                   1           GRID                    1
+     3
+                  23           EIGR                   61
+                  30           OMIT1                  11
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  XDMAP    GO,ERR=2 $                                                     
++  +
+
+       1  BEGIN    HYDROELASTIC ANALYSIS - DIRECT FORMULATION $                   
++  +
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     LAMA=APPEND/PHIA=APPEND $                                      
++  +
+
+       3  COMPOFF  NEWM,NEWMODE $                                                 
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
++  *
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
++  *
+                   NOGPDT/ALWAYS=-1 $                                             
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
++  *
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
++  *
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      12  COND     P1,JUMPPLOT $                                                  
++  *
+
+      13  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
++  *
+                   S,N,JUMPPLOT $                                                 
+
+      14  PRTMSG   PLTSETX// $                                                    
++  *
+
+      15  PARAM    //*MPY*/PLTFLG/1/1 $                                           
++  *
+
+      16  PARAM    //*MPY*/PFILE/0/0 $                                            
++  *
+
+      17  COND     P1,JUMPPLOT $                                                  
++  *
+
+      18  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
++  *
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE  $                
+
+      19  PRTMSG   PLOTX1//$                                                      
++  *
+
+      20  LABEL    P1 $                                                           
++  +
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $                              
++  *
+
+      22  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
++  *
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      23  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
++  *
+
+      24  COND     ERROR4,NOSIMP $                                                
++  *
+
+      25  PARAM    //*ADD*/NOKGGX/1/0 $                                           
++  *
+
+      26  PARAM    //*ADD*/NOMGG/1/0 $                                            
++  *
+
+      27  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
++  *
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/C,Y,CPROD/C,Y,CPQUAD1/     
+                   C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/C,Y,CPTUBE/C,Y,CPQDPLT/    
+                   C,Y,CPTRPLT/C,Y,CPTRBSC/C,Y,VOLUME/C,Y,SURFACE $               
+
+      28  PURGE    KGGX/NOKGGX $                                                  
++  *
+
+      29  COND     JMPKGG,NOKGGX $                                                
++  *
+
+      30  EMA      GPECT,KDICT,KELM/KGGX $                                        
++  *
+
+      31  LABEL    JMPKGG $                                                       
++  +
+
+      32  COND     ERROR1,NOMGG $                                                 
++  *
+
+      33  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
++  *
+
+      34  PURGE    MDICT,MELM/ALWAYS $                                            
++  *
+
+      35  COND     LGPWG,GRDPNT $                                                 
++  *
+
+      36  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/C,Y,WTMASS $         
++  *
+
+      37  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
++  *
+
+      38  LABEL    LGPWG $                                                        
++  +
+
+      39  EQUIV    KGGX,KGG/NOGENL $                                              
++  *
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      40  COND     LBL11,NOGENL $                                                 
++  *
+
+      41  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
++  *
+
+      42  LABEL    LBL11 $                                                        
++  +
+
+      43  GPSTGEN  KGG,SIL/GPST $                                                 
++  *
+
+      44  PARAM    //*MPY*/NSKIP/0/0 $                                            
++  *
+
+      45  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
++  *
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      46  OFP      OGPST,,,,,//S,N,CARDNO $                                       
++  *
+
+      47  COND     ERROR3,NOL $                                                   
++  *
+
+      48  PURGE    KRR,KLR,DM,MLR,MR/REACT/GM/MPCF1/GO/OMIT/KFS/SINGLE/QG/NOSET $ 
++  *
+
+      48  FLBMG    GEOM2,ECT,BGPDT,SIL,MPT,GEOM3,CSTM,USET,EQEXIN/USETF,USETS,AF, 
++  *
+                   DKGG/S,N,NOGRAV/S,N,NOFREE/S,N,TILT $                          
++  *
+
+      48  VEC      USETF/PV1/*G*/*X*/*Y* $                                        
++  *
+
+      48  PARTN    KGG,PV1,/KXX,,,KYY $                                           
++  *
+
+      48  PARTN    MGG,PV1,/MXX,,, $                                              
++  *
+
+      48  PARTN    RG,PV1,/RX,,,/1 $                                              
++  *
+
+      48  EQUIV    RX,RG $                                                        
++  *
+
+      48  PARTN    AF,PV1,/,,AXY,AYY $                                            
++  *
+
+      48  COND     DIRECT1,NOGRAV $                                               
++  *
+
+      48  PARTN    DKGG,PV1,/DKXX,,,DKYY $                                        
++  *
+
+      48  COND     DIRECT1,NOFREE $                                               
++  *
+
+      48  VEC      USETF/PV2/*Y*/*FR*/*COMP* $                                    
++  *
+
+      48  PARTN    AYY,,PV2/AFRY,,,/0 $                                           
++  *
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      48  PARTN    DKYY,PV2,/DKFRFR,,, $                                          
++  *
+
+      48  LABEL    DIRECT1 $                                                      
++  +
+
+      48  COMPOFF  NOSTRUC,OLDSTR $                                               
+
+      48  COMPON   2,DIFSTIF $                                                    
+
+      48  PARAMR   //*COMPLEX*//V,Y,DIFSCALE=1.0/0.0/DIFSCAL/// $                 
++  *
+
+      48  ADD      KXX,KDGG/KGG/(1.0,0.0)/DIFSCAL $                               
++  *
+
+      48  COMPOFF  1,DIFSTIF $                                                    
+
+      48  EQUIV    MXX,MGG $                                                      
++  *
+
+      49  EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1 $                                  
++  *
+
+      50  COND     LBL2,MPCF1 $                                                   
++  *
+
+      52  MCE1     USETS,RG/GM $                                                  
++  *
+
+      52  MCE2     USETS,GM,KGG,MGG,,/KNN,MNN,, $                                 
++  *
+
+      53  LABEL    LBL2 $                                                         
++  +
+
+      54  EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE $                                
++  *
+
+      55  COND     LBL3,SINGLE $                                                  
++  *
+
+      56  SCE1     USETS,KNN,MNN,,/KFF,KFS,,MFF,, $                               
++  *
+
+      57  LABEL    LBL3  $                                                        
++  +
+
+      58  EQUIV    KFF,KAA/OMIT $                                                 
++  *
+
+      59  EQUIV    MFF,MAA/OMIT $                                                 
++  *
+
+      60  COND     LBL5,OMIT $                                                    
++  *
+
+      62  SMP1     USETS,KFF,,,/GO,KAA,KOO,LOO,,,,, $                             
++  *
+
+      62  SMP2     USETS,GO,MFF/MAA $                                             
++  *
+
+      63  LABEL    LBL5 $                                                         
++  +
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      63  LABEL    NOSTRUC $                                                      
++  +
+
+      63  PURGE    DKAA/NOGRAV $                                                  
++  *
+
+      63  COND     DIRECT4,NOGRAV $                                               
++  *
+
+      63  EQUIV    DKXX,DKNN/MPCF1 $                                              
++  *
+
+      63  COND     DIRECT2,MPCF2 $                                                
++  *
+
+      63  MCE2     USETS,GM,DKXX,,,/DKNN,,, $                                     
++  *
+
+      63  LABEL    DIRECT2 $                                                      
++  +
+
+      63  EQUIV    DKNN,DKFF/SINGLE $                                             
++  *
+
+      63  COND     DIRECT3,SINGLE $                                               
++  *
+
+      63  SCE1     USETS,DKNN,,,/DKFF,,,,, $                                      
++  *
+
+      63  LABEL    DIRECT3 $                                                      
++  +
+
+      63  EQUIV    DKFF,DKAA/OMIT $                                               
++  *
+
+      63  COND     DIRECT4,OMIT $                                                 
++  *
+
+      63  SMP2     USETS,GO,DKFF/DKAA $                                           
++  *
+
+      63  LABEL    DIRECT4 $                                                      
++  +
+
+      63  GFSMA    AXY,AFRY,KYY,DKAA,DKFRFR,KAA,MAA,GM,GO,USETS,USETF,,,/KMAT,    
++  *
+                   MMAT,GIA,,HC/NOGRAV/NOFREE/V,Y,KCOMP/V,Y,COMPTYP/FORM=-1 $     
+
+      63  EQUIV    KMAT,KAA//MMAT,MAA $                                           
++  *
+
+      64  COND     LBL6,REACT $                                                   
++  *
+
+      65  RBMG1    USETF,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                        
++  *
+
+      66  RBMG2    KLL/LLL $                                                      
++  *
+
+      67  RBMG3    LLL,KLR,KRR/DM $                                               
++  *
+
+      68  RBMG4    DM,MLL,MLR,MRR/MR $                                            
++  *
+
+      69  LABEL    LBL6 $                                                         
++  +
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      69  LABEL    NEWM $                                                         
++  +
+
+      70  DPD      DYNAMICS,GPL,SIL,USETF/GPLD,SILD,USETD,,,,,,,EED,EQDYN/LUSET/  
++  *
+                   LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/NONLFT/NOTRL/S,N,NOEED//NOUE $ 
++  *
+
+      71  COND     ERROR2,NOEED $                                                 
++  *
+
+      72  PARAM    //*MPY*/NEIGV/1/-1 $                                           
++  *
+
+      73  READ     KAA,MAA,MR,DM,EED,USETF,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/     
++  *
+                   S,N,NEIGV $                                                    
++  *
+
+      74  OFP      OEIGS,,,,,//S,N,CARDNO $                                       
++  *
+
+      75  COND     FINIS,NEIGV $                                                  
++  *
+
+      76  OFP      LAMA,,,,,//S,N,CARDNO $                                        
++  *
+
+      77  COND     NOCOMP,COMPTYP $                                               
++  *
+
+      77  MPYAD    HC,PHIA,/PHIAC/0/1/0 $                                         
++  *
+
+      77  EQUIV    PHIAC,PHIA $                                                   
++  *
+
+      77  LABEL    NOCOMP $                                                       
++  +
+
+      77  MPYAD    GIA,PHIA,/PHII/0/1/0 $                                         
++  *
+
+      77  EQUIV    PHII,PHIY/NOFREE $                                             
++  *
+
+      77  COND     DIRECT5,NOFREE $                                               
++  *
+
+      77  VEC      USETF/PV3/*A*/*COMP*/*FR* $                                    
++  *
+
+      77  PARTN    PHIA,,PV3/PHIAB,PHIFR,,/0 $                                    
++  *
+
+      77  EQUIV    PHIAB,PHIA $                                                   
++  *
+
+      77  MERGE    PHIFR,PHII,,,,PV2/PHIY/0 $                                     
++  *
+
+      77  LABEL    DIRECT5 $                                                      
++  +
+
+      77  SDR1     USETS,,PHIA,,,GO,GM,,KFS,,/PHIX,,QX/1/*REIG* $                 
++  *
+
+      77  MERGE    PHIX,PHIY,,,,PV1/PHIG/0 $                                      
++  *
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      77  MERGE    QX,,,,,PV1/QG/0 $                                              
++  *
+
+      78  COND     NOMPCF,GRDEQ $                                                 
++  *
+
+      79  EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USETS,KGG,GM,PHIG,LAMA,QG,CSTM/    
++  *
+                   OQM1/V,Y,OPT=0/V,Y,GRDEQ/-1 $                                  
+
+      80  OFP      OQM1,,,,,//S,N,CARDNO $                                        
++  *
+
+      81  LABEL    NOMPCF $                                                       
++  +
+
+      82  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDP,LAMA,QG,PHIG,EST,,,     
++  *
+                   PCOMPS/,OQG1,OPHIG,OES1,OEF1,PPHIG,OES1L,OEF1L/                
+                   *REIG*////COMPS $                                              
+
+      83  OFP      OPHIG,OQG1,OEF1,OES1,OEF1L,OES1L//S,N,CARDNO $                 
++  *
+
+      84  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
++  *
+
+      85  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
++  *
+
+      86  GPFDR    CASECC,PHIG,KELM,KDICT,ECT,EQEXIN,GPECT,LAMA,/ONRGY1,/*REIG* $ 
++  *
+
+      87  OFP      ONRGY1,,,,,//S,N,CARDNO $                                      
++  *
+
+      88  PURGE    KDICT,KELM/ALWAYS $                                            
++  *
+
+      89  COND     P2,JUMPPLOT $                                                  
+
+      90  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,,PPHIG,GPECT,OES1,
+                   OES1L,/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $           
+
+      91  PRTMSG   PLOTX2// $                                                     
+
+      92  LABEL    P2 $                                                           
++  +
+
+      93  JUMP     FINIS $                                                        
++  *
+
+      94  LABEL    ERROR1 $                                                       
++  +
+
+      95  PRTPARM  //-1/*MODES* $                                                 
++  *
+
+      96  LABEL    ERROR2 $                                                       
++  +
+
+      97  PRTPARM  //-2/*MODES* $                                                 
++  *
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      98  LABEL    ERROR3 $                                                       
++  +
+
+      99  PRTPARM  //-3/*MODES* $                                                 
++  *
+
+     100  LABEL    ERROR4 $                                                       
++  +
+
+     101  PRTPARM  //-4/*MODES* $                                                 
++  *
+
+     102  LABEL    FINIS $                                                        
++  +
+
+     103  PURGE    DUMMY/ALWAYS $                                                 
++  *
+
+     104  END      $                                                              
++  *
+0
+0  + INDICATES DMAP INSTRUCTIONS THAT ARE PROCESSED ONLY AT DMAP COMPILATION TIME.
+0  * INDICATES DMAP INSTRUCTIONS THAT ARE FLAGGED FOR EXECUTION IN THIS MODIFIED RESTART.
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    19
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION ADD        INSTRUCTION NO.  48
+     DATA BLOCK NAMED KGG      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION ADD        INSTRUCTION NO.  48
+     DATA BLOCK NAMED KGG      ALREADY APPEARED AS OUTPUT
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    20
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+0THE FOLLOWING FILES FROM THE OLD PROBLEM TAPE WERE USED TO INITIATE RESTART
+
+    FILE NAME  REEL NO.  FILE NO.
+
+     KDGG             1         7
+     XVPS             1         8
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    21
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            8
+                                        PROFILE             69
+                                        MAX WAVEFRONT        8
+                                        AVG WAVEFRONT    4.312
+                                        RMS WAVEFRONT    4.789
+                                        RMS BANDWIDTH    4.802
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            8
+                                        PROFILE             64
+                                        MAX WAVEFRONT        8
+                                        AVG WAVEFRONT    4.000
+                                        RMS WAVEFRONT    4.444
+                                        RMS BANDWIDTH    4.444
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        8         8
+                                        PROFILE (P)                         69        64
+                                        MAXIMUM WAVEFRONT (C-MAX)            8         8
+                                        AVERAGE WAVEFRONT (C-AVG)        4.312     4.000
+                                        RMS WAVEFRONT (C-RMS)            4.789     4.444
+                                        RMS BANDWITCH (B-RMS)            4.802     4.444
+                                        NUMBER OF GRID POINTS (N)                     16
+                                        NUMBER OF ELEMENTS (NON-RIGID)                 5
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           2
+                                        MAXIMUM NODAL DEGREE                           7
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                        47
+                                        MATRIX DENSITY, PERCENT                   42.969
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF SEQGP CARDS GENERATED                   4
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    22
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       9       2      16       3      11       4      10
+                         SEQGP          5      12       6      13       7      15       8      14
+                         SEQGP        101       2     102       4     103       5     104       6
+                         SEQGP        105       1     106       3     107       8     108       7
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** SYSTEM WARNING MESSAGE 2072, CARD TYPE     4802 NOT FOUND ON DATA BLOCK.  BIT POSITION =  48
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION FHEX2    ELEMENTS (ELEMENT TYPE  77) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD2    ELEMENTS (ELEMENT TYPE  18) STARTING WITH ID      101
+0*** SYSTEM WARNING MESSAGE 2173, PARTITIONING VECTOR FILE  103 CONTAINS         1 COLUMNS.
+      THE FIRST COLUMN WILL BE USED, NOT THE REQUESTED COLUMN        -1
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = COMPLEX 
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+                      DIFSCALE =  0.147000E+02  (INPUT)
+                      4TH PARM =  0.000000E+00  (INPUT)
+                      DIFSCAL  = ( 0.147000E+02, 0.000000E+00)   (OUTPUT)
+0*** USER INFORMATION MESSAGE 2016, GIVENS TIME ESTIMATE IS        0 SECONDS.
+                                    PROBLEM SIZE IS      16, SPILL WILL OCCUR FOR THIS CORE AT A PROBLEM SIZE OF    1413 .
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    23
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y   (GIVENS METHOD)
+
+
+
+                                    NUMBER OF EIGENVALUES EXTRACTED . . . . . . .        16
+
+                                    NUMBER OF EIGENVECTORS COMPUTED . . . . . . .         6
+
+                                    NUMBER OF EIGENVALUE CONVERGENCE FAILURES . .         0
+
+                                    NUMBER OF EIGENVECTOR CONVERGENCE FAILURES. .         0
+
+
+                                    REASON FOR TERMINATION. . . . . . . . . . . .         1*
+
+
+                                    LARGEST OFF-DIAGONAL MODAL MASS TERM. . . . .  0.00E+00
+
+                                                                            . . .         0
+                                              MODE PAIR. . . . . . . . . . .
+                                                                            . . .         0
+
+                                    NUMBER OF OFF-DIAG0NAL MODAL MASS
+                                         TERMS FAILING CRITERION. . . . . . . . .         0
+
+
+                                    (* NORMAL TERMINATION)
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    24
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1        16        2.806219E+02        1.675177E+01        2.666127E+00        3.088224E-02        8.666232E+00             
+        2        15        7.382172E+02        2.717015E+01        4.324264E+00        1.173061E-02        8.659735E+00             
+        3        14        7.383858E+02        2.717326E+01        4.324758E+00        1.173713E-02        8.666533E+00             
+        4        13        2.545082E+04        1.595331E+02        2.539049E+01        2.035502E-01        5.180520E+03             
+        5        12        2.906982E+06        1.704988E+03        2.713572E+02        4.583358E-03        1.332374E+04             
+        6        11        1.381452E+07        3.716789E+03        5.915453E+02        8.108597E-02        1.120164E+06             
+0*** SYSTEM WARNING MESSAGE 2173, PARTITIONING VECTOR FILE  103 CONTAINS         1 COLUMNS.
+      THE FIRST COLUMN WILL BE USED, NOT THE REQUESTED COLUMN        -1
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    25
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.280622E+03    (CYCLIC FREQUENCY =  2.666127E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      5.848381E-04   5.849710E-04  -5.848380E-04  -5.849710E-04   9.995967E-01   1.000000E+00                  
+             7      S     -9.995967E-01  -1.000000E+00                                                                              
+           101      G      0.0            0.0            0.0            1.379551E-06   0.0            0.0                           
+           102      G     -1.412923E-06  -3.930039E-05  -3.891129E-05   1.542159E-05   5.761023E-06  -6.943920E-06                  
+           103      G      0.0            0.0            0.0            4.734099E-06   0.0            0.0                           
+           104      G      1.411803E-06  -3.929016E-05   3.890407E-05   5.996096E-06  -8.741978E-06  -5.965030E-06                  
+           105      G      0.0            0.0            0.0           -6.690103E-06   0.0            0.0                           
+           106      G      2.318525E-05  -1.696900E-04  -3.847788E-05   5.883698E-06   2.003878E-06  -1.457370E-05                  
+           107      G      0.0            0.0            0.0           -1.983469E-05   0.0            0.0                           
+           108      G     -2.318367E-05  -1.696899E-04   3.846712E-05   2.783856E-05   1.631826E-06  -7.122585E-06                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    26
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.738217E+03    (CYCLIC FREQUENCY =  4.324264E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      2.132984E-05  -2.126321E-05  -2.133024E-05   2.126329E-05   1.000000E+00  -9.989393E-01                  
+             7      S     -9.999883E-01   9.989277E-01                                                                              
+           101      G      0.0            0.0            0.0           -1.219099E-06   0.0            0.0                           
+           102      G      3.617451E-06   2.945981E-05   3.298810E-05  -1.424847E-05  -5.084546E-06   5.749286E-06                  
+           103      G      0.0            0.0            0.0           -4.174236E-06   0.0            0.0                           
+           104      G     -3.616507E-06   2.945093E-05  -3.298162E-05  -4.614913E-06   7.662463E-06   4.631578E-06                  
+           105      G      0.0            0.0            0.0            6.034433E-06   0.0            0.0                           
+           106      G     -2.226454E-05   1.494873E-04   3.407892E-05  -5.066187E-06  -2.490791E-06   1.250473E-05                  
+           107      G      0.0            0.0            0.0            1.707504E-05   0.0            0.0                           
+           108      G      2.226293E-05   1.494876E-04  -3.406946E-05  -2.560069E-05  -5.084866E-07   6.073706E-06                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    27
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.738386E+03    (CYCLIC FREQUENCY =  4.324758E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -2.126892E-05   2.125084E-05  -2.126867E-05   2.125060E-05   9.999883E-01  -9.999408E-01                  
+             7      S      1.000000E+00  -9.999525E-01                                                                              
+           101      G      0.0            0.0            0.0           -2.623393E-07   0.0            0.0                           
+           102      G     -9.917669E-08   7.575648E-07   2.300655E-06  -8.609695E-07  -6.616570E-07   3.386609E-07                  
+           103      G      0.0            0.0            0.0            5.500867E-07   0.0            0.0                           
+           104      G     -9.928146E-08  -7.560362E-07   2.300581E-06   5.378189E-07  -6.211253E-07  -3.596390E-07                  
+           105      G      0.0            0.0            0.0            4.691360E-07   0.0            0.0                           
+           106      G     -1.795507E-05   8.431123E-06   5.472988E-06   6.177121E-08  -1.539532E-06   1.003611E-06                  
+           107      G      0.0            0.0            0.0           -1.653338E-06   0.0            0.0                           
+           108      G     -1.795518E-05  -8.431460E-06   5.472999E-06   1.431651E-06  -2.016961E-06  -7.765111E-07                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    28
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.254508E+05    (CYCLIC FREQUENCY =  2.539049E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -2.807235E-03  -2.826249E-03  -2.807233E-03  -2.826245E-03   9.961363E-01   1.000000E+00                  
+             7      S      9.961355E-01   9.999826E-01                                                                              
+           101      G      0.0            0.0            0.0            2.936447E-04   0.0            0.0                           
+           102      G     -3.016113E-03   1.495767E-03   5.455651E-03   2.827806E-04  -6.498147E-04   2.374478E-04                  
+           103      G      0.0            0.0            0.0           -2.214316E-04   0.0            0.0                           
+           104      G     -3.016353E-03  -1.495160E-03   5.454057E-03  -2.801699E-05  -9.046852E-04  -3.376306E-04                  
+           105      G      0.0            0.0            0.0            5.101847E-08   0.0            0.0                           
+           106      G     -8.900195E-04   3.490144E-05   4.025894E-03  -2.468982E-05   3.854627E-04  -5.110857E-05                  
+           107      G      0.0            0.0            0.0            7.325875E-06   0.0            0.0                           
+           108      G     -8.899153E-04  -2.983216E-05   4.024191E-03  -1.226114E-04   8.110397E-04   4.286862E-05                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    29
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.290698E+07    (CYCLIC FREQUENCY =  2.713572E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -1.776019E-04  -5.032963E-04   1.776236E-04   5.032759E-04   1.370764E-01   1.000000E+00                  
+             7      S     -1.371005E-01  -9.999939E-01                                                                              
+           101      G      0.0            0.0            0.0           -2.059499E-03   0.0            0.0                           
+           102      G     -1.981636E-02   1.119831E-01   7.081651E-02  -1.645892E-02  -8.381356E-03   1.438819E-02                  
+           103      G      0.0            0.0            0.0           -7.037432E-03   0.0            0.0                           
+           104      G      1.981732E-02   1.119654E-01  -7.080354E-02  -1.571058E-02   1.326267E-02   1.549676E-02                  
+           105      G      0.0            0.0            0.0            8.595600E-03   0.0            0.0                           
+           106      G     -1.081547E-02   2.562675E-01   5.556607E-02  -1.004320E-02   4.611591E-03   2.583029E-02                  
+           107      G      0.0            0.0            0.0            3.389536E-02   0.0            0.0                           
+           108      G      1.081271E-02   2.562617E-01  -5.554633E-02  -3.113751E-02  -1.212702E-02   1.318727E-02                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    30
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.138145E+08    (CYCLIC FREQUENCY =  5.915453E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          6
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -1.224661E-03   1.207042E-03  -1.224537E-03   1.207394E-03   1.000000E+00   3.910146E-01                  
+             7      S      9.999042E-01   3.935071E-01                                                                              
+           101      G      0.0            0.0            0.0           -3.995494E-02   0.0            0.0                           
+           102      G      3.499810E-01  -1.789318E-01  -7.818092E-01  -3.466981E-02   9.652293E-02  -2.813455E-02                  
+           103      G      0.0            0.0            0.0            3.020714E-02   0.0            0.0                           
+           104      G      3.501158E-01   1.790554E-01  -7.815714E-01   3.513103E-03   1.285362E-01   4.073907E-02                  
+           105      G      0.0            0.0            0.0           -9.763774E-04   0.0            0.0                           
+           106      G      1.351255E-01  -4.944577E-03  -6.065949E-01   1.880844E-03  -4.906796E-02   7.917773E-03                  
+           107      G      0.0            0.0            0.0           -2.313321E-03   0.0            0.0                           
+           108      G      1.351088E-01   4.108442E-03  -6.062930E-01   1.437638E-02  -1.045315E-01  -6.501143E-03                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    31
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.280622E+03    (CYCLIC FREQUENCY =  2.666127E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      1.149116E+01   9.442273E+00   6.875922E+00   0.0           -2.289689E-03   9.602806E-03                  
+           103      G     -1.148944E+01   9.445481E+00  -6.875083E+00   0.0            4.182575E-03   1.300107E-02                  
+           105      G     -2.095879E+01   8.711622E-03   9.048681E+00   0.0            1.647883E-03   2.696416E-02                  
+           107      G      2.095707E+01   1.388792E-02  -9.049520E+00   0.0            1.028484E-03   1.825621E-02                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    32
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.738217E+03    (CYCLIC FREQUENCY =  4.324264E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -1.281785E+01  -6.764985E+00  -5.511760E+00   0.0            1.597687E-03  -7.761177E-03                  
+           103      G      1.281632E+01  -6.767395E+00   5.511054E+00   0.0           -3.511535E-03  -1.012260E-02                  
+           105      G      1.960424E+01  -7.789910E-03  -7.730357E+00   0.0           -1.485655E-03  -2.393755E-02                  
+           107      G     -1.960256E+01  -1.217349E-02   7.731065E+00   0.0           -9.437014E-04  -1.619241E-02                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    33
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.738386E+03    (CYCLIC FREQUENCY =  4.324758E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -4.238257E-01  -1.747972E-01   1.475495E+00   0.0            7.826900E-05  -1.289027E-04                  
+           103      G     -4.235089E-01   1.747240E-01   1.475332E+00   0.0            2.783501E-04   1.597925E-04                  
+           105      G      1.285788E+01  -4.879394E-04  -1.193121E+00   0.0           -7.212317E-05  -1.416863E-03                  
+           107      G      1.285787E+01   6.400240E-04  -1.193362E+00   0.0            8.546449E-05   2.164045E-04                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    34
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.254508E+05    (CYCLIC FREQUENCY =  2.539049E+01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      3.867885E+03  -4.977713E+01  -1.260130E+03   0.0            9.716461E-01  -3.564660E-01                  
+           103      G      3.868300E+03   4.973099E+01  -1.259971E+03   0.0            7.794044E-01   3.800184E-01                  
+           105      G      1.276842E+03   1.766166E-02  -1.319576E+03   0.0            7.238353E-03  -4.979845E-02                  
+           107      G      1.276561E+03   2.635394E-02  -1.319497E+03   0.0           -7.610356E-02   9.000003E-02                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    35
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.290698E+07    (CYCLIC FREQUENCY =  2.713572E+02 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      7.074962E+03  -2.982191E+04  -1.627421E+04   0.0            7.496027E+00  -2.145346E+01                  
+           103      G     -7.076127E+03  -2.983088E+04   1.627210E+04   0.0           -7.896990E+00  -3.309230E+01                  
+           105      G      1.608620E+04  -1.187400E+01  -1.574764E+04   0.0           -2.129232E+00  -3.874075E+01                  
+           107      G     -1.608297E+04  -2.153847E+01   1.574840E+04   0.0           -1.212483E+00  -2.638585E+01                  
+1     HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                    /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    36
+      NASTRAN TEST PROBLEM NO. T04-02-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.138145E+08    (CYCLIC FREQUENCY =  5.915453E+02 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -4.322677E+05   7.078621E+03   1.789997E+05   0.0           -1.346045E+02   4.155194E+01                  
+           103      G     -4.324502E+05  -7.132312E+03   1.789770E+05   0.0           -1.122838E+02  -4.549442E+01                  
+           105      G     -1.885343E+05  -2.404517E+00   1.869510E+05   0.0           -7.659142E-01   6.809124E+00                  
+           107      G     -1.884889E+05  -3.710195E+00   1.869389E+05   0.0            7.256309E+00  -9.445900E+00                  
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                 
+ DATE:  5/18/95
+ END TIME: 10:26: 8
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

@@ -1,0 +1,66 @@
+ID    D01061A,NASTRAN                                                           
+APP   DISP                                                                      
+SOL   1,1                                                                       
+TIME  5                                                                         
+CEND                                                                            
+TITLE    = SOLID DISC WITH RADIALLY VARYING THERMAL LOAD                        
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-06-1A                          
+LABEL    = TRAPEZOIDAL RING ELEMENTS                                            
+SPC = 16                                                                        
+TEMPERATURE(LOAD) = 16                                                          
+    OUTPUT                                                                      
+       SET 1 = 1,3,5,7,9,11,13,15,17,19,21,23,25,26                             
+       DISP  = 1                                                                
+       ELSTRESS = ALL                                                           
+BEGIN BULK                                                                      
+CTRAPRG 1       1       3       4       2       .0      12                      
+CTRAPRG 2       3       5       6       4       .0      12                      
+CTRAPRG 3       5       7       8       6       .0      12                      
+CTRAPRG 4       7       9       10      8       .0      12                      
+CTRAPRG 5       9       11      12      10      .0      12                      
+CTRAPRG 6       11      13      14      12      .0      12                      
+CTRAPRG 7       13      15      16      14      .0      12                      
+CTRAPRG 8       15      17      18      16      .0      12                      
+CTRAPRG 9       17      19      20      18      .0      12                      
+CTRAPRG 10      19      21      22      20      .0      12                      
+CTRAPRG 11      21      23      24      22      .0      12                      
+CTRAPRG 12      23      25      26      24      .0      12                      
+GRDSET                                                  2456                    
+GRID    1               .0                                                      
+GRID    2               .0              .01                                     
+GRID    3               .005                                                    
+GRID    4               .005            .01                                     
+GRID    5               .01                                                     
+GRID    6               .01             .01                                     
+GRID    7               .015                                                    
+GRID    8               .015            .01                                     
+GRID    9               .02                                                     
+GRID    10              .02             .01                                     
+GRID    11              .03                                                     
+GRID    12              .03             .01                                     
+GRID    13              .04                                                     
+GRID    14              .04             .01                                     
+GRID    15              .05                                                     
+GRID    16              .05             .01                                     
+GRID    17              .06                                                     
+GRID    18              .06             .01                                     
+GRID    19              .07                                                     
+GRID    20              .07             .01                                     
+GRID    21              .08                                                     
+GRID    22              .08             .01                                     
+GRID    23              .09                                                     
+GRID    24              .09             .01                                     
+GRID    25              .10                                                     
+GRID    26              .10             .01                                     
+MAT1    12      1.0+7           .3      .2587-3 1.0-7   .0                      
+SPC     16      1       13      .0      2       1       .0                      
+TEMP    16      1       100.    2       100.    3       99.75                   
+TEMP    16      4       99.75   5       99.0    6       99.0                    
+TEMP    16      7       97.75   8       97.75   9       96.0                    
+TEMP    16      10      96.0    11      91.0    12      91.0                    
+TEMP    16      13      84.0    14      84.0    15      75.0                    
+TEMP    16      16      75.0    17      64.0    18      64.0                    
+TEMP    16      19      51.0    20      51.0    21      36.0                    
+TEMP    16      22      36.0    23      19.0    24      19.0                    
+TEMP    16      25      .0      26      .0                                      
+ENDDATA                                                                         

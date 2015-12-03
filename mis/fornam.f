@@ -1,0 +1,108 @@
+      SUBROUTINE FORNAM ( IELT, ISCAN, NAME )
+      COMMON / SYSTEM / ISYSBF, NOUT
+      CHARACTER*12    NAME
+      NAME= ' '
+      IF ( IELT .NE. 1 .AND. IELT .NE. 3 .AND. IELT .NE. 10 ) GO TO 10
+C ROD, TUBE, CONROD
+      IF ( ISCAN .EQ. 2 ) NAME='AXIAL'
+      IF ( ISCAN .EQ. 4 ) NAME='TORQUE'
+      GO TO 7000
+10    IF ( IELT .NE. 4 .AND. IELT .NE. 5 ) GO TO 20
+C SHEAR, TWIST
+      IF ( ISCAN .EQ. 2 ) NAME='FORCE-1'
+      IF ( ISCAN .EQ. 3 ) NAME='FORCE-2'
+      GO TO 7000
+20    IF ( IELT .NE. 6  .AND. IELT .NE. 17 .AND. IELT .NE. 19 .AND.
+     &     IELT .NE. 18 .AND. IELT .NE. 7  .AND. IELT .NE. 8  .AND.
+     &     IELT .NE. 15 ) GO TO 30
+C TRIA1, TRIA2, QUAD1, QUAD2, TRBSC, TRPLT, QDPLT
+      IF ( ISCAN .EQ. 2 ) NAME='MOMENT-X'
+      IF ( ISCAN .EQ. 3 ) NAME='MOMENT-Y'
+      IF ( ISCAN .EQ. 5 ) NAME='SHEAR-X'
+      IF ( ISCAN .EQ. 6 ) NAME='SHEAR-Y'
+      IF ( ISCAN .EQ. 4 ) NAME='TWIST'
+      GO TO 7000
+30    IF ( IELT .NE. 9 .AND. IELT .NE. 16 .AND. IELT .NE. 62 .AND.
+     &     IELT .NE. 63 ) GO TO 40
+C TRMEM, QDMEM, QDMEM1, QDMEM2
+      IF ( ISCAN .EQ. 3 .OR. ISCAN .EQ. 4 ) NAME='FORCE-12'
+      IF ( ISCAN .EQ. 5 .OR. ISCAN .EQ. 6 ) NAME='FORCE-23'
+      IF ( ISCAN .EQ. 7 .OR. ISCAN .EQ. 8 ) NAME='FORCE-34'
+      IF ( ISCAN .EQ. 2 .OR. ISCAN .EQ. 9 ) NAME='FORCE-41'
+      IF ( ISCAN .EQ. 10) NAME='KICK ON1'
+      IF ( ISCAN .EQ. 12) NAME='KICK ON2'
+      IF ( ISCAN .EQ. 14) NAME='KICK ON3'
+      IF ( ISCAN .EQ. 16) NAME='KICK ON4'
+      IF ( ISCAN .EQ. 11) NAME='SHEAR-XY'
+      IF ( ISCAN .EQ. 13) NAME='SHEAR-YZ'
+      IF ( ISCAN .EQ. 15) NAME='SHEAR-ZX'
+      IF ( ISCAN .EQ. 17) NAME='SHEAR'
+      GO TO 7000
+40    IF ( IELT .NE. 11 .AND. IELT .NE. 12 .AND. IELT .NE. 13 .AND.
+     &     IELT .NE. 80 ) GO TO 50
+C ELAS1, ELAS2, ELAS3, IS2D8
+      IF ( ISCAN .EQ. 2 ) NAME='CIRCUM'
+      IF ( ISCAN .EQ. 4 .AND. ISCAN .EQ. 9 ) NAME='FORCE-1'
+      IF ( ISCAN .EQ. 3 .AND. ISCAN .EQ. 6 ) NAME='FORCE-2'
+      IF ( ISCAN .EQ. 5 .AND. ISCAN .EQ. 8 ) NAME='FORCE-3'
+      IF ( ISCAN .EQ. 2 .AND. ISCAN .EQ. 7 ) NAME='FORCE-4'
+      GO TO 7000
+50    IF ( IELT .NE. 34 .AND. IELT .NE. 81 ) GO TO 60
+C BAR, ELBOW
+      IF ( ISCAN .EQ. 5 .OR. ISCAN .EQ. 6 ) NAME='SHEAR'
+      IF ( ISCAN .EQ. 2 .OR. ISCAN .EQ. 3 ) NAME='MOMENT-A'
+      IF ( ISCAN .EQ. 4 .OR. ISCAN .EQ. 5 ) NAME='MOMENT-B'
+      IF ( ISCAN .EQ. 8 ) NAME='AXIAL'  
+      IF ( ISCAN .EQ. 9 ) NAME='TORQUE'
+      GO TO 7000
+60    IF ( IELT .NE. 35 ) GO TO 70
+C CONEAX
+      IF ( ISCAN .EQ. 3 ) NAME='MOMENT-U'
+      IF ( ISCAN .EQ. 4 ) NAME='MOMENT-V'
+      IF ( ISCAN .EQ. 6 ) NAME='SHEAR-XY'
+      IF ( ISCAN .EQ. 7 ) NAME='SHEAR-YZ'
+      GO TO 7000
+70    IF ( IELT .NE. 36 ) GO TO 80
+C TRIARG
+      KSCAN = MOD ( ISCAN, 3 )
+      IF ( KSCAN .EQ. 2 ) NAME='RADIAL'
+      IF ( KSCAN .EQ. 3 ) NAME='CIRCUM'
+      IF ( KSCAN .EQ. 1 ) NAME='AXIAL'
+      GO TO 7000
+80    IF ( IELT .NE. 37 ) GO TO 90
+C TRAPRG
+      KSCAN = MOD( ISCAN, 3 )
+      IF ( KSCAN .EQ. 2 ) NAME='RADIAL'
+      IF ( KSCAN .EQ. 3 ) NAME='CIRCUM'
+      IF ( KSCAN .EQ. 1 ) NAME='AXIAL'
+      GO TO 7000
+90    IF ( IELT .NE. 38 ) GO TO 120
+C TORDRG
+      KSCAN = MOD( ISCAN, 6 )
+      IF ( KSCAN .EQ. 2 ) NAME='RADIAL'
+      IF ( KSCAN .EQ. 3 ) NAME='CIRCUM'
+      IF ( KSCAN .EQ. 4 ) NAME='AXIAL'
+      IF ( KSCAN .EQ. 5 ) NAME='MOMENT'
+      IF ( KSCAN .EQ. 1 ) NAME='CURV'
+      GO TO 7000
+120   IF ( IELT .NE. 70 .AND. IELT .NE. 71 ) GO TO 130
+C TRIAAX, TRAPAX
+      KSCAN = MOD ( ISCAN, 4 )
+      IF ( KSCAN .EQ. 3 ) NAME='RADIAL'
+      IF ( KSCAN .EQ. 0 ) NAME='CIRCUM'
+      IF ( KSCAN .EQ. 1 ) NAME='AXIAL' 
+      GO TO 7000
+130   IF ( IELT .NE. 64 .AND. IELT .NE. 83 ) GO TO 150
+C QUAD4, TRIA3 
+      IF ( ISCAN .EQ. 2 .OR. ISCAN .EQ. 3 ) NAME='FX+FY'
+      IF ( ISCAN .EQ. 4                   ) NAME='FXY'
+      IF ( ISCAN .EQ. 5 .OR. ISCAN .EQ. 6 ) NAME='MX+MY'
+      IF ( ISCAN .EQ. 7                   ) NAME='MXY'
+      IF ( ISCAN .EQ. 8 .OR. ISCAN .EQ. 9 ) NAME='VX+VY'
+      GO TO 7000
+150   WRITE ( NOUT, 901 ) IELT 
+901   FORMAT(//' SCAN MODULE PROCESSING UNKNOWN ELEMENT NUMBER '
+     &       ,I8,//)
+      CALL MESAGE( -61,0,0)
+7000  RETURN
+      END

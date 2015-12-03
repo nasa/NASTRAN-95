@@ -1,0 +1,31 @@
+ID    D02027A,NASTRAN                                                           
+APP   DISP,SUBS                                                                 
+SOL   3,0                                                                       
+TIME  20                                                                        
+DIAG  23                                                                        
+CEND                                                                            
+SUBSTRUCTURE PHASE2                                                             
+  PASSWORD = DEMO                                                               
+  SOF(1)   = FT18,950 $ DEC VAX                                                 
+  SOFPRINT TOC                                                                  
+  EQUIV SMALLMIL,SMILLDYN                                                       
+  PREFIX = D                                                                    
+  SOFPRINT TOC                                                                  
+  SOLVE SMILLDYN                                                                
+  RECOVER SMILLDYN                                                              
+  PRINT DWINDMIL                                                                
+ENDSUBS                                                                         
+TITLE    = WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTURING     
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                          
+LABEL    = NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                            
+METHOD   = 10                                                                   
+MPC      = 21                                                                   
+VECTOR   = ALL                                                                  
+BEGIN BULK                                                                      
+EIGR    10      INV     .0      .1      1       1                       PEIG    
++EIG    MAX                                                                     
+MPCS    21      DHUB    108     1       -1.0                            +MPC1   
++MPC1           DROOT1  6       2       .94868336       1       .3162278        
+MPCS    21      DHUB    108     2       -1.0                            +MPC2   
++MPC2           DROOT1  6       1       -.9486836       2       .3162278        
+ENDDATA                                                                         

@@ -1,0 +1,95 @@
+$-------------------------------------------------------------------------------
+$                      RIGID FORMAT No. 5, Buckling Analysis
+$             Buckling of a Tapered Column Fixed at the Base (5-2-1)
+$ 
+$ A. Description
+$ 
+$ A buckling analysis of a tapered column fixed at the base is presented. The
+$ shallow shell element TRSHL, with membrane and bending stiffness combined, is
+$ utilized for modeling the column. (See Reference 31, pp. 190-194). Note that a
+$ vertical plane of symmetry is utilized, allowing the model to represent only
+$ half the structure.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$                 7            2
+$    E =  3.0 x 10  pounds/inch           (Young's modulus)
+$ 
+$                 7            2
+$    G =  1.5 x 10  pounds/inch           (Shear modulus)
+$ 
+$    L =  3.0 inches                      (Height)
+$ 
+$    a =  6.056 inches                    (Length)
+$ 
+$    The area moment of inertia at any cross section is expressed as
+$ 
+$                   x  4
+$       I   =  I  ( - )                                                      (1)
+$        x      1   a
+$ 
+$    I  and I  are the moments of inertia at the top (x=a) and bottom (x=0)
+$     1      2
+$    of the column respectively and I /I  = 0.2. For this problem 3I  = 2 and
+$                                    1  2                           1
+$    3I  = 10. The thickness varies linearly from the top (t = 2.0) to the
+$      2
+$    bottom (t = 3.0) of the column.
+$ 
+$ 2. Constraints:
+$ 
+$    theta , theta  = 0          (All grid points)
+$         y       z
+$ 
+$    x, y, z, theta  = 0         (Grids 1, 2, and 3)
+$                  x
+$    x = 0                       (Grids 4, 7, 10, 13)
+$ 
+$ 3. Loads:
+$ 
+$    F  = -166.66                (Grids 13 and 15)
+$     y
+$ 
+$    F  = -666.66                (Grid 14)
+$     y
+$ 
+$ The theoretical solution to this problem is developed on pages 125-130 of
+$ Reference 23. The reference defines the buckling factor as
+$ 
+$                   2
+$               P  L
+$                cr
+$    lambda  =  ------                                                       (2)
+$                EI
+$                  2
+$ 
+$ where, for this problem, lambda = 1.505.
+$ 
+$ D. Results
+$ 
+$ NASTRAN results for this problem, as modeled with the TRSHL element, are
+$ presented below.
+$ 
+$                        ---------------------------------
+$                                                      2
+$                                                  P  L
+$                                                   cr
+$                        Buckling Factor lambda =  ------
+$                                                   EI
+$                                                     2
+$                        ---------------------------------
+$                               TRSHL        Theory
+$                        ---------------------------------
+$                               1.543        1.505
+$                        ---------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 23. Timoshenko, S. P., Theory of Elastic Stability, McGraw-Hill, 1961, p 159.
+$ 
+$ 31. Narayanaswami, R.: Addition of Higher Order Plate and Shell Elements into
+$     NASTRAN Computer Program, Technical Report 76-T19, Old Dominion University
+$     Research Foundation, Norfolk, Virginia, December, 1976.
+$-------------------------------------------------------------------------------

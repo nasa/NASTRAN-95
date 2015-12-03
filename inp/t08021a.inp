@@ -1,0 +1,140 @@
+NASTRAN FILES = PLT2                                                            
+ID    T08021A,NASTRAN                                                           
+APP   DISP                                                                      
+SOL   8                                                                         
+DIAG  14                                                                        
+TIME  50                                                                        
+$                                                                               
+READFILE COSDFVA                                                                
+$                                                                               
+CEND                                                                            
+TITLE    = ROTATING CYCLIC STRUCTURE (FREQ+BASE ACCN LOADS, HARM. I/O)          
+SUBTITLE = NASTRAN TEST PROBLEM NO. T08-02-1A                                   
+$                                                                               
+   SPC   = 30                                                                   
+   FREQ  = 1                                                                    
+OUTPUT                                                                          
+   SET 1 = 8,16,18                                                              
+   SET 2 = 11                                                                   
+   OLOAD = 1                                                                    
+   DISP(SORT2,PHASE)   = 1                                                      
+   STRESS(SORT2,PHASE) = 2                                                      
+SUBCASE  1                                                                      
+   LABEL = KINDEX 0                                                             
+   DLOAD = 1   $ FREQ DEPENDENT LOADS                                           
+$                AXIAL BASE ACCN LOADS VIA PARAM BXTID,BXPTID                   
+ SUBCASE 2                                                                      
+   LABEL = KINDEX 1C                                                            
+$                LATERAL BASE ACCN LOADS VIA PARAM BYTID                        
+ SUBCASE 3                                                                      
+   LABEL = KINDEX 1S                                                            
+$                LATERAL BASE ACCN LOADS VIA PARAM BZTID                        
+ SUBCASE 4                                                                      
+   LABEL = KINDEX 2C                                                            
+   DLOAD = 1   $ FREQ DEPENDENT LOADS                                           
+ SUBCASE 5                                                                      
+   LABEL = KINDEX 2S                                                            
+OUTPUT(XYPLOT)                                                                  
+   PLOTTER NASTPLT D,0                                                          
+   XPAPER = 8.0                                                                 
+   YPAPER = 10.5                                                                
+   XAXIS  = YES                                                                 
+   YAXIS  = YES                                                                 
+   XGRID LINES = YES                                                            
+   YGRID LINES = YES                                                            
+   CURVELINESYMBOL = 1                                                          
+   XTITLE =                           FREQUENCY (HERTZ)                         
+   YTITLE =            GRID POINT DISPLACEMENTS ( MAGNITUDE,INCH )              
+   YLOG   = YES                                                                 
+   TCURVE = 8(T3RM),18(T3RM)                                                    
+   XYPLOT,XYPRINT DISP RESPONSE 1 /8(T3RM),18(T3RM)                             
+   XYPLOT,XYPRINT DISP RESPONSE 2 /8(T3RM),18(T3RM)                             
+   XYPLOT,XYPRINT DISP RESPONSE 3 /8(T3RM),18(T3RM)                             
+   XYPLOT,XYPRINT DISP RESPONSE 4 /8(T3RM),18(T3RM)                             
+   YTITLE =            GRID POINT DISPLACEMENTS ( PHASE,DEGREE )                
+   YLOG   = NO                                                                  
+   TCURVE = 8(T3IP),18(T3IP)                                                    
+   XYPLOT,XYPRINT DISP RESPONSE 2 /8(T3IP),18(T3IP)                             
+   YTITLE =                   ELEMENT STRESSES ( MAGNITUDE,PSI )                
+   YLOG   = YES                                                                 
+   TCURVE = 11(3),11(5),11(7),11(10),11(12),11(14)                              
+   XYPLOT,XYPRINT STRESS RESPONSE 1 /11(3),11(5),11(7),                         
+                                     11(10),11(12),11(14)                       
+   XYPLOT,XYPRINT STRESS RESPONSE 2 /11(3),11(5),11(7),                         
+                                     11(10),11(12),11(14)                       
+   XYPLOT,XYPRINT STRESS RESPONSE 3 /11(3),11(5),11(7),                         
+                                     11(10),11(12),11(14)                       
+   XYPLOT,XYPRINT STRESS RESPONSE 4 /11(3),11(5),11(7),                         
+                                     11(10),11(12),11(14)                       
+BEGIN BULK                                                                      
+CORD2C  1               0.0     0.0     0.0     1.0     0.0     0.0     +COR12  
++COR12  0.0     1.0     0.0                                                     
+CQUAD2  4       2       2       3       7       6                               
+CQUAD2  5       2       6       7       12      11                              
+CQUAD2  6       2       3       4       8       7                               
+CQUAD2  7       2       7       8       13      12                              
+CQUAD2  8       2       4       5       9       8                               
+CQUAD2  10      2       8       15      14      13                              
+CQUAD2  11      3       9       16      18      15                              
+CQUAD2  12      3       16      17      19      18                              
+CTRIA2  1       1       1       6       10                                      
+CTRIA2  2       1       1       2       6                                       
+CTRIA2  3       1       10      6       11                                      
+CTRIA2  9       1       8       9       15                                      
+CYJOIN  1               1       2       3       4       5                       
+CYJOIN  2               10      11      12      13      14                      
+DAREA   1       8       3       -1.0                                            
+DAREA   1       16      3        1.0                                            
+DAREA   1       18      3        1.0                                            
+FREQ    1       1700.0  1750.0  1777.6  1795.7  1813.8541832.0  1850.1  +FR1    
++FR1    1880.0  1920.0                                                          
+GRDSET            1                               1                             
+GRID    1               2.0     30.0    0.0                                     
+GRID    2               3.1     30.0    0.0                                     
+GRID    3               4.3     30.0    0.0                                     
+GRID    4               5.2     30.0    0.0                                     
+GRID    5               7.1     30.0    0.0                                     
+GRID    6               3.1     45.0    0.0                                     
+GRID    7               4.3     45.0    0.0                                     
+GRID    8               5.2     45.0    0.0                                     
+GRID    9               7.1     40.0    0.0                                     
+GRID    10              2.0     60.0    0.0                                     
+GRID    11              3.1     60.0    0.0                                     
+GRID    12              4.3     60.0    0.0                                     
+GRID    13              5.2     60.0    0.0                                     
+GRID    14              7.1     60.0    0.0                                     
+GRID    15              7.1     50.0    0.0                                     
+GRID    16              8.5     40.0    -.25                                    
+GRID    17              9.7     40.0    -.50                                    
+GRID    18              8.5     50.0    0.25                                    
+GRID    19              9.7     50.0    0.50                                    
+MAT1    1       30.0+6          .3      7.4-4                                   
+PARAM   BXTID   9001                                                            
+PARAM   BXPTID  9002                                                            
+PARAM   BYTID   9003                                                            
+PARAM   BZTID   9004                                                            
+PARAM   CYCIO   -1                                                              
+PARAM   G       .02                                                             
+PARAM   GKAD    FREQRESP                                                        
+PARAM   KMAX    2                                                               
+PARAM   KMIN    0                                                               
+PARAM   LGKAD   1                                                               
+PARAM   NSEGS   12                                                              
+PARAM   RPS     600.0                                                           
+PQUAD2  2       1       .25                                                     
+PQUAD2  3       1       .125                                                    
+PTRIA2  1       1       .25                                                     
+RLOAD1  1       1                       100                                     
+SPC1    30      123456  1       10                                              
+SPC1    30      6       1       THRU    19                                      
+TABLED1 100                                                             +TBD1   
++TBD1   0.0     1.0     1000.0  1.0     ENDT                                    
+TABLED1 9001                                                            +TAB11  
++TAB11  1000.   0.0     2000.0  1000.0  ENDT                                    
+TABLED1 9002                                                            +TAB21  
++TAB21  1000.   -180.   2000.0  0.0     ENDT                                    
+TABLED1 9003                                                            +TAB31  
++TAB31  1000.   1000.0  2000.0  1000.0  ENDT                                    
+TABLED1 9004                                                            +TAB41  
++TAB41  1000.   500.0   2000.0  500.0   ENDT                                    
+ENDDATA                                                                         

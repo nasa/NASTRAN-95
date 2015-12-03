@@ -1,0 +1,694 @@
+ID    D06011A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+TIME  100                                                                       
+SOL   6,1                                                                       
+CEND                                                                            
+TITLE    = PIECEWISE LINEAR ANALYSIS OF A CRACKED PANEL                         
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D06-01-1A                          
+MAXLINES = 50000                                                                
+$   ECHO = NONE                                                                 
+     SPC = 10                                                                   
+    LOAD = 600                                                                  
+    PLCOEFFICIENT = 23                                                          
+OUTPUT                                                                          
+$                                                                               
+SET 1 = 1 THRU 26,42,43,50,77,107,137,167,195,222,249,272,293,341,347,          
+        348                                                                     
+SET 2 = 1 THRU 36, 196, 200                                                     
+$                                                                               
+      DISPLACEMENT = 2                                                          
+      OLOAD    = ALL                                                            
+      SPCFORCE = ALL                                                            
+      STRESS   = 1                                                              
+BEGIN BULK                                                                      
+CTRMEM  1       1       7       8       9                                       
+CTRMEM  2       1       8       12      9                                       
+CTRMEM  3       1       9       10      12                                      
+CTRMEM  4       1       10      11      12                                      
+CTRMEM  5       1       12      13      11                                      
+CTRMEM  6       1       13      14      11                                      
+CTRMEM  7       1       15      16      1                                       
+CTRMEM  8       1       1       2       16                                      
+CTRMEM  9       1       16      17      2                                       
+CTRMEM  10      1       2       3       17                                      
+CTRMEM  11      1       17      18      3                                       
+CTRMEM  12      1       3       4       18                                      
+CTRMEM  13      1       18      19      4                                       
+CTRMEM  14      1       19      20      4                                       
+CTRMEM  15      1       4       5       20                                      
+CTRMEM  16      1       5       6       20                                      
+CTRMEM  17      1       20      21      6                                       
+CTRMEM  18      1       21      22      6                                       
+CTRMEM  19      1       6       7       22                                      
+CTRMEM  20      1       7       22      9       90.0                            
+CTRMEM  21      1       22      23      9                                       
+CTRMEM  22      1       9       10      23                                      
+CTRMEM  23      1       10      11      23                                      
+CTRMEM  24      1       23      24      11                                      
+CTRMEM  25      1       14      24      11      90.0                            
+CTRMEM  26      1       14      26      24                                      
+CTRMEM  27      1       24      25      26                                      
+CTRMEM  28      1       15      16      27                                      
+CTRMEM  29      1       27      28      16                                      
+CTRMEM  30      1       16      17      28                                      
+CTRMEM  31      1       28      29      17                                      
+CTRMEM  32      1       17      18      29                                      
+CTRMEM  33      1       29      30      18                                      
+CTRMEM  34      1       18      19      30                                      
+CTRMEM  35      1       19      20      30                                      
+CTRMEM  36      1       30      31      20                                      
+CTRMEM  37      1       31      32      20                                      
+CTRMEM  38      1       20      21      32                                      
+CTRMEM  39      1       21      22      32                                      
+CTRMEM  40      1       32      33      22                                      
+CTRMEM  41      1       33      34      22                                      
+CTRMEM  42      1       22      23      34                                      
+CTRMEM  43      1       23      24      34                                      
+CTRMEM  44      1       34      35      24                                      
+CTRMEM  45      1       35      36      24                                      
+CTRMEM  46      1       24      25      36                                      
+CTRMEM  47      1       25      38      36                                      
+CTRMEM  48      1       36      37      38                                      
+CTRMEM  49      1       25      38      26                                      
+CTRMEM  50      1       26      39      38                                      
+CTRMEM  51      1       40      41      27                                      
+CTRMEM  52      1       27      28      41                                      
+CTRMEM  53      1       41      42      28                                      
+CTRMEM  54      1       28      29      42                                      
+CTRMEM  55      1       42      43      29                                      
+CTRMEM  56      1       29      30      43                                      
+CTRMEM  57      1       43      44      30                                      
+CTRMEM  58      1       44      45      30                                      
+CTRMEM  59      1       30      31      45                                      
+CTRMEM  60      1       31      32      45                                      
+CTRMEM  61      1       45      46      32                                      
+CTRMEM  62      1       46      47      32                                      
+CTRMEM  63      1       32      33      47                                      
+CTRMEM  64      1       33      34      47                                      
+CTRMEM  65      1       47      48      34                                      
+CTRMEM  66      1       48      49      34                                      
+CTRMEM  67      1       34      35      49                                      
+CTRMEM  68      1       35      36      49                                      
+CTRMEM  69      1       49      50      36                                      
+CTRMEM  70      1       50      51      36                                      
+CTRMEM  71      1       36      37      51                                      
+CTRMEM  72      1       37      53      51                                      
+CTRMEM  73      1       51      52      53                                      
+CTRMEM  74      1       37      53      38                                      
+CTRMEM  75      1       38      54      53                                      
+CTRMEM  76      1       38      54      55                                      
+CTRMEM  77      1       39      55      38                                      
+CTRMEM  78      1       40      41      56                                      
+CTRMEM  79      1       56      57      41                                      
+CTRMEM  80      1       41      42      57                                      
+CTRMEM  81      1       57      58      42                                      
+CTRMEM  82      1       42      43      58                                      
+CTRMEM  83      1       58      59      43                                      
+CTRMEM  84      1       43      44      59                                      
+CTRMEM  85      1       44      45      59                                      
+CTRMEM  86      1       59      60      45                                      
+CTRMEM  87      1       60      61      45                                      
+CTRMEM  88      1       45      46      61                                      
+CTRMEM  89      1       46      47      61                                      
+CTRMEM  90      1       61      62      47                                      
+CTRMEM  91      1       62      63      47                                      
+CTRMEM  92      1       47      48      63                                      
+CTRMEM  93      1       48      49      63                                      
+CTRMEM  94      1       63      64      49                                      
+CTRMEM  95      1       64      65      49                                      
+CTRMEM  96      1       49      50      65                                      
+CTRMEM  97      1       50      51      65                                      
+CTRMEM  98      1       65      66      51                                      
+CTRMEM  99      1       66      67      51                                      
+CTRMEM  100     1       51      52      67                                      
+CTRMEM  101     1       52      69      67                                      
+CTRMEM  102     1       67      68      69                                      
+CTRMEM  103     1       52      69      53                                      
+CTRMEM  104     1       70      69      53      90.0                            
+CTRMEM  105     1       54      70      53                                      
+CTRMEM  106     1       54      70      55                                      
+CTRMEM  107     1       55      71      70                                      
+CTRMEM  108     1       72      73      56                                      
+CTRMEM  109     1       56      57      73                                      
+CTRMEM  110     1       73      74      57                                      
+CTRMEM  111     1       57      58      74                                      
+CTRMEM  112     1       74      75      58                                      
+CTRMEM  113     1       58      59      75                                      
+CTRMEM  114     1       75      76      59                                      
+CTRMEM  115     1       59      60      76                                      
+CTRMEM  116     1       60      61      76                                      
+CTRMEM  117     1       76      77      61                                      
+CTRMEM  118     1       77      78      61                                      
+CTRMEM  119     1       61      62      78                                      
+CTRMEM  120     1       62      63      78                                      
+CTRMEM  121     1       78      79      63                                      
+CTRMEM  122     1       79      80      63                                      
+CTRMEM  123     1       63      64      80                                      
+CTRMEM  124     1       64      65      80                                      
+CTRMEM  125     1       80      81      65                                      
+CTRMEM  126     1       81      82      65                                      
+CTRMEM  127     1       65      66      82                                      
+CTRMEM  128     1       66      67      82                                      
+CTRMEM  129     1       82      83      67                                      
+CTRMEM  130     1       83      84      67                                      
+CTRMEM  131     1       67      68      84                                      
+CTRMEM  132     1       68      85      84                                      
+CTRMEM  133     1       68      85      69                                      
+CTRMEM  134     1       86      85      69      90.0                            
+CTRMEM  135     1       70      69      86      90.0                            
+CTRMEM  136     1       87      86      70      90.0                            
+CTRMEM  137     1       71      87      70                                      
+CTRMEM  138     1       72      73      88                                      
+CTRMEM  139     1       88      89      73                                      
+CTRMEM  140     1       73      74      89                                      
+CTRMEM  141     1       89      90      74                                      
+CTRMEM  142     1       74      75      90                                      
+CTRMEM  143     1       90      91      75                                      
+CTRMEM  144     1       75      76      91                                      
+CTRMEM  145     1       91      92      76                                      
+CTRMEM  146     1       76      77      92                                      
+CTRMEM  147     1       77      78      92                                      
+CTRMEM  148     1       92      93      78                                      
+CTRMEM  149     1       93      94      78                                      
+CTRMEM  150     1       78      79      94                                      
+CTRMEM  151     1       79      80      94                                      
+CTRMEM  152     1       94      95      80                                      
+CTRMEM  153     1       95      96      80                                      
+CTRMEM  154     1       80      81      96                                      
+CTRMEM  155     1       81      82      96                                      
+CTRMEM  156     1       96      97      82                                      
+CTRMEM  157     1       97      98      82                                      
+CTRMEM  158     1       82      83      98                                      
+CTRMEM  159     1       83      84      98                                      
+CTRMEM  160     1       98      99      84                                      
+CTRMEM  161     1       85      99      84      90.0                            
+CTRMEM  162     1       85      99      100     90.0                            
+CTRMEM  163     1       101     100     85      90.0                            
+CTRMEM  164     1       86      85      101     90.0                            
+CTRMEM  165     1       102     101     86      90.0                            
+CTRMEM  166     1       86      87      102     90.0                            
+CTRMEM  167     1       87      103     102                                     
+CTRMEM  168     1       104     105     88                                      
+CTRMEM  169     1       88      89      105                                     
+CTRMEM  170     1       105     106     89                                      
+CTRMEM  171     1       89      90      106                                     
+CTRMEM  172     1       106     107     90                                      
+CTRMEM  173     1       90      91      107                                     
+CTRMEM  174     1       107     108     91                                      
+CTRMEM  175     1       91      92      108                                     
+CTRMEM  176     1       108     109     92                                      
+CTRMEM  177     1       92      93      109                                     
+CTRMEM  178     1       93      94      109                                     
+CTRMEM  179     1       109     110     94                                      
+CTRMEM  180     1       94      95      110                                     
+CTRMEM  181     1       95      96      110                                     
+CTRMEM  182     1       110     111     96                                      
+CTRMEM  183     1       96      97      111                                     
+CTRMEM  184     1       97      98      111                                     
+CTRMEM  185     1       111     112     98                                      
+CTRMEM  186     1       98      99      112                                     
+CTRMEM  187     1       112     113     99                                      
+CTRMEM  188     1       100     113     99      90.0                            
+CTRMEM  189     1       100     113     114     90.0                            
+CTRMEM  190     1       115     114     100     90.0                            
+CTRMEM  191     1       101     100     115     90.0                            
+CTRMEM  192     1       116     115     101     90.0                            
+CTRMEM  193     1       102     101     116     90.0                            
+CTRMEM  194     1       116     117     102     90.0                            
+CTRMEM  195     1       103     117     102                                     
+CTRMEM  196     1       104     105     118                                     
+CTRMEM  197     1       118     119     105                                     
+CTRMEM  198     1       105     106     119                                     
+CTRMEM  199     1       119     120     106                                     
+CTRMEM  200     1       106     107     120                                     
+CTRMEM  201     1       120     121     107                                     
+CTRMEM  202     1       107     108     121                                     
+CTRMEM  203     1       121     122     108                                     
+CTRMEM  204     1       108     109     122                                     
+CTRMEM  205     1       122     123     109                                     
+CTRMEM  206     1       109     110     123                                     
+CTRMEM  207     1       123     124     110                                     
+CTRMEM  208     1       110     111     124                                     
+CTRMEM  209     1       124     125     111                                     
+CTRMEM  210     1       111     112     125                                     
+CTRMEM  211     1       125     126     112                                     
+CTRMEM  212     1       112     113     126                                     
+CTRMEM  213     1       126     127     113                                     
+CTRMEM  214     1       114     127     113     90.0                            
+CTRMEM  215     1       114     129     127                                     
+CTRMEM  216     1       127     128     129                                     
+CTRMEM  217     1       114     129     115                                     
+CTRMEM  218     1       115     130     129                                     
+CTRMEM  219     1       115     130     131                                     
+CTRMEM  220     1       116     131     115                                     
+CTRMEM  221     1       116     131     117                                     
+CTRMEM  222     1       117     132     131                                     
+CTRMEM  223     1       118     119     133                                     
+CTRMEM  224     1       133     134     119                                     
+CTRMEM  225     1       134     135     119                                     
+CTRMEM  226     1       119     120     135                                     
+CTRMEM  227     1       120     121     135                                     
+CTRMEM  228     1       135     136     121                                     
+CTRMEM  229     1       136     137     121                                     
+CTRMEM  230     1       121     122     137                                     
+CTRMEM  231     1       122     123     137                                     
+CTRMEM  232     1       137     138     123                                     
+CTRMEM  233     1       138     139     123                                     
+CTRMEM  234     1       123     124     139                                     
+CTRMEM  235     1       124     125     139                                     
+CTRMEM  236     1       139     140     125                                     
+CTRMEM  237     1       140     141     125                                     
+CTRMEM  238     1       125     126     141                                     
+CTRMEM  239     1       126     127     141                                     
+CTRMEM  240     1       141     142     127                                     
+CTRMEM  241     1       142     143     127                                     
+CTRMEM  242     1       127     128     143                                     
+CTRMEM  243     1       128     144     143                                     
+CTRMEM  244     1       128     144     129                                     
+CTRMEM  245     1       145     144     129     90.0                            
+CTRMEM  246     1       130     145     129                                     
+CTRMEM  247     1       130     145     131                                     
+CTRMEM  248     1       146     145     131     90.0                            
+CTRMEM  249     1       132     146     131                                     
+CTRMEM  250     1       147     148     133                                     
+CTRMEM  251     1       133     134     148                                     
+CTRMEM  252     1       134     135     148                                     
+CTRMEM  253     1       148     149     135                                     
+CTRMEM  254     1       135     136     149                                     
+CTRMEM  255     1       136     137     149                                     
+CTRMEM  256     1       149     150     137                                     
+CTRMEM  257     1       137     138     150                                     
+CTRMEM  258     1       138     139     150                                     
+CTRMEM  259     1       150     151     139                                     
+CTRMEM  260     1       139     140     151                                     
+CTRMEM  261     1       140     141     151                                     
+CTRMEM  262     1       151     152     141                                     
+CTRMEM  263     1       141     142     152                                     
+CTRMEM  264     1       142     143     152                                     
+CTRMEM  265     1       152     153     143                                     
+CTRMEM  266     1       144     153     143     90.0                            
+CTRMEM  267     1       153     154     144                                     
+CTRMEM  268     1       144     155     154                                     
+CTRMEM  269     1       144     155     156                                     
+CTRMEM  270     1       145     156     144                                     
+CTRMEM  271     1       145     156     146                                     
+CTRMEM  272     1       146     157     156                                     
+CTRMEM  273     1       147     148     158                                     
+CTRMEM  274     1       158     159     148                                     
+CTRMEM  275     1       148     149     159                                     
+CTRMEM  276     1       159     160     149                                     
+CTRMEM  277     1       149     150     160                                     
+CTRMEM  278     1       160     161     150                                     
+CTRMEM  279     1       150     151     161                                     
+CTRMEM  280     1       161     162     151                                     
+CTRMEM  281     1       151     152     162                                     
+CTRMEM  282     1       162     163     152                                     
+CTRMEM  283     1       152     153     163                                     
+CTRMEM  284     1       163     164     153                                     
+CTRMEM  285     1       153     154     164                                     
+CTRMEM  286     1       164     165     154                                     
+CTRMEM  287     1       154     166     165                                     
+CTRMEM  288     1       154     166     167                                     
+CTRMEM  289     1       155     167     154                                     
+CTRMEM  290     1       155     167     156                                     
+CTRMEM  291     1       156     168     167                                     
+CTRMEM  292     1       156     168     169                                     
+CTRMEM  293     1       157     169     156                                     
+CTRMEM  294     1       170     171     158                                     
+CTRMEM  295     1       158     159     171                                     
+CTRMEM  296     1       159     160     171                                     
+CTRMEM  297     1       171     172     160                                     
+CTRMEM  298     1       172     173     160                                     
+CTRMEM  299     1       160     161     173                                     
+CTRMEM  300     1       161     162     173                                     
+CTRMEM  301     1       173     174     162                                     
+CTRMEM  302     1       174     175     162                                     
+CTRMEM  303     1       162     163     175                                     
+CTRMEM  304     1       163     164     175                                     
+CTRMEM  305     1       175     176     164                                     
+CTRMEM  306     1       176     177     164                                     
+CTRMEM  307     1       164     165     177                                     
+CTRMEM  308     1       170     171     178                                     
+CTRMEM  309     1       178     179     171                                     
+CTRMEM  310     1       171     172     179                                     
+CTRMEM  311     1       179     180     172                                     
+CTRMEM  312     1       172     173     180                                     
+CTRMEM  313     1       173     174     180                                     
+CTRMEM  314     1       180     181     174                                     
+CTRMEM  315     1       174     175     181                                     
+CTRMEM  316     1       181     182     175                                     
+CTRMEM  317     1       175     176     182                                     
+CTRMEM  318     1       182     183     176                                     
+CTRMEM  319     1       176     177     183                                     
+CTRMEM  320     1       184     185     178                                     
+CTRMEM  321     1       178     179     185                                     
+CTRMEM  322     1       179     180     185                                     
+CTRMEM  323     1       185     186     180                                     
+CTRMEM  324     1       186     187     180                                     
+CTRMEM  325     1       180     181     187                                     
+CTRMEM  326     1       181     182     187                                     
+CTRMEM  327     1       187     188     182                                     
+CTRMEM  328     1       188     189     182                                     
+CTRMEM  329     1       182     183     189                                     
+CTRMEM  330     1       184     185     190                                     
+CTRMEM  331     1       190     191     185                                     
+CTRMEM  332     1       191     192     185                                     
+CTRMEM  333     1       185     186     192                                     
+CTRMEM  334     1       186     187     192                                     
+CTRMEM  335     1       192     193     187                                     
+CTRMEM  336     1       193     194     187                                     
+CTRMEM  337     1       187     188     194                                     
+CTRMEM  338     1       188     189     194                                     
+CTRMEM  339     1       194     195     189                                     
+CTRMEM  340     1       190     191     196                                     
+CTRMEM  341     1       196     197     191                                     
+CTRMEM  342     1       191     192     197                                     
+CTRMEM  343     1       197     198     192                                     
+CTRMEM  344     1       192     193     198                                     
+CTRMEM  345     1       198     199     193                                     
+CTRMEM  346     1       193     194     199                                     
+CTRMEM  347     1       199     200     194                                     
+CTRMEM  348     1       194     195     200                                     
+FORCE   600     196             100.    0.0     .375                            
+FORCE   600     197             100.    0.0     .75                             
+FORCE   600     198             100.    0.0     .75                             
+FORCE   600     199             100.    0.0     .75                             
+FORCE   600     200             100.    0.0     .375                            
+GRDSET                                                  3456                    
+GRID    1               0.0     0.0                                             
+GRID    2               .2      .0                                              
+GRID    3               .4      .0                                              
+GRID    4               .6      .0                                              
+GRID    5               .7      .0                                              
+GRID    6               .8      .0                                              
+GRID    7               .9      .0                                              
+GRID    8               .95     .0                                              
+GRID    9               .95     .05                                             
+GRID    10              1.0     .05                                             
+GRID    11              1.05    .05                                             
+GRID    12              1.0     .0                                              
+GRID    13              1.05    .0                                              
+GRID    14              1.1     .0                                              
+GRID    15              .0      .1                                              
+GRID    16              .1      .1                                              
+GRID    17              .3      .1                                              
+GRID    18              .5      .1                                              
+GRID    19              .6      .1                                              
+GRID    20              .7      .1                                              
+GRID    21              .8      .1                                              
+GRID    22              .9      .1                                              
+GRID    23              1.0     .1                                              
+GRID    24              1.1     .1                                              
+GRID    25              1.2     .1                                              
+GRID    26              1.2     .0                                              
+GRID    27              .0      .2                                              
+GRID    28              .2      .2                                              
+GRID    29              .4      .2                                              
+GRID    30              .6      .2                                              
+GRID    31              .7      .2                                              
+GRID    32              .8      .2                                              
+GRID    33              .9      .2                                              
+GRID    34              1.0     .2                                              
+GRID    35              1.1     .2                                              
+GRID    36              1.2     .2                                              
+GRID    37              1.3     .2                                              
+GRID    38              1.3     .1                                              
+GRID    39              1.3     .0                                              
+GRID    40              .0      .3                                              
+GRID    41              .1      .3                                              
+GRID    42              .3      .3                                              
+GRID    43              .5      .3                                              
+GRID    44              .6      .3                                              
+GRID    45              .7      .3                                              
+GRID    46              .8      .3                                              
+GRID    47              .9      .3                                              
+GRID    48              1.0     .3                                              
+GRID    49              1.1     .3                                              
+GRID    50              1.2     .3                                              
+GRID    51              1.3     .3                                              
+GRID    52              1.4     .3                                              
+GRID    53              1.4     .2                                              
+GRID    54              1.4     .1                                              
+GRID    55              1.4     .0                                              
+GRID    56              .0      .4                                              
+GRID    57              .2      .4                                              
+GRID    58              .4      .4                                              
+GRID    59              .6      .4                                              
+GRID    60              .7      .4                                              
+GRID    61              .8      .4                                              
+GRID    62              .9      .4                                              
+GRID    63              1.0     .4                                              
+GRID    64              1.1     .4                                              
+GRID    65              1.2     .4                                              
+GRID    66              1.3     .4                                              
+GRID    67              1.4     .4                                              
+GRID    68              1.5     .4                                              
+GRID    69              1.5     .3                                              
+GRID    70              1.5     .1                                              
+GRID    71              1.5     .0                                              
+GRID    72              .0      .5                                              
+GRID    73              .1      .5                                              
+GRID    74              .3      .5                                              
+GRID    75              .5      .5                                              
+GRID    76              .7      .5                                              
+GRID    77              .8      .5                                              
+GRID    78              .9      .5                                              
+GRID    79              1.0     .5                                              
+GRID    80              1.1     .5                                              
+GRID    81              1.2     .5                                              
+GRID    82              1.3     .5                                              
+GRID    83              1.4     .5                                              
+GRID    84              1.5     .5                                              
+GRID    85              1.6     .4                                              
+GRID    86              1.6     .2                                              
+GRID    87              1.6     .0                                              
+GRID    88              .0      .6                                              
+GRID    89              .2      .6                                              
+GRID    90              .4      .6                                              
+GRID    91              .6      .6                                              
+GRID    92              .8      .6                                              
+GRID    93              .9      .6                                              
+GRID    94              1.0     .6                                              
+GRID    95              1.1     .6                                              
+GRID    96              1.2     .6                                              
+GRID    97              1.3     .6                                              
+GRID    98              1.4     .6                                              
+GRID    99              1.6     .6                                              
+GRID    100             1.7     .5                                              
+GRID    101             1.7     .3                                              
+GRID    102             1.7     .1                                              
+GRID    103             1.7     .0                                              
+GRID    104             .0      .7                                              
+GRID    105             .1      .7                                              
+GRID    106             .3      .7                                              
+GRID    107             .5      .7                                              
+GRID    108             .7      .7                                              
+GRID    109             .9      .7                                              
+GRID    110             1.1     .7                                              
+GRID    111             1.3     .7                                              
+GRID    112             1.5     .7                                              
+GRID    113             1.7     .7                                              
+GRID    114             1.8     .6                                              
+GRID    115             1.8     .4                                              
+GRID    116             1.8     .2                                              
+GRID    117             1.8     .0                                              
+GRID    118             .0      .8                                              
+GRID    119             .2      .8                                              
+GRID    120             .4      .8                                              
+GRID    121             .6      .8                                              
+GRID    122             .8      .8                                              
+GRID    123             1.0     .8                                              
+GRID    124             1.2     .8                                              
+GRID    125             1.4     .8                                              
+GRID    126             1.6     .8                                              
+GRID    127             1.8     .8                                              
+GRID    128             2.0     .8                                              
+GRID    129             2.0     .6                                              
+GRID    130             2.0     .4                                              
+GRID    131             2.0     .2                                              
+GRID    132             2.0     .0                                              
+GRID    133             .0      1.0                                             
+GRID    134             .2      1.0                                             
+GRID    135             .4      1.0                                             
+GRID    136             .6      1.0                                             
+GRID    137             .8      1.0                                             
+GRID    138             1.0     1.0                                             
+GRID    139             1.2     1.0                                             
+GRID    140             1.4     1.0                                             
+GRID    141             1.6     1.0                                             
+GRID    142             1.8     1.0                                             
+GRID    143             2.0     1.0                                             
+GRID    144             2.2     .8                                              
+GRID    145             2.2     .4                                              
+GRID    146             2.2     .0                                              
+GRID    147             .0      1.2                                             
+GRID    148             .2      1.2                                             
+GRID    149             .6      1.2                                             
+GRID    150             1.0     1.2                                             
+GRID    151             1.4     1.2                                             
+GRID    152             1.8     1.2                                             
+GRID    153             2.2     1.2                                             
+GRID    154             2.6     1.2                                             
+GRID    155             2.6     .8                                              
+GRID    156             2.6     .4                                              
+GRID    157             2.6     .0                                              
+GRID    158             .0      1.6                                             
+GRID    159             .4      1.6                                             
+GRID    160             .8      1.6                                             
+GRID    161             1.2     1.6                                             
+GRID    162             1.6     1.6                                             
+GRID    163             2.0     1.6                                             
+GRID    164             2.5     1.6                                             
+GRID    165             3.0     1.6                                             
+GRID    166             3.0     1.2                                             
+GRID    167             3.0     .8                                              
+GRID    168             3.0     .4                                              
+GRID    169             3.0     .0                                              
+GRID    170             .0      2.1                                             
+GRID    171             .4      2.1                                             
+GRID    172             .8      2.1                                             
+GRID    173             1.2     2.1                                             
+GRID    174             1.6     2.1                                             
+GRID    175             2.0     2.1                                             
+GRID    176             2.5     2.1                                             
+GRID    177             3.0     2.1                                             
+GRID    178             .0      2.6                                             
+GRID    179             .6      2.6                                             
+GRID    180             1.2     2.6                                             
+GRID    181             1.8     2.6                                             
+GRID    182             2.4     2.6                                             
+GRID    183             3.0     2.6                                             
+GRID    184             .0      3.2                                             
+GRID    185             .6      3.2                                             
+GRID    186             1.2     3.2                                             
+GRID    187             1.8     3.2                                             
+GRID    188             2.4     3.2                                             
+GRID    189             3.0     3.2                                             
+GRID    190             .0      3.8                                             
+GRID    191             .6      3.8                                             
+GRID    192             1.2     3.8                                             
+GRID    193             1.8     3.8                                             
+GRID    194             2.4     3.8                                             
+GRID    195             3.0     3.8                                             
+GRID    196             .0      4.5                                             
+GRID    197             .75     4.5                                             
+GRID    198             1.5     4.5                                             
+GRID    199             2.25    4.5                                             
+GRID    200             3.0     4.5                                             
+LOAD    2300    23.     1.0     600                                             
+MAT1    60      10.8+6          .3333                                   +M1     
++M1     11.5+3  11.5+3                                                          
+MATS1   60      101                                                             
+PLFACT  23      23.     25.     28.     31.     34.     37.     40.     +A-PLF  
++A-PLF  44.     48.     52.     56.     60.     65.     70.     75.     +B-PLF  
++B-PLF  80.     85.     90.     95.     100.    105.    110.    115.    +C-PLF  
++C-PLF  120.    125.    130.                                                    
+PTRMEM  1       60      1.0                                                     
+SPC1    10      1       1       15      27      40      56      72      + SPC1-1
++ SPC1-188      104     118     133     147     158     170     178     + SPC2-1
++ SPC2-1184     190     196                                                     
+SPC1    10      2       12      13      14      26      39      55      + SPC1-2
++ SPC1-271      87      103     117     132     146     157     169             
+TABLES1 101                                                             *TAB100 
+*TAB100   -8.4495168E-02  -3.4765000E 04  -8.2418240E-02  -3.453E 04    *TAB101 
+*TAB101   -8.0372998E-02  -3.4295000E 04  -7.8359272E-02  -3.406E 04    *TAB102 
+*TAB102   -7.6376893E-02  -3.3825000E 04  -7.4425689E-02  -3.359E 04    *TAB103 
+*TAB103   -7.2505489E-02  -3.3355000E 04  -7.0616119E-02  -3.312E 04    *TAB104 
+*TAB104   -6.8757406E-02  -3.2885000E 04  -6.6929175E-02  -3.265E 04    *TAB105 
+*TAB105   -6.5131251E-02  -3.2415000E 04  -6.3363456E-02  -3.218E 04    *TAB106 
+*TAB106   -6.1625615E-02  -3.1945000E 04  -5.9917548E-02  -3.171E 04    *TAB107 
+*TAB107   -5.8239075E-02  -3.1475000E 04  -5.65918E-02    -3.124E 04    *TAB108 
+*TAB108   -5.497193E-02   -3.1005000E 04  -5.3379419E-02  -3.077E 04    *TAB109 
+*TAB109   -5.1817513E-02  -3.0535000E 04  -5.0284289E-02  -3.030E 04    *TAB110 
+*TAB110   -4.8779562E-02  -3.0065000E 04  -4.7303146E-02  -2.983E 04    *TAB111 
+*TAB111   -4.5854852E-02  -2.9595000E 04  -4.4434491E-02  -2.936E 04    *TAB112 
+*TAB112   -4.3041873E-02  -2.9125000E 04  -4.1676807E-02  -2.889E 04    *TAB113 
+*TAB113   -4.0339100E-02  -2.8655000E 04  -3.9028558E-02  -2.842E 04    *TAB114 
+*TAB114   -3.7744987E-02  -2.8185000E 04  -3.6488188E-02  -2.795E 04    *TAB115 
+*TAB115   -3.5257966E-02  -2.7715000E 04  -3.4054121E-02  -2.748E 04    *TAB116 
+*TAB116   -3.2876451E-02  -2.7245000E 04  -3.1724757E-02  -2.701E 04    *TAB117 
+*TAB117   -3.0598832E-02  -2.6775000E 04  -2.9498474E-02  -2.654E 04    *TAB118 
+*TAB118   -2.8423475E-02  -2.6305000E 04  -2.7373628E-02  -2.607E 04    *TAB119 
+*TAB119   -2.6348724E-02  -2.5835000E 04  -2.5348551E-02  -2.560E 04    *TAB120 
+*TAB120   -2.4372896E-02  -2.5365000E 04  -2.3421545E-02  -2.513E 04    *TAB121 
+*TAB121   -2.2494282E-02  -2.4895000E 04  -2.159888E-02   -2.466E 04    *TAB122 
+*TAB122   -2.0711145E-02  -2.4425000E 04  -1.9854830E-02  -2.419E 04    *TAB123 
+*TAB123   -1.9021719E-02  -2.3955000E 04  -1.8211588E-02  -2.372E 04    *TAB124 
+*TAB124   -1.7424207E-02  -2.3485000E 04  -1.6659349E-02  -2.325E 04    *TAB125 
+*TAB125   -1.5916779E-02  -2.3015000E 04  -1.5196266E-02  -2.278E 04    *TAB126 
+*TAB126   -1.4497571E-02  -2.2545000E 04  -1.382457E-02   -2.231E 04    *TAB127 
+*TAB127   -1.3164682E-02  -2.2075000E 04  -1.2532E-02     -2.184E 04    *TAB128 
+*TAB128   -1.1916171E-02  -2.1605000E 04  -1.1322939E-02  -2.137E 04    *TAB129 
+*TAB129   -1.07556E-02    -2.1135000E 04  -1.0197266E-02  -2.090E 04    *TAB130 
+*TAB130   -9.6643119E-03  -2.0665000E 04  -9.1509324E-03  -2.043E 04    *TAB131 
+*TAB131   -8.6568637E-03  -2.0195000E 04  -8.1818386E-03  -1.996E 04    *TAB132 
+*TAB132   -7.7255861E-03  -1.9725000E 04  -7.2878319E-03  -1.949E 04    *TAB133 
+*TAB133   -6.8682978E-03  -1.9255000E 04  -6.4667017E-03  -1.902E 04    *TAB134 
+*TAB134   -6.0827573E-03  -1.8785000E 04  -5.7161741E-03  -1.855E 04    *TAB135 
+*TAB135   -5.3666571E-03  -1.8315000E 04  -5.0339064E-03  -1.808E 04    *TAB136 
+*TAB136   -4.7176173E-03  -1.7845000E 04  -4.4174798E-03  -1.761E 04    *TAB137 
+*TAB137   -4.1331784E-03  -1.7375000E 04  -3.8643916E-03  -1.714E 04    *TAB138 
+*TAB138   -3.6107919E-03  -1.6905000E 04  -3.372451E-03   -1.667E 04    *TAB139 
+*TAB139   -3.1478101E-03  -1.6435000E 04  -2.9377381E-03  -1.620E 04    *TAB140 
+*TAB140   -2.7414724E-03  -1.5965000E 04  -2.5586479E-03  -1.573E 04    *TAB141 
+*TAB141   -2.3888897E-03  -1.5495000E 04  -2.2318132E-03  -1.526E 04    *TAB142 
+*TAB142   -2.087227E-03   -1.5025000E 04  -1.9541106E-03  -1.479E 04    *TAB143 
+*TAB143   -1.8326559E-03  -1.4555000E 04  -1.7222231E-03  -1.432E 04    *TAB144 
+*TAB144   -1.6223604E-03  -1.4085000E 04  -1.5325975E-03  -1.385E 04    *TAB145 
+*TAB145   -1.4524432E-03  -1.3615000E 04  -1.3813823E-03  -1.338E 04    *TAB146 
+*TAB146   -1.3188712E-03  -1.3145000E 04  -1.2643326E-03  -1.291E 04    *TAB147 
+*TAB147   -1.2171483E-03  -1.2675000E 04  -1.1766480E-03  -1.244E 04    *TAB148 
+*TAB148   -1.142932E-03   -1.2205000E 04  -1.1126483E-03  -1.197E 04    *TAB149 
+*TAB149   -1.0873249E-03  -1.1735000E 04  -1.0648148E-03  -1.150E 04    *TAB150 
+*TAB150    0.              0.              1.0648148E-03   1.150E 04    *TAB151 
+*TAB151    1.0873249E-03   1.1735000E 04   1.1126483E-03   1.197E 04    *TAB152 
+*TAB152    1.142932E-03    1.2205000E 04   1.1766480E-03   1.244E 04    *TAB153 
+*TAB153    1.2171483E-03   1.2675000E 04   1.2643326E-03   1.291E 04    *TAB154 
+*TAB154    1.3188712E-03   1.3145000E 04   1.3813823E-03   1.338E 04    *TAB155 
+*TAB155    1.4524432E-03   1.3615000E 04   1.5325975E-03   1.385E 04    *TAB156 
+*TAB156    1.6223604E-03   1.4085000E 04   1.7222231E-03   1.432E 04    *TAB157 
+*TAB157    1.8326559E-03   1.4555000E 04   1.9541106E-03   1.479E 04    *TAB158 
+*TAB158    2.087227E-03    1.5025000E 04   2.2318132E-03   1.526E 04    *TAB159 
+*TAB159    2.3888897E-03   1.5495000E 04   2.5586479E-03   1.573E 04    *TAB160 
+*TAB160    2.7414724E-03   1.5965000E 04   2.9377381E-03   1.620E 04    *TAB161 
+*TAB161    3.1478101E-03   1.6435000E 04   3.372451E-03    1.667E 04    *TAB162 
+*TAB162    3.6107919E-03   1.6905000E 04   3.8643916E-03   1.714E 04    *TAB163 
+*TAB163    4.1331784E-03   1.7375000E 04   4.4174798E-03   1.761E 04    *TAB164 
+*TAB164    4.7176173E-03   1.7845000E 04   5.0339064E-03   1.808E 04    *TAB165 
+*TAB165    5.3666571E-03   1.8315000E 04   5.7161741E-03   1.855E 04    *TAB166 
+*TAB166    6.0827573E-03   1.8785000E 04   6.4667017E-03   1.902E 04    *TAB167 
+*TAB167    6.8682978E-03   1.9255000E 04   7.2878319E-03   1.949E 04    *TAB168 
+*TAB168    7.7255861E-03   1.9725000E 04   8.1818386E-03   1.996E 04    *TAB169 
+*TAB169    8.6568637E-03   2.0195000E 04   9.1509324E-03   2.043E 04    *TAB170 
+*TAB170    9.6643119E-03   2.0665000E 04   1.0197266E-02   2.090E 04    *TAB171 
+*TAB171    1.07556E-02     2.1135000E 04   1.1322939E-02   2.137E 04    *TAB172 
+*TAB172    1.1916171E-02   2.1605000E 04   1.2532E-02      2.184E 04    *TAB173 
+*TAB173    1.3164682E-02   2.2075000E 04   1.382457E-02    2.231E 04    *TAB174 
+*TAB174    1.4497571E-02   2.2545000E 04   1.5196266E-02   2.278E 04    *TAB175 
+*TAB175    1.5916779E-02   2.3015000E 04   1.6659349E-02   2.325E 04    *TAB176 
+*TAB176    1.7424207E-02   2.3485000E 04   1.8211588E-02   2.372E 04    *TAB177 
+*TAB177    1.9021719E-02   2.3955000E 04   1.9854830E-02   2.419E 04    *TAB178 
+*TAB178    2.0711145E-02   2.4425000E 04   2.159888E-02    2.466E 04    *TAB179 
+*TAB179    2.2494282E-02   2.4895000E 04   2.3421545E-02   2.513E 04    *TAB180 
+*TAB180    2.4372896E-02   2.5365000E 04   2.5348551E-02   2.560E 04    *TAB181 
+*TAB181    2.6348724E-02   2.5835000E 04   2.7373628E-02   2.607E 04    *TAB182 
+*TAB182    2.8423475E-02   2.6305000E 04   2.9498474E-02   2.654E 04    *TAB183 
+*TAB183    3.0598832E-02   2.6775000E 04   3.1724757E-02   2.701E 04    *TAB184 
+*TAB184    3.2876451E-02   2.7245000E 04   3.4054121E-02   2.748E 04    *TAB185 
+*TAB185    3.5257966E-02   2.7715000E 04   3.6488188E-02   2.795E 04    *TAB186 
+*TAB186    3.7744987E-02   2.8185000E 04   3.9028558E-02   2.842E 04    *TAB187 
+*TAB187    4.0339100E-02   2.8655000E 04   4.1676807E-02   2.889E 04    *TAB188 
+*TAB188    4.3041873E-02   2.9125000E 04   4.4434491E-02   2.936E 04    *TAB189 
+*TAB189    4.5854852E-02   2.9595000E 04   4.7303146E-02   2.983E 04    *TAB190 
+*TAB190    4.8779562E-02   3.0065000E 04   5.0284289E-02   3.030E 04    *TAB191 
+*TAB191    5.1817513E-02   3.0535000E 04   5.3379419E-02   3.077E 04    *TAB192 
+*TAB192    5.497193E-02    3.1005000E 04   5.65918E-02     3.124E 04    *TAB193 
+*TAB193    5.8239075E-02   3.1475000E 04   5.9917548E-02   3.171E 04    *TAB194 
+*TAB194    6.1625615E-02   3.1945000E 04   6.3363456E-02   3.218E 04    *TAB195 
+*TAB195    6.5131251E-02   3.2415000E 04   6.6929175E-02   3.265E 04    *TAB196 
+*TAB196    6.8757406E-02   3.2885000E 04   7.0616119E-02   3.312E 04    *TAB197 
+*TAB197    7.2505489E-02   3.3355000E 04   7.4425689E-02   3.359E 04    *TAB198 
+*TAB198    7.6376893E-02   3.3825000E 04   7.8359272E-02   3.406E 04    *TAB199 
+*TAB199    8.0372998E-02   3.4295000E 04   8.2418240E-02   3.453E 04    *TAB200 
+*TAB200    8.4495168E-02   3.4765000E 04   ENDT                                 
+ENDDATA                                                                         

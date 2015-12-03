@@ -1,0 +1,232 @@
+ID    D13011A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   13,0                                                                      
+TIME  25                                                                        
+CEND                                                                            
+TITLE    = NORMAL MODES ANALYSIS WITH DIFFERENTIAL STIFFNESS                    
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D13-01-1A                          
+     SPC = 2                                                                    
+     SET 1 = 11,21,31,41,51,61,71,81,91                                         
+     DISPLACEMENT = 1                                                           
+     ELFORCE = 1                                                                
+SUBCASE 20                                                                      
+   LABEL = STATICS SOLUTION.                                                    
+    LOAD = 100                                                                  
+   OLOAD = ALL                                                                  
+SUBCASE 40                                                                      
+   LABEL = SECOND ORDER STATICS SOLUTION.                                       
+   DSCOEFFICIENT = DEFAULT                                                      
+SUBCASE 80                                                                      
+   LABEL = NORMAL MODES WITH DIFFERENTIAL STIFFNESS EFFECTS                     
+  METHOD = 101                                                                  
+BEGIN BULK                                                                      
+BAROR                                   .0      1.      .0      1               
+CBAR    1       1       1       2                                               
+CBAR    2       1       2       3                                               
+CBAR    3       1       3       4                                               
+CBAR    4       1       4       5                                               
+CBAR    5       1       5       6                                               
+CBAR    6       1       6       7                                               
+CBAR    7       1       7       8                                               
+CBAR    8       1       8       9                                               
+CBAR    9       1       9       10                                              
+CBAR    10      1       10      11                                              
+CBAR    11      1       11      12                                              
+CBAR    12      1       12      13                                              
+CBAR    13      1       13      14                                              
+CBAR    14      1       14      15                                              
+CBAR    15      1       15      16                                              
+CBAR    16      1       16      17                                              
+CBAR    17      1       17      18                                              
+CBAR    18      1       18      19                                              
+CBAR    19      1       19      20                                              
+CBAR    20      1       20      21                                              
+CBAR    21      1       21      22                                              
+CBAR    22      1       22      23                                              
+CBAR    23      1       23      24                                              
+CBAR    24      1       24      25                                              
+CBAR    25      1       25      26                                              
+CBAR    26      1       26      27                                              
+CBAR    27      1       27      28                                              
+CBAR    28      1       28      29                                              
+CBAR    29      1       29      30                                              
+CBAR    30      1       30      31                                              
+CBAR    31      1       31      32                                              
+CBAR    32      1       32      33                                              
+CBAR    33      1       33      34                                              
+CBAR    34      1       34      35                                              
+CBAR    35      1       35      36                                              
+CBAR    36      1       36      37                                              
+CBAR    37      1       37      38                                              
+CBAR    38      1       38      39                                              
+CBAR    39      1       39      40                                              
+CBAR    40      1       40      41                                              
+CBAR    41      1       41      42                                              
+CBAR    42      1       42      43                                              
+CBAR    43      1       43      44                                              
+CBAR    44      1       44      45                                              
+CBAR    45      1       45      46                                              
+CBAR    46      1       46      47                                              
+CBAR    47      1       47      48                                              
+CBAR    48      1       48      49                                              
+CBAR    49      1       49      50                                              
+CBAR    50      1       50      51                                              
+CBAR    51      1       51      52                                              
+CBAR    52      1       52      53                                              
+CBAR    53      1       53      54                                              
+CBAR    54      1       54      55                                              
+CBAR    55      1       55      56                                              
+CBAR    56      1       56      57                                              
+CBAR    57      1       57      58                                              
+CBAR    58      1       58      59                                              
+CBAR    59      1       59      60                                              
+CBAR    60      1       60      61                                              
+CBAR    61      1       61      62                                              
+CBAR    62      1       62      63                                              
+CBAR    63      1       63      64                                              
+CBAR    64      1       64      65                                              
+CBAR    65      1       65      66                                              
+CBAR    66      1       66      67                                              
+CBAR    67      1       67      68                                              
+CBAR    68      1       68      69                                              
+CBAR    69      1       69      70                                              
+CBAR    70      1       70      71                                              
+CBAR    71      1       71      72                                              
+CBAR    72      1       72      73                                              
+CBAR    73      1       73      74                                              
+CBAR    74      1       74      75                                              
+CBAR    75      1       75      76                                              
+CBAR    76      1       76      77                                              
+CBAR    77      1       77      78                                              
+CBAR    78      1       78      79                                              
+CBAR    79      1       79      80                                              
+CBAR    80      1       80      81                                              
+CBAR    81      1       81      82                                              
+CBAR    82      1       82      83                                              
+CBAR    83      1       83      84                                              
+CBAR    84      1       84      85                                              
+CBAR    85      1       85      86                                              
+CBAR    86      1       86      87                                              
+CBAR    87      1       87      88                                              
+CBAR    88      1       88      89                                              
+CBAR    89      1       89      90                                              
+CBAR    90      1       90      91                                              
+CBAR    91      1       91      92                                              
+CBAR    92      1       92      93                                              
+CBAR    93      1       93      94                                              
+CBAR    94      1       94      95                                              
+CBAR    95      1       95      96                                              
+CBAR    96      1       96      97                                              
+CBAR    97      1       97      98                                              
+CBAR    98      1       98      99                                              
+CBAR    99      1       99      100                                             
+CBAR    100     1       100     101                                             
+EIGR    101     INV     .0      200.0   3       3       3       1.-4    +EIG1   
++EIG1   MAX                                                                     
+FORCE1  100     101     3423.17 101     1                                       
+GRDSET                                                  345                     
+GRID    1               .0                                                      
+GRID    2               1.0                                                     
+GRID    3               2.0                                                     
+GRID    4               3.0                                                     
+GRID    5               4.0                                                     
+GRID    6               5.0                                                     
+GRID    7               6.0                                                     
+GRID    8               7.0                                                     
+GRID    9               8.0                                                     
+GRID    10              9.0                                                     
+GRID    11              10.0                                                    
+GRID    12              11.0                                                    
+GRID    13              12.0                                                    
+GRID    14              13.0                                                    
+GRID    15              14.0                                                    
+GRID    16              15.0                                                    
+GRID    17              16.0                                                    
+GRID    18              17.0                                                    
+GRID    19              18.0                                                    
+GRID    20              19.0                                                    
+GRID    21              20.0                                                    
+GRID    22              21.0                                                    
+GRID    23              22.0                                                    
+GRID    24              23.0                                                    
+GRID    25              24.0                                                    
+GRID    26              25.0                                                    
+GRID    27              26.0                                                    
+GRID    28              27.0                                                    
+GRID    29              28.0                                                    
+GRID    30              29.0                                                    
+GRID    31              30.0                                                    
+GRID    32              31.0                                                    
+GRID    33              32.0                                                    
+GRID    34              33.0                                                    
+GRID    35              34.0                                                    
+GRID    36              35.0                                                    
+GRID    37              36.0                                                    
+GRID    38              37.0                                                    
+GRID    39              38.0                                                    
+GRID    40              39.0                                                    
+GRID    41              40.0                                                    
+GRID    42              41.0                                                    
+GRID    43              42.0                                                    
+GRID    44              43.0                                                    
+GRID    45              44.0                                                    
+GRID    46              45.0                                                    
+GRID    47              46.0                                                    
+GRID    48              47.0                                                    
+GRID    49              48.0                                                    
+GRID    50              49.0                                                    
+GRID    51              50.0                                                    
+GRID    52              51.0                                                    
+GRID    53              52.0                                                    
+GRID    54              53.0                                                    
+GRID    55              54.0                                                    
+GRID    56              55.0                                                    
+GRID    57              56.0                                                    
+GRID    58              57.0                                                    
+GRID    59              58.0                                                    
+GRID    60              59.0                                                    
+GRID    61              60.0                                                    
+GRID    62              61.0                                                    
+GRID    63              62.0                                                    
+GRID    64              63.0                                                    
+GRID    65              64.0                                                    
+GRID    66              65.0                                                    
+GRID    67              66.0                                                    
+GRID    68              67.0                                                    
+GRID    69              68.0                                                    
+GRID    70              69.0                                                    
+GRID    71              70.0                                                    
+GRID    72              71.0                                                    
+GRID    73              72.0                                                    
+GRID    74              73.0                                                    
+GRID    75              74.0                                                    
+GRID    76              75.0                                                    
+GRID    77              76.0                                                    
+GRID    78              77.0                                                    
+GRID    79              78.0                                                    
+GRID    80              79.0                                                    
+GRID    81              80.0                                                    
+GRID    82              81.0                                                    
+GRID    83              82.0                                                    
+GRID    84              83.0                                                    
+GRID    85              84.0                                                    
+GRID    86              85.0                                                    
+GRID    87              86.0                                                    
+GRID    88              87.0                                                    
+GRID    89              88.0                                                    
+GRID    90              89.0                                                    
+GRID    91              90.0                                                    
+GRID    92              91.0                                                    
+GRID    93              92.0                                                    
+GRID    94              93.0                                                    
+GRID    95              94.0                                                    
+GRID    96              95.0                                                    
+GRID    97              96.0                                                    
+GRID    98              97.0                                                    
+GRID    99              98.0                                                    
+GRID    100             99.0                                                    
+GRID    101             100.0                                                   
+MAT1    22      10.4E6          .3      2.0E-4                                  
+PBAR    1       22      2.0     .666667 .666667                                 
+SPC     2       1       12      .0      101     2       .0                      
+ENDDATA                                                                         

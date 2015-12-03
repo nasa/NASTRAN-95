@@ -1,0 +1,1032 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D02027A,NASTRAN                                                           
+     APP   DISP,SUBS                                                                 
+     SOL   3,0                                                                       
+     TIME  20                                                                        
+     DIAG  23                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+                                                                                                                                    
+0                            N A S T R A N  S U B S T R U C T U R E  D E C K  E C H O                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SUBSTRUCTURE PHASE2                                                             
+       PASSWORD = DEMO                                                               
+       SOF(1)   = FT18,950 $ DEC VAX                                                 
+       SOFPRINT TOC                                                                  
+       EQUIV SMALLMIL,SMILLDYN                                                       
+       PREFIX = D                                                                    
+       SOFPRINT TOC                                                                  
+       SOLVE SMILLDYN                                                                
+       RECOVER SMILLDYN                                                              
+       PRINT DWINDMIL                                                                
+       ENDSUBS
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+                                                                                                                                    
+0                            N A S T R A N  S U B S T R U C T U R E  D E C K  E C H O                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ALTER DECK ECHO
+        1    ALTER          4
+        2    PARAM     //*ADD*/DRY/1  /0 $                                           
+        3    LABEL     LBSBEG $                                                      
+        4    SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+        5              *    */*    */*    * $                                        
+        6    SOFUT     //DRY/*SMALLMIL*/*EQUI*/32 /*SMILLDYN*/*D   */*ITM1*/*ITM2*/  
+        7              *ITM3*/*ITM4*/*ITM5* $                                        
+        8    SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+        9              *    */*    */*    * $                                        
+       10    ALTER          5,  5
+       11    PARAM     //*NOP*/ALWAYS=-1 $                                           
+       12    SGEN      CASECC,GEOM3,GEOM4,DYNAMICS/CASESS,CASEI,GPL,EQEXIN,GPDT,     
+       13              BGPDT,SIL,GE3S,GE4S,DYNS/S,N,DRY/*SMILLDYN*/S,N,LUSET/        
+       14              S,N,NOGPDT $                                                  
+       15    PURGE     CSTM $                                                        
+       16    EQUIV     GE3S,GEOM3/ALWAYS/GE4S,GEOM4/ALWAYS/CASEI,CASECC/ALWAYS/      
+       17              DYNS,DYNAMICS/ALWAYS $                                        
+       18    COND      LB5  ,DRY $                                                   
+       19    ALTER         10, 20
+       20    ALTER         24, 24
+       21    COND      LBSOL,NOSIMP $                                                
+       22    ALTER         32, 32
+       23    COND      LBSOL,NOMGG $                                                 
+       24    ALTER         39, 43
+       25    LABEL     LBSOL $                                                       
+       26    SOFI      /K1  ,M1  ,,,/DRY/*SMILLDYN*/*KMTX*/*MMTX* $                  
+       27    EQUIV     K1  ,KGG/NOSIMP $                                             
+       28    EQUIV     M1  ,MGG/NOSIMP $                                             
+       29    COND      LB5  ,NOSIMP $                                                
+       30    ADD       KGGX,K1  /KGG/(1.0,0.0)/(1.0,0.0) $                           
+       31    ADD       MGG,M1  /MGGX/(1.0,0.0)/(1.0,0.0) $                           
+       32    EQUIV     MGGX,MGG/ALWAYS $                                             
+       33    LABEL     LB5   $                                                       
+       34    CHKPNT    MGG $                                                         
+       35    ALTER         78, 95
+       36    COND      LBSEND,DRY $                                                  
+       37    FILE      U1=APPEND/U2=APPEND/U3=APPEND/U4=APPEND/U5=APPEND $           
+       38    PARAM     //*ADD*/ILOOP/0/0 $                                           
+       39    LABEL     LB6   $                                                       
+       40    RCOVR     CASESS,LAMA ,KGG,MGG,   ,PHIG,   ,   ,   ,    ,   /OPHIG1,    
+       41                  ,OQG1,U1,U2,U3,U4,U5/S,N,DRY/S,N,ILOOP/6  /*SMILLDYN*/    
+       42              3   /NEIGV/S,N,LUI/S,N,U1N/S,N,U2N/S,N,U3N/S,N,U4N/S,N,U5N/   
+       43              S,N,NOSORT2/V,Y,UTHRESH/V,Y,PTHRESH/V,Y,QTHRESH $             
+       44    EQUIV     OPHIG1,OPHIG/NOSORT2/OQG1,OQG/NOSORT2 $                       
+       45    COND      NST26  ,NOSORT2 $                                             
+       46    SDR3      OPHIG1,    ,OQG1,,,/OPHIG,   ,OQG,,, $                        
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+                                                                                                                                    
+0                            N A S T R A N  S U B S T R U C T U R E  D E C K  E C H O                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ALTER DECK ECHO
+       47    LABEL     NST26   $                                                     
+       48    OFP       OPHIG,   ,OQG,,,//S,N,CARDNO $                                
+       49    COND      LBB6  ,ILOOP $                                                
+       50    REPT      LB6  ,100 $                                                   
+       51    LABEL     LBB6   $                                                      
+       52    SOFO      ,U1,U2,U3,U4,U5//-1/*XXXXXXXX* $                              
+       53    LABEL     LBSEND $                                                      
+       54    JUMP      FINIS $                                                       
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTURING     
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                          
+                  3      LABEL    = NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                            
+                  4      METHOD   = 10                                                                   
+                  5      MPC      = 21                                                                   
+                  6      VECTOR   = ALL                                                                  
+                  7      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =     6, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        EIGR    10      INV     .0      .1      1       1                       PEIG    
+                    2-        +EIG    MAX                                                                     
+                    3-        MPCS    21      DHUB    108     1       -1.0                            +MPC1   
+                    4-        +MPC1           DROOT1  6       2       .94868336       1       .3162278        
+                    5-        MPCS    21      DHUB    108     2       -1.0                            +MPC2   
+                    6-        +MPC2           DROOT1  6       1       -.9486836       2       .3162278        
+                              ENDDATA
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 03 - NORMAL MODES ANALYSIS - APR. 1995 $                  
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     LAMA=APPEND/PHIA=APPEND $                                      
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       4  PARAM     //*ADD*/DRY/1  /0 $                                           
+
+       4  LABEL     LBSBEG $                                                      
+
+       4  SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+                    *    */*    */*    * $                                        
+
+       4  SOFUT     //DRY/*SMALLMIL*/*EQUI*/32 /*SMILLDYN*/*D   */*ITM1*/*ITM2*/  
+                    *ITM3*/*ITM4*/*ITM5* $                                        
+
+       4  SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+                    *    */*    */*    * $                                        
+
+       5  PARAM     //*NOP*/ALWAYS=-1 $                                           
+
+       5  SGEN      CASECC,GEOM3,GEOM4,DYNAMICS/CASESS,CASEI,GPL,EQEXIN,GPDT,     
+                    BGPDT,SIL,GE3S,GE4S,DYNS/S,N,DRY/*SMILLDYN*/S,N,LUSET/        
+                    S,N,NOGPDT $                                                  
+
+       5  PURGE     CSTM $                                                        
+
+       5  EQUIV     GE3S,GEOM3/ALWAYS/GE4S,GEOM4/ALWAYS/CASEI,CASECC/ALWAYS/      
+                    DYNS,DYNAMICS/ALWAYS $                                        
+
+       5  COND      LB5  ,DRY $                                                   
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+
+      NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $                              
+
+      22  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      23  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      24  COND      LBSOL,NOSIMP $                                                
+
+      25  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      26  PARAM    //*ADD*/NOMGG/1/0 $                                            
+
+      27  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/C,Y,CPROD/C,Y,CPQUAD1/     
+                   C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/C,Y,CPTUBE/C,Y,CPQDPLT/    
+                   C,Y,CPTRPLT/C,Y,CPTRBSC/C,Y,VOLUME/C,Y,SURFACE $               
+
+      28  PURGE    KGGX/NOKGGX $                                                  
+
+      29  COND     JMPKGG,NOKGGX $                                                
+
+      30  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      31  LABEL    JMPKGG $                                                       
+
+      32  COND      LBSOL,NOMGG $                                                 
+
+      33  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      34  PURGE    MDICT,MELM/ALWAYS $                                            
+
+      35  COND     LGPWG,GRDPNT $                                                 
+
+      36  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/C,Y,WTMASS $         
+
+      37  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      38  LABEL    LGPWG $                                                        
+
+      43  LABEL     LBSOL $                                                       
+
+      43  SOFI      /K1  ,M1  ,,,/DRY/*SMILLDYN*/*KMTX*/*MMTX* $                  
+
+      43  EQUIV     K1  ,KGG/NOSIMP $                                             
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+
+      NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      43  EQUIV     M1  ,MGG/NOSIMP $                                             
+
+      43  COND      LB5  ,NOSIMP $                                                
+
+      43  ADD       KGGX,K1  /KGG/(1.0,0.0)/(1.0,0.0) $                           
+
+      43  ADD       MGG,M1  /MGGX/(1.0,0.0)/(1.0,0.0) $                           
+
+      43  EQUIV     MGGX,MGG/ALWAYS $                                             
+
+      43  LABEL     LB5   $                                                       
+
+      43  CHKPNT    MGG $                                                         
+
+      44  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      45  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      46  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      47  COND     ERROR3,NOL $                                                   
+
+      48  PURGE    KRR,KLR,DM,MLR,MR/REACT/GM/MPCF1/GO/OMIT/KFS/SINGLE/QG/NOSET $ 
+
+      49  EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1 $                                  
+
+      50  COND     LBL2,MPCF1 $                                                   
+
+      51  MCE1     USET,RG/GM $                                                   
+
+      52  MCE2     USET,GM,KGG,MGG,,/KNN,MNN,, $                                  
+
+      53  LABEL    LBL2 $                                                         
+
+      54  EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE $                                
+
+      55  COND     LBL3,SINGLE $                                                  
+
+      56  SCE1     USET,KNN,MNN,,/KFF,KFS,,MFF,, $                                
+
+      57  LABEL    LBL3  $                                                        
+
+      58  EQUIV    KFF,KAA/OMIT $                                                 
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+
+      NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      59  EQUIV    MFF,MAA/OMIT $                                                 
+
+      60  COND     LBL5,OMIT $                                                    
+
+      61  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      62  SMP2     USET,GO,MFF/MAA $                                              
+
+      63  LABEL    LBL5 $                                                         
+
+      64  COND     LBL6,REACT $                                                   
+
+      65  RBMG1    USET,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                         
+
+      66  RBMG2    KLL/LLL $                                                      
+
+      67  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      68  RBMG4    DM,MLL,MLR,MRR/MR $                                            
+
+      69  LABEL    LBL6 $                                                         
+
+      70  DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,,,,,,,EED,EQDYN/         
+                   LUSET/LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/                         
+                   NONLFT/NOTRL/S,N,NOEED//NOUE $                                 
+
+      71  COND     ERROR2,NOEED $                                                 
+
+      72  PARAM    //*MPY*/NEIGV/1/-1 $                                           
+
+      73  READ     KAA,MAA,MR,DM,EED,USET,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/      
+                   S,N,NEIGV $                                                    
+
+      74  OFP      OEIGS,,,,,//S,N,CARDNO $                                       
+
+      75  COND     FINIS,NEIGV $                                                  
+
+      76  OFP      LAMA,,,,,//S,N,CARDNO $                                        
+
+      77  SDR1     USET,,PHIA,,,GO,GM,,KFS,,/PHIG,,QG/1/*REIG* $                  
+
+      95  COND      LBSEND,DRY $                                                  
+
+      95  FILE      U1=APPEND/U2=APPEND/U3=APPEND/U4=APPEND/U5=APPEND $           
+
+      95  PARAM     //*ADD*/ILOOP/0/0 $                                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+
+      NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      95  LABEL     LB6   $                                                       
+
+      95  RCOVR     CASESS,LAMA ,KGG,MGG,   ,PHIG,   ,   ,   ,    ,   /OPHIG1,    
+                        ,OQG1,U1,U2,U3,U4,U5/S,N,DRY/S,N,ILOOP/6  /*SMILLDYN*/    
+                    3   /NEIGV/S,N,LUI/S,N,U1N/S,N,U2N/S,N,U3N/S,N,U4N/S,N,U5N/   
+                    S,N,NOSORT2/V,Y,UTHRESH/V,Y,PTHRESH/V,Y,QTHRESH $             
+
+      95  EQUIV     OPHIG1,OPHIG/NOSORT2/OQG1,OQG/NOSORT2 $                       
+
+      95  COND      NST26  ,NOSORT2 $                                             
+
+      95  SDR3      OPHIG1,    ,OQG1,,,/OPHIG,   ,OQG,,, $                        
+
+      95  LABEL     NST26   $                                                     
+
+      95  OFP       OPHIG,   ,OQG,,,//S,N,CARDNO $                                
+
+      95  COND      LBB6  ,ILOOP $                                                
+
+      95  REPT      LB6  ,100 $                                                   
+
+      95  LABEL     LBB6   $                                                      
+
+      95  SOFO      ,U1,U2,U3,U4,U5//-1/*XXXXXXXX* $                              
+
+      95  LABEL     LBSEND $                                                      
+
+      95  JUMP      FINIS $                                                       
+
+      96  LABEL    ERROR2 $                                                       
+
+      97  PRTPARM  //-2/*MODES* $                                                 
+
+      98  LABEL    ERROR3 $                                                       
+
+      99  PRTPARM  //-3/*MODES* $                                                 
+
+     100  LABEL    ERROR4 $                                                       
+
+     101  PRTPARM  //-4/*MODES* $                                                 
+
+     102  LABEL    FINIS $                                                        
+
+     103  PURGE    DUMMY/ALWAYS $                                                 
+
+     104  END      $                                                              
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0*** USER WARNING MESSAGE   27,
+     LABEL NAMED ERROR4   NOT REFERENCED
+0*** USER WARNING MESSAGE   27,
+     LABEL NAMED LBSBEG   NOT REFERENCED
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+
+ *** USER POTENTIALLY FATAL MESSAGE  22,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION TA1        INSTRUCTION NO.  22
+     DATA BLOCK NAMED CSTM     APPEARS AS INPUT BEFORE BEING DEFINED
+
+ *** USER POTENTIALLY FATAL MESSAGE  22,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION GP4        INSTRUCTION NO.  45
+     DATA BLOCK NAMED GPST     APPEARS AS INPUT BEFORE BEING DEFINED
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** SYSTEM INFORMATION MESSAGE 6201,  1 FILES HAVE BEEN ALLOCATED TO THE SOF WHERE --
+     SIZE OF FILE  1 =        926 BLOCKS
+     AND WHERE A BLOCK CONTAINS 1024 WORDS
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+
+
+                          S U B S T R U C T U R E   O P E R A T I N G   F I L E   T A B L E   O F   C O N T E N T S 
+
+                                                    E  B  C  L  P  K  M  P  P  U  H  U  Q  S  P  P  L  L  G  P  L  K  B  P  H      
+                                                    Q  G  S  O  L  M  M  V  O  P  O  V  V  O  A  O  O  M  I  H  A  4  M  H  L      
+                                                    S  S  T  D  T  T  T  E  V  R  R  E  E  L  P  A  A  T  M  I  M  M  T  I  F      
+     SUBSTRUCTURE                                   S  S  M  S  S  X  X  C  E  T  G  C  C  N  P  P  P  X  S  S  S  X  X  L  T      
+     NO.   NAME    TYPE   SS   PS   LL   CS   HL    --------------------------------------------------------------------------------
+
+       1  HUB        B     0    0    0   27   28    3  3  3  3  3  3  3  3        3  3     3                                 
+       2  ROOT1      B    24    0    0    6    7    3  3     3  3  3  3  3        3                                          
+       3  VANE1      B    15    0    0    4    5    3  3  3  3  3  3  3  3        3                                          
+       4  VANE2      B    14    3    0    3    5    3  0  0  3  3  0  0  0        3                                          
+       5  VANETOP    C    16    0    3    7   26    3  3  3  3  3  3  3  3        3                                          
+       6  ROOT2      B    23    2    0    2    7    3  0     3  3  0  0  0        3                                          
+       7  ROOTTOP    C    25    0    2   10   26    3  3     3  3  3  3  3        3                                          
+       8  LVANE2    IB     0    3    0    9   10    3  0  0  3  3  0  0  0        0                                          
+       9  LVANE1    IB     4    3    0    8   10    3  0  0  3  3  0  0  0        0                                          
+      10  VANELFT    C     0    5    9   19   26    3  0  0  3  3  0  0  0        3                                          
+      11  RVANE2    IB     8    3    0   12   13    3  0  0  3  3  0  0  0        0                                          
+      12  RVANE1    IB     9    3    0   11   13    3  0  0  3  3  0  0  0        0  3     3                                 
+      13  VANERGT    C    10    5   12   26   27    3  0  0  3  3  0  0  0        3  3     3                                 
+      14  BVANE2    IB    11    3    0   15   16    3  0  0  3  3  0  0  0        0                                          
+      15  BVANE1    IB    12    3    0   14   16    3  0  0  3  3  0  0  0        0                                          
+      16  VANEBOT    C    13    5   15   25   26    3  0  0  3  3  0  0  0        3                                          
+      17  LROOT2    IB     0    2    0   18   19    3  0     3  3  0  0  0        0                                          
+      18  LROOT1    IB     6    2    0   17   19    3  0     3  3  0  0  0        0                                          
+      19  ROOTLFT    C     0    7   18   16   26    3  0     3  3  0  0  0        3                                          
+      20  RROOT2    IB    17    2    0   21   22    3  0     3  3  0  0  0        0                                          
+      21  RROOT1    IB    18    2    0   20   22    3  0     3  3  0  0  0        0                                          
+      22  ROOTRGT    C    19    7   21    5   26    3  0     3  3  0  0  0        3                                          
+      23  BROOT2    IB    20    2    0   24   25    3  0     3  3  0  0  0        0                                          
+      24  BROOT1    IB    21    2    0   23   25    3  0     3  3  0  0  0        0                                          
+      25  ROOTBOT    C    22    7   24   22   26    3  0     3  3  0  0  0        3                                          
+      26  RING       C     0    0    5   13   27    3  3  3  3  3  4  3  3        3                                          
+      27  BLADES     C     0    0   26    1   28    3  3  3  3  3  4  3  3        3  3     3                                 
+      28  WINDMIL    C     0    0    1    0   29    3  3  3  3  3  4  3  3  3  3  4  3     3           3                     
+      29  SMALLMIL   R     0    0   28    0    0    3  3  3  3  3  4  4  4           3     3                                 
+
+
+                                                   SIZE OF ITEM IS GIVEN IN POWERS OF TEN   (0 INDICATES DATA IS STORED IN PRIMARY)
+0*** UNUSED SPACE ON SOF =   663552 WORDS.
+                      OR =      648 BLOCKS.
+                      OR =       69 PERCENT.
+0*** HIGHEST BLOCK USED  =      278
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+
+      NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+
+
+
+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK GPST     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+                                S U B S T R U C T U R E   E Q U I V A L E N C E   O P E R A T I O N
+
+
+                       SUBSTRUCTURE SMILLDYN HAS BEEN CREATED AND MARKED EQUIVALENT TO SUBSTRUCTURE SMALLMIL
+0                      THE PRIMARY SUBSTRUCTURE OF SMILLDYN IS SMALLMIL
+0                      THE FOLLOWING IMAGE SUBSTRUCTURES HAVE BEEN GENERATED --
+0                      DWINDMIL  DHUB      DBLADES   DRING     DVANETOP  DVANERGT  DVANE1    DROOTTOP
+0                      DRVANE1   DVANE2    DROOT1    DVANELFT  DRVANE2   DROOT2    DLVANE1   DROOTLFT
+0                      DLVANE2   DLROOT1   DVANEBOT  DLROOT2   DBVANE1   DROOTBOT  DBVANE2   DBROOT1 
+0                      DROOTRGT  DBROOT2   DRROOT1   DRROOT2                                         
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+
+
+                          S U B S T R U C T U R E   O P E R A T I N G   F I L E   T A B L E   O F   C O N T E N T S 
+
+                                                    E  B  C  L  P  K  M  P  P  U  H  U  Q  S  P  P  L  L  G  P  L  K  B  P  H      
+                                                    Q  G  S  O  L  M  M  V  O  P  O  V  V  O  A  O  O  M  I  H  A  4  M  H  L      
+                                                    S  S  T  D  T  T  T  E  V  R  R  E  E  L  P  A  A  T  M  I  M  M  T  I  F      
+     SUBSTRUCTURE                                   S  S  M  S  S  X  X  C  E  T  G  C  C  N  P  P  P  X  S  S  S  X  X  L  T      
+     NO.   NAME    TYPE   SS   PS   LL   CS   HL    --------------------------------------------------------------------------------
+
+       1  HUB        B    56    0    0   27   28    3  3  3  3  3  3  3  3        3  3     3                                 
+       2  ROOT1      B    47    0    0    6    7    3  3     3  3  3  3  3        3                                          
+       3  VANE1      B    51    0    0    4    5    3  3  3  3  3  3  3  3        3                                          
+       4  VANE2      B    48    3    0    3    5    3  0  0  3  3  0  0  0        3                                          
+       5  VANETOP    C    53    0    3    7   26    3  3  3  3  3  3  3  3        3                                          
+       6  ROOT2      B    44    2    0    2    7    3  0     3  3  0  0  0        3                                          
+       7  ROOTTOP    C    50    0    2   10   26    3  3     3  3  3  3  3        3                                          
+       8  LVANE2    IB    41    3    0    9   10    3  0  0  3  3  0  0  0        0                                          
+       9  LVANE1    IB    43    3    0    8   10    3  0  0  3  3  0  0  0        0                                          
+      10  VANELFT    C    46    5    9   19   26    3  0  0  3  3  0  0  0        3                                          
+      11  RVANE2    IB    45    3    0   12   13    3  0  0  3  3  0  0  0        0                                          
+      12  RVANE1    IB    49    3    0   11   13    3  0  0  3  3  0  0  0        0  3     3                                 
+      13  VANERGT    C    52    5   12   26   27    3  0  0  3  3  0  0  0        3  3     3                                 
+      14  BVANE2    IB    35    3    0   15   16    3  0  0  3  3  0  0  0        0                                          
+      15  BVANE1    IB    37    3    0   14   16    3  0  0  3  3  0  0  0        0                                          
+      16  VANEBOT    C    39    5   15   25   26    3  0  0  3  3  0  0  0        3                                          
+      17  LROOT2    IB    38    2    0   18   19    3  0     3  3  0  0  0        0                                          
+      18  LROOT1    IB    40    2    0   17   19    3  0     3  3  0  0  0        0                                          
+      19  ROOTLFT    C    42    7   18   16   26    3  0     3  3  0  0  0        3                                          
+      20  RROOT2    IB    30    2    0   21   22    3  0     3  3  0  0  0        0                                          
+      21  RROOT1    IB    31    2    0   20   22    3  0     3  3  0  0  0        0                                          
+      22  ROOTRGT    C    33    7   21    5   26    3  0     3  3  0  0  0        3                                          
+      23  BROOT2    IB    32    2    0   24   25    3  0     3  3  0  0  0        0                                          
+      24  BROOT1    IB    34    2    0   23   25    3  0     3  3  0  0  0        0                                          
+      25  ROOTBOT    C    36    7   24   22   26    3  0     3  3  0  0  0        3                                          
+      26  RING       C    54    0    5   13   27    3  3  3  3  3  4  3  3        3                                          
+      27  BLADES     C    55    0   26    1   28    3  3  3  3  3  4  3  3        3  3     3                                 
+      28  WINDMIL    C    57    0    1    0   29    3  3  3  3  3  4  3  3  3  3  4  3     3           3                     
+      29  SMALLMIL   R    58    0   28    0    0    3  3  3  3  3  4  4  4           3     3                                 
+      30  DRROOT2   IB    17    2    0   31   33    3  0     3  3  0  0  0        0                                          
+      31  DRROOT1   IB    18    2    0   30   33    3  0     3  3  0  0  0        0                                          
+      32  DBROOT2   IB    20    2    0   34   36    3  0     3  3  0  0  0        0                                          
+      33  DROOTRGT  IC    19    7   31   53   54    3  0     3  3  0  0  0        0                                          
+      34  DBROOT1   IB    21    2    0   32   36    3  0     3  3  0  0  0        0                                          
+      35  DBVANE2   IB    11    3    0   37   39    3  0  0  3  3  0  0  0        0                                          
+      36  DROOTBOT  IC    22    7   34   33   54    3  0     3  3  0  0  0        0                                          
+      37  DBVANE1   IB    12    3    0   35   39    3  0  0  3  3  0  0  0        0                                          
+      38  DLROOT2   IB     0    2    0   40   42    3  0     3  3  0  0  0        0                                          
+      39  DVANEBOT  IC    13    5   37   36   54    3  0  0  3  3  0  0  0        0                                          
+      40  DLROOT1   IB     6    2    0   38   42    3  0     3  3  0  0  0        0                                          
+      41  DLVANE2   IB     0    3    0   43   46    3  0  0  3  3  0  0  0        0                                          
+      42  DROOTLFT  IC     0    7   40   39   54    3  0     3  3  0  0  0        0                                          
+      43  DLVANE1   IB     4    3    0   41   46    3  0  0  3  3  0  0  0        0                                          
+      44  DROOT2    IB    23    2    0   47   50    3  0     3  3  0  0  0        0                                          
+      45  DRVANE2   IB     8    3    0   49   52    3  0  0  3  3  0  0  0        0                                          
+      46  DVANELFT  IC     0    5   43   42   54    3  0  0  3  3  0  0  0        0                                          
+      47  DROOT1    IB    24    2    0   44   50    3  0     3  3  0  0  0        0                                          
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+
+
+                          S U B S T R U C T U R E   O P E R A T I N G   F I L E   T A B L E   O F   C O N T E N T S 
+
+                                                    E  B  C  L  P  K  M  P  P  U  H  U  Q  S  P  P  L  L  G  P  L  K  B  P  H      
+                                                    Q  G  S  O  L  M  M  V  O  P  O  V  V  O  A  O  O  M  I  H  A  4  M  H  L      
+                                                    S  S  T  D  T  T  T  E  V  R  R  E  E  L  P  A  A  T  M  I  M  M  T  I  F      
+     SUBSTRUCTURE                                   S  S  M  S  S  X  X  C  E  T  G  C  C  N  P  P  P  X  S  S  S  X  X  L  T      
+     NO.   NAME    TYPE   SS   PS   LL   CS   HL    --------------------------------------------------------------------------------
+
+      48  DVANE2    IB    14    3    0   51   53    3  0  0  3  3  0  0  0        0                                          
+      49  DRVANE1   IB     9    3    0   45   52    3  0  0  3  3  0  0  0        0                                          
+      50  DROOTTOP  IC    25    7   47   46   54    3  0     3  3  0  0  0        0                                          
+      51  DVANE1    IB    15    3    0   48   53    3  0  0  3  3  0  0  0        0                                          
+      52  DVANERGT  IC    10    5   49   54   55    3  0  0  3  3  0  0  0        0                                          
+      53  DVANETOP  IC    16    5   51   50   54    3  0  0  3  3  0  0  0        0                                          
+      54  DRING     IC     0   26   53   52   55    3  0  0  3  3  0  0  0        0                                          
+      55  DBLADES   IC     0   27   54   56   57    3  0  0  3  3  0  0  0        0                                          
+      56  DHUB      IB     0    1    0   55   57    3  0  0  3  3  0  0  0        0                                          
+      57  DWINDMIL  IC     0   28   56    0   58    3  0  0  3  3  0  0  0  0  0  0                    0                     
+      58  SMILLDYN   R     0   29   57    0    0    3  0  0  3  3  0  0  0                                                   
+
+
+                                                   SIZE OF ITEM IS GIVEN IN POWERS OF TEN   (0 INDICATES DATA IS STORED IN PRIMARY)
+0*** UNUSED SPACE ON SOF =   573440 WORDS.
+                      OR =      560 BLOCKS.
+                      OR =       60 PERCENT.
+0*** HIGHEST BLOCK USED  =      366
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+
+      NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+
+
+
+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK GPST     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+                        0 ROOTS BELOW   1.973921E-01
+                        1 ROOTS BELOW   3.283552E+06
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (INVERSE POWER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .         1
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         2
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        13
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         7*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.00E+00
+0                                                                              . . .         0
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         0
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* 1 OR MORE ROOT OUTSIDE FR.RANGE.
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                                                                   
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                                                                     
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+
+                                     ****************************************************************
+                                     *                                                              *
+                                     *
++                                             NASTRAN INFORMATION MESSAGE 3307, POTENTIALLY         *
+                                     *         1 EIGENVALUE(S) AT LOW FREQ. END NOT FOUND           *
+                                     *                                                              *
+                                     *        (THIS MESSAGE CAN BE SUPPRESSED BY DIAG 37)           *
+                                     ****************************************************************
+
+        1         1        3.282042E+06        1.811641E+03        2.883316E+02        1.257053E-02        4.125703E+04             
+0*** USER INFORMATION MESSAGE 6312, LEVEL   1 DISPLACEMENTS FOR SUBSTRUCTURE DWINDMIL
+                                    HAVE BEEN RECOVERED AND SAVED ON THE SOF.
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DHUB                               
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -8.856722E-02   0.0            0.0            0.0            0.0            0.0                           
+             2      G     -1.522623E-01  -3.541324E-02   0.0            0.0            0.0            0.0                           
+             4      G     -9.645820E-02   4.235715E-08   0.0            0.0            0.0            0.0                           
+             5      G      0.0            7.825273E-06   0.0            0.0            0.0            0.0                           
+             5      G     -1.466363E-01   0.0            0.0            0.0            0.0            0.0                           
+             7      G     -8.856737E-02   0.0            0.0            0.0            0.0            0.0                           
+            10      G     -4.981457E-02   4.981417E-02   0.0            0.0            0.0            0.0                           
+            11      G     -9.071273E-02   9.069184E-02   0.0            0.0            0.0            0.0                           
+            13      G      0.0            8.856670E-02   0.0            0.0            0.0            0.0                           
+            14      G     -3.541860E-02   1.522445E-01   0.0            0.0            0.0            0.0                           
+            16      G     -2.156543E-08   9.645748E-02   0.0            0.0            0.0            0.0                           
+            17      G      0.0            1.465488E-01   0.0            0.0            0.0            0.0                           
+            17      G     -1.005780E-06   0.0            0.0            0.0            0.0            0.0                           
+            19      G      0.0            8.856663E-02   0.0            0.0            0.0            0.0                           
+            20      G      3.540997E-02   1.522359E-01   0.0            0.0            0.0            0.0                           
+            22      G      4.981398E-02   4.981408E-02   0.0            0.0            0.0            0.0                           
+            23      G      9.066205E-02   9.066232E-02   0.0            0.0            0.0            0.0                           
+            25      G      8.856636E-02   0.0            0.0            0.0            0.0            0.0                           
+            26      G      1.522343E-01   3.540994E-02   0.0            0.0            0.0            0.0                           
+            28      G      9.645715E-02   2.330909E-09   0.0            0.0            0.0            0.0                           
+            29      G      1.465443E-01   0.0            0.0            0.0            0.0            0.0                           
+            29      G      0.0            1.111190E-08   0.0            0.0            0.0            0.0                           
+            31      G      8.856634E-02   0.0            0.0            0.0            0.0            0.0                           
+            32      G      1.522343E-01  -3.540988E-02   0.0            0.0            0.0            0.0                           
+            34      G      4.981396E-02  -4.981401E-02   0.0            0.0            0.0            0.0                           
+            35      G      9.066191E-02  -9.066199E-02   0.0            0.0            0.0            0.0                           
+            37      G      0.0           -8.856648E-02   0.0            0.0            0.0            0.0                           
+            38      G      3.540988E-02  -1.522346E-01   0.0            0.0            0.0            0.0                           
+            40      G     -1.192220E-08  -9.645732E-02   0.0            0.0            0.0            0.0                           
+            41      G      0.0           -1.465449E-01   0.0            0.0            0.0            0.0                           
+            41      G     -1.414324E-07   0.0            0.0            0.0            0.0            0.0                           
+            43      G      0.0           -8.856653E-02   0.0            0.0            0.0            0.0                           
+            44      G     -3.541097E-02  -1.522356E-01   0.0            0.0            0.0            0.0                           
+            46      G     -4.981442E-02  -4.981408E-02   0.0            0.0            0.0            0.0                           
+            47      G     -9.066828E-02  -9.066486E-02   0.0            0.0            0.0            0.0                           
+           108      G     -1.452955E-02   1.558556E-01   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DVANE1                             
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      9.997520E-01  -3.238102E-07   0.0            0.0            0.0            0.0                           
+             2      G      1.000000E+00  -1.441501E-01   0.0            0.0            0.0            0.0                           
+             3      G      7.788594E-01  -9.595670E-07   0.0            0.0            0.0            0.0                           
+             4      G      7.801476E-01  -1.415358E-01   0.0            0.0            0.0            0.0                           
+             5      G      5.599570E-01  -2.673961E-06   0.0            0.0            0.0            0.0                           
+             6      G      5.620782E-01  -1.301922E-01   0.0            0.0            0.0            0.0                           
+             7      G     -3.626443E-01   8.360030E-06   0.0            0.0            0.0            0.0                           
+             8      G     -3.659638E-01   1.039001E-01   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DVANE2                             
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      9.997520E-01  -3.238102E-07   0.0            0.0            0.0            0.0                           
+             2      G      1.000000E+00   1.441494E-01   0.0            0.0            0.0            0.0                           
+             3      G      7.788594E-01  -9.595670E-07   0.0            0.0            0.0            0.0                           
+             4      G      7.801476E-01   1.415352E-01   0.0            0.0            0.0            0.0                           
+             5      G      5.599570E-01  -2.673961E-06   0.0            0.0            0.0            0.0                           
+             6      G      5.620782E-01   1.301915E-01   0.0            0.0            0.0            0.0                           
+             7      G     -3.626443E-01   8.360030E-06   0.0            0.0            0.0            0.0                           
+             8      G     -3.659638E-01  -1.038995E-01   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DROOT1                             
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -3.626443E-01   8.360030E-06   0.0            0.0            0.0            0.0                           
+             2      G     -3.659638E-01   1.039001E-01   0.0            0.0            0.0            0.0                           
+             3      G     -2.150761E-01   2.763956E-05   0.0            0.0            0.0            0.0                           
+             4      G     -2.191406E-01   5.852914E-02   0.0            0.0            0.0            0.0                           
+             5      G     -1.466363E-01   0.0            0.0            0.0            0.0            0.0                           
+             5      G      0.0            3.650935E-05   0.0            0.0            0.0            0.0                           
+             6      G     -1.524523E-01   3.550195E-02   0.0            0.0            0.0            0.0                           
+             7      G     -1.226156E-01   1.226150E-01   0.0            0.0            0.0            0.0                           
+             8      G     -9.071273E-02   9.069184E-02   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DROOT2                             
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -3.626443E-01   8.360030E-06   0.0            0.0            0.0            0.0                           
+             2      G     -3.659638E-01  -1.038995E-01   0.0            0.0            0.0            0.0                           
+             3      G     -2.150761E-01   2.763956E-05   0.0            0.0            0.0            0.0                           
+             4      G     -2.191405E-01  -5.852871E-02   0.0            0.0            0.0            0.0                           
+             5      G     -1.466363E-01   0.0            0.0            0.0            0.0            0.0                           
+             5      G      0.0            3.650935E-05   0.0            0.0            0.0            0.0                           
+             6      G     -1.522623E-01  -3.541324E-02   0.0            0.0            0.0            0.0                           
+             7      G     -1.226152E-01  -1.226148E-01   0.0            0.0            0.0            0.0                           
+             8      G     -9.066828E-02  -9.066486E-02   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DLVANE1                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      9.997458E-01  -1.117004E-07   0.0            0.0            0.0            0.0                           
+             2      G      9.999938E-01  -1.441490E-01   0.0            0.0            0.0            0.0                           
+             3      G      7.788545E-01  -1.119511E-07   0.0            0.0            0.0            0.0                           
+             4      G      7.801426E-01  -1.415348E-01   0.0            0.0            0.0            0.0                           
+             5      G      5.599533E-01  -1.250994E-07   0.0            0.0            0.0            0.0                           
+             6      G      5.620747E-01  -1.301912E-01   0.0            0.0            0.0            0.0                           
+             7      G     -1.607602E-07  -3.626407E-01   0.0            0.0            0.0            0.0                           
+             8      G     -1.038993E-01  -3.659613E-01   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DLVANE2                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      9.997458E-01  -1.117004E-07   0.0            0.0            0.0            0.0                           
+             2      G      9.999938E-01   1.441488E-01   0.0            0.0            0.0            0.0                           
+             3      G      7.788545E-01  -1.119511E-07   0.0            0.0            0.0            0.0                           
+             4      G      7.801426E-01   1.415346E-01   0.0            0.0            0.0            0.0                           
+             5      G      5.599533E-01  -1.250994E-07   0.0            0.0            0.0            0.0                           
+             6      G      5.620747E-01   1.301910E-01   0.0            0.0            0.0            0.0                           
+             7      G     -1.607602E-07  -3.626407E-01   0.0            0.0            0.0            0.0                           
+             8      G      1.038991E-01  -3.659613E-01   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DLROOT1                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -1.607602E-07  -3.626407E-01   0.0            0.0            0.0            0.0                           
+             2      G     -1.038993E-01  -3.659613E-01   0.0            0.0            0.0            0.0                           
+             3      G     -2.637443E-07  -2.150589E-01   0.0            0.0            0.0            0.0                           
+             4      G     -5.852870E-02  -2.191390E-01   0.0            0.0            0.0            0.0                           
+             5      G      0.0           -1.465449E-01   0.0            0.0            0.0            0.0                           
+             5      G     -3.484796E-07   0.0            0.0            0.0            0.0            0.0                           
+             6      G     -3.541097E-02  -1.522356E-01   0.0            0.0            0.0            0.0                           
+             7      G     -1.226152E-01  -1.226148E-01   0.0            0.0            0.0            0.0                           
+             8      G     -9.066828E-02  -9.066486E-02   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DLROOT2                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -1.607602E-07  -3.626407E-01   0.0            0.0            0.0            0.0                           
+             2      G      1.038991E-01  -3.659613E-01   0.0            0.0            0.0            0.0                           
+             3      G     -2.637443E-07  -2.150589E-01   0.0            0.0            0.0            0.0                           
+             4      G      5.852852E-02  -2.191389E-01   0.0            0.0            0.0            0.0                           
+             5      G      0.0           -1.465449E-01   0.0            0.0            0.0            0.0                           
+             5      G     -3.484796E-07   0.0            0.0            0.0            0.0            0.0                           
+             6      G      3.540988E-02  -1.522346E-01   0.0            0.0            0.0            0.0                           
+             7      G      1.226143E-01  -1.226144E-01   0.0            0.0            0.0            0.0                           
+             8      G      9.066191E-02  -9.066199E-02   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DBVANE1                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -9.997436E-01   1.984798E-08   0.0            0.0            0.0            0.0                           
+             2      G     -9.999917E-01   1.441486E-01   0.0            0.0            0.0            0.0                           
+             3      G     -7.788528E-01   1.882441E-08   0.0            0.0            0.0            0.0                           
+             4      G     -7.801409E-01   1.415344E-01   0.0            0.0            0.0            0.0                           
+             5      G     -5.599520E-01   2.442134E-08   0.0            0.0            0.0            0.0                           
+             6      G     -5.620733E-01   1.301908E-01   0.0            0.0            0.0            0.0                           
+             7      G      3.626399E-01   2.093786E-08   0.0            0.0            0.0            0.0                           
+             8      G      3.659605E-01   1.038989E-01   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DBVANE2                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -9.997436E-01   1.984798E-08   0.0            0.0            0.0            0.0                           
+             2      G     -9.999917E-01  -1.441486E-01   0.0            0.0            0.0            0.0                           
+             3      G     -7.788528E-01   1.882441E-08   0.0            0.0            0.0            0.0                           
+             4      G     -7.801409E-01  -1.415344E-01   0.0            0.0            0.0            0.0                           
+             5      G     -5.599520E-01   2.442134E-08   0.0            0.0            0.0            0.0                           
+             6      G     -5.620733E-01  -1.301908E-01   0.0            0.0            0.0            0.0                           
+             7      G      3.626399E-01   2.093786E-08   0.0            0.0            0.0            0.0                           
+             8      G      3.659605E-01  -1.038989E-01   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    36
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DBROOT1                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      3.626399E-01   2.093786E-08   0.0            0.0            0.0            0.0                           
+             2      G      3.659605E-01   1.038989E-01   0.0            0.0            0.0            0.0                           
+             3      G      2.150584E-01   2.414884E-08   0.0            0.0            0.0            0.0                           
+             4      G      2.191385E-01   5.852849E-02   0.0            0.0            0.0            0.0                           
+             5      G      0.0            2.615428E-08   0.0            0.0            0.0            0.0                           
+             5      G      1.465443E-01   0.0            0.0            0.0            0.0            0.0                           
+             6      G      1.522343E-01   3.540994E-02   0.0            0.0            0.0            0.0                           
+             7      G      1.226144E-01   1.226146E-01   0.0            0.0            0.0            0.0                           
+             8      G      9.066205E-02   9.066232E-02   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    37
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DBROOT2                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      3.626399E-01   2.093786E-08   0.0            0.0            0.0            0.0                           
+             2      G      3.659605E-01  -1.038989E-01   0.0            0.0            0.0            0.0                           
+             3      G      2.150584E-01   2.414884E-08   0.0            0.0            0.0            0.0                           
+             4      G      2.191385E-01  -5.852846E-02   0.0            0.0            0.0            0.0                           
+             5      G      0.0            2.615428E-08   0.0            0.0            0.0            0.0                           
+             5      G      1.465443E-01   0.0            0.0            0.0            0.0            0.0                           
+             6      G      1.522343E-01  -3.540988E-02   0.0            0.0            0.0            0.0                           
+             7      G      1.226143E-01  -1.226144E-01   0.0            0.0            0.0            0.0                           
+             8      G      9.066191E-02  -9.066199E-02   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    38
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DRROOT1                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -6.303531E-07   3.626415E-01   0.0            0.0            0.0            0.0                           
+             2      G      1.038992E-01   3.659620E-01   0.0            0.0            0.0            0.0                           
+             3      G     -1.726059E-06   2.150601E-01   0.0            0.0            0.0            0.0                           
+             4      G      5.852860E-02   2.191393E-01   0.0            0.0            0.0            0.0                           
+             5      G      0.0            1.465488E-01   0.0            0.0            0.0            0.0                           
+             5      G     -2.611606E-06   0.0            0.0            0.0            0.0            0.0                           
+             6      G      3.540997E-02   1.522359E-01   0.0            0.0            0.0            0.0                           
+             7      G      1.226144E-01   1.226146E-01   0.0            0.0            0.0            0.0                           
+             8      G      9.066205E-02   9.066232E-02   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    39
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DRROOT2                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -6.303531E-07   3.626415E-01   0.0            0.0            0.0            0.0                           
+             2      G     -1.038995E-01   3.659620E-01   0.0            0.0            0.0            0.0                           
+             3      G     -1.726059E-06   2.150601E-01   0.0            0.0            0.0            0.0                           
+             4      G     -5.852887E-02   2.191394E-01   0.0            0.0            0.0            0.0                           
+             5      G      0.0            1.465488E-01   0.0            0.0            0.0            0.0                           
+             5      G     -2.611606E-06   0.0            0.0            0.0            0.0            0.0                           
+             6      G     -3.541860E-02   1.522445E-01   0.0            0.0            0.0            0.0                           
+             7      G     -1.226156E-01   1.226150E-01   0.0            0.0            0.0            0.0                           
+             8      G     -9.071273E-02   9.069184E-02   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    40
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DRVANE1                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      9.997478E-01   1.697535E-07   0.0            0.0            0.0            0.0                           
+             2      G      9.999957E-01  -1.441490E-01   0.0            0.0            0.0            0.0                           
+             3      G      7.788560E-01   2.100089E-07   0.0            0.0            0.0            0.0                           
+             4      G      7.801441E-01  -1.415348E-01   0.0            0.0            0.0            0.0                           
+             5      G      5.599543E-01   3.029057E-07   0.0            0.0            0.0            0.0                           
+             6      G      5.620757E-01  -1.301912E-01   0.0            0.0            0.0            0.0                           
+             7      G     -6.303531E-07   3.626415E-01   0.0            0.0            0.0            0.0                           
+             8      G      1.038992E-01   3.659620E-01   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    41
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-7A                                SUBSTRUCTURE    DWINDMIL                           
+0     NORMAL MODES FOR SMALLMIL, RUN 7, PHASE 2                                  COMPONENT       DRVANE2                            
+      EIGENVALUE =  0.328204E+07    (CYCLIC FREQUENCY =  2.883316E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      9.997478E-01   1.697535E-07   0.0            0.0            0.0            0.0                           
+             2      G      9.999957E-01   1.441493E-01   0.0            0.0            0.0            0.0                           
+             3      G      7.788560E-01   2.100089E-07   0.0            0.0            0.0            0.0                           
+             4      G      7.801441E-01   1.415351E-01   0.0            0.0            0.0            0.0                           
+             5      G      5.599543E-01   3.029057E-07   0.0            0.0            0.0            0.0                           
+             6      G      5.620757E-01   1.301915E-01   0.0            0.0            0.0            0.0                           
+             7      G     -6.303531E-07   3.626415E-01   0.0            0.0            0.0            0.0                           
+             8      G     -1.038995E-01   3.659620E-01   0.0            0.0            0.0            0.0                           
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR      
+ DATE:  5/17/95
+ END TIME: 15:22:27
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

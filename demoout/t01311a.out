@@ -1,0 +1,510 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T01311A,NASTRAN                                                           
+     SOL   1                                                                         
+     APP   DISP                                                                      
+     TIME  10                                                                        
+     DIAG  2,8,15                                                                    
+     ALTER     50                                                                    
+     GINOFILE  /XXX/C,N,303 $                                                        
+     MATPRN    XXX,,,, // $                                                          
+     JUMP      FINIS $                                                               
+     ENDALTER                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     TESTING GINOFILE MODULE                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN TEST PROBLEM NO. T01-31-1A                                                                                            
+0     TO CAPTURE SCRATCH 3 OF GPWG MODULE                                                                                           
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = TESTING GINOFILE MODULE                                              
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T01-31-1A                                   
+                  3      LABEL    = TO CAPTURE SCRATCH 3 OF GPWG MODULE                                  
+                  4      SPC   = 10                                                                      
+                  5      DISP  = ALL                                                                     
+                  6      STRES = ALL                                                                     
+                  7      ELFOR = ALL                                                                     
+                  8      $ECHO = NONE                                                                    
+                  9      LOAD  = 20                                                                      
+                 10      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    15, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     TESTING GINOFILE MODULE                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN TEST PROBLEM NO. T01-31-1A                                                                                            
+0     TO CAPTURE SCRATCH 3 OF GPWG MODULE                                                                                           
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CQUAD4  1       1       1       2       3       4                               
+                    2-        CQUAD4  2       1       4       3       6       5                               
+                    3-        FORCE   20      6               10.0    1.0     1.0     1.0                     
+                    4-        FORCE   25      4               -1.0    1.0     1.0     1.0                     
+                    5-        GRID    1               0.0                                                     
+                    6-        GRID    2               0.0     1.0                                             
+                    7-        GRID    3               1.0     1.0                                             
+                    8-        GRID    4               1.0     0.0                                             
+                    9-        GRID    5               2.0     0.0                                             
+                   10-        GRID    6               2.0     1.0                                             
+                   11-        MAT1    100     3.0E+7          .3      1.0                                     
+                   12-        PARAM   GRDPNT  1                                                               
+                   13-        PSHELL  1       100     .1      100     1.0     100     .8333                   
+                   14-        SPC1    10      6       1       THRU    6                                       
+                   15-        SPC1    10      123456  1       2                                               
+                              ENDDATA
+1     TESTING GINOFILE MODULE                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T01-31-1A                                                                                            
+0     TO CAPTURE SCRATCH 3 OF GPWG MODULE                                                                                           
+ 
+     FIAT AT END OF PREFACE             58            100             62
+ 
+     EQUIV  APPEND    LTU  TAPE  UNIT  FILE NAME                               ---TRAILER---
+       0       0        6    0     23  GEOM1   
++                                                         0         0         8         0         0         0
+       0       0       33    0     24  EPT     
++                                                         0         0         0        64         0         0
+       0       0      158    0     25  MPT     
++                                                     32768         0         0         0         0         0
+       0       0        0    0     26          
++                                                         0         0         0         0         0         0
+       0       0        0    0     27          
++                                                         0         0         0         0         0         0
+       0       0      158    0     28  CASECC  
++                                                         1         1       200         0         0         0
+       0       0        0    0     29          
++                                                         0         0         0         0         0         0
+       0       0        0    0     30          
++                                                         0         0         0         0         0         0
+       0       0      158    0     31  GEOM2   
++                                                         0         0         0      1024         0         0
+       0       0       24    0     32  GEOM3   
++                                                         0         0        64         0         0         0
+       0       0      158    0     33  GEOM4   
++                                                         0         0         0        64         0         0
+       0       0        0    0     34          
++                                                         0         0         0         0         0         0
+       0       0        0    0     35          
++                                                         0         0         0         0         0         0
+       0       0        0    0     36          
++                                                         0         0         0         0         0         0
+       0       0        0    0     37          
++                                                         0         0         0         0         0         0
+       0       0        0    0     38          
++                                                         0         0         0         0         0         0
+       0       0        0    0     39          
++                                                         0         0         0         0         0         0
+       0       0        0    0     40          
++                                                         0         0         0         0         0         0
+       0       0        0    0     41          
++                                                         0         0         0         0         0         0
+       0       0        0    0     42          
++                                                         0         0         0         0         0         0
+       0       0        0    0     43          
++                                                         0         0         0         0         0         0
+       0       0        0    0     44          
++                                                         0         0         0         0         0         0
+       0       0        0    0     45          
++                                                         0         0         0         0         0         0
+       0       0        0    0     46          
++                                                         0         0         0         0         0         0
+       0       0        0    0     47          
++                                                         0         0         0         0         0         0
+       0       0        0    0     48          
++                                                         0         0         0         0         0         0
+       0       0        0    0     49          
++                                                         0         0         0         0         0         0
+       0       0        0    0     50          
++                                                         0         0         0         0         0         0
+       0       0        0    0     51          
++                                                         0         0         0         0         0         0
+       0       0        0    0     52          
++                                                         0         0         0         0         0         0
+       0       0        0    0     53          
++                                                         0         0         0         0         0         0
+       0       0        0    0     54          
++                                                         0         0         0         0         0         0
+       0       0        0    0     55          
++                                                         0         0         0         0         0         0
+       0       0        0    0     56          
++                                                         0         0         0         0         0         0
+       0       0        0    0     57          
++                                                         0         0         0         0         0         0
+       0       0        0    0     58          
++                                                         0         0         0         0         0         0
+       0       0        0    0     59          
++                                                         0         0         0         0         0         0
+       0       0        0    0     60          
++                                                         0         0         0         0         0         0
+       0       0        0    0     61          
++                                                         0         0         0         0         0         0
+       0       0        0    0     62          
++                                                         0         0         0         0         0         0
+       0       0        0    0     63          
++                                                         0         0         0         0         0         0
+       0       0        0    0     64          
++                                                         0         0         0         0         0         0
+       0       0        0    0     65          
++                                                         0         0         0         0         0         0
+       0       0        0    0     66          
++                                                         0         0         0         0         0         0
+       0       0        0    0     67          
++                                                         0         0         0         0         0         0
+       0       0        0    0     68          
++                                                         0         0         0         0         0         0
+       0       0        0    0     69          
++                                                         0         0         0         0         0         0
+1     TESTING GINOFILE MODULE                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T01-31-1A                                                                                            
+
+      TO CAPTURE SCRATCH 3 OF GPWG MODULE                                                                                           
+
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+       0       0        0    0     70          
++                                                         0         0         0         0         0         0
+       0       0        0    0     71          
++                                                         0         0         0         0         0         0
+       0       0        0    0     72          
++                                                         0         0         0         0         0         0
+       0       0        0    0     73          
++                                                         0         0         0         0         0         0
+       0       0        0    0     74          
++                                                         0         0         0         0         0         0
+       0       0        0    0     75          
++                                                         0         0         0         0         0         0
+       0       0        0    0     76          
++                                                         0         0         0         0         0         0
+       0       0        0    0     77          
++                                                         0         0         0         0         0         0
+       0       0        0    0     78          
++                                                         0         0         0         0         0         0
+       0       0        0    0     79          
++                                                         0         0         0         0         0         0
+       0       0        0    0     80          
++                                                         0         0         0         0         0         0
+       0       0      158    0  16383  EDT     
++                                                         0         0         0         0         0         0
+       0       0      158    0  16383  DIT     
++                                                         0         0         0         0         0         0
+       0       0       15    0  16383  PCDB    
++                                                         0         0         0         0         0         0
+       0       0      158    0  16383  XYCDB   
++                                                         0         0         0         0         0         0
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     SMALL PROBLEM SIZE
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     TESTING GINOFILE MODULE                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T01-31-1A                                                                                            
+0     TO CAPTURE SCRATCH 3 OF GPWG MODULE                                                                                           
+0FIAT AFTER SFA  58 100  72  OSCAR STR    4, STP   51
+
+ EQ AP  LTU  TP  UNIT  NTU  OF SG KN TR DATA-BLK      *      *   TRAILER   *      *      *  PRI BLKS   SEC FLS/BLKS   TER FLS/BLKS
+  0  0     6  0    23     6  1 -1  1  0 GEOM1         0      0      8      0      0      0        3         0/    0        0/    0
+  0  0    33  0    24    33  1 -1  1  0 EPT           0      0      0     64      0      0        3         0/    0        0/    0
+  0  0   158  0    25    82  0 -1  1  0 MPT       32768      0      0      0      0      0        3         0/    0        0/    0
+  0  0   158  0    26    89  0 -1  3  0 GPL           0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    27    59  0 -1  3  0 EQEXIN        0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    28    59  0 -1  1  0 CASECC        1      1    200      0      0      0        3         0/    0        0/    0
+  0  0   158  0    29    59  0 -1  3  0 GPDT          0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    30    59  0 -1  3  0 CSTM          0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    31   158  0 -1  1  0 GEOM2         0      0      0   1024      0      0        3         0/    0        0/    0
+  0  0    24  0    32    24  1 -1  1  0 GEOM3         0      0     64      0      0      0        3         0/    0        0/    0
+  0  0   158  0    33   158  0  0  0  0 GEOM4         0      0      0     64      0      0        3         0/    0        0/    0
+  0  0   158  0    34    59  0 -1  3  0 BGPDT         0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    35    57  0 -1  3  0 SIL           0      0      0      0      0      0        0         0/    0        0/    0
+  0  0 16383  0    36 32705  0 -1  3  0 SCRATCH1      0      0      0      0      0      0        0         0/    0        0/    0
+  0  0 16383  0    37 32706  0 -1  3  0 SCRATCH2      0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     8  0    38     8  1 -1  3  0 MPTA          0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    39    97  0 -1  3  0 ECT           0      0      0      0      0      0        0         0/    0        0/    0
+  0  0 16383  0    40 32707  0 -1  3  0 SCRATCH3      0      0      0      0      0      0        0         0/    0        0/    0
+  0  0 16383  0    41 32708  0 -1  3  0 SCRATCH4      0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    17  0    42    17  1 -1  3  0 PLTSETX       0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    43   154  0 -1  3  0 PLTPAR        0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    44   154  0 -1  3  0 GPSETS        0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    45   154  0 -1  3  0 ELSETS        0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    46    82  0 -1  3  0 GPTT          0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    47    56  0 -1  3  0 GEI           0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    48    97  0 -1  3  0 GPECT         0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    29  0    49    29  1 -1  3  0 MPTX          0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    50    82  0 -1  3  0 PCOMPS        0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    29  0    51    29  1 -1  3  0 EPTX          0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    44  0    52    44  1 -1  3  0 MELM          0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    44  0    53    44  1 -1  3  0 MDICT         0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    56  0    54    54  0 -1  3  0 KGGX          0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    93  0    55    82  0 -1  3  0 MGG           0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    56     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    57     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    58     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    59     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    60     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    61     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    62     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    63     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    64     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    65     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    66     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    67     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    68     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    69     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+1     TESTING GINOFILE MODULE                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T01-31-1A                                                                                            
+
+      TO CAPTURE SCRATCH 3 OF GPWG MODULE                                                                                           
+
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+  0  0     0  0    70     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    71     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    72     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    73     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    74     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    75     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    76     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    77     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    78     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    79     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0     0  0    80     0  0  0  0  0               0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0 32767   158  0  0  0  0 EDT           0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0 32767    82  0 -1  1  0 DIT           0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    15  0 32767    15  0 -1  1  0 PCDB          0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0 32767   158  0  0  0  0 XYCDB         0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    23   105  0 -1  2  0 BGPDP         0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    38   154  0 -1  2  0 SIP           0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    23  0    42    23  1 -1  2  0 PLOTX1        0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    42    82  0 -1  2  0 SLT           0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    32    82  0 -1  2  0 EST           0      0      0      0      0      0        0         0/    0        0/    0
+  0  0   158  0    49    37  0 -1  2  0 OPTP1         0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    97  0    24    97  0 -1  2  0 KELM          0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    97  0    51    97  0 -1  2  0 KDICT         0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    52  0    52    52  0 -1  2  0 OGPWG         0      0      0      0      0      0        0         0/    0        0/    0
+  0  0    50  0    53    50  0 -1  2  0 XXX           0      0      0      0      0      0        0         0/    0        0/    0
+                               EACH BLOCK CONTAINS 1024 WORDS.
+ POOL FILE CONTENTS   EQ    SIZE   FILE   DATA BLOCK
+                       0      0      1   XOSCAR  
+
+
+
+                            MEMORY DATA BASE DIRECTORY
+
+    UNIT    NAME   CURRENT  IN-MEM   DISK 
+                    BLOCK   BLOCKS  BLOCKS 
+
+      8   NPTP           1       0       1
+     22   POOL           1       4       0
+     23   GEOM1          1       1       0
+     24   EPT            1       1       0
+     25   MPT            1       1       0
+     28   CASE           1       1       0
+     31   GEOM2          1       1       0
+     32   GEOM3          1       1       0
+     33   GEOM4          1       1       0
+     38   IFPFILE        1       1       0
+     39   SCRATCH1       1       1       0
+     41   SCRATC15       1       5       0
+
+ CURRENT IN-MEMORY BLOCKS =      18
+ CURRENT DISK BLOCKS      =       1
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD4    ELEMENTS (ELEMENT TYPE  64) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE FROM GINOFILE MODULE
+     TRAILER OF SCRATCH3 FILE IN PREVIOUS MODULE = (303)   36    6    2    1    3    2824
+     MATRIX CONTENTS OF THIS FILE WILL BE TRANSFERRED TO GINO FILE XXX     
+
+0*** USER INFORMATION MESSAGE, DATA TRANSFER FROM PREVIOUS SCRATCH3 FILE TO XXX      IS ACCOMPLISHED
+     TRAILER OF THE NEW GINO FILE XXX       = (201)   36    6    2    1    3    2824
+1     TESTING GINOFILE MODULE                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T01-31-1A                                                                                            
+0     TO CAPTURE SCRATCH 3 OF GPWG MODULE                                                                                           
+0      MATRIX XXX      (GINO NAME 101 ) IS A S.P.REAL     36 COLUMN X      6 ROW RECTANG  MATRIX.
+0COLUMN      1      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN      2      ROWS      2 THRU      4     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00  0.00000E+00
+0COLUMN      3      ROWS      3 THRU      5     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00  0.00000E+00
+0COLUMN      4      ROWS      4 THRU      4     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN      5      ROWS      5 THRU      5     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN      6      ROWS      6 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN      7      ROWS      1 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00 -1.00000E+00
+0COLUMN      8      ROWS      2 THRU      4     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00  0.00000E+00
+0COLUMN      9      ROWS      3 THRU      5     --------------------------------------------------
+ 
+   1.00000E+00  1.00000E+00  0.00000E+00
+0COLUMN     10      ROWS      4 THRU      4     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     11      ROWS      5 THRU      5     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     12      ROWS      6 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     13      ROWS      1 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00 -1.00000E+00
+0COLUMN     14      ROWS      2 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  1.00000E+00
+0COLUMN     15      ROWS      3 THRU      5     --------------------------------------------------
+ 
+1     TESTING GINOFILE MODULE                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T01-31-1A                                                                                            
+0     TO CAPTURE SCRATCH 3 OF GPWG MODULE                                                                                           
+0    MATRIX  XXX         CONTINUED                                                                                                  
+                                                                                                                                    
+                                                                                                                                    
+   1.00000E+00  1.00000E+00 -1.00000E+00
+0COLUMN     16      ROWS      4 THRU      4     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     17      ROWS      5 THRU      5     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     18      ROWS      6 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     19      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     20      ROWS      2 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  1.00000E+00
+0COLUMN     21      ROWS      3 THRU      5     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00 -1.00000E+00
+0COLUMN     22      ROWS      4 THRU      4     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     23      ROWS      5 THRU      5     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     24      ROWS      6 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     25      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     26      ROWS      2 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  2.00000E+00
+0COLUMN     27      ROWS      3 THRU      5     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00 -2.00000E+00
+0COLUMN     28      ROWS      4 THRU      4     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     29      ROWS      5 THRU      5     --------------------------------------------------
+ 
+1     TESTING GINOFILE MODULE                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T01-31-1A                                                                                            
+0     TO CAPTURE SCRATCH 3 OF GPWG MODULE                                                                                           
+0    MATRIX  XXX         CONTINUED                                                                                                  
+                                                                                                                                    
+                                                                                                                                    
+   1.00000E+00
+0COLUMN     30      ROWS      6 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     31      ROWS      1 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00 -1.00000E+00
+0COLUMN     32      ROWS      2 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00  0.00000E+00  0.00000E+00  0.00000E+00  2.00000E+00
+0COLUMN     33      ROWS      3 THRU      5     --------------------------------------------------
+ 
+   1.00000E+00  1.00000E+00 -2.00000E+00
+0COLUMN     34      ROWS      4 THRU      4     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     35      ROWS      5 THRU      5     --------------------------------------------------
+ 
+   1.00000E+00
+0COLUMN     36      ROWS      6 THRU      6     --------------------------------------------------
+ 
+   1.00000E+00
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =       3
+0THE DENSITY OF THIS MATRIX IS  28.24 PERCENT.
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  TESTING GINOFILE MODULE                                            
+ DATE:  5/17/95
+ END TIME: 16:41:21
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

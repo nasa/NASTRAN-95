@@ -1,0 +1,116 @@
+$-------------------------------------------------------------------------------
+$      RIGID FORMAT No. 8, Frequency Response Analysis - Direct Formulation
+$                   Frequency Response of a 10x10 Plate (8-1-1)
+$                   Frequency Response of a 20x20 Plate (8-1-2)
+$               Frequency Response of a 10x10 Plate (INPUT, 8-1-3)
+$               Frequency Response of a 20x20 Plate (INPUT, 8-1-4)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the use of the direct method of determining
+$ structural response to steady-state sinusoidal loads, The applied load is
+$ given in terms of complex numbers which reflect the amplitudes and phases at
+$ each selected frequency. The steady-state response of the structure at each
+$ frequency is calculated in terms of complex numbers which reflect the
+$ magnitudes and phases of the results. Both configurations are duplicated via
+$ the INPUT module to generate the QUAD1 elements.
+$ 
+$ The particular model for this analysis is a square plate composed of
+$ quadrilateral plate elements. The exterior edges are supported on hinged
+$ supports and symmetric boundaries are used along x = 0 and y = 0. The applied
+$ load is sinusoidally distributed over the panel and increases with respect to
+$ frequency. Although the applied load excites only the first node, the direct
+$ formulation algorithm does not use this shortcut and solves the problem as
+$ though the load were completely general.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    a =  b = 10    - length and width of quarter model
+$ 
+$    t =  2.0       - thickness
+$ 
+$                 7
+$    E =  3.0 x 10  - Young's Modulus
+$ 
+$    v =  0.3       - Poisson's Ratio
+$ 
+$    mu = 13.55715  - nonstructural mass per area
+$ 
+$ 2. Loads:
+$ 
+$    The frequency dependent pressure function is:
+$ 
+$                            pi x      pi y
+$      P(x,y,f)  =  F(f) cos ----  cos ----                                  (1)
+$                             2a        2b
+$ 
+$    where
+$ 
+$      F(f)  =  10. + 0.3f                                                   (2)
+$ 
+$ 3. Constraints:
+$ 
+$    Only vertical notions and bending rotations are allowed, The exterior
+$    edges are hinged supports. The interior edges are planes of symmetry, This
+$    implies:
+$ 
+$      along x = 0, theta  = 0
+$                        y
+$ 
+$      along y = 0, theta  = 0
+$                        x
+$ 
+$      along x = a, u  = theta  = 0
+$                    z        x
+$ 
+$      along y = b, u  = theta  = 0
+$                    z        y
+$ 
+$      all points, u  = u  = theta  = 0
+$                   x    y        z
+$ 
+$ C. Theory
+$ 
+$ The excitation of the plate is orthogonal to the theoretical first mode, An
+$ explanation of the equations is given in Reference 8. The equations of
+$ response are:
+$ 
+$                     F(f)
+$    u (f)  =  ------------------                                            (3)
+$     z              2    2    2
+$              (2 pi) mu(f  - f )
+$                         1
+$ 
+$ where f  is the first natural frequency (10 Hz).
+$        1
+$ 
+$ D. Results
+$ 
+$ The following table gives the theoretical and NASTRAN results:
+$ 
+$                ---------------------------------------------------
+$                                                  4
+$                                         u    x 10
+$                                          z,1
+$                Frequency    --------------------------------------
+$                   Hz        Theory  10x10 NASTRAN   20x20 NASTRAN
+$                ---------------------------------------------------
+$                    0         1.868        1.874       1.869
+$ 
+$                    8         6.435        6.49        6.45
+$ 
+$                    9        12.489       12.69        12.53
+$ 
+$                   10        infinite    -824.92      -3284.4
+$ 
+$                   11       -11.833      -11.67       -11.79
+$                ---------------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 8. W. F. Stokey, "Vibration of Systems Having Distributed Mass and
+$    Elasticity", Chap. 7, SHOCK AND VIBRATION HANDBOOK, C. M. Harris and C. E.
+$    Crede, Editors, McGraw-Hill, 1961.
+$-------------------------------------------------------------------------------

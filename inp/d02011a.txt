@@ -1,0 +1,177 @@
+$-------------------------------------------------------------------------------
+$                   RIGID FORMAT No. 2, Inertia Relief Analysis
+$        Inertia Relief Analysis of a Circular Ring Under Concentrated and
+$                            Centrifugal Loads (2-1-1)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the use of inertia relief analysis to solve a free-
+$ body problem. In inertia relief the structure is under constant acceleration
+$ due to the applied loads; the reactions to the applied load are due to the
+$ masses of the structure. Ficticious, nonredundant support points must be
+$ provided to define a reference system attached to the body. The dlsplacements
+$ of the body are measured relative to the supported coordinates.
+$ 
+$ The structure consists of a spinning ring with constant radial load applied to
+$ one point. The rotational velocity creates centrifugal loads and the point
+$ load causes inertia reactions. The actual dynamic motion of the whole
+$ structure is a cyclic motion of the center point coinciding with the rotation
+$ of the ring. The displacements measured by the inertia relief analysis,
+$ however, will be the static motion relative to the support point
+$ dlsplacements.
+$ 
+$ The displacements are defined in a cylindrical coordinate system (u1 = u ,
+$                                                                    1    r
+$ u  = u ,   u3 = u ). The elements used are BAR elements wIth a large cross-
+$  2    phi        z
+$ sectional area to minimize axial deformations. The BARs were offset a uniform
+$ radial distance from the grid points to demonstrate the offset option of the
+$ BAR element.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    R = 10.0 (radius at end of BAR elements)
+$ 
+$    R  = 11.0 (Radius at grid points)
+$     1
+$ 
+$    I = 10.0 (Bending inertia)
+$ 
+$    p = 0.5 (Mass density)
+$ 
+$    E = 1000. (Modulus of elasticity)
+$ 
+$    A = 1000. (Cross-sectional area)
+$ 
+$ 2. Loads:
+$ 
+$    P     = 100
+$     r,13
+$ 
+$    f = 1.59 cps (Rotational velocity, w = 1.0 radians per second)
+$ 
+$ 3. Supports:
+$ 
+$    a) The u    direction is supported to restrict vertical translation.
+$            r,1
+$ 
+$    b) The u      and u     directions are supported to restrict rotation and
+$            phi,1      phi,13
+$       horizontal translation.
+$ 
+$ 4. Grid Point Weight Generator Input:
+$ 
+$    Weight and moment of inertia are defined relative to point 19.
+$ 
+$ C. Theory
+$ 
+$ 1. The Element Forces and Moments may be solved by the following analysis, as
+$    explained in Reference 7, Chapter 12.
+$ 
+$    a) Using symmetry the structure may be defined by the free-body diagram.
+$ 
+$       The static equilibrium equations at any angle are
+$ 
+$         A = A  cos phi + mu phi sin phi (Axial Force)                      (1)
+$              o
+$ 
+$         V = A  sin phi + mu phi cos phi (Shear)                            (2)
+$              o
+$ 
+$         M = M  + r[mu(1 - cos phi - phi sin phi) +
+$              o
+$ 
+$         A (1 - cos phi)]  (Bending Moment)                                 (3)
+$          o
+$ 
+$    b) Using energy and Castigliano's Theorem:
+$ 
+$               R                        2
+$         U  = ---  integral o to pi of M  d phi                             (4)
+$              2EI
+$ 
+$         deltaU
+$         ------ = 0                                                         (5)
+$         deltaM
+$               o
+$ 
+$         deltaU
+$         ------ = 0                                                         (6)
+$         deltaA
+$               o
+$ 
+$       These are the deflections at the bottom which are fixed. The resulting
+$       two equations are used in step c.
+$ 
+$    c) Solving the equations in (b) gives the redundant forces:
+$ 
+$                 1          F
+$         A  = - --- mu = - ---                                              (7)
+$          o      2         4pi
+$ 
+$              Rmu   FR
+$         M  = --- = ---                                                     (8)
+$          o    2     4
+$ 
+$    d) Adding a dummy load and solving the problem with the above boundary
+$       conditions gives the displacement due to the point load:
+$ 
+$                    3      2
+$                  FR     pi
+$         delta  = ---  ( -- - 1 )                                           (9)
+$              f   piEI   8
+$ 
+$    e) The axial stress and radial displacement due to the centrifugal load is
+$ 
+$ 
+$                    2  2           2
+$         delta  = pR  w  = 5.0 x 10                                        (10)
+$              w
+$ 
+$                     3 2
+$                  2pR w
+$         delta  = ------- = 1.0                                            (11)
+$              w      E
+$ 
+$ D. Results
+$ 
+$ 1. The total result of summing the two loads is
+$ 
+$               -----------------------------------------------------
+$                                                 THEORY    NASTRAN
+$               -----------------------------------------------------
+$                delta = Displacement u              1.75      1.734
+$                                      r,13
+$                M  = Moment BAR #1, end A         -79.5     -80.48
+$                 o
+$                M  = Moment BAR #12, end B       -238.5    -236.0
+$                 1
+$               -----------------------------------------------------
+$ 
+$ 2. The structural mass characteristics as calculated by the grid point weight
+$    generator are
+$ 
+$               -----------------------------------------------------
+$                         THEORETICAL                    NASTRAN
+$               -----------------------------------------------------
+$                X   = 11.0 from point 19                  11.0
+$                 CG
+$                              4               4                    4
+$                Mass = pi x 10  = 3.14159 x 10          3.1326 x 10
+$ 
+$                            pi     6              6               6
+$                I   = I   = -- x 10  = 1.5708 x 10     1.5663 x 10
+$                 xx    yy   2
+$ 
+$                             6               6                     6
+$                I   = pi x 10  = 3.14159 x 10           3.1326 x 10
+$                 zz
+$               -----------------------------------------------------
+$ 
+$                (Inertias are about center of gravity)
+$ 
+$    NASTRAN gives slightly different answers due to the polygonal shape of the
+$    finite element model.
+$-------------------------------------------------------------------------------

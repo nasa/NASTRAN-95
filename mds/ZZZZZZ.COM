@@ -1,0 +1,1 @@
+      COMMON / ZZZZZZ /MEM(10)

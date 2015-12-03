@@ -1,0 +1,140 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$          Rectangular Plate With Variable Moduli of Elasticity (1-17-1)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the use of the element stress precision check
+$ feature, NCHECK. A rectangular plate is modeled using CQUAD2 elements. The
+$ thickness is constant, but the modulus of elasticity is varied versus distance
+$ along the plate length. Concentrated forces and thermal loads are applied so
+$ as to produce uniform stress distribution in selected directions. The problem
+$ is designed so that stress calculations for certain elements will involve
+$ operations with small differences between large numbers to produce a loss of
+$ precision in the calculations.
+$ 
+$ B. Input
+$ 
+$ The relevant data are listed below.
+$ 
+$ 1. Parameters:
+$ 
+$    t = 1.0 inch              (Plate thickness)
+$ 
+$    E =                       (Modulus of elasticity)
+$ 
+$    v =  0.0                  (Poisson's ratio)
+$                    -6
+$    alpha = 1.0 x 10   in/in/deg. F (Thermal expansion coefficient)
+$ 
+$    T = 170 deg. F            (Applied temperature, uniform)
+$ 
+$    T  = 70 deg. F            (Reference temperature)
+$     o
+$ 
+$ 2. Constraints:
+$ 
+$    Subcases 1, 2, and 3
+$ 
+$      u  =   0                    at all Grid points
+$       6
+$      u  = u  =  0                at Grids 11 and 13
+$       2    3
+$ 
+$      u  = u  = u  = u  = u  = 0  at Grid 12
+$       1    2    3    4    5
+$ 
+$    Subcase  4
+$ 
+$      u  =   0                    at all Grid points
+$       6
+$ 
+$      u  = u  = u  = u  = u  = 0  at Grid points 11, 12, 13, 51, 52, and 53
+$       1    2    3    4    5
+$ 
+$ 3. Loads:
+$ 
+$    Subcase I F  = 100. at Grids 51 and 53
+$               y
+$ 
+$              F  = 400. at Grid 52
+$               y
+$ 
+$    Subcase 2  F  = 1000. at Grid 52
+$                x
+$ 
+$    Subcase 3  F  =  100. at Grid 52
+$                z
+$ 
+$    Subcase 4  T  =  170. deg. F at all Grids
+$ 
+$ 4. Output Requests:
+$ 
+$    Displacements of all grid points
+$ 
+$    Stresses of all elements
+$ 
+$    Stress precision check to 12 significant figures
+$ 
+$ C. Results
+$ 
+$ A summary of stress precision in the number of significant digits is presented
+$ in Table 1. The quantities shown in the table are indicative of the general
+$ trends observed in all stress precision output for this problem. The trend
+$ shows that elements with higher moduli of elasticity provide less precise
+$ stresses relative to the other elements under the same loading.
+$ 
+$                         Table 1. Stress Precision Summary
+$     -------------------------------------------------------------------------
+$          Case        Modulus of  Subcase 1  Subcase 2   Subcase 3  Subcase 4
+$         (CDC)        Elasticity
+$     -------------------------------------------------------------------------
+$       Significant                sigma        tau          M       sigma
+$     Load or Stress                    y          xy         y           y
+$     -------------------------------------------------------------------------
+$                           3
+$     Elements 11, 12     10        14.5        >12        >12        >12
+$                           5
+$     Elements 21, 22     10        12.1         11.4       11.9      >12
+$                           7
+$     Elements 31, 32     10        10.1          9.2        9.7       10.6
+$                           9
+$     Elements 41, 42     10         8.1          7.1        7.2        9.0
+$     -------------------------------------------------------------------------
+$ 
+$ 
+$     -------------------------------------------------------------------------
+$          Case        Modulus of  Subcase 1  Subcase 2   Subcase 3  Subcase 4
+$         (IBM)        Elasticity
+$     -------------------------------------------------------------------------
+$       Significant                sigma        tau          M       sigma
+$     Load or Stress                    y          xy         y           y
+$     -------------------------------------------------------------------------
+$                           3
+$     Elements 11, 12     10         7.2        >12        >12        >12
+$                           5
+$     Elements 21, 22     10         4.9          4.2        4.7      >12
+$                           7
+$     Elements 31, 32     10         2.9          2.0        2.5        3.3
+$                           9
+$     Elements 41, 42     10         1.0          0.5        1.7        2.0
+$     -------------------------------------------------------------------------
+$ 
+$ 
+$     -------------------------------------------------------------------------
+$          Case        Modulus of  Subcase 1  Subcase 2   Subcase 3  Subcase 4
+$       (UNIVAC)       Elasticity
+$     -------------------------------------------------------------------------
+$       Significant                sigma        tau          M       sigma
+$     Load or Stress                    y          xy         y           y
+$     -------------------------------------------------------------------------
+$                           3
+$     Elements 11, 12     10         8.1        >12        >12        >12
+$                           5
+$     Elements 21, 22     10         5.8          5.1        5.6      >12
+$                           7
+$     Elements 31, 32     10         3.8          2.9        3.4        4.3
+$                           9
+$     Elements 41, 42     10         1.0          0.8        0.7        2.7
+$     -------------------------------------------------------------------------
+$-------------------------------------------------------------------------------

@@ -1,0 +1,82 @@
+ID    D10022A,NASTRAN                                                           
+APP   AERO                                                                      
+SOL   10,0                                                                      
+TIME  10                                                                        
+DIAG  14,18                                                                     
+ALTER 66 $                                                                      
+MATGPR   GPL,USET,SIL,PHIA//C,N,FE/C,N,A $                                      
+ENDALTER $                                                                      
+CEND                                                                            
+TITLE    = AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING          
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D10-02-2A (K METHOD)               
+LABEL    = K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)        
+    ECHO = BOTH                                                                 
+    SPC  = 1                                                                    
+  METHOD = 10                                                                   
+ CMETHOD = 20                                                                   
+ FMETHOD = 30                                                                   
+OUTPUT(XYOUT)                                                                   
+ XTITLE  = VELOCITY                                                             
+ YTTITLE = DAMPING (G)                                                          
+ YBTITLE = FREQUENCY (F)                                                        
+ TCURVE  = V-G AND V-F DATA POINTS                                              
+CURVELINESYMBOL = -1                                                            
+XYPAPERPLOT VG / 1(G,F) 2(G,F) 3(G,F) 4(G,F) 5(G,F) 6(G,F)                      
+BEGIN BULK                                                                      
+AERO    0       1.3+4   2.0706  1.145-7                                         
+CAERO1  101     1       1       6       4                       1       +CA101  
++CA101  -1.     -.26795 0.0     2.0706  -1.     5.45205 0.0     2.0706          
+CBAR    1       1       1       2       0.0     0.0     1.      1               
+CBAR    2       1       2       3       0.0     0.0     1.      1               
+CBAR    3       1       3       4       0.0     0.0     1.      1               
+CBAR    4       1       4       5       0.0     0.0     1.      1               
+CBAR    5       1       5       6       0.0     0.0     1.      1               
+CBAR    6       1       6       7       0.0     0.0     1.      1               
+CBAR    7       1       7       8       0.0     0.0     1.      1               
+CBAR    8       1       8       9       0.0     0.0     1.      1               
+CBAR    9       1       9       10      0.0     0.0     1.      1               
+CBAR    10      1       10      11      0.0     0.0     1.      1               
+CMASS2  12      2.8-6   2       5                                               
+CMASS2  13      2.8-6   3       5                                               
+CMASS2  14      2.8-6   4       5                                               
+CMASS2  15      2.8-6   5       5                                               
+CMASS2  16      2.8-6   6       5                                               
+CMASS2  17      2.8-6   7       5                                               
+CMASS2  18      2.8-6   8       5                                               
+CMASS2  19      2.8-6   9       5                                               
+CMASS2  20      2.8-6   10      5                                               
+CMASS2  21      1.4-6   11      5                                               
+CORD2R  1               0.0     0.0     0.0     0.0     0.0     1.      +C1     
++C1     .96593  -.25882 0.0                                                     
+EIGC    20      HESS    MAX                                             +EC     
++EC                                                     3                       
+EIGR    10      GIV     .3      .1              6                       +ER     
++ER     MAX                                                                     
+FLFACT  1       .967                                                            
+FLFACT  2       .45                                                             
+FLFACT  3       .2      .16667  .14286  .125    .11111  .1                      
+FLUTTER 30      K       1       2       3       L       3                       
+GRDSET          1                               1       126                     
+GRID    1               0.0     .0      0.0                                     
+GRID    2               0.0     .572    0.0                                     
+GRID    3               0.0     1.144   0.0                                     
+GRID    4               0.0     1.716   0.0                                     
+GRID    5               0.0     2.288   0.0                                     
+GRID    6               0.0     2.86    0.0                                     
+GRID    7               0.0     3.432   0.0                                     
+GRID    8               0.0     4.004   0.0                                     
+GRID    9               0.0     4.576   0.0                                     
+GRID    10              0.0     5.148   0.0                                     
+GRID    11              0.0     5.72    0.0                                     
+MAT1    1       10.4+6  3.9+6           2.61-4                                  
+MKAERO1 .45                                                             +MK     
++MK     .0001   .1      .2                                                      
+PAERO1  1                                                                       
+PARAM   COUPMASS1                                                               
+PARAM   LMODES  3                                                               
+PBAR    1       1       7.175-2 9.83-6          36.8-6                          
+SET1    100     1       THRU    11                                              
+SPC1    1       345     1                                                       
+SPLINE2 100     101     101     124     100     0.0     1.      1       +SP     
++SP     0.0     0.0                                                             
+ENDDATA                                                                         

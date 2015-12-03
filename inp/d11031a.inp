@@ -1,0 +1,184 @@
+ID    D11031A,NASTRAN                                                           
+APP   AERO                                                                      
+SOL   11,0                                                                      
+TIME  25                                                                        
+CEND                                                                            
+TITLE    = JET TRANSPORT WING DYNAMIC ANALYSIS                                  
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D11-03-1A                          
+LABEL    = SYMMETRIC RESPONSE , STIFF AILERON                                   
+  ECHO   = BOTH                                                                 
+$                                                                               
+$       MODEL DESCRIPTION           JET TRANSPORT WING EXAMPLE                  
+$                               SYMMETRIC RESPONSE TO A RANDOM                  
+$                               GUST WITH A STIFF AILERON                       
+$                                                                               
+  SPC    = 14   $  SYM , NO PITCH                                               
+  MPC    = 1                                                                    
+  METHOD = 10   $  GIVENS                                                       
+  SDAMP  = 2000                                                                 
+  FREQ   = 40                                                                   
+  RANDOM = 1031 $  EMPIRICAL PSDF                                               
+OUTPUT                                                                          
+$                                                                               
+$       SOLUTION                   RANDOM ANALYSIS USING                        
+$                               DOUBLET-LATTICE METHOD AERODYNAMICS             
+$                               AT MACH NO. OF .62                              
+$                                                                               
+  SET 1 = 1  , 2 , 12 $                                                         
+  SET 2 = 1 , 9 THRU 12 , 1040                                                  
+  SET 3 = 11                                                                    
+  SET 4 = 1001 , 1022 , 1023 , 1040 , 1041 $                                    
+  SDISP(IMAG) = 1                                                               
+  DISP(IMAG)  = 2                                                               
+  SPCF(IMAG)  = 3                                                               
+  AEROF = 4                                                                     
+SUBCASE 1                                                                       
+  LABEL =  RANDOM GUST ANALYSIS                                                 
+  GUST  = 3002                                                                  
+$                                                                               
+$           PRODUCES XY PAPER PLOTS OF MODAL AND GRID POINT DISPLACEMENT        
+$       AND WING ROOT BENDING MOMENTS                                           
+$                                                                               
+OUTPUT(XYOUT)    $ FREQ RESP PACKAGE (COMPLEX NUMBERS)                          
+  CURVELINESYMBOL = 1                                                           
+  XTITLE  =  FREQUENCY(HERTZ)      JET TRANSPORT , FREQUENCY RESPONSE           
+  YTITLE  = MODAL DEFLECTION                                                    
+  TCURVE  =     FIRST MODE (PLUNGE)                                             
+  XYPAPERPLOT   SDISP /   1(T1RM) , 1(T1IP)                                     
+  TCURVE  =     SECOND MODE (WING BENDING)                                      
+  XYPAPERPLOT   SDISP /   2(T1RM) , 2(T1IP)                                     
+  TCURVE  =     TWELFTH MODE  (AILERON)                                         
+  XYPAPERPLOT   SDISP /  12(T1RM) , 12(T1IP)                                    
+  YTITLE  = PHYSICAL DEFLECTION                                                 
+  TCURVE  =     WING ( 3/4 CHORD , 1/4 CHORD , STA 458 )                        
+  XYPAPERPLOT    DISP /   9(T3RM) ,  9(T3IP) , 10(T3RM) , 10(T3IP)              
+  TCURVE  =     FUSELAGE PLUNGE                                                 
+  XYPAPERPLOT    DISP /  11(T3RM) , 11(T3IP)                                    
+  TCURVE  =     AILERON DEFLECTION                                              
+  XYPAPERPLOT    DISP /  12(R2RM) , 12(R2IP)                                    
+  TCURVE  =     AERODYNAMIC BOX NEAR TIP , PITCH                                
+  XYPAPERPLOT    DISP /  1040(R2RM) , 1040(R2IP)                                
+  TCURVE  =     WING ROOT BENDING MOMENT                                        
+  YTITLE  = ROTATIONAL CONSTRAINTS                                              
+  XYPAPERPLOT    SPCF /  11(R3RM) , 11(R3IP)                                    
+$ RANDOM ANALYSIS OUTPUT REQUESTS                                               
+  XTITLE  = FREQUENCY (HERTZ)      JET TRANSPORT , RANDOM ANALYSIS              
+  TCURVE  =   POWER SPECTRAL DENSITY FUNCTION                                   
+  YTITLE  = FUSELAGE PLUNGE  (11T3)         , PSDF , GUST LOAD                  
+  XYPAPERPLOT  DISP  PSDF     /  11(T3)                                         
+  YTITLE  = WING TIP DISPLACEMENT (9T3)     , PSDF , GUST LOAD                  
+  XYPAPERPLOT  DISP  PSDF     /   9(T3)                                         
+  YTITLE  = WING ROOT BENDING MOMENT (11R3) , PSDF , GUST LOAD                  
+  XYPAPERPLOT  SPCF  PSDF     /  11(R3)                                         
+BEGIN BULK                                                                      
+AEFACT  1       0.0     .09     .21     .33     .45     .56     .66     +AE1    
++AE1    .74                                                                     
+AEFACT  2       .74     .82     .90     .974                                    
+AEFACT  3       .974    1.00                                                    
+AEFACT  4       0.0     .375    .750    1.00                                    
+AEFACT  5       0.0     .1875   .375    .625    .750    .875    1.00            
+AERO    1       8360.   131.232 1.1468-71                               SYM     
+CAERO1  1001    1000    0                       1       4       1       +CA01   
++CA01   78.75   0.0     0.0     225.    35.     500.    0.0     100.            
+CAERO1  1022    1000    0                       2       5       1       +CA22   
++CA22   78.75   0.0     0.0     225.    35.     500.    0.0     100.            
+CAERO1  1040    1000    0                       3       4       1       +CA40   
++CA40   78.75   0.0     0.0     225.    35.     500.    0.0     100.            
+CELAS2  3       5142671.12      5                                               
+CMASS2  2       13967.2 12      5                                               
+CMASS2  121     5248.7  1       3                                               
+CMASS2  122     134.9   1       3       2       3                               
+CMASS2  123     790.3   2       3                                               
+CMASS2  341     9727.   3       3                                               
+CMASS2  342     11005.  3       3       4       3                               
+CMASS2  343     473.    4       3                                               
+CMASS2  561     3253.6  5       3                                               
+CMASS2  562     -139.7  5       3       6       3                               
+CMASS2  563     946.3   6       3                                               
+CMASS2  781     2617.8  7       3                                               
+CMASS2  782     21.     7       3       8       3                               
+CMASS2  783     782.3   8       3                                               
+CMASS2  9101    494.8   9       3                                               
+CMASS2  9102    -7.3    9       3       10      3                               
+CMASS2  9103    185.2   10      3                                               
+CONM1   1       11                                                      +51     
++51     17400.                          4.37+7                          +52     
++52             4.35+09                                                         
+CORD2R  1               0.0     0.0     0.0     0.0     0.0     -1.     +C1     
++C1     -1.     0.0     0.0                                                     
+DAREA   9999    11      1       1.                                      DUMMY   
+EIGR    10      GIV     0.0     1.              12                      +EIGR   
++EIGR   MAX                                                                     
+FREQ1   40      0.0     .25     39                                              
+GENEL   432             1       3       2       3       3       3       +01     
++01     4       3       5       3       6       3       7       3       +02     
++02     8       3       9       3       10      3                       +03     
++03     UD              11      3       11      4       11      5       +03A    
++03A    11      6                                                       +04     
++04     Z       8.7172-61.3361-61.2778-56.2720-61.6251-51.0492-52.0478-5+05     
++05     1.5630-52.4285-52.0403-53.0861-56.2720-63.2297-51.0492-53.3529-5+06     
++06     1.5630-53.5021-52.0257-53.5785-52.7732-51.5726-54.8255-53.7628-5+07     
++07     7.3284-56.4338-59.5810-58.8378-56.3749-53.7628-58.0136-56.4338-5+08     
++08     1.0012-48.8378-51.1811-41.2758-41.1344-41.9350-41.8160-42.5283-4+09     
++09     2.4294-41.6999-41.8160-42.2920-42.4294-42.8249-43.6862-43.5052-4+10     
++10     5.2675-45.1171-44.2292-45.1171-45.7187-48.4840-48.2340-49.2340-4+11     
++11     S       1.0     90.0    -20.25  45.0    1.0     90.0    81.0    +12     
++12     45.0    1.0     186.0   -17.85  141.0   1.0     186.0   71.4    +13     
++13     141.0   1.0     268.0   -15.80  223.0   1.0     268.0   63.2    +14     
++14     223.0   1.0     368.0   -13.30  323.0   1.0     368.0   53.2    +15     
++15     323.0   1.0     458.0   -11.05  413.0   1.0     458.0   44.2    +16     
++16     413.0                                                                   
+GRID    1               20.25   90.                     12456                   
+GRID    2               -81.    90.                     12456                   
+GRID    3               17.85   186.                    12456                   
+GRID    4               -71.4   186.                    12456                   
+GRID    5               15.8    268.                    12456                   
+GRID    6               -63.2   268.                    12456                   
+GRID    7               13.3    368.                    12456                   
+GRID    8               -53.2   368.                    12456                   
+GRID    9               11.05   458.                    12456                   
+GRID    10              -44.2   458.                    12456                   
+GRID    11              .0      .0                      126                     
+GRID    12              -86.45  368.                    1246                    
+GUST    3002    3002    1.1962-40.0     8360.                                   
+MKAERO1 .62                                                             +MK     
++MK     .02     .10     .50                                                     
+MPC     1       12      3       -1.0    8       3       1.5             +MPC1   
++MPC1           7       3       -0.5    12      5       33.25                   
+PAERO1  1000                                                                    
+PARAM   GUSTAERO1                                                               
+PARAM   LMODES  12                                                              
+PARAM   MACH    .62                                                             
+PARAM   Q       4.00747                                                         
+PARAM   WTMASS  .0025907                                                        
+RANDPS  1031    1       1       1.              1032                            
+RLOAD1  3002    9999                    1004                                    
+SET1    14      1       THRU    11                                              
+SET1    15      8       10      12                                              
+SPC     14      11      45                                                      
+SPLINE1 104     1022    1026    1039    15                                      
+SPLINE2 101     1001    1001    1021    14      0.0     2.      0       +SP1    
++SP1    -1.0    -1.0                                                            
+SPLINE2 102     1022    1022    1037    14      0.0     2.      0       +SP2    
++SP2    -1.0    -1.0                                                            
+SPLINE2 103     1040    1040    1042    14      0.0     2.      0       +SP3    
++SP3    -1.0    -1.0                                                            
+SUPORT  11      3                                                               
+TABDMP1 2000                                                            +T2000  
++T2000  0.0     .06     10.     .06     ENDT                                    
+TABLED1 1004                                                             T1004  
++T1004  0.0     0.0     .01     1.      10.     1.      ENDT                    
+TABRND1 1032                                                            +001    
++001    .00     2.8708+0.25     1.2641+0.50     4.7188-1.75     2.3080-1+002    
++002    1.00    1.3456-11.25    8.7595-21.50    6.1402-21.75    4.5369-2+003    
++003    2.00    3.4865-22.25    2.7618-22.50    2.2412-22.75    1.8547-2+004    
++004    3.00    1.5601-23.25    1.3304-23.50    1.1478-23.75    1.0004-2+005    
++005    4.00    8.7964-34.25    7.7947-34.50    6.9547-34.75    6.2434-3+006    
++006    5.00    5.6359-35.25    5.1128-35.50    4.6593-35.75    4.2636-3+007    
++007    6.00    3.9162-36.25    3.6095-36.50    3.3375-36.75    3.0951-3+008    
++008    7.00    2.8782-37.25    2.6833-37.50    2.5076-37.75    2.3485-3+009    
++009    8.00    2.2042-38.25    2.0727-38.50    1.9526-38.75    1.8427-3+010    
++010    9.00    1.7418-39.25    1.6490-39.50    1.5634-39.75    1.4843-3+011    
++011    ENDT                                                                    
+TSTEP   41      40      .1      1                                               
+ENDDATA                                                                         

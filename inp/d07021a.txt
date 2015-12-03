@@ -1,0 +1,201 @@
+$-------------------------------------------------------------------------------
+$       RIGID FORMAT No. 7, Complex Eigenvalue Analysis - Direct Formulation
+$            Third Harmonic Complex Eigenvalue Analysis of a Gas-Filled
+$                           Thin Elastic Cylinder (7-2-1)
+$            Fifth Harmonic Complex Eigenvalue Analysis of a Gas-Filled
+$                           Thin Elastic Cylinder (7-2-2)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates the use of symmetry to analyze specific harmonics of
+$ a fluid-filled structure. The problem to be solved consists of a cylindrical
+$ section filled with a compressible fluid. The end conditions for the cylinder
+$ and the fluid are two planes of antisymmetry, perpendicular to the axis. These
+$ end conditions correspond to the conditions that exist at periodic intervals
+$ along a long, fluid-filled pipe vibrating in one of its vibration modes. The
+$ antisymmetric boundary for the structure is defined by constraining the
+$ motions which lie in the plane. An antisymmetric boundary for the fluid
+$ corresponds to zero pressure. This may be modeled, in NASTRAN, by defining the
+$ plane of antisymmetry as a free surface with zero gravity.
+$ 
+$ The lowest natural frequencies and mode shapes for the third and fifth
+$ harmonics are analyzed separately. For the third harmonic, the structure is
+$ defined by a section of a cylinder having an arc of 30 degrees or 1/12 of a
+$ circle. The fifth harmonic analysis uses a section having an arc of 18 degrees
+$ or 1/20 of a circle. The longitudinal edges, which were cut, are planes of
+$ symmetry and antisymmetry in order to model a quarter cosine wave length.
+$ 
+$ The bulk data cards used are; AXIF, BDYLIST, CFLUID2, CFLUID4, CORD2C, CQUAD1,
+$ EIGC, FLSYM, FSLIST, GRIDB, MAT1, PQUAD1, RINGFL, and SPC1.
+$ 
+$ B. Input
+$ 
+$ The finite element model for the third harmonic uses the following parameters:
+$ 
+$                 3      2
+$    B = 2.88 x 10  lb/in             (Bulk modulus of fluid)
+$ 
+$                 -2       2   4
+$    p  = 1.8 x 10   lb-sec /in       (Fluid mass density)
+$     f
+$                 -2       2   4
+$    p  = 6.0 x 10   lb-sec /in       (Structure mass density)
+$     s
+$ 
+$                 5      2
+$    E  = 1.6 x 10  lb/in             (Young's modulus for structure)
+$ 
+$                4      2
+$    G = 6.0 x 10  lb/in              (Shear modulus for structure)
+$ 
+$    a  =  10.0 inch                  (Radius of cylinder)
+$ 
+$    l  =  10.0 inch                  (Length of cylinder)
+$ 
+$    h  =  0.01 inch                  (Thickness of cylinder)
+$ 
+$ The model for the fifth harmonic is similar to the third harmonic model except
+$ that the angle covered by the structure is 18 degrees instead of 30 degrees.
+$ This is accomplished by simply removing the structural elements and boundary
+$ GRIDB points corresponding to the two right-hand layers of structure (between
+$ 18 degrees and 30 degrees). The FLSYM, FSLIST, and SPC1 cards are changed to
+$ reflect the 1/20 symmetry.
+$ 
+$ C. Theory
+$ 
+$ The derivations and results for this problem are described in Reference 16.
+$ The results for various dimensionless parameters are listed. The particular
+$ parameters for the problem at hand are:
+$ 
+$          p a
+$           f
+$    n  =  ---  =  300.0
+$          p h
+$           s
+$ 
+$               Gp
+$                 f
+$    C  =  sqrt(---)  =  2.5
+$               Bp
+$                 x
+$ 
+$              P a
+$               o
+$    omega  =  ---  =  0.0
+$              Gh
+$ 
+$ where n is the ratio of fluid mass to structure mass. C is the ratio of the
+$ wave velocity in the structure material to the wave velocity in the fluid.
+$ Omega is the factor describing static pressurization, P .
+$                                                        o
+$ 
+$    The basic assumptions for this analysis are:
+$ 
+$    1. Thin shell theory is used for the structure. The bending moment terms in
+$       the force equilibrium equations are ignored in the results.
+$ 
+$    2. The fluid is nonviscous and irrotational, and small motions are only
+$       considered.
+$ 
+$ This particular problem becomes relatively easy to solve since the mode shapes
+$ for the fluid in a rigid container and the modes of the structure with no
+$ enclosed fluid have the same spatial function at the interface. Each mode of
+$ the fluid is excited by only one mode of the structure and each mode of the
+$ structure is excited by one mode of the fluid. The pressure in the fluid is
+$ assumed to be a series of functions:
+$ 
+$              iwt               pi z
+$    p  =  p  e    cos n phi sin ----  Q  (r,w)                              (1)
+$           n                     l     n
+$ 
+$ where Q  is a Bessel Function or a modified Bessel Function of the first kind.
+$        n
+$ 
+$ The characteristic shapes of the structure are a series of the form:
+$ 
+$              iwt               pi z
+$    u  =  A  e    cos n phi sin ----                                        (2)
+$                                 l
+$ 
+$ where u is the displacement normal to the surface. The fundamental momentum
+$ equation for the fluid flow at the boundary is:
+$ 
+$                                ..
+$    gradient (P(r)) e   =  - p  u                                           (3)
+$                     r        f
+$ 
+$ 
+$ where e  is a unit vector in the radial direction.
+$        r
+$ 
+$ The forces on the structure at the boundary are:
+$ 
+$                 2
+$                a F
+$             1     1        ..
+$    P(a)  =  -  ----  - p  hu                                               (4)
+$             a    2      s
+$                az
+$ 
+$ where the function F  is defined by the differential equation on the surface:
+$                     1
+$ 
+$                          2
+$            4        Eh  a u
+$    gradient  F   =  --  ---                                                (5)
+$               1     a     2
+$                         az
+$ 
+$ The solution for F  is obtained by assuming that
+$                   1
+$ 
+$              iwt               pi z
+$    F   =  B e    cos n phi sin ----                                        (6)
+$     1                           l
+$ 
+$ Combining Equations 1 through 6 results in the relationships:
+$ 
+$                  aQ (r,w)  |
+$      2             n       |
+$    pw  A  =  P   --------  |                                               (7)
+$               n    ar      |r=a
+$ 
+$                  +                            +
+$                  |  2  4                      |
+$                  | a pi Eh                  2 |
+$    Q (a,w) P  =  | ---------------  +  p  hw  | A                          (8)
+$     n       n    |      2 2             s     |
+$                  |  4 pi a     2 2            |
+$                  | l (----- + n )             |
+$                  +       2                    +
+$                         l
+$ 
+$ Equation (7) is a statement of the continuity of displacement. Equation (8)
+$ states the balance of the pressures. The above equations may be solved by
+$ iterating on w. Reference 16 provides solutions for w over a wide range of
+$ parameters.
+$ 
+$ D. Results
+$ 
+$ The analytic and NASTRAN eigenvalues are listed in Table 1. The corresponding
+$ errors in the eigenvalues are tabulated and the maximum errors in displacement
+$ at the container wall are given as the percentage of the maximum value.
+$ 
+$               Table 1. Comparison of Analytical and NASTRAN Results
+$      --------------------------------------------------------------------
+$                    Natural Frequency (Hz)           Mode Shape
+$                 ---------------------------   ---------------------------
+$      Harmonic   Analytical   NASTRAN  Error   Max. Error in Radial Displ.
+$      --------------------------------------------------------------------
+$         3         1.579       1.595    1.0              0.0
+$ 
+$         5         1.011       1.049    3.4              0.5
+$      --------------------------------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 16. J. G. Berry and E. Reissner, "The Effect of an Internal Compressible Fluid
+$     Column on the Breathing Vibrations of a Thin Pressurized Cylindrical
+$     Shell", Journal of the Aeronautical Sciences, Vol. 25, No. 5, pp 288-294,
+$     May 1958.
+$-------------------------------------------------------------------------------

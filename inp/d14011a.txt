@@ -1,0 +1,108 @@
+$-------------------------------------------------------------------------------
+$            RIGID FORMAT No. 14, Static Analysis with Cyclic Symmetry
+$                  Circular Plate Using Cyclic Symmetry (14-1-1)
+$ 
+$ A. Description
+$ 
+$ A constant thickness circular plate with six radial stiffeners and a central
+$ hole is analyzed using dihedral symmetry. The plate is subjected to a uniform
+$ pressure load applied over a 60 degree segment of the plate.
+$ 
+$ The stringers are 60 degrees apart but only 30 degrees of the structure needs
+$ to be modeled when using the dihedral symmetry option. There are 12 subcases
+$ since these are 2 half segments in a 60 degree segment and only one loading
+$ condition. The CYJOIN bulk data card defines those points in the middle of the
+$ segment (SIDE 2) and those points on the boundary between segments (SIDE 1).
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    R  =  1.0        (outside radius)
+$     o
+$ 
+$    R  =   .14       (inside radius)
+$     i
+$ 
+$    t  =   .01       (plate thickness)
+$ 
+$    a  =   .06       (height and width of stiffeners)
+$ 
+$                  6
+$    E  = 10.6 x 10   (modulus of elasticity)
+$ 
+$    v  =   .325      (Poisson's ratio)
+$ 
+$ 2. Boundary Conditions:
+$ 
+$    U  = U      = theta  = 0   (all points)
+$     r    theta        z
+$ 
+$    U  = theta  = 0            (along r = 1.0)
+$     z        r
+$ 
+$ 3. Applied loads:
+$ 
+$    Pressure = 200.0 between theta = 60 degrees and 120 degrees
+$ 
+$ 4. Cyclic symmetry parameters:
+$ 
+$    CTYPE  = DRL
+$ 
+$    KMAX   = 2
+$ 
+$    NSEGS  = 6
+$ 
+$    NLOAD  = 1
+$ 
+$ C. Results
+$ 
+$ The structure can be analyzed using rotational symmetry or dihedral symmetry
+$ described here and the results will be identical.
+$ 
+$ The results for the normal displacements are given in Table 1 for r = 0.46.
+$ 
+$     Table 1. Displacements of Circular Plate Under Pressure Load at r = 0.46
+$                         --------------------------------
+$                                     DIHEDRAL
+$                                      METHOD
+$                                   ------------
+$                         theta     Subcase Grid     Value
+$                         --------------------------------
+$                           0         1       30     1.365
+$                          15         1       31     1.379
+$                          30         1       32
+$                                     2       32
+$                          45         2       31     1.412
+$                          60         2       30
+$                                     3       30     1.430
+$                          75         3       31     1.464
+$                          90         3       32
+$                                     4       32     1.484
+$                         105         4       31
+$                         120         4       30
+$                                     5       30     1.430
+$                         135         5       31     1.412
+$                         150         5       32
+$                                     6       32     1.396
+$                         165         6       31     1.379
+$                         180         6       30
+$                                     7       30     1.365
+$                         195         7       31     1.359
+$                         210         7       32
+$                                     8       32     1.354
+$                         225         8       31     1.349
+$                         240         8       30
+$                                     9       30     1.345
+$                         255         9       31     1.344
+$                         270         9       32
+$                                    10       32     1.345
+$                         285        10       31     1.344
+$                         300        10       30
+$                                    11       30     1.345
+$                         315        11       31     1.349
+$                         330        11       32
+$                                    12       32     1.354
+$                         345        12       31     1.359
+$                         360        12       30     1.365
+$-------------------------------------------------------------------------------

@@ -1,0 +1,1029 @@
+     NASTRAN  FILES = OPTP                                                           
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01011B,RESTART                                                           
+     $ INSERT THE RESTART DICTIONARY HERE                                            
+0*** $   ... READFILE FROM-  RSCARDS                                                 
+            ( 173 CARDS READ)
+0*** $   END READFILE                                                                
+     APP      DISPLACEMENT                                                           
+     SOL      1,1                                                                    
+     TIME     5                                                                      
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = DELTA WING             RESTART                                       
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                          
+                  3      LABEL    = LOAD ON LEADING EDGE                                                 
+                  4          LOAD = 2                                                                    
+                  5          SPC  = 1                                                                    
+                  6      OUTPUT                                                                          
+                  7      $   SET 1  HAS GRIDS ON THE UPPER SURFACE  * * * * * * * * * * * * * * *        
+                  8      $   SET 2  HAS TOP SURFACE ELEMENTS, SHEAR(TRAILING AND LEADING EDGE),          
+                  9      $   SHEAR(CENTERLINE - BOTH DIRECTIONS), SHEAR(TIP)   * * * * * * * *           
+                 10      $                                                                               
+                 11              SET 1 = 11 THRU 16,31 THRU 36,51 THRU 55,71 THRU 74,91 THRU 93          
+                 12              SET 2 =  1 THRU 22,28 THRU 31, 35, 36, 41 THRU 44, 50                   
+                 13      $                                                                               
+                 14         DISPLACEMENTS = 1                                                            
+                 15              SPCFORCE = ALL                                                          
+                 16              ELSTRESS = 2                                                            
+                 17      BEGIN BULK                                                                      
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+0                                             I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              ENDDATA                                                                                       
+
+
+                        TOTAL COUNT=      0
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CONROD  100     11      12      1       .035                                    
+                    2-        CONROD  101     12      13      1       .035                                    
+                    3-        CONROD  102     13      14      1       .0344                                   
+                    4-        CONROD  103     14      15      1       .0325                                   
+                    5-        CONROD  104     15      16      1       .03                                     
+                    6-        CONROD  105     31      32      1       .091                                    
+                    7-        CONROD  106     32      33      1       .091                                    
+                    8-        CONROD  107     33      34      1       .088                                    
+                    9-        CONROD  108     34      35      1       .0719                                   
+                   10-        CONROD  109     35      36      1       .0453                                   
+                   11-        CONROD  110     51      52      1       .11                                     
+                   12-        CONROD  111     52      53      1       .11                                     
+                   13-        CONROD  112     53      54      1       .094                                    
+                   14-        CONROD  113     54      55      1       .0563                                   
+                   15-        CONROD  114     71      72      1       .091                                    
+                   16-        CONROD  115     72      73      1       .091                                    
+                   17-        CONROD  116     73      74      1       .0649                                   
+                   18-        CONROD  117     91      92      1       .035                                    
+                   19-        CONROD  118     92      93      1       .035                                    
+                   20-        CONROD  119     12      32      1       .063                                    
+                   21-        CONROD  120     32      52      1       .1002                                   
+                   22-        CONROD  121     52      72      1       .1002                                   
+                   23-        CONROD  122     72      92      1       .063                                    
+                   24-        CONROD  123     13      33      1       .063                                    
+                   25-        CONROD  124     33      53      1       .1002                                   
+                   26-        CONROD  125     53      73      1       .1002                                   
+                   27-        CONROD  126     73      93      1       .063                                    
+                   28-        CONROD  127     14      34      1       .0572                                   
+                   29-        CONROD  128     34      54      1       .0805                                   
+                   30-        CONROD  129     54      74      1       .0572                                   
+                   31-        CONROD  130     15      35      1       .0474                                   
+                   32-        CONROD  131     35      55      1       .0474                                   
+                   33-        CONROD  132     16      36      1       .028                                    
+                   34-        CONROD  133     93      74      1       .0344                                   
+                   35-        CONROD  134     74      55      1       .0325                                   
+                   36-        CONROD  135     55      36      1       .03                                     
+                   37-        CQDMEM  1       1       11      12      32      31                              
+                   38-        CQDMEM  2       1       12      13      33      32                              
+                   39-        CQDMEM  3       1       13      14      34      33                              
+                   40-        CQDMEM  4       1       14      15      35      34                              
+                   41-        CQDMEM  5       1       15      16      36      35                              
+                   42-        CQDMEM  6       1       31      32      52      51                              
+                   43-        CQDMEM  7       1       32      33      53      52                              
+                   44-        CQDMEM  8       1       33      34      54      53                              
+                   45-        CQDMEM  9       1       34      35      55      54                              
+                   46-        CQDMEM  11      1       51      52      72      71                              
+                   47-        CQDMEM  12      1       52      53      73      72                              
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+
+      LOAD ON LEADING EDGE                                                                                                          
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CQDMEM  13      1       53      54      74      73                              
+                   49-        CQDMEM  15      1       71      72      92      91                              
+                   50-        CQDMEM  16      1       72      73      93      92                              
+                   51-        CROD    60      5       1       11      61      6       2       12              
+                   52-        CROD    62      8       3       13      63      8       4       14              
+                   53-        CROD    64      8       5       15      65      6       6       16              
+                   54-        CROD    66      6       21      31      67      7       22      32              
+                   55-        CROD    68      9       23      33      69      9       24      34              
+                   56-        CROD    70      9       25      35      71      8       26      36              
+                   57-        CROD    72      6       41      51      73      7       42      52              
+                   58-        CROD    74      9       43      53      75      9       44      54              
+                   59-        CROD    76      9       45      55      77      6       61      71              
+                   60-        CROD    78      7       62      72      79      9       63      73              
+                   61-        CROD    80      9       64      74      81      5       81      91              
+                   62-        CROD    82      6       82      92      83      8       83      93              
+                   63-        CSHEAR  18      2       1       2       12      11                              
+                   64-        CSHEAR  19      2       2       3       13      12                              
+                   65-        CSHEAR  20      2       3       4       14      13                              
+                   66-        CSHEAR  21      2       4       5       15      14                              
+                   67-        CSHEAR  22      2       5       6       16      15                              
+                   68-        CSHEAR  23      2       21      22      32      31                              
+                   69-        CSHEAR  24      2       22      23      33      32                              
+                   70-        CSHEAR  25      2       23      24      34      33                              
+                   71-        CSHEAR  26      2       24      25      35      34                              
+                   72-        CSHEAR  27      2       25      26      36      35                              
+                   73-        CSHEAR  28      2       41      42      52      51                              
+                   74-        CSHEAR  29      2       42      43      53      52                              
+                   75-        CSHEAR  30      2       43      44      54      53                              
+                   76-        CSHEAR  31      2       44      45      55      54                              
+                   77-        CSHEAR  32      2       61      62      72      71                              
+                   78-        CSHEAR  33      2       62      63      73      72                              
+                   79-        CSHEAR  34      2       63      64      74      73                              
+                   80-        CSHEAR  35      2       81      82      92      91                              
+                   81-        CSHEAR  36      2       82      83      93      92                              
+                   82-        CSHEAR  37      2       2       22      32      12                              
+                   83-        CSHEAR  38      2       22      42      52      32                              
+                   84-        CSHEAR  39      2       42      62      72      52                              
+                   85-        CSHEAR  40      2       62      82      92      72                              
+                   86-        CSHEAR  41      2       3       23      33      13                              
+                   87-        CSHEAR  42      2       23      43      53      33                              
+                   88-        CSHEAR  43      2       43      63      73      53                              
+                   89-        CSHEAR  44      2       63      83      93      73                              
+                   90-        CSHEAR  45      2       4       24      34      14                              
+                   91-        CSHEAR  46      2       24      44      54      34                              
+                   92-        CSHEAR  47      2       44      64      74      54                              
+                   93-        CSHEAR  48      2       5       25      35      15                              
+                   94-        CSHEAR  49      2       25      45      55      35                              
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+
+      LOAD ON LEADING EDGE                                                                                                          
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CSHEAR  50      2       6       26      36      16                              
+                   96-        CSHEAR  51      2       26      45      55      36                              
+                   97-        CSHEAR  52      2       45      64      74      55                              
+                   98-        CSHEAR  53      2       64      83      93      74                              
+                   99-        CTRMEM  10      3       35      36      55                                      
+                  100-        CTRMEM  14      3       54      55      74                                      
+                  101-        CTRMEM  17      3       73      74      93                                      
+                  102-        FORCE   1       16      0       -1.     .0      .0      500.                    
+                  103-        FORCE   2       36              -1.0    .0      .0      500.0                   
+                  104-        GRDSET                                                  456                     
+                  105-        GRID    1               .0      .0      .0                                      
+                  106-        GRID    2               10.     .0      .0                                      
+                  107-        GRID    3               30.     .0      .0                                      
+                  108-        GRID    4               50.     .0      .0                                      
+                  109-        GRID    5               70.     .0      .0                                      
+                  110-        GRID    6               90.     .0      .0                                      
+                  111-        GRID    11              .0      .0      .82                                     
+                  112-        GRID    12              10.     .0      .82                                     
+                  113-        GRID    13              30.     .0      .82                                     
+                  114-        GRID    14              50.     .0      .795                                    
+                  115-        GRID    15              70.     .0      .754                                    
+                  116-        GRID    16              90.     .0      .67                                     
+                  117-        GRID    21              .0      20.     .0                                      
+                  118-        GRID    22              10.     20.     .0                                      
+                  119-        GRID    23              30.     20.     .0                                      
+                  120-        GRID    24              50.     20.     .0                                      
+                  121-        GRID    25              70.     20.     .0                                      
+                  122-        GRID    26              90.     20.     .0                                      
+                  123-        GRID    31              .0      20.     2.02                                    
+                  124-        GRID    32              10.     20.     2.02                                    
+                  125-        GRID    33              30.     20.     2.02                                    
+                  126-        GRID    34              50.     20.     1.795                                   
+                  127-        GRID    35              70.     20.     1.42                                    
+                  128-        GRID    36              90.     20.     .67                                     
+                  129-        GRID    41              .0      40.     .0                                      
+                  130-        GRID    42              10.     40.     .0                                      
+                  131-        GRID    43              30.     40.     .0                                      
+                  132-        GRID    44              50.     40.     .0                                      
+                  133-        GRID    45              70.     40.     .0                                      
+                  134-        GRID    51              .0      40.     2.42                                    
+                  135-        GRID    52              10.     40.     2.42                                    
+                  136-        GRID    53              30.     40.     2.42                                    
+                  137-        GRID    54              50.     40.     1.795                                   
+                  138-        GRID    55              70.     40.     .754                                    
+                  139-        GRID    61              .0      60.     .0                                      
+                  140-        GRID    62              10.     60.     .0                                      
+                  141-        GRID    63              30.     60.     .0                                      
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+
+      LOAD ON LEADING EDGE                                                                                                          
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        GRID    64              50.     60.     .0                                      
+                  143-        GRID    71              .0      60.     2.02                                    
+                  144-        GRID    72              10.     60.     2.02                                    
+                  145-        GRID    73              30.     60.     2.02                                    
+                  146-        GRID    74              50.     60.     .795                                    
+                  147-        GRID    81              .0      80.     .0                                      
+                  148-        GRID    82              10.     80.     .0                                      
+                  149-        GRID    83              30.     80.     .0                                      
+                  150-        GRID    91              .0      80.     .82                                     
+                  151-        GRID    92              10.     80.     .82                                     
+                  152-        GRID    93              30.     80.     .82                                     
+                  153-        MAT1    1       10.4  +64.   +6                                                 
+                  154-        MAT1    2       1.04+7  4.+6            .2523-3                                 
+                  155-        PARAM   IRES    1                                                               
+                  156-        PQDMEM  1       2       .16     .0                                              
+                  157-        PROD    5       1       2.1                                                     
+                  158-        PROD    6       1       3.5                                                     
+                  159-        PROD    7       1       4.91                                                    
+                  160-        PROD    8       1       4.2                                                     
+                  161-        PROD    9       1       5.6                                                     
+                  162-        PSHEAR  2       2       .14     .0                                              
+                  163-        PTRMEM  3       2       .16     .0                                              
+                  164-        SPC1    1       1       11      31      51      71      91                      
+                  165-        SPC1    1       3       13      33      53      73      93                      
+                  166-        SPC1    1       12      1       2       3       4       5       6       +SPC-A  
+                  167-        +SPC-A  21      22      23      24      25      26      41      42      +SPC-B  
+                  168-        +SPC-B  43      44      45      61      62      63      64      81      +SPC-C  
+                  169-        +SPC-C  82      83                                                              
+                              ENDDATA
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+0*** USER INFORMATION MESSAGE 4144, THIS IS A MODIFIED RESTART.
+0*** USER INFORMATION MESSAGE. CASE CONTROL AND BULK DATA DECK CHANGES AFFECTING THIS RESTART ARE INDICATED BELOW.
+
+0*** USER INFORMATION MESSAGE. EFFECTIVE CASE CONTROL DECK CHANGES
+ -----------------------------------
+
+
+ MASK WORD - BIT POSITION ---- FLAG NAME ---- PACKED BIT POSITION
+
+    17
+                   3           LOAD$                  59
+                  17           POUT$                  19
+                  31           NOLOOP$                31
+0*** USER INFORMATION MESSAGE. EFFECTIVE BULK DATA DECK CHANGES
+ --------------------------------
+
+
+ NONE
+
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 01 - STATIC ANALYSIS - APR. 1995 $                        
++  +
+
+       2  FILE     OPTP2=SAVE/EST1=SAVE $                                         
++  +
+
+       4  SETVAL   //V,Y,INTERACT/0/V,Y,SYS21/0 $                                 
++  *
+
+       5  PARAM    //*MPY*/CARDNO/0/0 $                                           
++  *
+
+       6  COMPOFF  1,INTERACT $                                                   
+
+       7  PRECHK   ALL $                                                          
+
+       8  COMPON   1,INTERACT $                                                   
+
+      10  COMPOFF  LBLINT02,SYS21 $                                               
+
+      11  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/ALWAYS=-1 $                                             
+
+      12  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+      13  EQUIV    MPTA,MPT/ISOP $                                                
+
+      14  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+      15  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      16  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      17  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      18  COND     P1,JUMPPLOT $                                                  
+
+      19  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      20  PRTMSG   PLTSETX// $                                                    
+
+      21  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      22  PARAM    //*MPY*/PFILE/0/0 $                                            
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+
+      LOAD ON LEADING EDGE                                                                                                          
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      23  COND     P1,JUMPPLOT $                                                  
+
+      24  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE  $                
+
+      25  PRTMSG   PLOTX1// $                                                     
+
+      26  LABEL    P1 $                                                           
++  +
+
+      27  GP3      GEOM3,EQEXIN,GEOM2/SLT,GPTT/S,N,NOGRAV/NEVER=1 $               
+
+      28  PARAM    //*AND*/NOMGG/NOGRAV/V,Y,GRDPNT=-1 $                           
+
+      29  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      30  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
++  *
+
+      31  PARAM    //*AND*/NOELMT/NOGENL/NOSIMP $                                 
+
+      32  COND     ERROR4,NOELMT $                                                
+
+      33  PURGE    KGGX/NOSIMP $                                                  
+
+      34  OPTPR1   MPT,EPT,ECT,DIT,EST/OPTP1/S,N,PRINT/S,N,TSTART/S,N,COUNT $     
+
+      35  LABEL    LOOPTOP $                                                      
++  +
+
+      36  COND     LBL1,NOSIMP $                                                  
+
+      37  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      38  EQUIV    OPTP1,OPTP2/NEVER/EST,EST1/NEVER $                             
+
+      39  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/                           
+                   C,Y,CPROD/C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/     
+                   C,Y,CPTUBE/C,Y,CPQDPLT/C,Y,CPTRPLT/C,Y,CPTRBSC/                
+                   C,Y,VOLUME/C,Y,SURFACE $                                       
+
+      40  COND     JMPKGG,NOKGGX $                                                
+
+      41  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      42  LABEL    JMPKGG $                                                       
++  +
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+
+      LOAD ON LEADING EDGE                                                                                                          
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      43  PURGE    MGG/NOMGG $                                                    
+
+      44  COND     JMPMGG,NOMGG $                                                 
+
+      45  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      46  PURGE    MDICT,MELM/ALWAYS $                                            
+
+      47  LABEL    JMPMGG $                                                       
++  +
+
+      48  COND     LBL1,GRDPNT $                                                  
+
+      49  COND     ERROR2,NOMGG $                                                 
+
+      50  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT/C,Y,WTMASS $            
+
+      51  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      52  LABEL    LBL1 $                                                         
++  +
+
+      53  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      54  COND     LBL11A,NOGENL $                                                
+
+      55  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      56  LABEL    LBL11A $                                                       
++  +
+
+      57  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      58  PARAM    //*MPY*/NSKIP/0/0 $                                            
++  *
+
+      60  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
++  *
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      61  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      62  COND     ERROR3,NOL $                                                   
++  *
+
+      63  PARAM    //*AND*/NOSR/SINGLE/REACT $                                    
++  *
+
+      64  PURGE    KRR,KLR,QR,DM/REACT/GM/MPCF1/GO,KOO,LOO,PO,UOOV,RUOV/OMIT/PS,  
++  *
+                   KFS,KSS/SINGLE/QG/NOSR $                                       
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+
+      LOAD ON LEADING EDGE                                                                                                          
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      65  EQUIV    KGG,KNN/MPCF1 $                                                
+
+      66  COND     LBL2,MPCF2 $                                                   
+
+      67  MCE1     USET,RG/GM $                                                   
+
+      68  MCE2     USET,GM,KGG,,,/KNN,,, $                                        
+
+      69  LABEL    LBL2 $                                                         
++  +
+
+      70  EQUIV    KNN,KFF/SINGLE $                                               
+
+      71  COND     LBL3,SINGLE $                                                  
+
+      72  SCE1     USET,KNN,,,/KFF,KFS,KSS,,, $                                   
+
+      73  LABEL    LBL3 $                                                         
++  +
+
+      74  EQUIV    KFF,KAA/OMIT $                                                 
+
+      75  COND     LBL5,OMIT $                                                    
+
+      76  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      77  LABEL    LBL5 $                                                         
++  +
+
+      78  EQUIV    KAA,KLL/REACT $                                                
+
+      79  COND     LBL6,REACT $                                                   
+
+      80  RBMG1    USET,KAA,/KLL,KLR,KRR,,, $                                     
+
+      81  LABEL    LBL6 $                                                         
++  +
+
+      82  RBMG2    KLL/LLL $                                                      
+
+      83  COND     LBL7,REACT $                                                   
+
+      84  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      85  LABEL    LBL7 $                                                         
++  +
+
+      86  SSG1     SLT,BGPDT,CSTM,SIL,EST,MPT,GPTT,EDT,MGG,CASECC,DIT,PCOMPS/     
++  *
+                   PG,,,,/LUSET/NSKIP/COMPS $                                     
+
+      87  EQUIV    PG,PL/NOSET $                                                  
++  *
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+
+      LOAD ON LEADING EDGE                                                                                                          
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      88  COND     LBL10,NOSET $                                                  
++  *
+
+      89  SSG2     USET,GM,YS,KFS,GO,DM,PG/QR,PO,PS,PL $                          
++  *
+
+      90  LABEL    LBL10 $                                                        
++  +
+
+      91  SSG3     LLL,KLL,PL,LOO,KOO,PO/ULV,UOOV,RULV,RUOV/OMIT/V,Y,IRES=-1/     
++  *
+                   NSKIP/S,N,EPSI $                                               
+
+      92  COND     LBL9,IRES $                                                    
++  *
+
+      93  MATGPR   GPL,USET,SIL,RULV//*L* $                                       
++  *
+
+      94  MATGPR   GPL,USET,SIL,RUOV//*O* $                                       
++  *
+
+      95  LABEL    LBL9 $                                                         
++  +
+
+      96  SDR1     USET,PG,ULV,UOOV,YS,GO,GM,PS,KFS,KSS,QR/UGV,PGG,QG/NSKIP/      
++  *
+                   *STATICS* $                                                    
+
+     100  PARAM    //*NOT*/TEST/REPEAT $                                          
+
+     101  COND     ERROR5,TEST $                                                  
+
+     103  GPFDR    CASECC,UGV,KELM,KDICT,ECT,EQEXIN,GPECT,PGG,QG/ONRGY1,OGPFB1/   
++  *
+                   *STATICS* $                                                    
+
+     104  PURGE    KDICT,KELM/REPEAT $                                            
++  *
+
+     105  OFP      ONRGY1,OGPFB1,,,,//S,N,CARDNO $                                
++  *
+
+     106  COND     NOMPCF,GRDEQ $                                                 
+
+     107  EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USET,KGG,GM,UGV,PGG,QG,CSTM/       
+                   OQM1/V,Y,OPT=0/V,Y,GRDEQ/NSKIP $                               
+
+     108  OFP      OQM1,,,,,//S,N,CARDNO $                                        
+
+     109  LABEL    NOMPCF $                                                       
++  +
+
+     110  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDP,,QG,UGV,EST,     
++  *
+                   XYCDB,PGG,PCOMPS/OPG1,OQG1,OUGV1,OES1,OEF1,PUGV1,OES1L,        
+                   OEF1L/*STATICS*/S,N,NOSORT2/-1/S,N,STRNFLG/COMPS $             
+
+     111  COND     LBLSTRS,STRESS $                                               
++  *
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+
+      LOAD ON LEADING EDGE                                                                                                          
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     112  CURV     OES1,MPT,CSTM,EST,SIL,GPL/OES1M,OES1G/V,Y,STRESS/              
++  *
+                   V,Y,NINTPTS $                                                  
+
+     113  LABEL    LBLSTRS $                                                      
++  +
+
+     114  PURGE    OES1M/STRESS $                                                 
++  *
+
+     115  COND     LBLSTRN,STRNFLG $                                              
++  *
+
+     116  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDT,,,UGV,EST,,,/    
++  *
+                   ,,,OES1A,,,,/*STATICS*//1 $                                    
+
+     117  COND     LBLSTRN,STRAIN $                                               
++  *
+
+     118  CURV     OES1A,MPT,CSTM,EST,SIL,GPL/OES1AM,OES1AG/V,Y,STRAIN/           
++  *
+                   V,Y,NINTPTS $                                                  
+
+     119  LABEL    LBLSTRN $                                                      
++  +
+
+     120  PURGE    OES1A/STRNFLG $                                                
++  *
+
+     121  COND     LBL17,NOSORT2 $                                                
++  *
+
+     122  SDR3     OUGV1,OPG1,OQG1,OEF1,OES1,/OUGV2,OPG2,OQG2,OEF2,OES2, $        
++  *
+
+     123  PARAM    //*SUB*/PRTSORT2/NOSORT2/1 $                                   
++  *
+
+     124  COND     LBLSORT1,PRTSORT2 $                                            
++  *
+
+     125  OFP      OUGV2,OPG2,OQG2,OEF2,OES2,//S,N,CARDNO $                       
++  *
+
+     126  SCAN     CASECC,OES2,OEF2,,/OESF2,/*RF* $                               
++  *
+
+     127  OFP      OESF2,,,,,//S,N,CARDNO $                                       
++  *
+
+     128  JUMP     LBLXYPLT $                                                     
++  *
+
+     129  LABEL    LBLSORT1 $                                                     
++  +
+
+     130  OFP      OUGV1,OPG1,OQG1,OEF1,OES1,//S,N,CARDNO $                       
++  *
+
+     131  OFP      OEF1L,OES1L,,,,//S,N,CARDNO $                                  
++  *
+
+     132  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
++  *
+
+     133  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
++  *
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+
+      LOAD ON LEADING EDGE                                                                                                          
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     134  LABEL    LBLXYPLT $                                                     
++  +
+
+     135  OFP      OES1M,OES1G,OES1A,OES1AM,OES1AG,//S,N,CARDNO $                 
++  *
+
+     136  XYTRAN   XYCDB,OPG2,OQG2,OUGV2,OES2,OEF2/XYPLTT/*TRAN*/*PSET*/S,N,      
+                   PFILE/S,N,CARDNO $                                             
+
+     137  XYPLOT   XYPLTT// $                                                     
+
+     138  JUMP     DPLOT $                                                        
+
+     139  LABEL    LBL17 $                                                        
++  +
+
+     140  PURGE    OUGV2/NOSORT2 $                                                
++  *
+
+     141  COND     LBLOFP,COUNT $                                                 
++  *
+
+     142  OPTPR2   OPTP1,OES1,EST/OPTP2,EST1/S,N,PRINT/TSTART/S,N,COUNT/S,N,      
++  *
+                   CARDNO $                                                       
+
+     143  EQUIV    EST1,EST/ALWAYS/OPTP2,OPTP1/ALWAYS $                           
++  *
+
+     144  COND     LOOPEND,PRINT $                                                
++  *
+
+     145  LABEL    LBLOFP $                                                       
++  +
+
+     146  OFP      OUGV1,OPG1,OQG1,OEF1,OES1,//S,N,CARDNO $                       
++  *
+
+     147  OFP      OEF1L,OES1L,,,,//S,N,CARDNO $                                  
++  *
+
+     148  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1X,OESF1Y/*RF* $              
++  *
+
+     149  OFP      OESF1X,OESF1Y,,,,//S,N,CARDNO $                                
++  *
+
+     150  OFP      OES1M,OES1G,OES1A,OES1AM,OES1AG,//S,N,CARDNO $                 
++  *
+
+     151  LABEL    DPLOT $                                                        
++  +
+
+     152  COND     P2,JUMPPLOT $                                                  
+
+     153  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,PUGV1,,GPECT,OES1,
+                   OES1L,ONRGY1/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $     
+
+     154  PRTMSG   PLOTX2// $                                                     
+
+     155  LABEL    P2 $                                                           
++  +
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+
+      LOAD ON LEADING EDGE                                                                                                          
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     156  LABEL    LOOPEND $                                                      
++  +
+
+     157  COND     FINIS,COUNT $                                                  
+
+     158  REPT     LOOPTOP,360 $                                                  
+
+     159  JUMP     FINIS $                                                        
++  *
+
+     162  LABEL    ERROR2 $                                                       
++  +
+
+     163  PRTPARM  //-2/*STATICS* $                                               
+
+     164  LABEL    ERROR3 $                                                       
++  +
+
+     165  PRTPARM  //-3/*STATICS* $                                               
++  *
+
+     166  LABEL    ERROR4 $                                                       
++  +
+
+     167  PRTPARM  //-4/*STATICS* $                                               
+
+     168  LABEL    ERROR5 $                                                       
++  +
+
+     169  PRTPARM  //-5/*STATICS* $                                               
+
+     170  LABEL    FINIS $                                                        
++  +
+
+     171  PURGE    DUMMY/ALWAYS $                                                 
++  *
+
+     172  LABEL    LBLINT02 $                                                     
++  +
+
+     173  COMPON   LBLINT01,SYS21 $                                               
+
+     228  END      $                                                              
++  *
+0
+0  + INDICATES DMAP INSTRUCTIONS THAT ARE PROCESSED ONLY AT DMAP COMPILATION TIME.
+0  * INDICATES DMAP INSTRUCTIONS THAT ARE FLAGGED FOR EXECUTION IN THIS MODIFIED RESTART.
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+0THE FOLLOWING FILES FROM THE OLD PROBLEM TAPE WERE USED TO INITIATE RESTART
+
+    FILE NAME  REEL NO.  FILE NO.
+
+     CSTM      (PURGED)
+     GPTT      (PURGED)
+     MPTX      (PURGED)
+     PCOMPS    (PURGED)
+     EPTX      (PURGED)
+     OPTP1     (PURGED)
+     OPTP2     (PURGED)
+     EST1      (PURGED)
+     KELM      (PURGED)
+     KDICT     (PURGED)
+     MGG       (PURGED)
+     DM        (PURGED)
+     GM        (PURGED)
+     GO        (PURGED)
+     KOO       (PURGED)
+     LOO       (PURGED)
+     GPL              1         6
+     EQEXIN           1         7
+     GPDT             1         8
+     BGPDT            1         9
+     SIL              1        10
+     BGPDP            1        15
+     ECT              1        18
+     SLT              1        21
+     EST              1        23
+     GPECT            1        24
+     GPST             1        39
+     KFF              1        47
+     KAA              1        47
+     KLL              1        47
+     KFS              1        48
+     KSS              1        49
+     LLL              1        53
+     XVPS             1        78
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   6.1515055E-12
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+0                RULV                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       1-T3).
+             1 T3 -6.95763E-11        6 T3  6.16296E-10       11 T2  1.70530E-13       11 T3  2.10918E-10        2 T3 -5.02780E-11
+            12 T1 -1.11378E-12       12 T2  2.72848E-12       12 T3  9.60512E-11       16 T1 -7.73070E-12       16 T2 -1.50067E-11
+            16 T3  5.43775E-10        5 T3  2.58819E-09       26 T3  9.83107E-10       36 T1  2.00089E-11       36 T2  7.27596E-12
+            36 T3 -6.04552E-09       15 T1 -1.59162E-12       15 T2 -1.37277E-11       15 T3 -9.33122E-10        3 T3  7.41768E-15
+            13 T1  7.16227E-12       13 T2 -2.87936E-13        4 T3  1.00050E-09       14 T1  1.35856E-11       14 T2 -5.45697E-12
+            14 T3 -1.29640E-09       25 T3 -2.87628E-09       31 T2  5.68434E-14       31 T3  9.06279E-11       32 T1  4.97380E-13
+            32 T2 -9.09495E-13       32 T3 -8.64659E-11       22 T3 -7.32712E-11       33 T1 -6.45173E-12       33 T2  1.53477E-12
+            35 T1 -9.35074E-12       35 T2 -7.27596E-12       35 T3  3.44293E-09       45 T3 -2.43809E-09       55 T1  6.36646E-12
+            55 T2  8.64020E-12       55 T3  1.76433E-09       34 T1 -1.08002E-11       34 T2  9.09495E-13       34 T3  1.12095E-10
+            23 T3 -4.59924E-13       24 T3 -3.08091E-10       44 T3 -5.50486E-10       21 T3 -5.82077E-11       51 T2 -1.13687E-13
+            51 T3 -1.09983E-11       52 T1  2.84217E-13       52 T2  1.81899E-12       52 T3 -1.23705E-11       42 T3 -5.66729E-11
+            53 T1  5.36009E-12       53 T2  8.24230E-13       43 T3  4.40536E-13       54 T1 -4.59721E-12       54 T2 -3.17385E-12
+            54 T3  1.82623E-11       64 T3 -1.27191E-10       74 T1  4.30589E-12       74 T2 -1.40687E-12       74 T3  2.89413E-11
+            63 T3  2.75335E-14       41 T3 -1.16415E-10       71 T2  3.97904E-13       71 T3  9.31895E-11       72 T1 -1.13687E-12
+            72 T2  9.09495E-13       72 T3 -1.42734E-10       62 T3  5.87477E-11       73 T1 -8.12861E-12       73 T2  3.12639E-13
+            83 T3  1.42109E-14       93 T1 -4.54747E-13       93 T2 -3.41061E-13       61 T3  5.82077E-11       91 T2  1.13687E-13
+            91 T3  1.16415E-10       92 T1 -4.54747E-13       92 T2  4.54747E-13       92 T3 -9.08926E-11       82 T3  2.55227E-11
+            81 T3 -1.16415E-10
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G      0.0            5.504990E-04   3.530420E-02   0.0            0.0            0.0                           
+            12      G      6.107410E-04   4.929025E-04   3.158017E-02   0.0            0.0            0.0                           
+            13      G      1.873376E-03   2.850013E-04   0.0            0.0            0.0            0.0                           
+            14      G      3.161895E-03   8.439103E-05  -6.274446E-02   0.0            0.0            0.0                           
+            15      G      4.411702E-03  -1.702276E-04  -1.625252E-01   0.0            0.0            0.0                           
+            16      G      4.745846E-03   4.252517E-05  -2.926660E-01   0.0            0.0            0.0                           
+            31      G      0.0            5.442912E-04   2.830364E-02   0.0            0.0            0.0                           
+            32      G      1.305697E-03   5.001065E-04   2.510981E-02   0.0            0.0            0.0                           
+            33      G      4.089955E-03  -3.986530E-05   0.0            0.0            0.0            0.0                           
+            34      G      6.495925E-03  -7.628573E-04  -5.700741E-02   0.0            0.0            0.0                           
+            35      G      7.875944E-03  -1.463164E-03  -1.480883E-01   0.0            0.0            0.0                           
+            36      G      5.096887E-03  -9.914878E-04  -2.803201E-01   0.0            0.0            0.0                           
+            51      G      0.0            2.245659E-04   2.367125E-02   0.0            0.0            0.0                           
+            52      G      1.331577E-03   2.509207E-04   2.097496E-02   0.0            0.0            0.0                           
+            53      G      4.035364E-03  -2.396090E-04   0.0            0.0            0.0            0.0                           
+            54      G      5.250302E-03  -1.264451E-03  -4.560495E-02   0.0            0.0            0.0                           
+            55      G      3.479791E-03  -1.510970E-03  -1.177722E-01   0.0            0.0            0.0                           
+            71      G      0.0           -1.015693E-04   2.070749E-02   0.0            0.0            0.0                           
+            72      G      9.683918E-04  -1.727391E-05   1.836970E-02   0.0            0.0            0.0                           
+            73      G      2.533760E-03  -1.852120E-04   0.0            0.0            0.0            0.0                           
+            74      G      1.384301E-03  -4.822831E-04  -3.005366E-02   0.0            0.0            0.0                           
+            91      G      0.0           -2.647094E-04   2.149453E-02   0.0            0.0            0.0                           
+            92      G      4.786263E-04  -1.570201E-04   1.857608E-02   0.0            0.0            0.0                           
+            93      G      8.386566E-04   2.826507E-05   0.0            0.0            0.0            0.0                           
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      3.165042E-10   0.0            0.0            0.0            0.0            0.0                           
+             2      G      3.599395E+02  -1.461141E+02   0.0            0.0            0.0            0.0                           
+             3      G      4.687872E+02  -4.818484E+02   0.0            0.0            0.0            0.0                           
+             4      G      6.671176E+02  -1.392725E+02   0.0            0.0            0.0            0.0                           
+             5      G      9.848511E+02   1.650048E+02   0.0            0.0            0.0            0.0                           
+             6      G      4.265812E+02   5.084844E+02   0.0            0.0            0.0            0.0                           
+            11      G     -9.479640E+02   0.0            0.0            0.0            0.0            0.0                           
+            13      G      0.0            0.0           -1.204342E+02   0.0            0.0            0.0                           
+            21      G     -1.071339E+01   0.0            0.0            0.0            0.0            0.0                           
+            22      G     -4.583174E+02   6.434440E+01   0.0            0.0            0.0            0.0                           
+            23      G     -2.515692E+01  -1.296826E+02   0.0            0.0            0.0            0.0                           
+            24      G      8.916004E+02  -1.697035E+02   0.0            0.0            0.0            0.0                           
+            25      G      2.732031E+03  -6.619138E+02   0.0            0.0            0.0            0.0                           
+            26      G      3.636943E+03  -8.655808E+02   0.0            0.0            0.0            0.0                           
+            31      G     -4.741040E+03   0.0            0.0            0.0            0.0            0.0                           
+            33      G      0.0            0.0            3.889736E+02   0.0            0.0            0.0                           
+            41      G     -1.543079E+01   0.0            0.0            0.0            0.0            0.0                           
+            42      G     -3.514639E+02   6.451864E+02   0.0            0.0            0.0            0.0                           
+            43      G      9.565627E+01   8.870487E+02   0.0            0.0            0.0            0.0                           
+            44      G      1.457744E+03  -6.072207E+02   0.0            0.0            0.0            0.0                           
+            45      G      2.237699E+03  -2.038563E+03   0.0            0.0            0.0            0.0                           
+            51      G     -4.894878E+03   0.0            0.0            0.0            0.0            0.0                           
+            53      G      0.0            0.0            3.813365E+02   0.0            0.0            0.0                           
+            61      G     -1.660231E+01   0.0            0.0            0.0            0.0            0.0                           
+            62      G      2.722174E+02   7.201207E+02   0.0            0.0            0.0            0.0                           
+            63      G      9.084629E+02   8.436291E+02   0.0            0.0            0.0            0.0                           
+            64      G     -1.559330E+02   1.987865E+02   0.0            0.0            0.0            0.0                           
+            71      G     -3.551513E+03   0.0            0.0            0.0            0.0            0.0                           
+            73      G      0.0            0.0            5.214319E+01   0.0            0.0            0.0                           
+            81      G      6.857590E-10   0.0            0.0            0.0            0.0            0.0                           
+            82      G      7.030408E+02   2.853928E+02   0.0            0.0            0.0            0.0                           
+            83      G      8.988521E+01   9.219017E+02   0.0            0.0            0.0            0.0                           
+            91      G     -7.635428E+02   0.0            0.0            0.0            0.0            0.0                           
+            93      G      0.0            0.0           -2.020191E+02   0.0            0.0            0.0                           
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+ 
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M )
+  ELEMENT           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+        1        1.026162E+03   9.871423E+01  -3.381412E+01       -2.0853       1.027393E+03   9.748303E+01   4.649550E+02          
+        2        1.095968E+03   1.459189E+02  -1.235515E+02       -7.2897       1.111772E+03   1.301143E+02   4.908290E+02          
+        3        1.185247E+03   1.260328E+02  -1.991666E+02      -10.3048       1.221458E+03   8.982092E+01   5.658187E+02          
+        4        1.179686E+03  -2.426147E+00  -2.313605E+02      -10.6886       1.223354E+03  -4.609436E+01   6.347242E+02          
+        5        7.152158E+02  -2.652981E+02  -4.286072E+01       -2.4982       7.170858E+02  -2.671681E+02   4.921270E+02          
+        6        1.443246E+03   2.395445E+02  -2.453354E+01       -1.1671       1.443746E+03   2.390447E+02   6.023505E+02          
+        7        1.522463E+03   3.185712E+02  -1.980511E+02       -9.1061       1.554207E+03   2.868271E+02   6.336901E+02          
+        8        1.563812E+03   2.867714E+02  -4.314293E+02      -17.0229       1.695902E+03   1.546819E+02   7.706099E+02          
+        9        1.314786E+03  -9.774048E+00  -5.345066E+02      -19.4530       1.503572E+03  -1.985593E+02   8.510654E+02          
+       11        1.272889E+03   2.563500E+02   5.946625E+00        0.3352       1.272924E+03   2.563152E+02   5.083043E+02          
+       12        1.205905E+03   3.197482E+02  -1.736017E+02      -10.6978       1.238700E+03   2.869526E+02   4.758739E+02          
+       13        9.566259E+02   3.041428E+02  -4.758458E+02      -27.7827       1.207327E+03   5.344183E+01   5.769426E+02          
+       15        7.959081E+02   1.448627E+02   5.240103E+01        4.5724       8.000988E+02   1.406721E+02   3.297133E+02          
+       16        5.553535E+02   1.824994E+02   4.913635E+00        0.7549       5.554182E+02   1.824346E+02   1.864918E+02          
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+ 
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+         ELEMENT            MAX            AVG        SAFETY         ELEMENT            MAX            AVG        SAFETY
+           ID.             SHEAR          SHEAR       MARGIN           ID.             SHEAR          SHEAR       MARGIN
+              18        0.0            0.0                                19        2.570995E+02  -2.570995E+02                     
+              20        7.774805E+01  -7.774805E+01                       21        3.987627E+02  -3.987627E+02                     
+              22        3.046973E+02  -3.046973E+02                       28        2.204395E+01   2.204395E+01                     
+              29        2.400233E+02   2.400233E+02                       30        4.157130E+02  -3.222133E+02                     
+              31        1.744758E+03  -1.026307E+03                       35        4.882812E-04  -4.882812E-04                     
+              36        5.021718E+02  -5.021718E+02                       41        8.478514E+02   4.937835E+02                     
+              42        3.013582E+02  -2.556636E+02                       43        4.577146E+02  -3.883118E+02                     
+              44        5.432639E+02  -3.163936E+02                       50        3.632051E+02  -3.632051E+02                     
+1     DELTA WING             RESTART                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                                                                                   
+0     LOAD ON LEADING EDGE                                                                                                          
+ 
+                      S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E S      ( C T R M E M )
+  ELEMENT           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+       10        1.062842E+03  -2.299238E+02  -1.325228E+02       -5.7932       1.076287E+03  -2.433691E+02   6.598279E+02          
+       14        1.133046E+03   3.440770E+02  -2.640948E+02      -16.9005       1.213287E+03   2.638362E+02   4.747254E+02          
+       17        4.301529E+02   2.400204E+02  -3.866161E+01      -11.0653       4.377137E+02   2.324596E+02   1.026270E+02          
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  DELTA WING             RESTART                                     
+ DATE:  5/17/95
+ END TIME: 14: 1:49
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

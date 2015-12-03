@@ -1,0 +1,1027 @@
+     NASTRAN FILES=PLT2                                                              
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D09011A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   9,1                                                                       
+     TIME  20                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                          
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                          
+                  3      TSTEP = 32                                                                      
+                  4      IC    = 32                                                                      
+                  5      DLOAD = 32                                                                      
+                  6      K2PP  = KCOMP                                                                   
+                  7      M2PP  = MCOMP                                                                   
+                  8      B2PP  = BCOMP                                                                   
+                  9        OUTPUT                                                                        
+                 10      SVELO = ALL                                                                     
+                 11      DISP(SORT2)=ALL                                                                 
+                 12      OLOAD(SORT2)=ALL                                                                
+                 13      PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                            
+                 14      OUTPUT(XYOUT)                                                                   
+                 15      PLOTTER = NASTPLT                                                               
+                 16        CAMERA = 3                                                                    
+                 17      SKIP BETWEEN FRAMES = 1                                                         
+                 18        TCURVE = * * * *   EPOINT       DISPLACEMENT(INCHES)   * * * * * * *          
+                 19        XTITLE =                   TIME (SECONDS)                                     
+                 20      $                                                                               
+                 21              YVALUE PRINT SKIP = 1                                                   
+                 22              XDIVISIONS = 25                                                         
+                 23              XVALUE PRINT SKIP = 1                                                   
+                 24      $ * * * * * * * * * * * * * * *  FULL FRAME PLOTS  * * * * * * * * * * *        
+                 25              YGRID LINES = YES                                                       
+                 26              XGRID LINES = YES                                                       
+                 27              YDIVISIONS = 22                                                         
+                 28      $                                                                               
+                 29           YTITLE = EPOINT 10         DISPLACEMENT *INCH*                             
+                 30      XYPLOT DISP / 10(T1)                                                            
+                 31      $                                                                               
+                 32              YDIVISIONS = 20                                                         
+                 33           YTITLE = EPOINT 11         DISPLACEMENT *INCH*                             
+                 34      XYPLOT DISP / 11(T1)                                                            
+                 35      $                                                                               
+                 36           YTITLE = EPOINT 12         DISPLACEMENT *INCH*                             
+                 37      XYPLOT DISP / 12(T1)                                                            
+                 38      $                                                                               
+                 39           YTITLE = EPOINT 13         DISPLACEMENT *INCH*                             
+                 40      XYPLOT DISP / 13(T1)                                                            
+                 41      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    36, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        DAREA   1       10              -1.5    11              -1.0                    
+                    2-        DAREA   1       12              -13.5   13              36.0                    
+                    3-        DELAY   1       10              1.0     11              1.0                     
+                    4-        DELAY   1       12              1.0     13              1.0                     
+                    5-        DMIG    BCOMP   0       1       1       2                                       
+                    6-        DMIG    BCOMP   11      0               10      0       -15.0           +BC1    
+                    7-        +BC1    11      0       30.0            12      0       -15.0                   
+                    8-        DMIG    BCOMP   12      0               11      0       -24.0           +BC2    
+                    9-        +BC2    12      0       48.0            13      0       -24.0                   
+                   10-        DMIG    BCOMP   13      0               12      0       -2.0            +BC3    
+                   11-        +BC3    13      0       4.0                                                     
+                   12-        DMIG    KCOMP   0       1       1       2                                       
+                   13-        DMIG    KCOMP   10      0               10      0       2000.           +KC1    
+                   14-        +KC1    11      0       -1000.                                                  
+                   15-        DMIG    KCOMP   12      0               11      0       -100.0          +KC2    
+                   16-        +KC2    12      0       200.0           13      0       -100.0                  
+                   17-        DMIG    KCOMP   13      0               12      0       -20.0           +KC3    
+                   18-        +KC3    13      0       40.0                                                    
+                   19-        DMIG    MCOMP   0       1       1       2                                       
+                   20-        DMIG    MCOMP   10      0               10      0       20.0            +MC1    
+                   21-        +MC1    11      0       -10.0                                                   
+                   22-        DMIG    MCOMP   11      0               10      0       -1.5            +MC2    
+                   23-        +MC2    11      0       3.0             12      0       -1.5                    
+                   24-        DMIG    MCOMP   12      0               11      0       -4.0            +MC4    
+                   25-        +MC4    12      0       8.0             13      0       -4.0                    
+                   26-        EPOINT  10      11      12      13                                              
+                   27-        TABLED1 1                                                               +T1     
+                   28-        +T1     -1.0    .0      .0      .0      .00     1.0     100.0   1.0     +T2     
+                   29-        +T2     ENDT                                                                    
+                   30-        TIC     32      10              .0      10.                                     
+                   31-        TIC     32      11              .0      .5                                      
+                   32-        TIC     32      12              .0      .0                                      
+                   33-        TIC     32      13              -10.0   .0                                      
+                   34-        TLOAD1  32      1       1               1                                       
+                   35-        TSTEP   32      200     .005    10                                      +S1     
+                   36-        +S1             100     .015    5                                               
+                              ENDDATA
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK SLT      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK GMD      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK GOD      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK GOD      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK GMD      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** USER INFORMATION MESSAGE 3028      B =    2     BBAR =    2
+                                        C =    0     CBAR =    0
+                                        R =    3
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC  REAL    DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =     4)
+     TIME ESTIMATE =        0 SECONDS
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      10
+                                           V E L O C I T Y   V E C T O R   (SOLUTION SET)
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      1.000000E+01                                                                                             
+   4.999999E-02     E      8.769266E+00                                                                                             
+   1.000000E-01     E      5.401150E+00                                                                                             
+   1.500000E-01     E      7.114526E-01                                                                                             
+   1.999999E-01     E     -4.152327E+00                                                                                             
+   2.499999E-01     E     -8.000093E+00                                                                                             
+   2.999999E-01     E     -9.890356E+00                                                                                             
+   3.499998E-01     E     -9.360596E+00                                                                                             
+   3.999998E-01     E     -6.540436E+00                                                                                             
+   4.499997E-01     E     -2.119929E+00                                                                                             
+   4.999997E-01     E      2.819293E+00                                                                                             
+   5.499997E-01     E      7.068676E+00                                                                                             
+   5.999996E-01     E      9.588459E+00                                                                                             
+   6.499996E-01     E      9.762089E+00                                                                                             
+   6.999995E-01     E      7.547080E+00                                                                                             
+   7.499995E-01     E      3.485413E+00                                                                                             
+   7.999994E-01     E     -1.429083E+00                                                                                             
+   8.499994E-01     E     -5.993903E+00                                                                                             
+   8.999993E-01     E     -9.092105E+00                                                                                             
+   9.499993E-01     E     -9.965603E+00                                                                                             
+   9.999992E-01     E     -8.484121E+00                                                                                             
+   1.014999E+00     E     -7.565701E+00                                                                                             
+   1.074999E+00     E     -2.545711E+00                                                                                             
+   1.149999E+00     E      4.729038E+00                                                                                             
+   1.224999E+00     E      9.479601E+00                                                                                             
+   1.299999E+00     E      9.170304E+00                                                                                             
+   1.374999E+00     E      3.966239E+00                                                                                             
+   1.449999E+00     E     -3.354858E+00                                                                                             
+   1.524999E+00     E     -8.885256E+00                                                                                             
+   1.599999E+00     E     -9.673034E+00                                                                                             
+   1.674999E+00     E     -5.297704E+00                                                                                             
+   1.749999E+00     E      1.905343E+00                                                                                             
+   1.824998E+00     E      8.091389E+00                                                                                             
+   1.899998E+00     E      9.958551E+00                                                                                             
+   1.974998E+00     E      6.510207E+00                                                                                             
+   2.049999E+00     E     -4.130439E-01                                                                                             
+   2.124999E+00     E     -7.115828E+00                                                                                             
+   2.200000E+00     E     -1.002045E+01                                                                                             
+   2.275000E+00     E     -7.576522E+00                                                                                             
+   2.350001E+00     E     -1.088531E+00                                                                                             
+   2.425001E+00     E      5.980478E+00                                                                                             
+   2.500002E+00     E      9.857328E+00                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      11
+                                           V E L O C I T Y   V E C T O R   (SOLUTION SET)
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      5.000000E-01                                                                                             
+   4.999999E-02     E      3.112683E-01                                                                                             
+   1.000000E-01     E      1.887741E-01                                                                                             
+   1.500000E-01     E      1.144853E-01                                                                                             
+   1.999999E-01     E      6.943163E-02                                                                                             
+   2.499999E-01     E      4.210803E-02                                                                                             
+   2.999999E-01     E      2.553715E-02                                                                                             
+   3.499998E-01     E      1.548745E-02                                                                                             
+   3.999998E-01     E      9.392634E-03                                                                                             
+   4.499997E-01     E      5.696327E-03                                                                                             
+   4.999997E-01     E      3.454637E-03                                                                                             
+   5.499997E-01     E      2.095125E-03                                                                                             
+   5.999996E-01     E      1.270625E-03                                                                                             
+   6.499996E-01     E      7.705928E-04                                                                                             
+   6.999995E-01     E      4.673394E-04                                                                                             
+   7.499995E-01     E      2.834262E-04                                                                                             
+   7.999994E-01     E      1.718888E-04                                                                                             
+   8.499994E-01     E      1.042449E-04                                                                                             
+   8.999993E-01     E      6.322116E-05                                                                                             
+   9.499993E-01     E      3.834158E-05                                                                                             
+   9.999992E-01     E      2.349529E-03                                                                                             
+   1.014999E+00     E      8.998503E-03                                                                                             
+   1.074999E+00     E      4.863206E-02                                                                                             
+   1.149999E+00     E      7.576972E-02                                                                                             
+   1.224999E+00     E      8.857056E-02                                                                                             
+   1.299999E+00     E      9.460873E-02                                                                                             
+   1.374999E+00     E      9.745693E-02                                                                                             
+   1.449999E+00     E      9.880044E-02                                                                                             
+   1.524999E+00     E      9.943417E-02                                                                                             
+   1.599999E+00     E      9.973309E-02                                                                                             
+   1.674999E+00     E      9.987410E-02                                                                                             
+   1.749999E+00     E      9.994061E-02                                                                                             
+   1.824998E+00     E      9.997199E-02                                                                                             
+   1.899998E+00     E      9.998678E-02                                                                                             
+   1.974998E+00     E      9.999377E-02                                                                                             
+   2.049999E+00     E      9.999706E-02                                                                                             
+   2.124999E+00     E      9.999862E-02                                                                                             
+   2.200000E+00     E      9.999935E-02                                                                                             
+   2.275000E+00     E      9.999969E-02                                                                                             
+   2.350001E+00     E      9.999985E-02                                                                                             
+   2.425001E+00     E      9.999993E-02                                                                                             
+   2.500002E+00     E      9.999996E-02                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      12
+                                           V E L O C I T Y   V E C T O R   (SOLUTION SET)
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      0.0                                                                                                      
+   4.999999E-02     E     -2.824090E-14                                                                                             
+   1.000000E-01     E      1.846157E-13                                                                                             
+   1.500000E-01     E      3.540349E-13                                                                                             
+   1.999999E-01     E     -3.459248E-14                                                                                             
+   2.499999E-01     E     -5.351599E-14                                                                                             
+   2.999999E-01     E     -1.424381E-13                                                                                             
+   3.499998E-01     E     -4.642623E-14                                                                                             
+   3.999998E-01     E     -6.567125E-14                                                                                             
+   4.499997E-01     E      4.065043E-14                                                                                             
+   4.999997E-01     E      7.945870E-14                                                                                             
+   5.499997E-01     E      4.015872E-14                                                                                             
+   5.999996E-01     E      1.285577E-13                                                                                             
+   6.499996E-01     E      2.880673E-14                                                                                             
+   6.999995E-01     E      9.794269E-14                                                                                             
+   7.499995E-01     E      2.944112E-13                                                                                             
+   7.999994E-01     E      1.211047E-13                                                                                             
+   8.499994E-01     E      1.863393E-13                                                                                             
+   8.999993E-01     E     -3.502401E-14                                                                                             
+   9.499993E-01     E     -8.198095E-14                                                                                             
+   9.999992E-01     E      2.388060E-03                                                                                             
+   1.014999E+00     E      9.334106E-03                                                                                             
+   1.074999E+00     E      5.393201E-02                                                                                             
+   1.149999E+00     E      8.759638E-02                                                                                             
+   1.224999E+00     E      9.927376E-02                                                                                             
+   1.299999E+00     E      9.561767E-02                                                                                             
+   1.374999E+00     E      8.258826E-02                                                                                             
+   1.449999E+00     E      6.503657E-02                                                                                             
+   1.524999E+00     E      4.656331E-02                                                                                             
+   1.599999E+00     E      2.956876E-02                                                                                             
+   1.674999E+00     E      1.541880E-02                                                                                             
+   1.749999E+00     E      4.666585E-03                                                                                             
+   1.824998E+00     E     -2.715090E-03                                                                                             
+   1.899998E+00     E     -7.120654E-03                                                                                             
+   1.974998E+00     E     -9.134681E-03                                                                                             
+   2.049999E+00     E     -9.397662E-03                                                                                             
+   2.124999E+00     E     -8.514103E-03                                                                                             
+   2.200000E+00     E     -6.997929E-03                                                                                             
+   2.275000E+00     E     -5.247781E-03                                                                                             
+   2.350001E+00     E     -3.544156E-03                                                                                             
+   2.425001E+00     E     -2.060800E-03                                                                                             
+   2.500002E+00     E     -8.839135E-04                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      13
+                                           V E L O C I T Y   V E C T O R   (SOLUTION SET)
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      0.0                                                                                                      
+   4.999999E-02     E      6.203616E+01                                                                                             
+   1.000000E-01     E      3.756202E+01                                                                                             
+   1.500000E-01     E      2.272955E+01                                                                                             
+   1.999999E-01     E      1.374248E+01                                                                                             
+   2.499999E-01     E      8.298950E+00                                                                                             
+   2.999999E-01     E      5.003276E+00                                                                                             
+   3.499998E-01     E      3.009255E+00                                                                                             
+   3.999998E-01     E      1.803873E+00                                                                                             
+   4.499997E-01     E      1.076142E+00                                                                                             
+   4.999997E-01     E      6.375653E-01                                                                                             
+   5.499997E-01     E      3.739158E-01                                                                                             
+   5.999996E-01     E      2.159887E-01                                                                                             
+   6.499996E-01     E      1.218726E-01                                                                                             
+   6.999995E-01     E      6.619807E-02                                                                                             
+   7.499995E-01     E      3.362007E-02                                                                                             
+   7.999994E-01     E      1.486620E-02                                                                                             
+   8.499994E-01     E      4.341558E-03                                                                                             
+   8.999993E-01     E     -1.323032E-03                                                                                             
+   9.499993E-01     E     -4.150650E-03                                                                                             
+   9.999992E-01     E      5.014814E+00                                                                                             
+   1.014999E+00     E      5.747711E+00                                                                                             
+   1.074999E+00     E      5.208082E+00                                                                                             
+   1.149999E+00     E      2.329447E+00                                                                                             
+   1.224999E+00     E      1.193548E+00                                                                                             
+   1.299999E+00     E      4.872352E-01                                                                                             
+   1.374999E+00     E      2.878540E-01                                                                                             
+   1.449999E+00     E      9.016828E-02                                                                                             
+   1.524999E+00     E      7.782674E-02                                                                                             
+   1.599999E+00     E      9.139004E-03                                                                                             
+   1.674999E+00     E      2.572602E-02                                                                                             
+   1.749999E+00     E     -4.556411E-03                                                                                             
+   1.824998E+00     E      1.083286E-02                                                                                             
+   1.899998E+00     E     -5.000210E-03                                                                                             
+   1.974998E+00     E      5.508720E-03                                                                                             
+   2.049999E+00     E     -3.526489E-03                                                                                             
+   2.124999E+00     E      3.103670E-03                                                                                             
+   2.200000E+00     E     -2.246930E-03                                                                                             
+   2.275000E+00     E      1.828576E-03                                                                                             
+   2.350001E+00     E     -1.385867E-03                                                                                             
+   2.425001E+00     E      1.096407E-03                                                                                             
+   2.500002E+00     E     -8.451193E-04                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK BGPDP    MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      10
+                                                     L O A D   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      0.0                                                                                                      
+   4.999999E-02     E      0.0                                                                                                      
+   1.000000E-01     E      0.0                                                                                                      
+   1.500000E-01     E      0.0                                                                                                      
+   1.999999E-01     E      0.0                                                                                                      
+   2.499999E-01     E      0.0                                                                                                      
+   2.999999E-01     E      0.0                                                                                                      
+   3.499998E-01     E      0.0                                                                                                      
+   3.999998E-01     E      0.0                                                                                                      
+   4.499997E-01     E      0.0                                                                                                      
+   4.999997E-01     E      0.0                                                                                                      
+   5.499997E-01     E      0.0                                                                                                      
+   5.999996E-01     E      0.0                                                                                                      
+   6.499996E-01     E      0.0                                                                                                      
+   6.999995E-01     E      0.0                                                                                                      
+   7.499995E-01     E      0.0                                                                                                      
+   7.999994E-01     E      0.0                                                                                                      
+   8.499994E-01     E      0.0                                                                                                      
+   8.999993E-01     E      0.0                                                                                                      
+   9.499993E-01     E      0.0                                                                                                      
+   9.999992E-01     E      0.0                                                                                                      
+   1.014999E+00     E     -1.500000E+00                                                                                             
+   1.074999E+00     E     -1.500000E+00                                                                                             
+   1.149999E+00     E     -1.500000E+00                                                                                             
+   1.224999E+00     E     -1.500000E+00                                                                                             
+   1.299999E+00     E     -1.500000E+00                                                                                             
+   1.374999E+00     E     -1.500000E+00                                                                                             
+   1.449999E+00     E     -1.500000E+00                                                                                             
+   1.524999E+00     E     -1.500000E+00                                                                                             
+   1.599999E+00     E     -1.500000E+00                                                                                             
+   1.674999E+00     E     -1.500000E+00                                                                                             
+   1.749999E+00     E     -1.500000E+00                                                                                             
+   1.824998E+00     E     -1.500000E+00                                                                                             
+   1.899998E+00     E     -1.500000E+00                                                                                             
+   1.974998E+00     E     -1.500000E+00                                                                                             
+   2.049999E+00     E     -1.500000E+00                                                                                             
+   2.124999E+00     E     -1.500000E+00                                                                                             
+   2.200000E+00     E     -1.500000E+00                                                                                             
+   2.275000E+00     E     -1.500000E+00                                                                                             
+   2.350001E+00     E     -1.500000E+00                                                                                             
+   2.425001E+00     E     -1.500000E+00                                                                                             
+   2.500002E+00     E     -1.500000E+00                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      11
+                                                     L O A D   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      0.0                                                                                                      
+   4.999999E-02     E      0.0                                                                                                      
+   1.000000E-01     E      0.0                                                                                                      
+   1.500000E-01     E      0.0                                                                                                      
+   1.999999E-01     E      0.0                                                                                                      
+   2.499999E-01     E      0.0                                                                                                      
+   2.999999E-01     E      0.0                                                                                                      
+   3.499998E-01     E      0.0                                                                                                      
+   3.999998E-01     E      0.0                                                                                                      
+   4.499997E-01     E      0.0                                                                                                      
+   4.999997E-01     E      0.0                                                                                                      
+   5.499997E-01     E      0.0                                                                                                      
+   5.999996E-01     E      0.0                                                                                                      
+   6.499996E-01     E      0.0                                                                                                      
+   6.999995E-01     E      0.0                                                                                                      
+   7.499995E-01     E      0.0                                                                                                      
+   7.999994E-01     E      0.0                                                                                                      
+   8.499994E-01     E      0.0                                                                                                      
+   8.999993E-01     E      0.0                                                                                                      
+   9.499993E-01     E      0.0                                                                                                      
+   9.999992E-01     E      0.0                                                                                                      
+   1.014999E+00     E     -1.000000E+00                                                                                             
+   1.074999E+00     E     -1.000000E+00                                                                                             
+   1.149999E+00     E     -1.000000E+00                                                                                             
+   1.224999E+00     E     -1.000000E+00                                                                                             
+   1.299999E+00     E     -1.000000E+00                                                                                             
+   1.374999E+00     E     -1.000000E+00                                                                                             
+   1.449999E+00     E     -1.000000E+00                                                                                             
+   1.524999E+00     E     -1.000000E+00                                                                                             
+   1.599999E+00     E     -1.000000E+00                                                                                             
+   1.674999E+00     E     -1.000000E+00                                                                                             
+   1.749999E+00     E     -1.000000E+00                                                                                             
+   1.824998E+00     E     -1.000000E+00                                                                                             
+   1.899998E+00     E     -1.000000E+00                                                                                             
+   1.974998E+00     E     -1.000000E+00                                                                                             
+   2.049999E+00     E     -1.000000E+00                                                                                             
+   2.124999E+00     E     -1.000000E+00                                                                                             
+   2.200000E+00     E     -1.000000E+00                                                                                             
+   2.275000E+00     E     -1.000000E+00                                                                                             
+   2.350001E+00     E     -1.000000E+00                                                                                             
+   2.425001E+00     E     -1.000000E+00                                                                                             
+   2.500002E+00     E     -1.000000E+00                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      12
+                                                     L O A D   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      0.0                                                                                                      
+   4.999999E-02     E      0.0                                                                                                      
+   1.000000E-01     E      0.0                                                                                                      
+   1.500000E-01     E      0.0                                                                                                      
+   1.999999E-01     E      0.0                                                                                                      
+   2.499999E-01     E      0.0                                                                                                      
+   2.999999E-01     E      0.0                                                                                                      
+   3.499998E-01     E      0.0                                                                                                      
+   3.999998E-01     E      0.0                                                                                                      
+   4.499997E-01     E      0.0                                                                                                      
+   4.999997E-01     E      0.0                                                                                                      
+   5.499997E-01     E      0.0                                                                                                      
+   5.999996E-01     E      0.0                                                                                                      
+   6.499996E-01     E      0.0                                                                                                      
+   6.999995E-01     E      0.0                                                                                                      
+   7.499995E-01     E      0.0                                                                                                      
+   7.999994E-01     E      0.0                                                                                                      
+   8.499994E-01     E      0.0                                                                                                      
+   8.999993E-01     E      0.0                                                                                                      
+   9.499993E-01     E      0.0                                                                                                      
+   9.999992E-01     E      0.0                                                                                                      
+   1.014999E+00     E     -1.350000E+01                                                                                             
+   1.074999E+00     E     -1.350000E+01                                                                                             
+   1.149999E+00     E     -1.350000E+01                                                                                             
+   1.224999E+00     E     -1.350000E+01                                                                                             
+   1.299999E+00     E     -1.350000E+01                                                                                             
+   1.374999E+00     E     -1.350000E+01                                                                                             
+   1.449999E+00     E     -1.350000E+01                                                                                             
+   1.524999E+00     E     -1.350000E+01                                                                                             
+   1.599999E+00     E     -1.350000E+01                                                                                             
+   1.674999E+00     E     -1.350000E+01                                                                                             
+   1.749999E+00     E     -1.350000E+01                                                                                             
+   1.824998E+00     E     -1.350000E+01                                                                                             
+   1.899998E+00     E     -1.350000E+01                                                                                             
+   1.974998E+00     E     -1.350000E+01                                                                                             
+   2.049999E+00     E     -1.350000E+01                                                                                             
+   2.124999E+00     E     -1.350000E+01                                                                                             
+   2.200000E+00     E     -1.350000E+01                                                                                             
+   2.275000E+00     E     -1.350000E+01                                                                                             
+   2.350001E+00     E     -1.350000E+01                                                                                             
+   2.425001E+00     E     -1.350000E+01                                                                                             
+   2.500002E+00     E     -1.350000E+01                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      13
+                                                     L O A D   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      0.0                                                                                                      
+   4.999999E-02     E      0.0                                                                                                      
+   1.000000E-01     E      0.0                                                                                                      
+   1.500000E-01     E      0.0                                                                                                      
+   1.999999E-01     E      0.0                                                                                                      
+   2.499999E-01     E      0.0                                                                                                      
+   2.999999E-01     E      0.0                                                                                                      
+   3.499998E-01     E      0.0                                                                                                      
+   3.999998E-01     E      0.0                                                                                                      
+   4.499997E-01     E      0.0                                                                                                      
+   4.999997E-01     E      0.0                                                                                                      
+   5.499997E-01     E      0.0                                                                                                      
+   5.999996E-01     E      0.0                                                                                                      
+   6.499996E-01     E      0.0                                                                                                      
+   6.999995E-01     E      0.0                                                                                                      
+   7.499995E-01     E      0.0                                                                                                      
+   7.999994E-01     E      0.0                                                                                                      
+   8.499994E-01     E      0.0                                                                                                      
+   8.999993E-01     E      0.0                                                                                                      
+   9.499993E-01     E      0.0                                                                                                      
+   9.999992E-01     E      0.0                                                                                                      
+   1.014999E+00     E      3.600000E+01                                                                                             
+   1.074999E+00     E      3.600000E+01                                                                                             
+   1.149999E+00     E      3.600000E+01                                                                                             
+   1.224999E+00     E      3.600000E+01                                                                                             
+   1.299999E+00     E      3.600000E+01                                                                                             
+   1.374999E+00     E      3.600000E+01                                                                                             
+   1.449999E+00     E      3.600000E+01                                                                                             
+   1.524999E+00     E      3.600000E+01                                                                                             
+   1.599999E+00     E      3.600000E+01                                                                                             
+   1.674999E+00     E      3.600000E+01                                                                                             
+   1.749999E+00     E      3.600000E+01                                                                                             
+   1.824998E+00     E      3.600000E+01                                                                                             
+   1.899998E+00     E      3.600000E+01                                                                                             
+   1.974998E+00     E      3.600000E+01                                                                                             
+   2.049999E+00     E      3.600000E+01                                                                                             
+   2.124999E+00     E      3.600000E+01                                                                                             
+   2.200000E+00     E      3.600000E+01                                                                                             
+   2.275000E+00     E      3.600000E+01                                                                                             
+   2.350001E+00     E      3.600000E+01                                                                                             
+   2.425001E+00     E      3.600000E+01                                                                                             
+   2.500002E+00     E      3.600000E+01                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      10
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      0.0                                                                                                      
+   4.999999E-02     E      4.792385E-01                                                                                             
+   1.000000E-01     E      8.412145E-01                                                                                             
+   1.500000E-01     E      9.973578E-01                                                                                             
+   1.999999E-01     E      9.094625E-01                                                                                             
+   2.499999E-01     E      5.990351E-01                                                                                             
+   2.999999E-01     E      1.420328E-01                                                                                             
+   3.499998E-01     E     -3.497228E-01                                                                                             
+   3.999998E-01     E     -7.559065E-01                                                                                             
+   4.499997E-01     E     -9.771311E-01                                                                                             
+   4.999997E-01     E     -9.592662E-01                                                                                             
+   5.499997E-01     E     -7.066831E-01                                                                                             
+   5.999996E-01     E     -2.811852E-01                                                                                             
+   6.499996E-01     E      2.131146E-01                                                                                             
+   6.999995E-01     E      6.552684E-01                                                                                             
+   7.499995E-01     E      9.370877E-01                                                                                             
+   7.999994E-01     E      9.896156E-01                                                                                             
+   8.499994E-01     E      7.999993E-01                                                                                             
+   8.999993E-01     E      4.146350E-01                                                                                             
+   9.499993E-01     E     -7.218431E-02                                                                                             
+   9.999992E-01     E     -5.413412E-01                                                                                             
+   1.014999E+00     E     -6.622213E-01                                                                                             
+   1.074999E+00     E     -9.761183E-01                                                                                             
+   1.149999E+00     E     -8.898796E-01                                                                                             
+   1.224999E+00     E     -3.286562E-01                                                                                             
+   1.299999E+00     E      4.079918E-01                                                                                             
+   1.374999E+00     E      9.268689E-01                                                                                             
+   1.449999E+00     E      9.510177E-01                                                                                             
+   1.524999E+00     E      4.675485E-01                                                                                             
+   1.599999E+00     E     -2.654808E-01                                                                                             
+   1.674999E+00     E     -8.568062E-01                                                                                             
+   1.749999E+00     E     -9.908002E-01                                                                                             
+   1.824998E+00     E     -5.959418E-01                                                                                             
+   1.899998E+00     E      1.170083E-01                                                                                             
+   1.974998E+00     E      7.675037E-01                                                                                             
+   2.049999E+00     E      1.008334E+00                                                                                             
+   2.124999E+00     E      7.109531E-01                                                                                             
+   2.200000E+00     E      3.409162E-02                                                                                             
+   2.275000E+00     E     -6.609666E-01                                                                                             
+   2.350001E+00     E     -1.003225E+00                                                                                             
+   2.425001E+00     E     -8.099996E-01                                                                                             
+   2.500002E+00     E     -1.844260E-01                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      11
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      0.0                                                                                                      
+   4.999999E-02     E      2.014262E-02                                                                                             
+   1.000000E-01     E      3.238439E-02                                                                                             
+   1.500000E-01     E      3.980862E-02                                                                                             
+   1.999999E-01     E      4.431118E-02                                                                                             
+   2.499999E-01     E      4.704183E-02                                                                                             
+   2.999999E-01     E      4.869788E-02                                                                                             
+   3.499998E-01     E      4.970222E-02                                                                                             
+   3.999998E-01     E      5.031132E-02                                                                                             
+   4.499997E-01     E      5.068072E-02                                                                                             
+   4.999997E-01     E      5.090475E-02                                                                                             
+   5.499997E-01     E      5.104062E-02                                                                                             
+   5.999996E-01     E      5.112302E-02                                                                                             
+   6.499996E-01     E      5.117299E-02                                                                                             
+   6.999995E-01     E      5.120330E-02                                                                                             
+   7.499995E-01     E      5.122167E-02                                                                                             
+   7.999994E-01     E      5.123282E-02                                                                                             
+   8.499994E-01     E      5.123958E-02                                                                                             
+   8.999993E-01     E      5.124368E-02                                                                                             
+   9.499993E-01     E      5.124617E-02                                                                                             
+   9.999992E-01     E      5.124767E-02                                                                                             
+   1.014999E+00     E      5.131778E-02                                                                                             
+   1.074999E+00     E      5.310797E-02                                                                                             
+   1.149999E+00     E      5.790946E-02                                                                                             
+   1.224999E+00     E      6.413658E-02                                                                                             
+   1.299999E+00     E      7.103616E-02                                                                                             
+   1.374999E+00     E      7.825294E-02                                                                                             
+   1.449999E+00     E      8.561935E-02                                                                                             
+   1.524999E+00     E      9.305633E-02                                                                                             
+   1.599999E+00     E      1.005266E-01                                                                                             
+   1.674999E+00     E      1.080126E-01                                                                                             
+   1.749999E+00     E      1.155060E-01                                                                                             
+   1.824998E+00     E      1.230028E-01                                                                                             
+   1.899998E+00     E      1.305014E-01                                                                                             
+   1.974998E+00     E      1.380007E-01                                                                                             
+   2.049999E+00     E      1.455004E-01                                                                                             
+   2.124999E+00     E      1.530002E-01                                                                                             
+   2.200000E+00     E      1.605001E-01                                                                                             
+   2.275000E+00     E      1.680001E-01                                                                                             
+   2.350001E+00     E      1.755001E-01                                                                                             
+   2.425001E+00     E      1.830001E-01                                                                                             
+   2.500002E+00     E      1.905001E-01                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      12
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E      0.0                                                                                                      
+   4.999999E-02     E     -1.184228E-15                                                                                             
+   1.000000E-01     E      3.882862E-15                                                                                             
+   1.500000E-01     E      2.010485E-14                                                                                             
+   1.999999E-01     E      3.239200E-14                                                                                             
+   2.499999E-01     E      2.860100E-14                                                                                             
+   2.999999E-01     E      2.436178E-14                                                                                             
+   3.499998E-01     E      1.853145E-14                                                                                             
+   3.999998E-01     E      1.671899E-14                                                                                             
+   4.499997E-01     E      1.549336E-14                                                                                             
+   4.999997E-01     E      2.181434E-14                                                                                             
+   5.499997E-01     E      2.453583E-14                                                                                             
+   5.999996E-01     E      2.739759E-14                                                                                             
+   6.499996E-01     E      3.217911E-14                                                                                             
+   6.999995E-01     E      3.372266E-14                                                                                             
+   7.499995E-01     E      4.338184E-14                                                                                             
+   7.999994E-01     E      5.353078E-14                                                                                             
+   8.499994E-01     E      6.948427E-14                                                                                             
+   8.999993E-01     E      6.936534E-14                                                                                             
+   9.499993E-01     E      6.727865E-14                                                                                             
+   9.999992E-01     E      6.517399E-14                                                                                             
+   1.014999E+00     E      7.164179E-05                                                                                             
+   1.074999E+00     E      2.002976E-03                                                                                             
+   1.149999E+00     E      7.481610E-03                                                                                             
+   1.224999E+00     E      1.461472E-02                                                                                             
+   1.299999E+00     E      2.200534E-02                                                                                             
+   1.374999E+00     E      2.873345E-02                                                                                             
+   1.449999E+00     E      3.428620E-02                                                                                             
+   1.524999E+00     E      3.846793E-02                                                                                             
+   1.599999E+00     E      4.130714E-02                                                                                             
+   1.674999E+00     E      4.297225E-02                                                                                             
+   1.749999E+00     E      4.370203E-02                                                                                             
+   1.824998E+00     E      4.375346E-02                                                                                             
+   1.899998E+00     E      4.336637E-02                                                                                             
+   1.974998E+00     E      4.274281E-02                                                                                             
+   2.049999E+00     E      4.203815E-02                                                                                             
+   2.124999E+00     E      4.136059E-02                                                                                             
+   2.200000E+00     E      4.077611E-02                                                                                             
+   2.275000E+00     E      4.031641E-02                                                                                             
+   2.350001E+00     E      3.998773E-02                                                                                             
+   2.425001E+00     E      3.977942E-02                                                                                             
+   2.500002E+00     E      3.967119E-02                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      13
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              E     -1.000000E+01                                                                                             
+   4.999999E-02     E     -6.293332E+00                                                                                             
+   1.000000E-01     E     -3.833388E+00                                                                                             
+   1.500000E-01     E     -2.339044E+00                                                                                             
+   1.999999E-01     E     -1.430647E+00                                                                                             
+   2.499999E-01     E     -8.779122E-01                                                                                             
+   2.999999E-01     E     -5.411401E-01                                                                                             
+   3.499998E-01     E     -3.355734E-01                                                                                             
+   3.999998E-01     E     -2.097769E-01                                                                                             
+   4.499997E-01     E     -1.325286E-01                                                                                             
+   4.999997E-01     E     -8.486808E-02                                                                                             
+   5.499997E-01     E     -5.527525E-02                                                                                             
+   5.999996E-01     E     -3.674486E-02                                                                                             
+   6.499996E-01     E     -2.501265E-02                                                                                             
+   6.999995E-01     E     -1.747893E-02                                                                                             
+   7.499995E-01     E     -1.255557E-02                                                                                             
+   7.999994E-01     E     -9.269634E-03                                                                                             
+   8.499994E-01     E     -7.022767E-03                                                                                             
+   8.999993E-01     E     -5.445038E-03                                                                                             
+   9.499993E-01     E     -4.306122E-03                                                                                             
+   9.999992E-01     E     -3.461279E-03                                                                                             
+   1.014999E+00     E      1.101781E-01                                                                                             
+   1.074999E+00     E      5.225659E-01                                                                                             
+   1.149999E+00     E      7.380897E-01                                                                                             
+   1.224999E+00     E      9.054512E-01                                                                                             
+   1.299999E+00     E      9.330319E-01                                                                                             
+   1.374999E+00     E      9.859173E-01                                                                                             
+   1.449999E+00     E      9.797748E-01                                                                                             
+   1.524999E+00     E      1.001053E+00                                                                                             
+   1.599999E+00     E      9.922608E-01                                                                                             
+   1.674999E+00     E      1.002765E+00                                                                                             
+   1.749999E+00     E      9.963126E-01                                                                                             
+   1.824998E+00     E      1.002147E+00                                                                                             
+   1.899998E+00     E      9.979881E-01                                                                                             
+   1.974998E+00     E      1.001406E+00                                                                                             
+   2.049999E+00     E      9.988303E-01                                                                                             
+   2.124999E+00     E      1.000875E+00                                                                                             
+   2.200000E+00     E      9.993022E-01                                                                                             
+   2.275000E+00     E      1.000535E+00                                                                                             
+   2.350001E+00     E      9.995797E-01                                                                                             
+   2.425001E+00     E      1.000325E+00                                                                                             
+   2.500002E+00     E      9.997458E-01                                                                                             
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       10( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF WHOLE FRAME    1
+
+
+     CURVE  TITLE = * * * *   EPOINT       DISPLACEMENT(INCHES)   * * * * * * *                                                    
+      X-AXIS TITLE =                   TIME (SECONDS)                                                                               
+      Y-AXIS TITLE = EPOINT 10         DISPLACEMENT *INCH*                                                                          
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  2.500002E+00)
+
+
+                              THE SMALLEST Y-VALUE = -1.003225E+00 AT X =   2.350001E+00
+
+
+                              THE LARGEST  Y-VALUE =  1.008334E+00 AT X =   2.049999E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  2.500002E+00)
+
+
+                              THE SMALLEST Y-VALUE = -1.003225E+00 AT X =   2.350001E+00
+
+
+                              THE LARGEST  Y-VALUE =  1.008334E+00 AT X =   2.049999E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       11( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF WHOLE FRAME    2
+
+
+     CURVE  TITLE = * * * *   EPOINT       DISPLACEMENT(INCHES)   * * * * * * *                                                    
+      X-AXIS TITLE =                   TIME (SECONDS)                                                                               
+      Y-AXIS TITLE = EPOINT 11         DISPLACEMENT *INCH*                                                                          
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  2.500002E+00)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  1.905001E-01 AT X =   2.500002E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  2.500002E+00)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  1.905001E-01 AT X =   2.500002E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       12( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF WHOLE FRAME    3
+
+
+     CURVE  TITLE = * * * *   EPOINT       DISPLACEMENT(INCHES)   * * * * * * *                                                    
+      X-AXIS TITLE =                   TIME (SECONDS)                                                                               
+      Y-AXIS TITLE = EPOINT 12         DISPLACEMENT *INCH*                                                                          
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  2.500002E+00)
+
+
+                              THE SMALLEST Y-VALUE = -1.184228E-15 AT X =   4.999999E-02
+
+
+                              THE LARGEST  Y-VALUE =  4.375346E-02 AT X =   1.824998E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  2.500002E+00)
+
+
+                              THE SMALLEST Y-VALUE = -1.184228E-15 AT X =   4.999999E-02
+
+
+                              THE LARGEST  Y-VALUE =  4.375346E-02 AT X =   1.824998E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       13( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF WHOLE FRAME    4
+
+
+     CURVE  TITLE = * * * *   EPOINT       DISPLACEMENT(INCHES)   * * * * * * *                                                    
+      X-AXIS TITLE =                   TIME (SECONDS)                                                                               
+      Y-AXIS TITLE = EPOINT 13         DISPLACEMENT *INCH*                                                                          
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  2.500002E+00)
+
+
+                              THE SMALLEST Y-VALUE = -1.000000E+01 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  1.002765E+00 AT X =   1.674999E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  2.500002E+00)
+
+
+                              THE SMALLEST Y-VALUE = -1.000000E+01 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  1.002765E+00 AT X =   1.674999E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                        
+ DATE:  5/17/95
+ END TIME: 16: 5:39
+ TOTAL WALL CLOCK TIME      1 SEC.
+ 

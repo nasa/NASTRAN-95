@@ -1,0 +1,93 @@
+$-------------------------------------------------------------------------------
+$           RIGID FORMAT No. 12, Transient Analysis - Modal Formulation
+$           Transient Analysis of a Free One Hundred Cell Beam (12-1-1)
+$ 
+$ A. Description
+$ 
+$ 
+$ The problem demonstrates the transient analysis of a free-body using the
+$ integration algorithm for uncoupled modal formulations. The model is a
+$ hundred-cell beam with a very large mass attached to one end. Modal damping is
+$ included as a function of natural frequency. It does not affect the free-body
+$ (zero frequency) modes. The omitted coordinate feature was used to reduce the
+$ analysis set of displacements to correspond to eleven grid points.
+$ 
+$ Both structure plots and curve plots are requested. The types are as follows:
+$ 
+$ 1. Stereoscopic structure plots of the deformed structure are drawn for a
+$    specified time step.
+$ 
+$ 2. Orthographic projections of the deformed structure are plotted. However,
+$    two variations are plotted on each frame. The bottom region of the frame
+$    shows the deformed shape and the top region shows vectors at every tenth
+$    grid point which are proportional to the z-displacement at each specified
+$    time step.
+$ 
+$ 3. Curve plots and printout of displacement versus time and of acceleration
+$    versus time are requested.
+$ 
+$ When a structure is used without additional transfer functions or direct
+$ matrix inputs, the transient analysis solves exact equations for the uncoupled
+$ modes. The only errors will be in the discarded modes and the straight line
+$ approximation of the loads between time steps. The speed of this solution is
+$ offset by the fact that the eigenvalue calculation is relatively costly and
+$ the transformation of the vectors to and from modal coordinates could be time
+$ consuming.
+$ 
+$ The mass and inertia on point (1) were selected to be much larger than values
+$ of the beam. The answers will therefore approximate a beam with a fixed end.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters
+$ 
+$    Beam:
+$ 
+$      l =  20             (Length)
+$ 
+$      I =  .083           (Bending inertia)
+$ 
+$      A =  1.0            (Cross sectional area)
+$                    6
+$      E =  10.4 x 10      (Modulus of elasticity)
+$                     -3
+$      p =  .2523 x 10     (Mass density)
+$ 
+$    Lumped Mass:
+$ 
+$      m   =  10.0, I      =  1666.66
+$       1            22,1
+$ 
+$ 2. Damping:
+$ 
+$    The damping coefficient for each mode is a function of the natural
+$    frequency. The function is:
+$ 
+$              -3
+$      g  =  10  f
+$ 
+$ 3. Load:
+$ 
+$      P       =  100 sin(2 pi 60t)
+$       z,101
+$ 
+$ 4. Real Eigenvalue Data
+$ 
+$    Method: Inverse Power
+$ 
+$    Region of Interest: 0 < f < 1000
+$ 
+$    Normalization: Mass
+$ 
+$ D. Results
+$ 
+$ The modal mass may be calculated using the formula for the mode shape given in
+$ Reference 8. The modal displacement is a single degree of freedom response
+$ with a closed form solution.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 8. W. F. Stokey, "Vibration of Systems Having Distributed Mass and
+$    Elasticity", Chap. 7, SHOCK AND VIBRATION HANDBOOK, C. M. Harris and C. E.
+$    Crede, Editors, McGraw-Hill, 1961.
+$-------------------------------------------------------------------------------

@@ -1,0 +1,37 @@
+ID    T01311A,NASTRAN                                                           
+SOL   1                                                                         
+APP   DISP                                                                      
+TIME  10                                                                        
+DIAG  2,8,15                                                                    
+ALTER     50                                                                    
+GINOFILE  /XXX/C,N,303 $                                                        
+MATPRN    XXX,,,, // $                                                          
+JUMP      FINIS $                                                               
+ENDALTER                                                                        
+CEND                                                                            
+TITLE    = TESTING GINOFILE MODULE                                              
+SUBTITLE = NASTRAN TEST PROBLEM NO. T01-31-1A                                   
+LABEL    = TO CAPTURE SCRATCH 3 OF GPWG MODULE                                  
+SPC   = 10                                                                      
+DISP  = ALL                                                                     
+STRES = ALL                                                                     
+ELFOR = ALL                                                                     
+$ECHO = NONE                                                                    
+LOAD  = 20                                                                      
+BEGIN BULK                                                                      
+PARAM,GRDPNT,1                                                                  
+CQUAD4,1,1,1,2,3,4                                                              
+CQUAD4,2,1,4,3,6,5                                                              
+GRID,1,,0.0                                                                     
+=,2,,0.0,1.0                                                                    
+=,3,,1.0,1.0                                                                    
+=,4,,1.0,0.0                                                                    
+=,5,,2.0,0.0                                                                    
+=,6,,2.0,1.0                                                                    
+MAT1,100,3.0E+7,,.3,1.0                                                         
+PSHELL,1,100,.1,100,1.0,100,.8333                                               
+SPC1,10,123456,1,2                                                              
+SPC1,10,6,1,THRU,6                                                              
+FORCE,20,6,,10.0,1.0,1.0,1.0                                                    
+FORCE,25,4,,-1.0,1.0,1.0,1.0                                                    
+ENDDATA                                                                         

@@ -1,0 +1,330 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01121A,NASTRAN                                                           
+     TIME  30                                                                        
+     APP   HEAT                                                                      
+     SOL   1,1                                                                       
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     SOLID ELEMENTS , SURFACE FILM HEAT TRANSFER                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                 
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                          
+                  3      LABEL    = SOLID ELEMENTS , SURFACE FILM HEAT TRANSFER                          
+                  4      OLOAD    = ALL                                                                  
+                  5      SPCFORCES= ALL                                                                  
+                  6      THERMAL(PRINT,PUNCH) = ALL                                                      
+                  7      ELFORCE  = ALL                                                                  
+                  8      SUBCASE 123                                                                     
+                  9      LABEL    = TEMPERATURE SPECIFIED AT OUTER BOUNDARY                              
+                 10      SPC  = 351                                                                      
+                 11      LOAD = 251                                                                      
+                 12      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    86, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     SOLID ELEMENTS , SURFACE FILM HEAT TRANSFER                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CHBDY   701     702     AREA4   1       12      112     101                     
+                    2-        CHEXA1  1       200     1       2       13      12      101     102     +SOL1   
+                    3-        +SOL1   113     112                                                             
+                    4-        CHEXA2  2       200     2       3       14      13      102     103     +SOL2   
+                    5-        +SOL2   114     113                                                             
+                    6-        CORD2C  111     0       .0      .0      .0      .0      .0      100.0   +CORD111
+                    7-        +CORD111100.0   .0      .0                                                      
+                    8-        CTETRA  3       200     104     114     3       103                             
+                    9-        CTETRA  4       200     104     15      4       3                               
+                   10-        CTETRA  5       200     115     15      104     114                             
+                   11-        CTETRA  6       200     15      14      3       114                             
+                   12-        CTETRA  7       200     114     104     3       15                              
+                   13-        CWEDGE  8       200     4       5       15      104     105     115             
+                   14-        CWEDGE  9       200     5       16      15      105     116     115             
+                   15-        CWEDGE  10      200     5       6       16      105     106     116             
+                   16-        CWEDGE  11      200     6       17      16      106     117     116             
+                   17-        CWEDGE  12      200     6       7       17      106     107     117             
+                   18-        CWEDGE  13      200     7       18      17      107     118     117             
+                   19-        CWEDGE  14      200     7       8       18      107     108     118             
+                   20-        CWEDGE  15      200     8       19      18      108     119     118             
+                   21-        CWEDGE  16      200     8       9       19      108     109     119             
+                   22-        CWEDGE  17      200     9       20      19      109     120     119             
+                   23-        CWEDGE  18      200     9       10      20      109     110     120             
+                   24-        CWEDGE  19      200     10      21      20      110     121     120             
+                   25-        CWEDGE  20      200     10      11      21      110     111     121             
+                   26-        CWEDGE  21      200     11      22      21      111     122     121             
+                   27-        GRDSET                                          111                             
+                   28-        GRID    1       111     1.0     .0      .0                                      
+                   29-        GRID    2       111     1.1     .0      .0                                      
+                   30-        GRID    3       111     1.2     .0      .0                                      
+                   31-        GRID    4       111     1.3     .0      .0                                      
+                   32-        GRID    5       111     1.4     .0      .0                                      
+                   33-        GRID    6       111     1.5     .0      .0                                      
+                   34-        GRID    7       111     1.6     .0      .0                                      
+                   35-        GRID    8       111     1.7     .0      .0                                      
+                   36-        GRID    9       111     1.8     .0      .0                                      
+                   37-        GRID    10      111     1.9     .0      .0                                      
+                   38-        GRID    11      111     2.0     .0      .0                                      
+                   39-        GRID    12      111     1.0     4.0     .0                                      
+                   40-        GRID    13      111     1.1     4.0     .0                                      
+                   41-        GRID    14      111     1.2     4.0     .0                                      
+                   42-        GRID    15      111     1.3     4.0     .0                                      
+                   43-        GRID    16      111     1.4     4.0     .0                                      
+                   44-        GRID    17      111     1.5     4.0     .0                                      
+                   45-        GRID    18      111     1.6     4.0     .0                                      
+                   46-        GRID    19      111     1.7     4.0     .0                                      
+                   47-        GRID    20      111     1.8     4.0     .0                                      
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+
+      SOLID ELEMENTS , SURFACE FILM HEAT TRANSFER                                                                                   
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        GRID    21      111     1.9     4.0     .0                                      
+                   49-        GRID    22      111     2.0     4.0     .0                                      
+                   50-        GRID    101     111     1.0     .0      1.0-1                                   
+                   51-        GRID    102     111     1.1     .0      1.0-1                                   
+                   52-        GRID    103     111     1.2     .0      1.0-1                                   
+                   53-        GRID    104     111     1.3     .0      1.0-1                                   
+                   54-        GRID    105     111     1.4     .0      1.0-1                                   
+                   55-        GRID    106     111     1.5     .0      1.0-1                                   
+                   56-        GRID    107     111     1.6     .0      1.0-1                                   
+                   57-        GRID    108     111     1.7     .0      1.0-1                                   
+                   58-        GRID    109     111     1.8     .0      1.0-1                                   
+                   59-        GRID    110     111     1.9     .0      1.0-1                                   
+                   60-        GRID    111     111     2.0     .0      1.0-1                                   
+                   61-        GRID    112     111     1.0     4.0     1.0-1                                   
+                   62-        GRID    113     111     1.1     4.0     1.0-1                                   
+                   63-        GRID    114     111     1.2     4.0     1.0-1                                   
+                   64-        GRID    115     111     1.3     4.0     1.0-1                                   
+                   65-        GRID    116     111     1.4     4.0     1.0-1                                   
+                   66-        GRID    117     111     1.5     4.0     1.0-1                                   
+                   67-        GRID    118     111     1.6     4.0     1.0-1                                   
+                   68-        GRID    119     111     1.7     4.0     1.0-1                                   
+                   69-        GRID    120     111     1.8     4.0     1.0-1                                   
+                   70-        GRID    121     111     1.9     4.0     1.0-1                                   
+                   71-        GRID    122     111     2.0     4.0     1.0-1                                   
+                   72-        MAT4    200     1.0                                                             
+                   73-        PARAM   IRES    1                                                               
+                   74-        PHBDY   702                                                                     
+                   75-        QBDY1   251     288.5   701                                                     
+                   76-        SEQGP   12      1.1     13      2.1     14      3.1     15      4.1             
+                   77-        SEQGP   16      5.1     17      6.1     18      7.1     19      8.1             
+                   78-        SEQGP   20      9.1     21      10.1    22      11.1                            
+                   79-        SEQGP   101     1.2     102     2.2     103     3.2     104     4.2             
+                   80-        SEQGP   105     5.2     106     6.2     107     7.2     108     8.2             
+                   81-        SEQGP   109     9.2     110     10.2    111     11.2                            
+                   82-        SEQGP   112     1.3     113     2.3     114     3.3     115     4.3             
+                   83-        SEQGP   116     5.3     117     6.3     118     7.3     119     8.3             
+                   84-        SEQGP   120     9.3     121     10.3    122     11.3                            
+                   85-        SPC     351     11      1       .0      22      1       .0                      
+                   86-        SPC     351     111     1       .0      122     1       .0                      
+                              ENDDATA
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     THE PRESENCE OF SEQGP CARDS
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+
+      SOLID ELEMENTS , SURFACE FILM HEAT TRANSFER                                                                                   
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION HBDY     ELEMENTS (ELEMENT TYPE  52) STARTING WITH ID      701
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION HEXA1    ELEMENTS (ELEMENT TYPE  41) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION HEXA2    ELEMENTS (ELEMENT TYPE  42) STARTING WITH ID        2
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TETRA    ELEMENTS (ELEMENT TYPE  39) STARTING WITH ID        3
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION WEDGE    ELEMENTS (ELEMENT TYPE  40) STARTING WITH ID        8
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -4.4266622E-16
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     SOLID ELEMENTS , SURFACE FILM HEAT TRANSFER                                                                                   
+0                HRULV                                                                                                              
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       1- S).
+             1  S -3.33067E-16       12  S -4.44089E-16      101  S -8.88178E-16      112  S  2.66454E-15        2  S -6.24500E-15
+            13  S -9.71445E-16      102  S  6.66134E-16      113  S  1.55431E-15        3  S -2.22045E-15       14  S  2.44249E-15
+           103  S -2.22045E-16      114  S -1.55431E-15        4  S -3.40006E-16       15  S -1.21431E-15      104  S  1.33227E-15
+           115  S  1.33227E-15        5  S  1.49837E-15       16  S -7.56339E-16      105  S  4.44089E-16      116  S  1.33227E-15
+             6  S  1.45717E-15       17  S  1.67227E-15      106  S  2.44249E-15      117  S -4.44089E-16        7  S  6.38378E-16
+            18  S -2.72699E-15      107  S -8.88178E-16      118  S  2.22045E-16        8  S  5.55112E-17       19  S  5.89806E-16
+           108  S -4.44089E-16        9  S  3.08781E-16       20  S  1.30798E-15      109  S  5.55112E-17      120  S  3.88578E-16
+            10  S -4.99600E-16       21  S  6.66134E-16      110  S -2.22045E-16      121  S -4.44089E-16
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     TEMPERATURE SPECIFIED AT OUTER BOUNDARY                                                                SUBCASE 123            
+ 
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      1.994187E+02   1.718267E+02   1.467834E+02   1.231581E+02   1.027777E+02   8.292779E+01                  
+             7      S      6.432259E+01   4.684700E+01   3.037104E+01   1.478588E+01   0.0            2.034128E+02                  
+            13      S      1.740188E+02   1.488803E+02   1.248486E+02   1.028775E+02   8.293189E+01   6.432233E+01                  
+            19      S      4.684689E+01   3.037100E+01   1.478588E+01   0.0                                                         
+           101      S      2.034151E+02   1.740255E+02   1.489236E+02   1.251343E+02   1.028302E+02   8.291599E+01                  
+           107      S      6.431886E+01   4.684620E+01   3.037088E+01   1.478585E+01   0.0            1.994211E+02                  
+           113      S      1.718352E+02   1.468322E+02   1.235158E+02   1.027420E+02   8.291391E+01   6.431948E+01                  
+           119      S      4.684640E+01   3.037092E+01   1.478586E+01   0.0                                                         
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     TEMPERATURE SPECIFIED AT OUTER BOUNDARY                                                                SUBCASE 123            
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      5.034252E-01                                                                                             
+            12      S      5.034252E-01                                                                                             
+           101      S      5.034252E-01                                                                                             
+           112      S      5.034252E-01                                                                                             
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     TEMPERATURE SPECIFIED AT OUTER BOUNDARY                                                                SUBCASE 123            
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+            11      S     -5.034260E-01                                                                                             
+            22      S     -5.034252E-01                                                                                             
+           111      S     -5.034248E-01                                                                                             
+           122      S     -5.034248E-01                                                                                             
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     TEMPERATURE SPECIFIED AT OUTER BOUNDARY                                                                SUBCASE 123            
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+           701    HBDY         0.000000E+00                                       0.000000E+00
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     TEMPERATURE SPECIFIED AT OUTER BOUNDARY                                                                SUBCASE 123            
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+             1    HEXA1       -2.791185E+02    -9.747375E+00     4.882812E-02     2.791185E+02     9.747375E+00    -4.882812E-02
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     TEMPERATURE SPECIFIED AT OUTER BOUNDARY                                                                SUBCASE 123            
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+             2    HEXA2       -2.507174E+02    -8.732483E+00     2.664185E-01     2.507174E+02     8.732483E+00    -2.664185E-01
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     TEMPERATURE SPECIFIED AT OUTER BOUNDARY                                                                SUBCASE 123            
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+             3    TETRA       -2.378942E+02    -3.329272E+01     2.140247E+01     2.378942E+02     3.329272E+01    -2.140247E+01
+             4    TETRA       -2.362532E+02     1.039120E+01     1.976148E+01     2.362532E+02    -1.039120E+01    -1.976148E+01
+             5    TETRA       -2.319188E+02    -2.594576E+01    -1.332739E+01     2.319188E+02     2.594576E+01     1.332739E+01
+             6    TETRA       -2.420652E+02     1.659753E+01    -2.048145E+01     2.420652E+02    -1.659753E+01     2.048145E+01
+             7    TETRA       -2.181166E+02    -8.975220E+00     1.624939E+00     2.181166E+02     8.975220E+00    -1.624939E+00
+1     LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-12-1A                                                                                   
+0     TEMPERATURE SPECIFIED AT OUTER BOUNDARY                                                                SUBCASE 123            
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+             8    WEDGE       -2.102163E+02    -5.954407E+00     2.319763E+00     2.102163E+02     5.954407E+00    -2.319763E+00
+             9    WEDGE       -2.117557E+02    -7.014702E+00    -4.718903E+00     2.117557E+02     7.014702E+00     4.718903E+00
+            10    WEDGE       -1.987133E+02    -6.981262E+00    -3.157349E-01     1.987133E+02     6.981262E+00     3.157349E-01
+            11    WEDGE       -1.986737E+02    -6.918308E+00    -5.507812E-01     1.986737E+02     6.918308E+00     5.507812E-01
+            12    WEDGE       -1.860250E+02    -6.521973E+00    -1.117554E-01     1.860250E+02     6.521973E+00     1.117554E-01
+            13    WEDGE       -1.859946E+02    -6.494610E+00    -8.190918E-02     1.859946E+02     6.494610E+00     8.190918E-02
+            14    WEDGE       -1.747461E+02    -6.107910E+00    -2.462769E-02     1.747461E+02     6.107910E+00     2.462769E-02
+            15    WEDGE       -1.747388E+02    -6.102112E+00    -1.379395E-02     1.747388E+02     6.102112E+00     1.379395E-02
+            16    WEDGE       -1.647576E+02    -5.754456E+00    -4.837036E-03     1.647576E+02     5.754456E+00     4.837036E-03
+            17    WEDGE       -1.647562E+02    -5.753418E+00    -2.456665E-03     1.647562E+02     5.753418E+00     2.456665E-03
+            18    WEDGE       -1.558512E+02    -5.442581E+00    -9.078979E-04     1.558512E+02     5.442581E+00     9.078979E-04
+            19    WEDGE       -1.558509E+02    -5.442414E+00    -4.425049E-04     1.558509E+02     5.442414E+00     4.425049E-04
+            20    WEDGE       -1.478587E+02    -5.163376E+00    -1.411438E-04     1.478587E+02     5.163376E+00     1.411438E-04
+            21    WEDGE       -1.478586E+02    -5.163278E+00    -4.959106E-05     1.478586E+02     5.163278E+00     4.959106E-05
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  LINEAR STEADY STATE HEAT CONDUCTION THROUGH A WASHER               
+ DATE:  5/17/95
+ END TIME: 15: 3:11
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

@@ -1,0 +1,121 @@
+$-------------------------------------------------------------------------------
+$                      RIGID FORMAT No. 5, Buckling Analysis
+$                    Symmetric Buckling of a Cylinder (5-1-1)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates the use of buckling analysis to extract the critical
+$ loads and the resulting displacements of a cylinder under axial loads. The
+$ Buckling Analysis rigid format solves the statics problem to obtain the
+$ internal loads in the elements. The internal loads define the differential
+$                    d
+$ stiffness matrix [K ], which is proportional to the applied load. The load
+$ factors, lambda , which cause buckling are defined by the equation:
+$                i
+$ 
+$               d
+$    [lambda  [K ] + [K]] {u }  =  0                                         (1)
+$           i               i
+$ 
+$ where [K] is the linear stiffness matrix. This equation is solved by the real
+$ eigenvalue analysis methods for positive values of lambda . The vectors {u }
+$                                                          i                i
+$ are treated in the same manner as in real eigenvalue analysis.
+$ 
+$ The problem consists of a short, large radius cylinder under a purely axial
+$ compression load. A section of arc of 6 degrees is used to model the
+$ axisymmetric motions of the whole cylinder.
+$ 
+$ All three types of structure plots are requested: undeformed, static,  and
+$ modal deformed. The undeformed perspective plot is fully labeled for checkout
+$ of the problem. The modal orthographic plots specify a range of vectors {u }
+$                                                                           i
+$ which includes all roots. A longitudinal edge view of the model is also
+$ plotted for easy identification of mode shapes.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    R  =  80           (Radius)
+$ 
+$    h  =  50           (Height)
+$ 
+$                  4
+$    E  =  1.0 x 10     (Modulus of elasticity)
+$ 
+$    v  =  0.0          (Poisson's ratio)
+$ 
+$    t  =  2.5          (Thickness)
+$ 
+$    I  =  1.30208      (Bending inertia)
+$     b
+$ 
+$ 2. Loads:
+$                         3
+$    p  =  1.89745 x 10 /3 deg. ARC
+$ 
+$ 3. Constraints:
+$ 
+$    a) The center point (17) is constrained in u .
+$                                                z
+$ 
+$    c) All points are constrained in u     , theta , and theta .
+$                                      theta       r           z
+$ 
+$    d) The top and bottom edges are constrained in u .
+$                                                    r
+$ 
+$ 4. Eigenvalue Extraction Data:
+$ 
+$    a) Method: Unsymmetrical Determinant
+$ 
+$    b) Region of Interest:  .10 < lambda < 2.5
+$ 
+$    c) Number of estimated roots = 4
+$ 
+$    d) Number of desired roots =  4
+$ 
+$    e) Normalization: Maximum deflection
+$ 
+$ C.  Results
+$ 
+$ The solution to this problem is derived In Reference 9, p. 439. For
+$ axisymmetric buckling, the number of half-waves which occur when the shell
+$ buckles at minimum load are:
+$ 
+$                                   2
+$       ~  h                 12 (1-v )
+$    m  =  --  4th root of ( --------- )                                     (2)
+$          pi                   2 2
+$                              R t
+$ 
+$ where m is the closest integer to the right-hand values.
+$ 
+$ The corresponding critical stress is:
+$ 
+$                  2 2  2           2
+$                Et m pi          Eh
+$    sigma    =  ---------   +  -------                                      (3)
+$         cr        2    2       2 2  2
+$                12h (1-v )     R m pi
+$ 
+$ Using the values given, the lowest buckling mode consists of a full sine wave.
+$ The NASTRAN results and the theoretical solutions for the critical load for
+$ each buckling mode are listed below:
+$ 
+$                    ---------------------------------
+$                    Number of
+$                    Half Waves
+$                        m       NASTRAN    ANALYTICAL
+$                    ---------------------------------
+$                        1       2.2889      2.2978
+$                        2        .99424     1.0
+$                        3       1.2744      1.26402
+$                        4       2.0070      1.86420
+$                    ---------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 9. S. Timoshenko, THEORY OF ELASTIC STABILITY. MGraw-Hi11, 1936.
+$-------------------------------------------------------------------------------

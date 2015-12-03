@@ -1,0 +1,393 @@
+$-------------------------------------------------------------------------------
+$       RIGID FORMAT No. 10, Complex Eigenvalue Analysis - Modal Formulation
+$                   Rocket Guidance and Control Problem (10-1-1)
+$ 
+$ A. Description
+$ 
+$ This problem, although a simplified model, contains all of the elements used
+$ in a linear control system analysis. The flexible structure consists of three
+$ sections: two sections are constructed of structural finite elements; the
+$ third section is formulated in terms of its modal coordinates. A sensor is
+$ located at an arbitrary point on the structure and connected to a structural
+$ point with multipoint constraints. The measured attitude and position of the
+$ sensor point is used to generate a control voltage for the gimbal angle of the
+$ thrust nozzle. The nozzle control is in itself a servomechanism consisting of
+$ an amplifier, a motor, and a position and velocity feedback control. The
+$ nozzle produces a force on the structure due to its mass and the angle of
+$ thrust. The motion of any point on the structure is dependent on the elastic
+$ motions, free-body notions, and large angle effects due to free-body rotation.
+$ 
+$ The definitions for the variables and coefficients along with values for the
+$ coefficients are given in Table 1. The use of the Transfer Function data card
+$ (TF) allows the direct definition of the various relations.
+$ 
+$ B. Theory
+$ 
+$ A section of the structure is defined by its modaI coordinates by using a
+$ modification of the method given in the NASTRAN Theoretical Manual. The
+$ algorithm is given as follows:
+$ 
+$ Define  xi , i = 1, n  - modal deflections scalar points
+$           i
+$                   u    - grid point components used as nonredundant
+$                    r     supports for modal test. These may or may not be
+$                          connected to the rest of the structure.
+$ 
+$                   u    - grid point components to be connected to the
+$                    c     remaining structure (not u  points)
+$                                                    r
+$ 
+$         x   i = 1, n   - rigid body component degrees of freedom for the
+$          i               nonzero nodes
+$ 
+$ The relations between these variables are defined by using multipoint
+$ constraints with the following relationships:
+$ 
+$    {u }  =  [phi  ]{xi } + [D  ]{u }                                       (1)
+$      c          ci    i      cr   r
+$ 
+$ where phi   is the angular deflection of point u  for mode i. D   is the
+$          ci                                     c              cr
+$ deflection of point u  when the structure is rigid and point u  is given a
+$                      c                                        r
+$ unit deflection.
+$ 
+$                 -1   T
+$    {x }  =  [K ]  [H] {u }  =  [G]{u }                                     (2)
+$      i        i         r           r
+$ 
+$ where [K ] is a diagonal matrix. Each term K , the modal stiffness, is defined
+$         i                                   i
+$ as:
+$ 
+$              2
+$    K   =  m w                      (w  not equal 0)                        (3)
+$     i      i i                       i
+$ 
+$ where m  is the modal mass and w  is the natural frequency in radians per
+$        i                        i
+$ second. [H] is determined by the forces on the support points due to each
+$ nonzero eigenvector:
+$ 
+$    P   =  - sum from i H   xi      (w  not equal 0)                        (4)
+$     r                   ri   i       i
+$ 
+$ The structure to be added in this problem consists of a simply supported
+$ uniform bed. The support points, u , are y   and y  . The additional degree of
+$                                   r       16      19
+$ freedom to be connected is u  = theta  . Four modes are used in the test
+$                             c        16
+$ problem. The following data is used to define and connect the modal
+$ coordinates of this substructure. The mode shapes are
+$ 
+$                    n pi x
+$    phi (x)  =  sin ------                                                  (5)
+$       n              l
+$ 
+$ The modal frequencies, masses, and stiffness in terms of normal beam
+$ terminology are
+$ 
+$            2  2
+$           n pi   EI
+$    w   =  -----  --                (n = 1, 2, 3, 4)                        (6)
+$     n       2    pA
+$            l
+$ 
+$           pAl
+$    m   =  ---                                                              (7)
+$     n      2
+$ 
+$            4  4
+$           n pi EI
+$    K   =  -------                                                          (8)
+$     n         3
+$             2l
+$ 
+$ The forces of support for each mode are
+$ 
+$                         3
+$                     EIpi    3
+$    P (16)  =  sum - -----  n                                               (9)
+$     y                 3
+$                      l
+$ 
+$                            3
+$                      n EIpi    3
+$    P (19) =  sum (-1)  -----  n                                           (10)
+$     y                    3
+$                         l
+$ 
+$ The motion theta   is defined by multipoint constraints:
+$                 16
+$ 
+$              1                          n pi
+$    theta   = - (y   - y  ) + sum from n ----  xi                          (11)
+$         16   l   19    16                l      n
+$ 
+$ The free-body components of the modes are defined, using multipoint constraints,
+$ as:
+$ 
+$    +     +                          +            +
+$    |  x  |                          | 1      1   |
+$    |   1 |                          |            |
+$    |     |                          |            |  +     +
+$    |  x  |           3         3    | 1/2   -1/2 |  | y   |
+$    |   2 |         2l      EIpi     |            |  |  16 |
+$    |     |   =  - (-----) (-----)   |            |  |     |               (12)
+$    |  x  |           4       3      | 1/3    1/3 |  | y   |
+$    |   3 |         pi EI    l       |            |  |  19 |
+$    |     |                          |            |  +     +
+$    |  x  |                          | 1/4   -1/4 |
+$    |   4 |                          |            |
+$    +     +                          +            +
+$ 
+$ The mass of the nozzle would normally be included with the structural
+$ modeling. However, to demonstrate the flexibility of the Transfer Function
+$ data, it is modeled as part of the guidance system. Defining the angle of
+$ thrust, gamma, to be measured relative to the deformed structure, the forces
+$ which result are
+$ 
+$                  2     ..      ..           ..
+$    T  =  (I   + x m )(gamma + theta ) - m x y                             (13)
+$            no    n i               1     n n 1
+$ 
+$                        ..      ..
+$    F   = m y  - x m  (gamma + theta ) - F  gamma                          (14)
+$     y     n 1    n n               1     n
+$ 
+$ Using the thrust force, F , as a constant, the transfer functions are
+$                          n
+$ 
+$       2                2               2
+$    I s  gamma - T + I s  theta  - x m s y   =  0                          (15)
+$     n                n        1    n n   1
+$ 
+$       2           2                    2
+$    m s y  - (x m s  + F ) gamma - x m s  theta   =  0                     (16)
+$     n   1     n n      n           n n        1
+$ 
+$    (0) theta  + T  =  0                                                   (17)
+$             1
+$ 
+$ where
+$ 
+$                  2
+$    I   =  I   + x  m   =  500                                             (18)
+$     n      no    n  n
+$ 
+$ The large angle motion must be included in the analysis since it contributes
+$ to the linear terms. The equations of motion of the structure are formed
+$ relative to a coordinate system parallel to the body. The accelerations are
+$ coupled when the body rotates.
+$                               ..
+$ Since the axial acceleration, x, is constant throughout the body, the
+$ vertical acceleration at any point, to the first order, is
+$ 
+$    ..       ..     ..           ..     ..
+$    y     =  y    + x theta   =  y    + y                                  (19)
+$     abs      rel          1      rel    theta
+$ 
+$ An extra degree of freedom y      is added to the problem and coupled by
+$                             theta
+$ the equations:
+$ 
+$     ..
+$    my       =  F  theta                                                   (20)
+$      theta      n      1
+$ 
+$    y     =  y    + y                                                      (21)
+$     abs      rel    theta
+$ 
+$ The center of gravity (point 101) and the sensor location (point 100) are
+$ rigidly connected to the nearest structural point with multipoint constraints.
+$ For instance the sensor point is located a distance of 4.91 from point 8.
+$ 
+$ It is desired to leave point 101 as an independent variable point. Therefore
+$ point 8 is defined in terms of point 101 by the equations:
+$ 
+$    y   =  y    + 4.91 theta                                               (22)
+$     8      101             101
+$ 
+$    theta   =  theta                                                       (23)
+$         8          101
+$ 
+$ C. Results
+$ 
+$ A comparison of the NASTRAN complex roots and those derived by a conventional
+$ analysis described below are given in Table 2. The resulting eigenvectors were
+$ substituted into the equations of motion to check their validity. The
+$ equations of motion for a polynomial solution may be written in terms of the
+$ rigid body motions of the center of gravity plus the modal displacements. The
+$ equations of motion using Laplace transforms are
+$ 
+$      2
+$    ms  y    =  F (theta  + gamma)                                         (24)
+$         cg      n      1
+$ 
+$      2
+$    Is  theta    =  - F  x  gamma                                          (25)
+$             cg        n  1
+$ 
+$ The inertia forces of the nozzle on the structure may be ignored.
+$ 
+$ The motion of the nozzle, as explained above, is
+$ 
+$       2                                                         2
+$      s                       ~                                 s
+$    (---- + tau s = 1) gamma  =  (a + bs)y  + (c + ds)theta  - ---- +
+$     beta                                 s                x   beta
+$ 
+$     2
+$    s m x
+$       n n
+$    -------  y                                                             (26)
+$    beta I    1
+$          n
+$ 
+$ where gamma is defined as the relative angle between the nozzle and the
+$ structure.
+$ 
+$ The flexible motions at the sensor point, y  and theta , may be defined in
+$                                            s          s
+$ terms of the modal coefficients and the rigid motions of the center of
+$ gravity:
+$ 
+$    y   =  y   + x  theta   + sum from i phi      xi                       (27)
+$     s      cg    2      cg                 100,i   i
+$ 
+$    theta   =  theta   + sum from i phi      xi                            (28)
+$         s          cg                 100,i   i
+$ 
+$ The motions of the nozzle point, in terms of the modal and center of gravity
+$ motions are
+$ 
+$                                       '
+$    theta   =  theta   + sum from i phi    xi                              (29)
+$         1          cg                 1,i   i
+$ 
+$    y   =  y   - x  theta   + sum from i phi    xi                         (30)
+$     1      cg    1      cg                 1,i   i
+$ 
+$ The modal displacements are due primarily to the vertical component of the
+$ nozzle force. Their equation of motion is
+$ 
+$        2    2
+$    m (s  + w )xi   =  F gamma                                             (31)
+$     i       i   i      n
+$ 
+$ where
+$ 
+$    phi    is the deflection of point j for mode i
+$       j,i
+$ 
+$       '
+$    phi    is the rotation of point j for mode i
+$       j,i
+$ 
+$    m      is the nodal mass of mode i
+$     i
+$ 
+$    w      is the natural frequency of mode i
+$     i
+$ 
+$    xi     is the modal displacement of mode i
+$      i
+$ 
+$ The determinant of the matrix forms a polynomial of order 10. The roots of
+$ this polynomial were obtained by a standard computer library routine and are
+$ presented in Table 2 as the analytical results. The rigid body solution is
+$ also presented.
+$ 
+$ The differences between the two sets of answers is due to the differences in
+$ models. The NASTRAN model produces errors due to the finite difference
+$ approximation and the number of modes chosen to model the third stage. The
+$ polynomial solution produces errors due to the approximations used in the
+$ equations of motion as applied to control system problems.
+$ 
+$ As a further check the first eigenvalue (lambda = -1.41) was substituted into
+$ the matrix and the matrix was normalized by dividing each row by its diagonal
+$ value. The NASTRAN eigenvector was multiplied by the matrix, resulting in an
+$ error vector which theoretically should be zero. Dividing each term in the
+$ error vector by its corresponding term in the eigenvector resulted in very
+$ small error ratios.
+$ 
+$                         Table 1. Variables and Parameters
+$ 
+$ EXTRA
+$ POINT
+$ NUMBER   SYMBOL       DESCRIPTION
+$ 
+$ 1010     e            Voltage describing y
+$           y
+$ 1011     e            Voltage describing theta
+$           theta
+$ 1020     E            Control voltage for y (Input)
+$           yc
+$ 1021     E            Control voltage for theta (Input)
+$           thetac
+$ 1030     E            Attitude error function
+$           gamma
+$ 1040     epsilon      Nozzle position error
+$                 gamma
+$ 1050     E            Voltage for nozzle servo
+$           m
+$ 1060     T            Torque for nozzle servo
+$ 
+$ 1070     tau          Nozzle thrust angle relative to structure
+$ 
+$ 1080     y            Position increment due to attitude
+$           theta
+$ 
+$ 
+$ PARAMETER   VALUE     DESCRIPTION
+$ 
+$ K           1.0       Servo amplifier gain
+$  s
+$ 
+$ K           500       Servo gain
+$  m
+$ 
+$ tau         .1414     Nozzle angular velocity feedback
+$ 
+$ x           3.0       Distance from nozzle c.g. to gimbal axis
+$  n
+$ 
+$ I           500.0     Inertia of nozzle about gimbal axis
+$  n
+$                    6
+$ F           4.25x10   Thrust of nozzle
+$  n
+$ 
+$ m           50        Nozzle mass
+$  n
+$ 
+$ beta        100.0     Overall voltage-to-angle ratio
+$     theta
+$ 
+$ beta        1.0       Overall voltage-to-position ratio
+$     y
+$ 
+$ a           .16       Position feedback coefficient
+$ 
+$ b           .28       Velocity feedback coefficient
+$ 
+$ c           15.0      Angle feedback coefficient
+$ 
+$ d           7.0       Angular velocity feedback coefficient
+$                   4
+$ m           8.5x10    Mass of structure
+$ 
+$           Table 2. Comparison of Complex Roots for NASTRAN Modeling vs.
+$                          Simplified Polynomial Expansion
+$       --------------------------------------------------------------------
+$            Rigid Body Model                   Flexible Modes Model
+$       --------------------------------------------------------------------
+$       NASTRAN          POLYNOMIAL         NASTRAN          POLYNOMIAL
+$       --------------------------------------------------------------------
+$       -.540 +/- .821i  -.522 +/- .802i    -.507 +/- .819i  -.494 +/- .801i
+$ 
+$       -1.68 +/- 0i     -1.74 +/- 0i       -1.41 +/- 0i     -1.46 +/- 0i
+$ 
+$       +.751 +/- 5.96i  +.774 +/- 5.98i    +.520 +/- 3.82i  +.522 +/- 3.83i
+$       --------------------------------------------------------------------
+$-------------------------------------------------------------------------------

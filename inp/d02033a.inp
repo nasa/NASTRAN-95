@@ -1,0 +1,60 @@
+ID    D02033A,NASTRAN                                                           
+APP   DISP,SUBS                                                                 
+SOL   3,0                                                                       
+TIME  25                                                                        
+DIAG  23                                                                        
+CEND                                                                            
+SUBSTRUCTURE PHASE2                                                             
+PASSWORD = MDLSYN                                                               
+SOF(1)   = FT19,500 $ DEC VAX                                                   
+OPTIONS K,M,P                                                                   
+SOFPRINT TOC                                                                    
+MREDUCE ABASIC                                                                  
+ NAME MA                                                                        
+ BOUNDARY 5                                                                     
+ FIXED 5                                                                        
+ METHOD 9                                                                       
+ OUTPUT 1,5,6,9,10                                                              
+SOFPRINT TOC                                                                    
+MREDUCE BBASIC                                                                  
+ NAME MB                                                                        
+ BOUNDARY 4                                                                     
+ FIXED 4                                                                        
+ METHOD 9                                                                       
+ OUTPUT 1,5,6,9,10                                                              
+SOFPRINT TOC                                                                    
+COMBINE MA,MB                                                                   
+ NAME MCOMB                                                                     
+ TOLERANCE 0.001                                                                
+ OUTPUT 2,7,12                                                                  
+ COMPONENT MB                                                                   
+ TRANSFORM 40                                                                   
+SOFPRINT TOC                                                                    
+MREDUCE MCOMB                                                                   
+ NAME RTRUSS                                                                    
+ BOUNDARY 42                                                                    
+ FIXED 9                                                                        
+ METHOD 90                                                                      
+ NMAX 18                                                                        
+ OUTPUT 1,5,6,9,10                                                              
+SOFPRINT TOC                                                                    
+ENDSUBS                                                                         
+TITLE    = TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS               
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                          
+LABEL    = MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3          
+$ USE 7 MODES PER COMPONENT AND 18 MODES OF COMBINATION                         
+BEGIN BULK                                                                      
+BDYC    4       BBASIC  2                                                       
+BDYC    5       ABASIC  1                                                       
+BDYC    9       ABASIC  2                                                       
+BDYC    42      ABASIC  2       BBASIC  42                                      
+BDYS1   1       12      1       2       3       51      52      53              
+BDYS1   2       12      1       2       3                                       
+BDYS1   42      2       2                                                       
+EIGR    9       GIV     .0      10000.0         7                       +E1     
++E1     MAX                                                                     
+EIGR    90      GIV     .0      10000.0         20                      +E2     
++E2     MAX                                                                     
+TRANS   40              200.0   .0      .0      200.0   .0      1.0     +T1     
++T1     200.0   -100.0  .0                                                      
+ENDDATA                                                                         

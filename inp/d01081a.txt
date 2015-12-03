@@ -1,0 +1,127 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$         Bending of a Beam Fabricated from HEXA1 Solid Elements (1-8-1)
+$ 
+$ A. Description
+$ 
+$ The properties of solid bodies may be modeled with the NASTRAN tetrahedra,
+$ wedge, or hexahedron finite elements. This problem demonstrates the analysis
+$ of a solid fabricated from the six-sided HEXA1 solid elements. The problem
+$ consists of a rectangular parallelopiped subdivided into forty cubic
+$ subelements.
+$ 
+$ The loads were chosen to approximate the stress distribution due to a moment
+$ on one end of a beam; the other end is constrained to resist the moment. Two
+$ planes of symmetry were used to simulate an actual problem having twice the
+$ width and twice the height.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    l = 20.0 (length)
+$ 
+$    w = 4.0 (width of full section)
+$ 
+$    h = 16.0 (height of full section)
+$ 
+$                6
+$    E = 3.0 x 10  (modulus of elasticity)
+$ 
+$    v = 0.2 (Poisson's ratio)
+$ 
+$ 2. Boundary Constraints:
+$ 
+$    on y = theta plane, u  = u  = theta (antisymmetry)
+$                         x    z
+$ 
+$    on z = theta plane, u  = theta (symmetry)
+$                         z
+$ 
+$    on x = theta plane, u  = theta (symmetry)
+$                         x
+$ 
+$ 3. Loads:
+$                                  3
+$    Total Moment:  M  = 2.048 x 10
+$                    y
+$ 
+$ This moment will produce bending about the z axis. It is modeled by a set of
+$ axial loads at x = l which, in turn, represent an axial stress distribution:
+$ 
+$ 
+$    sigma   = 1.5y                                                          (1)
+$         xx
+$ 
+$ C. Theory
+$ 
+$ A prismatic beam with an axial stress which varies linearly over the cross
+$ section has an exact solution. The theoretical stress distribution is
+$ 
+$               M
+$    sigma   = --- y                                                         (2)
+$         xx    I
+$ 
+$ and
+$ 
+$    sigma   = sigma   = tau   = tau   = 0
+$         yz        zz      xy      yz
+$ 
+$            1    3
+$ where I = --- wh .
+$           12
+$ 
+$ The displacements are:
+$ 
+$                M
+$       u  = -  ---  xy                                                      (4)
+$        x      EI
+$ 
+$              M     2     2    2
+$       u  =  ---  (x  - vy  -vz )                                           (5)
+$        y    2EI
+$ 
+$ and
+$               M
+$       u  = v ---  yz                                                       (6)
+$        z     EI
+$ 
+$ D. Results
+$ 
+$ Tables 1 and 2 are comparisons of displacements and stresses for the
+$ theoretical case and the NASTRAN model.
+$ 
+$                      Table 1. Comparisons of Displacement
+$                     ---------------------------------------
+$                                                         -4
+$                                        DISPLACEMENT x 10
+$                                       ---------------------
+$                     POINT/DIRECTION    THEORY      NASTRAN
+$                     ---------------------------------------
+$                         21/y           .0400         .0417
+$                         41/y           .1600         .1607
+$                         61/y           .360          .366
+$                         81/y           .640          .651
+$                        101/y          1.000         1.016
+$                        109/x          0.800         0.844
+$                        110/z           .016         0.007
+$                     ---------------------------------------
+$ 
+$                         Table 2. Comparisons of Stress
+$           ------------------------------------------------------------
+$                             THEORY                     NASTRAN
+$           ELEMENT    -----------------------    ----------------------
+$                      sigma    sigma    tau       sigma   sigma   tau
+$                           xx       yy     xy          xx      yy    xy
+$           ------------------------------------------------------------
+$              1       -1.5       0       0       -1.56     .02   -.01
+$ 
+$              2       -4.5       0       0       -4.53     .036  -.05
+$ 
+$              3       -7.5       0       0       -7.39     .06   -.06
+$ 
+$              4      -10.5       0       0       -9.95    -.11    .12
+$           ------------------------------------------------------------
+$            NOTE:  NASTRAN stresses are average; theoretIcal stresses
+$            are calculated at the center of the element.
+$-------------------------------------------------------------------------------

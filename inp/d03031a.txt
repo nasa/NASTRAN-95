@@ -1,0 +1,95 @@
+$-------------------------------------------------------------------------------
+$                  RIGID FORMAT No. 3, Real Eigenvalue Analysis
+$           Vibration of a Liquid in a Half-Filled Rigid Sphere (3-3-1)
+$ 
+$ A. Description
+$ 
+$ The model is similar to Demonstration Problem No. 3-2-1 except that a
+$ hemispherical fluid model with a free surface is analyzed. Additional cards
+$ demonstrated are the free surface list (FSLIST) free surface points (FREEPT).
+$ The effective gravity for the fluid is found on the AXIF card. The fluid is
+$ considered incompressible.
+$ 
+$ The lowest three eigenvalues and eigenvectors for the cosine and sine series
+$ of n = 1 are analyzed, where n is the harmonic order.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters
+$ 
+$                     2
+$    g  =  10.0 ft/sec           (Gravity)
+$ 
+$    R  =  10.0 ft               (Radius of hemisphere)
+$ 
+$                         2   4
+$    p  =  1.255014 lb-sec /ft   (Fluid mass density]
+$ 
+$    B  =  infinity              (Bulk modulus of fluid, incompressible)
+$ 
+$ C. Results
+$ 
+$ Reference 17 gives the derivations and analytical results. In particular, the
+$ parameters used in the reference are:
+$ 
+$    e = 0  (half-filled sphere)
+$ 
+$              2                                                             (1)
+$             w R
+$    lambda = ----  (dimensionless eigenvalue)
+$              g
+$ 
+$ Table 2 of Reference 17 lists the eigenvalues, lambda , lambda , and
+$                                                      1        2
+$ lambda , for the first three modes. Figure 13 of Reference 17 shows the mode
+$       3
+$ shapes.
+$ 
+$ The analytic and NASTRAN results are compared in Table 1. The frequencies are
+$ listed and the resulting percentage errors are given. The maximum percent
+$ error of the surface displacement, relative to the largest displacement, is
+$ tabulated for each mode.
+$ 
+$ The free surface displacements may be obtained by the equation:
+$ 
+$        p
+$    u = --                                                                  (2)
+$        pg
+$ 
+$ where p is the pressure at the free surface recorded in the NASTRAN output.
+$ Note that, since an Eulerian reference frame is used, the pressure at the
+$ original (undisturbed) surface is equal to the gravity head produced by
+$ motions of the surface. Special FREEPT data cards could also have been used
+$ for output. Since the results are scaled for normalization anyway, the
+$ harmonic pressures may be used directly as displacements.
+$ 
+$ 
+$ Because the cosine series and the sine series produce identical eigenvalues,
+$ the resulting eigenvectors may be linear combinations of both series. In other
+$ words the points of maximum displacement will not necessarily occur at phi = 0
+$ degrees or phi = 90 degrees. Since the results are scaled, however, and the
+$ results at phi = 0 are proportional to the results at any other angle, the
+$ results at phi = 0 were used.
+$ 
+$     Table 1. Comparison of Natural Frequencies and Free Surface Mode Shapes
+$                         from the Reference and NASTRAN
+$ 
+$            ---------------------------------------------------------
+$                          Natural Frequency (Hertz)
+$                       --------------------------------  Mode Shape
+$            Mode                              NASTRAN    Max. % Error
+$            Number     Reference   NASTRAN    % Error    epsilon
+$            ---------------------------------------------------------
+$              1        0.1991      0.1988     -0.1        < 1
+$ 
+$              2        0.3678      0.3691      0.3        < 2.6
+$ 
+$              3        0.4684      0.4766      1.8        < 4
+$            ---------------------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 17. B. Budiansky, "Sloshing of Liquids in Circular Canals and Spherical
+$     Tanks", Journal of the Aerospace Sciences, Vol. 27, No. 3, pp 161-173,
+$     March 1960.
+$-------------------------------------------------------------------------------

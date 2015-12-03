@@ -1,0 +1,7 @@
+      FUNCTION ALG2 (S,P)
+C
+      COMMON /GAS/ G,EJ,R,CP,GAMMA,ROJCP
+C
+      ALG2=CP*EXP(S/CP+ROJCP*ALOG(P))
+      RETURN
+      END

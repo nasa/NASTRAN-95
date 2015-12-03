@@ -1,0 +1,966 @@
+     NASTRAN  FILES=(NPTP,PLT2)                                                      
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01021A,NASTRAN                                                           
+     CHKPNT   YES                                                                    
+     TIME     15                                                                     
+     APP      DISPLACEMENT                                                           
+     SOL      1,1                                                                    
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+0ECHO OF FIRST CARD IN CHECKPOINT DICTIONARY TO BE PUNCHED OUT FOR THIS PROBLEM
+0   RESTART   D01021A ,NASTRAN , 5/17/95,   52113,
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY        
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                          
+                  3      LOAD = 1                                                                        
+                  4      SPC  = 2                                                                        
+                  5      OUTPUT                                                                          
+                  6      DISP   = ALL                                                                    
+                  7      SPCF   = ALL                                                                    
+                  8      STRESS = ALL                                                                    
+                  9      PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                            
+                 10      OUTPUT(PLOT)                                                                    
+                 11      PLOTTER NASTPLT                                                                 
+                 12         MAXIMUM DEFORMATION  6.0                                                     
+                 13      $                                                                               
+                 14      $ ALL ELEMENTS                                                                  
+                 15         SET 1 = ELEMENTS TRIA2                                                       
+                 16      $                                                                               
+                 17      $ PLOTEL - EDGES AND CENTERLINE                                                 
+                 18         SET 2 = PLOTEL                                                               
+                 19      $                                                                               
+                 20           VIEW 20.0, 30.0, 0.0                                                       
+                 21           FIND SCALE  ORIGIN 1 SET 1                                                 
+                 22      PTITLE = UNDEFORMED SECTION TRIA2 ELEMENTS                                      
+                 23      PLOT LABEL(BOTH), SYMBOLS 6,SHRINK                                              
+                 24      PTITLE = SECTION TRIA2 ELEMENTS WITH UNDERLAY                                   
+                 25         PLOT STATIC DEFORMATION 0,1, SET 1, ORIGIN 1,SHAPE, LABELS                   
+                 26      $                                                                               
+                 27      $                                                                               
+                 28              PERSPECTIVE PROJECTION                                                  
+                 29      $                                                                               
+                 30      MAXIMUM DEFORMATION 6.0                                                         
+                 31           FIND SCALE, SET 2, ORIGIN 1000                                             
+                 32         FIND SCALE,ORIGIN 1000, SET  1,VANT POINT,REGION 0.35,0.1, 0.9, 0.8          
+                 33      PTITLE = SECTION PLOTEL ELEMENTS (PERSPECTIVE PROJECTION)                       
+                 34      PLOT SET 2,  ORIGIN 1000, LABELS                                                
+                 35      PTITLE = FULL MODEL (VIA SYMMETRY) TRIA2 ELEMENTS - PERSPECTIVE                 
+                 36      PLOT    SET 1,  ORIGIN 1000, SYMBOLS 9, SHAPE,SHRINK,                           
+                 37              SET 1, ORIGIN 1000 SYMBOLS 9 SHAPE      SYMMETRY X,                     
+                 38              SET 1, ORIGIN 1000 SYMBOLS 9 SHAPE      SYMMETRY Y,                     
+                 39              SET 1, ORIGIN 1000 SYMBOLS 9 SHAPE      SYMMETRY XY                     
+                 40      PTITLE = FULL MODEL (VIA SYMMETRY) PLOTEL ELEMENTS - PERSPECTIVE                
+                 41      PLOT STATIC DEFORMATION 0,1,                                                    
+                 42              SET 2, ORIGIN 1000, SHAPE,                                              
+                 43              SET 2, ORIGIN 1000, SHAPE, SYMMETRY X,                                  
+                 44              SET 2, ORIGIN 1000, SHAPE, SYMMETRY Y,                                  
+                 45              SET 2, ORIGIN 1000, SHAPE, SYMMETRY XY                                  
+                 46      BEGIN BULK                                                                      
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    91, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CORD2S  2               .0      .0      .0      .0      .0      1.      +COR1   
+                    2-        +COR1   1.000   .000    .000                                                    
+                    3-        CTRIA2  1       31      1       6       26      .0                              
+                    4-        CTRIA2  2       31      6       11      26      .0                              
+                    5-        CTRIA2  3       31      2       7       1       .0                              
+                    6-        CTRIA2  4       31      6       1       7       .0                              
+                    7-        CTRIA2  5       31      7       12      6       .0                              
+                    8-        CTRIA2  6       31      11      6       12      .0                              
+                    9-        CTRIA2  7       31      12      16      11      .0                              
+                   10-        CTRIA2  8       31      3       8       2       .0                              
+                   11-        CTRIA2  9       31      7       2       8       .0                              
+                   12-        CTRIA2  10      31      8       13      7       .0                              
+                   13-        CTRIA2  11      31      12      7       13      .0                              
+                   14-        CTRIA2  12      31      13      17      12      .0                              
+                   15-        CTRIA2  13      31      16      12      17      .0                              
+                   16-        CTRIA2  14      31      17      20      16      .0                              
+                   17-        CTRIA2  15      31      4       9       3       .0                              
+                   18-        CTRIA2  16      31      8       3       9       .0                              
+                   19-        CTRIA2  17      31      9       14      8       .0                              
+                   20-        CTRIA2  18      31      13      8       14      .0                              
+                   21-        CTRIA2  19      31      14      18      13      .0                              
+                   22-        CTRIA2  20      31      17      13      18      .0                              
+                   23-        CTRIA2  21      31      18      21      17      .0                              
+                   24-        CTRIA2  22      31      20      17      21      .0                              
+                   25-        CTRIA2  23      31      21      23      20      .0                              
+                   26-        CTRIA2  24      31      5       10      4       .0                              
+                   27-        CTRIA2  25      31      9       4       10      .0                              
+                   28-        CTRIA2  26      31      10      15      9       .0                              
+                   29-        CTRIA2  27      31      14      9       15      .0                              
+                   30-        CTRIA2  28      31      15      19      14      .0                              
+                   31-        CTRIA2  29      31      18      14      19      .0                              
+                   32-        CTRIA2  30      31      19      22      18      .0                              
+                   33-        CTRIA2  31      31      21      18      22      .0                              
+                   34-        CTRIA2  32      31      22      24      21      .0                              
+                   35-        CTRIA2  33      31      23      21      24      .0                              
+                   36-        CTRIA2  34      31      24      25      23      .0                              
+                   37-        GRDSET          2                               2                               
+                   38-        GRID    1               90.     7.      .0                                      
+                   39-        GRID    2               90.     14.0    .0                                      
+                   40-        GRID    3               90.     21.0    .0                                      
+                   41-        GRID    4               90.     28.0    .0                                      
+                   42-        GRID    5               90.     35.0    .0                                      
+                   43-        GRID    6               90.     7.0     45.0                                    
+                   44-        GRID    7               90.     14.0    30.0                                    
+                   45-        GRID    8               90.     21.0    22.5                                    
+                   46-        GRID    9               90.     28.0    18.0                                    
+                   47-        GRID    10              90.     35.0    15.0                                    
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        GRID    11              90.     7.0     90.0                                    
+                   49-        GRID    12              90.     14.0    60.0                                    
+                   50-        GRID    13              90.     21.0    45.0                                    
+                   51-        GRID    14              90.     28.0    36.0                                    
+                   52-        GRID    15              90.     35.0    30.0                                    
+                   53-        GRID    16              90.     14.0    90.0                                    
+                   54-        GRID    17              90.     21.0    67.5                                    
+                   55-        GRID    18              90.     28.0    54.0                                    
+                   56-        GRID    19              90.     35.0    45.0                                    
+                   57-        GRID    20              90.     21.0    90.0                                    
+                   58-        GRID    21              90.     28.0    72.0                                    
+                   59-        GRID    22              90.     35.0    60.0                                    
+                   60-        GRID    23              90.     28.0    90.0                                    
+                   61-        GRID    24              90.     35.0    75.0                                    
+                   62-        GRID    25              90.     35.0    90.0                                    
+                   63-        GRID    26      0       .0      .0      90.0    0                               
+                   64-        MAT1    1       3.+6            .1666                                           
+                   65-        PLOAD2  1       -1.0    1       2       3       4       5       6               
+                   66-        PLOAD2  1       -1.0    7       8       9       10      11      12              
+                   67-        PLOAD2  1       -1.0    13      14      15      16      17      18              
+                   68-        PLOAD2  1       -1.0    19      20      21      22      23      24              
+                   69-        PLOAD2  1       -1.0    25      26      27      28      29      30              
+                   70-        PLOAD2  1       -1.0    31      32      33      34                              
+                   71-        PLOTEL  50      26      1               51      1       2                       
+                   72-        PLOTEL  52      2       3               53      3       4                       
+                   73-        PLOTEL  54      4       5               55      5       10                      
+                   74-        PLOTEL  56      10      15              57      15      19                      
+                   75-        PLOTEL  58      19      22              59      22      24                      
+                   76-        PLOTEL  60      24      25              61      25      23                      
+                   77-        PLOTEL  62      23      20              63      20      16                      
+                   78-        PLOTEL  64      16      11              65      11      26                      
+                   79-        PLOTEL  66      3       8               67      8       13                      
+                   80-        PLOTEL  68      13      17              69      17      20                      
+                   81-        PTRIA2  31      1       3.                                                      
+                   82-        SPC     1       26      12456   .0                                              
+                   83-        SPC1    1       345     1       2       3       4       11      16      +SPC1-2 
+                   84-        +SPC1-2 20      23                                                              
+                   85-        SPC1    1       123456  5       10      15      19      22      24      +SPC1-1 
+                   86-        +SPC1-1 25                                                                      
+                   87-        SPC1    2       2       10      15      19      22      24                      
+                   88-        SPC1    2       345     1       2       3       4       11      16      +SPC2-1 
+                   89-        +SPC2-1 20      23                                                              
+                   90-        SPC1    2       2345    5       25                                              
+                   91-        SPC1    2       12456   26                                                      
+                              ENDDATA
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+         CONTINUATION OF CHECKPOINT DICTIONARY
+ 
+         1,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =      5
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           26
+                                        PROFILE            153
+                                        MAX WAVEFRONT        8
+                                        AVG WAVEFRONT    5.885
+                                        RMS WAVEFRONT    6.168
+                                        RMS BANDWIDTH    7.382
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            7
+                                        PROFILE            131
+                                        MAX WAVEFRONT        7
+                                        AVG WAVEFRONT    5.038
+                                        RMS WAVEFRONT    5.302
+                                        RMS BANDWIDTH    5.374
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       26         7
+                                        PROFILE (P)                        153       131
+                                        MAXIMUM WAVEFRONT (C-MAX)            8         7
+                                        AVERAGE WAVEFRONT (C-AVG)        5.885     5.038
+                                        RMS WAVEFRONT (C-RMS)            6.168     5.302
+                                        RMS BANDWITCH (B-RMS)            7.382     5.374
+                                        NUMBER OF GRID POINTS (N)                     26
+                                        NUMBER OF ELEMENTS (NON-RIGID)                34
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           6
+                                        MINIMUM NODAL DEGREE                           2
+                                        NUMBER OF UNIQUE EDGES                        59
+                                        MATRIX DENSITY, PERCENT                   21.302
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF SEQGP CARDS GENERATED                   7
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       5       2       4       3       3       4       2
+                         SEQGP          5       1       6      11       7       9       8       8
+                         SEQGP          9       7      10       6      11      16      12      15
+                         SEQGP         13      14      14      13      15      12      16      20
+                         SEQGP         17      19      18      18      19      17      20      23
+                         SEQGP         21      22      22      21      23      25      24      24
+                         SEQGP         25      26      26      10
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+         2,   REENTER AT DMAP SEQUENCE NUMBER    12
+         3,   GPL     ,   FLAGS = 0,   REEL =  1,   FILE =      6
+         4,   EQEXIN  ,   FLAGS = 0,   REEL =  1,   FILE =      7
+         5,   GPDT    ,   FLAGS = 0,   REEL =  1,   FILE =      8
+         6,   CSTM    ,   FLAGS = 0,   REEL =  1,   FILE =      9
+         7,   BGPDT   ,   FLAGS = 0,   REEL =  1,   FILE =     10
+         8,   SIL     ,   FLAGS = 0,   REEL =  1,   FILE =     11
+         9,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     12
+ 
+        10,   REENTER AT DMAP SEQUENCE NUMBER    13
+        11,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     13
+        12,   MPTA    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        13,   REENTER AT DMAP SEQUENCE NUMBER    14
+        14,   MPT     ,   FLAGS = 0,   REEL =  1,   FILE =     14
+        15,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     15
+ 
+        16,   REENTER AT DMAP SEQUENCE NUMBER    15
+        17,   BGPDP   ,   FLAGS = 0,   REEL =  1,   FILE =     16
+        18,   SIP     ,   FLAGS = 0,   REEL =  1,   FILE =     17
+        19,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     18
+ 
+        20,   REENTER AT DMAP SEQUENCE NUMBER    16
+        21,   ECT     ,   FLAGS = 0,   REEL =  1,   FILE =     19
+        22,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     20
+ 
+        23,   REENTER AT DMAP SEQUENCE NUMBER    18
+        24,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     21
+        25,   PLTSETX ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        26,   PLTPAR  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        27,   GPSETS  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        28,   ELSETS  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        29,   REENTER AT DMAP SEQUENCE NUMBER    20
+        30,   PLTSETX ,   FLAGS = 0,   REEL =  1,   FILE =     22
+        31,   PLTPAR  ,   FLAGS = 0,   REEL =  1,   FILE =     23
+        32,   GPSETS  ,   FLAGS = 0,   REEL =  1,   FILE =     24
+        33,   ELSETS  ,   FLAGS = 0,   REEL =  1,   FILE =     25
+        34,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     26
+0*** USER INFORMATION MESSAGE, PLOT FILE GOES TO PLT2
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+        35,   REENTER AT DMAP SEQUENCE NUMBER    25
+        36,   PLOTX1  ,   FLAGS = 0,   REEL =  1,   FILE =     27
+        37,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     28
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          ORTHOGRAPHIC PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  20.00, BETA =  30.00, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 9.011667E-02                                                                                
+                                                                                                                                    
+          ORIGIN       1   -   X0 = -9.365200E-01, Y0 =  0.174988E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+                                                 PLOT        1  UNDEFORMED SHAPE                                                    
+                                                 ORIGIN      1  USED IN THIS PLOT                                                   
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          PERSPECTIVE  PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =   0.00, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 5.789204E-02                                                                                
+          VANTAGE POINT (INCHES) - RO = 1.863494E+02, S0 = 0.257393E+02, T0 = 0.171639E+03                                          
+          PROJECTION PLANE SEPARATION (INCHES) = 1.346651E+02                                                                       
+                                                                                                                                    
+          ORIGIN    1000   -   X0 = -2.619190E+00, Y0 =  0.257952E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+                                                 PLOT        2  UNDEFORMED SHAPE                                                    
+                                                 ORIGIN   1000  USED IN THIS PLOT                                                   
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          PERSPECTIVE  PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =   0.00, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 5.789204E-02                                                                                
+          VANTAGE POINT (INCHES) - RO = 1.863494E+02, S0 = 0.257393E+02, T0 = 0.171639E+03                                          
+          PROJECTION PLANE SEPARATION (INCHES) = 1.346651E+02                                                                       
+                                                                                                                                    
+          ORIGIN    1000   -   X0 = -2.619190E+00, Y0 =  0.257952E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+                                                 PLOT        3  UNDEFORMED SHAPE                                                    
+                                 AN UNRECOGNIZABLE OPTION (SHAPE   ) WAS DETECTED ON A -PLOT- CARD                                  
+                                                 ORIGIN   1000  USED IN THIS PLOT                                                   
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+        38,   REENTER AT DMAP SEQUENCE NUMBER    28
+        39,   SLT     ,   FLAGS = 0,   REEL =  1,   FILE =     29
+        40,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     30
+        41,   GPTT    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        42,   REENTER AT DMAP SEQUENCE NUMBER    30
+        43,   EST     ,   FLAGS = 0,   REEL =  1,   FILE =     31
+        44,   GPECT   ,   FLAGS = 0,   REEL =  1,   FILE =     32
+        45,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     33
+        46,   GEI     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        47,   MPTX    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        48,   PCOMPS  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        49,   EPTX    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        50,   REENTER AT DMAP SEQUENCE NUMBER    31
+        51,   MPT     ,   FLAGS = 0,   REEL =  1,   FILE =     34
+        52,   EPT     ,   FLAGS = 0,   REEL =  1,   FILE =     35
+        53,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     36
+ 
+        54,   REENTER AT DMAP SEQUENCE NUMBER    34
+        55,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     37
+        56,   KGGX    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        57,   REENTER AT DMAP SEQUENCE NUMBER    35
+        58,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     38
+        59,   OPTP1   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        60,   REENTER AT DMAP SEQUENCE NUMBER    39
+        61,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     39
+        62,   OPTP2   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        63,   EST1    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TRIA2    ELEMENTS (ELEMENT TYPE  17) STARTING WITH ID        1
+ 
+        64,   REENTER AT DMAP SEQUENCE NUMBER    40
+        65,   KELM    ,   FLAGS = 0,   REEL =  1,   FILE =     40
+        66,   KDICT   ,   FLAGS = 0,   REEL =  1,   FILE =     41
+        67,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     42
+        68,   MELM    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        69,   MDICT   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+        70,   REENTER AT DMAP SEQUENCE NUMBER    42
+        71,   KGGX    ,   FLAGS = 0,   REEL =  1,   FILE =     43
+        72,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     44
+ 
+        73,   REENTER AT DMAP SEQUENCE NUMBER    44
+        74,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     45
+        75,   MGG     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        76,   REENTER AT DMAP SEQUENCE NUMBER    54
+        77,   KGGX    ,   FLAGS = 4,   REEL =  1,   FILE =     43
+        78,   KGG     ,   FLAGS = 4,   REEL =  1,   FILE =     43
+        79,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     46
+ 
+        80,   REENTER AT DMAP SEQUENCE NUMBER    58
+        81,   GPST    ,   FLAGS = 0,   REEL =  1,   FILE =     47
+        82,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     48
+ 
+        83,   REENTER AT DMAP SEQUENCE NUMBER    61
+        84,   YS      ,   FLAGS = 0,   REEL =  1,   FILE =     49
+        85,   USET    ,   FLAGS = 0,   REEL =  1,   FILE =     50
+        86,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     51
+        87,   RG      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        88,   ASET    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        89,   OGPST   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        90,   REENTER AT DMAP SEQUENCE NUMBER    65
+        91,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     52
+        92,   KRR     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        93,   KLR     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        94,   QR      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        95,   DM      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        96,   GM      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        97,   GO      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        98,   KOO     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        99,   LOO     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       100,   PO      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       101,   UOOV    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       102,   RUOV    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       103,   PS      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       104,   KFS     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       105,   KSS     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       106,   QG      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       107,   REENTER AT DMAP SEQUENCE NUMBER    66
+       108,   KNN     ,   FLAGS = 4,   REEL =  1,   FILE =     43
+       109,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     53
+ 
+       110,   REENTER AT DMAP SEQUENCE NUMBER    71
+       111,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     54
+       112,   KFF     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       113,   REENTER AT DMAP SEQUENCE NUMBER    73
+       114,   KFF     ,   FLAGS = 0,   REEL =  1,   FILE =     55
+       115,   KFS     ,   FLAGS = 0,   REEL =  1,   FILE =     56
+       116,   KSS     ,   FLAGS = 0,   REEL =  1,   FILE =     57
+       117,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     58
+ 
+       118,   REENTER AT DMAP SEQUENCE NUMBER    75
+       119,   KFF     ,   FLAGS = 4,   REEL =  1,   FILE =     55
+       120,   KAA     ,   FLAGS = 4,   REEL =  1,   FILE =     55
+       121,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     59
+ 
+       122,   REENTER AT DMAP SEQUENCE NUMBER    79
+       123,   KLL     ,   FLAGS = 4,   REEL =  1,   FILE =     55
+       124,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     60
+ 
+       125,   REENTER AT DMAP SEQUENCE NUMBER    83
+       126,   LLL     ,   FLAGS = 0,   REEL =  1,   FILE =     61
+       127,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     62
+ 
+       128,   REENTER AT DMAP SEQUENCE NUMBER    87
+       129,   PG      ,   FLAGS = 0,   REEL =  1,   FILE =     63
+       130,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     64
+ 
+       131,   REENTER AT DMAP SEQUENCE NUMBER    88
+       132,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     65
+       133,   PL      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       134,   REENTER AT DMAP SEQUENCE NUMBER    90
+       135,   PS      ,   FLAGS = 0,   REEL =  1,   FILE =     66
+       136,   PL      ,   FLAGS = 0,   REEL =  1,   FILE =     67
+       137,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     68
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   3.5496181E-16
+ 
+       138,   REENTER AT DMAP SEQUENCE NUMBER    92
+       139,   ULV     ,   FLAGS = 0,   REEL =  1,   FILE =     69
+       140,   RULV    ,   FLAGS = 0,   REEL =  1,   FILE =     70
+       141,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     71
+ 
+       142,   REENTER AT DMAP SEQUENCE NUMBER    97
+       143,   UGV     ,   FLAGS = 0,   REEL =  1,   FILE =     72
+       144,   PGG     ,   FLAGS = 0,   REEL =  1,   FILE =     73
+       145,   QG      ,   FLAGS = 0,   REEL =  1,   FILE =     74
+       146,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     75
+ 
+       147,   REENTER AT DMAP SEQUENCE NUMBER   104
+       148,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     76
+       149,   ONRGY1  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       150,   OGPFB1  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       151,   REENTER AT DMAP SEQUENCE NUMBER   105
+       152,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     77
+       153,   KDICT   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       154,   KELM    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+ 
+       155,   REENTER AT DMAP SEQUENCE NUMBER   111
+       156,   OQG1    ,   FLAGS = 0,   REEL =  1,   FILE =     78
+       157,   OUGV1   ,   FLAGS = 0,   REEL =  1,   FILE =     79
+       158,   OES1    ,   FLAGS = 0,   REEL =  1,   FILE =     80
+       159,   PUGV1   ,   FLAGS = 0,   REEL =  1,   FILE =     81
+       160,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     82
+       161,   OPG1    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       162,   OEF1    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       163,   OES1L   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       164,   OEF1L   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       165,   REENTER AT DMAP SEQUENCE NUMBER   115
+       166,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     83
+       167,   OES1M   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       168,   REENTER AT DMAP SEQUENCE NUMBER   121
+       169,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     84
+       170,   OES1A   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       171,   REENTER AT DMAP SEQUENCE NUMBER   141
+       172,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     85
+       173,   OUGV2   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -3.696464E-04  -4.166084E-07   0.0            0.0            0.0           -4.656293E-08                  
+             2      G     -3.717109E-04  -6.684564E-07   0.0            0.0            0.0            3.333757E-07                  
+             3      G     -3.724438E-04  -6.520922E-08   0.0            0.0            0.0           -4.098349E-07                  
+             4      G     -3.603437E-04   8.606352E-07   0.0            0.0            0.0           -2.526852E-06                  
+             5      G     -3.259649E-04   0.0            0.0            0.0            0.0           -4.807742E-06                  
+             6      G     -3.666212E-04  -2.433977E-07  -1.834832E-12   8.686031E-13  -8.537007E-13  -5.214052E-07                  
+             7      G     -3.663163E-04  -8.246836E-07  -9.045581E-08   1.460336E-06   5.888064E-07   1.980258E-07                  
+             8      G     -3.711736E-04  -1.055792E-06  -7.136131E-07   6.471687E-07   1.857514E-07   3.812305E-07                  
+             9      G     -3.742683E-04  -5.839916E-07  -1.916584E-06  -4.917982E-07  -1.215236E-06   4.231427E-07                  
+            10      G     -3.725176E-04   0.0           -3.220393E-06  -6.210837E-06  -3.759043E-06   3.581181E-07                  
+            11      G     -3.696464E-04  -4.166121E-07   0.0            0.0            0.0           -4.656135E-08                  
+            12      G     -3.663163E-04  -8.246860E-07   9.045016E-08  -1.460333E-06  -5.888093E-07   1.980267E-07                  
+            13      G     -3.698719E-04  -1.771450E-06  -4.075831E-12  -2.716263E-12   5.925879E-13   8.256123E-07                  
+            14      G     -3.837850E-04  -1.807707E-06  -9.372814E-07  -3.520242E-08  -2.236404E-07   1.782096E-06                  
+            15      G     -4.037245E-04   0.0           -2.303757E-06  -1.629335E-06  -9.278708E-07   2.287938E-06                  
+            16      G     -3.717109E-04  -6.684611E-07   0.0            0.0            0.0            3.333771E-07                  
+            17      G     -3.711736E-04  -1.055795E-06   7.136069E-07  -6.471703E-07  -1.857543E-07   3.812284E-07                  
+            18      G     -3.837849E-04  -1.807708E-06   9.372708E-07   3.520159E-08   2.236397E-07   1.782099E-06                  
+            19      G     -4.090099E-04   0.0           -5.815688E-12  -6.926524E-12  -3.951528E-12   2.367121E-06                  
+            20      G     -3.724438E-04  -6.521335E-08   0.0            0.0            0.0           -4.098352E-07                  
+            21      G     -3.742683E-04  -5.839948E-07   1.916579E-06   4.918015E-07   1.215234E-06   4.231441E-07                  
+            22      G     -4.037246E-04   0.0            2.303744E-06   1.629370E-06   9.278664E-07   2.287958E-06                  
+            23      G     -3.603437E-04   8.606328E-07   0.0            0.0            0.0           -2.526853E-06                  
+            24      G     -3.725177E-04   0.0            3.220390E-06   6.210808E-06   3.759050E-06   3.581179E-07                  
+            25      G     -3.259649E-04   0.0            0.0            0.0            0.0           -4.807744E-06                  
+            26      G      0.0            0.0           -3.740307E-04   0.0            0.0            0.0                           
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            4.894094E+02   1.818643E-01  -2.112025E+01   0.0                           
+             2      G      0.0            0.0            4.947181E+02   6.833418E-02  -1.412297E+01   0.0                           
+             3      G      0.0            0.0            5.034901E+02  -8.246548E-02  -6.633260E+00   0.0                           
+             4      G      0.0            0.0            5.048015E+02  -2.052628E-01   1.281466E+01   0.0                           
+             5      G      0.0           -2.783340E+02   2.038532E+02   2.047155E+00   3.347041E+01   0.0                           
+            10      G      0.0           -6.014798E+02   0.0            0.0            0.0            0.0                           
+            11      G      0.0            0.0           -4.894094E+02  -1.818642E-01   2.112024E+01   0.0                           
+            15      G      0.0           -6.159268E+02   0.0            0.0            0.0            0.0                           
+            16      G      0.0            0.0           -4.947181E+02  -6.833343E-02   1.412294E+01   0.0                           
+            19      G      0.0           -6.159152E+02   0.0            0.0            0.0            0.0                           
+            20      G      0.0            0.0           -5.034901E+02   8.246557E-02   6.633255E+00   0.0                           
+            22      G      0.0           -6.159268E+02   0.0            0.0            0.0            0.0                           
+            23      G      0.0            0.0           -5.048015E+02   2.052612E-01  -1.281463E+01   0.0                           
+            24      G      0.0           -6.014798E+02   0.0            0.0            0.0            0.0                           
+            25      G      0.0           -2.783340E+02  -2.038532E+02  -2.047155E+00  -3.347041E+01   0.0                           
+            26      G      2.461045E+02   2.461045E+02   0.0           -1.279847E+01   1.279847E+01  -1.416140E-07                  
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 2 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0       1   -1.500000E+00     -1.465834E+01  -1.499446E+01  -2.191973E-01   -26.2612   -1.455019E+01   -1.510261E+01   2.762093E-01 
+             1.500000E+00     -1.504458E+01  -1.490641E+01   1.006761E-01    62.2293   -1.485339E+01   -1.509759E+01   1.221003E-01 
+0       2   -1.500000E+00     -1.465836E+01  -1.499446E+01   2.191857E-01    26.2611   -1.455021E+01   -1.510261E+01   2.761955E-01 
+             1.500000E+00     -1.504456E+01  -1.490641E+01  -1.006636E-01   -62.2291   -1.485340E+01   -1.509757E+01   1.220846E-01 
+0       3   -1.500000E+00     -1.466739E+01  -1.504355E+01  -6.915784E-02   -10.0943   -1.465508E+01   -1.505586E+01   2.003926E-01 
+             1.500000E+00     -1.514168E+01  -1.474049E+01   1.792455E-02    87.4469   -1.473969E+01   -1.514248E+01   2.013922E-01 
+0       4   -1.500000E+00     -1.488939E+01  -1.507712E+01  -1.288826E-01   -26.9671   -1.482381E+01   -1.514270E+01   1.594407E-01 
+             1.500000E+00     -1.477563E+01  -1.459632E+01   1.698227E-01    58.9160   -1.449394E+01   -1.487801E+01   1.920373E-01 
+0       5   -1.500000E+00     -1.535018E+01  -1.513464E+01  -6.689610E-06   -89.9982   -1.513464E+01   -1.535018E+01   1.077685E-01 
+             1.500000E+00     -1.414401E+01  -1.455097E+01   7.309524E-06     0.0010   -1.414401E+01   -1.455097E+01   2.034783E-01 
+0       6   -1.500000E+00     -1.488944E+01  -1.507711E+01   1.289098E-01    26.9746   -1.482383E+01   -1.514272E+01   1.594439E-01 
+             1.500000E+00     -1.477558E+01  -1.459632E+01  -1.698489E-01   -58.9103   -1.449390E+01   -1.487800E+01   1.920470E-01 
+0       7   -1.500000E+00     -1.466741E+01  -1.504358E+01   6.914719E-02    10.0926   -1.465510E+01   -1.505588E+01   2.003934E-01 
+             1.500000E+00     -1.514166E+01  -1.474047E+01  -1.791223E-02   -87.4487   -1.473967E+01   -1.514246E+01   2.013959E-01 
+0       8   -1.500000E+00     -1.489148E+01  -1.450566E+01   2.429343E-01    64.2263   -1.438836E+01   -1.500878E+01   3.102122E-01 
+             1.500000E+00     -1.525221E+01  -1.505862E+01  -3.343825E-02   -80.4713   -1.505301E+01   -1.525783E+01   1.024094E-01 
+0       9   -1.500000E+00     -1.485539E+01  -1.478216E+01   2.152786E-01    49.8267   -1.460040E+01   -1.503714E+01   2.183707E-01 
+             1.500000E+00     -1.493758E+01  -1.490530E+01   7.956702E-02    50.7344   -1.484025E+01   -1.500263E+01   8.118806E-02 
+0      10   -1.500000E+00     -1.496865E+01  -1.506268E+01   2.263522E-01    39.1333   -1.478448E+01   -1.524685E+01   2.311830E-01 
+             1.500000E+00     -1.460380E+01  -1.470401E+01  -4.940912E-02   -22.2999   -1.458354E+01   -1.472428E+01   7.036822E-02 
+0      11   -1.500000E+00     -1.527336E+01  -1.541605E+01  -1.315328E-05    -0.0053   -1.527336E+01   -1.541605E+01   7.134676E-02 
+             1.500000E+00     -1.426884E+01  -1.455773E+01   1.160878E-05     0.0023   -1.426884E+01   -1.455773E+01   1.444449E-01 
+0      12   -1.500000E+00     -1.496867E+01  -1.506266E+01  -2.263398E-01   -39.1353   -1.478450E+01   -1.524683E+01   2.311668E-01 
+             1.500000E+00     -1.460379E+01  -1.470403E+01   4.939753E-02    22.2921   -1.458354E+01   -1.472429E+01   7.037129E-02 
+0      13   -1.500000E+00     -1.485537E+01  -1.478214E+01  -2.152734E-01   -49.8263   -1.460039E+01   -1.503712E+01   2.183650E-01 
+             1.500000E+00     -1.493760E+01  -1.490531E+01  -7.957027E-02   -50.7348   -1.484026E+01   -1.500264E+01   8.119163E-02 
+0      14   -1.500000E+00     -1.489145E+01  -1.450565E+01  -2.429289E-01   -64.2256   -1.438835E+01   -1.500875E+01   3.101997E-01 
+             1.500000E+00     -1.525224E+01  -1.505863E+01   3.343241E-02    80.4737   -1.505302E+01   -1.525786E+01   1.024165E-01 
+0      15   -1.500000E+00     -1.529440E+01  -1.376634E+01   7.902541E-01    67.0168   -1.343117E+01   -1.562957E+01   1.099204E+00 
+             1.500000E+00     -1.488821E+01  -1.536757E+01  -1.557198E-01   -16.5058   -1.484206E+01   -1.541371E+01   2.858239E-01 
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 2 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      16   -1.500000E+00     -1.509196E+01  -1.473915E+01   6.150868E-01    53.0014   -1.427567E+01   -1.555544E+01   6.398832E-01 
+             1.500000E+00     -1.506609E+01  -1.491132E+01  -1.209733E-01   -61.3032   -1.484510E+01   -1.513231E+01   1.436070E-01 
+0      17   -1.500000E+00     -1.476340E+01  -1.516257E+01   6.008678E-01    35.8128   -1.432984E+01   -1.559614E+01   6.331478E-01 
+             1.500000E+00     -1.519202E+01  -1.470569E+01  -1.016806E-01   -78.6538   -1.468529E+01   -1.521243E+01   2.635694E-01 
+0      18   -1.500000E+00     -1.505334E+01  -1.564749E+01   2.963804E-01    22.4665   -1.493078E+01   -1.577005E+01   4.196368E-01 
+             1.500000E+00     -1.461266E+01  -1.468066E+01   3.396784E-02    22.4867   -1.459860E+01   -1.469472E+01   4.806013E-02 
+0      19   -1.500000E+00     -1.507482E+01  -1.544136E+01   1.065693E-06     0.0002   -1.507482E+01   -1.544136E+01   1.832690E-01 
+             1.500000E+00     -1.489862E+01  -1.457944E+01  -1.178688E-06   -89.9998   -1.457944E+01   -1.489862E+01   1.595922E-01 
+0      20   -1.500000E+00     -1.505337E+01  -1.564751E+01  -2.963676E-01   -22.4660   -1.493081E+01   -1.577006E+01   4.196251E-01 
+             1.500000E+00     -1.461264E+01  -1.468065E+01  -3.397733E-02   -22.4879   -1.459857E+01   -1.469471E+01   4.807156E-02 
+0      21   -1.500000E+00     -1.476339E+01  -1.516255E+01  -6.008668E-01   -35.8130   -1.432982E+01   -1.559611E+01   6.331450E-01 
+             1.500000E+00     -1.519203E+01  -1.470572E+01   1.016767E-01    78.6538   -1.468532E+01   -1.521244E+01   2.635583E-01 
+0      22   -1.500000E+00     -1.509199E+01  -1.473914E+01  -6.150628E-01   -53.0026   -1.427570E+01   -1.555543E+01   6.398660E-01 
+             1.500000E+00     -1.506606E+01  -1.491133E+01   1.209512E-01    61.3017   -1.484512E+01   -1.513227E+01   1.435758E-01 
+0      23   -1.500000E+00     -1.529442E+01  -1.376638E+01  -7.902526E-01   -67.0165   -1.343121E+01   -1.562959E+01   1.099193E+00 
+             1.500000E+00     -1.488819E+01  -1.536754E+01   1.557139E-01    16.5059   -1.484205E+01   -1.541368E+01   2.858127E-01 
+0      24   -1.500000E+00     -1.615719E+01  -1.347047E+01   1.260523E+00    68.4111   -1.297167E+01   -1.665598E+01   1.842155E+00 
+             1.500000E+00     -1.329555E+01  -1.503144E+01  -2.420780E-01    -7.7921   -1.326242E+01   -1.506456E+01   9.010729E-01 
+0      25   -1.500000E+00     -1.534320E+01  -1.480841E+01   1.088726E+00    51.8994   -1.395472E+01   -1.619688E+01   1.121081E+00 
+             1.500000E+00     -1.492063E+01  -1.481295E+01  -7.337141E-01   -47.0984   -1.413110E+01   -1.560247E+01   7.356868E-01 
+0      26   -1.500000E+00     -1.432555E+01  -1.519972E+01   7.668653E-01    30.1592   -1.387995E+01   -1.564531E+01   8.826810E-01 
+             1.500000E+00     -1.612328E+01  -1.468456E+01  -2.148645E-01   -81.6849   -1.465315E+01   -1.615468E+01   7.507654E-01 
+0      27   -1.500000E+00     -1.485065E+01  -1.559625E+01   4.375631E-01    24.7847   -1.464861E+01   -1.579829E+01   5.748389E-01 
+             1.500000E+00     -1.522284E+01  -1.498067E+01  -6.056371E-02   -76.7133   -1.496637E+01   -1.523714E+01   1.353851E-01 
+0      28   -1.500000E+00     -1.544785E+01  -1.538717E+01   7.644680E-02    55.8233   -1.533526E+01   -1.549975E+01   8.224709E-02 
+             1.500000E+00     -1.567000E+01  -1.488676E+01  -2.663583E-03   -89.8052   -1.488675E+01   -1.567000E+01   3.916278E-01 
+0      29   -1.500000E+00     -1.508062E+01  -1.560929E+01   1.416555E-05     0.0015   -1.508062E+01   -1.560929E+01   2.643366E-01 
+             1.500000E+00     -1.500845E+01  -1.510554E+01  -1.187935E-05    -0.0070   -1.500845E+01   -1.510554E+01   4.854393E-02 
+0      30   -1.500000E+00     -1.544784E+01  -1.538715E+01  -7.642962E-02   -55.8262   -1.533526E+01   -1.549973E+01   8.223200E-02 
+             1.500000E+00     -1.567002E+01  -1.488678E+01   2.654266E-03    89.8058   -1.488678E+01   -1.567003E+01   3.916253E-01 
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 2 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      31   -1.500000E+00     -1.485062E+01  -1.559623E+01  -4.375662E-01   -24.7845   -1.464858E+01   -1.579827E+01   5.748459E-01 
+             1.500000E+00     -1.522287E+01  -1.498069E+01   6.056729E-02    76.7136   -1.496639E+01   -1.523718E+01   1.353956E-01 
+0      32   -1.500000E+00     -1.432553E+01  -1.519971E+01  -7.668736E-01   -30.1592   -1.387993E+01   -1.564531E+01   8.826901E-01 
+             1.500000E+00     -1.612330E+01  -1.468454E+01   2.148690E-01    81.6849   -1.465314E+01   -1.615470E+01   7.507809E-01 
+0      33   -1.500000E+00     -1.534322E+01  -1.480841E+01  -1.088734E+00   -51.8996   -1.395472E+01   -1.619691E+01   1.121091E+00 
+             1.500000E+00     -1.492060E+01  -1.481295E+01   7.337191E-01    47.0979   -1.413109E+01   -1.560247E+01   7.356908E-01 
+0      34   -1.500000E+00     -1.615722E+01  -1.347046E+01  -1.260510E+00   -68.4114   -1.297168E+01   -1.665600E+01   1.842158E+00 
+             1.500000E+00     -1.329552E+01  -1.503144E+01   2.420669E-01     7.7917   -1.326240E+01   -1.506456E+01   9.010823E-01 
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       174,   REENTER AT DMAP SEQUENCE NUMBER   149
+       175,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     86
+       176,   OESF1X  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       177,   OESF1Y  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       178,   REENTER AT DMAP SEQUENCE NUMBER   154
+       179,   PLOTX2  ,   FLAGS = 0,   REEL =  1,   FILE =     87
+       180,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     88
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          PERSPECTIVE  PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  20.00, BETA =  30.00, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 9.015691E-02                                                                                
+          VANTAGE POINT (INCHES) - RO = 2.235258E+02, S0 = 0.257127E+02, T0 = 0.146123E+03                                          
+          PROJECTION PLANE SEPARATION (INCHES) = 1.299782E+02                                                                       
+                                                                                                                                    
+          ORIGIN       1   -   X0 = -9.565060E-01, Y0 =  0.316908E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+          PLOT    4   STATIC DEFORM.     1 - SUBCASE       1 - LOAD                                                                 
+                                                 ORIGIN      1  USED IN THIS PLOT                                                   
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          PERSPECTIVE  PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =   0.00, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 5.789204E-02                                                                                
+          VANTAGE POINT (INCHES) - RO = 1.863494E+02, S0 = 0.257393E+02, T0 = 0.171639E+03                                          
+          PROJECTION PLANE SEPARATION (INCHES) = 1.346651E+02                                                                       
+                                                                                                                                    
+          ORIGIN    1000   -   X0 = -2.619190E+00, Y0 =  0.257952E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+          PLOT    5   STATIC DEFORM.     1 - SUBCASE       1 - LOAD                                                                 
+                                                 ORIGIN   1000  USED IN THIS PLOT                                                   
+1     SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-02-1A                                                                                   
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       181,   REENTER AT DMAP SEQUENCE NUMBER   172
+       182,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     89
+       183,   DUMMY   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  SPHERICAL SHELL WITH PRESSURE LOADING, NO MOMENTS ON BOUNDARY      
+ DATE:  5/17/95
+ END TIME: 14:28:58
+ TOTAL WALL CLOCK TIME      4 SEC.
+ 

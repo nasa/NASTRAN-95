@@ -1,0 +1,726 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D14011A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   14,0                                                                      
+     TIME  15                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     DIHEDRAL CYCLIC SYMMETRY                                                                                                      
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = STATIC ANALYSIS OF A CIRCULAR PLATE                                  
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                          
+                  3      LABEL    = DIHEDRAL CYCLIC SYMMETRY                                             
+                  4         SPC   = 101                                                                  
+                  5      OUTPUT                                                                          
+                  6         OLOAD = ALL                                                                  
+                  7         DISP  = ALL                                                                  
+                  8         SPCF  = ALL                                                                  
+                  9      SUBCASE  1                                                                      
+                 10      LABEL    = SEGMENT  1 RIGHT                                                     
+                 11      SUBCASE  2                                                                      
+                 12      LABEL    = SEGMENT  1 LEFT                                                      
+                 13      SUBCASE  3                                                                      
+                 14      LABEL    = SEGMENT  2 RIGHT                                                     
+                 15          LOAD = 102                                                                  
+                 16      SUBCASE  4                                                                      
+                 17      LABEL    = SEGMENT  2 LEFT                                                      
+                 18          LOAD = 102                                                                  
+                 19      SUBCASE  5                                                                      
+                 20      LABEL    = SEGMENT  3 RIGHT                                                     
+                 21      SUBCASE  6                                                                      
+                 22      LABEL    = SEGMENT  3 LEFT                                                      
+                 23      SUBCASE  7                                                                      
+                 24      LABEL    = SEGMENT  4 RIGHT                                                     
+                 25      SUBCASE  8                                                                      
+                 26      LABEL    = SEGMENT  4 LEFT                                                      
+                 27      SUBCASE  9                                                                      
+                 28      LABEL    = SEGMENT  5 RIGHT                                                     
+                 29      SUBCASE  10                                                                     
+                 30      LABEL    = SEGMENT  5 LEFT                                                      
+                 31      SUBCASE  11                                                                     
+                 32      LABEL    = SEGMENT  6 RIGHT                                                     
+                 33      SUBCASE  12                                                                     
+                 34      LABEL    = SEGMENT  6 LEFT                                                      
+                 35      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    58, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     DIHEDRAL CYCLIC SYMMETRY                                                                                                      
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CBAR    1       1       10      20      .0      .0      1.      1               
+                    2-        CBAR    2       1       20      30      .0      .0      1.      1               
+                    3-        CBAR    3       1       30      40      .0      .0      1.      1               
+                    4-        CBAR    4       1       40      50      .0      .0      1.      1               
+                    5-        CBAR    5       1       50      60      .0      .0      1.      1               
+                    6-        CNGRNT  10      11                                                              
+                    7-        CNGRNT  20      21                                                              
+                    8-        CNGRNT  30      31                                                              
+                    9-        CNGRNT  40      41                                                              
+                   10-        CNGRNT  50      51                                                              
+                   11-        CORD2C  1       0       .0      .0      .0      .0      .0      1.      +C1     
+                   12-        +C1     1.      .0      .0                                                      
+                   13-        CQUAD2  10      1       10      11      21      20                              
+                   14-        CQUAD2  11      1       11      12      22      21                              
+                   15-        CQUAD2  20      1       20      21      31      30                              
+                   16-        CQUAD2  21      1       21      22      32      31                              
+                   17-        CQUAD2  30      1       30      31      41      40                              
+                   18-        CQUAD2  31      1       31      32      42      41                              
+                   19-        CQUAD2  40      1       40      41      51      50                              
+                   20-        CQUAD2  41      1       41      42      52      51                              
+                   21-        CQUAD2  50      1       50      51      61      60                              
+                   22-        CQUAD2  51      1       51      52      62      61                              
+                   23-        CYJOIN  1       C       10      20      30      40      50      60      CYC SYM 
+                   24-        CYJOIN  2       C       12      22      32      42      52      62      CYC SYM 
+                   25-        GRDSET          1                               1                               
+                   26-        GRID    10              1.0     .0      .0                                      
+                   27-        GRID    11              1.0     15.0    .0                                      
+                   28-        GRID    12              1.0     30.0    .0                                      
+                   29-        GRID    20              .68     .0      .0                                      
+                   30-        GRID    21              .68     15.0    .0                                      
+                   31-        GRID    22              .68     30.0    .0                                      
+                   32-        GRID    30              .46     .0      .0                                      
+                   33-        GRID    31              .46     15.0    .0                                      
+                   34-        GRID    32              .46     30.0    .0                                      
+                   35-        GRID    40              .31     .0      .0                                      
+                   36-        GRID    41              .31     15.0    .0                                      
+                   37-        GRID    42              .31     30.0    .0                                      
+                   38-        GRID    50              .21     .0      .0                                      
+                   39-        GRID    51              .21     15.0    .0                                      
+                   40-        GRID    52              .21     30.0    .0                                      
+                   41-        GRID    60              .14     .0      .0                                      
+                   42-        GRID    61              .14     15.0    .0                                      
+                   43-        GRID    62              .14     30.0    .0                                      
+                   44-        MAT1    1       10.6 +6         .325    2.59 -4 12.9 -6                         
+                   45-        PARAM   CTYPE   DRL                                                     CYC SYM 
+                   46-        PARAM   KMAX    2                                                       CYC SYM 
+                   47-        PARAM   NLOAD   1                                                       CYC SYM 
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+
+      DIHEDRAL CYCLIC SYMMETRY                                                                                                      
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        PARAM   NSEGS   6                                                       CYC SYM 
+                   49-        PBAR    1       1       1.8 -3  5.4 -7  5.4 -7  1.0 -6                  +PB1    
+                   50-        +PB1    .0      .03     .03     .0      .03     .03     .03     -.03            
+                   51-        PLOAD2  102     200.    10      20      30      40      50                      
+                   52-        PLOAD2  102     200.    11      21      31      41      51                      
+                   53-        PQUAD2  1       1       .01                                                     
+                   54-        SPC1    110     12346   10      11      12                                      
+                   55-        SPC1    112     126     10      11      12      20      21      22              
+                   56-        SPC1    112     126     30      31      32      40      41      42              
+                   57-        SPC1    112     126     50      51      52      60      61      62              
+                   58-        SPCADD  101     110     112                                                     
+                              ENDDATA
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     DIHEDRAL CYCLIC SYMMETRY                                                                                                      
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            5
+                                        PROFILE             75
+                                        MAX WAVEFRONT        5
+                                        AVG WAVEFRONT    4.167
+                                        RMS WAVEFRONT    4.314
+                                        RMS BANDWIDTH    4.340
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            5
+                                        PROFILE             75
+                                        MAX WAVEFRONT        5
+                                        AVG WAVEFRONT    4.167
+                                        RMS WAVEFRONT    4.314
+                                        RMS BANDWIDTH    4.340
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        5         5
+                                        PROFILE (P)                         75        75
+                                        MAXIMUM WAVEFRONT (C-MAX)            5         5
+                                        AVERAGE WAVEFRONT (C-AVG)        4.167     4.167
+                                        RMS WAVEFRONT (C-RMS)            4.314     4.314
+                                        RMS BANDWITCH (B-RMS)            4.340     4.340
+                                        NUMBER OF GRID POINTS (N)                     18
+                                        NUMBER OF ELEMENTS (NON-RIGID)                15
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           8
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                        47
+                                        MATRIX DENSITY, PERCENT                   34.568
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD2    ELEMENTS (ELEMENT TYPE  18) STARTING WITH ID       10
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   7.8874060E-12
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -1.3753489E-13
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     2, EPSILON SUB E =  -1.1051278E-13
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -2.3485315E-14
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     2, EPSILON SUB E =   1.5350107E-14
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  1 RIGHT                                                                                       SUBCASE  1             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.704151E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.570597E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.537518E+00   0.0                           
+            20      G      0.0            0.0            8.591709E-01  -8.520176E-02   2.639599E+00   0.0                           
+            21      G      0.0            0.0            8.499529E-01  -2.960548E-02   2.611420E+00   0.0                           
+            22      G      0.0            0.0            8.418425E-01  -6.794942E-02   2.578168E+00   0.0                           
+            30      G      0.0            0.0            1.429755E+00  -1.235337E-01   2.543543E+00   0.0                           
+            31      G      0.0            0.0            1.418559E+00  -8.465990E-02   2.480609E+00   0.0                           
+            32      G      0.0            0.0            1.405209E+00  -1.444451E-01   2.457530E+00   0.0                           
+            40      G      0.0            0.0            1.807006E+00  -1.404946E-01   2.488273E+00   0.0                           
+            41      G      0.0            0.0            1.794705E+00  -1.700269E-01   2.438059E+00   0.0                           
+            42      G      0.0            0.0            1.778308E+00  -2.329114E-01   2.424057E+00   0.0                           
+            50      G      0.0            0.0            2.054798E+00  -1.489652E-01   2.469095E+00   0.0                           
+            51      G      0.0            0.0            2.041777E+00  -2.939673E-01   2.390893E+00   0.0                           
+            52      G      0.0            0.0            2.023903E+00  -3.485231E-01   2.400145E+00   0.0                           
+            60      G      0.0            0.0            2.227529E+00  -1.527064E-01   2.466277E+00   0.0                           
+            61      G      0.0            0.0            2.215657E+00  -4.109062E-01   2.470276E+00   0.0                           
+            62      G      0.0            0.0            2.198039E+00  -5.063493E-01   2.491856E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  1 LEFT                                                                                        SUBCASE  2             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.529001E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.487567E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.537518E+00   0.0                           
+            20      G      0.0            0.0            8.098704E-01   7.301385E-02   2.527312E+00   0.0                           
+            21      G      0.0            0.0            8.260631E-01   1.118910E-01   2.548529E+00   0.0                           
+            22      G      0.0            0.0            8.418425E-01   6.794942E-02   2.578168E+00   0.0                           
+            30      G      0.0            0.0            1.365307E+00   1.146068E-01   2.518203E+00   0.0                           
+            31      G      0.0            0.0            1.384778E+00   1.892099E-01   2.461961E+00   0.0                           
+            32      G      0.0            0.0            1.405209E+00   1.444451E-01   2.457530E+00   0.0                           
+            40      G      0.0            0.0            1.742529E+00   1.388522E-01   2.509851E+00   0.0                           
+            41      G      0.0            0.0            1.758546E+00   2.444614E-01   2.445217E+00   0.0                           
+            42      G      0.0            0.0            1.778308E+00   2.329114E-01   2.424057E+00   0.0                           
+            50      G      0.0            0.0            1.993389E+00   1.527640E-01   2.506962E+00   0.0                           
+            51      G      0.0            0.0            2.005807E+00   3.030707E-01   2.434576E+00   0.0                           
+            52      G      0.0            0.0            2.023903E+00   3.485231E-01   2.400145E+00   0.0                           
+            60      G      0.0            0.0            2.168903E+00   1.591318E-01   2.507204E+00   0.0                           
+            61      G      0.0            0.0            2.180373E+00   4.240170E-01   2.510406E+00   0.0                           
+            62      G      0.0            0.0            2.198039E+00   5.063493E-01   2.491856E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  2 RIGHT                                                                                       SUBCASE  3             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.724071E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.787945E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.846493E+00   0.0                           
+            20      G      0.0            0.0            8.654410E-01   5.478878E-02   2.658608E+00   0.0                           
+            21      G      0.0            0.0            8.999742E-01   2.363210E-01   2.677019E+00   0.0                           
+            22      G      0.0            0.0            9.211573E-01  -1.247810E-02   2.668724E+00   0.0                           
+            30      G      0.0            0.0            1.440028E+00   7.069373E-02   2.560843E+00   0.0                           
+            31      G      0.0            0.0            1.462626E+00   2.084255E-01   2.393745E+00   0.0                           
+            32      G      0.0            0.0            1.474797E+00  -3.936955E-02   2.313599E+00   0.0                           
+            40      G      0.0            0.0            1.819767E+00   7.188975E-02   2.504165E+00   0.0                           
+            41      G      0.0            0.0            1.827736E+00   9.065955E-02   2.376126E+00   0.0                           
+            42      G      0.0            0.0            1.828517E+00  -8.643451E-02   2.308295E+00   0.0                           
+            50      G      0.0            0.0            2.069109E+00   7.068379E-02   2.484266E+00   0.0                           
+            51      G      0.0            0.0            2.069627E+00  -3.641295E-02   2.350338E+00   0.0                           
+            52      G      0.0            0.0            2.064318E+00  -1.591761E-01   2.312408E+00   0.0                           
+            60      G      0.0            0.0            2.242894E+00   6.992778E-02   2.481261E+00   0.0                           
+            61      G      0.0            0.0            2.240858E+00  -1.250292E-01   2.440074E+00   0.0                           
+            62      G      0.0            0.0            2.233295E+00  -2.633290E-01   2.423925E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  2 LEFT                                                                                        SUBCASE  4             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.684232E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.771978E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.846493E+00   0.0                           
+            20      G      0.0            0.0            8.529007E-01   1.156147E-01   2.620589E+00   0.0                           
+            21      G      0.0            0.0            8.950950E-01   2.693222E-01   2.657194E+00   0.0                           
+            22      G      0.0            0.0            9.211573E-01   1.247810E-02   2.668724E+00   0.0                           
+            30      G      0.0            0.0            1.419482E+00   1.763737E-01   2.526244E+00   0.0                           
+            31      G      0.0            0.0            1.453080E+00   2.922194E-01   2.371307E+00   0.0                           
+            32      G      0.0            0.0            1.474797E+00   3.936955E-02   2.313599E+00   0.0                           
+            40      G      0.0            0.0            1.794246E+00   2.090995E-01   2.472380E+00   0.0                           
+            41      G      0.0            0.0            1.814138E+00   2.520227E-01   2.352566E+00   0.0                           
+            42      G      0.0            0.0            1.828517E+00   8.643451E-02   2.308295E+00   0.0                           
+            50      G      0.0            0.0            2.040487E+00   2.272466E-01   2.453923E+00   0.0                           
+            51      G      0.0            0.0            2.053174E+00   2.412030E-01   2.342133E+00   0.0                           
+            52      G      0.0            0.0            2.064318E+00   1.591761E-01   2.312408E+00   0.0                           
+            60      G      0.0            0.0            2.212164E+00   2.354850E-01   2.451294E+00   0.0                           
+            61      G      0.0            0.0            2.222473E+00   3.107352E-01   2.431482E+00   0.0                           
+            62      G      0.0            0.0            2.233295E+00   2.633290E-01   2.423925E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  3 RIGHT                                                                                       SUBCASE  5             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.616576E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.529082E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.537518E+00   0.0                           
+            20      G      0.0            0.0            8.345206E-01  -6.093952E-03   2.583455E+00   0.0                           
+            21      G      0.0            0.0            8.380080E-01   4.114275E-02   2.579974E+00   0.0                           
+            22      G      0.0            0.0            8.418425E-01  -2.255141E-17   2.578168E+00   0.0                           
+            30      G      0.0            0.0            1.397531E+00  -4.463441E-03   2.530873E+00   0.0                           
+            31      G      0.0            0.0            1.401668E+00   5.227499E-02   2.471285E+00   0.0                           
+            32      G      0.0            0.0            1.405209E+00  -2.775558E-17   2.457530E+00   0.0                           
+            40      G      0.0            0.0            1.774768E+00  -8.212163E-04   2.499062E+00   0.0                           
+            41      G      0.0            0.0            1.776626E+00   3.721724E-02   2.441638E+00   0.0                           
+            42      G      0.0            0.0            1.778308E+00  -6.245005E-17   2.424057E+00   0.0                           
+            50      G      0.0            0.0            2.024094E+00   1.899396E-03   2.488028E+00   0.0                           
+            51      G      0.0            0.0            2.023792E+00   4.551693E-03   2.412735E+00   0.0                           
+            52      G      0.0            0.0            2.023903E+00  -7.632783E-17   2.400145E+00   0.0                           
+            60      G      0.0            0.0            2.198216E+00   3.212710E-03   2.486741E+00   0.0                           
+            61      G      0.0            0.0            2.198015E+00   6.555397E-03   2.490341E+00   0.0                           
+            62      G      0.0            0.0            2.198039E+00  -1.179612E-16   2.491856E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  3 LEFT                                                                                        SUBCASE  6             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.616576E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.529082E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.537518E+00   0.0                           
+            20      G      0.0            0.0            8.345206E-01  -6.093952E-03   2.583455E+00   0.0                           
+            21      G      0.0            0.0            8.380080E-01   4.114275E-02   2.579974E+00   0.0                           
+            22      G      0.0            0.0            8.418425E-01   2.255141E-17   2.578168E+00   0.0                           
+            30      G      0.0            0.0            1.397531E+00  -4.463441E-03   2.530873E+00   0.0                           
+            31      G      0.0            0.0            1.401668E+00   5.227499E-02   2.471285E+00   0.0                           
+            32      G      0.0            0.0            1.405209E+00   2.775558E-17   2.457530E+00   0.0                           
+            40      G      0.0            0.0            1.774768E+00  -8.212163E-04   2.499062E+00   0.0                           
+            41      G      0.0            0.0            1.776626E+00   3.721724E-02   2.441638E+00   0.0                           
+            42      G      0.0            0.0            1.778308E+00   6.245005E-17   2.424057E+00   0.0                           
+            50      G      0.0            0.0            2.024094E+00   1.899396E-03   2.488028E+00   0.0                           
+            51      G      0.0            0.0            2.023792E+00   4.551693E-03   2.412735E+00   0.0                           
+            52      G      0.0            0.0            2.023903E+00   7.632783E-17   2.400145E+00   0.0                           
+            60      G      0.0            0.0            2.198216E+00   3.212710E-03   2.486741E+00   0.0                           
+            61      G      0.0            0.0            2.198015E+00   6.555397E-03   2.490341E+00   0.0                           
+            62      G      0.0            0.0            2.198039E+00   1.179612E-16   2.491856E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  4 RIGHT                                                                                       SUBCASE  7             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.489163E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.339323E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.328870E+00   0.0                           
+            20      G      0.0            0.0            7.973301E-01  -1.218790E-02   2.489294E+00   0.0                           
+            21      G      0.0            0.0            7.885561E-01  -4.221665E-02   2.477708E+00   0.0                           
+            22      G      0.0            0.0            7.854477E-01   1.247810E-02   2.484175E+00   0.0                           
+            30      G      0.0            0.0            1.344761E+00  -8.926882E-03   2.483604E+00   0.0                           
+            31      G      0.0            0.0            1.343115E+00  -4.590699E-04   2.476472E+00   0.0                           
+            32      G      0.0            0.0            1.345008E+00   3.936955E-02   2.499769E+00   0.0                           
+            40      G      0.0            0.0            1.717008E+00  -1.642434E-03   2.478066E+00   0.0                           
+            41      G      0.0            0.0            1.718905E+00   5.202486E-02   2.455163E+00   0.0                           
+            42      G      0.0            0.0            1.724493E+00   8.643451E-02   2.467436E+00   0.0                           
+            50      G      0.0            0.0            1.964767E+00   3.798790E-03   2.476618E+00   0.0                           
+            51      G      0.0            0.0            1.967004E+00   9.343869E-02   2.435513E+00   0.0                           
+            52      G      0.0            0.0            1.973915E+00   1.591761E-01   2.437227E+00   0.0                           
+            60      G      0.0            0.0            2.138173E+00   6.425418E-03   2.477237E+00   0.0                           
+            61      G      0.0            0.0            2.141845E+00   1.789423E-01   2.508615E+00   0.0                           
+            62      G      0.0            0.0            2.150216E+00   2.633290E-01   2.521042E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  4 LEFT                                                                                        SUBCASE  8             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.529001E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.355290E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.328870E+00   0.0                           
+            20      G      0.0            0.0            8.098704E-01  -7.301386E-02   2.527312E+00   0.0                           
+            21      G      0.0            0.0            7.934353E-01  -7.521781E-02   2.497533E+00   0.0                           
+            22      G      0.0            0.0            7.854477E-01  -1.247810E-02   2.484175E+00   0.0                           
+            30      G      0.0            0.0            1.365307E+00  -1.146068E-01   2.518203E+00   0.0                           
+            31      G      0.0            0.0            1.352662E+00  -8.425290E-02   2.498910E+00   0.0                           
+            32      G      0.0            0.0            1.345008E+00  -3.936955E-02   2.499769E+00   0.0                           
+            40      G      0.0            0.0            1.742529E+00  -1.388522E-01   2.509851E+00   0.0                           
+            41      G      0.0            0.0            1.732503E+00  -1.093383E-01   2.478723E+00   0.0                           
+            42      G      0.0            0.0            1.724493E+00  -8.643451E-02   2.467436E+00   0.0                           
+            50      G      0.0            0.0            1.993389E+00  -1.527640E-01   2.506962E+00   0.0                           
+            51      G      0.0            0.0            1.983457E+00  -1.841772E-01   2.443718E+00   0.0                           
+            52      G      0.0            0.0            1.973915E+00  -1.591761E-01   2.437227E+00   0.0                           
+            60      G      0.0            0.0            2.168903E+00  -1.591318E-01   2.507204E+00   0.0                           
+            61      G      0.0            0.0            2.160230E+00  -2.568221E-01   2.517206E+00   0.0                           
+            62      G      0.0            0.0            2.150216E+00  -2.633290E-01   2.521042E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  5 RIGHT                                                                                       SUBCASE  9             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.401587E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.374896E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.429196E+00   0.0                           
+            20      G      0.0            0.0            7.726799E-01   9.129571E-02   2.433150E+00   0.0                           
+            21      G      0.0            0.0            7.915651E-01   1.238499E-01   2.450953E+00   0.0                           
+            22      G      0.0            0.0            8.083677E-01   6.794942E-02   2.480739E+00   0.0                           
+            30      G      0.0            0.0            1.312538E+00   1.279971E-01   2.470934E+00   0.0                           
+            31      G      0.0            0.0            1.333403E+00   1.979954E-01   2.406014E+00   0.0                           
+            32      G      0.0            0.0            1.354396E+00   1.444451E-01   2.398078E+00   0.0                           
+            40      G      0.0            0.0            1.684770E+00   1.413158E-01   2.488855E+00   0.0                           
+            41      G      0.0            0.0            1.701015E+00   2.468374E-01   2.418535E+00   0.0                           
+            42      G      0.0            0.0            1.720886E+00   2.329114E-01   2.395051E+00   0.0                           
+            50      G      0.0            0.0            1.934063E+00   1.470658E-01   2.495552E+00   0.0                           
+            51      G      0.0            0.0            1.946293E+00   3.010721E-01   2.421839E+00   0.0                           
+            52      G      0.0            0.0            1.964341E+00   3.485231E-01   2.386573E+00   0.0                           
+            60      G      0.0            0.0            2.108860E+00   1.494937E-01   2.497700E+00   0.0                           
+            61      G      0.0            0.0            2.120069E+00   4.193240E-01   2.500982E+00   0.0                           
+            62      G      0.0            0.0            2.137650E+00   5.063493E-01   2.482297E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  5 LEFT                                                                                        SUBCASE  10            
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.576738E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.457925E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.429196E+00   0.0                           
+            20      G      0.0            0.0            8.219804E-01  -6.691990E-02   2.545437E+00   0.0                           
+            21      G      0.0            0.0            8.154549E-01  -1.764658E-02   2.513844E+00   0.0                           
+            22      G      0.0            0.0            8.083677E-01  -6.794942E-02   2.480739E+00   0.0                           
+            30      G      0.0            0.0            1.376985E+00  -1.101434E-01   2.496275E+00   0.0                           
+            31      G      0.0            0.0            1.367184E+00  -7.587438E-02   2.424662E+00   0.0                           
+            32      G      0.0            0.0            1.354396E+00  -1.444451E-01   2.398078E+00   0.0                           
+            40      G      0.0            0.0            1.749247E+00  -1.380310E-01   2.467277E+00   0.0                           
+            41      G      0.0            0.0            1.737173E+00  -1.676509E-01   2.411377E+00   0.0                           
+            42      G      0.0            0.0            1.720886E+00  -2.329114E-01   2.395051E+00   0.0                           
+            50      G      0.0            0.0            1.995471E+00  -1.546634E-01   2.457685E+00   0.0                           
+            51      G      0.0            0.0            1.982263E+00  -2.959659E-01   2.378156E+00   0.0                           
+            52      G      0.0            0.0            1.964341E+00  -3.485231E-01   2.386573E+00   0.0                           
+            60      G      0.0            0.0            2.167486E+00  -1.623445E-01   2.456774E+00   0.0                           
+            61      G      0.0            0.0            2.155353E+00  -4.155992E-01   2.460852E+00   0.0                           
+            62      G      0.0            0.0            2.137650E+00  -5.063493E-01   2.482297E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  6 RIGHT                                                                                       SUBCASE  11            
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.509082E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.347306E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.328870E+00   0.0                           
+            20      G      0.0            0.0            8.036003E-01  -4.260088E-02   2.508303E+00   0.0                           
+            21      G      0.0            0.0            7.909957E-01  -5.871723E-02   2.487621E+00   0.0                           
+            22      G      0.0            0.0            7.854477E-01  -1.561251E-17   2.484175E+00   0.0                           
+            30      G      0.0            0.0            1.355034E+00  -6.176685E-02   2.500904E+00   0.0                           
+            31      G      0.0            0.0            1.347889E+00  -4.235598E-02   2.487691E+00   0.0                           
+            32      G      0.0            0.0            1.345008E+00   0.0            2.499769E+00   0.0                           
+            40      G      0.0            0.0            1.729769E+00  -7.024731E-02   2.493958E+00   0.0                           
+            41      G      0.0            0.0            1.725704E+00  -2.865670E-02   2.466943E+00   0.0                           
+            42      G      0.0            0.0            1.724493E+00   2.081668E-17   2.467436E+00   0.0                           
+            50      G      0.0            0.0            1.979078E+00  -7.448258E-02   2.491790E+00   0.0                           
+            51      G      0.0            0.0            1.975231E+00  -4.536928E-02   2.439616E+00   0.0                           
+            52      G      0.0            0.0            1.973915E+00   3.469447E-17   2.437227E+00   0.0                           
+            60      G      0.0            0.0            2.153538E+00  -7.635320E-02   2.492221E+00   0.0                           
+            61      G      0.0            0.0            2.151038E+00  -3.893990E-02   2.512911E+00   0.0                           
+            62      G      0.0            0.0            2.150216E+00   2.081668E-17   2.521042E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  6 LEFT                                                                                        SUBCASE  12            
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            2.509082E+00   0.0                           
+            11      G      0.0            0.0            0.0            0.0            2.347306E+00   0.0                           
+            12      G      0.0            0.0            0.0            0.0            2.328870E+00   0.0                           
+            20      G      0.0            0.0            8.036003E-01  -4.260088E-02   2.508303E+00   0.0                           
+            21      G      0.0            0.0            7.909957E-01  -5.871723E-02   2.487621E+00   0.0                           
+            22      G      0.0            0.0            7.854477E-01   1.561251E-17   2.484175E+00   0.0                           
+            30      G      0.0            0.0            1.355034E+00  -6.176685E-02   2.500904E+00   0.0                           
+            31      G      0.0            0.0            1.347889E+00  -4.235598E-02   2.487691E+00   0.0                           
+            32      G      0.0            0.0            1.345008E+00   0.0            2.499769E+00   0.0                           
+            40      G      0.0            0.0            1.729769E+00  -7.024731E-02   2.493958E+00   0.0                           
+            41      G      0.0            0.0            1.725704E+00  -2.865670E-02   2.466943E+00   0.0                           
+            42      G      0.0            0.0            1.724493E+00  -2.081668E-17   2.467436E+00   0.0                           
+            50      G      0.0            0.0            1.979078E+00  -7.448258E-02   2.491790E+00   0.0                           
+            51      G      0.0            0.0            1.975231E+00  -4.536928E-02   2.439616E+00   0.0                           
+            52      G      0.0            0.0            1.973915E+00  -3.469447E-17   2.437227E+00   0.0                           
+            60      G      0.0            0.0            2.153538E+00  -7.635320E-02   2.492221E+00   0.0                           
+            61      G      0.0            0.0            2.151038E+00  -3.893990E-02   2.512911E+00   0.0                           
+            62      G      0.0            0.0            2.150216E+00  -2.081668E-17   2.521042E+00   0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  2 RIGHT                                                                                       SUBCASE  3             
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            3.699386E+00   0.0            0.0            0.0                           
+            11      G      0.0            0.0            7.398774E+00   0.0            0.0            0.0                           
+            12      G      0.0            0.0            3.699386E+00   0.0            0.0            0.0                           
+            20      G      0.0            0.0            4.984855E+00   0.0            0.0            0.0                           
+            21      G      0.0            0.0            9.969708E+00   0.0            0.0            0.0                           
+            22      G      0.0            0.0            4.984854E+00   0.0            0.0            0.0                           
+            30      G      0.0            0.0            2.314273E+00   0.0            0.0            0.0                           
+            31      G      0.0            0.0            4.628547E+00   0.0            0.0            0.0                           
+            32      G      0.0            0.0            2.314274E+00   0.0            0.0            0.0                           
+            40      G      0.0            0.0            1.056844E+00   0.0            0.0            0.0                           
+            41      G      0.0            0.0            2.113689E+00   0.0            0.0            0.0                           
+            42      G      0.0            0.0            1.056844E+00   0.0            0.0            0.0                           
+            50      G      0.0            0.0            4.839916E-01   0.0            0.0            0.0                           
+            51      G      0.0            0.0            9.679833E-01   0.0            0.0            0.0                           
+            52      G      0.0            0.0            4.839916E-01   0.0            0.0            0.0                           
+            60      G      0.0            0.0            1.479582E-01   0.0            0.0            0.0                           
+            61      G      0.0            0.0            2.959164E-01   0.0            0.0            0.0                           
+            62      G      0.0            0.0            1.479582E-01   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  2 LEFT                                                                                        SUBCASE  4             
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            3.699386E+00   0.0            0.0            0.0                           
+            11      G      0.0            0.0            7.398774E+00   0.0            0.0            0.0                           
+            12      G      0.0            0.0            3.699386E+00   0.0            0.0            0.0                           
+            20      G      0.0            0.0            4.984855E+00   0.0            0.0            0.0                           
+            21      G      0.0            0.0            9.969708E+00   0.0            0.0            0.0                           
+            22      G      0.0            0.0            4.984854E+00   0.0            0.0            0.0                           
+            30      G      0.0            0.0            2.314273E+00   0.0            0.0            0.0                           
+            31      G      0.0            0.0            4.628547E+00   0.0            0.0            0.0                           
+            32      G      0.0            0.0            2.314274E+00   0.0            0.0            0.0                           
+            40      G      0.0            0.0            1.056844E+00   0.0            0.0            0.0                           
+            41      G      0.0            0.0            2.113689E+00   0.0            0.0            0.0                           
+            42      G      0.0            0.0            1.056844E+00   0.0            0.0            0.0                           
+            50      G      0.0            0.0            4.839916E-01   0.0            0.0            0.0                           
+            51      G      0.0            0.0            9.679833E-01   0.0            0.0            0.0                           
+            52      G      0.0            0.0            4.839916E-01   0.0            0.0            0.0                           
+            60      G      0.0            0.0            1.479582E-01   0.0            0.0            0.0                           
+            61      G      0.0            0.0            2.959164E-01   0.0            0.0            0.0                           
+            62      G      0.0            0.0            1.479582E-01   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  1 RIGHT                                                                                       SUBCASE  1             
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -8.125777E+00   1.453688E+00   0.0            0.0                           
+            11      G      0.0            0.0           -2.062801E+00   3.890130E-02   0.0            0.0                           
+            12      G      0.0            0.0           -8.534118E-01  -3.367221E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  1 LEFT                                                                                        SUBCASE  2             
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -4.869309E-01  -5.720784E-01   0.0            0.0                           
+            11      G      0.0            0.0           -1.982264E+00   3.875184E-02   0.0            0.0                           
+            12      G      0.0            0.0           -1.146020E+00  -3.422496E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  2 RIGHT                                                                                       SUBCASE  3             
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -1.152948E+01  -2.893607E-01   0.0            0.0                           
+            11      G      0.0            0.0           -1.018505E+01  -1.044188E-01   0.0            0.0                           
+            12      G      0.0            0.0           -5.770414E+00  -3.822416E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  2 LEFT                                                                                        SUBCASE  4             
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -1.114741E+01  -1.062002E+00   0.0            0.0                           
+            11      G      0.0            0.0           -1.028117E+01  -9.939736E-02   0.0            0.0                           
+            12      G      0.0            0.0           -5.778800E+00  -3.842532E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  3 RIGHT                                                                                       SUBCASE  5             
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -4.306354E+00   4.408050E-01   0.0            0.0                           
+            11      G      0.0            0.0           -2.022532E+00   3.882657E-02   0.0            0.0                           
+            12      G      0.0            0.0           -9.997160E-01  -3.394858E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  3 LEFT                                                                                        SUBCASE  6             
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -4.306354E+00   4.408050E-01   0.0            0.0                           
+            11      G      0.0            0.0           -2.022532E+00   3.882657E-02   0.0            0.0                           
+            12      G      0.0            0.0           -9.997160E-01  -3.394858E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  4 RIGHT                                                                                       SUBCASE  7             
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -5.245669E-01   4.848132E-01   0.0            0.0                           
+            11      G      0.0            0.0           -1.604943E+00   1.123431E-01   0.0            0.0                           
+            12      G      0.0            0.0           -4.453216E-01  -3.081148E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  4 LEFT                                                                                        SUBCASE  8             
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -9.066368E-01   1.257455E+00   0.0            0.0                           
+            11      G      0.0            0.0           -1.508828E+00   1.073216E-01   0.0            0.0                           
+            12      G      0.0            0.0           -4.369358E-01  -3.061032E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  5 RIGHT                                                                                       SUBCASE  9             
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            3.361873E+00  -8.279068E-01   0.0            0.0                           
+            11      G      0.0            0.0           -1.862775E+00   4.002872E-02   0.0            0.0                           
+            12      G      0.0            0.0           -1.104350E+00  -3.212575E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  5 LEFT                                                                                        SUBCASE  10            
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -4.276973E+00   1.197860E+00   0.0            0.0                           
+            11      G      0.0            0.0           -1.943312E+00   4.017818E-02   0.0            0.0                           
+            12      G      0.0            0.0           -8.117416E-01  -3.157299E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  6 RIGHT                                                                                       SUBCASE  11            
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -7.156019E-01   8.711339E-01   0.0            0.0                           
+            11      G      0.0            0.0           -1.556885E+00   1.098323E-01   0.0            0.0                           
+            12      G      0.0            0.0           -4.411287E-01  -3.071090E-01   0.0            0.0                           
+1     STATIC ANALYSIS OF A CIRCULAR PLATE                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                                                                                   
+0     SEGMENT  6 LEFT                                                                                        SUBCASE  12            
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0           -7.156019E-01   8.711339E-01   0.0            0.0                           
+            11      G      0.0            0.0           -1.556885E+00   1.098323E-01   0.0            0.0                           
+            12      G      0.0            0.0           -4.411287E-01  -3.071090E-01   0.0            0.0                           
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  STATIC ANALYSIS OF A CIRCULAR PLATE                                
+ DATE:  5/17/95
+ END TIME: 16:23:51
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

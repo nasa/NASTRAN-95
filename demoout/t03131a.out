@@ -1,0 +1,1582 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T03131A,NASTRAN                                                           
+     $                                                                               
+     $     THIS DEMO IS SAME AS T17011A WHERE SOLUTION 17 IS USED AND NO             
+     $     DMAP ALTERS                                                               
+     $                                                                               
+     DIAG  25                                                                        
+     $                                                                               
+     $     INSERT ALTERS FOR DYNAMIC DESIGN ANALYSIS METHOD (COSDDAM) HERE           
+     $                                                                               
+0*** $   ... READFILE FROM-  COSDDAM                                                 
+     $ COSMIC ALTERS FOR DDAM PROBLEMS (COSDDAM)                                     
+     $ ALTER    71 $                                                                 
+     INSERT READ $                                                                   
+     DIAGONAL MI/MIS/*SQUARE*/-0.5 $                                                 
+     SMPYAD   MIS,MI,MIS,,,/MINEW/3 $                                                
+     $ ALTER    81,86 $                                                              
+     DELETE SDR2,1,SDR2,4 $                                                          
+     $ ALTER    90 $                                                                 
+     INSERT PLOT(2),2 $                                                              
+     GENCOS   BGPDT,CSTM/DIRCOS/C,Y,SHOCK=0/C,Y,DIRECT=123/LUSET/S,N,NSCALE $        
+     DIAGONAL MI/MID/*SQUARE*/-1.0  $                                                
+     MPYAD    MGG,PHIG,/MP/0 $                                                       
+     MPYAD    MP,DIRCOS,/PMD/1 $                                                     
+     MPYAD    MID,PMD,/PF/0 $                                                        
+     DDAMAT   PF,PMD/EFFW/C,Y,GG=386.4 $                                             
+     LAMX,    ,LAMA/LAMB/-1 $                                                        
+     GENPART  PF/RPLAMB,CPLAMB,RPPF,CPMP/C,Y,LMODES/S,N,NMODES $                     
+     PARTN    LAMB,CPLAMB,RPLAMB/,,,OMEGA/1 $                                        
+     PARAM    //*GE*/TEST/C,Y,LMODES/NMODES $                                        
+     COND     DDAM,TEST $                                                            
+     PARTN    PF,,RPPF/,PFR,,/1 $                                                    
+     EQUIV    PFR,PF $                                                               
+     PARTN    EFFW,,RPPF/,EFFWR,,/1 $                                                
+     EQUIV    EFFWR,EFFW $                                                           
+     PARTN    MP,CPMP,/,,MPR,/1 $                                                    
+     EQUIV    MPR,MP $                                                               
+     PARTN    PHIG,CPMP,/,,PHIGR,/1 $                                                
+     EQUIV    PHIGR,PHIG $                                                           
+     LABEL    DDAM $                                                                 
+     DESVEL   EFFW,OMEGA/SSDV,ACC,VWG,MINAC,MINOW2/C,Y,GG=386.4/C,Y,VEL1/            
+              C,Y,VEL2/C,Y,VEL3/C,Y,VELA/C,Y,VELB/C,Y,VELC/C,Y,ACC1/                 
+              C,Y,ACC2/C,Y,ACC3/C,Y,ACCA/C,Y,ACCB/C,Y,ACCC/C,Y,ACCD $                
+     DDAMAT   PF,MINAC/PVW/1.0 $                                                     
+     DDAMAT   PF,MINOW2/PVOW/1.0 $                                                   
+     DDAMPG   PHIG,PVOW/UGV/S,N,NMODES/S,N,NDIR $                                    
+     DDAMPG   MP,PVW/PG/NMODES/NDIR $                                                
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     5
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     CASEGEN  CASECC/CASEDD/C,Y,LMODES/NDIR/NMODES $                                 
+     EQUIV    CASEDD,CASECC $                                                        
+     SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDT,,QG,UGV,EST,,,/,                
+              OQG3,OUGV3,OES3,OEF3,,,/*STATICS*/S,N,NOSORT2=-1/-1 $                  
+     SDR3     OUGV3,,OQG3,OEF3,OES3,/OUGV4,,OQG4,OEF4,OES4, $                        
+     NRLSUM   OES4,OEF4/NRLSTR,NRLFOR/NMODES/NDIR/C,Y,DIRECT=123/                    
+              C,Y,SQRSS=0 $                                                          
+     OFP      NRLSTR,NRLFOR,,,,//S,N,CARDNO $                                        
+     COMBUGV  UGV/UGVADD,UGVSQR,UGVADC,UGVSQC,UGVNRL/NMODES/NDIR $                   
+     CASEGEN  CASECC/CASEEE/1/NDIR/NMODES $                                          
+     SDR2     CASEEE,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDT,,QG,UGVNRL,EST,,,/,             
+              ,OUGV5,,,,,/*STATICS*/S,N,NOSORT2/-1 $                                 
+     OFP      OUGV5,,,,,//S,N,CARDNO $                                               
+     ENDALTER $                                                                      
+0*** $   END READFILE                                                                
+     $                                                                               
+     SOL   3                                                                         
+     APP   DISP                                                                      
+     TIME  20                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     6
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                           
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T03-13-1A                                   
+                  3      LABEL    = HY-100 PLATFORM MODEL                                                
+                  4      OLOAD    = ALL                                                                  
+                  5      DISP     = ALL                                                                  
+                  6      METHOD   = 1                                                                    
+                  7      SPC      = 1                                                                    
+                  8      FORCE(SORT2)  = ALL                                                             
+                  9      STRESS(SORT2) = ALL                                                             
+                 10      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   107, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        BAROR           1                       0.      1.      1.      1               
+                    2-        CBAR    1               1       2                                               
+                    3-        CBAR    2               2       3                                               
+                    4-        CBAR    3               3       4                                               
+                    5-        CBAR    4               4       5                                               
+                    6-        CBAR    5       4       2       6       1.      0.      1.                      
+                    7-        CBAR    6       5       3       8       1.      0.      1.                      
+                    8-        CBAR    7       5       4       10      1.      0.      1.                      
+                    9-        CBAR    8       2       6       7                                               
+                   10-        CBAR    9       2       7       8                                               
+                   11-        CBAR    10      2       8       9                                               
+                   12-        CBAR    11      2       9       10                                              
+                   13-        CBAR    12      4       6       11      1.      0.      1.                      
+                   14-        CBAR    13      5       8       13      1.      0.      1.                      
+                   15-        CBAR    14      5       10      15      1.      0.      1.                      
+                   16-        CBAR    15      2       11      12                                              
+                   17-        CBAR    16      2       12      13                                              
+                   18-        CBAR    17      2       13      14                                              
+                   19-        CBAR    18      2       14      15                                              
+                   20-        CBAR    19      4       11      17      1.      0.      1.                      
+                   21-        CBAR    20      5       13      20      1.      0.      1.                      
+                   22-        CBAR    21      5       15      23      1.      0.      1.                      
+                   23-        CBAR    22      3       16      17                                              
+                   24-        CBAR    23      3       17      18                                              
+                   25-        CBAR    24      3       18      19                                              
+                   26-        CBAR    25      3       19      20                                              
+                   27-        CBAR    26      3       20      21                                              
+                   28-        CBAR    27      3       21      22                                              
+                   29-        CBAR    28      3       22      23                                              
+                   30-        CBAR    29      3       23      24                                              
+                   31-        CBAR    30              19      25      0.      1.      -1.                     
+                   32-        CBAR    31              22      26      0.      1.      -1.                     
+                   33-        CBAR    32      4       17      27      1.      0.      1.                      
+                   34-        CBAR    33      5       23      28      1.      0.      1.                      
+                   35-        CONM2   32      2       1       7.76                                            
+                   36-        CONM2   33      4       1       7.76                                            
+                   37-        CONM2   34      7       1       9.52                                            
+                   38-        CONM2   35      9       1       9.52                                            
+                   39-        CONM2   36      11      1       29.97                                           
+                   40-        CONM2   37      12      1       4.                                              
+                   41-        CONM2   38      14      1       4.                                              
+                   42-        CONM2   39      15      1       29.97                                           
+                   43-        CONM2   40      18      1       5.                                              
+                   44-        CONM2   41      21      1       5.                                              
+                   45-        CORD2R  1               0.      0.      0.      0.      0.      1.      +COR1   
+                   46-        +COR1   1.      0.      1.                                                      
+                   47-        EIGR    1       GIV                             30              1.-3    +EGR1   
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+
+      HY-100 PLATFORM MODEL                                                                                                         
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        +EGR1   MAX                                                                     
+                   49-        GRID    1               0.      0.                                              
+                   50-        GRID    2               0.      50.                                             
+                   51-        GRID    3               0.      150.                                            
+                   52-        GRID    4               0.      230.                                            
+                   53-        GRID    5               0.      280.                                            
+                   54-        GRID    6               48.     50.                                             
+                   55-        GRID    7               48.     130.                                            
+                   56-        GRID    8               48.     150.                                            
+                   57-        GRID    9               48.     180.                                            
+                   58-        GRID    10              48.     230.                                            
+                   59-        GRID    11              120.    50.                                             
+                   60-        GRID    12              120.    90.                                             
+                   61-        GRID    13              120.    150.                                            
+                   62-        GRID    14              120.    195.                                            
+                   63-        GRID    15              120.    230.                                            
+                   64-        GRID    16              180.    0.                                              
+                   65-        GRID    17              180.    50.                                             
+                   66-        GRID    18              180.    100.                                            
+                   67-        GRID    19              180.    120.                                            
+                   68-        GRID    20              180.    150.                                            
+                   69-        GRID    21              180.    190.                                            
+                   70-        GRID    22              180.    205.                                            
+                   71-        GRID    23              180.    230.                                            
+                   72-        GRID    24              180.    280.                                            
+                   73-        GRID    25              180.    120.    -96.                                    
+                   74-        GRID    26              180.    205.    -96.                                    
+                   75-        GRID    27              230.    50.                                             
+                   76-        GRID    28              230.    230.                                            
+                   77-        MAT1    1       3.+7            .3      0.                                      
+                   78-        OMIT1   456     1       THRU    15                                              
+                   79-        OMIT1   456     17      THRU    23                                              
+                   80-        OMIT1   123456  3       6       8       10      13      17      19      +OMT1   
+                   81-        +OMT1   20      22      23                                                      
+                   82-        PARAM   ACC1    .4                                                              
+                   83-        PARAM   ACC2    1.                                                              
+                   84-        PARAM   ACC3    1.                                                              
+                   85-        PARAM   ACCA    10.4                                                            
+                   86-        PARAM   ACCB    480.                                                            
+                   87-        PARAM   ACCC    20.                                                             
+                   88-        PARAM   ACCD    0.                                                              
+                   89-        PARAM   LMODES  30                                                              
+                   90-        PARAM   VEL1    .4                                                              
+                   91-        PARAM   VEL2    1.                                                              
+                   92-        PARAM   VEL3    1.                                                              
+                   93-        PARAM   VELA    20.                                                             
+                   94-        PARAM   VELB    480.                                                            
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+
+      HY-100 PLATFORM MODEL                                                                                                         
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        PARAM   VELC    100.                                                            
+                   96-        PBAR    1       1       20.     332.    133.    3.8                     +BAR1   
+                   97-        +BAR1   4.8     5.0     4.8     -5.0    -4.8    -5.     -4.8    5.0             
+                   98-        PBAR    2       1       12.6    114.    51.2    1.4                     +BAR2   
+                   99-        +BAR2   3.6     4.      3.6     -4.     -3.6    -4.     -3.6    4.              
+                  100-        PBAR    3       1       20.     332.    133.    3.8                     +BAR3   
+                  101-        +BAR3   4.8     5.      4.8     -5.     -4.8    -5.     -4.8    5.              
+                  102-        PBAR    4       1       44.     861.    432.    30.                     +BAR4   
+                  103-        +BAR4   5.5     6.      5.5     -6.     -5.5    -6.     -5.5    6.              
+                  104-        PBAR    5       1       44.     861.    432.    30.                     +BAR5   
+                  105-        +BAR5   5.5     6.      5.5     -6.     -5.5    -6.     -5.5    6.              
+                  106-        SPC1    1       123     1       5                                               
+                  107-        SPC1    1       123456  16      24      25      26      27      28              
+                              ENDDATA
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  REF     NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 03 - NORMAL MODES ANALYSIS - APR. 1995 $                  
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     LAMA=APPEND/PHIA=APPEND $                                      
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/ALWAYS=-1 $                                             
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      12  COND     P1,JUMPPLOT $                                                  
+
+      13  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      14  PRTMSG   PLTSETX// $                                                    
+
+      15  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      16  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      17  COND     P1,JUMPPLOT $                                                  
+
+      18  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE  $                
+
+      19  PRTMSG   PLOTX1//$                                                      
+
+      20  LABEL    P1 $                                                           
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+
+      HY-100 PLATFORM MODEL                                                                                                         
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $                              
+
+      22  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      23  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      24  COND     ERROR4,NOSIMP $                                                
+
+      25  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      26  PARAM    //*ADD*/NOMGG/1/0 $                                            
+
+      27  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/C,Y,CPROD/C,Y,CPQUAD1/     
+                   C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/C,Y,CPTUBE/C,Y,CPQDPLT/    
+                   C,Y,CPTRPLT/C,Y,CPTRBSC/C,Y,VOLUME/C,Y,SURFACE $               
+
+      28  PURGE    KGGX/NOKGGX $                                                  
+
+      29  COND     JMPKGG,NOKGGX $                                                
+
+      30  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      31  LABEL    JMPKGG $                                                       
+
+      32  COND     ERROR1,NOMGG $                                                 
+
+      33  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      34  PURGE    MDICT,MELM/ALWAYS $                                            
+
+      35  COND     LGPWG,GRDPNT $                                                 
+
+      36  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/C,Y,WTMASS $         
+
+      37  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      38  LABEL    LGPWG $                                                        
+
+      39  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      40  COND     LBL11,NOGENL $                                                 
+
+      41  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+
+      HY-100 PLATFORM MODEL                                                                                                         
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      42  LABEL    LBL11 $                                                        
+
+      43  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      44  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      45  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      46  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      47  COND     ERROR3,NOL $                                                   
+
+      48  PURGE    KRR,KLR,DM,MLR,MR/REACT/GM/MPCF1/GO/OMIT/KFS/SINGLE/QG/NOSET $ 
+
+      49  EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1 $                                  
+
+      50  COND     LBL2,MPCF1 $                                                   
+
+      51  MCE1     USET,RG/GM $                                                   
+
+      52  MCE2     USET,GM,KGG,MGG,,/KNN,MNN,, $                                  
+
+      53  LABEL    LBL2 $                                                         
+
+      54  EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE $                                
+
+      55  COND     LBL3,SINGLE $                                                  
+
+      56  SCE1     USET,KNN,MNN,,/KFF,KFS,,MFF,, $                                
+
+      57  LABEL    LBL3  $                                                        
+
+      58  EQUIV    KFF,KAA/OMIT $                                                 
+
+      59  EQUIV    MFF,MAA/OMIT $                                                 
+
+      60  COND     LBL5,OMIT $                                                    
+
+      61  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      62  SMP2     USET,GO,MFF/MAA $                                              
+
+      63  LABEL    LBL5 $                                                         
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+
+      HY-100 PLATFORM MODEL                                                                                                         
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      64  COND     LBL6,REACT $                                                   
+
+      65  RBMG1    USET,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                         
+
+      66  RBMG2    KLL/LLL $                                                      
+
+      67  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      68  RBMG4    DM,MLL,MLR,MRR/MR $                                            
+
+      69  LABEL    LBL6 $                                                         
+
+      70  DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,,,,,,,EED,EQDYN/         
+                   LUSET/LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/                         
+                   NONLFT/NOTRL/S,N,NOEED//NOUE $                                 
+
+      71  COND     ERROR2,NOEED $                                                 
+
+      72  PARAM    //*MPY*/NEIGV/1/-1 $                                           
+
+      73  READ     KAA,MAA,MR,DM,EED,USET,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/      
+                   S,N,NEIGV $                                                    
+
+      73  DIAGONAL MI/MIS/*SQUARE*/-0.5 $                                         
+
+      73  SMPYAD   MIS,MI,MIS,,,/MINEW/3 $                                        
+
+      74  OFP      OEIGS,,,,,//S,N,CARDNO $                                       
+
+      75  COND     FINIS,NEIGV $                                                  
+
+      76  OFP      LAMA,,,,,//S,N,CARDNO $                                        
+
+      77  SDR1     USET,,PHIA,,,GO,GM,,KFS,,/PHIG,,QG/1/*REIG* $                  
+
+      78  COND     NOMPCF,GRDEQ $                                                 
+
+      79  EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USET,KGG,GM,PHIG,LAMA,QG,CSTM/     
+                   OQM1/V,Y,OPT=0/V,Y,GRDEQ/-1 $                                  
+
+      80  OFP      OQM1,,,,,//S,N,CARDNO $                                        
+
+      81  LABEL    NOMPCF $                                                       
+
+      82  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDP,LAMA,QG,PHIG,EST,,,     
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                   PCOMPS/,OQG1,OPHIG,OES1,OEF1,PPHIG,OES1L,OEF1L/                
+                   *REIG*////COMPS $                                              
+
+      87  OFP      ONRGY1,,,,,//S,N,CARDNO $                                      
+
+      88  PURGE    KDICT,KELM/ALWAYS $                                            
+
+      89  COND     P2,JUMPPLOT $                                                  
+
+      90  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,,PPHIG,GPECT,OES1,
+                   OES1L,/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $           
+
+      91  PRTMSG   PLOTX2// $                                                     
+
+      92  LABEL    P2 $                                                           
+
+      92  GENCOS   BGPDT,CSTM/DIRCOS/C,Y,SHOCK=0/C,Y,DIRECT=123/LUSET/S,N,NSCALE $
+
+      92  DIAGONAL MI/MID/*SQUARE*/-1.0  $                                        
+
+      92  MPYAD    MGG,PHIG,/MP/0 $                                               
+
+      92  MPYAD    MP,DIRCOS,/PMD/1 $                                             
+
+      92  MPYAD    MID,PMD,/PF/0 $                                                
+
+      92  DDAMAT   PF,PMD/EFFW/C,Y,GG=386.4 $                                     
+
+      92  LAMX,    ,LAMA/LAMB/-1 $                                                
+
+      92  GENPART  PF/RPLAMB,CPLAMB,RPPF,CPMP/C,Y,LMODES/S,N,NMODES $             
+
+      92  PARTN    LAMB,CPLAMB,RPLAMB/,,,OMEGA/1 $                                
+
+      92  PARAM    //*GE*/TEST/C,Y,LMODES/NMODES $                                
+
+      92  COND     DDAM,TEST $                                                    
+
+      92  PARTN    PF,,RPPF/,PFR,,/1 $                                            
+
+      92  EQUIV    PFR,PF $                                                       
+
+      92  PARTN    EFFW,,RPPF/,EFFWR,,/1 $                                        
+
+      92  EQUIV    EFFWR,EFFW $                                                   
+
+      92  PARTN    MP,CPMP,/,,MPR,/1 $                                            
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+
+      HY-100 PLATFORM MODEL                                                                                                         
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      92  EQUIV    MPR,MP $                                                       
+
+      92  PARTN    PHIG,CPMP,/,,PHIGR,/1 $                                        
+
+      92  EQUIV    PHIGR,PHIG $                                                   
+
+      92  LABEL    DDAM $                                                         
+
+      92  DESVEL   EFFW,OMEGA/SSDV,ACC,VWG,MINAC,MINOW2/C,Y,GG=386.4/C,Y,VEL1/    
+                   C,Y,VEL2/C,Y,VEL3/C,Y,VELA/C,Y,VELB/C,Y,VELC/C,Y,ACC1/         
+                   C,Y,ACC2/C,Y,ACC3/C,Y,ACCA/C,Y,ACCB/C,Y,ACCC/C,Y,ACCD $        
+
+      92  DDAMAT   PF,MINAC/PVW/1.0 $                                             
+
+      92  DDAMAT   PF,MINOW2/PVOW/1.0 $                                           
+
+      92  DDAMPG   PHIG,PVOW/UGV/S,N,NMODES/S,N,NDIR $                            
+
+      92  DDAMPG   MP,PVW/PG/NMODES/NDIR $                                        
+
+      92  CASEGEN  CASECC/CASEDD/C,Y,LMODES/NDIR/NMODES $                         
+
+      92  EQUIV    CASEDD,CASECC $                                                
+
+      92  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDT,,QG,UGV,EST,,,/,        
+                   OQG3,OUGV3,OES3,OEF3,,,/*STATICS*/S,N,NOSORT2=-1/-1 $          
+
+      92  SDR3     OUGV3,,OQG3,OEF3,OES3,/OUGV4,,OQG4,OEF4,OES4, $                
+
+      92  NRLSUM   OES4,OEF4/NRLSTR,NRLFOR/NMODES/NDIR/C,Y,DIRECT=123/            
+                   C,Y,SQRSS=0 $                                                  
+
+      92  OFP      NRLSTR,NRLFOR,,,,//S,N,CARDNO $                                
+
+      92  COMBUGV  UGV/UGVADD,UGVSQR,UGVADC,UGVSQC,UGVNRL/NMODES/NDIR $           
+
+      92  CASEGEN  CASECC/CASEEE/1/NDIR/NMODES $                                  
+
+      92  SDR2     CASEEE,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDT,,QG,UGVNRL,EST,,,/,     
+                   ,OUGV5,,,,,/*STATICS*/S,N,NOSORT2/-1 $                         
+
+      92  OFP      OUGV5,,,,,//S,N,CARDNO $                                       
+
+      93  JUMP     FINIS $                                                        
+
+      94  LABEL    ERROR1 $                                                       
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+
+      HY-100 PLATFORM MODEL                                                                                                         
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      95  PRTPARM  //-1/*MODES* $                                                 
+
+      96  LABEL    ERROR2 $                                                       
+
+      97  PRTPARM  //-2/*MODES* $                                                 
+
+      98  LABEL    ERROR3 $                                                       
+
+      99  PRTPARM  //-3/*MODES* $                                                 
+
+     100  LABEL    ERROR4 $                                                       
+
+     101  PRTPARM  //-4/*MODES* $                                                 
+
+     102  LABEL    FINIS $                                                        
+
+     103  PURGE    DUMMY/ALWAYS $                                                 
+
+     104  END      $                                                              
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+
+ *** USER POTENTIALLY FATAL MESSAGE  22,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION OFP        INSTRUCTION NO.  87
+     DATA BLOCK NAMED ONRGY1   APPEARS AS INPUT BEFORE BEING DEFINED
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0                                COSMIC / NASTRAN DMAP COMPILER - DMAP CROSS REFERENCE LISTING                                      
+                                                                                                                                    
+     PARAMETER   TYPE    DMAP STATEMENT NUMBERS                                                                                     
+ 
+     ALWAYS      I       0005    0034    0088    0103                                                                            
+     CARDNO      I       0004    0037    0037*   0046    0046*   0074    0074*   0076    0076*   0080    0080*   0087    0087*   
+                         0092    0092*   0092    0092*                                                                           
+     COMPS       I       0022    0022*   0023    0023    0082                                                                    
+     GENEL       I       0022                                                                                                    
+     GRDEQ       I       0078    0079                                                                                            
+     GRDPNT      I       0035    0036                                                                                            
+     ISOP        I       0006    0006*   0007                                                                                    
+     JUMPPLOT    I       0010    0011    0012    0013    0013*   0017    0018    0018*   0089    0090                            
+     LUSEP       I       0008    0008*   0090                                                                                    
+     LUSET       I       0005    0005*   0008    0018    0022    0041    0045    0070    0092                                    
+     LUSETD      I       0070                                                                                                    
+     MPCF1       I       0045    0045*   0048    0049    0049    0050                                                            
+     MPCF2       I       0045    0045*                                                                                           
+     NDIR        I       0092    0092*   0092    0092    0092    0092    0092                                                    
+     NEIGV       I       0072    0073    0073*   0075                                                                            
+     NMODES      I       0092    0092*   0092    0092    0092*   0092    0092    0092    0092    0092                            
+     NOA         I       0045    0045*                                                                                           
+     NODLT       I       0070                                                                                                    
+     NOEED       I       0070    0070*   0071                                                                                    
+     NOFRL       I       0070                                                                                                    
+     NOGENL      I       0022    0022*   0039    0040    0041                                                                    
+     NOGPDT      I       0005                                                                                                    
+     NOGRAV      I       0021                                                                                                    
+     NOKGGX      I       0025    0027    0027*   0028    0029                                                                    
+     NOL         I       0045    0045*   0047                                                                                    
+     NOMGG       I       0026    0027    0027*   0032                                                                            
+     NONLFT      I       0070                                                                                                    
+     NOPSDL      I       0070                                                                                                    
+     NOSET       I       0045    0045*   0048                                                                                    
+     NOSIMP      I       0022    0022*   0024    0041                                                                            
+     NOSORT2     I       0092    0092*   0092    0092*                                                                           
+     NOTFL       I       0070                                                                                                    
+     NOTRL       I       0070                                                                                                    
+     NOUE        I       0070                                                                                                    
+     NSCALE      I       0092    0092*                                                                                           
+     NSIL        I       0013    0013*   0018    0090                                                                            
+     NSKIP       I       0044    0045    0045*                                                                                   
+     OMIT        I       0045    0045*   0048    0058    0059    0060                                                            
+     OPT         I       0079                                                                                                    
+     PFILE       I       0016    0018    0018*   0090    0090*                                                                   
+     PLTFLG      I       0015    0018    0018*   0090                                                                            
+     REACT       I       0045    0045*   0048    0064                                                                            
+     REPEAT      I       0045    0045*                                                                                           
+     SINGLE      I       0045    0045*   0048    0054    0054    0055                                                            
+     TEST        I       0092    0092                                                                                            
+
+
+      * DENOTES APPEARANCE OF PARAMETER IN AUTOMATICALLY GENERATED SAVE INSTRUCTION
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    19
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0                                COSMIC / NASTRAN DMAP COMPILER - DMAP CROSS REFERENCE LISTING                                      
+                                                                                                                                    
+     MODULE NAME DMAP STATEMENT NUMBERS                                                                                             
+ 
+     ANISOP      0006                                                                                                            
+     CASEGEN     0092    0092                                                                                                    
+     COMBUGV     0092                                                                                                            
+     COND        0012    0017    0024    0029    0032    0035    0040    0047    0050    0055    0060    0064    0071    0075    
+                 0078    0089    0092                                                                                            
+     DDAMAT      0092    0092    0092                                                                                            
+     DDAMPG      0092    0092                                                                                                    
+     DESVEL      0092                                                                                                            
+     DIAGONAL    0073    0092                                                                                                    
+     DPD         0070                                                                                                            
+     EMA         0030    0033                                                                                                    
+     EMG         0027                                                                                                            
+     EQMCK       0079                                                                                                            
+     EXIT        0104                                                                                                            
+     GENCOS      0092                                                                                                            
+     GENPART     0092                                                                                                            
+     GP1         0005                                                                                                            
+     GP2         0009                                                                                                            
+     GP3         0021                                                                                                            
+     GP4         0045                                                                                                            
+     GPSTGEN     0043                                                                                                            
+     GPWG        0036                                                                                                            
+     JUMP        0093                                                                                                            
+     LAMX        0092                                                                                                            
+     MCE1        0051                                                                                                            
+     MCE2        0052                                                                                                            
+     MPYAD       0092    0092    0092                                                                                            
+     NRLSUM      0092                                                                                                            
+     OFP         0037    0046    0074    0076    0080    0087    0092    0092                                                    
+     PARAM       0004    0015    0016    0025    0026    0044    0072    0092                                                    
+     PARAML      0010                                                                                                            
+     PARTN       0092    0092    0092    0092    0092                                                                            
+     PLOT        0018    0090                                                                                                    
+     PLTSET      0013                                                                                                            
+     PLTTRAN     0008                                                                                                            
+     PRTMSG      0014    0019    0091                                                                                            
+     PRTPARM     0095    0097    0099    0101                                                                                    
+     RBMG1       0065                                                                                                            
+     RBMG2       0066                                                                                                            
+     RBMG3       0067                                                                                                            
+     RBMG4       0068                                                                                                            
+     READ        0073                                                                                                            
+     SCE1        0056                                                                                                            
+     SDR1        0077                                                                                                            
+     SDR2        0082    0092    0092                                                                                            
+     SDR3        0092                                                                                                            
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    20
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0                                COSMIC / NASTRAN DMAP COMPILER - DMAP CROSS REFERENCE LISTING                                      
+                                                                                                                                    
+     MODULE NAME DMAP STATEMENT NUMBERS                                                                                             
+ 
+     SMA3        0041                                                                                                            
+     SMP1        0061                                                                                                            
+     SMP2        0062                                                                                                            
+     SMPYAD      0073                                                                                                            
+     TA1         0022                                                                                                            
+     XEQUIV      0007    0023    0039    0049    0054    0058    0059    0092    0092    0092    0092    0092                    
+     XPURGE      0011    0028    0034    0048    0088    0103                                                                    
+     XSAVE       0005*   0006*   0008*   0013*   0018*   0022*   0027*   0037*   0045*   0046*   0070*   0073*   0074*   0076*   
+                 0080*   0087*   0090*   0092*   0092*   0092*   0092*   0092*   0092*   0092*                                   
+
+
+      * DENOTES AUTOMATICALLY GENERATED INSTRUCTIONS
+        STATEMENT NUMBER REFERS TO DMAP SEQUENCE NUMBER OF PREVIOUS INSTRUCTION
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    21
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0                                COSMIC / NASTRAN DMAP COMPILER - DMAP CROSS REFERENCE LISTING                                      
+                                                                                                                                    
+     DATA BLOCK  DMAP STATEMENT NUMBERS                                                                                             
+ 
+     ACC         0092*                                                                                                           
+     ASET        0045*                                                                                                           
+     BGPDP       0008*   0036    0082                                                                                            
+     BGPDT       0005*   0006    0008    0018    0022    0045    0079    0090    0092    0092    0092                            
+     CASECC      0018    0045    0073    0079    0082    0090    0092    0092    0092    0092                                    
+     CASEDD      0092*   0092                                                                                                    
+     CASEEE      0092*   0092                                                                                                    
+     CPLAMB      0092*   0092                                                                                                    
+     CPMP        0092*   0092    0092                                                                                            
+     CSTM        0005*   0022    0027    0036    0045    0079    0082    0092    0092    0092                                    
+     DIRCOS      0092*   0092                                                                                                    
+     DIT         0027    0082    0092    0092                                                                                    
+     DM          0048    0067*   0068    0073                                                                                    
+     DUMMY       0103                                                                                                            
+     DYNAMICS    0070                                                                                                            
+     ECT         0009*   0013    0018    0022                                                                                    
+     EED         0070*   0073                                                                                                    
+     EFFW        0092*   0092    0092    0092                                                                                    
+     EFFWR       0092*   0092                                                                                                    
+     ELSETS      0011    0013*   0018    0090                                                                                    
+     EPT         0006    0013    0022    0023                                                                                    
+     EPTX        0022*   0023                                                                                                    
+     EQDYN       0070*                                                                                                           
+     EQEXIN      0005*   0006    0009    0013    0018    0021    0022    0036    0045    0079    0082    0090    0092    0092    
+     EST         0022*   0027    0082    0092    0092                                                                            
+     GEI         0022*   0041                                                                                                    
+     GEOM1       0005    0006                                                                                                    
+     GEOM2       0005    0009    0021    0027                                                                                    
+     GEOM3       0021                                                                                                            
+     GEOM4       0045                                                                                                            
+     GM          0048    0051*   0052    0077    0079                                                                            
+     GO          0048    0061*   0062    0077                                                                                    
+     GPDT        0005*   0045                                                                                                    
+     GPECT       0022*   0030    0033    0090                                                                                    
+     GPL         0005*   0070    0079                                                                                            
+     GPLD        0070*                                                                                                           
+     GPSETS      0011    0013*   0018    0090                                                                                    
+     GPST        0043*   0045                                                                                                    
+     GPTT        0021*   0022                                                                                                    
+     KAA         0058    0061*   0065    0073                                                                                    
+     KDICT       0027*   0030    0088                                                                                            
+     KELM        0027*   0030    0088                                                                                            
+     KFF         0054    0056*   0058    0061                                                                                    
+     KFS         0048    0056*   0077                                                                                            
+     KGG         0039    0041*   0043    0049    0052    0079                                                                    
+     KGGX        0028    0030*   0039    0041                                                                                    
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    22
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0                                COSMIC / NASTRAN DMAP COMPILER - DMAP CROSS REFERENCE LISTING                                      
+                                                                                                                                    
+     DATA BLOCK  DMAP STATEMENT NUMBERS                                                                                             
+ 
+     KLL         0065*   0066                                                                                                    
+     KLR         0048    0065*   0067                                                                                            
+     KNN         0049    0052*   0054    0056                                                                                    
+     KOO         0061*                                                                                                           
+     KRR         0048    0065*   0067                                                                                            
+     LAMA        0073*   0076    0079    0082    0092                                                                            
+     LAMB        0092*   0092                                                                                                    
+     LLL         0066*   0067                                                                                                    
+     LOO         0061*                                                                                                           
+     MAA         0059    0062*   0065    0073                                                                                    
+     MDICT       0027*   0033    0034                                                                                            
+     MELM        0027*   0033    0034                                                                                            
+     MFF         0054    0056*   0059    0062                                                                                    
+     MGG         0033*   0036    0049    0052    0092                                                                            
+     MI          0073*   0073    0073    0092                                                                                    
+     MID         0092*   0092                                                                                                    
+     MINAC       0092*   0092                                                                                                    
+     MINEW       0073*                                                                                                           
+     MINOW2      0092*   0092                                                                                                    
+     MIS         0073*   0073    0073                                                                                            
+     MLL         0065*   0068                                                                                                    
+     MLR         0048    0065*   0068                                                                                            
+     MNN         0049    0052*   0054    0056                                                                                    
+     MP          0092*   0092    0092    0092    0092                                                                            
+     MPR         0092*   0092                                                                                                    
+     MPT         0006    0007    0022    0023    0027    0082    0092    0092                                                    
+     MPTA        0006*   0007                                                                                                    
+     MPTX        0022*   0023                                                                                                    
+     MR          0048    0068*   0073                                                                                            
+     MRR         0065*   0068                                                                                                    
+     NRLFOR      0092*   0092                                                                                                    
+     NRLSTR      0092*   0092                                                                                                    
+     OEF1        0082*                                                                                                           
+     OEF1L       0082*                                                                                                           
+     OEF3        0092*   0092                                                                                                    
+     OEF4        0092*   0092                                                                                                    
+     OEIGS       0073*   0074                                                                                                    
+     OES1        0082*   0090                                                                                                    
+     OES1L       0082*   0090                                                                                                    
+     OES3        0092*   0092                                                                                                    
+     OES4        0092*   0092                                                                                                    
+     OGPST       0045*   0046                                                                                                    
+     OGPWG       0036*   0037                                                                                                    
+     OMEGA       0092*   0092                                                                                                    
+     ONRGY1      0087                                                                                                            
+     OPHIG       0082*                                                                                                           
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    23
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0                                COSMIC / NASTRAN DMAP COMPILER - DMAP CROSS REFERENCE LISTING                                      
+                                                                                                                                    
+     DATA BLOCK  DMAP STATEMENT NUMBERS                                                                                             
+ 
+     OQG1        0082*                                                                                                           
+     OQG3        0092*   0092                                                                                                    
+     OQG4        0092*                                                                                                           
+     OQM1        0079*   0080                                                                                                    
+     OUGV3       0092*   0092                                                                                                    
+     OUGV4       0092*                                                                                                           
+     OUGV5       0092*   0092                                                                                                    
+     PCDB        0010    0013                                                                                                    
+     PCOMPS      0022*   0082                                                                                                    
+     PF          0092*   0092    0092    0092    0092    0092    0092                                                            
+     PFR         0092*   0092                                                                                                    
+     PG          0092*                                                                                                           
+     PHIA        0073*   0077                                                                                                    
+     PHIG        0077*   0079    0082    0092    0092    0092    0092                                                            
+     PHIGR       0092*   0092                                                                                                    
+     PLOTX1      0018*   0019                                                                                                    
+     PLOTX2      0090*   0091                                                                                                    
+     PLTPAR      0011    0013*   0018    0090                                                                                    
+     PLTSETX     0011    0013*   0014                                                                                            
+     PMD         0092*   0092    0092                                                                                            
+     PPHIG       0082*   0090                                                                                                    
+     PVOW        0092*   0092                                                                                                    
+     PVW         0092*   0092                                                                                                    
+     QG          0048    0077*   0079    0082    0092    0092                                                                    
+     RG          0045*   0051                                                                                                    
+     RPLAMB      0092*   0092                                                                                                    
+     RPPF        0092*   0092    0092                                                                                            
+     SIL         0005*   0008    0018    0022    0043    0070    0079    0082    0092    0092                                    
+     SILD        0070*                                                                                                           
+     SIP         0008*   0090                                                                                                    
+     SSDV        0092*                                                                                                           
+     UGV         0092*   0092    0092                                                                                            
+     UGVADC      0092*                                                                                                           
+     UGVADD      0092*                                                                                                           
+     UGVNRL      0092*   0092                                                                                                    
+     UGVSQC      0092*                                                                                                           
+     UGVSQR      0092*                                                                                                           
+     USET        0045*   0051    0052    0056    0061    0062    0065    0070    0073    0077    0079                            
+     USETD       0070*                                                                                                           
+     VWG         0092*                                                                                                           
+     YS          0045*                                                                                                           
+
+
+      * DENOTES STATEMENTS IN WHICH THE DATA BLOCK APPEARSRS AS OUTPUT.
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    24
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           11
+                                        PROFILE            117
+                                        MAX WAVEFRONT        6
+                                        AVG WAVEFRONT    4.179
+                                        RMS WAVEFRONT    4.322
+                                        RMS BANDWIDTH    4.989
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            7
+                                        PROFILE            116
+                                        MAX WAVEFRONT        6
+                                        AVG WAVEFRONT    4.143
+                                        RMS WAVEFRONT    4.334
+                                        RMS BANDWIDTH    4.606
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       11        11
+                                        PROFILE (P)                        117       117
+                                        MAXIMUM WAVEFRONT (C-MAX)            6         6
+                                        AVERAGE WAVEFRONT (C-AVG)        4.179     4.179
+                                        RMS WAVEFRONT (C-RMS)            4.322     4.322
+                                        RMS BANDWITCH (B-RMS)            4.989     4.989
+                                        NUMBER OF GRID POINTS (N)                     28
+                                        NUMBER OF ELEMENTS (NON-RIGID)                43
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           4
+                                        MINIMUM NODAL DEGREE                           1
+                                        NUMBER OF UNIQUE EDGES                        33
+                                        MATRIX DENSITY, PERCENT                   11.990
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION CONM2    ELEMENTS (ELEMENT TYPE  30) STARTING WITH ID       32
+0*** USER INFORMATION MESSAGE 2016, GIVENS TIME ESTIMATE IS        0 SECONDS.
+                                    PROBLEM SIZE IS      30, SPILL WILL OCCUR FOR THIS CORE AT A PROBLEM SIZE OF    1413 .
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    25
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y   (GIVENS METHOD)
+
+
+
+                                    NUMBER OF EIGENVALUES EXTRACTED . . . . . . .        30
+
+                                    NUMBER OF EIGENVECTORS COMPUTED . . . . . . .        30
+
+                                    NUMBER OF EIGENVALUE CONVERGENCE FAILURES . .         0
+
+                                    NUMBER OF EIGENVECTOR CONVERGENCE FAILURES. .         0
+
+
+                                    REASON FOR TERMINATION. . . . . . . . . . . .         1*
+
+
+                                    LARGEST OFF-DIAGONAL MODAL MASS TERM. . . . .  7.73E-08
+
+                                                                            . . .        29
+                                              MODE PAIR. . . . . . . . . . .
+                                                                            . . .        22
+
+                                    NUMBER OF OFF-DIAG0NAL MODAL MASS
+                                         TERMS FAILING CRITERION. . . . . . . . .         0
+
+
+                                    (* NORMAL TERMINATION)
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    26
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1        29        2.104054E+03        4.586997E+01        7.300432E+00        2.928309E+01        6.161320E+04             
+        2        30        1.016344E+04        1.008139E+02        1.604503E+01        4.533900E+01        4.608002E+05             
+        3        28        1.570341E+04        1.253132E+02        1.994422E+01        4.568816E+01        7.174599E+05             
+        4        27        1.618645E+04        1.272260E+02        2.024864E+01        7.802695E+01        1.262979E+06             
+        5        26        1.860862E+04        1.364134E+02        2.171087E+01        2.196914E+01        4.088153E+05             
+        6        25        2.977019E+04        1.725404E+02        2.746066E+01        1.283353E+01        3.820565E+05             
+        7        24        3.638766E+04        1.907555E+02        3.035968E+01        2.039653E+01        7.421821E+05             
+        8        23        4.641253E+04        2.154357E+02        3.428765E+01        1.889594E+01        8.770084E+05             
+        9        22        6.204409E+04        2.490865E+02        3.964335E+01        5.546363E+00        3.441190E+05             
+       10        21        7.171398E+04        2.677946E+02        4.262084E+01        1.515314E+01        1.086692E+06             
+       11        20        7.733423E+04        2.780903E+02        4.425945E+01        4.523479E+00        3.498198E+05             
+       12        19        1.061967E+05        3.258784E+02        5.186515E+01        5.172708E+00        5.493246E+05             
+       13        18        1.231884E+05        3.509821E+02        5.586053E+01        6.889587E+00        8.487172E+05             
+       14        17        1.328689E+05        3.645119E+02        5.801387E+01        2.185959E+01        2.904460E+06             
+       15        16        1.365066E+05        3.694680E+02        5.880267E+01        6.424380E+00        8.769705E+05             
+       16        15        1.573173E+05        3.966325E+02        6.312602E+01        6.076375E+01        9.559190E+06             
+       17        14        2.138760E+05        4.624673E+02        7.360395E+01        5.585177E+00        1.194535E+06             
+       18        13        3.149601E+05        5.612131E+02        8.931983E+01        2.696226E+01        8.492035E+06             
+       19        12        3.255453E+05        5.705658E+02        9.080836E+01        2.774672E+01        9.032815E+06             
+       20        11        5.696371E+05        7.547430E+02        1.201211E+02        5.660728E+00        3.224560E+06             
+       21        10        7.194813E+05        8.482225E+02        1.349988E+02        5.653261E+00        4.067416E+06             
+       22         9        1.393963E+06        1.180662E+03        1.879082E+02        9.469474E+00        1.320009E+07             
+       23         8        1.621511E+06        1.273386E+03        2.026656E+02        1.533959E+01        2.487332E+07             
+       24         7        1.666036E+06        1.290750E+03        2.054293E+02        1.895076E+01        3.157265E+07             
+       25         6        1.898812E+06        1.377974E+03        2.193113E+02        1.103129E+01        2.094635E+07             
+       26         5        1.905306E+06        1.380328E+03        2.196860E+02        1.101142E+01        2.098012E+07             
+       27         4        2.450430E+06        1.565385E+03        2.491388E+02        1.538831E+01        3.770798E+07             
+       28         3        2.921342E+06        1.709193E+03        2.720266E+02        7.173540E+00        2.095636E+07             
+       29         2        4.031186E+06        2.007781E+03        3.195483E+02        9.426815E+00        3.800125E+07             
+       30         1        4.562698E+06        2.136047E+03        3.399625E+02        6.798706E+00        3.102044E+07             
+0*** SYSTEM WARNING MESSAGE 2184,  STRESS OR FORCE REQUEST FOR ELEMENT CONM2    (NASTRAN ELEM. TYPE =  30)
+     WILL NOT BE HONORED AS THIS ELEMENT IS NOT A STRUCTURAL ELEMENT.
+0*** SYSTEM WARNING MESSAGE 2184,  STRESS OR FORCE REQUEST FOR ELEMENT CONM2    (NASTRAN ELEM. TYPE =  30)
+     WILL NOT BE HONORED AS THIS ELEMENT IS NOT A STRUCTURAL ELEMENT.
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    27
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+
+      HY-100 PLATFORM MODEL                                                                                                         
+
+
+
+
+0*** USER WARNING MESSAGE 2076, SDR2 OUTPUT DATA BLOCK NO. 1 IS PURGED
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    28
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 1            
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0      1     1.178790E+03   1.178791E+03   1.178791E+03   1.178790E+03   0.0            0.0            0.0                          
+             1.908183E+04   1.843211E+04   1.842893E+04   1.909144E+04                  0.0            0.0                          
+0      2     3.246815E+04   3.148989E+04   3.152558E+04   3.243316E+04   0.0            0.0            0.0                          
+             3.343917E+04   3.437664E+04   3.437654E+04   3.343966E+04                  0.0            0.0                          
+0      3     4.821773E+04   4.804644E+04   4.807116E+04   4.819211E+04   0.0            0.0            0.0                          
+             4.687209E+04   4.691547E+04   4.700289E+04   4.678652E+04                  0.0            0.0                          
+0      4     1.540778E+04   1.627876E+04   1.630153E+04   1.542827E+04   0.0            0.0            0.0                          
+             2.176439E+03   2.176437E+03   2.176437E+03   2.176439E+03                  0.0            0.0                          
+0      5     9.993179E+03   1.331252E+04   1.331255E+04   9.993160E+03   0.0            0.0            0.0                          
+             1.063326E+04   9.773314E+03   9.767684E+03   1.063971E+04                  0.0            0.0                          
+0      6     8.129687E+03   9.937537E+03   9.937777E+03   8.129443E+03   0.0            0.0            0.0                          
+             8.713049E+03   7.728199E+03   7.748788E+03   8.675994E+03                  0.0            0.0                          
+0      7     1.742439E+04   1.573233E+04   1.573219E+04   1.742453E+04   0.0            0.0            0.0                          
+             1.147027E+04   1.196116E+04   1.193640E+04   1.149368E+04                  0.0            0.0                          
+0      8     4.340386E+04   4.570248E+04   4.570418E+04   4.340203E+04   0.0            0.0            0.0                          
+             5.138514E+04   4.890187E+04   4.893790E+04   5.135182E+04                  0.0            0.0                          
+0      9     5.158394E+04   4.864233E+04   4.867581E+04   5.154818E+04   0.0            0.0            0.0                          
+             7.008777E+04   7.337635E+04   7.334931E+04   7.011454E+04                  0.0            0.0                          
+0     10     2.404755E+04   2.632583E+04   2.630614E+04   2.406790E+04   0.0            0.0            0.0                          
+             5.605316E+04   5.440032E+04   5.439816E+04   5.605539E+04                  0.0            0.0                          
+0     11     5.633305E+04   5.422484E+04   5.422278E+04   5.633540E+04   0.0            0.0            0.0                          
+             7.504202E+04   7.718702E+04   7.719223E+04   7.503688E+04                  0.0            0.0                          
+0     12     9.235566E+03   7.373854E+03   7.371533E+03   9.239488E+03   0.0            0.0            0.0                          
+             7.740750E+03   1.121086E+04   1.116488E+04   7.813707E+03                  0.0            0.0                          
+0     13     7.996412E+03   6.336864E+03   6.329872E+03   8.009531E+03   0.0            0.0            0.0                          
+             7.514286E+03   9.272699E+03   9.329328E+03   7.458526E+03                  0.0            0.0                          
+0     14     1.077471E+04   1.004266E+04   1.004687E+04   1.076662E+04   0.0            0.0            0.0                          
+             1.328446E+04   1.402298E+04   1.388890E+04   1.339253E+04                  0.0            0.0                          
+0     15     6.905577E+04   6.784570E+04   6.785236E+04   6.904927E+04   0.0            0.0            0.0                          
+             3.657754E+04   3.751709E+04   3.753154E+04   3.656389E+04                  0.0            0.0                          
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    29
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 1            
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0     16     3.664695E+04   3.749719E+04   3.751059E+04   3.663227E+04   0.0            0.0            0.0                          
+             3.544575E+04   3.501445E+04   3.505797E+04   3.539959E+04                  0.0            0.0                          
+0     17     4.575274E+04   4.625714E+04   4.627828E+04   4.573425E+04   0.0            0.0            0.0                          
+             4.056975E+04   4.199944E+04   4.198895E+04   4.058120E+04                  0.0            0.0                          
+0     18     4.065945E+04   4.188680E+04   4.187612E+04   4.067071E+04   0.0            0.0            0.0                          
+             7.811836E+04   7.638349E+04   7.638800E+04   7.811380E+04                  0.0            0.0                          
+0     19     2.675063E+04   2.467412E+04   2.464298E+04   2.679033E+04   0.0            0.0            0.0                          
+             2.742687E+04   2.702892E+04   2.700342E+04   2.744233E+04                  0.0            0.0                          
+0     20     7.971871E+03   8.354741E+03   8.379634E+03   7.959457E+03   0.0            0.0            0.0                          
+             1.137305E+04   1.192163E+04   1.195130E+04   1.135078E+04                  0.0            0.0                          
+0     21     1.601169E+04   2.122718E+04   2.109472E+04   1.611546E+04   0.0            0.0            0.0                          
+             2.084099E+04   1.855239E+04   1.849146E+04   2.096137E+04                  0.0            0.0                          
+0     22     1.264243E+04   1.116928E+04   1.115781E+04   1.269140E+04   0.0            0.0            0.0                          
+             1.337803E+04   1.470571E+04   1.470832E+04   1.337452E+04                  0.0            0.0                          
+0     23     5.712354E+04   5.733761E+04   5.735087E+04   5.711045E+04   0.0            0.0            0.0                          
+             3.233896E+04   3.188714E+04   3.192883E+04   3.229175E+04                  0.0            0.0                          
+0     24     3.229660E+04   3.192694E+04   3.196904E+04   3.224980E+04   0.0            0.0            0.0                          
+             2.013063E+04   1.995136E+04   1.992630E+04   2.014910E+04                  0.0            0.0                          
+0     25     2.013178E+04   1.988383E+04   1.994375E+04   2.008669E+04   0.0            0.0            0.0                          
+             4.165341E+04   4.200947E+04   4.208063E+04   4.158416E+04                  0.0            0.0                          
+0     26     4.583040E+04   4.632112E+04   4.630554E+04   4.584333E+04   0.0            0.0            0.0                          
+             3.510403E+04   3.453568E+04   3.445950E+04   3.518263E+04                  0.0            0.0                          
+0     27     3.517695E+04   3.446425E+04   3.438822E+04   3.525569E+04   0.0            0.0            0.0                          
+             1.779906E+04   1.715081E+04   1.716300E+04   1.779837E+04                  0.0            0.0                          
+0     28     1.773523E+04   1.711583E+04   1.708370E+04   1.775291E+04   0.0            0.0            0.0                          
+             6.622332E+04   6.668190E+04   6.667159E+04   6.623608E+04                  0.0            0.0                          
+0     29     1.530243E+04   1.764250E+04   1.771379E+04   1.525162E+04   0.0            0.0            0.0                          
+             1.262470E+04   1.023964E+04   1.026601E+04   1.255865E+04                  0.0            0.0                          
+0     30     4.216344E+02   5.636169E+02   4.161478E+02   5.419356E+02   0.0            0.0            0.0                          
+             1.546431E+04   1.550369E+04   1.546231E+04   1.550769E+04                  0.0            0.0                          
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    30
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 1            
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0     31     2.571862E+02   4.645767E+02   2.093839E+02   4.130486E+02   0.0            0.0            0.0                          
+             5.750908E+03   6.102871E+03   5.739330E+03   6.122879E+03                  0.0            0.0                          
+0     32     2.057437E+04   2.370996E+04   2.369729E+04   2.057491E+04   0.0            0.0            0.0                          
+             2.070261E+04   1.799298E+04   1.803163E+04   2.070591E+04                  0.0            0.0                          
+0     33     2.509552E+04   2.178979E+04   2.170314E+04   2.516778E+04   0.0            0.0            0.0                          
+             1.587497E+04   1.993111E+04   1.991058E+04   1.589727E+04                  0.0            0.0                          
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    31
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 2            
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0      1     3.447676E+04   3.447677E+04   3.447677E+04   3.447676E+04   0.0            0.0            0.0                          
+             8.194910E+04   7.757912E+04   7.653505E+04   8.299366E+04                  0.0            0.0                          
+0      2     8.236158E+04   8.653947E+04   8.763060E+04   8.127011E+04   0.0            0.0            0.0                          
+             8.965769E+04   8.529383E+04   8.444664E+04   9.050498E+04                  0.0            0.0                          
+0      3     7.829619E+04   7.062399E+04   7.146624E+04   7.745463E+04   0.0            0.0            0.0                          
+             7.079675E+04   7.586494E+04   7.763704E+04   6.902289E+04                  0.0            0.0                          
+0      4     8.389366E+04   8.208953E+04   8.028597E+04   8.569606E+04   0.0            0.0            0.0                          
+             3.390645E+04   3.390645E+04   3.390645E+04   3.390645E+04                  0.0            0.0                          
+0      5     5.197108E+04   5.266442E+04   5.266301E+04   5.197250E+04   0.0            0.0            0.0                          
+             3.598179E+04   3.582001E+04   3.543059E+04   3.637118E+04                  0.0            0.0                          
+0      6     5.166925E+04   5.193077E+04   5.193484E+04   5.166520E+04   0.0            0.0            0.0                          
+             4.761126E+04   4.694499E+04   4.757216E+04   4.698284E+04                  0.0            0.0                          
+0      7     5.001864E+04   4.903168E+04   4.902903E+04   5.002129E+04   0.0            0.0            0.0                          
+             3.354098E+04   3.546412E+04   3.424027E+04   3.476462E+04                  0.0            0.0                          
+0      8     9.997838E+04   1.074701E+05   1.073822E+05   1.000660E+05   0.0            0.0            0.0                          
+             8.381434E+04   7.967091E+04   7.696496E+04   8.652145E+04                  0.0            0.0                          
+0      9     7.909072E+04   8.506534E+04   8.235847E+04   8.179796E+04   0.0            0.0            0.0                          
+             6.142889E+04   6.725825E+04   6.683133E+04   6.185413E+04                  0.0            0.0                          
+0     10     8.906960E+04   9.835371E+04   9.885457E+04   8.856670E+04   0.0            0.0            0.0                          
+             4.932727E+04   4.749062E+04   4.758314E+04   4.937424E+04                  0.0            0.0                          
+0     11     4.821773E+04   4.683400E+04   4.680118E+04   4.813779E+04   0.0            0.0            0.0                          
+             8.706620E+04   9.360716E+04   9.376653E+04   8.690691E+04                  0.0            0.0                          
+0     12     2.265885E+04   2.198111E+04   2.171516E+04   2.295492E+04   0.0            0.0            0.0                          
+             8.046199E+04   8.057027E+04   7.916444E+04   8.186655E+04                  0.0            0.0                          
+0     13     2.924243E+04   2.677377E+04   2.730520E+04   2.869077E+04   0.0            0.0            0.0                          
+             6.275838E+04   6.138748E+04   6.137629E+04   6.276807E+04                  0.0            0.0                          
+0     14     2.533952E+04   2.682032E+04   2.587445E+04   2.624951E+04   0.0            0.0            0.0                          
+             7.365803E+04   7.787660E+04   7.472247E+04   7.680597E+04                  0.0            0.0                          
+0     15     4.404829E+04   5.090567E+04   5.104563E+04   4.392732E+04   0.0            0.0            0.0                          
+             1.837606E+04   2.826864E+04   2.719280E+04   1.939652E+04                  0.0            0.0                          
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    32
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 2            
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0     16     1.537083E+04   3.157888E+04   3.051264E+04   1.640142E+04   0.0            0.0            0.0                          
+             5.473587E+04   3.923241E+04   4.106689E+04   5.295678E+04                  0.0            0.0                          
+0     17     1.165762E+05   1.044341E+05   1.025281E+05   1.184649E+05   0.0            0.0            0.0                          
+             6.568218E+04   7.042453E+04   7.049480E+04   6.567344E+04                  0.0            0.0                          
+0     18     6.585580E+04   6.933300E+04   6.939731E+04   6.583797E+04   0.0            0.0            0.0                          
+             1.254432E+05   1.316655E+05   1.315351E+05   1.255725E+05                  0.0            0.0                          
+0     19     8.465370E+04   8.525977E+04   8.385545E+04   8.605398E+04   0.0            0.0            0.0                          
+             9.715253E+04   9.774745E+04   9.777699E+04   9.714180E+04                  0.0            0.0                          
+0     20     7.787187E+04   7.655583E+04   7.659362E+04   7.783397E+04   0.0            0.0            0.0                          
+             5.804530E+04   5.912761E+04   5.916411E+04   5.801396E+04                  0.0            0.0                          
+0     21     8.993607E+04   9.070291E+04   8.757109E+04   9.307714E+04   0.0            0.0            0.0                          
+             1.004165E+05   1.050680E+05   1.022855E+05   1.031369E+05                  0.0            0.0                          
+0     22     6.201543E+04   2.545752E+04   2.408154E+04   6.350678E+04   0.0            0.0            0.0                          
+             5.136238E+04   9.202466E+04   9.079803E+04   5.138222E+04                  0.0            0.0                          
+0     23     7.523718E+04   6.471878E+04   6.496494E+04   7.430566E+04   0.0            0.0            0.0                          
+             3.443609E+04   4.180477E+04   4.318474E+04   3.624063E+04                  0.0            0.0                          
+0     24     2.830674E+04   2.858191E+04   2.818061E+04   2.778227E+04   0.0            0.0            0.0                          
+             2.766715E+04   3.504334E+04   3.531820E+04   2.967608E+04                  0.0            0.0                          
+0     25     2.947936E+04   3.339885E+04   3.607935E+04   2.624575E+04   0.0            0.0            0.0                          
+             6.667752E+04   7.327205E+04   7.425331E+04   6.559393E+04                  0.0            0.0                          
+0     26     1.077357E+05   1.158359E+05   1.148908E+05   1.086229E+05   0.0            0.0            0.0                          
+             1.435252E+04   2.141943E+04   2.251148E+04   1.329944E+04                  0.0            0.0                          
+0     27     2.660444E+04   3.891982E+04   4.006109E+04   2.622177E+04   0.0            0.0            0.0                          
+             4.724058E+04   4.200287E+04   4.527849E+04   5.371407E+04                  0.0            0.0                          
+0     28     5.325762E+04   4.260601E+04   4.434114E+04   4.647391E+04   0.0            0.0            0.0                          
+             1.224665E+05   1.134378E+05   1.103830E+05   1.255571E+05                  0.0            0.0                          
+0     29     4.777548E+04   8.533083E+04   8.847348E+04   4.465138E+04   0.0            0.0            0.0                          
+             6.264133E+04   2.178776E+04   2.462382E+04   6.041015E+04                  0.0            0.0                          
+0     30     6.478356E+03   6.375633E+03   7.934208E+03   7.839694E+03   0.0            0.0            0.0                          
+             1.664618E+04   1.468998E+04   1.574158E+04   1.337092E+04                  0.0            0.0                          
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    33
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 2            
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0     31     7.229926E+03   7.158932E+03   7.233649E+03   7.162764E+03   0.0            0.0            0.0                          
+             9.891587E+03   7.577913E+03   1.010411E+04   7.145479E+03                  0.0            0.0                          
+0     32     6.209275E+04   6.511343E+04   6.521561E+04   6.196466E+04   0.0            0.0            0.0                          
+             3.345692E+04   2.897329E+04   3.064000E+04   3.180851E+04                  0.0            0.0                          
+0     33     5.503746E+04   5.793506E+04   5.518345E+04   5.785186E+04   0.0            0.0            0.0                          
+             2.809474E+04   2.696173E+04   2.726813E+04   2.774217E+04                  0.0            0.0                          
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    34
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 3            
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0      1     2.567285E+02   2.567288E+02   2.567287E+02   2.567283E+02   0.0            0.0            0.0                          
+             5.549499E+04   5.471775E+04   5.535395E+04   5.463441E+04                  0.0            0.0                          
+0      2     5.332703E+04   5.462971E+04   5.330300E+04   5.458227E+04   0.0            0.0            0.0                          
+             8.017577E+04   7.793514E+04   8.009752E+04   7.787291E+04                  0.0            0.0                          
+0      3     7.807268E+04   7.928255E+04   7.815756E+04   7.938162E+04   0.0            0.0            0.0                          
+             6.122169E+04   6.304927E+04   6.114656E+04   6.296275E+04                  0.0            0.0                          
+0      4     6.473193E+04   6.321254E+04   6.449573E+04   6.300733E+04   0.0            0.0            0.0                          
+             2.608415E+02   2.608419E+02   2.608346E+02   2.608342E+02                  0.0            0.0                          
+0      5     1.478923E+03   1.452996E+03   1.490965E+03   1.440763E+03   0.0            0.0            0.0                          
+             1.357793E+04   1.294812E+04   1.357461E+04   1.294576E+04                  0.0            0.0                          
+0      6     1.387180E+03   1.494680E+03   1.383783E+03   1.497184E+03   0.0            0.0            0.0                          
+             2.034799E+04   2.123089E+04   2.034015E+04   2.122262E+04                  0.0            0.0                          
+0      7     1.347791E+03   1.270137E+03   1.341595E+03   1.275993E+03   0.0            0.0            0.0                          
+             1.953533E+04   1.882884E+04   1.954425E+04   1.883760E+04                  0.0            0.0                          
+0      8     4.598664E+03   2.845709E+03   4.738092E+03   2.761879E+03   0.0            0.0            0.0                          
+             8.544122E+04   8.359920E+04   8.534745E+04   8.351069E+04                  0.0            0.0                          
+0      9     8.535356E+04   8.351663E+04   8.543491E+04   8.359306E+04   0.0            0.0            0.0                          
+             3.761988E+04   3.669824E+04   3.766497E+04   3.672368E+04                  0.0            0.0                          
+0     10     3.755671E+04   3.876746E+04   3.750352E+04   3.868031E+04   0.0            0.0            0.0                          
+             6.237957E+04   6.244950E+04   6.230128E+04   6.237043E+04                  0.0            0.0                          
+0     11     6.231410E+04   6.238287E+04   6.236627E+04   6.243658E+04   0.0            0.0            0.0                          
+             2.308956E+03   4.353183E+03   2.267583E+03   4.204636E+03                  0.0            0.0                          
+0     12     1.336039E+04   1.313825E+04   1.334310E+04   1.312194E+04   0.0            0.0            0.0                          
+             3.929434E+04   3.709136E+04   3.927221E+04   3.707370E+04                  0.0            0.0                          
+0     13     2.059188E+04   2.094562E+04   2.060620E+04   2.096141E+04   0.0            0.0            0.0                          
+             9.911844E+03   9.661546E+03   9.887971E+03   9.660266E+03                  0.0            0.0                          
+0     14     1.930336E+04   1.899980E+04   1.932783E+04   1.902361E+04   0.0            0.0            0.0                          
+             5.021713E+04   4.803618E+04   5.022994E+04   4.804588E+04                  0.0            0.0                          
+0     15     2.334757E+03   3.360701E+03   2.265307E+03   3.176755E+03   0.0            0.0            0.0                          
+             3.335259E+04   3.305411E+04   3.346638E+04   3.316077E+04                  0.0            0.0                          
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    35
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 3            
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0     16     3.331689E+04   3.302120E+04   3.350292E+04   3.319456E+04   0.0            0.0            0.0                          
+             5.294143E+04   5.387535E+04   5.317137E+04   5.411884E+04                  0.0            0.0                          
+0     17     5.553528E+04   5.332731E+04   5.530473E+04   5.311932E+04   0.0            0.0            0.0                          
+             3.990913E+04   3.995993E+04   3.984815E+04   3.989132E+04                  0.0            0.0                          
+0     18     3.989628E+04   3.994533E+04   3.985966E+04   3.990458E+04   0.0            0.0            0.0                          
+             4.918496E+03   3.049909E+03   5.183028E+03   3.004320E+03                  0.0            0.0                          
+0     19     3.938346E+04   3.703080E+04   3.936271E+04   3.701455E+04   0.0            0.0            0.0                          
+             4.347070E+04   4.142732E+04   4.348017E+04   4.143069E+04                  0.0            0.0                          
+0     20     1.008716E+04   9.771994E+03   1.006364E+04   9.771166E+03   0.0            0.0            0.0                          
+             1.817041E+03   1.961888E+03   1.867628E+03   1.921314E+03                  0.0            0.0                          
+0     21     5.049938E+04   4.788511E+04   5.049127E+04   4.788058E+04   0.0            0.0            0.0                          
+             7.048341E+04   6.791011E+04   7.047043E+04   6.789600E+04                  0.0            0.0                          
+0     22     6.354850E+04   6.285844E+04   6.335964E+04   6.270468E+04   0.0            0.0            0.0                          
+             5.026121E+04   4.900245E+04   5.086683E+04   4.954296E+04                  0.0            0.0                          
+0     23     4.893522E+04   5.056873E+04   4.917171E+04   5.082982E+04   0.0            0.0            0.0                          
+             3.775177E+04   3.828587E+04   3.572420E+04   3.623934E+04                  0.0            0.0                          
+0     24     3.719620E+04   3.771940E+04   3.624064E+04   3.676849E+04   0.0            0.0            0.0                          
+             4.998793E+04   5.071449E+04   5.103996E+04   5.175341E+04                  0.0            0.0                          
+0     25     3.741152E+04   3.812913E+04   3.713881E+04   3.781273E+04   0.0            0.0            0.0                          
+             1.222368E+04   1.369724E+04   1.039807E+04   1.182967E+04                  0.0            0.0                          
+0     26     1.404378E+04   1.176311E+04   1.252101E+04   1.010124E+04   0.0            0.0            0.0                          
+             5.783022E+04   5.735512E+04   5.598300E+04   5.549712E+04                  0.0            0.0                          
+0     27     5.732443E+04   5.686525E+04   5.653948E+04   5.603621E+04   0.0            0.0            0.0                          
+             5.296335E+04   5.373770E+04   5.246637E+04   5.320927E+04                  0.0            0.0                          
+0     28     4.838305E+04   4.940952E+04   4.782038E+04   4.885243E+04   0.0            0.0            0.0                          
+             7.736326E+04   7.502205E+04   7.484079E+04   7.258430E+04                  0.0            0.0                          
+0     29     7.486270E+04   7.699262E+04   7.213762E+04   7.421414E+04   0.0            0.0            0.0                          
+             6.279137E+04   6.380214E+04   6.511079E+04   6.615710E+04                  0.0            0.0                          
+0     30     2.220984E+04   2.061368E+04   3.460043E+04   3.310282E+04   0.0            0.0            0.0                          
+             2.476767E+04   2.428523E+04   1.477357E+04   1.418612E+04                  0.0            0.0                          
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    36
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 3            
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0     31     3.960641E+04   4.199519E+04   5.085416E+04   5.190227E+04   0.0            0.0            0.0                          
+             3.698705E+04   3.670217E+04   3.116929E+04   3.210269E+04                  0.0            0.0                          
+0     32     4.280929E+04   4.178159E+04   4.281652E+04   4.178114E+04   0.0            0.0            0.0                          
+             2.629764E+04   2.752842E+04   2.631731E+04   2.755080E+04                  0.0            0.0                          
+0     33     6.954383E+04   6.847337E+04   6.951866E+04   6.844734E+04   0.0            0.0            0.0                          
+             6.104688E+03   7.207377E+03   6.136997E+03   7.240359E+03                  0.0            0.0                          
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    37
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 1            
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+            1     1.577707E-03  1.352047E-01   3.270172E+03  4.977163E+05   6.540343E+01  9.954328E+03   2.357580E+04   0.0         
+            2     3.289613E+03  8.505484E+05   3.175347E+03  9.018502E+05   3.049833E+01  1.751315E+04   1.927827E+04   1.209279E+01
+            3     3.093245E+03  1.280200E+06   6.187243E+03  1.247282E+06   1.110266E+02  3.158450E+04   9.527955E+03   2.011086E+01
+            4     6.424610E+03  4.161514E+05   1.082446E-03  7.408679E-02   1.284922E+02  8.323029E+03   4.352876E+04   0.0         
+            5     1.209543E+01  7.080988E+05   3.156207E+03  6.100238E+05   6.594255E+01  2.660989E+04   2.289866E+05   1.790097E+02
+            6     3.210060E+01  6.501046E+05   5.973831E+03  5.851206E+05   1.250930E+02  2.375589E+04   4.646909E+04   9.077562E+01
+            7     2.011739E+01  1.078698E+06   8.065806E+03  7.560911E+05   1.684345E+02  3.778070E+04   2.059927E+05   2.477356E+02
+            8     1.733586E+02  5.692608E+05   4.089431E+03  6.410953E+05   5.323902E+01  1.506047E+04   3.271747E+04   3.254481E+00
+            9     4.089425E+03  6.410955E+05   8.710187E+02  9.180226E+05   1.748528E+02  7.726994E+04   2.965304E+04   3.254481E+00
+           10     9.663951E+02  3.220599E+05   1.124084E+03  7.065324E+05   3.187954E+01  3.332355E+04   2.378642E+04   4.935758E+00
+           11     1.124085E+03  7.065326E+05   2.314692E+02  9.733732E+05   2.586712E+01  3.344812E+04   3.233013E+04   4.935757E+00
+           12     3.153895E+03  4.389111E+05   1.116808E+04  5.499898E+05   1.126159E+02  1.162145E+04   2.313406E+05   3.735302E+01
+           13     5.966154E+03  5.101877E+05   6.326993E+03  5.987676E+05   8.532127E+01  1.399723E+04   7.077902E+04   5.293118E+01
+           14     8.061212E+03  6.612524E+05   2.172875E+04  9.196241E+05   1.900877E+02  2.104625E+04   2.166088E+05   4.349700E+01
+           15     2.316997E+02  8.754789E+05   1.910264E+03  4.725884E+05   5.338811E+01  3.240551E+04   3.487044E+04   1.680946E+00
+           16     1.910265E+03  4.725884E+05   2.882042E+03  4.492604E+05   2.909996E+01  1.372919E+04   3.789169E+04   1.680946E+00
+           17     2.916958E+03  5.884590E+05   9.086458E+02  5.279267E+05   6.112329E+01  2.152794E+04   2.625937E+04   5.493711E+00
+           18     9.086439E+02  5.279268E+05   2.260497E+02  9.886046E+05   3.090876E+01  4.048998E+04   2.245689E+04   5.493711E+00
+           19     1.116958E+04  9.361156E+05   5.034120E+03  1.036670E+06   2.556953E+02  3.217403E+04   7.988296E+05   2.276437E+02
+           20     6.327911E+03  5.814652E+05   8.123043E+03  8.285628E+05   6.931773E+01  1.991626E+04   5.905367E+04   8.037808E+01
+           21     2.173407E+04  5.632021E+05   2.259577E+04  6.523734E+05   7.336162E+02  1.916847E+04   6.891247E+05   2.055705E+02
+           22     5.027255E+03  3.107104E+05   3.536918E+03  3.700335E+05   1.649266E+02  1.358582E+04   3.759481E+04   9.266260E+00
+           23     3.406266E+03  1.522267E+06   5.998547E+03  8.540409E+05   1.451974E+02  4.643278E+04   1.056650E+04   3.026649E+03
+           24     5.998545E+03  8.540420E+05   6.372955E+03  5.328766E+05   1.182433E+02  2.933564E+04   9.038326E+03   3.026650E+03
+           25     1.163175E+04  5.321114E+05   4.338580E+03  1.112656E+06   2.530770E+02  3.111938E+04   9.347482E+03   7.038633E+03
+           26     4.290284E+03  1.225492E+06   5.001845E+03  9.260975E+05   2.219855E+02  4.407102E+04   1.176091E+04   1.453727E+03
+           27     5.001842E+03  9.260976E+05   7.708822E+03  4.645801E+05   2.096854E+02  6.510289E+04   1.319764E+04   1.453727E+03
+           28     1.364685E+04  4.630861E+05   9.530029E+03  1.767573E+06   8.696507E+02  6.347714E+04   1.293240E+04   3.225305E+03
+           29     9.690189E+03  4.374357E+05   8.321604E+03  3.015054E+05   3.601331E+02  1.475510E+04   3.933751E+04   1.652723E+01
+           30     1.780594E+04  1.006518E+04   2.190765E+04  4.117184E+05   4.136135E+02  4.393579E+03   2.573119E+02   2.184272E+03
+           31     2.073742E+04  4.678845E+03   2.200368E+04  1.574569E+05   4.450482E+02  1.688913E+03   7.408736E+02   3.226121E+03
+           32     4.955051E+03  5.909315E+05   8.441701E+03  2.855405E+05   1.687609E+02  1.744451E+04   7.982771E+05   4.777837E+01
+           33     2.134689E+04  1.022363E+06   3.707354E+03  4.688672E+05   4.737332E+02  2.980689E+04   6.948428E+05   2.510667E+01
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    38
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 2            
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+            1     2.513616E-03  2.103029E-01   6.445730E+04  1.662447E+06   1.289146E+03  3.324894E+04   6.895353E+05   0.0         
+            2     6.675525E+04  2.245392E+06   7.301516E+04  2.325797E+06   4.943938E+02  4.571023E+04   6.995943E+04   2.686927E+02
+            3     7.114540E+04  1.980087E+06   1.140906E+05  1.949895E+06   2.285557E+03  4.912280E+04   7.989680E+04   4.605802E+02
+            4     1.194874E+05  1.778504E+06   1.659631E-02  1.001422E-01   2.389748E+03  3.557007E+04   6.781290E+05   0.0         
+            5     2.688844E+02  3.766690E+06   9.190689E+04  2.584368E+06   1.920168E+03  1.317753E+05   2.064398E+04   3.520914E+03
+            6     7.252032E+02  3.728696E+06   1.159865E+05  3.403015E+06   2.431423E+03  1.481421E+05   3.131490E+04   1.904541E+03
+            7     4.606120E+02  3.565404E+06   2.061089E+05  2.482468E+06   4.303516E+03  1.249254E+05   3.783397E+04   5.506275E+03
+            8     3.980440E+03  1.321728E+06   9.509312E+04  1.040054E+06   1.236758E+03  2.949273E+04   9.688570E+04   6.854804E+01
+            9     9.509311E+04  1.040054E+06   1.514747E+04  8.161240E+05   4.010574E+03  5.787884E+04   1.219375E+05   6.854804E+01
+           10     1.801777E+04  1.186078E+06   2.805125E+04  5.976338E+05   5.129662E+02  5.202213E+04   1.434048E+05   1.097423E+02
+           11     2.805126E+04  5.976338E+05   5.544989E+03  1.152916E+06   6.602510E+02  3.246822E+04   9.680942E+04   1.097422E+02
+           12     9.184083E+04  1.605170E+06   3.139060E+05  5.791678E+06   3.096398E+03  8.790550E+04   4.958456E+04   4.869093E+02
+           13     1.158101E+05  2.014144E+06   3.555260E+04  4.468088E+06   1.882420E+03  6.477689E+04   6.871477E+04   1.030279E+03
+           14     2.059998E+05  1.872776E+06   5.598742E+05  5.439935E+06   4.916778E+03  7.969188E+04   6.122845E+04   2.159729E+02
+           15     4.540024E+03  6.032798E+05   3.419612E+04  2.929028E+05   9.644222E+02  1.340200E+04   8.361025E+04   4.578294E+01
+           16     3.419610E+04  2.929028E+05   7.301272E+04  5.967566E+05   7.588245E+02  1.375118E+04   1.296977E+05   4.578294E+01
+           17     7.404617E+04  1.413868E+06   1.401291E+04  8.627872E+05   1.549134E+03  4.662720E+04   1.038070E+05   1.332999E+02
+           18     1.401288E+04  8.627872E+05   4.724432E+03  1.645218E+06   5.051071E+02  6.079190E+04   6.567583E+04   1.332999E+02
+           19     3.139503E+05  6.110958E+06   1.570422E+05  7.014318E+06   7.530526E+03  2.178864E+05   6.029775E+04   4.972271E+03
+           20     3.548322E+04  5.558266E+06   6.441187E+03  4.217066E+06   5.783055E+02  1.610543E+05   5.388932E+04   2.230398E+03
+           21     5.600069E+05  6.485117E+06   5.355976E+05  7.375064E+06   1.824292E+04  2.296206E+05   1.140147E+05   4.728164E+03
+           22     1.443947E+05  7.567634E+05   1.157139E+05  1.538778E+06   5.010203E+03  4.589948E+04   6.975886E+05   2.639153E+02
+           23     1.122316E+05  1.709254E+06   1.703325E+05  7.373278E+05   4.771468E+03  4.497959E+04   4.472912E+05   2.231929E+03
+           24     1.703325E+05  7.373279E+05   3.538340E+05  8.274904E+05   2.416542E+04  4.284259E+04   9.838972E+04   2.231929E+03
+           25     2.007243E+05  8.274010E+05   8.699416E+04  1.859316E+06   4.410687E+03  4.239589E+04   9.546980E+04   5.362732E+03
+           26     8.560608E+04  2.972405E+06   1.397974E+05  4.708711E+05   4.413410E+03  6.677482E+04   9.554614E+04   1.211940E+03
+           27     1.397974E+05  4.708717E+05   2.854577E+05  8.781862E+05   2.299502E+04  8.573836E+04   4.879855E+05   1.211940E+03
+           28     2.807995E+05  8.743677E+05   2.566154E+05  2.963122E+06   2.028910E+04  8.445558E+04   4.778693E+05   2.337389E+03
+           29     2.605233E+05  1.428995E+06   2.249135E+05  7.166039E+05   9.690521E+03  4.288532E+04   7.188046E+05   4.330412E+02
+           30     4.910644E+05  7.569972E+03   5.551753E+05  3.085537E+05   1.088403E+04  3.292925E+03   2.403247E+04   1.744089E+03
+           31     4.909341E+05  3.444293E+03   5.013028E+05  1.239418E+05   1.032199E+04  1.326281E+03   2.679873E+04   3.866940E+03
+           32     1.568490E+05  4.573082E+06   2.124196E+05  2.241703E+06   4.101976E+03  1.361162E+05   1.056362E+05   1.200059E+03
+           33     5.352826E+05  4.046608E+06   9.885097E+04  1.966598E+06   1.149867E+04  1.198298E+05   1.488351E+05   7.642048E+02
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    39
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                  DIRECTION 3            
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+            1     1.270716E-01  4.887753E-03   3.804006E+06  4.704599E+04   7.608009E+04  9.409199E+02   5.134572E+03   0.0         
+            2     3.726792E+06  5.871884E+04   5.461640E+06  5.990879E+04   2.914760E+04  1.186260E+03   1.664101E+03   6.251178E+03
+            3     5.443065E+06  4.520869E+04   4.293301E+06  4.514342E+04   4.550991E+04  1.129378E+03   2.029117E+03   8.318733E+03
+            4     4.415070E+06  4.972008E+04   4.721157E+00  5.888932E-03   8.830134E+04  9.944019E+02   5.216761E+03   0.0         
+            5     6.239297E+03  1.055234E+05   2.074168E+06  5.077942E+04   4.332762E+04  3.249513E+03   3.145975E+02   1.259485E+05
+            6     1.433167E+04  1.036558E+05   3.251204E+06  7.374938E+04   6.777845E+04  3.689804E+03   3.885075E+02   2.978078E+04
+            7     8.319506E+03  9.421064E+04   3.001500E+06  4.841012E+04   6.269326E+04  2.957695E+03   3.166300E+02   1.284097E+05
+            8     8.938636E+04  3.450309E+04   2.674559E+06  2.387007E+04   3.380305E+04  7.293859E+02   1.233599E+03   2.092265E+03
+            9     2.674556E+06  2.387007E+04   1.176312E+06  1.514899E+04   8.442534E+04  6.122199E+02   1.357412E+03   2.092266E+03
+           10     1.203861E+06  3.014618E+04   1.975156E+06  4.619167E+03   3.595869E+04  9.594695E+02   1.287318E+03   2.604417E+03
+           11     1.975148E+06  4.619166E+03   9.245567E+04  2.364565E+04   4.051586E+04  5.350431E+02   1.367642E+03   2.604416E+03
+           12     2.072528E+06  1.796994E+04   5.968351E+06  1.752919E+05   5.823813E+04  2.236186E+03   1.015636E+03   6.984363E+04
+           13     3.251882E+06  3.132602E+04   1.503910E+06  1.294882E+05   4.832173E+04  1.470076E+03   1.426498E+03   2.285779E+04
+           14     2.999178E+06  2.706972E+04   7.678178E+06  1.617461E+05   7.720477E+04  1.958226E+03   7.762622E+02   8.158134E+04
+           15     8.493378E+04  1.221327E+04   1.053065E+06  7.083024E+03   2.778971E+04  1.570584E+02   1.926978E+03   2.415713E+03
+           16     1.053063E+06  7.083022E+03   1.694745E+06  1.645217E+04   2.199930E+04  3.902969E+02   3.193717E+03   2.415713E+03
+           17     1.719350E+06  2.774821E+04   1.263470E+06  4.838742E+03   4.262195E+04  7.069878E+02   3.487859E+03   3.550002E+03
+           18     1.263468E+06  4.838741E+03   1.066262E+05  3.163282E+04   3.840199E+04  8.191622E+02   2.238810E+03   3.550002E+03
+           19     5.969566E+06  1.867619E+05   6.627001E+06  2.209934E+05   1.835923E+05  6.791746E+03   1.027171E+03   1.190835E+05
+           20     1.505811E+06  1.729255E+05   5.457771E+04  1.327263E+05   2.566753E+04  5.089840E+03   1.187442E+03   5.228749E+04
+           21     7.681225E+06  1.928080E+05   1.082408E+07  2.284954E+05   2.783992E+05  7.012393E+03   8.252943E+02   1.369845E+05
+           22     4.364155E+06  2.481854E+04   3.449694E+06  5.025443E+04   1.551033E+05  1.501455E+03   2.917249E+04   8.669955E+03
+           23     3.447479E+06  3.688454E+04   2.557627E+06  9.794354E+03   1.006518E+05  8.657345E+02   3.025662E+04   6.046088E+03
+           24     2.557627E+06  9.794352E+03   3.518381E+06  2.197893E+04   2.809326E+05  1.006044E+03   1.203106E+04   6.046089E+03
+           25     2.600914E+06  2.198311E+04   8.195394E+05  4.860776E+04   8.157145E+04  1.078786E+03   2.069212E+04   3.524555E+04
+           26     8.054149E+05  8.494747E+04   3.918976E+06  1.466463E+04   8.582277E+04  2.023424E+03   1.939058E+04   1.932569E+04
+           27     3.918978E+06  1.466464E+04   3.669330E+06  2.423733E+04   4.475514E+05  2.246330E+03   2.783128E+04   1.932569E+04
+           28     3.359573E+06  2.416664E+04   5.179322E+06  7.629295E+04   3.136339E+05  2.180223E+03   4.607921E+04   1.730546E+04
+           29     5.153813E+06  4.726579E+04   4.456063E+06  2.375722E+04   1.918005E+05  1.420439E+03   4.488772E+04   8.826476E+03
+           30     1.524834E+06  3.718543E+04   7.585844E+05  1.717070E+04   2.378458E+04  5.604320E+02   3.508162E+05   1.893321E+01
+           31     2.781786E+06  3.262743E+04   1.376136E+06  1.593760E+04   4.331144E+04  5.050276E+02   6.422513E+05   7.805434E+01
+           32     6.612938E+06  1.434081E+05   4.212432E+06  7.781741E+04   9.529557E+04  4.306772E+03   1.859693E+03   2.283138E+04
+           33     1.079797E+07  1.279244E+05   1.021742E+06  9.472962E+04   2.242953E+05  4.290958E+03   1.660925E+03   1.536767E+04
+0*** SYSTEM WARNING MESSAGE 2184,  STRESS OR FORCE REQUEST FOR ELEMENT CONM2    (NASTRAN ELEM. TYPE =  30)
+     WILL NOT BE HONORED AS THIS ELEMENT IS NOT A STRUCTURAL ELEMENT.
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    40
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+
+      HY-100 PLATFORM MODEL                                                                                                         
+
+
+
+
+0*** USER WARNING MESSAGE 2076, SDR2 OUTPUT DATA BLOCK NO. 1 IS PURGED
+0*** SYSTEM WARNING  MESSAGE 3001
+0ATTEMPT TO OPEN DATA SET 204 IN SUBROUTINE SDR2  , WHICH WAS NOT DEFINED IN THE FIST
+0*** SYSTEM WARNING  MESSAGE 3001
+0ATTEMPT TO OPEN DATA SET 205 IN SUBROUTINE SDR2  , WHICH WAS NOT DEFINED IN THE FIST
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    41
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            2.408433E-05   2.125423E-05   2.503151E-03                  
+             2      G      8.507232E-02   1.964650E-03   1.076181E-03   1.654876E-05   2.125423E-05   1.166044E-03                  
+             3      G      3.248062E-01   4.205368E-03   1.367646E-03   1.384512E-05   1.687112E-05   7.392348E-04                  
+             4      G      7.453994E-02   3.627396E-03   8.601210E-04   1.189493E-05   3.048224E-05   1.078911E-03                  
+             5      G      0.0            0.0            0.0            2.144290E-05   3.048224E-05   2.089794E-03                  
+             6      G      7.746251E-02   4.333700E-02   4.824267E-04   3.424846E-05   1.840060E-05   9.007379E-04                  
+             7      G      3.580019E-01   4.376385E-02   1.543740E-03   1.238011E-05   1.269203E-05   2.715531E-03                  
+             8      G      3.264085E-01   4.275973E-02   1.187386E-03   2.583665E-05   1.362107E-05   7.255600E-04                  
+             9      G      3.031619E-01   4.284486E-02   6.077479E-04   3.226356E-05   1.359101E-05   4.913347E-03                  
+            10      G      6.787747E-02   3.982852E-02   1.684850E-03   3.644203E-05   2.321332E-05   6.079635E-04                  
+            11      G      6.644145E-02   6.010950E-02   8.541651E-04   3.382837E-05   4.244076E-06   7.163574E-04                  
+            12      G      2.214594E-01   5.984584E-02   6.597343E-04   2.445565E-05   4.391792E-06   6.565919E-03                  
+            13      G      3.259774E-01   5.921902E-02   9.244730E-04   1.588932E-05   9.254926E-06   6.542595E-04                  
+            14      G      2.084376E-01   6.094531E-02   7.622641E-04   3.762243E-05   8.891500E-06   7.161902E-03                  
+            15      G      5.756101E-02   6.194190E-02   1.934400E-03   3.914507E-05   1.987223E-05   8.245090E-04                  
+            16      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            17      G      3.023776E-02   3.132901E-03   3.039854E-04   6.901320E-06   1.056679E-05   6.054559E-04                  
+            18      G      2.513025E-01   3.772506E-03   3.249593E-04   8.956088E-06   3.451355E-03   5.206004E-03                  
+            19      G      3.131175E-01   4.014303E-03   4.116990E-05   2.010393E-05   4.831918E-03   4.782407E-03                  
+            20      G      3.258844E-01   4.412070E-03   1.644052E-04   4.264237E-06   2.148924E-05   1.605411E-03                  
+            21      G      2.180096E-01   3.824196E-03   1.199093E-04   5.141216E-06   1.340623E-03   6.074841E-03                  
+            22      G      1.194289E-01   3.597364E-03   1.185398E-04   9.558600E-06   1.837934E-03   7.063506E-03                  
+            23      G      2.631980E-02   3.278126E-03   2.919262E-04   3.626519E-06   1.884684E-05   1.072051E-03                  
+            24      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            25      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            26      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            27      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            28      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    42
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            4.977077E-04   5.716592E-04   3.568321E-03                  
+             2      G      1.005421E-02   5.746128E-02   2.237383E-02   3.498126E-04   5.716592E-04   6.857728E-03                  
+             3      G      3.660600E-01   6.380078E-02   2.534941E-02   3.190513E-04   5.039195E-05   7.402037E-03                  
+             4      G      1.393650E-02   5.651075E-02   6.013514E-03   1.539595E-04   7.974855E-04   7.436458E-03                  
+             5      G      0.0            0.0            0.0            1.954955E-04   7.974855E-04   3.747017E-03                  
+             6      G      9.336421E-03   4.732141E-01   9.967601E-03   8.240379E-04   4.886964E-04   9.165026E-03                  
+             7      G      4.692139E-01   4.912820E-01   3.456660E-02   2.705279E-04   1.506499E-04   1.867409E-03                  
+             8      G      3.671547E-01   4.878473E-01   2.566656E-02   5.788817E-04   6.875968E-05   8.233464E-03                  
+             9      G      3.029875E-01   4.935385E-01   7.957238E-03   7.627137E-04   2.677831E-04   3.872389E-03                  
+            10      G      1.292626E-02   4.822176E-01   3.810921E-02   9.065550E-04   6.067194E-04   9.235124E-03                  
+            11      G      6.693852E-03   6.569518E-01   2.458172E-02   7.297455E-04   1.150071E-04   7.357515E-03                  
+            12      G      2.310749E-01   6.497723E-01   7.538707E-03   5.683402E-04   7.370821E-05   3.734334E-03                  
+            13      G      3.637905E-01   6.324564E-01   1.407297E-02   3.708806E-04   2.104806E-04   5.709359E-03                  
+            14      G      2.177587E-01   6.432300E-01   1.777119E-02   8.870336E-04   1.792013E-04   9.365521E-03                  
+            15      G      1.074254E-02   6.477189E-01   4.917135E-02   9.000233E-04   4.621311E-04   7.477216E-03                  
+            16      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            17      G      4.001371E-03   5.813238E-02   8.281801E-03   1.733418E-04   3.009561E-04   4.909520E-03                  
+            18      G      1.960033E-01   9.530840E-02   8.080579E-03   2.334319E-04   2.611652E-03   3.767241E-03                  
+            19      G      2.346502E-01   9.615494E-02   3.845196E-03   3.789670E-04   3.620894E-03   3.818636E-03                  
+            20      G      3.616523E-01   9.797236E-02   7.341525E-03   1.464250E-04   2.049860E-04   8.631429E-03                  
+            21      G      2.333213E-01   9.191295E-02   5.847177E-03   2.188954E-04   1.040679E-03   9.374348E-03                  
+            22      G      9.412514E-02   7.974423E-02   4.287798E-03   2.577950E-04   1.450391E-03   8.466561E-03                  
+            23      G      5.637692E-03   5.990038E-02   8.121070E-03   1.103852E-04   4.938189E-04   4.486264E-03                  
+            24      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            25      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            26      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            27      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            28      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                            /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    43
+      NASTRAN TEST PROBLEM NO. T03-13-1A                                                                                            
+0     HY-100 PLATFORM MODEL                                                                                                         
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            4.589859E-02   1.745765E-02   1.016236E-04                  
+             2      G      1.823817E-04   4.278810E-04   2.143508E+00   3.698502E-02   1.745765E-02   1.931650E-04                  
+             3      G      5.732413E-03   7.000578E-04   3.827642E+00   7.229860E-03   1.722758E-02   2.070616E-04                  
+             4      G      1.256736E-04   4.347301E-04   2.061898E+00   3.610121E-02   2.054025E-02   2.077445E-04                  
+             5      G      0.0            0.0            0.0            4.450333E-02   2.054025E-02   1.038279E-04                  
+             6      G      1.713023E-04   1.443937E-02   1.642225E+00   3.279257E-02   1.659698E-02   2.955994E-04                  
+             7      G      8.381779E-03   1.466132E-02   3.100960E+00   7.375099E-03   1.853735E-02   2.938823E-05                  
+             8      G      5.742350E-03   1.459833E-02   3.012269E+00   1.031225E-02   1.917521E-02   2.637231E-04                  
+             9      G      3.895725E-03   1.469044E-02   2.610728E+00   2.242971E-02   1.889364E-02   6.550920E-05                  
+            10      G      1.150573E-04   1.454727E-02   1.832529E+00   3.552476E-02   1.883580E-02   2.944243E-04                  
+            11      G      1.164699E-04   2.202431E-02   1.024384E+00   2.074919E-02   1.291063E-02   2.335766E-04                  
+            12      G      4.477525E-03   2.185071E-02   1.231711E+00   1.597282E-02   1.596063E-02   5.194443E-05                  
+            13      G      5.685580E-03   2.137011E-02   1.440450E+00   7.717059E-03   2.376181E-02   1.722759E-04                  
+            14      G      1.813788E-03   2.175302E-02   1.219208E+00   2.055034E-02   1.739074E-02   1.853554E-04                  
+            15      G      9.619861E-05   2.192318E-02   1.134582E+00   2.400653E-02   1.613320E-02   2.189852E-04                  
+            16      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            17      G      7.044290E-05   2.431041E-03   2.281538E-01   3.297866E-03   9.886790E-03   1.593770E-04                  
+            18      G      2.728568E-03   4.879383E-03   1.414617E-01   5.256065E-03   2.992354E-03   6.663010E-05                  
+            19      G      3.334232E-03   5.114127E-03   5.613060E-02   3.694196E-03   2.643746E-04   4.145376E-05                  
+            20      G      5.653713E-03   5.390706E-03   1.280716E-01   3.893832E-03   2.436394E-02   2.667636E-04                  
+            21      G      4.144064E-03   5.933293E-03   1.508036E-01   5.389072E-03   6.734189E-03   1.960638E-04                  
+            22      G      1.456714E-03   5.632224E-03   1.027602E-01   6.774569E-03   2.040263E-04   1.708979E-04                  
+            23      G      6.291382E-05   3.740643E-03   1.616048E-01   2.219775E-03   1.006528E-02   1.473166E-04                  
+            24      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            25      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            26      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            27      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            28      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  NAVY DYNAMIC DESIGN ANALYSIS METHOD (DDAM)                         
+ DATE:  5/18/95
+ END TIME: 10:24:56
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

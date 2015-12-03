@@ -1,0 +1,103 @@
+$-------------------------------------------------------------------------------
+$                  RIGID FORMAT No. 3, Real Eigenvalue Analysis
+$                       Vibration of a 10x20 Plate (3-1-1)
+$                       Vibration of a 20x40 Plate (3-1-2)
+$                    Vibration of a 10x20 Plate (INPUT, 3-1-3)
+$                    Vibration of a 20x40 Plate (INPUT, 3-1-4)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates the solution for natural frequencies of a large-
+$ order problem. The structural model consists of a square plate with hinged
+$ supports on all boundaries. The 10x20 model (Problem 3-1-1) represents one
+$ half of the structure with symmetric boundary constraints on the mid-line to
+$ reduce the order of the problem and the bandwidth by one half. The 20x40 model
+$ (Problem 3-1-2) has the same dimensions, but with a finer mesh. Both
+$ configurations are developed via the INPUT module (Problems 3-1-3 and 3-1-4
+$ for coarse mesh and fine mesh, respectively) to generate the QUAD1 elements.
+$ 
+$ Because only the bending modes are desired, the in-plane deflections and
+$ rotations normal to the plane are constrained. The inverse power method of
+$ eigenvalue extraction is selected for the smaller model and the FEER method
+$ (Reference 32) is selected for the larger model. Both structural mass density
+$ and non-structural mass-per-area are used to define the mass matrix.
+$ 
+$ An undeformed structure plot is executed without plot elements. This is
+$ expensive on most plotters since all four sides of each quadrilateral are
+$ drawn. For the deformed plots of each eigenvector, plot elements are used to
+$ draw an edge only once and to draw only selected coordinate lines (every
+$ second or fourth line depending on the model used).
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$      l = w = 20.0   (Length and width)
+$ 
+$      I = 1/12       (Moment of inertia)
+$ 
+$      t = 1.0        (Thickness)
+$ 
+$                  7
+$      E = 3.0 x 10   (Modu1us of elasticity)
+$ 
+$      v = 0.30       (Poisson's ratio)
+$ 
+$      p = 206.0439  (Mass density, 200.0 structural and 6.0439 non-structural
+$                    mass)
+$ 
+$ 2. Boundary constraints:
+$ 
+$    along x = 0, theta  =  0           Symmetric Boundary
+$                      y
+$                                    +
+$    along y = 0, u  = theta  =  0   |
+$                  z        y        |
+$                                    |
+$    along x = 10, u  = theta  = 0   |  Hinged Supports
+$                   z        x       |
+$                                    |
+$    along y = 20, u  = theta  = 0   |
+$                   z        y       |
+$                                    +
+$ 3. Eigenvalue extraction data:
+$ 
+$    Method: Inverse Power and FEER
+$ 
+$    Region of interest for inverse power: .89 <= f <= 1.0
+$ 
+$    Center point for FEER: .87
+$ 
+$    Number of desired roots: 3
+$ 
+$    Number of estimated roots: 1
+$ 
+$ C. Results
+$ 
+$ Table 1 lists the NASTRAN and theoretical natural frequencies as defined in
+$ Reference 8.
+$ 
+$                       Table 1. Natural Frequencies, cps.
+$ 
+$                      -------------------------------------
+$                                           NASTRAN  NASTRAN
+$                      Mode   Theoretical   10x20    20x40
+$                       No.                 (INV)    (FEER)
+$                      -------------------------------------
+$                       1        .9069      .9056     .9066
+$ 
+$                       2       2.2672     2.2634    2.2663
+$ 
+$                       3       4.5345     4.5329    4.5340
+$                      -------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 8. W. F. Stokey, "Vibration of Systems Having Distributed Mass and
+$    Elasticity", Chap. 7, SHOCK AND VIBRATION HANDBOOK, C. M. Harris and C. E.
+$    Crede, Editors, McGraw-Hill, 1961.
+$ 
+$ 32. Newman, Malcolm and Flanaga, Paul F.: Eigenvalue Extraction in NASTRAN by
+$     the Tridiagonal Reduction (FEER) Method - Real Eigenvalue Analysis, NASA
+$     CR-2731, August, 1976.
+$-------------------------------------------------------------------------------

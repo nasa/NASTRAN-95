@@ -1,0 +1,43 @@
+NASTRAN FILES = OPTP                                                            
+ID    T03121B,NASTRAN                                                           
+$                                                                               
+$ NOTES - FOLLOWING STEPS MUST BE DONE FIRST BEFORE RUNNING THIS DEMO.          
+$     (1) LOOK FOR 'CASE2' IN THE T03121A CHECKPOINT DICTIONARY DECK            
+$         (T03121A.PCH OR .DIC).  DELETE ALL THE CARDS FROM THE 'REENTER        
+$         AT DMAP SEQUENCE NUMBER' CARD IMMEDIATELY BELOW THE 'CASE2' TO        
+$         THE END OF THE DECK.                                                  
+$         (DELETE CARDS 216 THRU 271 IN 1993 VERSION)                           
+$     (2) NASTRAN FATAL ERROR IF THESE CARDS ARE NOT REMOVED.                   
+$     (3) SINCE T03121C USES THE FULL CHECKPOINT DICTIONARY DECK FROM           
+$         T03121A, YOU MAY WANT TO RUN DEMO T03121C FIRST BEFORE THIS           
+$         DEMO.                                                                 
+$                                                                               
+READFILE RSCARDS                                                                
+TIME  10                                                                        
+SOL   3,0                                                                       
+APP   DISP                                                                      
+$ INSERT HYDRO MODAL DMAP ALTERS (COSHYD2) AFTER THIS CARD                      
+READFILE COSHYD2                                                                
+$ INSERT HYDRO MODAL DMAP ALTERS (COSHYD2) BEFORE THIS CARD                     
+CEND                                                                            
+TITLE    = HYDROELASTIC MODAL FORMULATION RESTART FOR NEW MODES                 
+SUBTITLE = NASTRAN TEST PROBLEM NO. T03-12-1B                                   
+$ REFERENCE PROBLEM IV.2                                                        
+SPC  = 10                                                                       
+DISP = ALL                                                                      
+SUBCASE 2                                                                       
+    LABEL  = MODES WITH FLUID INCLUDED                                          
+    METHOD = 70                                                                 
+    SPCF   = ALL                                                                
+BEGIN BULK                                                                      
+$                                                                               
+$ NEW EIGR CARD FOR DIFFERENT MODE                                              
+$                                                                               
+/       11      12                                                              
+EIGR    70      GIV     100.0   2500.0                  0               +EMOD2  
++EMOD2  MAX                                                                     
+$                                                                               
+$ PARAMETER TO TURN OFF UNNEEDED DMAP                                           
+$                                                                               
+PARAM   NEWMODE -1                                                              
+ENDDATA                                                                         

@@ -1,0 +1,298 @@
+NASTRAN FILES=PLT2                                                              
+ID    D12011A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   12,3                                                                      
+TIME  100                                                                       
+CEND                                                                            
+TITLE    = TRANSIENT ANALYSIS OF A FREE ONE HUNDRED CELL BEAM                   
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D12-01-1A                          
+   DLOAD = 516                                                                  
+   SDAMP = 15                                                                   
+   TSTEP = 516                                                                  
+  METHOD = 2                                                                    
+OUTPUT                                                                          
+   SET 1 = 1, 26, 51, 75, 100                                                   
+   SET 2 = 1, 26, 76                                                            
+   DISPLACEMENT = 2                                                             
+   STRESS = 1                                                                   
+PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D12-01-1A                            
+OUTPUT(PLOT)                                                                    
+PLOTTER NASTPLT                                                                 
+        CAMERA = 3                                                              
+CSCALE = 2.0                                                                    
+        SET 1 INCLUDE BAR,                                                      
+          EXCLUDE GRID POINTS 1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,        
+          19,20,22,23,24,25,26,27,28,29,30,32,33,34,35,36,37,38,39,40,          
+          42,43,44,45,46,47,48,49,50,52,53,54,55,56,57,58,59,60,62,63,          
+          64,65,66,67,68,69,70,72,73,74,75,76,77,78,79,80,82,83,84,85,          
+          86,87,88,89,90,92,93,94,95,96,97,98,99,100                            
+        MAXIMUM DEFORMATION  2.0                                                
+STEREO PROJECTION                                                               
+         FIND SCALE, ORIGIN 100, VANTAGE POINT, SET 1                           
+PTITLE = PAPER COPY OF STEREOSCOPIC PROJECTION OF DEFORMATIONS                  
+         PLOT TRANSIENT DEFORMATION 1, TIME 0.012, 0.013,                       
+         MAXIMUM DEFORMATION 0.76, SET 1, ORIGIN 100, SHAPE                     
+ORTHOGRAPHIC PROJECTION                                                         
+         FIND SCALE, ORIGIN 1, REGION 0.0,0.0,1.0,0.5                           
+         FIND SCALE, ORIGIN 2, REGION 0.0,0.5,1.0,1.0                           
+PTITLE = DEFLECTIONS OF BARS WITH VECTORS                                       
+         PLOT TRANSIENT DEFORMATION 1, TIME .012, .016,                         
+         MAXIMUM DEFORMATION 1.0,                                               
+         SET 1, ORIGIN 1, SHAPE ,                                               
+         SET 1, ORIGIN 2, VECTOR Z                                              
+$                                                                               
+$                                                                               
+OUTPUT(XYOUT)                                                                   
+PLOTTER = NASTPLT                                                               
+     CAMERA = 3                                                                 
+     SKIP BETWEEN FRAMES = 1                                                    
+     YGRID LINES = YES                                                          
+     XGRID LINES = YES                                                          
+     YDIVISIONS  = 10                                                           
+     XDIVISIONS  = 10                                                           
+     XVALUE PRINT SKIP = 1                                                      
+     YVALUE PRINT SKIP = 1                                                      
+     XTITLE =                     TIME (SECONDS)                                
+     YTITLE =      D I S P  * INCH *                                            
+     TCURVE = * * * * * * *  G R I D    5 1   * * * * * * * * * * * * *         
+XYPLOT,XYPRINT,DISP RESP /  51(T3)                                              
+     TCURVE = * * * * * * *  G R I D    1 0 1   * * * * * * * * * * * *         
+XYPLOT,XYPRINT,DISP RESP / 101(T3)                                              
+     YTITLE = ACCELERATION                                                      
+     TCURVE = * * * * * * *  G R I D    5 1   * * * * * * * * * * * * *         
+XYPLOT,XYPRINT,ACCE RESP /  51(T3)                                              
+     TCURVE = * * * * * * *  G R I D    1 0 1   * * * * * * * * * * * *         
+XYPLOT,XYPRINT,ACCE RESP / 101(T3)                                              
+BEGIN BULK                                                                      
+BAROR                                   10.0    .0      100.0   1               
+CBAR    1       17      1       2                                               
+CBAR    2       17      2       3                                               
+CBAR    3       17      3       4                                               
+CBAR    4       17      4       5                                               
+CBAR    5       17      5       6                                               
+CBAR    6       17      6       7                                               
+CBAR    7       17      7       8                                               
+CBAR    8       17      8       9                                               
+CBAR    9       17      9       10                                              
+CBAR    10      17      10      11                                              
+CBAR    11      17      11      12                                              
+CBAR    12      17      12      13                                              
+CBAR    13      17      13      14                                              
+CBAR    14      17      14      15                                              
+CBAR    15      17      15      16                                              
+CBAR    16      17      16      17                                              
+CBAR    17      17      17      18                                              
+CBAR    18      17      18      19                                              
+CBAR    19      17      19      20                                              
+CBAR    20      17      20      21                                              
+CBAR    21      17      21      22                                              
+CBAR    22      17      22      23                                              
+CBAR    23      17      23      24                                              
+CBAR    24      17      24      25                                              
+CBAR    25      17      25      26                                              
+CBAR    26      17      26      27                                              
+CBAR    27      17      27      28                                              
+CBAR    28      17      28      29                                              
+CBAR    29      17      29      30                                              
+CBAR    30      17      30      31                                              
+CBAR    31      17      31      32                                              
+CBAR    32      17      32      33                                              
+CBAR    33      17      33      34                                              
+CBAR    34      17      34      35                                              
+CBAR    35      17      35      36                                              
+CBAR    36      17      36      37                                              
+CBAR    37      17      37      38                                              
+CBAR    38      17      38      39                                              
+CBAR    39      17      39      40                                              
+CBAR    40      17      40      41                                              
+CBAR    41      17      41      42                                              
+CBAR    42      17      42      43                                              
+CBAR    43      17      43      44                                              
+CBAR    44      17      44      45                                              
+CBAR    45      17      45      46                                              
+CBAR    46      17      46      47                                              
+CBAR    47      17      47      48                                              
+CBAR    48      17      48      49                                              
+CBAR    49      17      49      50                                              
+CBAR    50      17      50      51                                              
+CBAR    51      17      51      52                                              
+CBAR    52      17      52      53                                              
+CBAR    53      17      53      54                                              
+CBAR    54      17      54      55                                              
+CBAR    55      17      55      56                                              
+CBAR    56      17      56      57                                              
+CBAR    57      17      57      58                                              
+CBAR    58      17      58      59                                              
+CBAR    59      17      59      60                                              
+CBAR    60      17      60      61                                              
+CBAR    61      17      61      62                                              
+CBAR    62      17      62      63                                              
+CBAR    63      17      63      64                                              
+CBAR    64      17      64      65                                              
+CBAR    65      17      65      66                                              
+CBAR    66      17      66      67                                              
+CBAR    67      17      67      68                                              
+CBAR    68      17      68      69                                              
+CBAR    69      17      69      70                                              
+CBAR    70      17      70      71                                              
+CBAR    71      17      71      72                                              
+CBAR    72      17      72      73                                              
+CBAR    73      17      73      74                                              
+CBAR    74      17      74      75                                              
+CBAR    75      17      75      76                                              
+CBAR    76      17      76      77                                              
+CBAR    77      17      77      78                                              
+CBAR    78      17      78      79                                              
+CBAR    79      17      79      80                                              
+CBAR    80      17      80      81                                              
+CBAR    81      17      81      82                                              
+CBAR    82      17      82      83                                              
+CBAR    83      17      83      84                                              
+CBAR    84      17      84      85                                              
+CBAR    85      17      85      86                                              
+CBAR    86      17      86      87                                              
+CBAR    87      17      87      88                                              
+CBAR    88      17      88      89                                              
+CBAR    89      17      89      90                                              
+CBAR    90      17      90      91                                              
+CBAR    91      17      91      92                                              
+CBAR    92      17      92      93                                              
+CBAR    93      17      93      94                                              
+CBAR    94      17      94      95                                              
+CBAR    95      17      95      96                                              
+CBAR    96      17      96      97                                              
+CBAR    97      17      97      98                                              
+CBAR    98      17      98      99                                              
+CBAR    99      17      99      100                                             
+CBAR    100     17      100     101                                             
+CONM2   20      1               10.0                                    +M1     
++M1                     1666.66                                                 
+DAREA   1       101     3       100.                                            
+EIGR    2       INV     .0      1500.   5       6                       PEG     
++EG     MASS                                                                    
+GRDSET                                                  1246                    
+GRID    1               .00     .00     .00                                     
+GRID    2               .20     .00     .00                                     
+GRID    3               .40     .00     .00                                     
+GRID    4               .60     .00     .00                                     
+GRID    5               .80     .00     .00                                     
+GRID    6               1.00    .00     .00                                     
+GRID    7               1.20    .00     .00                                     
+GRID    8               1.40    .00     .00                                     
+GRID    9               1.60    .00     .00                                     
+GRID    10              1.80    .00     .00                                     
+GRID    11              2.00    .00     .00                                     
+GRID    12              2.20    .00     .00                                     
+GRID    13              2.40    .00     .00                                     
+GRID    14              2.60    .00     .00                                     
+GRID    15              2.80    .00     .00                                     
+GRID    16              3.00    .00     .00                                     
+GRID    17              3.20    .00     .00                                     
+GRID    18              3.40    .00     .00                                     
+GRID    19              3.60    .00     .00                                     
+GRID    20              3.80    .00     .00                                     
+GRID    21              4.00    .00     .00                                     
+GRID    22              4.20    .00     .00                                     
+GRID    23              4.40    .00     .00                                     
+GRID    24              4.60    .00     .00                                     
+GRID    25              4.80    .00     .00                                     
+GRID    26              5.00    .00     .00                                     
+GRID    27              5.20    .00     .00                                     
+GRID    28              5.40    .00     .00                                     
+GRID    29              5.60    .00     .00                                     
+GRID    30              5.80    .00     .00                                     
+GRID    31              6.00    .00     .00                                     
+GRID    32              6.20    .00     .00                                     
+GRID    33              6.40    .00     .00                                     
+GRID    34              6.60    .00     .00                                     
+GRID    35              6.80    .00     .00                                     
+GRID    36              7.00    .00     .00                                     
+GRID    37              7.20    .00     .00                                     
+GRID    38              7.40    .00     .00                                     
+GRID    39              7.60    .00     .00                                     
+GRID    40              7.80    .00     .00                                     
+GRID    41              8.00    .00     .00                                     
+GRID    42              8.20    .00     .00                                     
+GRID    43              8.40    .00     .00                                     
+GRID    44              8.60    .00     .00                                     
+GRID    45              8.80    .00     .00                                     
+GRID    46              9.00    .00     .00                                     
+GRID    47              9.20    .00     .00                                     
+GRID    48              9.40    .00     .00                                     
+GRID    49              9.60    .00     .00                                     
+GRID    50              9.80    .00     .00                                     
+GRID    51              10.00   .00     .00                                     
+GRID    52              10.20   .00     .00                                     
+GRID    53              10.40   .00     .00                                     
+GRID    54              10.60   .00     .00                                     
+GRID    55              10.80   .00     .00                                     
+GRID    56              11.00   .00     .00                                     
+GRID    57              11.20   .00     .00                                     
+GRID    58              11.40   .00     .00                                     
+GRID    59              11.60   .00     .00                                     
+GRID    60              11.80   .00     .00                                     
+GRID    61              12.00   .00     .00                                     
+GRID    62              12.20   .00     .00                                     
+GRID    63              12.40   .00     .00                                     
+GRID    64              12.60   .00     .00                                     
+GRID    65              12.80   .00     .00                                     
+GRID    66              13.00   .00     .00                                     
+GRID    67              13.20   .00     .00                                     
+GRID    68              13.40   .00     .00                                     
+GRID    69              13.60   .00     .00                                     
+GRID    70              13.80   .00     .00                                     
+GRID    71              14.00   .00     .00                                     
+GRID    72              14.20   .00     .00                                     
+GRID    73              14.40   .00     .00                                     
+GRID    74              14.60   .00     .00                                     
+GRID    75              14.80   .00     .00                                     
+GRID    76              15.00   .00     .00                                     
+GRID    77              15.20   .00     .00                                     
+GRID    78              15.40   .00     .00                                     
+GRID    79              15.60   .00     .00                                     
+GRID    80              15.80   .00     .00                                     
+GRID    81              16.00   .00     .00                                     
+GRID    82              16.20   .00     .00                                     
+GRID    83              16.40   .00     .00                                     
+GRID    84              16.60   .00     .00                                     
+GRID    85              16.80   .00     .00                                     
+GRID    86              17.00   .00     .00                                     
+GRID    87              17.20   .00     .00                                     
+GRID    88              17.40   .00     .00                                     
+GRID    89              17.60   .00     .00                                     
+GRID    90              17.80   .00     .00                                     
+GRID    91              18.00   .00     .00                                     
+GRID    92              18.20   .00     .00                                     
+GRID    93              18.40   .00     .00                                     
+GRID    94              18.60   .00     .00                                     
+GRID    95              18.80   .00     .00                                     
+GRID    96              19.00   .00     .00                                     
+GRID    97              19.20   .00     .00                                     
+GRID    98              19.40   .00     .00                                     
+GRID    99              19.60   .00     .00                                     
+GRID    100             19.80   .00     .00                                     
+GRID    101             20.00   .00     .00                                     
+MAT1    1       10.4+6  4.+6            .2523-3                         +MAT1   
++MAT1   111.111 11.1111                                                         
+OMIT1   53      2       3       4       5       6       7       8       +100    
++100    9       10      12      13      14      15      16      17      +200    
++200    18      19      20      22      23      24      25      26      +300    
++300    27      28      29      30      32      33      34      35      +400    
++400    36      37      38      39      40      42      43      44      +500    
++500    45      46      47      48      49      50      52      53      +600    
++600    54      55      56      57      58      59      60      62      +700    
++700    63      64      65      66      67      68      69      70      +800    
++800    72      73      74      75      76      77      78      79      +900    
++900    80      82      83      84      85      86      87      88      +101    
++101    89      90      92      93      94      95      96      97      +201    
++201    98      99      100                                                     
+PARAM   GRDPNT  0                                                               
+PARAM   LMODES  6                                                               
+PBAR    17      1       1.      .083    .083                            +PBAR   
++PBAR   1.11111 -1.11111                                                        
+SUPORT  1       3       1       5                                               
+TABDMP1 15                                                              +TD11   
++TD11   10.     .01     100.    .1      3000.   .1      ENDT                    
+TLOAD2  516     1                       .0      .1      60.                     
+TSTEP   516     104     .001388 1                                               
+ENDDATA                                                                         

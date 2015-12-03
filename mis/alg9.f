@@ -1,0 +1,7 @@
+      FUNCTION ALG9 (H,S,V2)
+C
+      COMMON /GAS/ G,EJ,R,CP,GAMMA,ROJCP
+C
+      ALG9=CP*V2/(GAMMA*G*R*H)
+      RETURN
+      END

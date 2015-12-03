@@ -1,0 +1,2683 @@
+     NASTRAN FILES=PLT2                                                              
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D11022A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     TIME  26                                                                        
+     SOL   11,1                                                                      
+     DIAG  14                                                                        
+     ALTER 1 $                                                                       
+     PARAM   //C,N,NOP/V,N,TRUE=-1 $                                                 
+     INPUT,  ,,,,/,G2,,,/C,N,5 $                                                     
+     EQUIV   G2,GEOM2/TRUE $                                                         
+     ENDALTER $                                                                      
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = FREQUENCY RESPONSE OF A 500 CELL STRING                              
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                          
+                  3        METHOD = 10                                                                   
+                  4          FREQ = 11                                                                   
+                  5         DLOAD = 11                                                                   
+                  6      OUTPUT                                                                          
+                  7         SET 1 = 51, 101, 151, 201, 251, 301, 351, 401, 451                           
+                  8         SET 2 = 1 THRU 5                                                             
+                  9         DISPLACEMENT(PHASE,SORT2)  = 1                                               
+                 10         SDISPLACEMENT(PHASE,SORT2) = 2                                               
+                 11      PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                            
+                 12      OUTPUT(XYOUT)                                                                   
+                 13      PLOTTER = NASTPLT                                                               
+                 14              CAMERA = 3                                                              
+                 15              SKIP BETWEEN FRAMES = 1                                                 
+                 16        CURVE LINE AND SYMBOLS = 1                                                    
+                 17        XLOG   = YES                                                                  
+                 18        YTLOG  = YES                                                                  
+                 19        XTGRID = YES                                                                  
+                 20        XBGRID = YES                                                                  
+                 21        YTGRID = YES                                                                  
+                 22        YBGRID = YES                                                                  
+                 23        XTITLE =                              FREQUENCY (HERTZ)                       
+                 24        YTTITLE = MAGNITUDE  *INCH*                                                   
+                 25        YBTITLE = PHASE  *DEGREE*                                                     
+                 26      $                                                                               
+                 27      $ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *         
+                 28      $                                                                               
+                 29          TCURVE = * * * * * *  SPOINT  5 1   * * * * * * * * * * * * * * * *         
+                 30      XYPLOT DISP  /   51(T1RM,T1IP)                                                  
+                 31          TCURVE = * * * * * *  SPOINT  1 0 1   * * * * * * * * * * * * * * *         
+                 32      XYPLOT DISP  /  101(T1RM,T1IP)                                                  
+                 33          TCURVE = * * * * * *  SPOINT  1 5 1   * * * * * * * * * * * * * * *         
+                 34      XYPLOT DISP  /  151(T1RM,T1IP)                                                  
+                 35          TCURVE = * * * * * *  SPOINT  2 0 1   * * * * * * * * * * * * * * *         
+                 36      XYPLOT DISP  /  201(T1RM,T1IP)                                                  
+                 37          TCURVE = * * * * * *  SPOINT  2 5 1   * * * * * * * * * * * * * * *         
+                 38      XYPLOT DISP  /  251(T1RM,T1IP)                                                  
+                 39      $                                                                               
+                 40      $ *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *        
+                 41      $                                                                               
+                 42        YLOG   = YES                                                                  
+                 43        YTITLE = MAGNITUDE  *INCH*                                                    
+                 44        XGRID LINES = YES                                                             
+                 45        YGRID LINES = YES                                                             
+                 46        TCURVE = * * * * *  SUPERPOSITION OF SPOINT 51, 101, 151, 201, 251 * *        
+                 47      XYPLOT DISP / 51(3), 101(3), 151(3), 201(3), 251(3)                             
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                 48        YLOG   = NO                                                                   
+                 49        YTITLE = REAL PART  *POUNDS*                                                  
+                 50        TCURVE = * * * * * * *   FORCE IN STRING ELEMENT 251  * * * * * * * *         
+                 51      XYPLOT, XYPRINT ELFORCE RESPONSE / 251(2)                                       
+                 52      $                                                                               
+                 53      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   261, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        DAREA   11      2               1.0     3               1.0                     
+                    2-        DAREA   11      4               1.0     5               1.0                     
+                    3-        DAREA   11      6               1.0     7               1.0                     
+                    4-        DAREA   11      8               1.0     9               1.0                     
+                    5-        DAREA   11      10              1.0     11              1.0                     
+                    6-        DAREA   11      12              1.0     13              1.0                     
+                    7-        DAREA   11      14              1.0     15              1.0                     
+                    8-        DAREA   11      16              1.0     17              1.0                     
+                    9-        DAREA   11      18              1.0     19              1.0                     
+                   10-        DAREA   11      20              1.0     21              1.0                     
+                   11-        DAREA   11      22              1.0     23              1.0                     
+                   12-        DAREA   11      24              1.0     25              1.0                     
+                   13-        DAREA   11      26              1.0     27              1.0                     
+                   14-        DAREA   11      28              1.0     29              1.0                     
+                   15-        DAREA   11      30              1.0     31              1.0                     
+                   16-        DAREA   11      32              1.0     33              1.0                     
+                   17-        DAREA   11      34              1.0     35              1.0                     
+                   18-        DAREA   11      36              1.0     37              1.0                     
+                   19-        DAREA   11      38              1.0     39              1.0                     
+                   20-        DAREA   11      40              1.0     41              1.0                     
+                   21-        DAREA   11      42              1.0     43              1.0                     
+                   22-        DAREA   11      44              1.0     45              1.0                     
+                   23-        DAREA   11      46              1.0     47              1.0                     
+                   24-        DAREA   11      48              1.0     49              1.0                     
+                   25-        DAREA   11      50              1.0     51              1.0                     
+                   26-        DAREA   11      52              1.0     53              1.0                     
+                   27-        DAREA   11      54              1.0     55              1.0                     
+                   28-        DAREA   11      56              1.0     57              1.0                     
+                   29-        DAREA   11      58              1.0     59              1.0                     
+                   30-        DAREA   11      60              1.0     61              1.0                     
+                   31-        DAREA   11      62              1.0     63              1.0                     
+                   32-        DAREA   11      64              1.0     65              1.0                     
+                   33-        DAREA   11      66              1.0     67              1.0                     
+                   34-        DAREA   11      68              1.0     69              1.0                     
+                   35-        DAREA   11      70              1.0     71              1.0                     
+                   36-        DAREA   11      72              1.0     73              1.0                     
+                   37-        DAREA   11      74              1.0     75              1.0                     
+                   38-        DAREA   11      76              1.0     77              1.0                     
+                   39-        DAREA   11      78              1.0     79              1.0                     
+                   40-        DAREA   11      80              1.0     81              1.0                     
+                   41-        DAREA   11      82              1.0     83              1.0                     
+                   42-        DAREA   11      84              1.0     85              1.0                     
+                   43-        DAREA   11      86              1.0     87              1.0                     
+                   44-        DAREA   11      88              1.0     89              1.0                     
+                   45-        DAREA   11      90              1.0     91              1.0                     
+                   46-        DAREA   11      92              1.0     93              1.0                     
+                   47-        DAREA   11      94              1.0     95              1.0                     
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        DAREA   11      96              1.0     97              1.0                     
+                   49-        DAREA   11      98              1.0     99              1.0                     
+                   50-        DAREA   11      100             1.0     101             1.0                     
+                   51-        DAREA   11      102             1.0     103             1.0                     
+                   52-        DAREA   11      104             1.0     105             1.0                     
+                   53-        DAREA   11      106             1.0     107             1.0                     
+                   54-        DAREA   11      108             1.0     109             1.0                     
+                   55-        DAREA   11      110             1.0     111             1.0                     
+                   56-        DAREA   11      112             1.0     113             1.0                     
+                   57-        DAREA   11      114             1.0     115             1.0                     
+                   58-        DAREA   11      116             1.0     117             1.0                     
+                   59-        DAREA   11      118             1.0     119             1.0                     
+                   60-        DAREA   11      120             1.0     121             1.0                     
+                   61-        DAREA   11      122             1.0     123             1.0                     
+                   62-        DAREA   11      124             1.0     125             1.0                     
+                   63-        DAREA   11      126             1.0     127             1.0                     
+                   64-        DAREA   11      128             1.0     129             1.0                     
+                   65-        DAREA   11      130             1.0     131             1.0                     
+                   66-        DAREA   11      132             1.0     133             1.0                     
+                   67-        DAREA   11      134             1.0     135             1.0                     
+                   68-        DAREA   11      136             1.0     137             1.0                     
+                   69-        DAREA   11      138             1.0     139             1.0                     
+                   70-        DAREA   11      140             1.0     141             1.0                     
+                   71-        DAREA   11      142             1.0     143             1.0                     
+                   72-        DAREA   11      144             1.0     145             1.0                     
+                   73-        DAREA   11      146             1.0     147             1.0                     
+                   74-        DAREA   11      148             1.0     149             1.0                     
+                   75-        DAREA   11      150             1.0     151             1.0                     
+                   76-        DAREA   11      152             1.0     153             1.0                     
+                   77-        DAREA   11      154             1.0     155             1.0                     
+                   78-        DAREA   11      156             1.0     157             1.0                     
+                   79-        DAREA   11      158             1.0     159             1.0                     
+                   80-        DAREA   11      160             1.0     161             1.0                     
+                   81-        DAREA   11      162             1.0     163             1.0                     
+                   82-        DAREA   11      164             1.0     165             1.0                     
+                   83-        DAREA   11      166             1.0     167             1.0                     
+                   84-        DAREA   11      168             1.0     169             1.0                     
+                   85-        DAREA   11      170             1.0     171             1.0                     
+                   86-        DAREA   11      172             1.0     173             1.0                     
+                   87-        DAREA   11      174             1.0     175             1.0                     
+                   88-        DAREA   11      176             1.0     177             1.0                     
+                   89-        DAREA   11      178             1.0     179             1.0                     
+                   90-        DAREA   11      180             1.0     181             1.0                     
+                   91-        DAREA   11      182             1.0     183             1.0                     
+                   92-        DAREA   11      184             1.0     185             1.0                     
+                   93-        DAREA   11      186             1.0     187             1.0                     
+                   94-        DAREA   11      188             1.0     189             1.0                     
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        DAREA   11      190             1.0     191             1.0                     
+                   96-        DAREA   11      192             1.0     193             1.0                     
+                   97-        DAREA   11      194             1.0     195             1.0                     
+                   98-        DAREA   11      196             1.0     197             1.0                     
+                   99-        DAREA   11      198             1.0     199             1.0                     
+                  100-        DAREA   11      200             1.0     201             1.0                     
+                  101-        DAREA   11      202             1.0     203             1.0                     
+                  102-        DAREA   11      204             1.0     205             1.0                     
+                  103-        DAREA   11      206             1.0     207             1.0                     
+                  104-        DAREA   11      208             1.0     209             1.0                     
+                  105-        DAREA   11      210             1.0     211             1.0                     
+                  106-        DAREA   11      212             1.0     213             1.0                     
+                  107-        DAREA   11      214             1.0     215             1.0                     
+                  108-        DAREA   11      216             1.0     217             1.0                     
+                  109-        DAREA   11      218             1.0     219             1.0                     
+                  110-        DAREA   11      220             1.0     221             1.0                     
+                  111-        DAREA   11      222             1.0     223             1.0                     
+                  112-        DAREA   11      224             1.0     225             1.0                     
+                  113-        DAREA   11      226             1.0     227             1.0                     
+                  114-        DAREA   11      228             1.0     229             1.0                     
+                  115-        DAREA   11      230             1.0     231             1.0                     
+                  116-        DAREA   11      232             1.0     233             1.0                     
+                  117-        DAREA   11      234             1.0     235             1.0                     
+                  118-        DAREA   11      236             1.0     237             1.0                     
+                  119-        DAREA   11      238             1.0     239             1.0                     
+                  120-        DAREA   11      240             1.0     241             1.0                     
+                  121-        DAREA   11      242             1.0     243             1.0                     
+                  122-        DAREA   11      244             1.0     245             1.0                     
+                  123-        DAREA   11      246             1.0     247             1.0                     
+                  124-        DAREA   11      248             1.0     249             1.0                     
+                  125-        DAREA   11      250             1.0     251             1.0                     
+                  126-        DAREA   11      252             1.0     253             1.0                     
+                  127-        DAREA   11      254             1.0     255             1.0                     
+                  128-        DAREA   11      256             1.0     257             1.0                     
+                  129-        DAREA   11      258             1.0     259             1.0                     
+                  130-        DAREA   11      260             1.0     261             1.0                     
+                  131-        DAREA   11      262             1.0     263             1.0                     
+                  132-        DAREA   11      264             1.0     265             1.0                     
+                  133-        DAREA   11      266             1.0     267             1.0                     
+                  134-        DAREA   11      268             1.0     269             1.0                     
+                  135-        DAREA   11      270             1.0     271             1.0                     
+                  136-        DAREA   11      272             1.0     273             1.0                     
+                  137-        DAREA   11      274             1.0     275             1.0                     
+                  138-        DAREA   11      276             1.0     277             1.0                     
+                  139-        DAREA   11      278             1.0     279             1.0                     
+                  140-        DAREA   11      280             1.0     281             1.0                     
+                  141-        DAREA   11      282             1.0     283             1.0                     
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        DAREA   11      284             1.0     285             1.0                     
+                  143-        DAREA   11      286             1.0     287             1.0                     
+                  144-        DAREA   11      288             1.0     289             1.0                     
+                  145-        DAREA   11      290             1.0     291             1.0                     
+                  146-        DAREA   11      292             1.0     293             1.0                     
+                  147-        DAREA   11      294             1.0     295             1.0                     
+                  148-        DAREA   11      296             1.0     297             1.0                     
+                  149-        DAREA   11      298             1.0     299             1.0                     
+                  150-        DAREA   11      300             1.0     301             1.0                     
+                  151-        DAREA   11      302             1.0     303             1.0                     
+                  152-        DAREA   11      304             1.0     305             1.0                     
+                  153-        DAREA   11      306             1.0     307             1.0                     
+                  154-        DAREA   11      308             1.0     309             1.0                     
+                  155-        DAREA   11      310             1.0     311             1.0                     
+                  156-        DAREA   11      312             1.0     313             1.0                     
+                  157-        DAREA   11      314             1.0     315             1.0                     
+                  158-        DAREA   11      316             1.0     317             1.0                     
+                  159-        DAREA   11      318             1.0     319             1.0                     
+                  160-        DAREA   11      320             1.0     321             1.0                     
+                  161-        DAREA   11      322             1.0     323             1.0                     
+                  162-        DAREA   11      324             1.0     325             1.0                     
+                  163-        DAREA   11      326             1.0     327             1.0                     
+                  164-        DAREA   11      328             1.0     329             1.0                     
+                  165-        DAREA   11      330             1.0     331             1.0                     
+                  166-        DAREA   11      332             1.0     333             1.0                     
+                  167-        DAREA   11      334             1.0     335             1.0                     
+                  168-        DAREA   11      336             1.0     337             1.0                     
+                  169-        DAREA   11      338             1.0     339             1.0                     
+                  170-        DAREA   11      340             1.0     341             1.0                     
+                  171-        DAREA   11      342             1.0     343             1.0                     
+                  172-        DAREA   11      344             1.0     345             1.0                     
+                  173-        DAREA   11      346             1.0     347             1.0                     
+                  174-        DAREA   11      348             1.0     349             1.0                     
+                  175-        DAREA   11      350             1.0     351             1.0                     
+                  176-        DAREA   11      352             1.0     353             1.0                     
+                  177-        DAREA   11      354             1.0     355             1.0                     
+                  178-        DAREA   11      356             1.0     357             1.0                     
+                  179-        DAREA   11      358             1.0     359             1.0                     
+                  180-        DAREA   11      360             1.0     361             1.0                     
+                  181-        DAREA   11      362             1.0     363             1.0                     
+                  182-        DAREA   11      364             1.0     365             1.0                     
+                  183-        DAREA   11      366             1.0     367             1.0                     
+                  184-        DAREA   11      368             1.0     369             1.0                     
+                  185-        DAREA   11      370             1.0     371             1.0                     
+                  186-        DAREA   11      372             1.0     373             1.0                     
+                  187-        DAREA   11      374             1.0     375             1.0                     
+                  188-        DAREA   11      376             1.0     377             1.0                     
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  189-        DAREA   11      378             1.0     379             1.0                     
+                  190-        DAREA   11      380             1.0     381             1.0                     
+                  191-        DAREA   11      382             1.0     383             1.0                     
+                  192-        DAREA   11      384             1.0     385             1.0                     
+                  193-        DAREA   11      386             1.0     387             1.0                     
+                  194-        DAREA   11      388             1.0     389             1.0                     
+                  195-        DAREA   11      390             1.0     391             1.0                     
+                  196-        DAREA   11      392             1.0     393             1.0                     
+                  197-        DAREA   11      394             1.0     395             1.0                     
+                  198-        DAREA   11      396             1.0     397             1.0                     
+                  199-        DAREA   11      398             1.0     399             1.0                     
+                  200-        DAREA   11      400             1.0     401             1.0                     
+                  201-        DAREA   11      402             1.0     403             1.0                     
+                  202-        DAREA   11      404             1.0     405             1.0                     
+                  203-        DAREA   11      406             1.0     407             1.0                     
+                  204-        DAREA   11      408             1.0     409             1.0                     
+                  205-        DAREA   11      410             1.0     411             1.0                     
+                  206-        DAREA   11      412             1.0     413             1.0                     
+                  207-        DAREA   11      414             1.0     415             1.0                     
+                  208-        DAREA   11      416             1.0     417             1.0                     
+                  209-        DAREA   11      418             1.0     419             1.0                     
+                  210-        DAREA   11      420             1.0     421             1.0                     
+                  211-        DAREA   11      422             1.0     423             1.0                     
+                  212-        DAREA   11      424             1.0     425             1.0                     
+                  213-        DAREA   11      426             1.0     427             1.0                     
+                  214-        DAREA   11      428             1.0     429             1.0                     
+                  215-        DAREA   11      430             1.0     431             1.0                     
+                  216-        DAREA   11      432             1.0     433             1.0                     
+                  217-        DAREA   11      434             1.0     435             1.0                     
+                  218-        DAREA   11      436             1.0     437             1.0                     
+                  219-        DAREA   11      438             1.0     439             1.0                     
+                  220-        DAREA   11      440             1.0     441             1.0                     
+                  221-        DAREA   11      442             1.0     443             1.0                     
+                  222-        DAREA   11      444             1.0     445             1.0                     
+                  223-        DAREA   11      446             1.0     447             1.0                     
+                  224-        DAREA   11      448             1.0     449             1.0                     
+                  225-        DAREA   11      450             1.0     451             1.0                     
+                  226-        DAREA   11      452             1.0     453             1.0                     
+                  227-        DAREA   11      454             1.0     455             1.0                     
+                  228-        DAREA   11      456             1.0     457             1.0                     
+                  229-        DAREA   11      458             1.0     459             1.0                     
+                  230-        DAREA   11      460             1.0     461             1.0                     
+                  231-        DAREA   11      462             1.0     463             1.0                     
+                  232-        DAREA   11      464             1.0     465             1.0                     
+                  233-        DAREA   11      466             1.0     467             1.0                     
+                  234-        DAREA   11      468             1.0     469             1.0                     
+                  235-        DAREA   11      470             1.0     471             1.0                     
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  236-        DAREA   11      472             1.0     473             1.0                     
+                  237-        DAREA   11      474             1.0     475             1.0                     
+                  238-        DAREA   11      476             1.0     477             1.0                     
+                  239-        DAREA   11      478             1.0     479             1.0                     
+                  240-        DAREA   11      480             1.0     481             1.0                     
+                  241-        DAREA   11      482             1.0     483             1.0                     
+                  242-        DAREA   11      484             1.0     485             1.0                     
+                  243-        DAREA   11      486             1.0     487             1.0                     
+                  244-        DAREA   11      488             1.0     489             1.0                     
+                  245-        DAREA   11      490             1.0     491             1.0                     
+                  246-        DAREA   11      492             1.0     493             1.0                     
+                  247-        DAREA   11      494             1.0     495             1.0                     
+                  248-        DAREA   11      496             1.0     497             1.0                     
+                  249-        DAREA   11      498             1.0     499             1.0                     
+                  250-        DAREA   11      500             1.0                                             
+                  251-        EIGR    10      FEER    10.5                    20                      +FEER   
+                  252-        +FEER   MAX                                                                     
+                  253-        EIGR    11      INV     .0      21.0    20      20                      +EIGR   
+                  254-        +EIGR   MAX                                                                     
+                  255-        FREQ2   11      .1      10.0    15                                              
+                  256-        PARAM   LMODES  20                                                              
+                  257-        PARAM   MODACC  1                                                               
+                  258-        RLOAD1  11      11                      1                                       
+                  259-        TABLED1 1                                                               *T1     
+                  260-        *T1     -10.0           310.022767      100.0           310.022767      *T2     
+                  261-        *T2     ENDT                                                                    
+                              ENDDATA
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 11 - MODAL FREQUENCY/RANDOM RESPONSE ANALYSIS-APR. 1995 $ 
+
+       1  PARAM   //C,N,NOP/V,N,TRUE=-1 $                                         
+
+       1  INPUT,  ,,,,/,G2,,,/C,N,5 $                                             
+
+       1  EQUIV   G2,GEOM2/TRUE $                                                 
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     GOD=SAVE/GMD=SAVE/LAMA=APPEND/PHIA=APPEND $                    
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/MINUS1=-1 $                                             
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      12  COND     P1,JUMPPLOT $                                                  
+
+      13  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      14  PRTMSG   PLTSETX// $                                                    
+
+      15  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      16  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      17  COND     P1,JUMPPLOT $                                                  
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      18  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE $                 
+
+      19  PRTMSG   PLOTX1// $                                                     
+
+      20  LABEL    P1 $                                                           
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $                              
+
+      22  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      23  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      24  COND     ERROR7,NOSIMP $                                                
+
+      25  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      26  PARAM    //*ADD*/NOMGG/1/0 $                                            
+
+      27  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/                           
+                   C,Y,CPROD/C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/     
+                   C,Y,CPTUBE/C,Y,CPQDPLT/C,Y,CPTRPLT/C,Y,CPTRBSC/                
+                   C,Y,VOLUME/C,Y,SURFACE $                                       
+
+      28  PURGE    KGGX/NOKGGX $                                                  
+
+      29  COND     JMPKGGX,NOKGGX $                                               
+
+      30  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      31  PURGE    KDICT,KELM/MINUS1 $                                            
+
+      32  LABEL    JMPKGGX $                                                      
+
+      33  COND     ERROR1,NOMGG $                                                 
+
+      34  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      35  PURGE    MDICT,MELM/MINUS1 $                                            
+
+      36  COND     LGPWG,GRDPNT $                                                 
+
+      37  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/C,Y,WTMASS $         
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      38  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      39  LABEL    LGPWG $                                                        
+
+      40  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      41  COND     LBL11,NOGENL $                                                 
+
+      42  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      43  LABEL    LBL11 $                                                        
+
+      44  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      45  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      46  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,,USET,             
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      47  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      48  PARAM    //*AND*/NOSR/REACT/SINGLE $                                    
+
+      49  PURGE    GM,GMD/MPCF1/GO,GOD/OMIT/KFS,PSF/SINGLE/QPC/NOSR/KLR,KRR,MLR,  
+                   MRR,DM,MR/REACT/MDD/MODACC $                                   
+
+      50  EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1 $                                  
+
+      51  COND     LBL2,MPCF1 $                                                   
+
+      52  MCE1     USET,RG/GM $                                                   
+
+      53  MCE2     USET,GM,KGG,MGG,,/KNN,MNN,, $                                  
+
+      54  LABEL    LBL2 $                                                         
+
+      55  EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE $                                
+
+      56  COND     LBL3,SINGLE $                                                  
+
+      57  SCE1     USET,KNN,MNN,,/KFF,KFS,,MFF,, $                                
+
+      58  LABEL    LBL3 $                                                         
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      59  EQUIV    KFF,KAA/OMIT $                                                 
+
+      60  EQUIV    MFF,MAA/OMIT $                                                 
+
+      61  COND     LBL5,OMIT $                                                    
+
+      62  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      63  SMP2     USET,GO,MFF/MAA $                                              
+
+      64  LABEL    LBL5 $                                                         
+
+      65  EQUIV    KAA,KLL/REACT $                                                
+
+      66  COND     LBL6,REACT $                                                   
+
+      67  RBMG1    USET,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                         
+
+      68  JUMP     LBL8 $                                                         
+
+      69  LABEL    LBL6 $                                                         
+
+      70  COND     LBL7,MODACC $                                                  
+
+      71  LABEL    LBL8 $                                                         
+
+      72  RBMG2    KLL/LLL $                                                      
+
+      73  COND     LBL7,REACT $                                                   
+
+      74  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      75  RBMG4    DM,MLL,MLR,MRR/MR $                                            
+
+      76  LABEL    LBL7 $                                                         
+
+      77  DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,TFPOOL,DLT,PSDL,FRL,,,   
+                   EED,EQDYN/LUSET/S,N,LUSETD/NOTFL/S,N,NODLT/S,N,NOPSDL/         
+                   S,N,NOFRL/NONLFT/NOTRL/S,N,NOEED//S,N,NOUE $                   
+
+      78  COND     ERROR2,NOEED $                                                 
+
+      79  PURGE    UEVF/NOUE $                                                    
+
+      80  EQUIV    GO,GOD/NOUE/GM,GMD/NOUE $                                      
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      81  PARAM    //*MPY*/NEIGV/1/-1 $                                           
+
+      82  READ     KAA,MAA,MR,DM,EED,USET,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/S,N,  
+                   NEIGV $                                                        
+
+      83  OFP      OEIGS,,,,,//S,N,CARDNO $                                       
+
+      84  COND     ERROR4,NEIGV $                                                 
+
+      85  OFP      LAMA,,,,,//S,N,CARDNO $                                        
+
+      86  PARAM    //*ADD*/NEVER/1/0 $                                            
+
+      87  PARAM    //*MPY*/REPEATF/1/-1 $                                         
+
+      89  PURGE    OUHVC1,OUHVC2,XYPLTFA,OPPC1,OQPC1,OUPVC1,OESC1,OEFC1,OPPC2,    
+                   OQPC2,OUPVC2,OESC2,OEFC2,XYPLTF,PSDF,AUTO,XYPLTR,K2PP,M2PP,    
+                   B2PP,K2DD,M2DD,B2DD,OPPCA,IQP1,IPHIP1,IES1,IEF1,OPPCB,IQP2,    
+                   IPHIP2,IES2,IEF2,ZQPC2,ZUPVC2,ZESC2,ZEFC2,ZQPC1,ZUPVC1,ZESC1,  
+                   ZEFC1/NEVER $                                                  
+
+      90  CASE     CASECC,PSDL/CASEXX/*FREQ*/S,N,REPEATF/S,N,NOLOOP $             
+
+      91  MTRXIN   CASEXX,MATPOOL,EQDYN,,TFPOOL/K2PP,M2PP,B2PP/LUSETD/S,N,        
+                   NOK2PP/S,N,NOM2PP/S,N,NOB2PP $                                 
+
+      92  PURGE    K2DD/NOK2PP/M2DD/NOM2PP/B2DD/NOB2PP $                          
+
+      93  PARAM    //*AND*/MDEMA/NOUE/NOM2PP $                                    
+
+      94  EQUIV    M2PP,M2DD/NOA/B2PP,B2DD/NOA/K2PP,K2DD/NOA/MAA,MDD/MDEMA $      
+
+      95  GKAD     USETD,GM,GO,,,MAA,,K2PP,M2PP,B2PP/,,MDD,GMD,                   
+                   GOD,K2DD,M2DD,B2DD/*FREQRESP*/*DISP*/*MODAL*/0.0/              
+                   0.0/0.0/NOK2PP/NOM2PP/NOB2PP/                                  
+                   MPCF1/SINGLE/OMIT/NOUE/-1/-1/                                  
+                   1/V,Y,MODACC = -1 $                                            
+
+      96  GKAM     USETD,PHIA,MI,LAMA,DIT,M2DD,B2DD,K2DD,CASEXX/MHH,BHH,KHH,PHIDH/
+                   NOUE/C,Y,LMODES=0/C,Y,LFREQ=0.0/C,Y,HFREQ=-1.0/                
+                   NOM2PP/NOB2PP/NOK2PP/S,N,NONCUP/S,N,FMODE $                    
+
+      97  COND     ERROR5,NOFRL $                                                 
+
+      98  COND     ERROR6,NODLT $                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      99  FRRD     CASEXX,USETD,DLT,FRL,GMD,GOD,KHH,BHH,MHH,PHIDH,DIT/UHVF,PSF,   
+                   PDF,PPF/*DISP*/*MODAL*/LUSETD/MPCF1/SINGLE/                    
+                   OMIT/NONCUP/S,N,FRQSET $                                       
+
+     100  EQUIV    PPF,PDF/NOSET $                                                
+
+     101  VDR      CASEXX,EQDYN,USETD,UHVF,PPF,XYCDB,/OUHVC1,/*FREQRESP*/         
+                   *MODAL*/S,N,NOSORT2/S,N,NOH/S,N,NOP/FMODE $                    
+
+     102  COND     LBL16,NOH $                                                    
+
+     103  COND     LBL16A,NOSORT2 $                                               
+
+     104  SDR3     OUHVC1,,,,,/OUHVC2,,,,, $                                      
+
+     105  OFP      OUHVC2,,,,,//S,N,CARDNO $                                      
+
+     106  XYTRAN   XYCDB,OUHVC2,,,,/XYPLTFA/*FREQ*/*HSET*/S,N,PFILE/              
+                   S,N,CARDNO $                                                   
+
+     107  XYPLOT   XYPLTFA // $                                                   
+
+     108  JUMP     LBL16 $                                                        
+
+     109  LABEL    LBL16A $                                                       
+
+     110  OFP      OUHVC1,,,,,//S,N,CARDNO $                                      
+
+     111  LABEL    LBL16 $                                                        
+
+     112  COND     LBL14,NOP $                                                    
+
+     113  PARAM    //*NOT*/NOMOD/V,Y,MODACC $                                     
+
+     114  COND     LBDDRM,MODACC $                                                
+
+     115  DDR1     UHVF,PHIDH/UDV1F $                                             
+
+     116  DDR2     USETD,UDV1F,PDF,K2DD,B2DD,MDD,PPF,LLL,DM/UDV2F,UEVF,PAF/       
+                   *FREQRESP*/NOUE/REACT/FRQSET $                                 
+
+     117  EQUIV    UDV2F,UDV1F/NOMOD $                                            
+
+     118  EQUIV    UDV1F,UPVC/NOA $                                               
+
+     119  COND     LBLNOA,NOA $                                                   
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     120  SDR1     USETD,,UDV1F,,,GOD,GMD,PSF,KFS,,/UPVC,,QPC/1/*DYNAMICS* $      
+
+     121  LABEL    LBLNOA $                                                       
+
+     122  SDR2     CASEXX,CSTM,MPT,DIT,EQDYN,SILD,,,BGPDP,PPF,QPC,UPVC,EST,       
+                   XYCDB,PPF,/OPPC1,OQPC1,OUPVC1,OESC1,OEFC1,PUGV,,/*FREQ*/       
+                   S,N,NOSORT2 $                                                  
+
+     123  COND     LBL18,NOSORT2 $                                                
+
+     124  SDR3     OPPC1,OQPC1,OUPVC1,OESC1,OEFC1,/OPPC2,OQPC2,OUPVC2,OESC2,      
+                   OEFC2, $                                                       
+
+     125  JUMP     P2A $                                                          
+
+     126  LABEL    LBDDRM $                                                       
+
+     127  SDR1     USETD,,PHIDH,,,GOD,GMD,,KFS,,/PHIPH,,QPH/1/*DYNAMICS* $        
+
+     128  SDR2     CASEXX,CSTM,MPT,DIT,EQDYN,SILD,,,,LAMA,QPH,PHIPH,EST,XYCDB,,/  
+                   ,IQP1,IPHIP1,IES1,IEF1,,,/*MMREIG*/S,N,NOSORT2 $               
+
+     129  SDR2     CASEXX,CSTM,MPT,,EQDYN,SILD,,,,PPF,,,EST,XYCDB,PPF,/OPPCA,     
+                   ,,,,,,/*FREQ* $                                                
+
+     130  EQUIV    OPPCA,OPPC1/MODACC $                                           
+
+     131  COND     LBLSORT,NOSORT2 $                                              
+
+     132  SDR3     IQP1,IPHIP1,IES1,IEF1,OPPCA,/IQP2,IPHIP2,IES2,IEF2,OPPCB, $    
+
+     133  EQUIV    OPPCB,OPPC2/MODACC $                                           
+
+     134  DDRMM    CASEXX,UHVF,PPF,IPHIP2,IQP2,IES2,IEF2,XYCDB,EST,MPT,DIT/       
+                   ZUPVC2,ZQPC2,ZESC2,ZEFC2,  $                                   
+
+     135  EQUIV    ZUPVC2,OUPVC2/MODACC/ZQPC2,OQPC2/MODACC/ZESC2,OESC2/MODACC/    
+                   ZEFC2,OEFC2/MODACC $                                           
+
+     136  JUMP     P2A $                                                          
+
+     137  LABEL    LBLSORT $                                                      
+
+     138  DDRMM    CASEXX,UHVF,PPF,IPHIP1,IQP1,IES1,IEF1,,EST,MPT,DIT/            
+                   ZUPVC1,ZQPC1,ZESC1,ZEFC1, $                                    
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     139  EQUIV    ZUPVC1,OUPVC1/MODACC/ZQPC1,OQPC1/MODACC/ZESC1,OESC1/MODACC/    
+                   ZEFC1,OEFC1/MODACC $                                           
+
+     140  JUMP     LBL18 $                                                        
+
+     141  LABEL    P2A $                                                          
+
+     142  OFP      OPPC2,OQPC2,OUPVC2,OEFC2,OESC2,//S,N,CARDNO $                  
+
+     143  XYTRAN   XYCDB,OPPC2,OQPC2,OUPVC2,OESC2,OEFC2/XYPLTF/*FREQ*/*PSET*/     
+                   S,N,PFILE/S,N,CARDNO $                                         
+
+     144  XYPLOT   XYPLTF// $                                                     
+
+     145  COND     LBL21,JUMPPLOT $                                               
+
+     146  PLOT     PLTPAR,GPSETS,ELSETS,CASEXX,BGPDT,EQEXIN,SIP,,PUGV,,,,/        
+                   PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $                  
+
+     147  PRTMSG   PLOTX2// $                                                     
+
+     148  LABEL    LBL21 $                                                        
+
+     149  COND     LBL14,NOPSDL $                                                 
+
+     150  RANDOM   XYCDB,DIT,PSDL,OUPVC2,OPPC2,OQPC2,OESC2,OEFC2,CASEXX/PSDF,AUTO/
+                   S,N,NORD $                                                     
+
+     151  COND     LBL14,NORD $                                                   
+
+     152  XYTRAN   XYCDB,PSDF,AUTO,,,/XYPLTR/*RAND*/*PSET*/S,N,PFILE/             
+                   S,N,CARDNO $                                                   
+
+     153  XYPLOT   XYPLTR// $                                                     
+
+     154  JUMP     LBL14 $                                                        
+
+     155  LABEL    LBL18 $                                                        
+
+     156  OFP      OUPVC1,OPPC1,OQPC1,OEFC1,OESC1,//S,N,CARDNO $                  
+
+     157  LABEL    LBL14 $                                                        
+
+     161  JUMP     FINIS $                                                        
+
+     162  LABEL    ERROR2 $                                                       
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     163  PRTPARM  //-2/*MDLFRRD* $                                               
+
+     164  LABEL    ERROR1 $                                                       
+
+     165  PRTPARM  //-1/*MDLFRRD* $                                               
+
+     166  LABEL    ERROR4 $                                                       
+
+     167  PRTPARM  //-4/*MDLFRRD* $                                               
+
+     168  LABEL    ERROR5 $                                                       
+
+     169  PRTPARM  //-5/*MDLFRRD* $                                               
+
+     170  LABEL    ERROR6 $                                                       
+
+     171  PRTPARM  //-6/*MDLFRRD* $                                               
+
+     172  LABEL    ERROR7 $                                                       
+
+     173  PRTPARM  //-7/*MDLFRRD* $                                               
+
+     174  LABEL    FINIS $                                                        
+
+     175  PURGE    DUMMY/MINUS1 $                                                 
+
+     176  END      $                                                              
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+                    * U T I L I T Y   M O D U L E   I N P U T *
+
+
+                    INPUT DATA ECHO (DATA READ VIA FORTRAN, REMEMBER TO RIGHT ADJUST)
+
+
+                    *   1  **   2  **   3  **   4  **   5  **   6  **   7  **   8  **   9  **  10  *
+
+
+
+                          500 1.0E+07 0.0E+00 1.0E+01 0.0E+00
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ELAS4    ELEMENTS (ELEMENT TYPE  14) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION MASS4    ELEMENTS (ELEMENT TYPE  28) STARTING WITH ID  1000002
+                       10 ROOTS BELOW   4.352496E+03
+0*** USER WARNING MESSAGE 2399
+     ONLY THE FIRST   28 EIGENSOLUTIONS CLOSEST TO THE SHIFT POINT (F1 OR ZERO) PASS THE FEER ACCURACY TEST FOR EIGENVECTORS.
+0*** USER INFORMATION MESSAGE 2392
+       30 MORE ACCURATE EIGENSOLUTIONS THAN THE   20 REQUESTED HAVE BEEN FOUND.
+     USE DIAG 16 TO DETERMINE ERROR BOUNDS
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y         (FEER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .        50
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         1
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        49
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         0*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.00E+00
+0                                                                              . . .         0
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         0
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* NORMAL TERMINATION              
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+
+                                     ****************************************************************
+                                     *                                                              *
+                                     *
++                                             NASTRAN INFORMATION MESSAGE 3307, POTENTIALLY         *
+                                     *        10 EIGENVALUE(S) AT LOW FREQ. END NOT FOUND           *
+                                     *                                                              *
+                                     *        (THIS MESSAGE CAN BE SUPPRESSED BY DIAG 37)           *
+                                     ****************************************************************
+
+        1        14        3.947829E+01        6.283175E+00        9.999983E-01        2.500000E+03        9.869572E+04             
+        2        13        1.579116E+02        1.256629E+01        1.999987E+00        2.500000E+03        3.947790E+05             
+        3        12        3.552952E+02        1.884928E+01        2.999956E+00        2.500000E+03        8.882381E+05             
+        4        11        6.316215E+02        2.513208E+01        3.999895E+00        2.500395E+03        1.579303E+06             
+        5         9        9.868793E+02        3.141463E+01        4.999794E+00        2.500000E+03        2.467198E+06             
+        6         8        1.421055E+03        3.769688E+01        5.999645E+00        2.500000E+03        3.552637E+06             
+        7         7        1.934131E+03        4.397875E+01        6.999435E+00        2.500000E+03        4.835326E+06             
+        8         5        2.526087E+03        5.026019E+01        7.999157E+00        2.500395E+03        6.316214E+06             
+        9         3        3.196900E+03        5.654113E+01        8.998800E+00        2.500000E+03        7.992250E+06             
+       10         1        3.946543E+03        6.282152E+01        9.998355E+00        2.500000E+03        9.866358E+06             
+       11         2        4.774987E+03        6.910128E+01        1.099781E+01        2.500000E+03        1.193747E+07             
+       12         4        5.682200E+03        7.538036E+01        1.199716E+01        2.500395E+03        1.420774E+07             
+       13         6        6.668144E+03        8.165871E+01        1.299639E+01        2.500000E+03        1.667036E+07             
+       14        10        7.732782E+03        8.793623E+01        1.399549E+01        2.500000E+03        1.933195E+07             
+       15        15        8.876070E+03        9.421290E+01        1.499445E+01        2.500000E+03        2.219018E+07             
+       16        16        1.009797E+04        1.004886E+02        1.599326E+01        2.500395E+03        2.524890E+07             
+       17        17        1.139842E+04        1.067634E+02        1.699192E+01        2.500000E+03        2.849605E+07             
+       18        18        1.277738E+04        1.130371E+02        1.799041E+01        2.500000E+03        3.194345E+07             
+       19        19        1.423479E+04        1.193096E+02        1.898872E+01        2.500000E+03        3.558698E+07             
+       20        20        1.577060E+04        1.255810E+02        1.998684E+01        2.509896E+03        3.958256E+07             
+       21        21        1.738474E+04        1.318512E+02        2.098477E+01        2.500000E+03        4.346184E+07             
+       22        22        1.907715E+04        1.381201E+02        2.198249E+01        2.500000E+03        4.769287E+07             
+       23        23        2.084776E+04        1.443875E+02        2.297999E+01        2.500000E+03        5.211941E+07             
+       24        24        2.269651E+04        1.506536E+02        2.397727E+01        2.500395E+03        5.675024E+07             
+       25        25        2.462332E+04        1.569182E+02        2.497431E+01        2.500000E+03        6.155830E+07             
+       26        26        2.662811E+04        1.631812E+02        2.597110E+01        2.500000E+03        6.657028E+07             
+       27        27        2.871081E+04        1.694426E+02        2.696763E+01        2.500007E+03        7.177723E+07             
+       28        28        3.087133E+04        1.757024E+02        2.796390E+01        2.500088E+03        7.718103E+07             
+       29        29        3.310961E+04        1.819605E+02        2.895991E+01        2.495139E+03        8.261308E+07             
+       30        30        3.542555E+04        1.882168E+02        2.995563E+01        2.491476E+03        8.826191E+07             
+       31        31        3.782025E+04        1.944743E+02        3.095154E+01        2.444926E+03        9.246770E+07             
+       32        32        4.030271E+04        2.007554E+02        3.195121E+01        2.361995E+03        9.519482E+07             
+       33        33        4.297868E+04        2.073130E+02        3.299488E+01        1.948319E+03        8.373618E+07             
+       34        34        4.591303E+04        2.142733E+02        3.410265E+01        1.528425E+03        7.017460E+07             
+       35        35        4.960907E+04        2.227309E+02        3.544873E+01        1.184151E+03        5.874463E+07             
+       36        36        5.361830E+04        2.315563E+02        3.685332E+01        1.133319E+03        6.076662E+07             
+       37        37        5.719057E+04        2.391455E+02        3.806119E+01        1.309213E+03        7.487463E+07             
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+       38        38        6.403630E+04        2.530540E+02        4.027479E+01        7.650125E+02        4.898857E+07             
+       39        39        7.181550E+04        2.679841E+02        4.265100E+01        5.460549E+02        3.921521E+07             
+       40        40        8.142555E+04        2.853516E+02        4.541512E+01        5.035842E+02        4.100462E+07             
+       41        41        9.763046E+04        3.124587E+02        4.972935E+01        3.665581E+02        3.578723E+07             
+       42        42        1.198863E+05        3.462460E+02        5.510677E+01        3.108511E+02        3.726679E+07             
+       43        43        1.497063E+05        3.869189E+02        6.158006E+01        4.401808E+02        6.589783E+07             
+       44        44        1.725240E+05        4.153600E+02        6.610661E+01        3.963076E+02        6.837255E+07             
+       45        45        3.055958E+05        5.528071E+02        8.798199E+01        5.203714E+02        1.590233E+08             
+       46        46        3.964821E+05        6.296683E+02        1.002148E+02        2.336386E+02        9.263354E+07             
+       47        47        5.166735E+05        7.188000E+02        1.144006E+02        3.767520E+02        1.946578E+08             
+       48        48        1.025290E+06        1.012566E+03        1.611549E+02        3.210023E+02        3.291204E+08             
+       49        49        1.905251E+06        1.380308E+03        2.196829E+02        2.568323E+02        4.893301E+08             
+       50        50        3.806958E+06        1.951143E+03        3.105340E+02        3.094826E+02        1.178187E+09             
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       1
+                               C O M P L E X   D I S P L A C E M E N T   V E C T O R  (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     M      1.009971E+00                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     M      1.018695E+00                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     M      1.035219E+00                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     M      1.067207E+00                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     M      1.131834E+00                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     M      1.274442E+00                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     M      1.661215E+00                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     M      3.782303E+00                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     M      2.782357E+00                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     M      6.613363E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     M      2.745687E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     M      1.319615E-01                                                                                             
+                           180.0000                                                                                                 
+0  3.981073E+00     M      6.733594E-02                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     M      3.534792E-02                                                                                             
+                           180.0000                                                                                                 
+0  7.356425E+00     M      1.882388E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       1
+                               C O M P L E X   D I S P L A C E M E N T   V E C T O R  (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     M      1.009967E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       2
+                               C O M P L E X   D I S P L A C E M E N T   V E C T O R  (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     M      1.014772E-16                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     M      1.016933E-16                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     M      1.020951E-16                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     M      1.028458E-16                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     M      1.042626E-16                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     M      1.069860E-16                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     M      1.124116E-16                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     M      1.240352E-16                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     M      1.533327E-16                                                                                             
+                             0.0                                                                                                    
+0  1.584893E+00     M      2.720916E-16                                                                                             
+                             0.0                                                                                                    
+0  2.154435E+00     M      6.310188E-16                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     M      8.846136E-17                                                                                             
+                           180.0000                                                                                                 
+0  3.981073E+00     M      3.417073E-17                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     M      1.601204E-17                                                                                             
+                           180.0000                                                                                                 
+0  7.356425E+00     M      8.078865E-18                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       2
+                               C O M P L E X   D I S P L A C E M E N T   V E C T O R  (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     M      4.217589E-18                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       3
+                               C O M P L E X   D I S P L A C E M E N T   V E C T O R  (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     M      3.707345E-02                                                                                             
+                           180.0000                                                                                                 
+0  1.359356E-01     M      3.710845E-02                                                                                             
+                           180.0000                                                                                                 
+0  1.847850E-01     M      3.717329E-02                                                                                             
+                           180.0000                                                                                                 
+0  2.511887E-01     M      3.729372E-02                                                                                             
+                           180.0000                                                                                                 
+0  3.414549E-01     M      3.751831E-02                                                                                             
+                           180.0000                                                                                                 
+0  4.641589E-01     M      3.794051E-02                                                                                             
+                           180.0000                                                                                                 
+0  6.309574E-01     M      3.874622E-02                                                                                             
+                           180.0000                                                                                                 
+0  8.576961E-01     M      4.032875E-02                                                                                             
+                           180.0000                                                                                                 
+0  1.165915E+00     M      4.362094E-02                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     M      5.136996E-02                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     M      7.647303E-02                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     M      7.883182E-01                                                                                             
+                           180.0000                                                                                                 
+0  3.981073E+00     M      4.865970E-02                                                                                             
+                             0.0                                                                                                    
+0  5.411697E+00     M      1.642850E-02                                                                                             
+                             0.0                                                                                                    
+0  7.356425E+00     M      7.386984E-03                                                                                             
+                             0.0                                                                                                    
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       3
+                               C O M P L E X   D I S P L A C E M E N T   V E C T O R  (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     M      3.662412E-03                                                                                             
+                             0.0                                                                                                    
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       4
+                               C O M P L E X   D I S P L A C E M E N T   V E C T O R  (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     M      4.249798E-18                                                                                             
+                           180.0000                                                                                                 
+0  1.359356E-01     M      4.252052E-18                                                                                             
+                           180.0000                                                                                                 
+0  1.847850E-01     M      4.256225E-18                                                                                             
+                           180.0000                                                                                                 
+0  2.511887E-01     M      4.263957E-18                                                                                             
+                           180.0000                                                                                                 
+0  3.414549E-01     M      4.278319E-18                                                                                             
+                           180.0000                                                                                                 
+0  4.641589E-01     M      4.305114E-18                                                                                             
+                           180.0000                                                                                                 
+0  6.309574E-01     M      4.355520E-18                                                                                             
+                           180.0000                                                                                                 
+0  8.576961E-01     M      4.451837E-18                                                                                             
+                           180.0000                                                                                                 
+0  1.165915E+00     M      4.641504E-18                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     M      5.038135E-18                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     M      5.982856E-18                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     M      9.155063E-18                                                                                             
+                           180.0000                                                                                                 
+0  3.981073E+00     M      4.523591E-16                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     M      5.113954E-18                                                                                             
+                             0.0                                                                                                    
+0  7.356425E+00     M      1.782648E-18                                                                                             
+                             0.0                                                                                                    
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       4
+                               C O M P L E X   D I S P L A C E M E N T   V E C T O R  (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     M      8.089285E-19                                                                                             
+                             0.0                                                                                                    
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       5
+                               C O M P L E X   D I S P L A C E M E N T   V E C T O R  (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     M      8.002168E-03                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     M      8.004884E-03                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     M      8.009908E-03                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     M      8.019208E-03                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     M      8.036449E-03                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     M      8.068505E-03                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     M      8.128416E-03                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     M      8.241499E-03                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     M      8.458954E-03                                                                                             
+                             0.0                                                                                                    
+0  1.584893E+00     M      8.892520E-03                                                                                             
+                             0.0                                                                                                    
+0  2.154435E+00     M      9.822865E-03                                                                                             
+                             0.0                                                                                                    
+0  2.928645E+00     M      1.217696E-02                                                                                             
+                             0.0                                                                                                    
+0  3.981073E+00     M      2.185569E-02                                                                                             
+                             0.0                                                                                                    
+0  5.411697E+00     M      4.662631E-02                                                                                             
+                           180.0000                                                                                                 
+0  7.356425E+00     M      6.866906E-03                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       5
+                               C O M P L E X   D I S P L A C E M E N T   V E C T O R  (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     M      2.666030E-03                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    36
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      51
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     S      3.519336E-01                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     S      3.546610E-01                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     S      3.598255E-01                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     S      3.698185E-01                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     S      3.899905E-01                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     S      4.344373E-01                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     S      5.546772E-01                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     S      1.211539E+00                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     S      8.141406E-01                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     S      1.519473E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     S      1.107240E-02                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     S      6.114967E-01                                                                                             
+                             0.0                                                                                                    
+0  3.981073E+00     S      3.535540E-02                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     S      6.547387E-02                                                                                             
+                           180.0000                                                                                                 
+0  7.356425E+00     S      4.137104E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    37
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      51
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     S      1.574604E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    38
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     101
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     S      6.260206E-01                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     S      6.311814E-01                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     S      6.409547E-01                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     S      6.598697E-01                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     S      6.980663E-01                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     S      7.822850E-01                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     S      1.010379E+00                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     S      2.258607E+00                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     S      1.596912E+00                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     S      3.429138E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     S      9.185459E-02                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     S      6.686515E-01                                                                                             
+                             0.0                                                                                                    
+0  3.981073E+00     S      9.016667E-02                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     S      4.365984E-02                                                                                             
+                           180.0000                                                                                                 
+0  7.356425E+00     S      7.179653E-03                                                                                             
+                             0.0                                                                                                    
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    39
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     101
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     S      2.964182E-05                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    40
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     151
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     S      8.219904E-01                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     S      8.290569E-01                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     S      8.424406E-01                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     S      8.683484E-01                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     S      9.206856E-01                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     S      1.036160E+00                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     S      1.349259E+00                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     S      3.065641E+00                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     S      2.244463E+00                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     S      5.265272E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     S      2.067326E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     S      1.263957E-01                                                                                             
+                             0.0                                                                                                    
+0  3.981073E+00     S      8.930793E-02                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     S      1.617553E-02                                                                                             
+                             0.0                                                                                                    
+0  7.356425E+00     S      1.696870E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    41
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     151
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     S      1.572965E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    42
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     201
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     S      9.396498E-01                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     S      9.479266E-01                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     S      9.636043E-01                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     S      9.939569E-01                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     S      1.055289E+00                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     S      1.190672E+00                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     S      1.558046E+00                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     S      3.574398E+00                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     S      2.670884E+00                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     S      6.581994E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     S      3.050576E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     S      5.877138E-01                                                                                             
+                           180.0000                                                                                                 
+0  3.981073E+00     S      3.395493E-02                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     S      2.107926E-02                                                                                             
+                           180.0000                                                                                                 
+0  7.356425E+00     S      3.292501E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    43
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     201
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     S      2.083981E-05                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    44
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     251
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     S      9.788824E-01                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     S      9.875740E-01                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     S      1.004038E+00                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     S      1.035913E+00                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     S      1.100330E+00                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     S      1.242543E+00                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     S      1.628562E+00                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     S      3.748164E+00                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     S      2.819601E+00                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     S      7.059558E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     S      3.434792E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     S      9.106178E-01                                                                                             
+                           180.0000                                                                                                 
+0  3.981073E+00     S      1.904558E-05                                                                                             
+                             0.0                                                                                                    
+0  5.411697E+00     S      7.129662E-02                                                                                             
+                           180.0000                                                                                                 
+0  7.356425E+00     S      1.275858E-02                                                                                             
+                             0.0                                                                                                    
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    45
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     251
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     S      1.572599E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    46
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     301
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     S      9.396498E-01                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     S      9.479266E-01                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     S      9.636043E-01                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     S      9.939569E-01                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     S      1.055289E+00                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     S      1.190672E+00                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     S      1.558046E+00                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     S      3.574398E+00                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     S      2.670884E+00                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     S      6.581994E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     S      3.050576E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     S      5.877138E-01                                                                                             
+                           180.0000                                                                                                 
+0  3.981073E+00     S      3.395493E-02                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     S      2.107926E-02                                                                                             
+                           180.0000                                                                                                 
+0  7.356425E+00     S      3.292501E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    47
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     301
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     S      2.083981E-05                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    48
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     351
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     S      8.219904E-01                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     S      8.290569E-01                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     S      8.424406E-01                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     S      8.683484E-01                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     S      9.206856E-01                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     S      1.036160E+00                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     S      1.349259E+00                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     S      3.065641E+00                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     S      2.244463E+00                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     S      5.265272E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     S      2.067326E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     S      1.263957E-01                                                                                             
+                             0.0                                                                                                    
+0  3.981073E+00     S      8.930793E-02                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     S      1.617553E-02                                                                                             
+                             0.0                                                                                                    
+0  7.356425E+00     S      1.696870E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    49
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     351
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     S      1.572965E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    50
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     401
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     S      6.260206E-01                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     S      6.311814E-01                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     S      6.409547E-01                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     S      6.598697E-01                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     S      6.980663E-01                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     S      7.822850E-01                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     S      1.010379E+00                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     S      2.258607E+00                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     S      1.596912E+00                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     S      3.429138E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     S      9.185459E-02                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     S      6.686515E-01                                                                                             
+                             0.0                                                                                                    
+0  3.981073E+00     S      9.016667E-02                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     S      4.365984E-02                                                                                             
+                           180.0000                                                                                                 
+0  7.356425E+00     S      7.179653E-03                                                                                             
+                             0.0                                                                                                    
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    51
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     401
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     S      2.964182E-05                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    52
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     451
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E-01     S      3.519336E-01                                                                                             
+                             0.0                                                                                                    
+0  1.359356E-01     S      3.546610E-01                                                                                             
+                             0.0                                                                                                    
+0  1.847850E-01     S      3.598255E-01                                                                                             
+                             0.0                                                                                                    
+0  2.511887E-01     S      3.698185E-01                                                                                             
+                             0.0                                                                                                    
+0  3.414549E-01     S      3.899905E-01                                                                                             
+                             0.0                                                                                                    
+0  4.641589E-01     S      4.344373E-01                                                                                             
+                             0.0                                                                                                    
+0  6.309574E-01     S      5.546772E-01                                                                                             
+                             0.0                                                                                                    
+0  8.576961E-01     S      1.211539E+00                                                                                             
+                             0.0                                                                                                    
+0  1.165915E+00     S      8.141406E-01                                                                                             
+                           180.0000                                                                                                 
+0  1.584893E+00     S      1.519473E-01                                                                                             
+                           180.0000                                                                                                 
+0  2.154435E+00     S      1.107240E-02                                                                                             
+                           180.0000                                                                                                 
+0  2.928645E+00     S      6.114967E-01                                                                                             
+                             0.0                                                                                                    
+0  3.981073E+00     S      3.535540E-02                                                                                             
+                           180.0000                                                                                                 
+0  5.411697E+00     S      6.547387E-02                                                                                             
+                           180.0000                                                                                                 
+0  7.356425E+00     S      4.137104E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    53
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =     451
+                                       C O M P L E X   D I S P L A C E M E N T   V E C T O R
+                                                         (MAGNITUDE/PHASE)
+ 
+      FREQUENCY   TYPE          T1             T2             T3             R1             R2             R3
+0  1.000000E+01     S      1.574604E-02                                                                                             
+                           180.0000                                                                                                 
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    54
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       51( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF UPPER FRAME    1
+
+
+     CURVE  TITLE = * * * * * *  SPOINT  5 1   * * * * * * * * * * * * * * * *                                                     
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = MAGNITUDE  *INCH*                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.107240E-02 AT X =   2.154435E+00
+
+
+                              THE LARGEST  Y-VALUE =  1.211539E+00 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.107240E-02 AT X =   2.154435E+00
+
+
+                              THE LARGEST  Y-VALUE =  1.211539E+00 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    55
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       51(--, 7)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF LOWER FRAME    1
+
+
+     CURVE  TITLE = * * * * * *  SPOINT  5 1   * * * * * * * * * * * * * * * *                                                     
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = PHASE  *DEGREE*                                                                                                
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.800000E+02 AT X =   1.165915E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.800000E+02 AT X =   1.165915E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    56
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      101( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF UPPER FRAME    2
+
+
+     CURVE  TITLE = * * * * * *  SPOINT  1 0 1   * * * * * * * * * * * * * * *                                                     
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = MAGNITUDE  *INCH*                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  2.964182E-05 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  2.258607E+00 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  2.964182E-05 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  2.258607E+00 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    57
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      101(--, 7)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF LOWER FRAME    2
+
+
+     CURVE  TITLE = * * * * * *  SPOINT  1 0 1   * * * * * * * * * * * * * * *                                                     
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = PHASE  *DEGREE*                                                                                                
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.800000E+02 AT X =   1.165915E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.800000E+02 AT X =   1.165915E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    58
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      151( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF UPPER FRAME    3
+
+
+     CURVE  TITLE = * * * * * *  SPOINT  1 5 1   * * * * * * * * * * * * * * *                                                     
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = MAGNITUDE  *INCH*                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.572965E-02 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  3.065641E+00 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.572965E-02 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  3.065641E+00 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    59
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      151(--, 7)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF LOWER FRAME    3
+
+
+     CURVE  TITLE = * * * * * *  SPOINT  1 5 1   * * * * * * * * * * * * * * *                                                     
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = PHASE  *DEGREE*                                                                                                
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.800000E+02 AT X =   1.165915E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.800000E+02 AT X =   1.165915E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    60
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      201( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF UPPER FRAME    4
+
+
+     CURVE  TITLE = * * * * * *  SPOINT  2 0 1   * * * * * * * * * * * * * * *                                                     
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = MAGNITUDE  *INCH*                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  2.083981E-05 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  3.574398E+00 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  2.083981E-05 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  3.574398E+00 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    61
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      201(--, 7)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF LOWER FRAME    4
+
+
+     CURVE  TITLE = * * * * * *  SPOINT  2 0 1   * * * * * * * * * * * * * * *                                                     
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = PHASE  *DEGREE*                                                                                                
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.800000E+02 AT X =   1.165915E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.800000E+02 AT X =   1.165915E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    62
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      251( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF UPPER FRAME    5
+
+
+     CURVE  TITLE = * * * * * *  SPOINT  2 5 1   * * * * * * * * * * * * * * *                                                     
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = MAGNITUDE  *INCH*                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.904558E-05 AT X =   3.981073E+00
+
+
+                              THE LARGEST  Y-VALUE =  3.748164E+00 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.904558E-05 AT X =   3.981073E+00
+
+
+                              THE LARGEST  Y-VALUE =  3.748164E+00 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    63
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      251(--, 7)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF LOWER FRAME    5
+
+
+     CURVE  TITLE = * * * * * *  SPOINT  2 5 1   * * * * * * * * * * * * * * *                                                     
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = PHASE  *DEGREE*                                                                                                
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.800000E+02 AT X =   1.165915E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.800000E+02 AT X =   1.165915E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    64
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       51( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF WHOLE FRAME    6
+
+
+     CURVE  TITLE = * * * * *  SUPERPOSITION OF SPOINT 51, 101, 151, 201, 251 * *                                                  
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = MAGNITUDE  *INCH*                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.107240E-02 AT X =   2.154435E+00
+
+
+                              THE LARGEST  Y-VALUE =  1.211539E+00 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.107240E-02 AT X =   2.154435E+00
+
+
+                              THE LARGEST  Y-VALUE =  1.211539E+00 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    65
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      101( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   2 OF WHOLE FRAME    6
+
+
+     CURVE  TITLE = * * * * *  SUPERPOSITION OF SPOINT 51, 101, 151, 201, 251 * *                                                  
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = MAGNITUDE  *INCH*                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  2.964182E-05 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  2.258607E+00 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  2.964182E-05 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  2.258607E+00 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    66
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      151( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   3 OF WHOLE FRAME    6
+
+
+     CURVE  TITLE = * * * * *  SUPERPOSITION OF SPOINT 51, 101, 151, 201, 251 * *                                                  
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = MAGNITUDE  *INCH*                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.572965E-02 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  3.065641E+00 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.572965E-02 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  3.065641E+00 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    67
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      201( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   4 OF WHOLE FRAME    6
+
+
+     CURVE  TITLE = * * * * *  SUPERPOSITION OF SPOINT 51, 101, 151, 201, 251 * *                                                  
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = MAGNITUDE  *INCH*                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  2.083981E-05 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  3.574398E+00 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  2.083981E-05 AT X =   1.000000E+01
+
+
+                              THE LARGEST  Y-VALUE =  3.574398E+00 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    68
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      251( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   5 OF WHOLE FRAME    6
+
+
+     CURVE  TITLE = * * * * *  SUPERPOSITION OF SPOINT 51, 101, 151, 201, 251 * *                                                  
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = MAGNITUDE  *INCH*                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.904558E-05 AT X =   3.981073E+00
+
+
+                              THE LARGEST  Y-VALUE =  3.748164E+00 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE =  1.904558E-05 AT X =   3.981073E+00
+
+
+                              THE LARGEST  Y-VALUE =  3.748164E+00 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    69
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      ELEMENT-FORCE   CURVE      251( 2)
+ 
+      XY-PAIRS BETWEEN XMIN AND XMAX WILL BE PRINTED
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF WHOLE FRAME    7
+
+
+     CURVE  TITLE = * * * * * * *   FORCE IN STRING ELEMENT 251  * * * * * * * *                                                   
+      X-AXIS TITLE =                              FREQUENCY (HERTZ)                                                                 
+      Y-AXIS TITLE = REAL PART  *POUNDS*                                                                                            
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE = -1.387000E+03 AT X =   2.928645E+00
+
+
+                              THE LARGEST  Y-VALUE =  6.985664E+02 AT X =   8.576961E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  1.000000E-01 TO  X =  1.000000E+01)
+
+
+                              THE SMALLEST Y-VALUE = -1.387000E+03 AT X =   2.928645E+00
+
+
+                              THE LARGEST  Y-VALUE =  6.985664E+02 AT X =   8.576961E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+
+
+                         P R I N T E D   D A T A   F O R   T H I S   C U R V E   F O L L O W S
+1     FREQUENCY RESPONSE OF A 500 CELL STRING                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    70
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-02-2A                                                                                   
+0                                                                                                                                   
+
+
+     ELEMENT-FORCE   CURVE   ID =      251     COMPONENT =  2     WHOLE FRAME
+
+
+                           PRINT NUMBER          X-VALUE              Y-VALUE              CARD NUMBER
+                                  1             1.000000E-01         1.567602E+02
+                                  2             1.359356E-01         1.585484E+02
+                                  3             1.847850E-01         1.621246E+02
+                                  4             2.511887E-01         1.680851E+02
+                                  5             3.414549E-01         1.800060E+02
+                                  6             4.641589E-01         2.074242E+02
+                                  7             6.309574E-01         2.825260E+02
+                                  8             8.576961E-01         6.985664E+02
+                                  9             1.165915E+00        -6.008148E+02
+                                 10             1.584893E+00        -1.949072E+02
+                                 11             2.154435E+00        -1.597404E+02
+                                 12             2.928645E+00        -1.387000E+03
+                                 13             3.981073E+00         1.548787E+02
+                                 14             5.411697E+00        -2.574921E+02
+                                 15             7.356425E+00         2.906472E+02
+                                 16             1.000000E+01        -1.566112E+02
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  FREQUENCY RESPONSE OF A 500 CELL STRING                            
+ DATE:  5/17/95
+ END TIME: 16:18:49
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

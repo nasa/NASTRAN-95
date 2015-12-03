@@ -1,0 +1,101 @@
+$-------------------------------------------------------------------------------
+$                  RIGID FORMAT No. 3, Real Eigenvalue Analysis
+$             Vibrations of a Linear Tapered Cantilever Plate (3-7-1)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates the use of the higher order triangular bending
+$ element TRPLT1 to solve a normal modes analysis. The structural model is that
+$ of a thin isotropic plate with tapered cross section, cantilevered at one end.
+$ 
+$ B. Input
+$ 
+$                7      2
+$    E = 3.0 x 10  lb/in      (Modulus of elasticity)
+$ 
+$                    -5   4
+$    I  = 4.3877 x 10   in    (Maximum bending inertia)
+$     o
+$ 
+$    t  = 0.0807 in           (Maximum thickness)
+$     o
+$ 
+$    a  = 5.0 in              (Length)
+$ 
+$    v  = .3                  (Poisson's ratio)
+$ 
+$                       2   4
+$    p  =  7.3698 lb sec /in  (Mass density)
+$ 
+$ C. Theory
+$ 
+$ The theory for the tapered plate elements is developed in Reference 33. In
+$ this reference, a frequency parameter is defined as
+$ 
+$               2
+$    omega = w a  sqrt (pt  / D )                                            (1)
+$                         o    o
+$ 
+$ where
+$ 
+$    a   =  length
+$ 
+$    p   =  mass density
+$ 
+$    w   =  circular frequency
+$ 
+$    t   =  thickness
+$     o
+$ 
+$ The bending rigidity, D , is defined as
+$                        o
+$ 
+$              3
+$            Et
+$              o
+$    D  = ----------                                                         (2)
+$     o           2
+$         12(1 - v )
+$ 
+$ D. Results
+$ 
+$ The results of the NASTRAN analysis using the TRPLT1 element are presented in
+$ Table 1. For purposes of comparison, results are presented from an experiment
+$ described by Plunkett in Reference 34. In this table the modes are identified
+$ by m and n, where m represents the number of nodal lines perpendicular to the
+$ support and n represents the number of nodal limes parallel to the support.
+$ 
+$               Table 1. Frequency Parameters for a Linearly Tapered
+$                       Rectangular Cantilever Plate; v = 0.3
+$                  ----------------------------------------------
+$                                        Frequency Parameter
+$                                                   2        1/2
+$                                       omega  =w  a (pt /D )
+$                     Mode                   mn  mn     o  o
+$                  ----------------------------------------------
+$                  m         n        TRPLT1         Experiment
+$                  ----------------------------------------------
+$                  0         0         2.25             2.47
+$ 
+$                  1         0        10.0             10.6
+$ 
+$                  0         1        13.6             14.5
+$ 
+$                  1         1        27.0             28.7
+$ 
+$                  0         2        32.8             34.4
+$ 
+$                  0         3        47.3             47.4
+$ 
+$                  2         0        53.3             52.5
+$ 
+$                  1         2        57.7             54.0
+$                  ----------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 33. Leissa, A. W.: Vibration of Plates, NASA SP-160, 1969, Chapter 11.
+$ 
+$ 34. Plunkett, R.: "Natural Frequencies of Uniform and Non-Uniform Rectangular
+$     Cantilever Plates", J. Mech. Engr. Sci., Vol 5, 1963, pp. 146-156.
+$-------------------------------------------------------------------------------

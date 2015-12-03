@@ -1,0 +1,26 @@
+NASTRAN  FILES = OPTP                                                           
+ID    D01011B,RESTART                                                           
+$ INSERT THE RESTART DICTIONARY HERE                                            
+READFILE,NOPRINT RSCARDS                                                        
+APP      DISPLACEMENT                                                           
+SOL      1,1                                                                    
+TIME     5                                                                      
+CEND                                                                            
+TITLE    = DELTA WING             RESTART                                       
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1B                          
+LABEL    = LOAD ON LEADING EDGE                                                 
+    LOAD = 2                                                                    
+    SPC  = 1                                                                    
+OUTPUT                                                                          
+$   SET 1  HAS GRIDS ON THE UPPER SURFACE  * * * * * * * * * * * * * * *        
+$   SET 2  HAS TOP SURFACE ELEMENTS, SHEAR(TRAILING AND LEADING EDGE),          
+$   SHEAR(CENTERLINE - BOTH DIRECTIONS), SHEAR(TIP)   * * * * * * * *           
+$                                                                               
+        SET 1 = 11 THRU 16,31 THRU 36,51 THRU 55,71 THRU 74,91 THRU 93          
+        SET 2 =  1 THRU 22,28 THRU 31, 35, 36, 41 THRU 44, 50                   
+$                                                                               
+   DISPLACEMENTS = 1                                                            
+        SPCFORCE = ALL                                                          
+        ELSTRESS = 2                                                            
+BEGIN BULK                                                                      
+ENDDATA                                                                         

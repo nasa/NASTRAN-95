@@ -1,0 +1,77 @@
+ID    D01132A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   1,0                                                                       
+TIME  5                                                                         
+CEND                                                                            
+TITLE    = LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS          
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                          
+DISP   = ALL                                                                    
+STRESS = ALL                                                                    
+SPC    = 200                                                                    
+SUBCASE   1                                                                     
+LABEL =  PRESSURE  LOAD                                                         
+LOAD  =  400                                                                    
+SUBCASE   2                                                                     
+LABEL =  THERMAL LOAD                                                           
+TEMP(LOAD) = 500                                                                
+BEGIN BULK                                                                      
+CIHEX2  1       200     1       2       3       10      15      14      +HEX-1  
++HEX-1  13      9       4       5       17      16      6       7       +HEX-11 
++HEX-11 8       12      20      19      18      11                              
+CIHEX2  2       200     13      14      15      22      27      26      +HEX-21 
++HEX-21 25      21      16      17      29      28      18      19      +HEX-22 
++HEX-22 20      24      32      31      30      23                              
+CNGRNT  1       2                                                               
+CORD2C  10      0       .0      .0      .0      .0      .0      100.0   +CRD-1  
++CRD-1  100.0   .0      .0                                                      
+GRDSET          10                              10      456                     
+GRID    1               4.0     -14.0   .0                                      
+GRID    2               4.5     -14.0   .0                                      
+GRID    3               5.0     -14.0   .0                                      
+GRID    4               4.0     -14.0   .5                                      
+GRID    5               5.0     -14.0   .5                                      
+GRID    6               4.0     -14.0   1.0                                     
+GRID    7               4.5     -14.0   1.0                                     
+GRID    8               5.0     -14.0   1.0                                     
+GRID    9               4.0     -7.0    .0                                      
+GRID    10              5.0     -7.0    .0                                      
+GRID    11              4.0     -7.0    1.0                                     
+GRID    12              5.0     -7.0    1.0                                     
+GRID    13              4.0     .0      .0                                      
+GRID    14              4.5     .0      .0                                      
+GRID    15              5.0     .0      .0                                      
+GRID    16              4.0     .0      .5                                      
+GRID    17              5.0     .0      .5                                      
+GRID    18              4.0     .0      1.0                                     
+GRID    19              4.5     .0      1.0                                     
+GRID    20              5.0     .0      1.0                                     
+GRID    21              4.0     7.0     .0                                      
+GRID    22              5.0     7.0     .0                                      
+GRID    23              4.0     7.0     1.0                                     
+GRID    24              5.0     7.0     1.0                                     
+GRID    25              4.0     14.0    .0                                      
+GRID    26              4.5     14.0    .0                                      
+GRID    27              5.0     14.0    .0                                      
+GRID    28              4.0     14.0    .5                                      
+GRID    29              5.0     14.0    .5                                      
+GRID    30              4.0     14.0    1.0                                     
+GRID    31              4.5     14.0    1.0                                     
+GRID    32              5.0     14.0    1.0                                     
+MAT1    300     3.+7            .3      7.535-4 1.428-5 .0                      
+PIHEX   200     300             4                                               
+PLOAD3  400     -10.0   1       13      6       2       25      18              
+SPC1    200     2       1       THRU    8                                       
+SPC1    200     2       25      THRU    32                                      
+SPC1    200     3       1       2       3       9       10      13      +SPC-A3 
++SPC-A3 14      15      21      22      25      26      27                      
+SPC1    200     3       6       7       8       11      12      18      +SPC-A4 
++SPC-A4 19      20      23      24      30      31      32                      
+TEMP    500     1       100.0   4       100.0   6       100.0                   
+TEMP    500     9       100.0   11      100.0   13      100.0                   
+TEMP    500     14      47.22   19      47.22   26      47.22                   
+TEMP    500     16      100.0   18      100.0   21      100.0                   
+TEMP    500     23      100.0   25      100.0   28      100.0                   
+TEMP    500     30      100.0   2       47.22   7       47.22                   
+TEMP    500     31      47.22                                                   
+TEMPD   500     .0                                                              
+ENDDATA                                                                         

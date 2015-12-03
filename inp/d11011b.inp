@@ -1,0 +1,22 @@
+NASTRAN FILES = OPTP                                                            
+ID    D11011B,RESTART                                                           
+$ INSERT THE RESTART DICTIONARY HERE                                            
+READFILE RSCARDS                                                                
+APP   DISPLACEMENT                                                              
+SOL   1,9                                                                       
+TIME  5                                                                         
+CEND                                                                            
+TITLE    = 10 CELL BEAM  RESTART WITH ENFORCED DEFORMATION, GRAVITY LOAD        
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D11-01-1B                          
+LABEL    = RIGID FORMAT SWITCH FROM 11 TO 1                                     
+  SPC    = 1                                                                    
+  DEFORM = 1102                                                                 
+  LOAD   = 1101                                                                 
+OUTPUT                                                                          
+  DISPLACEMENTS = ALL                                                           
+  OLOAD         = ALL                                                           
+  ELFORCE       = ALL                                                           
+BEGIN BULK                                                                      
+DEFORM  1102    10      0.089045                                                
+GRAV    1101            32.2    0.0     0.0     1.0                             
+ENDDATA                                                                         

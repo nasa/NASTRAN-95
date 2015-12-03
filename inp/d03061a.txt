@@ -1,0 +1,115 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 3, Approach Heat,
+$            Nonlinear Radiation and Conduction of a Cylinder (3-6-1)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the solution of a combined conduction and radiation
+$ heat transfer analysis. The model is a two-dimensional representation of a
+$ long cylinder subject to radiant heat from a distant source. The shell has
+$ internal radiation exchange, external radiation loss, and conduction around
+$ the circumference.
+$ 
+$ B. Input
+$ 
+$ The NASTRAN model uses ROD elements to represent the circumferential heat flow
+$ and HBDY elements to represent the inside and outside surfaces. The radiation
+$ exchange factors for the inside of the cylinder are defined on the RADMTX data
+$ cards. The incoming vector flux is defined on the QVECT data card. The model
+$ parameters are:
+$ 
+$ R  =  2.0 ft                      (Radius of shell)
+$ 
+$ t  =  .001 ft                     (Thickness)
+$ 
+$ l  =  20.306 ft                   (Axial length)
+$ 
+$ epsilon = alpha = 0.1             (Emissivity and absorptivity)
+$ 
+$                  2
+$ q  =  425 BTU/(ft -hr)            (Source flux density)
+$  v
+$ 
+$ k  =  94.5 BTU/(hr-ft-deg. F)      (Conductivity of shell)
+$ 
+$                  -8        2          4
+$ sigma = .174 x 10   BTU/(ft -hr-deg. R ) (Stefan-Boltzmann radiation
+$                                    constant)
+$ 
+$ C. Theory
+$ 
+$ A closed-form solution to this problem is not available. However, the solution
+$ may be validated by checking the global net heat flow, the local net heat
+$ exchange, and the estimated average temperature.
+$ 
+$ An estimate of the average temperature may be obtained from the equations:
+$ 
+$    Q   = alpha q  lR integral from -pi/2 to pi/2 of cos theta d theta =
+$     in          v
+$                                                                            (1)
+$    2 alpha lRq
+$               v
+$ 
+$ and
+$ 
+$                         _4
+$    Q    = epsilon sigma T  (2 pi Rl)                                       (2)
+$     out
+$ 
+$ where Q   is the total input from the source, Q    is the net flux radiated
+$        in   _                                  out
+$ outward and T is the average absolute temperature.
+$ 
+$ Since the net heat flow must be zero in a steady-state analysis, Equations (1)
+$ and (2) are equated to obtain:
+$ 
+$           q
+$    _4      v
+$    T  = --------                                                           (3)
+$         pi sigma
+$ 
+$ D. Results
+$ 
+$ The average value of temperature from the NASTRAN results shows 57.87 degrees
+$ F. The estimated average temperature from Equation (3) above is 68 degrees.
+$ The difference is due to the non-uniform radiation effects.
+$ 
+$ A second check is provided by computing the global net heat flow error in the
+$ system. Summing the net flow into each element gives a net heat flow error
+$ several orders of magnitude less than the total heat from the source. As a
+$ further check, the local net heat flow error at grid point 2 was calculated by
+$ summing the contributions from the connected elements. The heat flow terms, as
+$ calculated by NASTRAN, were:
+$ 
+$    Q      = 59.420     (Flow through ROD #2 (flux - area))
+$     2
+$ 
+$    Q      = 97.862     (Flow through ROD #3 (flux - area))
+$     3
+$ 
+$    Q      = -133.564   (Inside radiation flow into HBDY #42)
+$     r42
+$ 
+$    Q      = -85.352    (Inside radiation flow into HBDY #43)
+$     r43
+$ 
+$    Q      = -305.418   (Outside radiation into HBDY #22)
+$     r22
+$ 
+$    Q      = -257.930   (Outside radiation into HBDY #23)
+$     r23
+$ 
+$    Q      = 481.157    (Vector flux input to HBDY #22)
+$     v22
+$ 
+$    Q      = 381.848    (Vector flux input to HBDY #23)
+$     v23
+$ 
+$ The net flow error into grid point 2 is:
+$ 
+$    _    1
+$    Q  = - (Q    + Q    + Q    + Q    + Q    + Q   ) + Q  - Q  = 1.9 BTU    (4)
+$     2   2   r22    r23    r42    r43    v22    v23     2    3
+$ 
+$ This error is less than 1% of the total heat flow input at the point.
+$-------------------------------------------------------------------------------

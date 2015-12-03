@@ -1,0 +1,458 @@
+     NASTRAN TITLEOPT=-1                                                             
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01000A,PRINT RIGID FORMAT                                                
+     $=================================================================              
+     $     THIS DECK WILL PRINT THE NASTRAN DMAP COMPILE LISTING OF ANY              
+     $     RIGID FORMAT BY SPECIFYING THE FOLLOWING SOLUTION NUMBER AND              
+     $     APPLICATION.  JOB WILL AUTOMATICALLY STOP                                 
+     $                                                                               
+     SOL   6                                                                         
+     APP   DISP                                                                      
+     $=================================================================              
+     TIME  2                                                                         
+     DIAG  14,20                                                                     
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     TESTING                                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-00-0A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = TESTING                                                              
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-00-0A                          
+                  3      DISP = ALL                                                                      
+                  4      ECHO = NONE                                                                     
+                  5      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =     0, INCLUDING   0 COMMENT CARDS)
+0*** USER FATAL MESSAGE 204, COLD START NO BULK DATA.
+1     TESTING                                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-00-0A                                                                                   
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 06 - PIECEWISE LINEAR STATIC ANALYSIS - APR. 1995 $       
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     QG1=APPEND/UGV1=APPEND/KGGSUM=SAVE/PGV1=APPEND $               
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/MINUS1=-1 $                                             
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      12  COND     P1,JUMPPLOT $                                                  
+
+      13  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      14  PRTMSG   PLTSETX// $                                                    
+
+      15  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      16  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      17  COND     P1,JUMPPLOT $                                                  
+
+      18  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE $                 
+
+      19  PRTMSG   PLOTX1// $                                                     
+
+      20  LABEL    P1 $                                                           
+1     TESTING                                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-00-0A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/SLT,GPTT/S,N,NOGRAV $                       
+
+      22  PARAM    //*AND*/SKPMGG/NOGRAV/V,Y,GRDPNT $                             
+
+      23  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,ECPT,GPCT,
+                   MPTX,PCOMPS,EPTX/LUSET/S,N,NOSIMP/2/S,N,NOGENL/GENEL/S,N,COMPS 
+
+      24  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      25  PARAM    //*AND*/NOELMT/NOGENL/NOSIMP $                                 
+
+      26  COND     ERROR4,NOELMT $                                                
+
+      27  PURGE    KGGX/NOSIMP $                                                  
+
+      28  COND     LBL1,NOSIMP $                                                  
+
+      29  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      30  PARAM    //*ADD*/NOMGG/1/0 $                                            
+
+      31  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/C,Y,CPROD/                 
+                   C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/C,Y,CPTUBE/    
+                   C,Y,CPQDPLT/C,Y,CTRPLT/C,Y,CPTRBSC/                            
+                   C,Y,VOLUME/C,Y,SURFACE $                                       
+
+      32  PURGE    KGGX/NOKGGX/MGG/NOMGG $                                        
+
+      33  COND     JMPKGG,NOKGGX $                                                
+
+      34  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      35  PURGE    KDICT,KELM/MINUS1 $                                            
+
+      36  LABEL    JMPKGG $                                                       
+
+      37  COND     JMPMGG,NOMGG $                                                 
+
+      38  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      39  PURGE    MDICT,MELM/MINUS1 $                                            
+
+      40  LABEL    JMPMGG $                                                       
+
+      41  COND     LBL1,GRDPNT $                                                  
+1     TESTING                                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-00-0A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      42  COND     ERROR3,NOMGG $                                                 
+
+      43  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/V,Y,WTMASS $         
+
+      44  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      45  LABEL    LBL1 $                                                         
+
+      46  PLA1     CSTM,MPT,ECPT,GPCT,DIT,CASECC,EST/KGGXL,ECPTNL,ESTL,ESTNL/S,N, 
+                   KGGLPG/S,N,NPLALIM/S,N,ECPTNLPG/S,N,PLSETNO/S,N,NONLSTR/S,N,   
+                   PLFACT $                                                       
+
+      47  COND     ERROR1,ECPTNLPG $                                              
+
+      48  PURGE    ONLES,ESTNL1/NONLSTR $                                         
+
+      49  PARAM    //*ADD*/ALWAYS/-1/0 $                                          
+
+      50  PARAM    //*ADD*/NEVER/1/0 $                                            
+
+      51  EQUIV    KGGX,KGG/NOGENL/KGGXL,KGGL/NOGENL $                            
+
+      52  COND     LBL11,NOGENL $                                                 
+
+      53  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      54  SMA3     GEI,KGGXL/KGGL/LUSET/NOGENL/KGGLPG $                           
+
+      55  LABEL    LBL11 $                                                        
+
+      56  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      57  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      58  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      59  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      60  PARAM    //*AND*/NOSR/SINGLE/REACT $                                    
+
+      61  PURGE    KRR,KLR,QR,DM/REACT/GM/MPCF1/GO,KOO,LOO,PO,UOOV,RUOV/OMIT/PS,  
+                   KFS,KSS/SINGLE/QG/NOSR $                                       
+1     TESTING                                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-00-0A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      62  SSG1     SLT,BGPDT,CSTM,SIL,EST,MPT,,,MGG,CASECC,DIT,PCOMPS/PG1,,,,/    
+                   LUSET/1/COMPS $                                                
+
+      63  EQUIV    PG1,PL/NOSET $                                                 
+
+      64  PARAM    //*ADD*/PLACOUNT/1/0 $                                         
+
+      65  EQUIV    KGG,KNN/MPCF1 $                                                
+
+      66  COND     LBL2,MPCF1 $                                                   
+
+      67  MCE1     USET,RG/GM $                                                   
+
+      68  LABEL    LOOPBGN $                                                      
+
+      69  EQUIV    KGG,KNN/MPCF1 $                                                
+
+      70  COND     LBL2,MPCF1 $                                                   
+
+      71  MCE2     USET,GM,KGG,,,/KNN,,, $                                        
+
+      72  LABEL    LBL2 $                                                         
+
+      73  EQUIV    KNN,KFF/SINGLE $                                               
+
+      74  COND     LBL3,SINGLE $                                                  
+
+      75  SCE1     USET,KNN,,,/KFF,KFS,KSS,,, $                                   
+
+      76  LABEL    LBL3 $                                                         
+
+      77  EQUIV    KFF,KAA/OMIT $                                                 
+
+      78  COND     LBL5,OMIT $                                                    
+
+      79  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      80  LABEL    LBL5 $                                                         
+
+      81  EQUIV    KAA,KLL/REACT $                                                
+
+      82  COND     LBL6,REACT $                                                   
+
+      83  RBMG1    USET,KAA,/KLL,KLR,KRR,,, $                                     
+
+      84  LABEL    LBL6 $                                                         
+1     TESTING                                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-00-0A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      85  DECOMP   KLL/LLL,/1/0/MINDIAGK/DETKLLXX/IDETKLLX/                       
+                   S,N,SINGKLLX $                                                 
+
+      86  COND     PLALBL4,SINGKLLX $                                             
+
+      87  COND     LBL7,REACT $                                                   
+
+      88  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      89  LABEL    LBL7 $                                                         
+
+      90  ADD      PG1,/PG/PLFACT $                                               
+
+      91  COND     LBL10,NOSET  $                                                 
+
+      92  SSG2     USET,GM,YS,KFS,GO,DM,PG/QR,PO,PS,PL $                          
+
+      93  LABEL    LBL10  $                                                       
+
+      94  SSG3     LLL,KLL,PL,LOO,KOO,PO/ULV,UOOV,RULV,RUOV/OMIT/V,Y,IRES=-1/     
+                   PLACOUNT/S,N,EPSI $                                            
+
+      95  COND     LBL9,IRES   $                                                  
+
+      96  MATGPR   GPL,USET,SIL,RULV//*L* $                                       
+
+      97  MATGPR   GPL,USET,SIL,RUOV//*O* $                                       
+
+      98  LABEL    LBL9  $                                                        
+
+      99  SDR1     USET,PG,ULV,UOOV,YS,GO,GM,PS,KFS,KSS,QR/DELTAUGV,DELTAPG,      
+                   DELTAQG/1/*STATICS* $                                          
+
+     100  PLA2     DELTAUGV,DELTAPG,DELTAQG/UGV1,PGV1,QG1/S,N,PLACOUNT $          
+
+     101  EQUIV    ESTNL,ESTNL1/NEVER/ECPTNL,ECPTNL1/NEVER $                      
+
+     102  COND     PLALBL2A,NONLSTR $                                             
+
+     103  PLA3     CSTM,MPT,DIT,DELTAUGV,ESTNL,CASECC/ONLES,ESTNL1/PLACOUNT/      
+                   PLSETNO $                                                      
+
+     104  OFP      ONLES,,,,,//S,N,CARDNO $                                       
+
+     105  LABEL    PLALBL2A $                                                     
+1     TESTING                                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-00-0A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     106  PARAM    //*SUB*/DIFF/NPLALIM/PLACOUNT $                                
+
+     107  COND     PLALBL5,DIFF $                                                 
+
+     108  PLA4     CSTM,MPT,ECPTNL,GPCT,DIT,DELTAUGV/KGGNL,ECPTNL1/S,N,PLACOUNT/  
+                   S,N,PLSETNO/S,N,PLFACT $                                       
+
+     109  EQUIV    KGGNL,KGGSUM/KGGLPG $                                          
+
+     110  COND     PLALBL3,KGGLPG $                                               
+
+     111  ADD      KGGNL,KGGL/KGGSUM/(1.0,0.0)/(1.0,0.0) $                        
+
+     112  LABEL    PLALBL3 $                                                      
+
+     113  EQUIV    ESTNL1,ESTNL/ALWAYS/ECPTNL1,ECPTNL/ALWAYS/KGGSUM,KGG/ALWAYS $  
+
+     114  REPT     LOOPBGN,360 $                                                  
+
+     115  JUMP     ERROR2 $                                                       
+
+     116  LABEL    PLALBL4 $                                                      
+
+     117  PRTPARM  //-5/*PLA* $                                                   
+
+     118  LABEL     PLALBL5 $                                                     
+
+     119  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDP,,QG1,UGV1,ESTL,, 
+                   PGV1,PCOMPS/OPG1,OQG1,OUGV1,OES1,OEF1,PUGV1,OES1L,OEF1L/       
+                   *PLA*////COMPS $                                               
+
+     120  OFP      OUGV1,OPG1,OQG1,OEF1,OES1,//S,N,CARDNO $                       
+
+     121  OFP      OEF1L,OES1L,,,,//S,N,CARDNO $                                  
+
+     122  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
+
+     123  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
+
+     124  COND     P2,JUMPPLOT $                                                  
+
+     125  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,PUGV1,,ECPT,OES1, 
+                   OES1L,/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $           
+
+     126  PRTMSG   PLOTX2// $                                                     
+1     TESTING                                                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-00-0A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     127  LABEL    P2 $                                                           
+
+     128  JUMP     FINIS $                                                        
+
+     129  LABEL    ERROR1 $                                                       
+
+     130  PRTPARM  //-1/*PLA* $                                                   
+
+     131  LABEL    ERROR2 $                                                       
+
+     132  PRTPARM  //-2/*PLA* $                                                   
+
+     133  LABEL    ERROR3 $                                                       
+
+     134  PRTPARM  //-3/*PLA* $                                                   
+
+     135  LABEL    ERROR4 $                                                       
+
+     136  PRTPARM  //-4/*PLA* $                                                   
+
+     137  LABEL    FINIS $                                                        
+
+     138  PURGE    DUMMY/MINUS1 $                                                 
+
+     139  END      $                                                              
+
+
+ *** JOB TERMINATED BY DIAG 20
+
+
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  TESTING                                                            
+ DATE:  5/17/95
+ END TIME: 13:59:46
+ TOTAL WALL CLOCK TIME      0 SEC.
+ 

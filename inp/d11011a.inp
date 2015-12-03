@@ -1,0 +1,142 @@
+NASTRAN FILES=(NPTP,PLT2)                                                       
+ID    D11011A,NASTRAN                                                           
+CHKPNT YES                                                                      
+APP    DISPLACEMENT                                                             
+SOL    11,3                                                                     
+DIAG   14                                                                       
+TIME   25                                                                       
+ALTER  86 $                                                                     
+MATPRN   PHIA,,,,// $                                                           
+ENDALTER $                                                                      
+CEND                                                                            
+MAXLINES = 50000                                                                
+TITLE    = FREQUENCY RESPONSE AND RANDOM ANALYSIS OF A 10 CELL BEAM             
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D11-01-1A                          
+     SPC = 11                                                                   
+  METHOD = 2                                                                    
+FREQUENCY= 508                                                                  
+  RANDOM = 11                                                                   
+SDAMPING = 11                                                                   
+OUTPUT                                                                          
+  SET  2 = 5,10                                                                 
+  SET  6 = 6                                                                    
+  SET 10 = 6,11                                                                 
+  DISP(SORT2,PHASE)    = 10                                                     
+  ACCELER(SORT2,PHASE) = 10                                                     
+  OLOAD = 6                                                                     
+  ELFORCE(SORT2,PHASE) = 2                                                      
+SUBCASE 1                                                                       
+        LABEL =   THREE POINTS LOADED WITH TWO SETS                             
+        DLOAD = 506                                                             
+SUBCASE 2                                                                       
+        LABEL =   ONE POINT LOADED WITH TWO SETS AND TIME DELAYS                
+        DLOAD = 507                                                             
+SUBCASE 3                                                                       
+        LABEL =   ONE POINT LOADED WITH TWO TABULAR LOADS                       
+        DLOAD = 510                                                             
+$                                                                               
+$ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *         
+$                                                                               
+$                                                                               
+PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D11-01-1A                            
+OUTPUT(XYOUT)                                                                   
+PLOTTER = NASTPLT                                                               
+        CAMERA = 3                                                              
+        SKIP BETWEEN FRAMES = 1                                                 
+        XGRID LINE = YES                                                        
+        YGRID LINE = YES                                                        
+     XTITLE =                       FREQUENCY (HERTZ)                           
+     YTITLE = S                                                                 
+     TCURVE = POWER SPECTRAL DENSITY OF POINT 6  DISPLACEMENT                   
+   XYPLOT,XYPRINT DISP PSDF /  6(T3)                                            
+$                                                                               
+     TCURVE = POWER SPECTRAL DENSITY OF POINT 6 ACCELERATION                    
+   XYPLOT ACCELERATION PSDF / 6(T3)                                             
+$                                                                               
+     XTITLE =                      TIME LAG (SECONDS)                           
+     YTITLE = R                                                                 
+     TCURVE = AUTOCORRELATION FUNCTION FOR POINT 6  DISPLACEMENT                
+   XYPLOT,XYPRINT DISP AUTO /  6(T3)                                            
+BEGIN BULK                                                                      
+CBAR    3       1       3       4       20.     .0      1.      1               
+CBAR    4       1       4       5       20.     .0      1.      1               
+CBAR    5       1       5       6       20.     .0      1.      1               
+CBAR    6       1       6       7       20.     .0      1.      1               
+CBAR    7       1       7       8       20.     .0      1.      1               
+CBAR    8       1       8       9       20.     .0      1.      1               
+CBAR    9       1       9       10      20.     .0      1.      1               
+CBAR    10      1       10      11      20.     .0      1.      1               
+CONM2  *11              1                               5.34604-3       *M1     
+*M1     .0                                                                      
+CONM2  *12              2                               1.069208-2      *M2     
+*M2     .0              .0                                                      
+CONM2  *13              3                               5.34604-3       *M3     
+*M3                                                                             
+DAREA   2       5       5       -100.                                           
+DAREA   2       6       3       50.     5       3       50.                     
+DAREA   2       7       3       50.     7       5       100.                    
+DAREA   3       6       3       100.                                            
+DAREA   510     6       3       1.0                                             
+DELAY   1       6       3       .5555-2                                         
+DLOAD   506     1.      1.      5       1.      6                               
+DLOAD   507     1.      1.      5       1.      7                               
+DLOAD   510     2.0     1.0     5101    1.0     5102                            
+DPHASE  1       6       3       30.                                             
+DPHASE  5102    6       3       -30.0                                           
+EIGR    2       INV     40.0    1000.0  3       5                       +EG     
++EG     MASS                                                                    
+FREQ1   508     .0      5.0     40                                              
+GENEL   1101            2       1       2       3       2       5       +1      
++1      3       1       3       3       3       5                       +2      
++2      UD              1       1       1       3       1       5       *30     
+*30     Z               .89044935-8     .0              .0              *31     
+*31     .89044935-8     .0              .0              3.08928-6       *40     
+*40     -2.31696-6      .0              7.7232005-6     -2.31696-6      *41     
+*41     2.31696-6       .0              -6.950884-6     2.31696-6       *50     
+*50     1.7808987-8     .0              .0              24.714241-6     *51     
+*51     -9.26784-6      4.6339203-6                                     +60     
++60     S       1.0     .0      .0      .0      1.0     -2.0    .0      +70     
++70     .0      1.0     1.0     .0      .0      .0      1.0     -4.0    +80     
++80     .0      .0      1.0                                                     
+GRDSET                                                  246                     
+GRID    1               .0      .0      .0                                      
+GRID    2               2.      .0      .0                                      
+GRID    3               4.      .0      .0                                      
+GRID    4               6.      .0      .0                                      
+GRID    5               8.      .0      .0                                      
+GRID    6               10.     .0      .0                                      
+GRID    7               12.     .0      .0                                      
+GRID    8               14.     .0      .0                                      
+GRID    9               16.     .0      .0                                      
+GRID    10              18.     .0      .0                                      
+GRID    11              20.     .0      .0                                      
+MAT1    1       10.4+6  4.+6            .2523-3                                 
+PARAM   GRDPNT  0                                                               
+PARAM   LMODES  4                                                               
+PBAR    1       1       21.18922.083    .083                                    
+RANDPS  11      1       1       .5              11                              
+RANDPS  11      1       3       .5              11                              
+RANDPS  11      2       2       1.0             11                              
+RANDPS  11      3       3       .5              11                              
+RANDT1  11      100     .0      .1                                              
+RLOAD1  5101    510                     5101                                    
+RLOAD1  5102    510             5102            5102                            
+RLOAD2  5       2                       1                                       
+RLOAD2  6       3               1       1       2                               
+RLOAD2  7       3       1               1                                       
+SPC     1       1       13              11      13                              
+SPC     11      1       13              11      3                               
+TABDMP1 11                                                              +DAMP   
++DAMP   .0      .0      50.0    .02     ENDT                                    
+TABLED1 1                                                               +TAUU   
++TAUU   .0      1.      100.    1.      ENDT                                    
+TABLED1 2                                                               +TAD21  
++TAD21  .0      30.     100.    30.     ENDT                                    
+TABLED1 5101                                                            +TAD30  
++TAD30  .0      75.0    100.    75.0    ENDT                                    
+TABLED1 5102                                                            +TAD31  
++TAD31  .0      50.0    100.    50.0    ENDT                                    
+TABRND1 11                                                              +TR     
++TR     -1.0    .0      .0      100.0   100.0   100.0   100.0   .0      +TR2    
++TR2    101.0   .0      ENDT                                                    
+ENDDATA                                                                         

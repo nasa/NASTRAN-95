@@ -1,0 +1,70 @@
+ID    T05031A,NASTRAN                                                           
+SOL   5,0                                                                       
+APP   DISP                                                                      
+TIME  200                                                                       
+CEND                                                                            
+TITLE    = BUCKLING ANALYSIS USING CIS2D8 ELEMENTS                              
+SUBTITLE = NASTRAN TEST PROBLEM NO. T05-03-1A                                   
+STRESS   = ALL                                                                  
+DISP     = ALL                                                                  
+OLOAD    = ALL                                                                  
+SUBCASE 1                                                                       
+  LABEL = STATIC SOLUTION                                                       
+  LOAD  = 4                                                                     
+  TEMP(LOAD)=3                                                                  
+SUBCASE 2                                                                       
+  LABEL = BUCKLING SOLUTION                                                     
+  METHOD= 1                                                                     
+BEGIN BULK                                                                      
+CIS2D8  1       1       1       7       9       3       4       8       +C1     
++C1     6       2       3                                                       
+CIS2D8  2       1       7       13      15      9       10      14      +C2     
++C2     12      8       3                                                       
+CIS2D8  3       1       13      19      21      15      16      20      +C3     
++C3     18      14      3                                                       
+CIS2D8  4       1       19      25      27      21      22      26      +C4     
++C4     24      20      3                                                       
+CIS2D8  5       1       25      31      33      27      28      32      +C5     
++C5     30      26      3                                                       
+EIGB    1       INV     5.      10.     1       1       0               +EIGB   
++EIGB   MAX                                                                     
+FORCE   1       31      0       166.6667-1.     0.      0.                      
+FORCE   1       32      0       666.6666-1.     0.      0.                      
+FORCE   1       33      0       166.6667-1.     0.      0.                      
+GRAV    2               5.      0.      1.      0.                              
+GRDSET                                                  3456                    
+GRID    1               0.      0.                      123456                  
+GRID    2               0.      .5                      123456                  
+GRID    3               0.      1.                      123456                  
+GRID    4               1.      0.                                              
+GRID    6               1.      1.                                              
+GRID    7               2.      0.                                              
+GRID    8               2.      .5                                              
+GRID    9               2.      1.                                              
+GRID    10              3.      0.                                              
+GRID    12              3.      1.                                              
+GRID    13              4.      0.                                              
+GRID    14              4.      .5                                              
+GRID    15              4.      1.                                              
+GRID    16              5.      0.                                              
+GRID    18              5.      1.                                              
+GRID    19              6.      0.                                              
+GRID    20              6.      .5                                              
+GRID    21              6.      1.                                              
+GRID    22              7.      0.                                              
+GRID    24              7.      1.                                              
+GRID    25              8.      0.                                              
+GRID    26              8.      .5                                              
+GRID    27              8.      1.                                              
+GRID    28              9.      0.                                              
+GRID    30              9.      1.                                              
+GRID    31              10.     0.                                              
+GRID    32              10.     .5                                              
+GRID    33              10.     1.                                              
+LOAD    4       1.      1.      1       1.      2                               
+MAT1    1       3.+7            .3      7.324-4 .001    5.                      
+PIS2D8  1       1       .1                                                      
+TEMPD   3       20.                                                             
+ENDDATA                                                                         
+/EOF                                                                            
++C1     6       2       3                                                       

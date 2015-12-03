@@ -1,0 +1,1389 @@
+     NASTRAN FILES=PLT2                                                              
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D03011A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   3,1                                                                       
+     TIME  35                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = VIBRATIONS OF A 10 BY 20 PLATE                                       
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                          
+                  3      $                                                                               
+                  4           SPC = 37                                                                   
+                  5        METHOD = 5 $ ENCLOSE 2 MODES - FINDS 3 ROOTS                                  
+                  6      $              ROOTS ARE AT THE FOLLOWING FREQUENCIES (THEORETICAL)             
+                  7      $       MODE    M       N       FREQ                                            
+                  8      $       1       1       1       9.068997E-1                                     
+                  9      $       2       1       2       2.267249                                        
+                 10      $       5       1       3       4.534498                                        
+                 11      $       6       3       1       4.534498                                        
+                 12      $       7       3       2       5.894848                                        
+                 13      $       9       1       4       7.708647                                        
+                 14      $                                                                               
+                 15      OUTPUT                                                                          
+                 16         SET 1 = 1 THRU 11, 34 THRU 44, 56 THRU 66, 78 THRU 88, 111 THRU 121          
+                 17         SET 2 = 1 THRU 12, 22,23,33,34,44,45,55,56,66,67,77,78,88,89,                
+                 18                 99,100, 110 THRU 121                                                 
+                 19         DISPLACEMENTS = 1                                                            
+                 20         SPCFORCE = 2                                                                 
+                 21      $                                                                               
+                 22      $                                                                               
+                 23      $                                                                               
+                 24      PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                            
+                 25      OUTPUT(PLOT)                                                                    
+                 26      PLOTTER NASTPLT                                                                 
+                 27              SET 1 INCLUDE PLOTEL                                                    
+                 28              SET 2 INCLUDE QUAD1                                                     
+                 29              MAXIMUM DEFORMATION  1.0                                                
+                 30              FIND SCALE, ORIGIN 10                                                   
+                 31      PTITLE = ALL QUADS IN THE PLATE                                                 
+                 32      PLOT ORIGIN 10, SET 2, LABELS                                                   
+                 33      PLOT SET 2,SHRINK .6,NOFIND                                                     
+                 34      PLOT SET 2,HIDDEN,NOFIND                                                        
+                 35              FIND SCALE, ORIGIN 11                                                   
+                 36      PTITLE = MODE SHAPES USING PLOTEL ELEMENTS                                      
+                 37      PLOT MODAL DEFORMATION 1, ORIGIN 11, SHAPE                                      
+                 38      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   520, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CNGRNT  1       2       THRU    219                                             
+                    2-        CQUAD1  1       23      1       2       13      12      .00                     
+                    3-        CQUAD1  2       23      2       3       14      13      .00                     
+                    4-        CQUAD1  3       23      3       4       15      14      .00                     
+                    5-        CQUAD1  4       23      4       5       16      15      .00                     
+                    6-        CQUAD1  5       23      5       6       17      16      .00                     
+                    7-        CQUAD1  6       23      6       7       18      17      .00                     
+                    8-        CQUAD1  7       23      7       8       19      18      .00                     
+                    9-        CQUAD1  8       23      8       9       20      19      .00                     
+                   10-        CQUAD1  9       23      9       10      21      20      .00                     
+                   11-        CQUAD1  10      23      10      11      22      21      .00                     
+                   12-        CQUAD1  12      23      12      13      24      23      .00                     
+                   13-        CQUAD1  13      23      13      14      25      24      .00                     
+                   14-        CQUAD1  14      23      14      15      26      25      .00                     
+                   15-        CQUAD1  15      23      15      16      27      26      .00                     
+                   16-        CQUAD1  16      23      16      17      28      27      .00                     
+                   17-        CQUAD1  17      23      17      18      29      28      .00                     
+                   18-        CQUAD1  18      23      18      19      30      29      .00                     
+                   19-        CQUAD1  19      23      19      20      31      30      .00                     
+                   20-        CQUAD1  20      23      20      21      32      31      .00                     
+                   21-        CQUAD1  21      23      21      22      33      32      .00                     
+                   22-        CQUAD1  23      23      23      24      35      34      .00                     
+                   23-        CQUAD1  24      23      24      25      36      35      .00                     
+                   24-        CQUAD1  25      23      25      26      37      36      .00                     
+                   25-        CQUAD1  26      23      26      27      38      37      .00                     
+                   26-        CQUAD1  27      23      27      28      39      38      .00                     
+                   27-        CQUAD1  28      23      28      29      40      39      .00                     
+                   28-        CQUAD1  29      23      29      30      41      40      .00                     
+                   29-        CQUAD1  30      23      30      31      42      41      .00                     
+                   30-        CQUAD1  31      23      31      32      43      42      .00                     
+                   31-        CQUAD1  32      23      32      33      44      43      .00                     
+                   32-        CQUAD1  34      23      34      35      46      45      .00                     
+                   33-        CQUAD1  35      23      35      36      47      46      .00                     
+                   34-        CQUAD1  36      23      36      37      48      47      .00                     
+                   35-        CQUAD1  37      23      37      38      49      48      .00                     
+                   36-        CQUAD1  38      23      38      39      50      49      .00                     
+                   37-        CQUAD1  39      23      39      40      51      50      .00                     
+                   38-        CQUAD1  40      23      40      41      52      51      .00                     
+                   39-        CQUAD1  41      23      41      42      53      52      .00                     
+                   40-        CQUAD1  42      23      42      43      54      53      .00                     
+                   41-        CQUAD1  43      23      43      44      55      54      .00                     
+                   42-        CQUAD1  45      23      45      46      57      56      .00                     
+                   43-        CQUAD1  46      23      46      47      58      57      .00                     
+                   44-        CQUAD1  47      23      47      48      59      58      .00                     
+                   45-        CQUAD1  48      23      48      49      60      59      .00                     
+                   46-        CQUAD1  49      23      49      50      61      60      .00                     
+                   47-        CQUAD1  50      23      50      51      62      61      .00                     
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CQUAD1  51      23      51      52      63      62      .00                     
+                   49-        CQUAD1  52      23      52      53      64      63      .00                     
+                   50-        CQUAD1  53      23      53      54      65      64      .00                     
+                   51-        CQUAD1  54      23      54      55      66      65      .00                     
+                   52-        CQUAD1  56      23      56      57      68      67      .00                     
+                   53-        CQUAD1  57      23      57      58      69      68      .00                     
+                   54-        CQUAD1  58      23      58      59      70      69      .00                     
+                   55-        CQUAD1  59      23      59      60      71      70      .00                     
+                   56-        CQUAD1  60      23      60      61      72      71      .00                     
+                   57-        CQUAD1  61      23      61      62      73      72      .00                     
+                   58-        CQUAD1  62      23      62      63      74      73      .00                     
+                   59-        CQUAD1  63      23      63      64      75      74      .00                     
+                   60-        CQUAD1  64      23      64      65      76      75      .00                     
+                   61-        CQUAD1  65      23      65      66      77      76      .00                     
+                   62-        CQUAD1  67      23      67      68      79      78      .00                     
+                   63-        CQUAD1  68      23      68      69      80      79      .00                     
+                   64-        CQUAD1  69      23      69      70      81      80      .00                     
+                   65-        CQUAD1  70      23      70      71      82      81      .00                     
+                   66-        CQUAD1  71      23      71      72      83      82      .00                     
+                   67-        CQUAD1  72      23      72      73      84      83      .00                     
+                   68-        CQUAD1  73      23      73      74      85      84      .00                     
+                   69-        CQUAD1  74      23      74      75      86      85      .00                     
+                   70-        CQUAD1  75      23      75      76      87      86      .00                     
+                   71-        CQUAD1  76      23      76      77      88      87      .00                     
+                   72-        CQUAD1  78      23      78      79      90      89      .00                     
+                   73-        CQUAD1  79      23      79      80      91      90      .00                     
+                   74-        CQUAD1  80      23      80      81      92      91      .00                     
+                   75-        CQUAD1  81      23      81      82      93      92      .00                     
+                   76-        CQUAD1  82      23      82      83      94      93      .00                     
+                   77-        CQUAD1  83      23      83      84      95      94      .00                     
+                   78-        CQUAD1  84      23      84      85      96      95      .00                     
+                   79-        CQUAD1  85      23      85      86      97      96      .00                     
+                   80-        CQUAD1  86      23      86      87      98      97      .00                     
+                   81-        CQUAD1  87      23      87      88      99      98      .00                     
+                   82-        CQUAD1  89      23      89      90      101     100     .00                     
+                   83-        CQUAD1  90      23      90      91      102     101     .00                     
+                   84-        CQUAD1  91      23      91      92      103     102     .00                     
+                   85-        CQUAD1  92      23      92      93      104     103     .00                     
+                   86-        CQUAD1  93      23      93      94      105     104     .00                     
+                   87-        CQUAD1  94      23      94      95      106     105     .00                     
+                   88-        CQUAD1  95      23      95      96      107     106     .00                     
+                   89-        CQUAD1  96      23      96      97      108     107     .00                     
+                   90-        CQUAD1  97      23      97      98      109     108     .00                     
+                   91-        CQUAD1  98      23      98      99      110     109     .00                     
+                   92-        CQUAD1  100     23      100     101     112     111     .00                     
+                   93-        CQUAD1  101     23      101     102     113     112     .00                     
+                   94-        CQUAD1  102     23      102     103     114     113     .00                     
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CQUAD1  103     23      103     104     115     114     .00                     
+                   96-        CQUAD1  104     23      104     105     116     115     .00                     
+                   97-        CQUAD1  105     23      105     106     117     116     .00                     
+                   98-        CQUAD1  106     23      106     107     118     117     .00                     
+                   99-        CQUAD1  107     23      107     108     119     118     .00                     
+                  100-        CQUAD1  108     23      108     109     120     119     .00                     
+                  101-        CQUAD1  109     23      109     110     121     120     .00                     
+                  102-        CQUAD1  111     23      111     112     123     122     .00                     
+                  103-        CQUAD1  112     23      112     113     124     123     .00                     
+                  104-        CQUAD1  113     23      113     114     125     124     .00                     
+                  105-        CQUAD1  114     23      114     115     126     125     .00                     
+                  106-        CQUAD1  115     23      115     116     127     126     .00                     
+                  107-        CQUAD1  116     23      116     117     128     127     .00                     
+                  108-        CQUAD1  117     23      117     118     129     128     .00                     
+                  109-        CQUAD1  118     23      118     119     130     129     .00                     
+                  110-        CQUAD1  119     23      119     120     131     130     .00                     
+                  111-        CQUAD1  120     23      120     121     132     131     .00                     
+                  112-        CQUAD1  122     23      122     123     134     133     .00                     
+                  113-        CQUAD1  123     23      123     124     135     134     .00                     
+                  114-        CQUAD1  124     23      124     125     136     135     .00                     
+                  115-        CQUAD1  125     23      125     126     137     136     .00                     
+                  116-        CQUAD1  126     23      126     127     138     137     .00                     
+                  117-        CQUAD1  127     23      127     128     139     138     .00                     
+                  118-        CQUAD1  128     23      128     129     140     139     .00                     
+                  119-        CQUAD1  129     23      129     130     141     140     .00                     
+                  120-        CQUAD1  130     23      130     131     142     141     .00                     
+                  121-        CQUAD1  131     23      131     132     143     142     .00                     
+                  122-        CQUAD1  133     23      133     134     145     144     .00                     
+                  123-        CQUAD1  134     23      134     135     146     145     .00                     
+                  124-        CQUAD1  135     23      135     136     147     146     .00                     
+                  125-        CQUAD1  136     23      136     137     148     147     .00                     
+                  126-        CQUAD1  137     23      137     138     149     148     .00                     
+                  127-        CQUAD1  138     23      138     139     150     149     .00                     
+                  128-        CQUAD1  139     23      139     140     151     150     .00                     
+                  129-        CQUAD1  140     23      140     141     152     151     .00                     
+                  130-        CQUAD1  141     23      141     142     153     152     .00                     
+                  131-        CQUAD1  142     23      142     143     154     153     .00                     
+                  132-        CQUAD1  144     23      144     145     156     155     .00                     
+                  133-        CQUAD1  145     23      145     146     157     156     .00                     
+                  134-        CQUAD1  146     23      146     147     158     157     .00                     
+                  135-        CQUAD1  147     23      147     148     159     158     .00                     
+                  136-        CQUAD1  148     23      148     149     160     159     .00                     
+                  137-        CQUAD1  149     23      149     150     161     160     .00                     
+                  138-        CQUAD1  150     23      150     151     162     161     .00                     
+                  139-        CQUAD1  151     23      151     152     163     162     .00                     
+                  140-        CQUAD1  152     23      152     153     164     163     .00                     
+                  141-        CQUAD1  153     23      153     154     165     164     .00                     
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        CQUAD1  155     23      155     156     167     166     .00                     
+                  143-        CQUAD1  156     23      156     157     168     167     .00                     
+                  144-        CQUAD1  157     23      157     158     169     168     .00                     
+                  145-        CQUAD1  158     23      158     159     170     169     .00                     
+                  146-        CQUAD1  159     23      159     160     171     170     .00                     
+                  147-        CQUAD1  160     23      160     161     172     171     .00                     
+                  148-        CQUAD1  161     23      161     162     173     172     .00                     
+                  149-        CQUAD1  162     23      162     163     174     173     .00                     
+                  150-        CQUAD1  163     23      163     164     175     174     .00                     
+                  151-        CQUAD1  164     23      164     165     176     175     .00                     
+                  152-        CQUAD1  166     23      166     167     178     177     .00                     
+                  153-        CQUAD1  167     23      167     168     179     178     .00                     
+                  154-        CQUAD1  168     23      168     169     180     179     .00                     
+                  155-        CQUAD1  169     23      169     170     181     180     .00                     
+                  156-        CQUAD1  170     23      170     171     182     181     .00                     
+                  157-        CQUAD1  171     23      171     172     183     182     .00                     
+                  158-        CQUAD1  172     23      172     173     184     183     .00                     
+                  159-        CQUAD1  173     23      173     174     185     184     .00                     
+                  160-        CQUAD1  174     23      174     175     186     185     .00                     
+                  161-        CQUAD1  175     23      175     176     187     186     .00                     
+                  162-        CQUAD1  177     23      177     178     189     188     .00                     
+                  163-        CQUAD1  178     23      178     179     190     189     .00                     
+                  164-        CQUAD1  179     23      179     180     191     190     .00                     
+                  165-        CQUAD1  180     23      180     181     192     191     .00                     
+                  166-        CQUAD1  181     23      181     182     193     192     .00                     
+                  167-        CQUAD1  182     23      182     183     194     193     .00                     
+                  168-        CQUAD1  183     23      183     184     195     194     .00                     
+                  169-        CQUAD1  184     23      184     185     196     195     .00                     
+                  170-        CQUAD1  185     23      185     186     197     196     .00                     
+                  171-        CQUAD1  186     23      186     187     198     197     .00                     
+                  172-        CQUAD1  188     23      188     189     200     199     .00                     
+                  173-        CQUAD1  189     23      189     190     201     200     .00                     
+                  174-        CQUAD1  190     23      190     191     202     201     .00                     
+                  175-        CQUAD1  191     23      191     192     203     202     .00                     
+                  176-        CQUAD1  192     23      192     193     204     203     .00                     
+                  177-        CQUAD1  193     23      193     194     205     204     .00                     
+                  178-        CQUAD1  194     23      194     195     206     205     .00                     
+                  179-        CQUAD1  195     23      195     196     207     206     .00                     
+                  180-        CQUAD1  196     23      196     197     208     207     .00                     
+                  181-        CQUAD1  197     23      197     198     209     208     .00                     
+                  182-        CQUAD1  199     23      199     200     211     210     .00                     
+                  183-        CQUAD1  200     23      200     201     212     211     .00                     
+                  184-        CQUAD1  201     23      201     202     213     212     .00                     
+                  185-        CQUAD1  202     23      202     203     214     213     .00                     
+                  186-        CQUAD1  203     23      203     204     215     214     .00                     
+                  187-        CQUAD1  204     23      204     205     216     215     .00                     
+                  188-        CQUAD1  205     23      205     206     217     216     .00                     
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  189-        CQUAD1  206     23      206     207     218     217     .00                     
+                  190-        CQUAD1  207     23      207     208     219     218     .00                     
+                  191-        CQUAD1  208     23      208     209     220     219     .00                     
+                  192-        CQUAD1  210     23      210     211     222     221     .00                     
+                  193-        CQUAD1  211     23      211     212     223     222     .00                     
+                  194-        CQUAD1  212     23      212     213     224     223     .00                     
+                  195-        CQUAD1  213     23      213     214     225     224     .00                     
+                  196-        CQUAD1  214     23      214     215     226     225     .00                     
+                  197-        CQUAD1  215     23      215     216     227     226     .00                     
+                  198-        CQUAD1  216     23      216     217     228     227     .00                     
+                  199-        CQUAD1  217     23      217     218     229     228     .00                     
+                  200-        CQUAD1  218     23      218     219     230     229     .00                     
+                  201-        CQUAD1  219     23      219     220     231     230     .00                     
+                  202-        EIGR    2       INV     .85     .89     1       1       0               CSIMPL-I
+                  203-        +SIMPL-IMAX                                                                     
+                  204-        EIGR    3       INV     .89     1.0     1       3       0               +EIG3-1 
+                  205-        +EIG3-1 MAX                                                                     
+                  206-        EIGR    4       DET     .89     1.0     1       1       0               +EIG4-1 
+                  207-        +EIG4-1 MAX                                                                     
+                  208-        EIGR    5       INV     .89     2.4     1       3       0               +EIG5-2 
+                  209-        +EIG5-2 MAX                                                                     
+                  210-        EIGR    6       DET     .89     2.4     2       2       0               +EIG6-2 
+                  211-        +EIG6-2 MAX                                                                     
+                  212-        EIGR    7       INV     .89     6.1     5       5       0               +EIG7-5 
+                  213-        +EIG7-5 MAX                                                                     
+                  214-        EIGR    8       DET     .89     6.1     5       5       0               +EIG8-5 
+                  215-        +EIG8-5 MAX                                                                     
+                  216-        EIGR    9       INV     .89     14.5    4       10      0               +EIG9-10
+                  217-        +EIG9-10MAX                                                                     
+                  218-        EIGR    10      DET     .89     14.5    5       5       0               +EIG1010
+                  219-        +EIG1010MAX                                                                     
+                  220-        EIGR    11      INV     .89     29.0    20      20      0               +EIG1120
+                  221-        +EIG1120MAX                                                                     
+                  222-        EIGR    12      DET     .89     29.0    20      20      0               +EIG1220
+                  223-        +EIG1220MAX                                                                     
+                  224-        GRDSET                                                  126                     
+                  225-        GRID    1               .00000  .00000  .00000                                  
+                  226-        GRID    2               1.00000 .00000  .00000                                  
+                  227-        GRID    3               2.00000 .00000  .00000                                  
+                  228-        GRID    4               3.00000 .00000  .00000                                  
+                  229-        GRID    5               4.00000 .00000  .00000                                  
+                  230-        GRID    6               5.00000 .00000  .00000                                  
+                  231-        GRID    7               6.00000 .00000  .00000                                  
+                  232-        GRID    8               7.00000 .00000  .00000                                  
+                  233-        GRID    9               8.00000 .00000  .00000                                  
+                  234-        GRID    10              9.00000 .00000  .00000                                  
+                  235-        GRID    11              10.00000.00000  .00000                                  
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  236-        GRID    12              .00000  1.00000 .00000                                  
+                  237-        GRID    13              1.00000 1.00000 .00000                                  
+                  238-        GRID    14              2.00000 1.00000 .00000                                  
+                  239-        GRID    15              3.00000 1.00000 .00000                                  
+                  240-        GRID    16              4.00000 1.00000 .00000                                  
+                  241-        GRID    17              5.00000 1.00000 .00000                                  
+                  242-        GRID    18              6.00000 1.00000 .00000                                  
+                  243-        GRID    19              7.00000 1.00000 .00000                                  
+                  244-        GRID    20              8.00000 1.00000 .00000                                  
+                  245-        GRID    21              9.00000 1.00000 .00000                                  
+                  246-        GRID    22              10.000001.00000 .00000                                  
+                  247-        GRID    23              .00000  2.00000 .00000                                  
+                  248-        GRID    24              1.00000 2.00000 .00000                                  
+                  249-        GRID    25              2.00000 2.00000 .00000                                  
+                  250-        GRID    26              3.00000 2.00000 .00000                                  
+                  251-        GRID    27              4.00000 2.00000 .00000                                  
+                  252-        GRID    28              5.00000 2.00000 .00000                                  
+                  253-        GRID    29              6.00000 2.00000 .00000                                  
+                  254-        GRID    30              7.00000 2.00000 .00000                                  
+                  255-        GRID    31              8.00000 2.00000 .00000                                  
+                  256-        GRID    32              9.00000 2.00000 .00000                                  
+                  257-        GRID    33              10.000002.00000 .00000                                  
+                  258-        GRID    34              .00000  3.00000 .00000                                  
+                  259-        GRID    35              1.00000 3.00000 .00000                                  
+                  260-        GRID    36              2.00000 3.00000 .00000                                  
+                  261-        GRID    37              3.00000 3.00000 .00000                                  
+                  262-        GRID    38              4.00000 3.00000 .00000                                  
+                  263-        GRID    39              5.00000 3.00000 .00000                                  
+                  264-        GRID    40              6.00000 3.00000 .00000                                  
+                  265-        GRID    41              7.00000 3.00000 .00000                                  
+                  266-        GRID    42              8.00000 3.00000 .00000                                  
+                  267-        GRID    43              9.00000 3.00000 .00000                                  
+                  268-        GRID    44              10.000003.00000 .00000                                  
+                  269-        GRID    45              .00000  4.00000 .00000                                  
+                  270-        GRID    46              1.00000 4.00000 .00000                                  
+                  271-        GRID    47              2.00000 4.00000 .00000                                  
+                  272-        GRID    48              3.00000 4.00000 .00000                                  
+                  273-        GRID    49              4.00000 4.00000 .00000                                  
+                  274-        GRID    50              5.00000 4.00000 .00000                                  
+                  275-        GRID    51              6.00000 4.00000 .00000                                  
+                  276-        GRID    52              7.00000 4.00000 .00000                                  
+                  277-        GRID    53              8.00000 4.00000 .00000                                  
+                  278-        GRID    54              9.00000 4.00000 .00000                                  
+                  279-        GRID    55              10.000004.00000 .00000                                  
+                  280-        GRID    56              .00000  5.00000 .00000                                  
+                  281-        GRID    57              1.00000 5.00000 .00000                                  
+                  282-        GRID    58              2.00000 5.00000 .00000                                  
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  283-        GRID    59              3.00000 5.00000 .00000                                  
+                  284-        GRID    60              4.00000 5.00000 .00000                                  
+                  285-        GRID    61              5.00000 5.00000 .00000                                  
+                  286-        GRID    62              6.00000 5.00000 .00000                                  
+                  287-        GRID    63              7.00000 5.00000 .00000                                  
+                  288-        GRID    64              8.00000 5.00000 .00000                                  
+                  289-        GRID    65              9.00000 5.00000 .00000                                  
+                  290-        GRID    66              10.000005.00000 .00000                                  
+                  291-        GRID    67              .00000  6.00000 .00000                                  
+                  292-        GRID    68              1.00000 6.00000 .00000                                  
+                  293-        GRID    69              2.00000 6.00000 .00000                                  
+                  294-        GRID    70              3.00000 6.00000 .00000                                  
+                  295-        GRID    71              4.00000 6.00000 .00000                                  
+                  296-        GRID    72              5.00000 6.00000 .00000                                  
+                  297-        GRID    73              6.00000 6.00000 .00000                                  
+                  298-        GRID    74              7.00000 6.00000 .00000                                  
+                  299-        GRID    75              8.00000 6.00000 .00000                                  
+                  300-        GRID    76              9.00000 6.00000 .00000                                  
+                  301-        GRID    77              10.000006.00000 .00000                                  
+                  302-        GRID    78              .00000  7.00000 .00000                                  
+                  303-        GRID    79              1.00000 7.00000 .00000                                  
+                  304-        GRID    80              2.00000 7.00000 .00000                                  
+                  305-        GRID    81              3.00000 7.00000 .00000                                  
+                  306-        GRID    82              4.00000 7.00000 .00000                                  
+                  307-        GRID    83              5.00000 7.00000 .00000                                  
+                  308-        GRID    84              6.00000 7.00000 .00000                                  
+                  309-        GRID    85              7.00000 7.00000 .00000                                  
+                  310-        GRID    86              8.00000 7.00000 .00000                                  
+                  311-        GRID    87              9.00000 7.00000 .00000                                  
+                  312-        GRID    88              10.000007.00000 .00000                                  
+                  313-        GRID    89              .00000  8.00000 .00000                                  
+                  314-        GRID    90              1.00000 8.00000 .00000                                  
+                  315-        GRID    91              2.00000 8.00000 .00000                                  
+                  316-        GRID    92              3.00000 8.00000 .00000                                  
+                  317-        GRID    93              4.00000 8.00000 .00000                                  
+                  318-        GRID    94              5.00000 8.00000 .00000                                  
+                  319-        GRID    95              6.00000 8.00000 .00000                                  
+                  320-        GRID    96              7.00000 8.00000 .00000                                  
+                  321-        GRID    97              8.00000 8.00000 .00000                                  
+                  322-        GRID    98              9.00000 8.00000 .00000                                  
+                  323-        GRID    99              10.000008.00000 .00000                                  
+                  324-        GRID    100             .00000  9.00000 .00000                                  
+                  325-        GRID    101             1.00000 9.00000 .00000                                  
+                  326-        GRID    102             2.00000 9.00000 .00000                                  
+                  327-        GRID    103             3.00000 9.00000 .00000                                  
+                  328-        GRID    104             4.00000 9.00000 .00000                                  
+                  329-        GRID    105             5.00000 9.00000 .00000                                  
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  330-        GRID    106             6.00000 9.00000 .00000                                  
+                  331-        GRID    107             7.00000 9.00000 .00000                                  
+                  332-        GRID    108             8.00000 9.00000 .00000                                  
+                  333-        GRID    109             9.00000 9.00000 .00000                                  
+                  334-        GRID    110             10.000009.00000 .00000                                  
+                  335-        GRID    111             .00000  10.00000.00000                                  
+                  336-        GRID    112             1.00000 10.00000.00000                                  
+                  337-        GRID    113             2.00000 10.00000.00000                                  
+                  338-        GRID    114             3.00000 10.00000.00000                                  
+                  339-        GRID    115             4.00000 10.00000.00000                                  
+                  340-        GRID    116             5.00000 10.00000.00000                                  
+                  341-        GRID    117             6.00000 10.00000.00000                                  
+                  342-        GRID    118             7.00000 10.00000.00000                                  
+                  343-        GRID    119             8.00000 10.00000.00000                                  
+                  344-        GRID    120             9.00000 10.00000.00000                                  
+                  345-        GRID    121             10.0000010.00000.00000                                  
+                  346-        GRID    122             .00000  11.00000.00000                                  
+                  347-        GRID    123             1.00000 11.00000.00000                                  
+                  348-        GRID    124             2.00000 11.00000.00000                                  
+                  349-        GRID    125             3.00000 11.00000.00000                                  
+                  350-        GRID    126             4.00000 11.00000.00000                                  
+                  351-        GRID    127             5.00000 11.00000.00000                                  
+                  352-        GRID    128             6.00000 11.00000.00000                                  
+                  353-        GRID    129             7.00000 11.00000.00000                                  
+                  354-        GRID    130             8.00000 11.00000.00000                                  
+                  355-        GRID    131             9.00000 11.00000.00000                                  
+                  356-        GRID    132             10.0000011.00000.00000                                  
+                  357-        GRID    133             .00000  12.00000.00000                                  
+                  358-        GRID    134             1.00000 12.00000.00000                                  
+                  359-        GRID    135             2.00000 12.00000.00000                                  
+                  360-        GRID    136             3.00000 12.00000.00000                                  
+                  361-        GRID    137             4.00000 12.00000.00000                                  
+                  362-        GRID    138             5.00000 12.00000.00000                                  
+                  363-        GRID    139             6.00000 12.00000.00000                                  
+                  364-        GRID    140             7.00000 12.00000.00000                                  
+                  365-        GRID    141             8.00000 12.00000.00000                                  
+                  366-        GRID    142             9.00000 12.00000.00000                                  
+                  367-        GRID    143             10.0000012.00000.00000                                  
+                  368-        GRID    144             .00000  13.00000.00000                                  
+                  369-        GRID    145             1.00000 13.00000.00000                                  
+                  370-        GRID    146             2.00000 13.00000.00000                                  
+                  371-        GRID    147             3.00000 13.00000.00000                                  
+                  372-        GRID    148             4.00000 13.00000.00000                                  
+                  373-        GRID    149             5.00000 13.00000.00000                                  
+                  374-        GRID    150             6.00000 13.00000.00000                                  
+                  375-        GRID    151             7.00000 13.00000.00000                                  
+                  376-        GRID    152             8.00000 13.00000.00000                                  
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  377-        GRID    153             9.00000 13.00000.00000                                  
+                  378-        GRID    154             10.0000013.00000.00000                                  
+                  379-        GRID    155             .00000  14.00000.00000                                  
+                  380-        GRID    156             1.00000 14.00000.00000                                  
+                  381-        GRID    157             2.00000 14.00000.00000                                  
+                  382-        GRID    158             3.00000 14.00000.00000                                  
+                  383-        GRID    159             4.00000 14.00000.00000                                  
+                  384-        GRID    160             5.00000 14.00000.00000                                  
+                  385-        GRID    161             6.00000 14.00000.00000                                  
+                  386-        GRID    162             7.00000 14.00000.00000                                  
+                  387-        GRID    163             8.00000 14.00000.00000                                  
+                  388-        GRID    164             9.00000 14.00000.00000                                  
+                  389-        GRID    165             10.0000014.00000.00000                                  
+                  390-        GRID    166             .00000  15.00000.00000                                  
+                  391-        GRID    167             1.00000 15.00000.00000                                  
+                  392-        GRID    168             2.00000 15.00000.00000                                  
+                  393-        GRID    169             3.00000 15.00000.00000                                  
+                  394-        GRID    170             4.00000 15.00000.00000                                  
+                  395-        GRID    171             5.00000 15.00000.00000                                  
+                  396-        GRID    172             6.00000 15.00000.00000                                  
+                  397-        GRID    173             7.00000 15.00000.00000                                  
+                  398-        GRID    174             8.00000 15.00000.00000                                  
+                  399-        GRID    175             9.00000 15.00000.00000                                  
+                  400-        GRID    176             10.0000015.00000.00000                                  
+                  401-        GRID    177             .00000  16.00000.00000                                  
+                  402-        GRID    178             1.00000 16.00000.00000                                  
+                  403-        GRID    179             2.00000 16.00000.00000                                  
+                  404-        GRID    180             3.00000 16.00000.00000                                  
+                  405-        GRID    181             4.00000 16.00000.00000                                  
+                  406-        GRID    182             5.00000 16.00000.00000                                  
+                  407-        GRID    183             6.00000 16.00000.00000                                  
+                  408-        GRID    184             7.00000 16.00000.00000                                  
+                  409-        GRID    185             8.00000 16.00000.00000                                  
+                  410-        GRID    186             9.00000 16.00000.00000                                  
+                  411-        GRID    187             10.0000016.00000.00000                                  
+                  412-        GRID    188             .00000  17.00000.00000                                  
+                  413-        GRID    189             1.00000 17.00000.00000                                  
+                  414-        GRID    190             2.00000 17.00000.00000                                  
+                  415-        GRID    191             3.00000 17.00000.00000                                  
+                  416-        GRID    192             4.00000 17.00000.00000                                  
+                  417-        GRID    193             5.00000 17.00000.00000                                  
+                  418-        GRID    194             6.00000 17.00000.00000                                  
+                  419-        GRID    195             7.00000 17.00000.00000                                  
+                  420-        GRID    196             8.00000 17.00000.00000                                  
+                  421-        GRID    197             9.00000 17.00000.00000                                  
+                  422-        GRID    198             10.0000017.00000.00000                                  
+                  423-        GRID    199             .00000  18.00000.00000                                  
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  424-        GRID    200             1.00000 18.00000.00000                                  
+                  425-        GRID    201             2.00000 18.00000.00000                                  
+                  426-        GRID    202             3.00000 18.00000.00000                                  
+                  427-        GRID    203             4.00000 18.00000.00000                                  
+                  428-        GRID    204             5.00000 18.00000.00000                                  
+                  429-        GRID    205             6.00000 18.00000.00000                                  
+                  430-        GRID    206             7.00000 18.00000.00000                                  
+                  431-        GRID    207             8.00000 18.00000.00000                                  
+                  432-        GRID    208             9.00000 18.00000.00000                                  
+                  433-        GRID    209             10.0000018.00000.00000                                  
+                  434-        GRID    210             .00000  19.00000.00000                                  
+                  435-        GRID    211             1.00000 19.00000.00000                                  
+                  436-        GRID    212             2.00000 19.00000.00000                                  
+                  437-        GRID    213             3.00000 19.00000.00000                                  
+                  438-        GRID    214             4.00000 19.00000.00000                                  
+                  439-        GRID    215             5.00000 19.00000.00000                                  
+                  440-        GRID    216             6.00000 19.00000.00000                                  
+                  441-        GRID    217             7.00000 19.00000.00000                                  
+                  442-        GRID    218             8.00000 19.00000.00000                                  
+                  443-        GRID    219             9.00000 19.00000.00000                                  
+                  444-        GRID    220             10.0000019.00000.00000                                  
+                  445-        GRID    221             .00000  20.00000.00000                                  
+                  446-        GRID    222             1.00000 20.00000.00000                                  
+                  447-        GRID    223             2.00000 20.00000.00000                                  
+                  448-        GRID    224             3.00000 20.00000.00000                                  
+                  449-        GRID    225             4.00000 20.00000.00000                                  
+                  450-        GRID    226             5.00000 20.00000.00000                                  
+                  451-        GRID    227             6.00000 20.00000.00000                                  
+                  452-        GRID    228             7.00000 20.00000.00000                                  
+                  453-        GRID    229             8.00000 20.00000.00000                                  
+                  454-        GRID    230             9.00000 20.00000.00000                                  
+                  455-        GRID    231             10.0000020.00000.00000                                  
+                  456-        MAT1    2       3.0+7           .300    200.0                           +MAT1   
+                  457-        +MAT1   30000.  28000.                                                          
+                  458-        PARAM   GRDPNT  111                                                             
+                  459-        PLOTEL  300     23      1                                                       
+                  460-        PLOTEL  301     1       11              302     11      231                     
+                  461-        PLOTEL  303     231     221             304     221     199                     
+                  462-        PLOTEL  305     199     201             306     201     203                     
+                  463-        PLOTEL  307     203     205             308     205     207                     
+                  464-        PLOTEL  309     207     209             310     187     185                     
+                  465-        PLOTEL  311     185     183             312     183     181                     
+                  466-        PLOTEL  313     181     179             314     179     177                     
+                  467-        PLOTEL  315     199     177             316     177     155                     
+                  468-        PLOTEL  317     155     157             318     157     159                     
+                  469-        PLOTEL  319     159     161             320     161     163                     
+                  470-        PLOTEL  321     163     165             322     143     141                     
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  471-        PLOTEL  323     141     139             324     139     137                     
+                  472-        PLOTEL  325     137     135             326     135     133                     
+                  473-        PLOTEL  327     155     133             328     133     111                     
+                  474-        PLOTEL  329     111     113             330     113     115                     
+                  475-        PLOTEL  331     115     117             332     117     119                     
+                  476-        PLOTEL  333     119     121             334     99      97                      
+                  477-        PLOTEL  335     97      95              336     95      93                      
+                  478-        PLOTEL  337     93      91              338     91      89                      
+                  479-        PLOTEL  339     111     89              340     89      67                      
+                  480-        PLOTEL  341     67      69              342     69      71                      
+                  481-        PLOTEL  343     71      73              344     73      75                      
+                  482-        PLOTEL  345     75      77              346     55      53                      
+                  483-        PLOTEL  347     53      51              348     51      49                      
+                  484-        PLOTEL  349     49      47              350     47      45                      
+                  485-        PLOTEL  351     67      45              352     45      23                      
+                  486-        PLOTEL  353     23      25              354     25      27                      
+                  487-        PLOTEL  355     27      29              356     29      31                      
+                  488-        PLOTEL  357     31      33              358     9       31                      
+                  489-        PLOTEL  359     31      53              360     53      75                      
+                  490-        PLOTEL  361     75      97              362     97      119                     
+                  491-        PLOTEL  363     119     141             364     141     163                     
+                  492-        PLOTEL  365     163     185             366     185     207                     
+                  493-        PLOTEL  367     207     229             368     227     205                     
+                  494-        PLOTEL  369     205     183             370     183     161                     
+                  495-        PLOTEL  371     161     139             372     139     117                     
+                  496-        PLOTEL  373     117     95              374     95      73                      
+                  497-        PLOTEL  375     73      51              376     51      29                      
+                  498-        PLOTEL  377     29      7               378     5       27                      
+                  499-        PLOTEL  379     27      49              380     49      71                      
+                  500-        PLOTEL  381     71      93              382     93      115                     
+                  501-        PLOTEL  383     115     137             384     137     159                     
+                  502-        PLOTEL  385     159     181             386     181     203                     
+                  503-        PLOTEL  387     203     225             388     223     201                     
+                  504-        PLOTEL  389     201     179             390     179     157                     
+                  505-        PLOTEL  391     157     135             392     135     113                     
+                  506-        PLOTEL  393     113     91              394     91      69                      
+                  507-        PLOTEL  395     69      47              396     47      36                      
+                  508-        PLOTEL  397     36      25              398     25      3                       
+                  509-        PQUAD1  23      2       1.0     2       .0833333                6.04393 +PQUAD1 
+                  510-        +PQUAD1 .5      .0                                                              
+                  511-        SPC1    37      5       1       12      23      34      45      56      +31001H 
+                  512-        +31001H 67      78      89      100     111     122     133     144     +31002H 
+                  513-        +31002H 155     166     177     188     199     210     221                     
+                  514-        SPC1    37      34      11      22      33      44      55      66      +11001H 
+                  515-        +11001H 77      88      99      110     121     132     143     154     +11002H 
+                  516-        +11002H 165     176     187     198     209     220     231                     
+                  517-        SPC1    37      35      1       2       3       4       5       6       +41001H 
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  518-        +41001H 7       8       9       10      11                                      
+                  519-        SPC1    37      35      221     222     223     224     225     226     +21001H 
+                  520-        +21001H 227     228     229     230     231                                     
+                              ENDDATA
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           13
+                                        PROFILE           2861
+                                        MAX WAVEFRONT       13
+                                        AVG WAVEFRONT   12.385
+                                        RMS WAVEFRONT   12.536
+                                        RMS BANDWIDTH   12.608
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH           13
+                                        PROFILE           2861
+                                        MAX WAVEFRONT       13
+                                        AVG WAVEFRONT   12.385
+                                        RMS WAVEFRONT   12.536
+                                        RMS BANDWIDTH   12.608
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       13        13
+                                        PROFILE (P)                       2861      2861
+                                        MAXIMUM WAVEFRONT (C-MAX)           13        13
+                                        AVERAGE WAVEFRONT (C-AVG)       12.385    12.385
+                                        RMS WAVEFRONT (C-RMS)           12.536    12.536
+                                        RMS BANDWITCH (B-RMS)           12.608    12.608
+                                        NUMBER OF GRID POINTS (N)                    231
+                                        NUMBER OF ELEMENTS (NON-RIGID)               200
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           8
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                       830
+                                        MATRIX DENSITY, PERCENT                    3.544
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE, PLOT FILE GOES TO PLT2
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          ORTHOGRAPHIC PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =  23.17, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 2.539654E-01                                                                                
+                                                                                                                                    
+          ORIGIN      10   -   X0 = -4.398808E-01, Y0 = -0.345970E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+                                                 PLOT        1  UNDEFORMED SHAPE                                                    
+                                                 ORIGIN     10  USED IN THIS PLOT                                                   
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          ORTHOGRAPHIC PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =  23.17, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 2.539654E-01                                                                                
+                                                                                                                                    
+          ORIGIN      10   -   X0 = -4.398808E-01, Y0 = -0.345970E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+                                                 PLOT        2  UNDEFORMED SHAPE                                                    
+                                                 ORIGIN     10  USED IN THIS PLOT                                                   
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          ORTHOGRAPHIC PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =  23.17, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 2.539654E-01                                                                                
+                                                                                                                                    
+          ORIGIN      10   -   X0 = -4.398808E-01, Y0 = -0.345970E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+                                                 PLOT        3  UNDEFORMED SHAPE                                                    
+                                                 ORIGIN     10  USED IN THIS PLOT                                                   
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD1    ELEMENTS (ELEMENT TYPE  19) STARTING WITH ID        1
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                           O U T P U T   F R O M   G R I D   P O I N T   W E I G H T   G E N E R A T O R
+0                                                     REFERENCE POINT =      111
+ 
+ 
+                                     MO - RIGID BODY MASS MATRIX IN BASIC COORDINATE SYSTEM
+                ***                                                                                             ***
+                *  4.12087860D+04  0.00000000D+00  0.00000000D+00  0.00000000D+00  0.00000000D+00  0.00000000D+00 *
+                *  0.00000000D+00  4.12087860D+04  0.00000000D+00  0.00000000D+00  0.00000000D+00  2.06043930D+05 *
+                *  0.00000000D+00  0.00000000D+00  4.12087860D+04  0.00000000D+00 -2.06043930D+05  0.00000000D+00 *
+                *  0.00000000D+00  0.00000000D+00  0.00000000D+00  1.38049433D+06  0.00000000D+00  0.00000000D+00 *
+                *  0.00000000D+00  0.00000000D+00 -2.06043930D+05  0.00000000D+00  1.38049433D+06  0.00000000D+00 *
+                *  0.00000000D+00  2.06043930D+05  0.00000000D+00  0.00000000D+00  0.00000000D+00  2.76098866D+06 *
+                ***                                                                                             ***
+                                        S - TRANSFORMATION MATRIX FOR SCALAR MASS PARTITION
+                                        ***                                             ***
+                                        *  1.00000000D+00  0.00000000D+00  0.00000000D+00 *
+                                        *  0.00000000D+00  1.00000000D+00  0.00000000D+00 *
+                                        *  0.00000000D+00  0.00000000D+00  1.00000000D+00 *
+                                        ***                                             ***
+                         DIRECTION
+                    MASS AXIS SYSTEM (S)       MASS                 X-C.G.           Y-C.G.           Z-C.G.
+                            X            4.120878601D+04      0.000000000D+00  0.000000000D+00  0.000000000D+00
+                            Y            4.120878601D+04      5.000000000D+00  0.000000000D+00  0.000000000D+00
+                            Z            4.120878601D+04      5.000000000D+00  0.000000000D+00  0.000000000D+00
+
+                                                 I(S) - INERTIAS RELATIVE TO C.G. 
+                                      ***                                                 ***
+                                      *  1.380494331D+06  0.000000000D+00  0.000000000D+00  *
+                                      *  0.000000000D+00  3.502746811D+05  0.000000000D+00  *
+                                      *  0.000000000D+00  0.000000000D+00  1.730769012D+06  *
+                                      ***                                                 ***
+                                                      I(Q) - PRINCIPAL INERTIAS
+                                      ***                                                 ***
+                                      *  1.380494331D+06                                    *
+                                      *                   3.502746811D+05                   *
+                                      *                                    1.730769012D+06  *
+                                      ***                                                 ***
+                                            Q - TRANSFORMATION MATRIX - I(Q) = QT*I(S)*Q
+                                      ***                                                 ***
+                                      *  1.000000000D+00  0.000000000D+00  0.000000000D+00  *
+                                      *  0.000000000D+00  1.000000000D+00  0.000000000D+00  *
+                                      *  0.000000000D+00  0.000000000D+00  1.000000000D+00  *
+                                      ***                                                 ***
+                        1 ROOTS BELOW   1.293333E+02
+                        2 ROOTS BELOW   2.025893E+02
+                        4 ROOTS BELOW   8.112073E+02
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (INVERSE POWER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .         3
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         3
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        26
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         4*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.00E+00
+0                                                                              . . .         0
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         0
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* 3X EST.ROOTS IN RANGE SPECIFIED.
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+
+                                     ****************************************************************
+                                     *                                                              *
+                                     *
++                                             NASTRAN INFORMATION MESSAGE 3307, POTENTIALLY         *
+                                     *         4 EIGENVALUE(S) AT LOW FREQ. END NOT FOUND           *
+                                     *                                                              *
+                                     *        (THIS MESSAGE CAN BE SUPPRESSED BY DIAG 37)           *
+                                     ****************************************************************
+
+        1         2        3.237408E+01        5.689823E+00        9.055634E-01        1.030220E+04        3.335242E+05             
+        2         1        2.022407E+02        1.422113E+01        2.263364E+00        1.030220E+04        2.083523E+06             
+        3         3        8.111597E+02        2.848087E+01        4.532870E+00        5.601166E+03        4.543440E+06             
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.323741E+02    (CYCLIC FREQUENCY =  9.055634E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            1.569410E-01   0.0            0.0                           
+             2      G      0.0            0.0            0.0            1.550088E-01   0.0            0.0                           
+             3      G      0.0            0.0            0.0            1.492598E-01   0.0            0.0                           
+             4      G      0.0            0.0            0.0            1.398354E-01   0.0            0.0                           
+             5      G      0.0            0.0            0.0            1.269680E-01   0.0            0.0                           
+             6      G      0.0            0.0            0.0            1.109741E-01   0.0            0.0                           
+             7      G      0.0            0.0            0.0            9.224761E-02   0.0            0.0                           
+             8      G      0.0            0.0            0.0            7.124973E-02   0.0            0.0                           
+             9      G      0.0            0.0            0.0            4.849744E-02   0.0            0.0                           
+            10      G      0.0            0.0            0.0            2.455098E-02   0.0            0.0                           
+            11      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            34      G      0.0            0.0            4.539905E-01   1.398354E-01   0.0            0.0                           
+            35      G      0.0            0.0            4.484011E-01   1.381139E-01   1.114591E-02   0.0                           
+            36      G      0.0            0.0            4.317706E-01   1.329914E-01   2.201737E-02   0.0                           
+            37      G      0.0            0.0            4.045085E-01   1.245943E-01   3.234670E-02   0.0                           
+            38      G      0.0            0.0            3.672860E-01   1.131293E-01   4.187954E-02   0.0                           
+            39      G      0.0            0.0            3.210197E-01   9.887860E-02   5.038116E-02   0.0                           
+            40      G      0.0            0.0            2.668489E-01   8.219323E-02   5.764224E-02   0.0                           
+            41      G      0.0            0.0            2.061074E-01   6.348398E-02   6.348398E-02   0.0                           
+            42      G      0.0            0.0            1.402908E-01   4.321153E-02   6.776251E-02   0.0                           
+            43      G      0.0            0.0            7.101975E-02   2.187509E-02   7.037253E-02   0.0                           
+            44      G      0.0            0.0            0.0            0.0            7.124973E-02   0.0                           
+            56      G      0.0            0.0            7.071067E-01   1.109741E-01   0.0            0.0                           
+            57      G      0.0            0.0            6.984012E-01   1.096078E-01   1.736017E-02   0.0                           
+            58      G      0.0            0.0            6.724985E-01   1.055426E-01   3.429287E-02   0.0                           
+            59      G      0.0            0.0            6.300367E-01   9.887860E-02   5.038116E-02   0.0                           
+            60      G      0.0            0.0            5.720614E-01   8.977990E-02   6.522890E-02   0.0                           
+            61      G      0.0            0.0            5.000000E-01   7.847050E-02   7.847050E-02   0.0                           
+            62      G      0.0            0.0            4.156269E-01   6.522890E-02   8.977990E-02   0.0                           
+            63      G      0.0            0.0            3.210197E-01   5.038116E-02   9.887860E-02   0.0                           
+            64      G      0.0            0.0            2.185080E-01   3.429287E-02   1.055426E-01   0.0                           
+            65      G      0.0            0.0            1.106159E-01   1.736017E-02   1.096078E-01   0.0                           
+            66      G      0.0            0.0            0.0            0.0            1.109741E-01   0.0                           
+            78      G      0.0            0.0            8.910065E-01   7.124973E-02   0.0            0.0                           
+            79      G      0.0            0.0            8.800368E-01   7.037253E-02   2.187509E-02   0.0                           
+            80      G      0.0            0.0            8.473975E-01   6.776251E-02   4.321153E-02   0.0                           
+            81      G      0.0            0.0            7.938926E-01   6.348398E-02   6.348398E-02   0.0                           
+            82      G      0.0            0.0            7.208394E-01   5.764224E-02   8.219323E-02   0.0                           
+            83      G      0.0            0.0            6.300367E-01   5.038116E-02   9.887860E-02   0.0                           
+            84      G      0.0            0.0            5.237205E-01   4.187954E-02   1.131293E-01   0.0                           
+            85      G      0.0            0.0            4.045085E-01   3.234670E-02   1.245943E-01   0.0                           
+            86      G      0.0            0.0            2.753361E-01   2.201737E-02   1.329914E-01   0.0                           
+            87      G      0.0            0.0            1.393841E-01   1.114591E-02   1.381139E-01   0.0                           
+            88      G      0.0            0.0            0.0            0.0            1.398354E-01   0.0                           
+           111      G      0.0            0.0            1.000000E+00  -1.489614E-11   0.0            0.0                           
+           112      G      0.0            0.0            9.876884E-01  -1.214225E-11   2.455098E-02   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.323741E+02    (CYCLIC FREQUENCY =  9.055634E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           113      G      0.0            0.0            9.510565E-01  -4.563531E-12   4.849744E-02   0.0                           
+           114      G      0.0            0.0            8.910065E-01   5.406898E-12   7.124973E-02   0.0                           
+           115      G      0.0            0.0            8.090169E-01   1.506906E-11   9.224761E-02   0.0                           
+           116      G      0.0            0.0            7.071067E-01   2.204741E-11   1.109741E-01   0.0                           
+           117      G      0.0            0.0            5.877852E-01   2.496322E-11   1.269680E-01   0.0                           
+           118      G      0.0            0.0            4.539905E-01   2.347477E-11   1.398354E-01   0.0                           
+           119      G      0.0            0.0            3.090170E-01   1.807140E-11   1.492598E-01   0.0                           
+           120      G      0.0            0.0            1.564345E-01   9.791383E-12   1.550088E-01   0.0                           
+           121      G      0.0            0.0            0.0            0.0            1.569410E-01   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.202241E+03    (CYCLIC FREQUENCY =  2.263364E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            3.145222E-01   0.0            0.0                           
+             2      G      0.0            0.0            0.0            3.106499E-01   0.0            0.0                           
+             3      G      0.0            0.0            0.0            2.991284E-01   0.0            0.0                           
+             4      G      0.0            0.0            0.0            2.802413E-01   0.0            0.0                           
+             5      G      0.0            0.0            0.0            2.544538E-01   0.0            0.0                           
+             6      G      0.0            0.0            0.0            2.224008E-01   0.0            0.0                           
+             7      G      0.0            0.0            0.0            1.848715E-01   0.0            0.0                           
+             8      G      0.0            0.0            0.0            1.427901E-01   0.0            0.0                           
+             9      G      0.0            0.0            0.0            9.719270E-02   0.0            0.0                           
+            10      G      0.0            0.0            0.0            4.920211E-02   0.0            0.0                           
+            11      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            34      G      0.0            0.0            8.090169E-01   1.848715E-01   0.0            0.0                           
+            35      G      0.0            0.0            7.990566E-01   1.825954E-01   1.977073E-02   0.0                           
+            36      G      0.0            0.0            7.694208E-01   1.758233E-01   3.905464E-02   0.0                           
+            37      G      0.0            0.0            7.208394E-01   1.647217E-01   5.737691E-02   0.0                           
+            38      G      0.0            0.0            6.545085E-01   1.495642E-01   7.428636E-02   0.0                           
+            39      G      0.0            0.0            5.720614E-01   1.307239E-01   8.936661E-02   0.0                           
+            40      G      0.0            0.0            4.755282E-01   1.086647E-01   1.022464E-01   0.0                           
+            41      G      0.0            0.0            3.672860E-01   8.392990E-02   1.126085E-01   0.0                           
+            42      G      0.0            0.0            2.500000E-01   5.712844E-02   1.201978E-01   0.0                           
+            43      G      0.0            0.0            1.265581E-01   2.892027E-02   1.248275E-01   0.0                           
+            44      G      0.0            0.0            0.0            0.0            1.263835E-01   0.0                           
+            56      G      0.0            0.0            1.000000E+00   3.752479E-15   0.0            0.0                           
+            57      G      0.0            0.0            9.876884E-01   8.362275E-15   2.443797E-02   0.0                           
+            58      G      0.0            0.0            9.510565E-01   2.084885E-14   4.827420E-02   0.0                           
+            59      G      0.0            0.0            8.910065E-01   3.480149E-14   7.092176E-02   0.0                           
+            60      G      0.0            0.0            8.090169E-01   4.721130E-14   9.182297E-02   0.0                           
+            61      G      0.0            0.0            7.071067E-01   5.345043E-14   1.104632E-01   0.0                           
+            62      G      0.0            0.0            5.877852E-01   5.466399E-14   1.263835E-01   0.0                           
+            63      G      0.0            0.0            4.539905E-01   4.922448E-14   1.391918E-01   0.0                           
+            64      G      0.0            0.0            3.090170E-01   3.725479E-14   1.485727E-01   0.0                           
+            65      G      0.0            0.0            1.564345E-01   2.019245E-14   1.542953E-01   0.0                           
+            66      G      0.0            0.0            0.0            0.0            1.562186E-01   0.0                           
+            78      G      0.0            0.0            8.090169E-01  -1.848715E-01   0.0            0.0                           
+            79      G      0.0            0.0            7.990566E-01  -1.825954E-01   1.977073E-02   0.0                           
+            80      G      0.0            0.0            7.694208E-01  -1.758233E-01   3.905464E-02   0.0                           
+            81      G      0.0            0.0            7.208394E-01  -1.647217E-01   5.737691E-02   0.0                           
+            82      G      0.0            0.0            6.545085E-01  -1.495642E-01   7.428636E-02   0.0                           
+            83      G      0.0            0.0            5.720614E-01  -1.307239E-01   8.936661E-02   0.0                           
+            84      G      0.0            0.0            4.755282E-01  -1.086647E-01   1.022464E-01   0.0                           
+            85      G      0.0            0.0            3.672860E-01  -8.392990E-02   1.126085E-01   0.0                           
+            86      G      0.0            0.0            2.500000E-01  -5.712844E-02   1.201978E-01   0.0                           
+            87      G      0.0            0.0            1.265581E-01  -2.892027E-02   1.248275E-01   0.0                           
+            88      G      0.0            0.0            0.0            0.0            1.263835E-01   0.0                           
+           111      G      0.0            0.0            1.052307E-12  -3.145222E-01   0.0            0.0                           
+           112      G      0.0            0.0            1.074882E-12  -3.106499E-01  -4.677274E-14   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.202241E+03    (CYCLIC FREQUENCY =  2.263364E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           113      G      0.0            0.0            1.136289E-12  -2.991284E-01  -6.421723E-14   0.0                           
+           114      G      0.0            0.0            1.183414E-12  -2.802413E-01  -2.215107E-14   0.0                           
+           115      G      0.0            0.0            1.174488E-12  -2.544538E-01   4.091110E-14   0.0                           
+           116      G      0.0            0.0            1.107346E-12  -2.224008E-01   9.098555E-14   0.0                           
+           117      G      0.0            0.0            9.944418E-13  -1.848715E-01   1.395653E-13   0.0                           
+           118      G      0.0            0.0            8.247490E-13  -1.427901E-01   2.024780E-13   0.0                           
+           119      G      0.0            0.0            5.926236E-13  -9.719270E-02   2.613617E-13   0.0                           
+           120      G      0.0            0.0            3.101129E-13  -4.920211E-02   3.017233E-13   0.0                           
+           121      G      0.0            0.0            0.0            0.0            3.159660E-13   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.811160E+03    (CYCLIC FREQUENCY =  4.532870E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0           -2.520193E-01   0.0            0.0                           
+             2      G      0.0            0.0            0.0           -2.541968E-01   0.0            0.0                           
+             3      G      0.0            0.0            0.0           -2.595249E-01   0.0            0.0                           
+             4      G      0.0            0.0            0.0           -2.646700E-01   0.0            0.0                           
+             5      G      0.0            0.0            0.0           -2.649501E-01   0.0            0.0                           
+             6      G      0.0            0.0            0.0           -2.554428E-01   0.0            0.0                           
+             7      G      0.0            0.0            0.0           -2.321781E-01   0.0            0.0                           
+             8      G      0.0            0.0            0.0           -1.931526E-01   0.0            0.0                           
+             9      G      0.0            0.0            0.0           -1.389404E-01   0.0            0.0                           
+            10      G      0.0            0.0            0.0           -7.276327E-02   0.0            0.0                           
+            11      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            34      G      0.0            0.0           -4.799215E-01   6.946530E-04   0.0            0.0                           
+            35      G      0.0            0.0           -4.894721E-01  -4.018719E-03   1.884091E-02   0.0                           
+            36      G      0.0            0.0           -5.145187E-01  -1.701719E-02   3.057361E-02   0.0                           
+            37      G      0.0            0.0           -5.450697E-01  -3.512749E-02   2.971329E-02   0.0                           
+            38      G      0.0            0.0           -5.670359E-01  -5.384482E-02   1.366620E-02   0.0                           
+            39      G      0.0            0.0           -5.654854E-01  -6.832857E-02  -1.663638E-02   0.0                           
+            40      G      0.0            0.0           -5.281482E-01  -7.447623E-02  -5.687805E-02   0.0                           
+            41      G      0.0            0.0           -4.484011E-01  -6.984095E-02  -1.002417E-01   0.0                           
+            42      G      0.0            0.0           -3.270751E-01  -5.419214E-02  -1.388477E-01   0.0                           
+            43      G      0.0            0.0           -1.726819E-01  -2.959640E-02  -1.654323E-01   0.0                           
+            44      G      0.0            0.0            0.0            0.0           -1.749033E-01   0.0                           
+            56      G      0.0            0.0           -2.090134E-01   2.554428E-01   0.0            0.0                           
+            57      G      0.0            0.0           -2.305183E-01   2.485641E-01   4.240787E-02   0.0                           
+            58      G      0.0            0.0           -2.892550E-01   2.289113E-01   7.342280E-02   0.0                           
+            59      G      0.0            0.0           -3.691750E-01   1.992327E-01   8.418828E-02   0.0                           
+            60      G      0.0            0.0           -4.475380E-01   1.634801E-01   7.036638E-02   0.0                           
+            61      G      0.0            0.0           -5.000000E-01   1.260096E-01   3.313248E-02   0.0                           
+            62      G      0.0            0.0           -5.060984E-01   9.071678E-02  -2.103575E-02   0.0                           
+            63      G      0.0            0.0           -4.539354E-01   6.029223E-02  -8.173006E-02   0.0                           
+            64      G      0.0            0.0           -3.430314E-01   3.575867E-02  -1.368460E-01   0.0                           
+            65      G      0.0            0.0           -1.847212E-01   1.638598E-02  -1.751937E-01   0.0                           
+            66      G      0.0            0.0            0.0            0.0           -1.889171E-01   0.0                           
+            78      G      0.0            0.0            4.151546E-01   3.276548E-01   0.0            0.0                           
+            79      G      0.0            0.0            3.797029E-01   3.212236E-01   6.989671E-02   0.0                           
+            80      G      0.0            0.0            2.808347E-01   3.026109E-01   1.250322E-01   0.0                           
+            81      G      0.0            0.0            1.393841E-01   2.737288E-01   1.538512E-01   0.0                           
+            82      G      0.0            0.0           -1.499114E-02   2.373566E-01   1.505122E-01   0.0                           
+            83      G      0.0            0.0           -1.502459E-01   1.966215E-01   1.161495E-01   0.0                           
+            84      G      0.0            0.0           -2.388932E-01   1.544351E-01   5.861626E-02   0.0                           
+            85      G      0.0            0.0           -2.639473E-01   1.130057E-01  -9.236285E-03   0.0                           
+            86      G      0.0            0.0           -2.225684E-01   7.352924E-02  -7.236808E-02   0.0                           
+            87      G      0.0            0.0           -1.266173E-01   3.612101E-02  -1.168347E-01   0.0                           
+            88      G      0.0            0.0            0.0            0.0           -1.328318E-01   0.0                           
+           111      G      0.0            0.0            1.000000E+00   1.367269E-17   0.0            0.0                           
+           112      G      0.0            0.0            9.536365E-01  -1.676524E-15   9.140213E-02   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.811160E+03    (CYCLIC FREQUENCY =  4.532870E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           113      G      0.0            0.0            8.231105E-01  -3.325381E-15   1.659184E-01   0.0                           
+           114      G      0.0            0.0            6.322864E-01  -4.347521E-15   2.102688E-01   0.0                           
+           115      G      0.0            0.0            4.152396E-01  -2.325889E-15   2.176016E-01   0.0                           
+           116      G      0.0            0.0            2.090134E-01   2.333879E-16   1.889171E-01   0.0                           
+           117      G      0.0            0.0            4.579712E-02   2.310383E-15   1.327858E-01   0.0                           
+           118      G      0.0            0.0           -5.377634E-02   3.148243E-15   6.342317E-02   0.0                           
+           119      G      0.0            0.0           -8.476044E-02   2.676253E-15  -2.458215E-03   0.0                           
+           120      G      0.0            0.0           -5.856040E-02   1.786816E-15  -4.933063E-02   0.0                           
+           121      G      0.0            0.0            0.0            0.0           -6.626496E-02   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.323741E+02    (CYCLIC FREQUENCY =  9.055634E-01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0           -1.433884E+04   0.0           -7.826680E+02   0.0                           
+             2      G      0.0            0.0           -2.832498E+04   0.0            9.970744E+01   0.0                           
+             3      G      0.0            0.0           -2.727357E+04   0.0            1.969270E+02   0.0                           
+             4      G      0.0            0.0           -2.555256E+04   0.0            2.893149E+02   0.0                           
+             5      G      0.0            0.0           -2.320054E+04   0.0            3.746189E+02   0.0                           
+             6      G      0.0            0.0           -2.027748E+04   0.0            4.506416E+02   0.0                           
+             7      G      0.0            0.0           -1.685639E+04   0.0            5.155930E+02   0.0                           
+             8      G      0.0            0.0           -1.301857E+04   0.0            5.678295E+02   0.0                           
+             9      G      0.0            0.0           -8.861663E+03   0.0            6.060587E+02   0.0                           
+            10      G      0.0            0.0           -4.485962E+03   0.0            6.294200E+02   0.0                           
+            11      G      0.0            0.0            9.514386E+04   3.186320E+02   3.186320E+02   0.0                           
+            12      G      0.0            0.0            0.0            0.0           -1.378127E+04   0.0                           
+            22      G      0.0            0.0           -4.485962E+03   6.294200E+02   0.0            0.0                           
+            23      G      0.0            0.0            0.0            0.0           -2.722528E+04   0.0                           
+            33      G      0.0            0.0           -8.861663E+03   6.060587E+02   0.0            0.0                           
+            34      G      0.0            0.0            0.0            0.0           -3.999459E+04   0.0                           
+            44      G      0.0            0.0           -1.301856E+04   5.678280E+02   0.0            0.0                           
+            45      G      0.0            0.0            0.0            0.0           -5.178103E+04   0.0                           
+            55      G      0.0            0.0           -1.685639E+04   5.155919E+02   0.0            0.0                           
+            56      G      0.0            0.0            0.0            0.0           -6.229187E+04   0.0                           
+            66      G      0.0            0.0           -2.027749E+04   4.506400E+02   0.0            0.0                           
+            67      G      0.0            0.0            0.0            0.0           -7.127343E+04   0.0                           
+            77      G      0.0            0.0           -2.320054E+04   3.746189E+02   0.0            0.0                           
+            78      G      0.0            0.0            0.0            0.0           -7.849399E+04   0.0                           
+            88      G      0.0            0.0           -2.555256E+04   2.893149E+02   0.0            0.0                           
+            89      G      0.0            0.0            0.0            0.0           -8.378493E+04   0.0                           
+            99      G      0.0            0.0           -2.727357E+04   1.969270E+02   0.0            0.0                           
+           100      G      0.0            0.0            0.0            0.0           -8.701452E+04   0.0                           
+           110      G      0.0            0.0           -2.832498E+04   9.970744E+01   0.0            0.0                           
+           111      G      0.0            0.0            0.0            0.0           -8.809728E+04   0.0                           
+           121      G      0.0            0.0           -2.867768E+04   5.829002E-06   0.0            0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.202241E+03    (CYCLIC FREQUENCY =  2.263364E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0           -6.034997E+04   0.0           -9.177875E+03   0.0                           
+             2      G      0.0            0.0           -1.192102E+05   0.0            7.796655E+02   0.0                           
+             3      G      0.0            0.0           -1.147899E+05   0.0            1.539890E+03   0.0                           
+             4      G      0.0            0.0           -1.075431E+05   0.0            2.262399E+03   0.0                           
+             5      G      0.0            0.0           -9.764775E+04   0.0            2.929282E+03   0.0                           
+             6      G      0.0            0.0           -8.534572E+04   0.0            3.523900E+03   0.0                           
+             7      G      0.0            0.0           -7.094527E+04   0.0            4.031738E+03   0.0                           
+             8      G      0.0            0.0           -5.479538E+04   0.0            4.440331E+03   0.0                           
+             9      G      0.0            0.0           -3.729831E+04   0.0            4.739575E+03   0.0                           
+            10      G      0.0            0.0           -1.888134E+04   0.0            4.922172E+03   0.0                           
+            11      G      0.0            0.0            1.909854E+05   6.566249E+02   2.491764E+03   0.0                           
+            12      G      0.0            0.0            0.0            0.0           -4.533337E+04   0.0                           
+            22      G      0.0            0.0           -2.544192E+04   1.249022E+03   0.0            0.0                           
+            23      G      0.0            0.0            0.0            0.0           -8.622433E+04   0.0                           
+            33      G      0.0            0.0           -4.839438E+04   1.062475E+03   0.0            0.0                           
+            34      G      0.0            0.0            0.0            0.0           -1.186810E+05   0.0                           
+            44      G      0.0            0.0           -6.660855E+04   7.718511E+02   0.0            0.0                           
+            45      G      0.0            0.0            0.0            0.0           -1.395158E+05   0.0                           
+            55      G      0.0            0.0           -7.830195E+04   4.058154E+02   0.0            0.0                           
+            56      G      0.0            0.0            0.0            0.0           -1.466964E+05   0.0                           
+            66      G      0.0            0.0           -8.233291E+04   1.295120E-08   0.0            0.0                           
+            67      G      0.0            0.0            0.0            0.0           -1.395158E+05   0.0                           
+            77      G      0.0            0.0           -7.830195E+04  -4.058154E+02   0.0            0.0                           
+            78      G      0.0            0.0            0.0            0.0           -1.186810E+05   0.0                           
+            88      G      0.0            0.0           -6.660855E+04  -7.718511E+02   0.0            0.0                           
+            89      G      0.0            0.0            0.0            0.0           -8.622433E+04   0.0                           
+            99      G      0.0            0.0           -4.839438E+04  -1.062475E+03   0.0            0.0                           
+           100      G      0.0            0.0            0.0            0.0           -4.533337E+04   0.0                           
+           110      G      0.0            0.0           -2.544192E+04  -1.249022E+03   0.0            0.0                           
+           111      G      0.0            0.0            0.0            0.0            5.203232E-06   0.0                           
+           121      G      0.0            0.0           -3.849894E-06  -1.313250E+03   0.0            0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.811160E+03    (CYCLIC FREQUENCY =  4.532870E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            7.941492E+04   0.0            2.243875E+04   0.0                           
+             2      G      0.0            0.0            1.626678E+05   0.0           -1.404194E+03   0.0                           
+             3      G      0.0            0.0            1.728195E+05   0.0           -2.830049E+03   0.0                           
+             4      G      0.0            0.0            1.855275E+05   0.0           -4.286404E+03   0.0                           
+             5      G      0.0            0.0            1.954792E+05   0.0           -5.759770E+03   0.0                           
+             6      G      0.0            0.0            1.970363E+05   0.0           -7.209116E+03   0.0                           
+             7      G      0.0            0.0            1.855519E+05   0.0           -8.568526E+03   0.0                           
+             8      G      0.0            0.0            1.584801E+05   0.0           -9.755316E+03   0.0                           
+             9      G      0.0            0.0            1.160637E+05   0.0           -1.068252E+04   0.0                           
+            10      G      0.0            0.0            6.141778E+04   0.0           -1.127379E+04   0.0                           
+            11      G      0.0            0.0           -2.881166E+05  -3.535219E+03  -5.738536E+03   0.0                           
+            12      G      0.0            0.0            0.0            0.0            3.457399E+04   0.0                           
+            22      G      0.0            0.0            6.863066E+04  -6.869414E+03   0.0            0.0                           
+            23      G      0.0            0.0            0.0            0.0            5.473893E+04   0.0                           
+            33      G      0.0            0.0            1.258981E+05  -6.296141E+03   0.0            0.0                           
+            34      G      0.0            0.0            0.0            0.0            4.939430E+04   0.0                           
+            44      G      0.0            0.0            1.628279E+05  -5.433880E+03   0.0            0.0                           
+            45      G      0.0            0.0            0.0            0.0            1.333909E+04   0.0                           
+            55      G      0.0            0.0            1.747038E+05  -4.402089E+03   0.0            0.0                           
+            56      G      0.0            0.0            0.0            0.0           -5.144681E+04   0.0                           
+            66      G      0.0            0.0            1.620123E+05  -3.332382E+03   0.0            0.0                           
+            67      G      0.0            0.0            0.0            0.0           -1.360840E+05   0.0                           
+            77      G      0.0            0.0            1.302665E+05  -2.341879E+03   0.0            0.0                           
+            78      G      0.0            0.0            0.0            0.0           -2.265988E+05   0.0                           
+            88      G      0.0            0.0            8.872896E+04  -1.510433E+03   0.0            0.0                           
+            89      G      0.0            0.0            0.0            0.0           -3.068642E+05   0.0                           
+            99      G      0.0            0.0            4.834000E+04  -8.668965E+02   0.0            0.0                           
+           100      G      0.0            0.0            0.0            0.0           -3.620159E+05   0.0                           
+           110      G      0.0            0.0            1.928358E+04  -3.864536E+02   0.0            0.0                           
+           111      G      0.0            0.0            0.0            0.0           -3.816448E+05   0.0                           
+           121      G      0.0            0.0            8.737829E+03   8.585630E-10   0.0            0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          ORTHOGRAPHIC PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =  23.17, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 2.539654E-01                                                                                
+                                                                                                                                    
+          ORIGIN      10   -   X0 = -4.398808E-01, Y0 = -0.345970E+01     (INCHES)                                                  
+          ORIGIN      11   -   X0 = -4.398808E-01, Y0 = -0.345970E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+          PLOT    4   MODAL  DEFORM.     1 - SUBCASE       1 - MODE   9.055634E-01 - FREQUENCY                                      
+          PLOT    5   MODAL  DEFORM.     1 - SUBCASE       2 - MODE   2.263364E+00 - FREQUENCY                                      
+          PLOT    6   MODAL  DEFORM.     1 - SUBCASE       3 - MODE   4.532870E+00 - FREQUENCY                                      
+                                                 ORIGIN     11  USED IN THIS PLOT                                                   
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  VIBRATIONS OF A 10 BY 20 PLATE                                     
+ DATE:  5/17/95
+ END TIME: 15:31:30
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

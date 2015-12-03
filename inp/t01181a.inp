@@ -1,0 +1,71 @@
+ID    T01181A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   1,0                                                                       
+TIME  20                                                                        
+CEND                                                                            
+TITLE    = 3-D PIPE NETWORK USING CURVED BEAM ELEMENTS (CELBOW)                 
+SUBTITLE = NASTRAN TEST PROBLEM NO. T01-18-1A                                   
+LABEL    = POINT TEMPERATURE AND GRAVITY LOAD                                   
+    LOAD = 10                                                                   
+    TEMPERATURE(LOAD) = 2                                                       
+    SPC  = 1                                                                    
+OUTPUT                                                                          
+    DISPLACEMENTS = ALL                                                         
+    ELSTRESS  = ALL                                                             
+    OLOAD     = ALL                                                             
+    ELFORCE   = ALL                                                             
+    SPCFORCES = ALL                                                             
+BEGIN BULK                                                                      
+LOAD    10      1.      1.      1       1.      3                               
+GRID    1               0.      105.    0.                                      
+GRID    2               -15.    120.    0.                                      
+GRID    3               -120.   120.    0.                                      
+GRID    4               -133.   120.    0.                                      
+GRID    5               -200.   120.    0.                                      
+GRID    6               -200.   225.    0.                                      
+GRID    7               -215.   240.    0.                                      
+GRID    8               -440.   240.    0.                                      
+GRID    9               -235.   120.    0.                                      
+GRID    10              -250.   120.    15.                                     
+GRID    11              -250.   120.    120.                                    
+GRID    12              -250.   120.    240.                                    
+GRID    13              0.      0.      0.                                      
+GRID    14              -245.   120.    0.                                      
+GRID    15              -250.   130.    120.                                    
+GRID    16              -240.   120.    240.                                    
+GRID    17              -250.   130.    240.                                    
+GRID    18              -250.   120.    250.                                    
+SPC1    1       123     12                                                      
+SPC1    1       456     12                                                      
+SPC1    1       123456  13      THRU    18                                      
+SPC     1       12      3       0.3                                             
+SPC     1       12      2       0.1                                             
+SPC     1       12      1       0.2                                             
+CELAS2  101     1.0+4   9       1       14      1                               
+CELAS2  102     1.0+5   11      2       15      2                               
+CELBOW  2       10      1       2       -15.0   0.0     0.0     1               
+CELBOW  7       10      6       7       -15.0   0.0     0.0     1               
+CELBOW  10      10      9       10      0.0     0.0     15.0    1               
+PELBOW  10      11      16.085  211.33  211.33  422.66  6.61            +P1     
++P1     5.37    0.      5.37    90.     5.37    180.    5.37    270.    +P2     
++P2     2.0     2.0     1.0     1.0     5.767   5.767   15.     90.             
+MAT1    11      27.9+6          0.333           6.81-6  0.                      
+CBAR    1       20      13      1       0.      0.      1.0     1               
+CBAR    3       20      2       3       0.      0.      1.      1               
+CBAR    4       21      3       4       0.      0.      1.      1               
+CBAR    5       20      4       5       0.      0.      1.      1               
+CBAR    6       20      5       6       0.      0.      1.      1               
+CBAR    8       20      7       8       0.      0.      1.      1               
+CBAR    9       20      5       9       0.      0.      1.      1               
+CBAR    11      20      10      11      0.      1.      0.      1               
+CBAR    12      20      11      12      0.      1.      0.      1               
+PBAR    20      11      16.085  211.33  211.33  422.66  6.61                    
+PBAR    21      11      54.915  551.8   551.8   1103.6  6.61                    
+FORCE   1       3               1000.   0.      1.      0.                      
+FORCE   1       4               -200.   0.      1.      0.                      
+FORCE   1       8               3000.   1.      0.      0.                      
+FORCE   1       8               2000.   0.      0.      1.                      
+FORCE   1       8               1000.   0.      1.      0.                      
+GRAV    3       0       1.      0.      -1.     0.                              
+TEMPD   2       740.                                                            
+ENDDATA                                                                         

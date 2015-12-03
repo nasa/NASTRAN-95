@@ -1,0 +1,585 @@
+     NASTRAN  TITLEOPT=-1, BANDIT=-1                                                 
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T01241A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   1,0                                                                       
+     TIME  10                                                                        
+     ALTER 58                                                                        
+         TABPT   EPT,,,,  //      $                                                  
+         MATPRN  KGGX,,,, //      $                                                  
+         PARAML  EPT //*TABLE1*/1/6      /V,N,RSP    $                               
+         PARAML  EPT //*TABLE1*/1/4     //V,N,INT    $                               
+         PARAML  EPT //*TABLE2*/1/4     //V,N,INT2   $ INTENTIONAL ERROR             
+         PARAML  EPT //*TABLE2*/1/6    ///V,N,RDP    $                               
+         PARAML  EPT //*TABLE2*/1/6      /RSPX/INTX/V,N,RDPX  $                      
+         PARAML  EPT //*TABLE1*/1/1   ////V,N,BCD    $                               
+         PARAML  EPT //*TABLE2*/1/6  /////V,N,SCPLX  $                               
+         PARAML  EPT //*TABLE2*/1/6 //////V,N,DCPLX  $                               
+         PARAML  EPT //*TABLE4*/1/6 //////V,N,DCPLX4 $                               
+         PARAML  EPT //*TABLE2*/1/9      /V,N,LAST   $                               
+         PARAML  EPT //*TABLE1*/1/9      /V,N,LAST1  $                               
+         PARAML  KGGX//*MATRIX*/7/1      /V,N,R1     $                               
+         PARAML  KGGX//*MATRIX*/3/1     //V,N,I1     $                               
+         PARAML  KGGX//*MATRIX*/1/3    ///V,N,D1     $                               
+         PARAML  KGGX//*MATRIX*/1/3   ////V,N,B1     $                               
+         PARAML  KGGX//*MATRIX*/7/13 /////V,N,CS1    $                               
+         PARAML  KGGX//*MATRIX*/13/7//////V,N,CD1    $                               
+         PARAML  KGGX//*MATRIX*/13/19  ///V,N,D13    $                               
+         SCALAR  KGGX//         1/1      /V,N,SP1    $                               
+         SCALAR  KGGX//         1/3      /V,N,SP2    $                               
+         SCALAR  KGGX//         3/1      /V,N,SP3    $                               
+         SCALAR  KGGX//         7/13     /V,N,SP4    $                               
+         SCALAR  KGGX//        19/13    //V,N,DP4    $                               
+         SCALAR  KGGX//         7/13   ///V,N,CSP4   $                               
+         SCALAR  KGGX//        13/7   ////V,N,CDP4   $                               
+         PARAMR  //*ADD*     /V,N,R1SP4  /V,N,R1    /V,N,SP4   $                     
+         PARAMR  //*SUB*     /V,N,R1SP4  /V,N,R1    /V,N,SP4   $                     
+         PARAMR  //*ABS*     /V,N,ABSR1  /V,N,R1               $                     
+         PARAMR  //*ABS*     /V,N,ABSRX //V,N,R1     $ INTENTIONAL ERROR INPUT       
+         PARAMR  //*SQRT*    /V,N,SQTR1  /V,N,R1               $                     
+         PARAMR  //*SQRT*    /V,N,SQTR1  /V,N,ABSR1            $                     
+         PARAMR  //*MPYC* ////V,N,CMPY   /V,N,SCPLX /V,N,CS1   $                     
+         PARAMR  //*COMPLEX*//V,N,R1     /V,N,SP4   /V,N,OUTC  $                     
+         PARAMR  //*LE*     //V,N,R1     /V,N,SP4////V,N,LEFLG $                     
+         PARAMD  //*MPY*     /V,N,RDPDP  /V,N,RDPX  /V,N,RDPX  $                     
+         PARAMD  //*MPY*     /V,N,RDPDX //V,N,RDPX  /V,N,RDPY  $ ERROR INPUT         
+         PARAMD  //*DIV*     /V,N,DP4X   /V,N,DP4   /V,N,RDPX  $                     
+         PARAMD  //*EXP*     /V,N,EXPX   /V,N,DP4   /V,N,RDP   $                     
+         PARAMD  //*CONJ* ////V,N,CONJX  /V,N,CDP4             $                     
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+         PARAMD  //*DIVC* ////V,N,DIVCX  /V,N,DCPLX4/V,N,CDP4  $                     
+         PARAMD  //*EQ*     //V,N,EXPX   /V,N,DP4////V,N,EQFLG $                     
+         PRTPARM // 0   $                                                            
+         JUMP    FINIS  $                                                            
+     ENDALTER                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                          
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T01-24-1A                                   
+                  3          SPC  = 1                                                                    
+                  4          LOAD = 1                                                                    
+                  5          DISP = ALL                                                                  
+                  6      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    11, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CROD    60      5       1       2       61      5       2       3               
+                    2-        CROD    62      5       3       4                                               
+                    3-        FORCE   1       4       0       -1.     .0      .0      100.                    
+                    4-        GRDSET                                                  456                     
+                    5-        GRID    1               .0      .0      .0                                      
+                    6-        GRID    2               10.     .0      .0                                      
+                    7-        GRID    3               30.     .0      .0                                      
+                    8-        GRID    4               50.     .0      .0                                      
+                    9-        MAT1    6       1.04+7  4.+6                                                    
+                   10-        PROD    5       6       2.1                                                     
+                   11-        SPC1    1       123     1                                                       
+                              ENDDATA
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+
+                                                                                                                                    
+
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ROD      ELEMENTS (ELEMENT TYPE   1) STARTING WITH ID       60
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+0                                                                                                                                   
+0    TABLE   EPT                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+0*** USER WARNING MESSAGE, TABPRT MODULE ASSUMES ALL REAL DATA ARE IN S.P., D.P. DATA THEREFORE MAY BE PRINTED ERRONEOUSLY
+
+ RECORD NO.     0
+          EPT                                                                                                                       
+
+ RECORD NO.     1
+           902            9           29            5            6 2.100000E+00 0.000000E+00 0.000000E+00 0.000000E+00              
+
+ RECORD NO.     2
+    2147483647   2147483647   2147483647                                                                                            
+
+ RECORD NO.     3
+
+
+ END OF FILE
+0TRAILER WORD1 =     128 WORD2 =       0 WORD3 =       0 WORD4 =       0 WORD5 =       0 WORD6 =       0
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+0                                                                                                                                   
+0      MATRIX KGGX     (GINO NAME 101 ) IS A D.P.REAL     24 COLUMN X     24 ROW SYMMETRC MATRIX.
+0COLUMN      1      ROWS      1 THRU      7     --------------------------------------------------
+ 
+   2.184000D+06  0.000000D+00  0.000000D+00  0.000000D+00  0.000000D+00  0.000000D+00 -2.184000D+06
+0COLUMNS       2 THRU       6 ARE NULL.
+0COLUMN      7      ROWS      1 THRU     13     --------------------------------------------------
+ 
+  -2.184000D+06  0.000000D+00  0.000000D+00  0.000000D+00  0.000000D+00  0.000000D+00  3.276000D+06  0.000000D+00  0.000000D+00
+   0.000000D+00  0.000000D+00  0.000000D+00 -1.092000D+06
+0COLUMNS       8 THRU      12 ARE NULL.
+0COLUMN     13      ROWS      7 THRU     19     --------------------------------------------------
+ 
+  -1.092000D+06  0.000000D+00  0.000000D+00  0.000000D+00  0.000000D+00  0.000000D+00  2.184000D+06  0.000000D+00  0.000000D+00
+   0.000000D+00  0.000000D+00  0.000000D+00 -1.092000D+06
+0COLUMNS      14 THRU      18 ARE NULL.
+0COLUMN     19      ROWS     13 THRU     19     --------------------------------------------------
+ 
+  -1.092000D+06  0.000000D+00  0.000000D+00  0.000000D+00  0.000000D+00  0.000000D+00  1.092000D+06
+0COLUMNS      20 THRU      24 ARE NULL.
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =       6
+0THE DENSITY OF THIS MATRIX IS   1.73 PERCENT.
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE1   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORD     6             =
++                                                                       0.20999999E+01   = RSP     
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE1   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORD     4             =
++                                                                                    5   = INT     
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE2   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORDS     4 AND     5  =
++                                                                      (INVALID REQUEST) = INT2    
+0*** USER WARNING MESSAGE - ILLEGAL INTEGER ABSTRACTION FROM 2 OR 4 DATA WORDS.  OUPUT PARAMETER INT2     NOT SAVED
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE2   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORDS     6 AND     7  =
++                                                                       0.20999999D+01   = RDP     
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE2   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORDS     6 AND     7  =
++                                                                       0.20124998E+01   = RSPX    
+     INPUT FILE EPT      RECORD     1 WORDS     6 AND     7  =
++                                                                      (INVALID REQUEST) = INTX    
+0*** USER WARNING MESSAGE - ILLEGAL INTEGER ABSTRACTION FROM 2 OR 4 DATA WORDS.  OUPUT PARAMETER INTX     NOT SAVED
+     INPUT FILE EPT      RECORD     1 WORDS     6 AND     7  =
++                                                                       0.20999999D+01   = RDPX    
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE1   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORD     1             =
++                                                                      (INVALID REQUEST) = BCD     
+0*** USER WARNING MESSAGE - ILLEGAL OUTPUT REQUESTED. ORIG. DATA TYPE IS INTEGER,  PARAMETER BCD      NOT SAVED
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE2   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORDS     6 AND     7  =
++                                                                      ( 0.20999999E+01, 0.00000000E+00)  = SCPLX   
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE2   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORDS     6 AND     7  =
++                                                                      ( 0.20999999D+01, 0.00000000D+00)  = DCPLX   
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE4   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORDS     6 THRU    9  =
++                                                                      ( 0.20999999D+01, 0.00000000D+00)  = DCPLX4  
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE2   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORDS     9 AND    10  =
++                                                                      (INVALID REQUEST) = LAST    
+0*** USER WARNING MESSAGE - E-O-R ENCOUNTERED.  PARAMETER LAST     NOT SAVED
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - TABLE1   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     INPUT FILE EPT      RECORD     1 WORD     9             =
++                                                                       0.00000000E+00   = LAST1   
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - MATRIX   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     ELEMENT (    7-ROW,    1-COL) OF D.P. REAL  INPUT FILE KGGX     =
++                                                                      -0.21840000E+07   = R1      
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - MATRIX   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     ELEMENT (    3-ROW,    1-COL) OF D.P. REAL  INPUT FILE KGGX     =
++                                                                      (INVALID INTEGER) = I1      
+0*** USER WARNING MESSAGE - OUTPUT PARAMETER I1       NOT SAVED
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - MATRIX   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     ELEMENT (    1-ROW,    3-COL) OF D.P. REAL  INPUT FILE KGGX     =
++                                                                       0.00000000D+00   = D1      
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - MATRIX   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     ELEMENT (    1-ROW,    3-COL) OF D.P. REAL  INPUT FILE KGGX     =
++                                                                      (INVALID BCD WORD)= B1      
+0*** USER WARNING MESSAGE - OUTPUT PARAMETER B1       NOT SAVED
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - MATRIX   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     ELEMENT (    7-ROW,   13-COL) OF D.P. REAL  INPUT FILE KGGX     =
++                                                                      (-0.10920000E+07, 0.00000000E+00)  = CS1     
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - MATRIX   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     ELEMENT (   13-ROW,    7-COL) OF D.P. REAL  INPUT FILE KGGX     =
++                                                                      (-0.10920000D+07, 0.00000000D+00)  = CD1     
+0*** USER INFORMATION MESSAGE FROM PARAML MODULE  - MATRIX   -
+     (ALL PARAML MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+
+     ELEMENT (   13-ROW,   19-COL) OF D.P. REAL  INPUT FILE KGGX     =
++                                                                      -0.10920000D+07   = D13     
+0*** USER INFORMATION MESSAGE FROM SCALAR MODULE -
+     (ALL SCALAR MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                                                                          0.21840000E+07  = SP1     
++    ELEMENT (    1-ROW,    1-COL) OF D.P. REAL  INPUT FILE KGGX     =
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE FROM SCALAR MODULE -
+     (ALL SCALAR MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                                                                          0.00000000E+00  = SP2     
++    ELEMENT (    1-ROW,    3-COL) OF D.P. REAL  INPUT FILE KGGX     =
+0*** USER INFORMATION MESSAGE FROM SCALAR MODULE -
+     (ALL SCALAR MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                                                                          0.00000000E+00  = SP3     
++    ELEMENT (    3-ROW,    1-COL) OF D.P. REAL  INPUT FILE KGGX     =
+0*** USER INFORMATION MESSAGE FROM SCALAR MODULE -
+     (ALL SCALAR MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                                                                         -0.10920000E+07  = SP4     
++    ELEMENT (    7-ROW,   13-COL) OF D.P. REAL  INPUT FILE KGGX     =
+0*** USER INFORMATION MESSAGE FROM SCALAR MODULE -
+     (ALL SCALAR MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                                                                         -0.10920000D+07  = DP4     
++    ELEMENT (   19-ROW,   13-COL) OF D.P. REAL  INPUT FILE KGGX     =
+0*** USER INFORMATION MESSAGE FROM SCALAR MODULE -
+     (ALL SCALAR MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                                                                         (-0.10920000E+07, 0.00000000E+00)  = CSP4    
++    ELEMENT (    7-ROW,   13-COL) OF D.P. REAL  INPUT FILE KGGX     =
+0*** USER INFORMATION MESSAGE FROM SCALAR MODULE -
+     (ALL SCALAR MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                                                                         (-0.10920000D+07, 0.00000000D+00)  = CDP4    
++    ELEMENT (   13-ROW,    7-COL) OF D.P. REAL  INPUT FILE KGGX     =
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = ADD     
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+                      R1       = -0.218400E+07  (INPUT)
+                      SP4      = -0.109200E+07  (INPUT)
+                      R1SP4    = -0.327600E+07  (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = SUB     
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+                      R1       = -0.218400E+07  (INPUT)
+                      SP4      = -0.109200E+07  (INPUT)
+                      R1SP4    = -0.109200E+07  (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = ABS     
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+                      R1       = -0.218400E+07  (INPUT)
+                      ABSR1    =  0.218400E+07  (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = ABS     
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+                      3RD PARM =  0.000000E+00  (INPUT)
+                      ABSRX    =  0.000000E+00  (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = SQRT    
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+     ERROR - OPERATING ON A NEGATIVE NUMBER          
+                      R1       = -0.218400E+07  (INPUT)
+                      SQTR1    =  0.000000E+00  (OUTPUT)
+0*** USER WARNING MESSAGE - I/O ERROR, OUTPUT NOT SAVED. OUTPUT DEFAULT VALUE REMAINS         
+
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = SQRT    
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+                      ABSR1    =  0.218400E+07  (INPUT)
+                      SQTR1    =  0.147784E+04  (OUTPUT)
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = MPYC    
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+                      SCPLX    = ( 0.210000E+01, 0.000000E+00)   (INPUT)
+                      CS1      = (-0.109200E+07, 0.000000E+00)   (INPUT)
+                      CMPY     = (-0.229320E+07, 0.000000E+00)   (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = COMPLEX 
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+                      R1       = -0.218400E+07  (INPUT)
+                      SP4      = -0.109200E+07  (INPUT)
+                      OUTC     = (-0.218400E+07,-0.109200E+07)   (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = LE      
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+                      R1       = -0.218400E+07  (INPUT)
+                      SP4      = -0.109200E+07  (INPUT)
+                      LEFLG    =        -1      (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMD MODULE - OP CODE = MPY     
+     (ALL PARAMD MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                      RDPX     =  0.20999999D+01  (INPUT)
+                      RDPX     =  0.20999999D+01  (INPUT)
+                      RDPDP    =  0.44099996D+01  (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMD MODULE - OP CODE = MPY     
+     (ALL PARAMD MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                      3RD PARM =  0.00000000D+00  (INPUT)
+                      RDPX     =  0.20999999D+01  (INPUT)
+                      RDPDX    =  0.00000000D+00  (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMD MODULE - OP CODE = DIV     
+     (ALL PARAMD MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                      DP4      = -0.10920000D+07  (INPUT)
+                      RDPX     =  0.20999999D+01  (INPUT)
+                      DP4X     = -0.52000002D+06  (OUTPUT)
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE FROM PARAMD MODULE - OP CODE = EXP     
+     (ALL PARAMD MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                      DP4      = -0.10920000D+07  (INPUT)
+                      EXPX     =  0.00000000D+00  (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMD MODULE - OP CODE = CONJ    
+     (ALL PARAMD MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                      CDP4     = (-0.10920000D+07, 0.00000000D+00)   (INPUT)
+                      CONJX    = (-0.10920000D+07, 0.00000000D+00)   (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMD MODULE - OP CODE = DIVC    
+     (ALL PARAMD MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                      DCPLX4   = ( 0.20999999D+01, 0.00000000D+00)   (INPUT)
+                      CDP4     = (-0.10920000D+07, 0.00000000D+00)   (INPUT)
+                      DIVCX    = (-0.19230768D-05, 0.00000000D+00)   (OUTPUT)
+0*** USER INFORMATION MESSAGE FROM PARAMD MODULE - OP CODE = EQ      
+     (ALL PARAMD MESSAGES CAN BE SUPPRESSED BY DIAG 37)
+                      EXPX     =  0.00000000D+00  (INPUT)
+                      DP4      = -0.10920000D+07  (INPUT)
+                      EQFLG    =           0      (OUTPUT)
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+0                                                                                                                                   
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    INTERACT            0.000000E+00
+                    SYS21               0.000000E+00
+                    CARDNO              0.000000E+00
+                    LUSET                     24
+                    NOGPDT              0.000000E+00
+                    ALWAYS                    -1
+                    ISOP                       1
+                    LUSEP                     24
+                    JUMPPLOT                  -1
+                    NSIL                0.000000E+00
+                    PLTFLG                     1
+                    PFILE               0.000000E+00
+                    NOGRAV                    -1
+                    NEVER                      1
+                    NOMGG                     -1
+                    GRDPNT                    -1
+                    NOSIMP                     3
+                    NOGENL                    -1
+                    GENEL               0.000000E+00
+                    COMPS                      1
+                    NOELMT                     1
+                    PRINT                      1
+                    TSTART                     2
+                    COUNT                     -1
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+0                                                                                                                                   
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    NOKGGX                     3
+                    NSKIP               0.000000E+00
+                    RSP                 2.100000E+00
+                    INT                        5
+                    INT2                0.000000E+00
+                    RDP                 2.0999999046325684D+00
+                    RSPX                2.012500E+00
+                    INTX                0.000000E+00
+                    RDPX                2.0999999046325684D+00
+                    BCD               (VOID)  
+                    SCPLX             (  2.100000E+00  0.000000E+00)
+                    DCPLX             (  2.0999999046325684D+00  0.0000000000000000D+00)
+                    DCPLX4            (  2.0999999046325684D+00  0.0000000000000000D+00)
+                    LAST                0.000000E+00
+                    LAST1               0.000000E+00
+                    R1                 -2.184000E+06
+                    I1                  0.000000E+00
+                    D1                (  0.000000E+00  0.000000E+00)
+                    B1                (VOID)  
+                    CS1               ( -1.092000E+06  0.000000E+00)
+                    CD1               ( -1.0920000000000000D+06  0.0000000000000000D+00)
+                    D13               ( -1.104141E+01  0.000000E+00)
+                    SP1                 2.184000E+06
+                    SP2                 0.000000E+00
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+0                                                                                                                                   
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    SP3                 0.000000E+00
+                    SP4                -1.092000E+06
+                    DP4               ( -1.104141E+01  0.000000E+00)
+                    CSP4              ( -1.092000E+06  0.000000E+00)
+                    CDP4              ( -1.0920000000000000D+06  0.0000000000000000D+00)
+                    R1SP4              -1.092000E+06
+                    ABSR1               2.184000E+06
+                    ABSRX               0.000000E+00
+                    SQTR1               1.477836E+03
+                    CMPY              ( -2.293200E+06  0.000000E+00)
+                    OUTC               -3.8913930285289718D+48
+                    LEFLG                     -1
+                    RDPDP             (  2.275625E+00 -6.813627E+28)
+                    RDPDX             (  0.000000E+00  0.000000E+00)
+                    RDPY              (  0.0000000000000000D+00  0.0000000000000000D+00)
+                    DP4X              ( -9.983643E+00  2.255056E-24)
+                    EXPX              (  0.000000E+00  0.000000E+00)
+                    CONJX             ( -1.0920000000000000D+06  0.0000000000000000D+00)
+                    DIVCX             ( -1.9230768357441102D-06  0.0000000000000000D+00)
+                    EQFLG               0.000000E+00
+                    MPCF1               0.000000E+00
+                    MPCF2               0.000000E+00
+                    SINGLE                     1
+                    OMIT                0.000000E+00
+1     TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN TEST PROBLEM NO. T01-24-1A                                                                                            
+0                                                                                                                                   
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    REACT                      1
+                    REPEAT                     1
+                    NOSET               0.000000E+00
+                    NOL                        1
+                    NOA                       -1
+                    NOSR                       1
+                    IRES                      -1
+                    EPSI                       1
+                    TEST                       1
+                    OPT                 0.000000E+00
+                    GRDEQ                     -1
+                    NOSORT2                    1
+                    STRNFLG                   -1
+                    STRESS                    -1
+                    NINTPTS             0.000000E+00
+                    STRAIN                    -1
+                    PRTSORT2                   1
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                        
+ DATE:  5/17/95
+ END TIME: 16:36:10
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

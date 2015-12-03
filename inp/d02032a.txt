@@ -1,0 +1,125 @@
+$-------------------------------------------------------------------------------
+$                   RIGID FORMAT No. 2, Inertia Relief Analysis
+$     Truss Dynamic Analysis Using Automated Modal Synthesis, Run 1, (2-3-1)
+$     Truss Dynamic Analysis Using Automated Nodal Synthesis, Run 2, (2-3-2)
+$     Truss Dynamic Analysis Using Automated Hodal Synthesis, Run 3, (2-3-3)
+$     Truss Dynamic Analysis Using Automated Modal Synthesis, Run 4, (2-3-4)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the automated substructuring and modal synthesis
+$ procedures which provide accurate, efficient solutions in dynamic analysis.
+$ Each component substructure is reduced to modal and boundary degrees of
+$ freedom prior to the substructure combine operation. The combination
+$ structure, formulated in terms of the component modes, is also reduced to
+$ modal degrees of freedom for solution by the transient analysis rigid format
+$ (Reference 37).
+$ 
+$ Four separate runs are performed.
+$ 
+$      In Runs 1 and 2, the substructuring Phase 1 operations formulate the
+$      finite element matrices and basic static loads using Rigid Format 2.
+$ 
+$      In Run 3, the basic substructures are reduced to modal coordinates and
+$      combined. Another modal synthesis reduction is performed on the
+$      combination and the resulting eigenvectors are printed.
+$ 
+$      In Run 4, the second Phase 2 operation is performed on the reduced
+$      structure with the SOLVE operation using Rigid Format 9 (transient
+$      analysis). The transient output data is transformed back to the original
+$      grid point definitions with the RECOVER command.
+$ 
+$ B. Input
+$ 
+$ All members are rod elements. All grid points are constrained to include only
+$ in-plane displacements. The basic input and the substructure control data are
+$ described below.
+$ 
+$ 1. Parameters:
+$ 
+$    a = 40                   (typical frame width)
+$ 
+$    h = 30                   (typical frame height)
+$ 
+$    A = 0.3                  (cross section of members)
+$ 
+$          6
+$    E = 10                   (Young's Modulus)
+$ 
+$                -3
+$    P = 2.5 x 10             (density)
+$ 
+$ 2. Constraints:
+$ 
+$    u  = theta  = theta  = theta  = 0 all points
+$     z        x        y        z
+$ 
+$    (Boundary conditions are applied only during solution.)
+$ 
+$ 3. Loads:
+$             3
+$    P    = 10                load on substructure BBASIC
+$     y42
+$ 
+$ 4. Transient Loads:
+$ 
+$    U    = .143  @t = 0      initial condition
+$     y42
+$ 
+$             3
+$    P    = 10   0 < t < .12  load history
+$     y42
+$ 
+$ 5. Substructuring Parameters:
+$ 
+$    SOF(1) = SOF1,500 $ CDC
+$ 
+$    SOF(1) = FT19,500 $ IBM
+$ 
+$    SOF(1) = INP1,500 $ UNIVAC
+$ 
+$    PASSWORD = MDLSYN
+$ 
+$ C. Results
+$ 
+$ For assessing the accuracy of the modal synthesis, the whole structure is run
+$ in Rigid Format 3 to determine natural frequency and mode shapes. ThIs
+$ procedure eliminates the effects of finite element errors common to both
+$ methods.
+$ 
+$ Natural frequencies for the combined system are shown in Table 1 along with
+$ the error ratios of the difference. Note that the lowest frequency component
+$ mode omitted from the analysis was 197.2 Hz. Below this frequency, the
+$ resulting modes are excellent.
+$ 
+$      Table 1. Natural Frequencies and Differences for 20 Degrees of Freedom
+$                                  Mode Synthesis
+$ 
+$                   -------------------------------------------
+$                   Mode No.   Frequency (Hz)   % Difference
+$                                               From Full Model
+$                   -------------------------------------------
+$                      1            3.596           .0085
+$                      2           17.564           .0012
+$                      3           28.492           .0639
+$                      4           39.507           .0011
+$                      5           61.099           .0051
+$                      6           80.280           .0066
+$                      7           84.454           .379
+$                      8           98.898           .039
+$                      9          111.764           .018
+$                     10          123.348           .345
+$                     11          127.556           .548
+$                     12          130.359           .155
+$                     13          134.922          2.220
+$                     14          153.606           .174
+$                     15          162.019          2.98
+$                     16          180.321          5.27
+$                     17          200.702         14.89
+$                   -------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 37. Herting, D. N.: "Accuracy of Results with NASTRAN Modal Synthesis", NASA
+$     CP-2062, October, 1978, pp. 389-404.
+$-------------------------------------------------------------------------------

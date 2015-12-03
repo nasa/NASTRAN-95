@@ -1,0 +1,1636 @@
+     NASTRAN FILES=PLT2                                                              
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D05011A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   5,1                                                                       
+     TIME  26                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = SYMMETRIC BUCKLING OF A CYLINDER                                     
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                          
+                  3                 SPC  = 1                                                             
+                  4      OUTPUT                                                                          
+                  5                 SET 1 = 1 THRU 33                                                    
+                  6                 SET 2 = 2,6,10,14,18,22,26,30,34,38,42,46,50,54,58,62,66,70,         
+                  7                         74,78                                                        
+                  8         DISPLACEMENTS = 1                                                            
+                  9              SPCFORCE = ALL                                                          
+                 10               ELFORCE = 2                                                            
+                 11              ELSTRESS = 2                                                            
+                 12      $                                                                               
+                 13      SUBCASE 1                                                                       
+                 14       LABEL =         STATIC SOLUTION                                                
+                 15       LOAD  = 100                                                                    
+                 16       OUTPUT                                                                         
+                 17       OLOAD = ALL                                                                    
+                 18      $                                                                               
+                 19      SUBCASE 2                                                                       
+                 20       LABEL =         BUCKLING SOLUTION                                              
+                 21      METHOD = 300                                                                    
+                 22      $                                                                               
+                 23      $                                                                               
+                 24      PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                            
+                 25      OUTPUT(PLOT)                                                                    
+                 26      PLOTTER NASTPLT                                                                 
+                 27              SET 1 INCLUDE TRIA1                                                     
+                 28      $                                                                               
+                 29              PERSPECTIVE PROJECTION                                                  
+                 30              AXES Y, X, MZ                                                           
+                 31              MAXIMUM DEFORMATION 3.0                                                 
+                 32              FIND SCALE,ORIGIN 1, VANTAGE POINT                                      
+                 33      PTITLE = PERSPECTIVE VIEW OF MODEL                                              
+                 34      PLOT LABELS,SYMBOLS 6,5                                                         
+                 35      $                                                                               
+                 36              ORTHOGRAPHIC PROJECTION                                                 
+                 37              MAXIMUM DEFORMATION  3.0                                                
+                 38              FIND SCALE, ORIGIN 2                                                    
+                 39      PTITLE = STATIC LOAD UNDERLAY OF CYLINDRICAL SURFACE                            
+                 40      PLOT STATIC DEFORMATION 0,1, ORIGIN 2, LABELS, SHAPE                            
+                 41      PTITLE = MODE SHAPES OF CYLINDRICAL SURFACE WITH VECTORS                        
+                 42      PLOT MODAL DEFORMATION  2, RANGE 0.5, 3.0,                                      
+                 43              ORIGIN 2, VECTOR R, SYMBOLS 5,6                                         
+                 44              VIEW 0.0, 0.0, 0.0                                                      
+                 45              FIND SCALE, ORIGIN 1                                                    
+                 46      PTITLE = LONGITUDINAL EDGE VIEW SHOWING BUCKLING MODES                          
+                 47      PLOT MODAL DEFORMATION 0,2, RANGE 0.0, 200.0, ORIGIN 1, SHAPE                   
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                 48      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   169, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CNGRNT  1       5       9       13      17      21      25      29      +CNG11  
+                    2-        +CNG11  33      37      41      45      49      53      57      61      +CNG12  
+                    3-        +CNG12  65      69      73      77                                              
+                    4-        CNGRNT  2       6       10      14      18      22      26      30      +CNG21  
+                    5-        +CNG21  34      38      42      46      50      54      58      62      +CNG22  
+                    6-        +CNG22  66      70      74      78                                              
+                    7-        CNGRNT  3       7       11      15      19      23      27      31      +CNG31  
+                    8-        +CNG31  35      39      43      47      51      55      59      63      +CNG32  
+                    9-        +CNG32  67      71      75      79                                              
+                   10-        CNGRNT  4       8       12      16      20      24      28      32      +CNG41  
+                   11-        +CNG41  36      40      44      48      52      56      60      64      +CNG42  
+                   12-        +CNG42  68      72      76      80                                              
+                   13-        CORD2C  100     0       25.0    .0      80.0    50.0    .0      80.0    +CORD100
+                   14-        +CORD10025.0    .0      .0                                                      
+                   15-        CTRIA1  1       200     1       2       51      .0                              
+                   16-        CTRIA1  2       200     1       4       51      .0                              
+                   17-        CTRIA1  3       200     4       5       51      .0                              
+                   18-        CTRIA1  4       200     5       2       51      .0                              
+                   19-        CTRIA1  5       200     2       3       52      .0                              
+                   20-        CTRIA1  6       200     2       5       52      .0                              
+                   21-        CTRIA1  7       200     5       6       52      .0                              
+                   22-        CTRIA1  8       200     6       3       52      .0                              
+                   23-        CTRIA1  9       200     4       5       54      .0                              
+                   24-        CTRIA1  10      200     4       7       54      .0                              
+                   25-        CTRIA1  11      200     7       8       54      .0                              
+                   26-        CTRIA1  12      200     8       5       54      .0                              
+                   27-        CTRIA1  13      200     5       6       55      .0                              
+                   28-        CTRIA1  14      200     5       8       55      .0                              
+                   29-        CTRIA1  15      200     8       9       55      .0                              
+                   30-        CTRIA1  16      200     9       6       55      .0                              
+                   31-        CTRIA1  17      200     7       8       57      .0                              
+                   32-        CTRIA1  18      200     7       10      57      .0                              
+                   33-        CTRIA1  19      200     10      11      57      .0                              
+                   34-        CTRIA1  20      200     11      8       57      .0                              
+                   35-        CTRIA1  21      200     8       9       58      .0                              
+                   36-        CTRIA1  22      200     8       11      58      .0                              
+                   37-        CTRIA1  23      200     11      12      58      .0                              
+                   38-        CTRIA1  24      200     12      9       58      .0                              
+                   39-        CTRIA1  25      200     10      11      60      .0                              
+                   40-        CTRIA1  26      200     10      13      60      .0                              
+                   41-        CTRIA1  27      200     13      14      60      .0                              
+                   42-        CTRIA1  28      200     14      11      60      .0                              
+                   43-        CTRIA1  29      200     11      12      61      .0                              
+                   44-        CTRIA1  30      200     11      14      61      .0                              
+                   45-        CTRIA1  31      200     14      15      61      .0                              
+                   46-        CTRIA1  32      200     15      12      61      .0                              
+                   47-        CTRIA1  33      200     13      14      63      .0                              
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CTRIA1  34      200     13      16      63      .0                              
+                   49-        CTRIA1  35      200     16      17      63      .0                              
+                   50-        CTRIA1  36      200     17      14      63      .0                              
+                   51-        CTRIA1  37      200     14      15      64      .0                              
+                   52-        CTRIA1  38      200     14      17      64      .0                              
+                   53-        CTRIA1  39      200     17      18      64      .0                              
+                   54-        CTRIA1  40      200     18      15      64      .0                              
+                   55-        CTRIA1  41      200     16      17      66      .0                              
+                   56-        CTRIA1  42      200     16      19      66      .0                              
+                   57-        CTRIA1  43      200     19      20      66      .0                              
+                   58-        CTRIA1  44      200     20      17      66      .0                              
+                   59-        CTRIA1  45      200     17      18      67      .0                              
+                   60-        CTRIA1  46      200     17      20      67      .0                              
+                   61-        CTRIA1  47      200     20      21      67      .0                              
+                   62-        CTRIA1  48      200     21      18      67      .0                              
+                   63-        CTRIA1  49      200     19      20      69      .0                              
+                   64-        CTRIA1  50      200     19      22      69      .0                              
+                   65-        CTRIA1  51      200     22      23      69      .0                              
+                   66-        CTRIA1  52      200     23      20      69      .0                              
+                   67-        CTRIA1  53      200     20      21      70      .0                              
+                   68-        CTRIA1  54      200     20      23      70      .0                              
+                   69-        CTRIA1  55      200     23      24      70      .0                              
+                   70-        CTRIA1  56      200     24      21      70      .0                              
+                   71-        CTRIA1  57      200     22      23      72      .0                              
+                   72-        CTRIA1  58      200     22      25      72      .0                              
+                   73-        CTRIA1  59      200     25      26      72      .0                              
+                   74-        CTRIA1  60      200     26      23      72      .0                              
+                   75-        CTRIA1  61      200     23      24      73      .0                              
+                   76-        CTRIA1  62      200     23      26      73      .0                              
+                   77-        CTRIA1  63      200     26      27      73      .0                              
+                   78-        CTRIA1  64      200     27      24      73      .0                              
+                   79-        CTRIA1  65      200     25      26      75      .0                              
+                   80-        CTRIA1  66      200     25      28      75      .0                              
+                   81-        CTRIA1  67      200     28      29      75      .0                              
+                   82-        CTRIA1  68      200     29      26      75      .0                              
+                   83-        CTRIA1  69      200     26      27      76      .0                              
+                   84-        CTRIA1  70      200     26      29      76      .0                              
+                   85-        CTRIA1  71      200     29      30      76      .0                              
+                   86-        CTRIA1  72      200     30      27      76      .0                              
+                   87-        CTRIA1  73      200     28      29      78      .0                              
+                   88-        CTRIA1  74      200     28      31      78      .0                              
+                   89-        CTRIA1  75      200     31      32      78      .0                              
+                   90-        CTRIA1  76      200     32      29      78      .0                              
+                   91-        CTRIA1  77      200     29      30      79      .0                              
+                   92-        CTRIA1  78      200     29      32      79      .0                              
+                   93-        CTRIA1  79      200     32      33      79      .0                              
+                   94-        CTRIA1  80      200     33      30      79      .0                              
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        EIGB    300     UDET    .10     2.5     4       4       0       1.5E-05 +EIGB300
+                   96-        +EIGB300MAX                                                                     
+                   97-        FORCE   1       1       100     1.0+3   .0      .0      .5                      
+                   98-        FORCE   1       2       100     1.0+3   .0      .0      1.0                     
+                   99-        FORCE   1       3       100     1.0+3   .0      .0      .5                      
+                  100-        FORCE   1       31      100     1.0+3   .0      .0      -0.5                    
+                  101-        FORCE   1       32      100     1.0+3   .0      .0      -1.0                    
+                  102-        FORCE   1       33      100     1.0+3   .0      .0      -0.5                    
+                  103-        GRDSET                                                  462                     
+                  104-        GRID    1       100     80.0    -3.0    -25.0   100                             
+                  105-        GRID    2       100     80.0    .0      -25.0   100                             
+                  106-        GRID    3       100     80.0    3.0     -25.0   100                             
+                  107-        GRID    4       100     80.0    -3.0    -20.0   100                             
+                  108-        GRID    5       100     80.0    .0      -20.0   100                             
+                  109-        GRID    6       100     80.0    3.0     -20.0   100                             
+                  110-        GRID    7       100     80.0    -3.0    -15.0   100                             
+                  111-        GRID    8       100     80.0    .0      -15.0   100                             
+                  112-        GRID    9       100     80.0    3.0     -15.0   100                             
+                  113-        GRID    10      100     80.0    -3.0    -10.0   100                             
+                  114-        GRID    11      100     80.0    .0      -10.0   100                             
+                  115-        GRID    12      100     80.0    3.0     -10.0   100                             
+                  116-        GRID    13      100     80.0    -3.0    -05.0   100                             
+                  117-        GRID    14      100     80.0    .0      -05.0   100                             
+                  118-        GRID    15      100     80.0    3.0     -05.0   100                             
+                  119-        GRID    16      100     80.0    -3.0    +0.0    100                             
+                  120-        GRID    17      100     80.0    .0      +0.0    100                             
+                  121-        GRID    18      100     80.0    3.0     +0.0    100                             
+                  122-        GRID    19      100     80.0    -3.0    +5.0    100                             
+                  123-        GRID    20      100     80.0    .0      +5.0    100                             
+                  124-        GRID    21      100     80.0    3.0     +5.0    100                             
+                  125-        GRID    22      100     80.0    -3.0    10.0    100                             
+                  126-        GRID    23      100     80.0    .0      10.0    100                             
+                  127-        GRID    24      100     80.0    3.0     10.0    100                             
+                  128-        GRID    25      100     80.0    -3.0    15.0    100                             
+                  129-        GRID    26      100     80.0    .0      15.0    100                             
+                  130-        GRID    27      100     80.0    3.0     15.0    100                             
+                  131-        GRID    28      100     80.0    -3.0    20.0    100                             
+                  132-        GRID    29      100     80.0    .0      20.0    100                             
+                  133-        GRID    30      100     80.0    3.0     20.0    100                             
+                  134-        GRID    31      100     80.0    -3.0    25.0    100                             
+                  135-        GRID    32      100     80.0    .0      25.0    100                             
+                  136-        GRID    33      100     80.0    3.0     25.0    100                             
+                  137-        GRID    51      100     80.0    -1.5    -22.5   100                             
+                  138-        GRID    52      100     80.0    1.5     -22.5   100                             
+                  139-        GRID    54      100     80.0    -1.5    -17.5   100                             
+                  140-        GRID    55      100     80.0    1.5     -17.5   100                             
+                  141-        GRID    57      100     80.0    -1.5    -12.5   100                             
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        GRID    58      100     80.0    1.5     -12.5   100                             
+                  143-        GRID    60      100     80.0    -1.5    -07.5   100                             
+                  144-        GRID    61      100     80.0    1.5     -07.5   100                             
+                  145-        GRID    63      100     80.0    -1.5    -02.5   100                             
+                  146-        GRID    64      100     80.0    1.5     -02.5   100                             
+                  147-        GRID    66      100     80.0    -1.5    2.5     100                             
+                  148-        GRID    67      100     80.0    1.5     2.5     100                             
+                  149-        GRID    69      100     80.0    -1.5    7.5     100                             
+                  150-        GRID    70      100     80.0    1.5     7.5     100                             
+                  151-        GRID    72      100     80.0    -1.5    12.5    100                             
+                  152-        GRID    73      100     80.0    1.5     12.5    100                             
+                  153-        GRID    75      100     80.0    -1.5    17.5    100                             
+                  154-        GRID    76      100     80.0    1.5     17.5    100                             
+                  155-        GRID    78      100     80.0    -1.5    22.5    100                             
+                  156-        GRID    79      100     80.0    1.5     22.5    100                             
+                  157-        LOAD    100     1.0     1.89745 1                                               
+                  158-        MAT1    400     10000.00        .0                                              
+                  159-        PARAM   IRES    1                                                               
+                  160-        PTRIA1  200     400     2.5     400     1.30208                         +PTRIA1*
+                  161-        +PTRIA1*1.51022 0.00                                                            
+                  162-        SEQGP   51      2.5     52      3.5     54      5.5     55      6.5             
+                  163-        SEQGP   57      8.5     58      9.5     60      11.5    61      12.5            
+                  164-        SEQGP   63      14.5    64      15.5    66      17.5    67      18.5            
+                  165-        SEQGP   69      20.5    70      21.5    72      23.5    73      24.5            
+                  166-        SEQGP   75      26.5    76      27.5    78      29.5    79      30.5            
+                  167-        SPC     50038   17      3       .0                                              
+                  168-        SPC1    50037   1       1       2       3       31      32      33              
+                  169-        SPCADD  1       50037   50038                                                   
+                              ENDDATA
+0*** USER WARNING MESSAGE 2251, TWO OF THE E, G AND NU ON MAT1 CARD      400 ARE ZEROS OR BLANKS.
+     POTENTIAL ERROR MAY OCCUR LATER
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     THE PRESENCE OF SEQGP CARDS
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE, PLOT FILE GOES TO PLT2
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          PERSPECTIVE  PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =   0.00, ALPHA =   0.00,  AXES = +Y,+X,-Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 1.439311E-01                                                                                
+          VANTAGE POINT (INCHES) - RO = 1.016716E+02, S0 = 0.206598E+02, T0 = 0.578196E+02                                          
+          PROJECTION PLANE SEPARATION (INCHES) = 8.681171E+01                                                                       
+                                                                                                                                    
+          ORIGIN       1   -   X0 = -5.099206E-01, Y0 = -0.168773E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+                                                 PLOT        1  UNDEFORMED SHAPE                                                    
+                                                 ORIGIN      1  USED IN THIS PLOT                                                   
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TRIA1    ELEMENTS (ELEMENT TYPE   6) STARTING WITH ID        1
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK MGG      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK MGG      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   2.4399934E-15
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+0                RULV                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       1-T3).
+             1 T3 -1.25056E-12        1 R2 -6.75016E-13        2 T3  1.59162E-12        2 R2 -6.92779E-13       51 T1  9.09495E-13
+            51 T3 -1.46783E-12       51 R2  1.34470E-12        3 T3 -3.41061E-13        3 R2 -8.17124E-14       52 T1  9.37916E-13
+            52 T3 -3.47369E-12       52 R2  1.40510E-12        4 T1 -1.13509E-12        4 T3  2.89901E-12        4 R2 -9.27258E-13
+             5 T1 -1.44063E-12        5 T3 -1.93268E-12        5 R2 -1.38911E-12       54 T1  6.18172E-13       54 T3 -3.96147E-12
+            54 R2  1.33848E-12        6 T1 -4.80505E-13        6 T3  1.64846E-12        6 R2 -5.03597E-13       55 T1  1.08535E-12
+            55 T3  6.17961E-12       55 R2  1.33493E-12        7 T1 -9.27258E-13        7 T3  2.27374E-13        7 R2 -8.38440E-13
+             8 T1 -1.50280E-12        8 T3 -2.72848E-12        8 R2 -1.06937E-12       57 T1  3.90799E-13       57 T3  6.13051E-13
+            57 R2  1.02496E-12        9 T1 -5.71987E-13        9 T3  1.30740E-12        9 R2 -2.75335E-13       58 T1  2.91323E-13
+            58 T3  3.32896E-12       58 R2  1.15641E-12       10 T1 -7.95808E-13       10 T3  5.40012E-13       10 R2 -3.62377E-13
+            11 T1 -9.29035E-13       11 T3  2.67164E-12       11 R2 -6.09290E-13       60 T1  1.03029E-13       60 T3  1.87475E-12
+            60 R2  6.31495E-13       12 T1 -4.28990E-13       12 T3 -1.98952E-13       12 R2 -6.21725E-14       61 T1  1.49214E-13
+            61 T3  5.50199E-13       61 R2  6.59028E-13       13 T1 -4.59450E-13       13 T3 -6.39717E-13       13 R2 -4.40105E-13
+            14 T1 -8.77386E-13       14 T3  3.51025E-13       14 R2 -6.81933E-13       63 T1  1.00638E-13       63 T3  2.92459E-13
+            63 R2  3.91196E-13       15 T1 -3.50291E-13       15 T3  2.42012E-13       15 R2 -2.36708E-13       64 T1  8.80350E-14
+            64 T3 -1.74630E-13       64 R2  5.08644E-13       16 T1 -6.95444E-13       16 T3  3.12639E-13       16 R2 -4.48530E-13
+            17 T1 -1.24878E-12       17 R2 -6.99885E-13       66 T1 -1.49214E-13       66 T3  3.47944E-13       66 R2  3.63265E-13
+            18 T1 -4.28102E-13       18 T3  7.38964E-13       18 R2 -1.87406E-13       67 T1  6.75016E-14       67 T3 -3.77504E-13
+            67 R2  3.44613E-13       19 T1 -1.04095E-12       19 T3 -3.41061E-13       19 R2 -7.22977E-13       20 T1 -1.80833E-12
+            20 T3 -1.47793E-12       20 R2 -9.13047E-13       69 T1 -8.17124E-14       69 T3 -1.33561E-12       69 R2  4.40536E-13
+            21 T1 -6.98108E-13       21 T3  1.70530E-13       21 R2 -2.61124E-13       70 T1 -1.91847E-13       70 T3 -2.69226E-12
+            70 R2  3.96128E-13       22 T1 -1.56763E-12       22 R2 -8.19789E-13       23 T1 -2.51177E-12       23 T3 -7.95808E-13
+            23 R2 -1.59872E-12       72 T1  3.73035E-14       72 T3  1.34607E-12       72 R2  3.07310E-13       24 T1 -9.55680E-13
+            24 T3  4.54747E-13       24 R2 -4.96492E-13       73 T1 -2.41585E-13       73 T3 -1.52477E-12       73 R2  6.91003E-13
+            25 T1 -1.61116E-12       25 T3 -2.27374E-12       25 R2 -7.78044E-13       26 T1 -2.84217E-12       26 T3  2.27374E-13
+            26 R2 -1.18661E-12       75 T1 -5.11591E-13       75 T3  2.93129E-12       75 R2  3.10862E-13       27 T1 -1.20615E-12
+            27 T3 -5.68434E-13       27 R2 -5.56000E-13       76 T1 -5.32907E-13       76 T3 -3.25304E-12       76 R2  1.97176E-13
+            28 T1 -9.02389E-13       28 T3 -3.86535E-12       28 R2 -2.06057E-13       29 T1 -1.70530E-12       29 T3 -1.81899E-12
+            29 R2 -5.54223E-13       78 T1 -1.22213E-12       78 T3 -6.25078E-12       78 R2 -7.53175E-13       30 T1 -9.87654E-13
+            30 T3  1.36424E-12       30 R2 -4.05009E-13       79 T1 -1.30740E-12       79 T3  2.03171E-12       79 R2 -6.39488E-13
+            31 T3 -1.27226E-12       31 R2  2.13163E-14       32 T3 -3.40988E-12       32 R2  7.46070E-14       33 T3 -8.96061E-13
+            33 R2 -5.68434E-14
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             STATIC SOLUTION                                                                                SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            4.530113E-01   0.0            1.493624E-03   0.0                           
+             2      G      0.0            0.0            4.530113E-01   0.0            1.493624E-03   0.0                           
+             3      G      0.0            0.0            4.530113E-01   0.0            1.493624E-03   0.0                           
+             4      G      4.521807E-03   0.0            3.624025E-01   0.0            3.945479E-04   0.0                           
+             5      G      4.521807E-03   0.0            3.624025E-01   0.0            3.945479E-04   0.0                           
+             6      G      4.521808E-03   0.0            3.624025E-01   0.0            3.945480E-04   0.0                           
+             7      G      5.020969E-03   0.0            2.717983E-01   0.0           -1.351363E-04   0.0                           
+             8      G      5.020970E-03   0.0            2.717983E-01   0.0           -1.351364E-04   0.0                           
+             9      G      5.020970E-03   0.0            2.717983E-01   0.0           -1.351364E-04   0.0                           
+            10      G      3.910930E-03   0.0            1.811974E-01   0.0           -2.719970E-04   0.0                           
+            11      G      3.910930E-03   0.0            1.811974E-01   0.0           -2.719970E-04   0.0                           
+            12      G      3.910930E-03   0.0            1.811974E-01   0.0           -2.719970E-04   0.0                           
+            13      G      2.723196E-03   0.0            9.059831E-02   0.0           -1.845057E-04   0.0                           
+            14      G      2.723196E-03   0.0            9.059831E-02   0.0           -1.845058E-04   0.0                           
+            15      G      2.723196E-03   0.0            9.059831E-02   0.0           -1.845058E-04   0.0                           
+            16      G      2.248194E-03   0.0           -1.942890E-16   0.0           -8.166753E-16   0.0                           
+            17      G      2.248194E-03   0.0            0.0            0.0           -8.202532E-16   0.0                           
+            18      G      2.248194E-03   0.0           -1.873501E-16   0.0           -8.243189E-16   0.0                           
+            19      G      2.723196E-03   0.0           -9.059831E-02   0.0            1.845057E-04   0.0                           
+            20      G      2.723196E-03   0.0           -9.059831E-02   0.0            1.845058E-04   0.0                           
+            21      G      2.723196E-03   0.0           -9.059831E-02   0.0            1.845058E-04   0.0                           
+            22      G      3.910930E-03   0.0           -1.811974E-01   0.0            2.719970E-04   0.0                           
+            23      G      3.910930E-03   0.0           -1.811974E-01   0.0            2.719970E-04   0.0                           
+            24      G      3.910930E-03   0.0           -1.811974E-01   0.0            2.719970E-04   0.0                           
+            25      G      5.020969E-03   0.0           -2.717983E-01   0.0            1.351363E-04   0.0                           
+            26      G      5.020970E-03   0.0           -2.717983E-01   0.0            1.351364E-04   0.0                           
+            27      G      5.020970E-03   0.0           -2.717983E-01   0.0            1.351364E-04   0.0                           
+            28      G      4.521807E-03   0.0           -3.624025E-01   0.0           -3.945479E-04   0.0                           
+            29      G      4.521807E-03   0.0           -3.624025E-01   0.0           -3.945479E-04   0.0                           
+            30      G      4.521808E-03   0.0           -3.624025E-01   0.0           -3.945480E-04   0.0                           
+            31      G      0.0            0.0           -4.530113E-01   0.0           -1.493624E-03   0.0                           
+            32      G      0.0            0.0           -4.530113E-01   0.0           -1.493624E-03   0.0                           
+            33      G      0.0            0.0           -4.530113E-01   0.0           -1.493624E-03   0.0                           
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             STATIC SOLUTION                                                                                SUBCASE 1              
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            9.487250E+02   0.0            0.0            0.0                           
+             2      G      0.0            0.0            1.897450E+03   0.0            0.0            0.0                           
+             3      G      0.0            0.0            9.487250E+02   0.0            0.0            0.0                           
+            31      G      0.0            0.0           -9.487250E+02   0.0            0.0            0.0                           
+            32      G      0.0            0.0           -1.897450E+03   0.0            0.0            0.0                           
+            33      G      0.0            0.0           -9.487250E+02   0.0            0.0            0.0                           
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             STATIC SOLUTION                                                                                SUBCASE 1              
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      7.285580E-01  -8.469142E-01   0.0            1.805507E-01   0.0            3.701859E+00                  
+             2      G      1.457114E+00  -4.317856E-05   0.0           -1.378303E-07   0.0           -6.490509E-06                  
+             3      G      7.285564E-01   8.468710E-01   0.0           -1.805507E-01   0.0           -3.701865E+00                  
+             4      G      0.0           -6.711637E+00   0.0            4.115828E-03   0.0            7.852575E+00                  
+             5      G      0.0           -2.765656E-06   0.0           -9.521974E-08   0.0           -1.973346E-05                  
+             6      G      0.0            6.711634E+00   0.0           -4.115792E-03   0.0           -7.852594E+00                  
+             7      G      0.0           -7.765545E+00   0.0            2.459845E-03   0.0            7.849104E+00                  
+             8      G      0.0           -1.598993E-06   0.0            1.685123E-08   0.0           -2.277023E-05                  
+             9      G      0.0            7.765544E+00   0.0           -2.459849E-03   0.0           -7.849126E+00                  
+            10      G      0.0           -6.203201E+00   0.0            1.223298E-03   0.0            7.847950E+00                  
+            11      G      0.0            4.572253E-06   0.0            5.369029E-08   0.0           -1.924447E-05                  
+            12      G      0.0            6.203206E+00   0.0           -1.223316E-03   0.0           -7.847970E+00                  
+            13      G      0.0           -4.435428E+00   0.0            4.666350E-04   0.0            7.847808E+00                  
+            14      G      0.0            8.949936E-06   0.0            3.802452E-08   0.0           -1.487808E-05                  
+            15      G      0.0            4.435437E+00   0.0           -4.666480E-04   0.0           -7.847823E+00                  
+            16      G      0.0           -3.719525E+00   0.0           -7.924217E-15   0.0            7.847852E+00                  
+            17      G      0.0            1.042426E-05   1.318767E-11   1.367782E-14   0.0           -1.307713E-05                  
+            18      G      0.0            3.719536E+00   0.0            1.609823E-15   0.0           -7.847865E+00                  
+            19      G      0.0           -4.435428E+00   0.0           -4.666350E-04   0.0            7.847808E+00                  
+            20      G      0.0            8.949936E-06   0.0           -3.802450E-08   0.0           -1.487808E-05                  
+            21      G      0.0            4.435437E+00   0.0            4.666480E-04   0.0           -7.847823E+00                  
+            22      G      0.0           -6.203201E+00   0.0           -1.223298E-03   0.0            7.847950E+00                  
+            23      G      0.0            4.572252E-06   0.0           -5.369026E-08   0.0           -1.924447E-05                  
+            24      G      0.0            6.203206E+00   0.0            1.223316E-03   0.0           -7.847970E+00                  
+            25      G      0.0           -7.765545E+00   0.0           -2.459845E-03   0.0            7.849104E+00                  
+            26      G      0.0           -1.598994E-06   0.0           -1.685119E-08   0.0           -2.277023E-05                  
+            27      G      0.0            7.765544E+00   0.0            2.459849E-03   0.0           -7.849126E+00                  
+            28      G      0.0           -6.711637E+00   0.0           -4.115828E-03   0.0            7.852575E+00                  
+            29      G      0.0           -2.765657E-06   0.0            9.521976E-08   0.0           -1.973347E-05                  
+            30      G      0.0            6.711634E+00   0.0            4.115792E-03   0.0           -7.852594E+00                  
+            31      G      7.285580E-01  -8.469142E-01   0.0           -1.805507E-01   0.0            3.701859E+00                  
+            32      G      1.457114E+00  -4.317856E-05   0.0            1.378303E-07   0.0           -6.490509E-06                  
+            33      G      7.285564E-01   8.468710E-01   0.0            1.805507E-01   0.0           -3.701865E+00                  
+            51      G      0.0            4.635235E-05   0.0           -2.691410E-09   0.0           -6.284938E-06                  
+            52      G      0.0            4.635235E-05   0.0           -2.691406E-09   0.0           -6.284938E-06                  
+            54      G      0.0            1.099298E-05   0.0            3.089063E-09   0.0           -1.343793E-05                  
+            55      G      0.0            1.099298E-05   0.0            3.089064E-09   0.0           -1.343793E-05                  
+            57      G      0.0           -4.342870E-06   0.0            3.315397E-09   0.0           -1.237747E-05                  
+            58      G      0.0           -4.342869E-06   0.0            3.315396E-09   0.0           -1.237747E-05                  
+            60      G      0.0           -1.119993E-05   0.0            2.168778E-09   0.0           -8.559026E-06                  
+            61      G      0.0           -1.119993E-05   0.0            2.168778E-09   0.0           -8.559026E-06                  
+            63      G      0.0           -1.378621E-05   0.0            7.340255E-10   0.0           -5.811686E-06                  
+            64      G      0.0           -1.378621E-05   0.0            7.340253E-10   0.0           -5.811686E-06                  
+            66      G      0.0           -1.378621E-05   0.0           -7.340264E-10   0.0           -5.811685E-06                  
+            67      G      0.0           -1.378621E-05   0.0           -7.340257E-10   0.0           -5.811686E-06                  
+            69      G      0.0           -1.119993E-05   0.0           -2.168780E-09   0.0           -8.559026E-06                  
+            70      G      0.0           -1.119993E-05   0.0           -2.168778E-09   0.0           -8.559026E-06                  
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             STATIC SOLUTION                                                                                SUBCASE 1              
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            72      G      0.0           -4.342870E-06   0.0           -3.315399E-09   0.0           -1.237747E-05                  
+            73      G      0.0           -4.342869E-06   0.0           -3.315398E-09   0.0           -1.237747E-05                  
+            75      G      0.0            1.099298E-05   0.0           -3.089066E-09   0.0           -1.343793E-05                  
+            76      G      0.0            1.099298E-05   0.0           -3.089067E-09   0.0           -1.343793E-05                  
+            78      G      0.0            4.635234E-05   0.0            2.691408E-09   0.0           -6.284939E-06                  
+            79      G      0.0            4.635235E-05   0.0            2.691405E-09   0.0           -6.284939E-06                  
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             STATIC SOLUTION                                                                                SUBCASE 1              
+ 
+                     F O R C E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S        ( C T R I A 1 )
+0        ELEMENT           BEND-MOMENT           BEND-MOMENT          TWIST-MOMENT             SHEAR                 SHEAR
+           ID.                 X                     Y                                           X                     Y
+               2          2.861937E+00         -6.261730E-01          1.466327E-01          3.596048E-01          1.992508E+00      
+               6          2.861936E+00         -6.261711E-01          1.466317E-01          3.596053E-01          1.992493E+00      
+              10          1.379271E+00         -6.287727E-01          1.092793E-01          2.706900E-01          2.000748E+00      
+              14          1.379271E+00         -6.287689E-01          1.092807E-01          2.706891E-01          2.000702E+00      
+              18          3.563799E-01         -6.280365E-01          6.697607E-02          1.672290E-01          1.998413E+00      
+              22          3.563799E-01         -6.280403E-01          6.697607E-02          1.672280E-01          1.998398E+00      
+              26         -2.278202E-01         -6.264133E-01          3.354645E-02          8.434850E-02          1.993263E+00      
+              30         -2.278202E-01         -6.264095E-01          3.354645E-02          8.434850E-02          1.993248E+00      
+              34         -4.804402E-01         -6.252975E-01          9.875119E-03          2.493440E-02          1.989723E+00      
+              38         -4.804402E-01         -6.252937E-01          9.875119E-03          2.493487E-02          1.989708E+00      
+              42         -4.804392E-01         -6.252956E-01         -9.868264E-03         -2.496348E-02          1.989719E+00      
+              46         -4.804391E-01         -6.252937E-01         -9.868026E-03         -2.496301E-02          1.989708E+00      
+              50         -2.278176E-01         -6.264114E-01         -3.353739E-02         -8.438629E-02          1.993256E+00      
+              54         -2.278175E-01         -6.264076E-01         -3.353691E-02         -8.438772E-02          1.993233E+00      
+              58          3.563823E-01         -6.280365E-01         -6.696260E-02         -1.672817E-01          1.998413E+00      
+              62          3.563822E-01         -6.280365E-01         -6.696355E-02         -1.672817E-01          1.998398E+00      
+              66          1.379270E+00         -6.287766E-01         -1.092653E-01         -2.707480E-01          2.000748E+00      
+              70          1.379270E+00         -6.287689E-01         -1.092657E-01         -2.707470E-01          2.000717E+00      
+              74          2.861925E+00         -6.261806E-01         -1.466241E-01         -3.596336E-01          1.992546E+00      
+              78          2.861925E+00         -6.261806E-01         -1.466231E-01         -3.596340E-01          1.992523E+00      
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             STATIC SOLUTION                                                                                SUBCASE 1              
+ 
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0       2    1.510220E+00     -1.845371E+02   1.046941E+00  -2.400795E-01   -89.9259    1.047249E+00   -1.845374E+02   9.279232E+01 
+             0.0              -1.812177E+02   3.206729E-01  -7.000732E-02   -89.9779    3.207016E-01   -1.812177E+02   9.076919E+01 
+0       6    1.510220E+00     -1.845371E+02   1.046932E+00  -2.400784E-01   -89.9259    1.047249E+00   -1.845374E+02   9.279232E+01 
+             0.0              -1.812177E+02   3.206662E-01  -7.000732E-02   -89.9779    3.206940E-01   -1.812177E+02   9.076919E+01 
+0      10    1.510220E+00     -1.828081E+02   1.341500E+00  -1.349875E-01   -89.9580    1.341606E+00   -1.828082E+02   9.207488E+01 
+             0.0              -1.812083E+02   6.122163E-01  -8.239746E-03   -89.9974    6.122131E-01   -1.812083E+02   9.091026E+01 
+0      14    1.510220E+00     -1.828081E+02   1.341492E+00  -1.349892E-01   -89.9580    1.341591E+00   -1.828082E+02   9.207487E+01 
+             0.0              -1.812083E+02   6.122134E-01  -8.239746E-03   -89.9974    6.122131E-01   -1.812083E+02   9.091026E+01 
+0      18    1.510220E+00     -1.816152E+02   1.287123E+00  -6.114180E-02   -89.9808    1.287148E+00   -1.816152E+02   9.145118E+01 
+             0.0              -1.812018E+02   5.586939E-01   1.654053E-02    89.9948    5.587006E-01   -1.812018E+02   9.088027E+01 
+0      22    1.510220E+00     -1.816152E+02   1.287127E+00  -6.114180E-02   -89.9808    1.287148E+00   -1.816152E+02   9.145118E+01 
+             0.0              -1.812018E+02   5.586938E-01   1.654053E-02    89.9948    5.587006E-01   -1.812018E+02   9.088027E+01 
+0      26    1.510220E+00     -1.809340E+02   1.132877E+00  -2.096457E-02   -89.9934    1.132874E+00   -1.809340E+02   9.103343E+01 
+             0.0              -1.811982E+02   4.063300E-01   1.794434E-02    89.9943    4.063263E-01   -1.811982E+02   9.080228E+01 
+0      30    1.510220E+00     -1.809340E+02   1.132874E+00  -2.096457E-02   -89.9934    1.132874E+00   -1.809340E+02   9.103343E+01 
+             0.0              -1.811982E+02   4.063314E-01   1.794434E-02    89.9943    4.063263E-01   -1.811982E+02   9.080228E+01 
+0      34    1.510220E+00     -1.806394E+02   1.023880E+00  -4.251527E-03   -89.9987    1.023880E+00   -1.806394E+02   9.083163E+01 
+             0.0              -1.811966E+02   2.986272E-01   7.202148E-03    89.9977    2.986298E-01   -1.811966E+02   9.074762E+01 
+0      38    1.510220E+00     -1.806394E+02   1.023877E+00  -4.251527E-03   -89.9987    1.023880E+00   -1.806394E+02   9.083163E+01 
+             0.0              -1.811966E+02   2.986292E-01   7.202148E-03    89.9977    2.986298E-01   -1.811966E+02   9.074762E+01 
+0      42    1.510220E+00     -1.806394E+02   1.023878E+00   4.251206E-03    89.9987    1.023880E+00   -1.806394E+02   9.083163E+01 
+             0.0              -1.811966E+02   2.986272E-01  -7.194519E-03   -89.9977    2.986298E-01   -1.811966E+02   9.074762E+01 
+0      46    1.510220E+00     -1.806394E+02   1.023877E+00   4.250930E-03    89.9987    1.023880E+00   -1.806394E+02   9.083163E+01 
+             0.0              -1.811966E+02   2.986293E-01  -7.194519E-03   -89.9977    2.986298E-01   -1.811966E+02   9.074762E+01 
+0      50    1.510220E+00     -1.809340E+02   1.132874E+00   2.095407E-02    89.9934    1.132874E+00   -1.809340E+02   9.103343E+01 
+             0.0              -1.811982E+02   4.063300E-01  -1.794434E-02   -89.9943    4.063263E-01   -1.811982E+02   9.080228E+01 
+0      54    1.510220E+00     -1.809340E+02   1.132872E+00   2.095351E-02    89.9934    1.132874E+00   -1.809340E+02   9.103343E+01 
+             0.0              -1.811982E+02   4.063314E-01  -1.794434E-02   -89.9943    4.063263E-01   -1.811982E+02   9.080228E+01 
+0      58    1.510220E+00     -1.816152E+02   1.287123E+00   6.112617E-02    89.9809    1.287148E+00   -1.816152E+02   9.145118E+01 
+             0.0              -1.812018E+02   5.586940E-01  -1.654053E-02   -89.9948    5.587006E-01   -1.812018E+02   9.088027E+01 
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             STATIC SOLUTION                                                                                SUBCASE 1              
+ 
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      62    1.510220E+00     -1.816152E+02   1.287123E+00   6.112728E-02    89.9809    1.287148E+00   -1.816152E+02   9.145118E+01 
+             0.0              -1.812018E+02   5.586938E-01  -1.654053E-02   -89.9948    5.587006E-01   -1.812018E+02   9.088027E+01 
+0      66    1.510220E+00     -1.828081E+02   1.341504E+00   1.350323E-01    89.9580    1.341606E+00   -1.828082E+02   9.207488E+01 
+             0.0              -1.812083E+02   6.122162E-01   8.300781E-03    89.9974    6.122131E-01   -1.812083E+02   9.091026E+01 
+0      70    1.510220E+00     -1.828081E+02   1.341492E+00   1.349718E-01    89.9580    1.341591E+00   -1.828082E+02   9.207487E+01 
+             0.0              -1.812083E+02   6.122134E-01   8.239746E-03    89.9974    6.122131E-01   -1.812083E+02   9.091026E+01 
+0      74    1.510220E+00     -1.845371E+02   1.046950E+00   2.400696E-01    89.9259    1.047264E+00   -1.845374E+02   9.279232E+01 
+             0.0              -1.812177E+02   3.206729E-01   7.000732E-02    89.9779    3.207016E-01   -1.812177E+02   9.076919E+01 
+0      78    1.510220E+00     -1.845371E+02   1.046943E+00   2.401295E-01    89.9259    1.047249E+00   -1.845374E+02   9.279231E+01 
+             0.0              -1.812177E+02   3.206661E-01   7.006836E-02    89.9779    3.206940E-01   -1.812177E+02   9.076919E+01 
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          ORTHOGRAPHIC PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =  23.17, ALPHA =   0.00,  AXES = +Y,+X,-Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 1.153226E-01                                                                                
+                                                                                                                                    
+          ORIGIN       2   -   X0 = -8.711188E-01, Y0 = -0.298235E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+          PLOT    2   STATIC DEFORM.     1 - SUBCASE     100 - LOAD                                                                 
+                                                 ORIGIN      2  USED IN THIS PLOT                                                   
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3028      B =   10     BBAR =   17
+                                        C =    9     CBAR =    0
+                                        R =   26
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC  REAL    DECOMPOSITION OF DATA BLOCK SCRATCH6 (N =   152)
+     TIME ESTIMATE =        0 SECONDS
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                          E I G E N V A L U E   A N A L Y S I S   S U M M A R Y       (DETERMINANT METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .        4
+0                                       NUMBER OF PASSES THROUGH STARTING POINTS . .        0
+0                                       NUMBER OF CRITERIA CHANGES . . . . . . . . .        0
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .        0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .       38
+0                                       NUMBER OF FAILURES TO ITERATE TO A ROOT  . .        0
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .        1*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . . 0.00E+00
+0                                                                              . . .        0
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .        0
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .        0
+
+0                                       (* NO. OF ROOTS DESIRED WERE FOUND.
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+ 
+                          E I G E N V A L U E   A N A L Y S I S   S U M M A R Y       (DETERMINANT METHOD)
+0                                        S W E P T   D E T E R M I N A N T   F U N C T I O N
+
+          STARTING POINT      LAMBDA         RADIAN FREQUENCY    CYCLIC FREQUENCY    DETERMINANT         SCALE FACTOR
+
+                   -1       1.000000E-01       3.162278E-01       5.032921E-02       1.485674E+00            731                    
+                    2       2.250000E-01       4.743416E-01       7.549381E-02       1.223334E+00            731                    
+                    3       4.000000E-01       6.324555E-01       1.006584E-01       9.258196E+00            730                    
+                    4       6.250000E-01       7.905694E-01       1.258230E-01       6.389823E+00            730                    
+                    5       9.000000E-01       9.486833E-01       1.509876E-01       3.973502E+00            730                    
+                    6       1.225000E+00       1.106797E+00       1.761522E-01       2.183683E+00            730                    
+                    7       1.600000E+00       1.264911E+00       2.013168E-01       1.025934E+00            730                    
+                    8       2.025000E+00       1.423025E+00       2.264814E-01       3.855352E+00            729                    
+                    9       2.500000E+00       1.581139E+00       2.516460E-01       9.731239E+00            728                    
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1         1        9.942567E-01        9.971243E-01        1.586972E-01        0.0                 0.0                      
+        2         2        1.274364E+00        1.128877E+00        1.796664E-01        0.0                 0.0                      
+        3         3        2.006962E+00        1.416673E+00        2.254705E-01        0.0                 0.0                      
+        4         4        2.288906E+00        1.512913E+00        2.407876E-01        0.0                 0.0                      
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.994257E+00    (CYCLIC FREQUENCY =  1.586972E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            2.103514E-03   0.0            1.268178E-01   0.0                           
+             2      G      0.0            0.0            2.103012E-03   0.0            1.268178E-01   0.0                           
+             3      G      0.0            0.0            2.102520E-03   0.0            1.268178E-01   0.0                           
+             4      G      5.877410E-01   0.0            1.902699E-03   0.0            1.026051E-01   0.0                           
+             5      G      5.877410E-01   0.0            1.902293E-03   0.0            1.026052E-01   0.0                           
+             6      G      5.877410E-01   0.0            1.901895E-03   0.0            1.026052E-01   0.0                           
+             7      G      9.510040E-01   0.0            1.376679E-03   0.0            3.919343E-02   0.0                           
+             8      G      9.510040E-01   0.0            1.376523E-03   0.0            3.919343E-02   0.0                           
+             9      G      9.510040E-01   0.0            1.376371E-03   0.0            3.919344E-02   0.0                           
+            10      G      9.510117E-01   0.0            7.264555E-04   0.0           -3.919051E-02   0.0                           
+            11      G      9.510117E-01   0.0            7.266107E-04   0.0           -3.919052E-02   0.0                           
+            12      G      9.510117E-01   0.0            7.267627E-04   0.0           -3.919052E-02   0.0                           
+            13      G      5.877590E-01   0.0            2.004222E-04   0.0           -1.026042E-01   0.0                           
+            14      G      5.877590E-01   0.0            2.008281E-04   0.0           -1.026042E-01   0.0                           
+            15      G      5.877590E-01   0.0            2.012260E-04   0.0           -1.026042E-01   0.0                           
+            16      G     -2.063401E-08   0.0           -5.019139E-07   0.0           -1.268259E-01   0.0                           
+            17      G     -2.079521E-08   0.0            0.0            0.0           -1.268259E-01   0.0                           
+            18      G     -2.102140E-08   0.0            4.918746E-07   0.0           -1.268260E-01   0.0                           
+            19      G     -5.877590E-01   0.0            2.004222E-04   0.0           -1.026042E-01   0.0                           
+            20      G     -5.877590E-01   0.0            2.008284E-04   0.0           -1.026042E-01   0.0                           
+            21      G     -5.877591E-01   0.0            2.012264E-04   0.0           -1.026042E-01   0.0                           
+            22      G     -9.510117E-01   0.0            7.264562E-04   0.0           -3.919051E-02   0.0                           
+            23      G     -9.510117E-01   0.0            7.266111E-04   0.0           -3.919051E-02   0.0                           
+            24      G     -9.510117E-01   0.0            7.267630E-04   0.0           -3.919052E-02   0.0                           
+            25      G     -9.510040E-01   0.0            1.376679E-03   0.0            3.919343E-02   0.0                           
+            26      G     -9.510040E-01   0.0            1.376524E-03   0.0            3.919343E-02   0.0                           
+            27      G     -9.510040E-01   0.0            1.376372E-03   0.0            3.919344E-02   0.0                           
+            28      G     -5.877410E-01   0.0            1.902700E-03   0.0            1.026052E-01   0.0                           
+            29      G     -5.877410E-01   0.0            1.902294E-03   0.0            1.026052E-01   0.0                           
+            30      G     -5.877410E-01   0.0            1.901896E-03   0.0            1.026052E-01   0.0                           
+            31      G      0.0            0.0            2.103515E-03   0.0            1.268178E-01   0.0                           
+            32      G      0.0            0.0            2.103013E-03   0.0            1.268178E-01   0.0                           
+            33      G      0.0            0.0            2.102521E-03   0.0            1.268178E-01   0.0                           
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.127436E+01    (CYCLIC FREQUENCY =  1.796664E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0           -1.607036E-03   0.0           -1.924138E-01   0.0                           
+             2      G      0.0            0.0           -1.606392E-03   0.0           -1.924138E-01   0.0                           
+             3      G      0.0            0.0           -1.605806E-03   0.0           -1.924138E-01   0.0                           
+             4      G     -8.089851E-01   0.0           -9.447820E-04   0.0           -1.131079E-01   0.0                           
+             5      G     -8.089851E-01   0.0           -9.444001E-04   0.0           -1.131079E-01   0.0                           
+             6      G     -8.089852E-01   0.0           -9.440504E-04   0.0           -1.131080E-01   0.0                           
+             7      G     -9.510354E-01   0.0            4.963701E-04   0.0            5.946127E-02   0.0                           
+             8      G     -9.510355E-01   0.0            4.961950E-04   0.0            5.946129E-02   0.0                           
+             9      G     -9.510355E-01   0.0            4.960029E-04   0.0            5.946127E-02   0.0                           
+            10      G     -3.090069E-01   0.0            1.528134E-03   0.0            1.830085E-01   0.0                           
+            11      G     -3.090069E-01   0.0            1.527561E-03   0.0            1.830085E-01   0.0                           
+            12      G     -3.090069E-01   0.0            1.526980E-03   0.0            1.830085E-01   0.0                           
+            13      G      5.877873E-01   0.0            1.299906E-03   0.0            1.556763E-01   0.0                           
+            14      G      5.877873E-01   0.0            1.299428E-03   0.0            1.556763E-01   0.0                           
+            15      G      5.877873E-01   0.0            1.298925E-03   0.0            1.556763E-01   0.0                           
+            16      G      1.000000E+00   0.0           -1.481932E-07   0.0            6.436784E-07   0.0                           
+            17      G      1.000000E+00   0.0            0.0            0.0            6.604184E-07   0.0                           
+            18      G      1.000000E+00   0.0           -1.459890E-07   0.0            6.430514E-07   0.0                           
+            19      G      5.877943E-01   0.0           -1.300261E-03   0.0           -1.556748E-01   0.0                           
+            20      G      5.877943E-01   0.0           -1.299734E-03   0.0           -1.556748E-01   0.0                           
+            21      G      5.877944E-01   0.0           -1.299265E-03   0.0           -1.556748E-01   0.0                           
+            22      G     -3.089919E-01   0.0           -1.528616E-03   0.0           -1.830070E-01   0.0                           
+            23      G     -3.089920E-01   0.0           -1.528000E-03   0.0           -1.830070E-01   0.0                           
+            24      G     -3.089920E-01   0.0           -1.527440E-03   0.0           -1.830070E-01   0.0                           
+            25      G     -9.510153E-01   0.0           -4.969612E-04   0.0           -5.946098E-02   0.0                           
+            26      G     -9.510153E-01   0.0           -4.967392E-04   0.0           -5.946095E-02   0.0                           
+            27      G     -9.510153E-01   0.0           -4.965668E-04   0.0           -5.946099E-02   0.0                           
+            28      G     -8.089694E-01   0.0            9.440959E-04   0.0            1.131057E-01   0.0                           
+            29      G     -8.089695E-01   0.0            9.437736E-04   0.0            1.131057E-01   0.0                           
+            30      G     -8.089695E-01   0.0            9.434088E-04   0.0            1.131057E-01   0.0                           
+            31      G      0.0            0.0            1.606256E-03   0.0            1.924100E-01   0.0                           
+            32      G      0.0            0.0            1.605737E-03   0.0            1.924100E-01   0.0                           
+            33      G      0.0            0.0            1.605133E-03   0.0            1.924100E-01   0.0                           
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.200696E+01    (CYCLIC FREQUENCY =  2.254705E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0           -1.467975E-06   0.0           -2.737300E-01   0.0                           
+             2      G      0.0            0.0           -1.031808E-06   0.0           -2.737291E-01   0.0                           
+             3      G      0.0            0.0            8.542280E-07   0.0           -2.737292E-01   0.0                           
+             4      G     -9.978074E-01   0.0            1.598962E-03   0.0           -8.460298E-02   0.0                           
+             5      G     -9.978067E-01   0.0            1.598134E-03   0.0           -8.460262E-02   0.0                           
+             6      G     -9.978057E-01   0.0            1.598105E-03   0.0           -8.460285E-02   0.0                           
+             7      G     -6.166910E-01   0.0            4.185312E-03   0.0            2.214729E-01   0.0                           
+             8      G     -6.166904E-01   0.0            4.185861E-03   0.0            2.214731E-01   0.0                           
+             9      G     -6.166896E-01   0.0            4.185587E-03   0.0            2.214737E-01   0.0                           
+            10      G      6.167768E-01   0.0            4.187398E-03   0.0            2.214959E-01   0.0                           
+            11      G      6.167747E-01   0.0            4.185664E-03   0.0            2.214960E-01   0.0                           
+            12      G      6.167711E-01   0.0            4.184884E-03   0.0            2.214956E-01   0.0                           
+            13      G      9.980589E-01   0.0            1.597021E-03   0.0           -8.456618E-02   0.0                           
+            14      G      9.980611E-01   0.0            1.598786E-03   0.0           -8.456624E-02   0.0                           
+            15      G      9.980653E-01   0.0            1.599383E-03   0.0           -8.456688E-02   0.0                           
+            16      G      3.399757E-04   0.0           -1.418346E-06   0.0           -2.737325E-01   0.0                           
+            17      G      3.400775E-04   0.0            0.0            0.0           -2.737317E-01   0.0                           
+            18      G      3.406673E-04   0.0           -5.202645E-07   0.0           -2.737309E-01   0.0                           
+            19      G     -9.974011E-01   0.0            1.596157E-03   0.0           -8.457701E-02   0.0                           
+            20      G     -9.974040E-01   0.0            1.594875E-03   0.0           -8.457707E-02   0.0                           
+            21      G     -9.974084E-01   0.0            1.594560E-03   0.0           -8.457735E-02   0.0                           
+            22      G     -6.162247E-01   0.0            4.178107E-03   0.0            2.214667E-01   0.0                           
+            23      G     -6.162219E-01   0.0            4.179458E-03   0.0            2.214662E-01   0.0                           
+            24      G     -6.162161E-01   0.0            4.179474E-03   0.0            2.214668E-01   0.0                           
+            25      G      6.171162E-01   0.0            4.178337E-03   0.0            2.214530E-01   0.0                           
+            26      G      6.171145E-01   0.0            4.175818E-03   0.0            2.214529E-01   0.0                           
+            27      G      6.171076E-01   0.0            4.174941E-03   0.0            2.214532E-01   0.0                           
+            28      G      9.980825E-01   0.0            1.581858E-03   0.0           -8.464672E-02   0.0                           
+            29      G      9.980856E-01   0.0            1.585879E-03   0.0           -8.464789E-02   0.0                           
+            30      G      9.980934E-01   0.0            1.587645E-03   0.0           -8.464823E-02   0.0                           
+            31      G      0.0            0.0           -2.032984E-05   0.0           -2.737884E-01   0.0                           
+            32      G      0.0            0.0           -1.518969E-05   0.0           -2.737905E-01   0.0                           
+            33      G      0.0            0.0           -1.454676E-05   0.0           -2.737876E-01   0.0                           
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.228891E+01    (CYCLIC FREQUENCY =  2.407876E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            5.270305E-04   0.0            6.298809E-02   0.0                           
+             2      G      0.0            0.0            5.267697E-04   0.0            6.298809E-02   0.0                           
+             3      G      0.0            0.0            5.264718E-04   0.0            6.298810E-02   0.0                           
+             4      G      3.090051E-01   0.0            5.014364E-04   0.0            5.992024E-02   0.0                           
+             5      G      3.090051E-01   0.0            5.011834E-04   0.0            5.992026E-02   0.0                           
+             6      G      3.090051E-01   0.0            5.009151E-04   0.0            5.992026E-02   0.0                           
+             7      G      5.878126E-01   0.0            4.265758E-04   0.0            5.097474E-02   0.0                           
+             8      G      5.878126E-01   0.0            4.263650E-04   0.0            5.097477E-02   0.0                           
+             9      G      5.878126E-01   0.0            4.261355E-04   0.0            5.097475E-02   0.0                           
+            10      G      8.090619E-01   0.0            3.098185E-04   0.0            3.702737E-02   0.0                           
+            11      G      8.090619E-01   0.0            3.096733E-04   0.0            3.702739E-02   0.0                           
+            12      G      8.090619E-01   0.0            3.095030E-04   0.0            3.702736E-02   0.0                           
+            13      G      9.510751E-01   0.0            1.627541E-04   0.0            1.946030E-02   0.0                           
+            14      G      9.510752E-01   0.0            1.626991E-04   0.0            1.946032E-02   0.0                           
+            15      G      9.510753E-01   0.0            1.625937E-04   0.0            1.946030E-02   0.0                           
+            16      G      9.999999E-01   0.0           -2.423859E-07   0.0            6.862381E-07   0.0                           
+            17      G      1.000000E+00   0.0            0.0            0.0            7.083275E-07   0.0                           
+            18      G      1.000000E+00   0.0           -2.409613E-07   0.0            6.906267E-07   0.0                           
+            19      G      9.510815E-01   0.0           -1.633495E-04   0.0           -1.945928E-02   0.0                           
+            20      G      9.510815E-01   0.0           -1.632268E-04   0.0           -1.945926E-02   0.0                           
+            21      G      9.510816E-01   0.0           -1.631730E-04   0.0           -1.945929E-02   0.0                           
+            22      G      8.090719E-01   0.0           -3.106513E-04   0.0           -3.702703E-02   0.0                           
+            23      G      8.090720E-01   0.0           -3.104477E-04   0.0           -3.702701E-02   0.0                           
+            24      G      8.090720E-01   0.0           -3.103102E-04   0.0           -3.702705E-02   0.0                           
+            25      G      5.878226E-01   0.0           -4.275977E-04   0.0           -5.097522E-02   0.0                           
+            26      G      5.878225E-01   0.0           -4.273202E-04   0.0           -5.097518E-02   0.0                           
+            27      G      5.878226E-01   0.0           -4.271231E-04   0.0           -5.097523E-02   0.0                           
+            28      G      3.090113E-01   0.0           -5.025998E-04   0.0           -5.992134E-02   0.0                           
+            29      G      3.090113E-01   0.0           -5.022539E-04   0.0           -5.992129E-02   0.0                           
+            30      G      3.090113E-01   0.0           -5.020134E-04   0.0           -5.992138E-02   0.0                           
+            31      G      0.0            0.0           -5.283404E-04   0.0           -6.298957E-02   0.0                           
+            32      G      0.0            0.0           -5.278593E-04   0.0           -6.298949E-02   0.0                           
+            33      G      0.0            0.0           -5.275884E-04   0.0           -6.298959E-02   0.0                           
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.994257E+00    (CYCLIC FREQUENCY =  1.586972E-01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -5.151739E+01  -9.512089E+01   0.0           -2.152923E-01   0.0            1.709819E+01                  
+             2      G     -1.030352E+02  -1.681432E-03   0.0           -2.546583E-05   0.0           -1.458016E-03                  
+             3      G     -5.151759E+01   9.511919E+01   0.0            2.153099E-01   0.0           -1.709900E+01                  
+             4      G      0.0           -8.923259E+02   0.0           -3.513033E-01   0.0            3.410562E+00                  
+             5      G      0.0           -1.004825E-03   0.0            8.013524E-05   0.0           -6.947672E-04                  
+             6      G      0.0            8.923250E+02   0.0            3.512334E-01   0.0           -3.418499E+00                  
+             7      G      0.0           -1.443839E+03   0.0           -1.339381E-01   0.0            5.517437E+00                  
+             8      G      0.0           -1.674777E-03   0.0           -1.843812E-05   0.0            1.036898E-03                  
+             9      G      0.0            1.443837E+03   0.0            1.339743E-01   0.0           -5.527729E+00                  
+            10      G      0.0           -1.443850E+03   0.0            1.339640E-01   0.0            5.514638E+00                  
+            11      G      0.0           -1.673729E-03   0.0            1.837776E-05   0.0            1.038515E-03                  
+            12      G      0.0            1.443848E+03   0.0           -1.340001E-01   0.0           -5.524932E+00                  
+            13      G      0.0           -8.923505E+02   0.0            3.503241E-01   0.0            3.406302E+00                  
+            14      G      0.0           -1.006998E-03   0.0           -8.005178E-05   0.0           -6.950067E-04                  
+            15      G      0.0            8.923497E+02   0.0           -3.502543E-01   0.0           -3.414252E+00                  
+            16      G      0.0            2.804257E-05   0.0            4.329243E-01   0.0           -2.610510E-04                  
+            17      G      0.0            4.276452E-05  -1.573016E+00  -2.741954E-06   0.0           -2.446164E-03                  
+            18      G      0.0           -5.339286E-05   0.0           -4.329326E-01   0.0            6.799196E-04                  
+            19      G      0.0            8.923506E+02   0.0            3.502126E-01   0.0           -3.412596E+00                  
+            20      G      0.0            9.631536E-04   0.0            1.141504E-04   0.0            3.430370E-03                  
+            21      G      0.0           -8.923497E+02   0.0           -3.503367E-01   0.0            3.411569E+00                  
+            22      G      0.0            1.443850E+03   0.0            1.340715E-01   0.0           -5.520417E+00                  
+            23      G      0.0            1.576579E-03   0.0           -1.055878E-04   0.0            4.340428E-03                  
+            24      G      0.0           -1.443848E+03   0.0           -1.339573E-01   0.0            5.523345E+00                  
+            25      G      0.0            1.443839E+03   0.0           -1.339349E-01   0.0           -5.517201E+00                  
+            26      G      0.0            1.674688E-03   0.0           -1.855813E-05   0.0           -1.033317E-03                  
+            27      G      0.0           -1.443837E+03   0.0            1.339751E-01   0.0            5.527812E+00                  
+            28      G      0.0            8.923259E+02   0.0           -3.513280E-01   0.0           -3.410562E+00                  
+            29      G      0.0            1.012306E-03   0.0            8.215639E-05   0.0            4.516013E-04                  
+            30      G      0.0           -8.923251E+02   0.0            3.512419E-01   0.0            3.418742E+00                  
+            31      G      5.151764E+01   9.512089E+01   0.0           -2.152885E-01   0.0           -1.709851E+01                  
+            32      G      1.030350E+02   1.673224E-03   0.0           -3.391531E-05   0.0            1.701188E-03                  
+            33      G      5.151734E+01  -9.511918E+01   0.0            2.153184E-01   0.0            1.709876E+01                  
+            51      G      0.0            8.151658E-04   0.0            1.946836E-06   0.0           -2.516478E-03                  
+            52      G      0.0            8.194625E-04   0.0            1.946933E-06   0.0           -1.941667E-03                  
+            54      G      0.0            2.065063E-03   0.0            2.626915E-06   0.0           -1.648181E-03                  
+            55      G      0.0            2.167285E-03   0.0            1.199145E-06   0.0           -6.301333E-03                  
+            57      G      0.0            2.505668E-03   0.0           -3.087557E-09   0.0            5.868427E-04                  
+            58      G      0.0            2.674341E-03   0.0           -3.168942E-09   0.0           -7.569350E-03                  
+            60      G      0.0            2.072071E-03   0.0           -2.635500E-06   0.0           -2.223229E-03                  
+            61      G      0.0            2.159695E-03   0.0           -1.180900E-06   0.0           -5.726505E-03                  
+            63      G      0.0            8.086774E-04   0.0           -1.940441E-06   0.0           -1.952688E-03                  
+            64      G      0.0            8.285433E-04   0.0           -1.915145E-06   0.0           -2.532208E-03                  
+            66      G      0.0           -8.175825E-04   0.0           -1.920625E-06   0.0            2.505590E-03                  
+            67      G      0.0           -7.569175E-04   0.0           -3.350004E-06   0.0           -2.151549E-03                  
+            69      G      0.0           -2.060980E-03   0.0           -2.621436E-06   0.0            1.648252E-03                  
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.994257E+00    (CYCLIC FREQUENCY =  1.586972E-01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            70      G      0.0           -2.101803E-03   0.0            2.353162E-07   0.0            2.223556E-03                  
+            72      G      0.0           -2.509669E-03   0.0           -2.297012E-09   0.0           -5.867988E-04                  
+            73      G      0.0           -2.675431E-03   0.0           -2.352241E-09   0.0            7.569362E-03                  
+            75      G      0.0           -2.068043E-03   0.0            2.640701E-06   0.0            2.223071E-03                  
+            76      G      0.0           -2.165102E-03   0.0            1.199233E-06   0.0            6.301309E-03                  
+            78      G      0.0           -8.085474E-04   0.0            1.961059E-06   0.0            1.941548E-03                  
+            79      G      0.0           -8.209177E-04   0.0            1.948887E-06   0.0            1.941683E-03                  
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.127436E+01    (CYCLIC FREQUENCY =  1.796664E-01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      1.724807E+02   1.383872E+02   0.0            9.200034E-01   0.0           -6.160670E+01                  
+             2      G      3.449598E+02   4.669885E-03   0.0           -2.888818E-05   0.0            1.230469E-04                  
+             3      G      1.724791E+02  -1.383825E+02   0.0           -9.200504E-01   0.0            6.160488E+01                  
+             4      G      0.0            1.184418E+03   0.0            1.086015E+00   0.0           -1.228124E+01                  
+             5      G      0.0            2.135554E-03   0.0           -3.592284E-05   0.0           -1.270461E-03                  
+             6      G      0.0           -1.184416E+03   0.0           -1.086040E+00   0.0            1.227709E+01                  
+             7      G      0.0            1.392387E+03   0.0           -5.702494E-01   0.0           -1.443193E+01                  
+             8      G      0.0            2.494141E-03   0.0           -4.384040E-05   0.0           -1.115506E-03                  
+             9      G      0.0           -1.392385E+03   0.0            5.703600E-01   0.0            1.443618E+01                  
+            10      G      0.0            4.524082E+02   0.0           -1.754524E+00   0.0           -4.687024E+00                  
+            11      G      0.0            7.871221E-04   0.0            1.077142E-04   0.0            7.383497E-04                  
+            12      G      0.0           -4.524075E+02   0.0            1.754549E+00   0.0            4.690809E+00                  
+            13      G      0.0           -8.605668E+02   0.0           -1.491880E+00   0.0            8.918591E+00                  
+            14      G      0.0           -1.473726E-03   0.0           -8.549919E-05   0.0           -2.707567E-03                  
+            15      G      0.0            8.605654E+02   0.0            1.492008E+00   0.0           -8.918765E+00                  
+            16      G      0.0           -1.464078E+03   0.0           -6.136116E-05   0.0            1.516661E+01                  
+            17      G      0.0           -2.480147E-03   8.696128E-03   1.330978E-04   0.0           -4.870709E-03                  
+            18      G      0.0            1.464075E+03   0.0           -7.294287E-05   0.0           -1.517400E+01                  
+            19      G      0.0           -8.605775E+02   0.0            1.492062E+00   0.0            8.913568E+00                  
+            20      G      0.0           -1.565820E-03   0.0           -7.501164E-05   0.0            2.253971E-04                  
+            21      G      0.0            8.605761E+02   0.0           -1.492068E+00   0.0           -8.919708E+00                  
+            22      G      0.0            4.523852E+02   0.0            1.754520E+00   0.0           -4.690655E+00                  
+            23      G      0.0            7.665810E-04   0.0            4.408584E-05   0.0            1.913961E-03                  
+            24      G      0.0           -4.523844E+02   0.0           -1.754664E+00   0.0            4.686411E+00                  
+            25      G      0.0            1.392357E+03   0.0            5.703768E-01   0.0           -1.443394E+01                  
+            26      G      0.0            2.232684E-03   0.0           -6.160218E-06   0.0            1.039407E-02                  
+            27      G      0.0           -1.392354E+03   0.0           -5.703666E-01   0.0            1.443389E+01                  
+            28      G      0.0            1.184395E+03   0.0           -1.085884E+00   0.0           -1.227909E+01                  
+            29      G      0.0            1.879568E-03   0.0           -6.925801E-05   0.0            4.930902E-03                  
+            30      G      0.0           -1.184393E+03   0.0            1.085978E+00   0.0            1.228139E+01                  
+            31      G      1.724773E+02   1.383853E+02   0.0           -9.199414E-01   0.0           -6.160427E+01                  
+            32      G      3.449522E+02   5.285613E-03   0.0            4.175208E-05   0.0           -3.651533E-04                  
+            33      G      1.724783E+02  -1.383801E+02   0.0            9.199511E-01   0.0            6.160582E+01                  
+            51      G      0.0           -2.842694E-03   0.0           -1.216082E-05   0.0           -1.546403E-03                  
+            52      G      0.0           -2.984679E-03   0.0           -1.355202E-05   0.0           -2.172872E-03                  
+            54      G      0.0           -6.287269E-03   0.0           -1.948820E-06   0.0           -1.870427E-03                  
+            55      G      0.0           -6.411961E-03   0.0            1.059668E-06   0.0            4.303707E-04                  
+            57      G      0.0           -4.527387E-03   0.0            9.767738E-06   0.0           -6.797924E-05                  
+            58      G      0.0           -4.649915E-03   0.0            8.519682E-06   0.0            4.010537E-03                  
+            60      G      0.0            9.662696E-04   0.0            1.167418E-05   0.0           -1.184640E-04                  
+            61      G      0.0            1.017027E-03   0.0            1.326481E-05   0.0            2.808435E-03                  
+            63      G      0.0            5.017204E-03   0.0            5.222425E-06   0.0           -6.209748E-03                  
+            64      G      0.0            6.638744E-03   0.0            4.145451E-06   0.0           -1.818210E-03                  
+            66      G      0.0            6.561042E-03   0.0           -5.598053E-06   0.0           -5.942941E-03                  
+            67      G      0.0            5.030558E-03   0.0           -3.787279E-06   0.0           -2.181135E-03                  
+            69      G      0.0            1.049502E-03   0.0           -1.259526E-05   0.0           -3.307767E-03                  
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.127436E+01    (CYCLIC FREQUENCY =  1.796664E-01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            70      G      0.0            9.844563E-04   0.0           -1.452181E-05   0.0           -1.187534E-04                  
+            72      G      0.0           -4.580532E-03   0.0           -7.862283E-06   0.0            1.683613E-03                  
+            73      G      0.0           -4.606392E-03   0.0           -6.870033E-06   0.0            1.082454E-03                  
+            75      G      0.0           -6.441772E-03   0.0            2.810605E-07   0.0            3.070567E-03                  
+            76      G      0.0           -6.547184E-03   0.0            2.004308E-06   0.0            6.861465E-03                  
+            78      G      0.0           -3.244878E-03   0.0            1.187208E-05   0.0           -2.116924E-03                  
+            79      G      0.0           -3.071576E-03   0.0            1.080584E-05   0.0            4.257780E-03                  
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.200696E+01    (CYCLIC FREQUENCY =  2.254705E-01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      4.168904E+02   1.853410E+02   0.0            2.971540E+00   0.0           -1.668986E+02                  
+             2      G      8.338587E+02   1.479795E-02   0.0           -3.209854E-04   0.0            1.314251E-02                  
+             3      G      4.169630E+02  -1.853430E+02   0.0           -2.969919E+00   0.0            1.669733E+02                  
+             4      G      0.0            1.387318E+03   0.0            1.842751E+00   0.0           -3.337969E+01                  
+             5      G      0.0           -1.137435E-02   0.0           -2.247771E-05   0.0            1.403733E-01                  
+             6      G      0.0           -1.387305E+03   0.0           -1.842795E+00   0.0            3.348648E+01                  
+             7      G      0.0            8.574156E+02   0.0           -4.815344E+00   0.0           -2.064734E+01                  
+             8      G      0.0            5.727150E-03   0.0           -1.388849E-03   0.0            5.487861E-02                  
+             9      G      0.0           -8.574184E+02   0.0            4.815372E+00   0.0            2.063581E+01                  
+            10      G      0.0           -8.575703E+02   0.0           -4.814983E+00   0.0            2.061589E+01                  
+            11      G      0.0           -4.703111E-03   0.0            1.503313E-03   0.0           -1.260118E-01                  
+            12      G      0.0            8.575733E+02   0.0            4.815355E+00   0.0           -2.076429E+01                  
+            13      G      0.0           -1.387700E+03   0.0            1.839861E+00   0.0            3.347725E+01                  
+            14      G      0.0           -2.649190E-03   0.0            1.139363E-03   0.0            2.066029E-01                  
+            15      G      0.0            1.387690E+03   0.0           -1.840345E+00   0.0           -3.327956E+01                  
+            16      G      0.0           -5.215437E-01   0.0            5.950342E+00   0.0           -1.384961E-02                  
+            17      G      0.0            1.983902E-03  -7.178716E+00  -2.108075E-03   0.0            4.850268E-02                  
+            18      G      0.0            5.316386E-01   0.0           -5.950997E+00   0.0           -1.010795E-02                  
+            19      G      0.0            1.386675E+03   0.0            1.838534E+00   0.0           -3.349755E+01                  
+            20      G      0.0           -1.416982E-03   0.0            1.230698E-03   0.0           -1.722870E-01                  
+            21      G      0.0           -1.386673E+03   0.0           -1.837918E+00   0.0            3.329222E+01                  
+            22      G      0.0            8.567114E+02   0.0           -4.812680E+00   0.0           -2.059933E+01                  
+            23      G      0.0            5.249341E-03   0.0           -1.865519E-04   0.0            1.843509E-01                  
+            24      G      0.0           -8.567170E+02   0.0            4.812961E+00   0.0            2.077206E+01                  
+            25      G      0.0           -8.580859E+02   0.0           -4.817292E+00   0.0            2.071118E+01                  
+            26      G      0.0           -1.290868E-02   0.0            1.963044E-03   0.0           -8.275748E-02                  
+            27      G      0.0            8.580893E+02   0.0            4.817623E+00   0.0           -2.081314E+01                  
+            28      G      0.0           -1.387735E+03   0.0            1.843941E+00   0.0            3.358559E+01                  
+            29      G      0.0           -1.007438E-02   0.0            1.328236E-03   0.0            4.445985E-01                  
+            30      G      0.0            1.387710E+03   0.0           -1.844952E+00   0.0           -3.322711E+01                  
+            31      G     -4.170731E+02  -1.853687E+02   0.0            2.967347E+00   0.0            1.670393E+02                  
+            32      G     -8.339760E+02   1.060557E-02   0.0           -2.128851E-03   0.0            1.137156E-01                  
+            33      G     -4.169543E+02   1.853952E+02   0.0           -2.968699E+00   0.0           -1.668886E+02                  
+            51      G      0.0           -4.042408E-03   0.0           -2.640697E-05   0.0            8.836566E-02                  
+            52      G      0.0           -1.157413E-04   0.0           -1.683100E-05   0.0            9.324049E-02                  
+            54      G      0.0           -2.756771E-02   0.0            1.225725E-05   0.0            1.117314E-01                  
+            55      G      0.0           -1.696023E-02   0.0            8.133161E-06   0.0            6.667987E-02                  
+            57      G      0.0            1.570274E-02   0.0           -1.107086E-05   0.0           -8.997647E-02                  
+            58      G      0.0            5.239275E-03   0.0           -5.425399E-05   0.0           -1.164315E-01                  
+            60      G      0.0           -4.886926E-03   0.0            1.188874E-04   0.0            1.877348E-02                  
+            61      G      0.0            7.910040E-03   0.0            2.054431E-04   0.0            4.994138E-02                  
+            63      G      0.0            1.123046E-02   0.0           -9.735100E-05   0.0            8.788392E-02                  
+            64      G      0.0            1.400476E-02   0.0           -1.280467E-04   0.0            2.085885E-01                  
+            66      G      0.0            8.363220E-03   0.0           -1.170544E-04   0.0           -1.231026E-01                  
+            67      G      0.0           -8.959696E-03   0.0           -1.620770E-04   0.0           -1.724387E-01                  
+            69      G      0.0           -3.402015E-02   0.0            1.556109E-04   0.0            2.711485E-02                  
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.200696E+01    (CYCLIC FREQUENCY =  2.254705E-01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            70      G      0.0           -2.010484E-02   0.0            2.617985E-04   0.0            3.702072E-02                  
+            72      G      0.0            2.339388E-02   0.0           -5.544891E-05   0.0            4.438609E-02                  
+            73      G      0.0            6.341243E-03   0.0           -2.544868E-04   0.0           -4.294167E-02                  
+            75      G      0.0           -2.604860E-02   0.0            1.329270E-04   0.0            1.694770E-01                  
+            76      G      0.0           -7.083613E-04   0.0            3.661375E-04   0.0            9.979094E-02                  
+            78      G      0.0           -5.659467E-04   0.0           -1.170169E-04   0.0            2.824205E-01                  
+            79      G      0.0            1.256758E-02   0.0           -2.343780E-04   0.0            2.760761E-01                  
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    36
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.228891E+01    (CYCLIC FREQUENCY =  2.407876E-01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -5.935836E+00  -4.834173E+01   0.0           -2.379603E-02   0.0            2.091895E+00                  
+             2      G     -1.187304E+01  -3.455385E-04   0.0           -1.003417E-05   0.0           -6.054394E-04                  
+             3      G     -5.936314E+00   4.834141E+01   0.0            2.379492E-02   0.0           -2.092748E+00                  
+             4      G      0.0           -4.793761E+02   0.0           -4.960643E-02   0.0            1.043530E+00                  
+             5      G      0.0           -1.572519E-04   0.0           -2.833289E-05   0.0           -3.261122E-03                  
+             6      G      0.0            4.793759E+02   0.0            4.962762E-02   0.0           -1.046372E+00                  
+             7      G      0.0           -9.118909E+02   0.0           -4.167990E-02   0.0            1.986483E+00                  
+             8      G      0.0           -3.589398E-04   0.0            9.540900E-05   0.0           -8.313623E-04                  
+             9      G      0.0            9.118906E+02   0.0            4.159953E-02   0.0           -1.994615E+00                  
+            10      G      0.0           -1.255120E+03   0.0           -2.974683E-02   0.0            2.735067E+00                  
+            11      G      0.0           -5.529624E-04   0.0           -1.884354E-05   0.0            2.077497E-03                  
+            12      G      0.0            1.255119E+03   0.0            2.978536E-02   0.0           -2.743035E+00                  
+            13      G      0.0           -1.475436E+03   0.0           -1.527792E-02   0.0            3.216247E+00                  
+            14      G      0.0           -5.255133E-04   0.0           -1.234321E-04   0.0           -3.939587E-03                  
+            15      G      0.0            1.475435E+03   0.0            1.539849E-02   0.0           -3.215534E+00                  
+            16      G      0.0           -1.551338E+03   0.0            1.381954E-05   0.0            3.382920E+00                  
+            17      G      0.0           -3.796456E-04   1.459014E-02   8.208985E-08   0.0           -1.147663E-02                  
+            18      G      0.0            1.551338E+03   0.0           -3.094425E-05   0.0           -3.379137E+00                  
+            19      G      0.0           -1.475445E+03   0.0            1.545610E-02   0.0            3.216586E+00                  
+            20      G      0.0           -4.660234E-04   0.0           -2.139458E-06   0.0           -9.523172E-03                  
+            21      G      0.0            1.475444E+03   0.0           -1.544771E-02   0.0           -3.215160E+00                  
+            22      G      0.0           -1.255135E+03   0.0            2.979660E-02   0.0            2.738287E+00                  
+            23      G      0.0           -3.986416E-04   0.0            3.527781E-05   0.0           -8.506608E-03                  
+            24      G      0.0            1.255134E+03   0.0           -2.986903E-02   0.0           -2.737899E+00                  
+            25      G      0.0           -9.119060E+02   0.0            4.177605E-02   0.0            1.984397E+00                  
+            26      G      0.0           -3.854358E-04   0.0            8.900100E-05   0.0           -3.160443E-03                  
+            27      G      0.0            9.119057E+02   0.0           -4.185188E-02   0.0           -1.990361E+00                  
+            28      G      0.0           -4.793858E+02   0.0            4.974852E-02   0.0            1.042770E+00                  
+            29      G      0.0           -4.499409E-04   0.0           -3.791756E-06   0.0           -9.445386E-04                  
+            30      G      0.0            4.793854E+02   0.0           -4.977160E-02   0.0           -1.047446E+00                  
+            31      G     -5.934807E+00  -4.834152E+01   0.0            2.389179E-02   0.0            2.091500E+00                  
+            32      G     -1.187212E+01   7.143278E-04   0.0            1.112124E-05   0.0           -5.906069E-04                  
+            33      G     -5.935585E+00   4.834216E+01   0.0           -2.388966E-02   0.0           -2.092856E+00                  
+            51      G      0.0            1.562650E-04   0.0            3.761853E-07   0.0           -2.428897E-03                  
+            52      G      0.0           -5.859256E-06   0.0            4.622574E-07   0.0           -4.151185E-04                  
+            54      G      0.0            2.981425E-04   0.0            2.855491E-07   0.0           -4.285875E-03                  
+            55      G      0.0            2.973891E-04   0.0            4.462568E-07   0.0           -2.561293E-03                  
+            57      G      0.0            4.507956E-04   0.0            1.853114E-07   0.0           -5.492727E-03                  
+            58      G      0.0            4.200319E-04   0.0            1.837554E-06   0.0           -8.403626E-04                  
+            60      G      0.0            4.613803E-04   0.0            1.491296E-06   0.0           -3.204935E-03                  
+            61      G      0.0            5.624488E-04   0.0            3.054936E-07   0.0            2.962702E-04                  
+            63      G      0.0           -7.841988E-04   0.0           -2.267871E-07   0.0            4.042108E-04                  
+            64      G      0.0            1.993825E-03   0.0           -1.099233E-06   0.0           -4.369928E-03                  
+            66      G      0.0            1.890915E-03   0.0           -1.789273E-06   0.0           -4.030226E-03                  
+            67      G      0.0           -7.102739E-04   0.0            1.654755E-06   0.0           -3.191480E-03                  
+            69      G      0.0            5.232886E-04   0.0            1.090840E-06   0.0           -3.493113E-03                  
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    37
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.228891E+01    (CYCLIC FREQUENCY =  2.407876E-01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            70      G      0.0            4.853662E-04   0.0           -1.452566E-06   0.0           -1.911838E-03                  
+            72      G      0.0            4.100215E-04   0.0           -3.353915E-06   0.0           -6.354652E-03                  
+            73      G      0.0            4.320548E-04   0.0            1.315033E-06   0.0           -1.990293E-03                  
+            75      G      0.0            1.705022E-04   0.0            1.502320E-06   0.0           -6.610559E-03                  
+            76      G      0.0            2.109913E-04   0.0           -2.290887E-06   0.0            1.490172E-03                  
+            78      G      0.0           -6.501492E-04   0.0           -1.614463E-06   0.0           -2.106073E-03                  
+            79      G      0.0            1.058083E-05   0.0            6.213126E-07   0.0           -1.591625E-03                  
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    38
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.994257E+00    (CYCLIC FREQUENCY =  1.586972E-01 HZ)
+
+                     F O R C E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S        ( C T R I A 1 )
+0        ELEMENT           BEND-MOMENT           BEND-MOMENT          TWIST-MOMENT             SHEAR                 SHEAR
+           ID.                 X                     Y                                           X                     Y
+               2          6.304925E+01          5.615234E-03         -1.025696E+01         -2.574223E+01         -2.343750E-02      
+               6          6.304922E+01          5.859375E-03         -1.025708E+01         -2.574207E+01         -2.539062E-02      
+              10          1.651215E+02          1.416016E-02         -6.338440E+00         -1.591414E+01         -5.859375E-02      
+              14          1.651215E+02          1.513672E-02         -6.338562E+00         -1.591402E+01         -6.445312E-02      
+              18          2.041080E+02          1.708984E-02          1.296369E-03         -6.567741E-03         -7.226562E-02      
+              22          2.041080E+02          1.757812E-02          1.296185E-03         -6.323548E-03         -7.812500E-02      
+              26          1.651258E+02          1.318359E-02          6.340149E+00          1.590364E+01         -5.664062E-02      
+              30          1.651258E+02          1.416016E-02          6.340149E+00          1.590376E+01         -6.250000E-02      
+              34          6.307152E+01          4.882812E-03          1.025714E+01          2.573897E+01         -2.050781E-02      
+              38          6.307152E+01          5.126953E-03          1.025720E+01          2.573880E+01         -2.246094E-02      
+              42         -6.307287E+01         -5.615234E-03          1.025629E+01          2.574243E+01          2.392578E-02      
+              46         -6.307287E+01         -6.347656E-03          1.025641E+01          2.574225E+01          2.636719E-02      
+              50         -1.651266E+02         -1.464844E-02          6.337830E+00          1.591304E+01          6.054688E-02      
+              54         -1.651266E+02         -1.513672E-02          6.337830E+00          1.591292E+01          6.445312E-02      
+              58         -2.041080E+02         -1.708984E-02         -1.631315E-03          5.080510E-03          7.226562E-02      
+              62         -2.041080E+02         -1.806641E-02         -1.632300E-03          5.080792E-03          7.812500E-02      
+              66         -1.651207E+02         -1.367188E-02         -6.340820E+00         -1.590486E+01          5.664062E-02      
+              70         -1.651207E+02         -1.464844E-02         -6.340820E+00         -1.590486E+01          6.250000E-02      
+              74         -6.304784E+01         -4.882812E-03         -1.025781E+01         -2.573865E+01          2.001953E-02      
+              78         -6.304787E+01         -4.882812E-03         -1.025800E+01         -2.573846E+01          2.197266E-02      
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    39
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.127436E+01    (CYCLIC FREQUENCY =  1.796664E-01 HZ)
+
+                     F O R C E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S        ( C T R I A 1 )
+0        ELEMENT           BEND-MOMENT           BEND-MOMENT          TWIST-MOMENT             SHEAR                 SHEAR
+           ID.                 X                     Y                                           X                     Y
+               2         -2.065090E+02         -1.069092E+00          3.312170E+01          8.186938E+01          3.410156E+00      
+               6         -2.065089E+02         -1.069336E+00          3.312195E+01          8.186932E+01          3.413086E+00      
+              10         -4.493609E+02         -2.325195E+00          5.814804E+00          1.438107E+01          7.416016E+00      
+              14         -4.493609E+02         -2.325684E+00          5.814621E+00          1.438137E+01          7.419922E+00      
+              18         -3.217094E+02         -1.663574E+00         -2.628503E+01         -6.496356E+01          5.306641E+00      
+              22         -3.217095E+02         -1.664551E+00         -2.628522E+01         -6.496341E+01          5.310547E+00      
+              26          7.117250E+01          3.688965E-01         -3.671387E+01         -9.074976E+01         -1.177002E+00      
+              30          7.117253E+01          3.691406E-01         -3.671411E+01         -9.074924E+01         -1.177734E+00      
+              34          4.053713E+02          2.097168E+00         -1.687415E+01         -4.171762E+01         -6.691406E+00      
+              38          4.053713E+02          2.098145E+00         -1.687415E+01         -4.171765E+01         -6.695312E+00      
+              42          4.053699E+02          2.096191E+00          1.687677E+01          4.170784E+01         -6.687500E+00      
+              46          4.053698E+02          2.097656E+00          1.687683E+01          4.170786E+01         -6.693359E+00      
+              50          7.117046E+01          3.673096E-01          3.671411E+01          9.074719E+01         -1.171143E+00      
+              54          7.117043E+01          3.675537E-01          3.671436E+01          9.074716E+01         -1.172363E+00      
+              58         -3.217077E+02         -1.665039E+00          2.628271E+01          6.497021E+01          5.310547E+00      
+              62         -3.217077E+02         -1.665527E+00          2.628271E+01          6.497028E+01          5.314453E+00      
+              66         -4.493540E+02         -2.324707E+00         -5.817825E+00         -1.437110E+01          7.416016E+00      
+              70         -4.493539E+02         -2.325195E+00         -5.817856E+00         -1.437064E+01          7.419922E+00      
+              74         -2.065031E+02         -1.067627E+00         -3.312256E+01         -8.186362E+01          3.406250E+00      
+              78         -2.065031E+02         -1.067871E+00         -3.312268E+01         -8.186325E+01          3.408203E+00      
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    40
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.200696E+01    (CYCLIC FREQUENCY =  2.254705E-01 HZ)
+
+                     F O R C E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S        ( C T R I A 1 )
+0        ELEMENT           BEND-MOMENT           BEND-MOMENT          TWIST-MOMENT             SHEAR                 SHEAR
+           ID.                 X                     Y                                           X                     Y
+               2         -4.924769E+02         -5.381836E+00          7.555859E+01          1.845532E+02          1.713672E+01      
+               6         -4.924756E+02         -5.383301E+00          7.555481E+01          1.845584E+02          1.714355E+01      
+              10         -7.970036E+02         -8.709473E+00         -2.885260E+01         -7.047070E+01          2.773242E+01      
+              14         -7.970030E+02         -8.710449E+00         -2.885028E+01         -7.046831E+01          2.773828E+01      
+              18         -5.879307E-02         -1.830846E-03         -9.338611E+01         -2.281143E+02          5.148053E-03      
+              22         -5.848790E-02         -8.072257E-04         -9.337915E+01         -2.281097E+02          2.380610E-03      
+              26          7.969686E+02          8.712402E+00         -2.886676E+01         -7.050827E+01         -2.774219E+01      
+              30          7.969689E+02          8.714844E+00         -2.887720E+01         -7.051401E+01         -2.775195E+01      
+              34          4.925773E+02          5.386719E+00          7.555579E+01          1.845420E+02         -1.715332E+01      
+              38          4.925748E+02          5.390137E+00          7.556201E+01          1.845487E+02         -1.716504E+01      
+              42         -4.925512E+02         -5.390137E+00          7.554932E+01          1.845399E+02          1.716211E+01      
+              46         -4.925487E+02         -5.389160E+00          7.555945E+01          1.845470E+02          1.716211E+01      
+              50         -7.969199E+02         -8.711914E+00         -2.886792E+01         -7.048735E+01          2.774023E+01      
+              54         -7.969187E+02         -8.712891E+00         -2.888019E+01         -7.049837E+01          2.774609E+01      
+              58          3.685002E-02          2.978563E-03         -9.338135E+01         -2.281075E+02         -9.958267E-03      
+              62          3.593449E-02          2.722740E-04         -9.336475E+01         -2.281058E+02         -1.303673E-03      
+              66          7.970667E+02          8.717285E+00         -2.886243E+01         -7.049504E+01         -2.775781E+01      
+              70          7.970693E+02          8.718262E+00         -2.888306E+01         -7.050549E+01         -2.776172E+01      
+              74          4.925131E+02          5.393555E+00          7.557166E+01          1.845831E+02         -1.717383E+01      
+              78          4.925155E+02          5.392578E+00          7.558496E+01          1.845690E+02         -1.717188E+01      
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    41
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.228891E+01    (CYCLIC FREQUENCY =  2.407876E-01 HZ)
+
+                     F O R C E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S        ( C T R I A 1 )
+0        ELEMENT           BEND-MOMENT           BEND-MOMENT          TWIST-MOMENT             SHEAR                 SHEAR
+           ID.                 X                     Y                                           X                     Y
+               2          7.989005E+00         -7.861328E-02         -1.190491E+00         -3.166077E+00          2.468262E-01      
+               6          7.988959E+00         -7.824707E-02         -1.190521E+00         -3.165939E+00          2.456055E-01      
+              10          2.329432E+01         -2.268066E-01         -1.077332E+00         -2.868240E+00          7.138672E-01      
+              14          2.329429E+01         -2.265625E-01         -1.077423E+00         -2.868004E+00          7.109375E-01      
+              18          3.631908E+01         -3.530273E-01         -8.527527E-01         -2.274696E+00          1.109375E+00      
+              22          3.631908E+01         -3.515625E-01         -8.529053E-01         -2.274323E+00          1.105469E+00      
+              26          4.574463E+01         -4.453125E-01         -5.433960E-01         -1.454681E+00          1.398438E+00      
+              30          4.574462E+01         -4.438477E-01         -5.433502E-01         -1.454418E+00          1.392578E+00      
+              34          5.067267E+01         -4.936523E-01         -1.851959E-01         -5.029430E-01          1.554688E+00      
+              38          5.067267E+01         -4.931641E-01         -1.850586E-01         -5.027390E-01          1.548828E+00      
+              42          5.067350E+01         -4.941406E-01          1.880035E-01          4.904156E-01          1.552734E+00      
+              46          5.067349E+01         -4.936523E-01          1.877899E-01          4.909306E-01          1.548828E+00      
+              50          4.574605E+01         -4.448242E-01          5.457611E-01          1.443790E+00          1.400391E+00      
+              54          4.574603E+01         -4.443359E-01          5.458832E-01          1.443790E+00          1.394531E+00      
+              58          3.632067E+01         -3.535156E-01          8.549500E-01          2.265755E+00          1.111328E+00      
+              62          3.632063E+01         -3.525391E-01          8.548279E-01          2.266365E+00          1.107422E+00      
+              66          2.329527E+01         -2.272949E-01          1.078644E+00          2.862503E+00          7.158203E-01      
+              70          2.329524E+01         -2.265625E-01          1.078857E+00          2.862617E+00          7.109375E-01      
+              74          7.989283E+00         -7.910156E-02          1.191132E+00          3.163757E+00          2.487793E-01      
+              78          7.989176E+00         -7.885742E-02          1.191010E+00          3.164490E+00          2.478027E-01      
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    42
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.994257E+00    (CYCLIC FREQUENCY =  1.586972E-01 HZ)
+
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0       2    1.510220E+00     -7.352942E+01   3.767338E+01   2.927164E+00    88.4932    3.775038E+01   -7.360641E+01   5.567840E+01 
+             0.0              -4.016304E-01   3.767989E+01  -8.969388E+00   -77.3883    3.968671E+01   -2.408447E+00   2.104758E+01 
+0       6    1.510220E+00     -7.352920E+01   3.767292E+01   2.925975E+00    88.4938    3.774986E+01   -7.360613E+01   5.567799E+01 
+             0.0              -4.014385E-01   3.767972E+01  -8.970719E+00   -77.3866    3.968712E+01   -2.408840E+00   2.104798E+01 
+0      10    1.510220E+00     -1.925685E+02   9.863287E+01   1.807975E+00    89.6443    9.864410E+01   -1.925798E+02   1.456119E+02 
+             0.0              -1.052040E+00   9.864929E+01  -5.543677E+00   -86.8272    9.895659E+01   -1.359337E+00   5.015796E+01 
+0      14    1.510220E+00     -1.925681E+02   9.863128E+01   1.807294E+00    89.6444    9.864250E+01   -1.925793E+02   1.456109E+02 
+             0.0              -1.051539E+00   9.864883E+01  -5.544499E+00   -86.8267    9.895622E+01   -1.358929E+00   5.015758E+01 
+0      18    1.510220E+00     -2.380355E+02   1.219189E+02  -1.578937E-03   -89.9997    1.219189E+02   -2.380355E+02   1.799772E+02 
+             0.0              -1.300447E+00   1.219387E+02  -7.534027E-05   -90.0000    1.219387E+02   -1.300446E+00   6.161958E+01 
+0      22    1.510220E+00     -2.380349E+02   1.219178E+02  -1.578723E-03   -89.9997    1.219178E+02   -2.380349E+02   1.799763E+02 
+             0.0              -1.299825E+00   1.219382E+02  -7.534027E-05   -90.0000    1.219382E+02   -1.299828E+00   6.161900E+01 
+0      26    1.510220E+00     -1.925735E+02   9.863568E+01  -1.810102E+00   -89.6439    9.864693E+01   -1.925848E+02   1.456159E+02 
+             0.0              -1.052066E+00   9.865097E+01   5.543531E+00    86.8274    9.895825E+01   -1.359341E+00   5.015879E+01 
+0      30    1.510220E+00     -1.925730E+02   9.863409E+01  -1.809279E+00   -89.6440    9.864535E+01   -1.925843E+02   1.456148E+02 
+             0.0              -1.051565E+00   9.865052E+01   5.544355E+00    86.8269    9.895789E+01   -1.358936E+00   5.015841E+01 
+0      34    1.510220E+00     -7.355547E+01   3.767570E+01  -2.927142E+00   -88.4936    3.775268E+01   -7.363245E+01   5.569256E+01 
+             0.0              -4.018483E-01   3.768137E+01   8.969623E+00    77.3885    3.968820E+01   -2.408684E+00   2.104844E+01 
+0      38    1.510220E+00     -7.355527E+01   3.767524E+01  -2.925882E+00   -88.4942    3.775215E+01   -7.363219E+01   5.569217E+01 
+             0.0              -4.016563E-01   3.768119E+01   8.970953E+00    77.3868    3.968861E+01   -2.409077E+00   2.104884E+01 
+0      42    1.510220E+00      7.355704E+01  -3.767486E+01  -2.926151E+00    -1.5059    7.363396E+01   -3.775179E+01   5.569287E+01 
+             0.0               4.018483E-01  -3.768137E+01   8.969623E+00    12.6115    2.408684E+00   -3.968821E+01   2.104845E+01 
+0      46    1.510220E+00      7.355685E+01  -3.767384E+01  -2.924962E+00    -1.5053    7.363371E+01   -3.775070E+01   5.569220E+01 
+             0.0               4.016569E-01  -3.768120E+01   8.970953E+00    12.6132    2.409077E+00   -3.968862E+01   2.104885E+01 
+0      50    1.510220E+00      1.925745E+02  -9.863398E+01  -1.807412E+00    -0.3556    1.925857E+02   -9.864519E+01   1.456155E+02 
+             0.0               1.052068E+00  -9.865097E+01   5.543531E+00     3.1726    1.359344E+00   -9.895824E+01   5.015879E+01 
+0      54    1.510220E+00      1.925740E+02  -9.863297E+01  -1.806589E+00    -0.3554    1.925852E+02   -9.864416E+01   1.456147E+02 
+             0.0               1.051565E+00  -9.865052E+01   5.544355E+00     3.1731    1.358936E+00   -9.895789E+01   5.015841E+01 
+0      58    1.510220E+00      2.380355E+02  -1.219189E+02   1.816267E-03     0.0003    2.380355E+02   -1.219189E+02   1.799772E+02 
+             0.0               1.300446E+00  -1.219387E+02  -7.581711E-05     0.0000    1.300446E+00   -1.219387E+02   6.161958E+01 
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    43
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.994257E+00    (CYCLIC FREQUENCY =  1.586972E-01 HZ)
+
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      62    1.510220E+00      2.380349E+02  -1.219172E+02   1.817409E-03     0.0003    2.380349E+02   -1.219172E+02   1.799760E+02 
+             0.0               1.299826E+00  -1.219382E+02  -7.581711E-05     0.0000    1.299828E+00   -1.219382E+02   6.161900E+01 
+0      66    1.510220E+00      1.925676E+02  -9.863344E+01   1.810736E+00     0.3563    1.925788E+02   -9.864469E+01   1.456118E+02 
+             0.0               1.052042E+00  -9.864929E+01  -5.543676E+00    -3.1728    1.359337E+00   -9.895659E+01   5.015796E+01 
+0      70    1.510220E+00      1.925670E+02  -9.863184E+01   1.809913E+00     0.3561    1.925783E+02   -9.864308E+01   1.456107E+02 
+             0.0               1.051539E+00  -9.864883E+01  -5.544499E+00    -3.1733    1.358929E+00   -9.895622E+01   5.015758E+01 
+0      74    1.510220E+00      7.352779E+01  -3.767422E+01   2.928155E+00     1.5073    7.360484E+01   -3.775127E+01   5.567805E+01 
+             0.0               4.016304E-01  -3.767989E+01  -8.969388E+00   -12.6117    2.408447E+00   -3.968670E+01   2.104757E+01 
+0      78    1.510220E+00      7.352763E+01  -3.767405E+01   2.927037E+00     1.5067    7.360461E+01   -3.775104E+01   5.567783E+01 
+             0.0               4.014387E-01  -3.767971E+01  -8.970718E+00   -12.6134    2.408840E+00   -3.968711E+01   2.104798E+01 
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    44
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.127436E+01    (CYCLIC FREQUENCY =  1.796664E-01 HZ)
+
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0       2    1.510220E+00      2.408443E+02  -5.242852E+01  -2.616189E+01    -5.0579    2.431599E+02   -5.474406E+01   1.489520E+02 
+             0.0               1.324507E+00  -5.366851E+01   1.225438E+01    12.0106    3.931618E+00   -5.627562E+01   3.010362E+01 
+0       6    1.510220E+00      2.408438E+02  -5.242769E+01  -2.616038E+01    -5.0577    2.431590E+02   -5.474297E+01   1.489510E+02 
+             0.0               1.323984E+00  -5.366796E+01   1.225618E+01    12.0123    3.931870E+00   -5.627585E+01   3.010386E+01 
+0      10    1.510220E+00      5.240744E+02  -1.140651E+02  -4.592525E+00    -0.4123    5.241075E+02   -1.140982E+02   3.191028E+02 
+             0.0               2.882304E+00  -1.167620E+02   2.151787E+00     1.0300    2.920990E+00   -1.168007E+02   5.986083E+01 
+0      14    1.510220E+00      5.240732E+02  -1.140633E+02  -4.592011E+00    -0.4123    5.241063E+02   -1.140964E+02   3.191013E+02 
+             0.0               2.881190E+00  -1.167608E+02   2.152087E+00     1.0302    2.919888E+00   -1.167995E+02   5.985968E+01 
+0      18    1.510220E+00      3.751989E+02  -8.166332E+01   2.076144E+01     2.5966    3.761404E+02   -8.260486E+01   2.293726E+02 
+             0.0               2.063527E+00  -8.359282E+01  -9.725304E+00    -6.3968    3.153851E+00   -8.468314E+01   4.391850E+01 
+0      22    1.510220E+00      3.751981E+02  -8.166133E+01   2.076018E+01     2.5964    3.761395E+02   -8.260277E+01   2.293711E+02 
+             0.0               2.062731E+00  -8.359196E+01  -9.726779E+00    -6.3979    3.153397E+00   -8.468263E+01   4.391801E+01 
+0      26    1.510220E+00     -8.300601E+01   1.806669E+01   2.899829E+01    75.0762    2.579546E+01   -9.073477E+01   5.826512E+01 
+             0.0              -4.564548E-01   1.849456E+01  -1.358436E+01   -62.4485    2.558166E+01   -7.543559E+00   1.656261E+01 
+0      30    1.510220E+00     -8.300587E+01   1.806622E+01   2.899651E+01    75.0769    2.579414E+01   -9.073378E+01   5.826396E+01 
+             0.0              -4.562657E-01   1.849437E+01  -1.358642E+01   -62.4462    2.558324E+01   -7.545140E+00   1.656419E+01 
+0      34    1.510220E+00     -4.727708E+02   1.029032E+02   1.332755E+01    88.6745    1.032115E+02   -4.730792E+02   2.881454E+02 
+             0.0              -2.600109E+00   1.053356E+02  -6.243957E+00   -86.7002    1.056956E+02   -2.960110E+00   5.432784E+01 
+0      38    1.510220E+00     -4.727695E+02   1.029009E+02   1.332643E+01    88.6746    1.032092E+02   -4.730778E+02   2.881435E+02 
+             0.0              -2.598855E+00   1.053345E+02  -6.245080E+00   -86.6995    1.056946E+02   -2.958996E+00   5.432681E+01 
+0      42    1.510220E+00     -4.727692E+02   1.029047E+02  -1.333051E+01   -88.6742    1.032133E+02   -4.730778E+02   2.881455E+02 
+             0.0              -2.600226E+00   1.053360E+02   6.244043E+00    86.7001    1.056960E+02   -2.960239E+00   5.432812E+01 
+0      46    1.510220E+00     -4.727684E+02   1.029019E+02  -1.332985E+01   -88.6742    1.032104E+02   -4.730769E+02   2.881437E+02 
+             0.0              -2.599468E+00   1.053349E+02   6.244773E+00    86.6997    1.056950E+02   -2.959568E+00   5.432729E+01 
+0      50    1.510220E+00     -8.300390E+01   1.806990E+01  -2.899864E+01   -75.0762    2.579877E+01   -9.073277E+01   5.826577E+01 
+             0.0              -4.567096E-01   1.849593E+01   1.358429E+01    62.4497    2.558263E+01   -7.543410E+00   1.656302E+01 
+0      54    1.510220E+00     -8.300369E+01   1.806943E+01  -2.899694E+01   -75.0768    2.579749E+01   -9.073175E+01   5.826462E+01 
+             0.0              -4.565325E-01   1.849574E+01   1.358628E+01    62.4475    2.558414E+01   -7.544939E+00   1.656454E+01 
+0      58    1.510220E+00      3.751966E+02  -8.165939E+01  -2.075877E+01    -2.5963    3.761379E+02   -8.260069E+01   2.293693E+02 
+             0.0               2.063310E+00  -8.359058E+01   9.725282E+00     6.3970    3.153652E+00   -8.468092E+01   4.391729E+01 
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    45
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.127436E+01    (CYCLIC FREQUENCY =  1.796664E-01 HZ)
+
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      62    1.510220E+00      3.751958E+02  -8.165796E+01  -2.075737E+01    -2.5961    3.761370E+02   -8.259914E+01   2.293681E+02 
+             0.0               2.062522E+00  -8.358972E+01   9.726688E+00     6.3980    3.153202E+00   -8.468040E+01   4.391680E+01 
+0      66    1.510220E+00      5.240662E+02  -1.140633E+02   4.596162E+00     0.4126    5.240993E+02   -1.140964E+02   3.190979E+02 
+             0.0               2.882114E+00  -1.167596E+02  -2.151654E+00    -1.0300    2.920795E+00   -1.167983E+02   5.985956E+01 
+0      70    1.510220E+00      5.240651E+02  -1.140616E+02   4.595827E+00     0.4126    5.240981E+02   -1.140947E+02   3.190964E+02 
+             0.0               2.881026E+00  -1.167584E+02  -2.152024E+00    -1.0302    2.919724E+00   -1.167971E+02   5.985843E+01 
+0      74    1.510220E+00      2.408374E+02  -5.242918E+01   2.616324E+01     5.0583    2.431532E+02   -5.474501E+01   1.489491E+02 
+             0.0               1.324320E+00  -5.366747E+01  -1.225402E+01   -12.0105    3.931335E+00   -5.627448E+01   3.010291E+01 
+0      78    1.510220E+00      2.408370E+02  -5.242835E+01   2.616147E+01     5.0580    2.431525E+02   -5.474386E+01   1.489482E+02 
+             0.0               1.323927E+00  -5.366692E+01  -1.225594E+01   -12.0123    3.931761E+00   -5.627476E+01   3.010326E+01 
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    46
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.200696E+01    (CYCLIC FREQUENCY =  2.254705E-01 HZ)
+
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0       2    1.510220E+00      5.744011E+02  -6.355228E+01  -7.265877E+01    -6.4161    5.825718E+02   -7.172301E+01   3.271474E+02 
+             0.0               3.200860E+00  -6.979442E+01   1.497801E+01    11.1562    6.154690E+00   -7.274825E+01   3.945147E+01 
+0       6    1.510220E+00      5.743970E+02  -6.354922E+01  -7.265378E+01    -6.4158    5.825667E+02   -7.171889E+01   3.271428E+02 
+             0.0               3.198331E+00  -6.979305E+01   1.497862E+01    11.1572    6.152542E+00   -7.274726E+01   3.944990E+01 
+0      10    1.510220E+00      9.295789E+02  -1.028312E+02   2.774491E+01     1.5383    9.303240E+02   -1.035763E+02   5.169501E+02 
+             0.0               5.172700E+00  -1.129329E+02  -5.719831E+00    -2.7662    5.449062E+00   -1.132093E+02   5.932918E+01 
+0      14    1.510220E+00      9.295809E+02  -1.028279E+02   2.774231E+01     1.5381    9.303259E+02   -1.035728E+02   5.169493E+02 
+             0.0               5.175455E+00  -1.129307E+02  -5.719744E+00    -2.7661    5.451809E+00   -1.132071E+02   5.932944E+01 
+0      18    1.510220E+00      7.236263E-02   6.567471E-03   8.979911E+01    44.9895    8.983858E+01   -8.975965E+01   8.979912E+01 
+             0.0               4.171371E-03   4.443960E-03  -1.851495E+01   -45.0002    1.851925E+01   -1.851064E+01   1.851495E+01 
+0      22    1.510220E+00      6.744439E-02   5.298337E-03   8.978728E+01    44.9901    8.982365E+01   -8.975092E+01   8.978728E+01 
+             0.0              -3.929138E-04   4.362075E-03  -1.851870E+01   -45.0037    1.852069E+01   -1.851672E+01   1.851870E+01 
+0      26    1.510220E+00     -9.295463E+02   1.028484E+02   2.775923E+01    88.4609    1.035943E+02   -9.302922E+02   5.169432E+02 
+             0.0              -5.180753E+00   1.129535E+02  -5.721934E+00   -87.2335    1.132300E+02   -5.457256E+00   5.934363E+01 
+0      30    1.510220E+00     -9.295396E+02   1.028435E+02   2.777145E+01    88.4602    1.035900E+02   -9.302861E+02   5.169380E+02 
+             0.0              -5.173757E+00   1.129514E+02  -5.721819E+00   -87.2333    1.132279E+02   -5.450272E+00   5.933909E+01 
+0      34    1.510220E+00     -5.745136E+02   6.358517E+01  -7.265750E+01   -83.5854    7.175377E+01   -5.826822E+02   3.272180E+02 
+             0.0              -3.196878E+00   6.983296E+01   1.497602E+01    78.8499    7.278474E+01   -6.148659E+00   3.946670E+01 
+0      38    1.510220E+00     -5.745114E+02   6.358002E+01  -7.266557E+01   -83.5846    7.175052E+01   -5.826819E+02   3.272162E+02 
+             0.0              -3.197573E+00   6.983179E+01   1.497517E+01    78.8504    7.278326E+01   -6.149052E+00   3.946616E+01 
+0      42    1.510220E+00      5.744816E+02  -6.349718E+01  -7.265248E+01    -6.4154    5.826506E+02   -7.166620E+01   3.271584E+02 
+             0.0               3.195150E+00  -6.974895E+01   1.497354E+01    11.1603    6.149204E+00   -7.270300E+01   3.942610E+01 
+0      46    1.510220E+00      5.744733E+02  -6.349714E+01  -7.266260E+01    -6.4163    5.826447E+02   -7.166849E+01   3.271566E+02 
+             0.0               3.189751E+00  -6.974776E+01   1.497517E+01    11.1623    6.144669E+00   -7.270268E+01   3.942368E+01 
+0      50    1.510220E+00      9.294730E+02  -1.027726E+02   2.776242E+01     1.5395    9.302191E+02   -1.035188E+02   5.168690E+02 
+             0.0               5.163900E+00  -1.128772E+02  -5.720089E+00    -2.7678    5.440441E+00   -1.131537E+02   5.929707E+01 
+0      54    1.510220E+00      9.294769E+02  -1.027694E+02   2.777699E+01     1.5403    9.302238E+02   -1.035163E+02   5.168701E+02 
+             0.0               5.169165E+00  -1.128750E+02  -5.719757E+00    -2.7676    5.445667E+00   -1.131515E+02   5.929860E+01 
+0      58    1.510220E+00     -4.228090E-02   5.281875E-02   8.979506E+01    45.0152    8.980035E+01   -8.978980E+01   8.979507E+01 
+             0.0               4.596710E-04   5.627344E-02  -1.851348E+01   -45.0432    1.854186E+01   -1.848513E+01   1.851350E+01 
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    47
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.200696E+01    (CYCLIC FREQUENCY =  2.254705E-01 HZ)
+
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      62    1.510220E+00     -4.895809E-02   5.598685E-02   8.977144E+01    45.0167    8.977497E+01   -8.976794E+01   8.977145E+01 
+             0.0              -7.279396E-03   5.630264E-02  -1.851784E+01   -45.0492    1.854237E+01   -1.849335E+01   1.851786E+01 
+0      66    1.510220E+00     -9.296722E+02   1.028669E+02   2.776058E+01    88.4610    1.036128E+02   -9.304180E+02   5.170154E+02 
+             0.0              -5.192958E+00   1.129777E+02  -5.715561E+00   -87.2374    1.132535E+02   -5.468758E+00   5.936113E+01 
+0      70    1.510220E+00     -9.296622E+02   1.028638E+02   2.778544E+01    88.4596    1.036110E+02   -9.304094E+02   5.170102E+02 
+             0.0              -5.179877E+00   1.129757E+02  -5.714626E+00   -87.2375    1.132514E+02   -5.455624E+00   5.935353E+01 
+0      74    1.510220E+00     -5.744465E+02   6.355655E+01  -7.266763E+01   -83.5836    7.172862E+01   -5.826186E+02   3.271736E+02 
+             0.0              -3.204375E+00   6.981228E+01   1.498430E+01    78.8425    7.276770E+01   -6.159794E+00   3.946375E+01 
+0      78    1.510220E+00     -5.744471E+02   6.355659E+01  -7.268759E+01   -83.5819    7.173306E+01   -5.826237E+02   3.271783E+02 
+             0.0              -3.202138E+00   6.981119E+01   1.497977E+01    78.8451    7.276501E+01   -6.155964E+00   3.946049E+01 
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    48
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.228891E+01    (CYCLIC FREQUENCY =  2.407876E-01 HZ)
+
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0       2    1.510220E+00     -9.317251E+00   1.952325E+01  -3.391389E+00   -83.3828    1.991668E+01   -9.710682E+00   1.481368E+01 
+             0.0              -5.118811E-02   1.943207E+01  -4.772182E+00   -76.9505    2.053817E+01   -1.157280E+00   1.084772E+01 
+0       6    1.510220E+00     -9.317182E+00   1.952280E+01  -3.392085E+00   -83.3814    1.991640E+01   -9.710777E+00   1.481359E+01 
+             0.0              -5.117261E-02   1.943205E+01  -4.772913E+00   -76.9487    2.053846E+01   -1.157588E+00   1.084803E+01 
+0      10    1.510220E+00     -2.716768E+01   5.666193E+01  -3.056252E+00   -87.9148    5.677320E+01   -2.727896E+01   4.202608E+01 
+             0.0              -1.497213E-01   5.639886E+01  -4.305798E+00   -85.6706    5.672485E+01   -4.757023E-01   2.860027E+01 
+0      14    1.510220E+00     -2.716756E+01   5.666157E+01  -3.056796E+00   -87.9144    5.677288E+01   -2.727888E+01   4.202588E+01 
+             0.0              -1.496368E-01   5.639879E+01  -4.306448E+00   -85.6699    5.672486E+01   -4.757118E-01   2.860029E+01 
+0      18    1.510220E+00     -4.235827E+01   8.825633E+01  -2.427737E+00   -88.9355    8.830145E+01   -4.240339E+01   6.535242E+01 
+             0.0              -2.335147E-01   8.784687E+01  -3.416803E+00   -87.7818    8.797922E+01   -3.658600E-01   4.417254E+01 
+0      22    1.510220E+00     -4.235814E+01   8.825452E+01  -2.428083E+00   -88.9354    8.829964E+01   -4.240326E+01   6.535145E+01 
+             0.0              -2.333834E-01   8.784676E+01  -3.417327E+00   -87.7815    8.797914E+01   -3.657684E-01   4.417245E+01 
+0      26    1.510220E+00     -5.335112E+01   1.112080E+02  -1.562831E+00   -89.4559    1.112228E+02   -5.336596E+01   8.229440E+01 
+             0.0              -2.941287E-01   1.106915E+02  -2.193089E+00   -88.8684    1.107348E+02   -3.374481E-01   5.553613E+01 
+0      30    1.510220E+00     -5.335094E+01   1.112062E+02  -1.563245E+00   -89.4558    1.112210E+02   -5.336578E+01   8.229340E+01 
+             0.0              -2.939483E-01   1.106914E+02  -2.193451E+00   -88.8682    1.107347E+02   -3.372803E-01   5.553599E+01 
+0      34    1.510220E+00     -5.909879E+01   1.232713E+02  -5.405791E-01   -89.8302    1.232729E+02   -5.910039E+01   9.118662E+01 
+             0.0              -3.259930E-01   1.226987E+02  -7.553790E-01   -89.6482    1.227033E+02   -3.306351E-01   6.151698E+01 
+0      38    1.510220E+00     -5.909819E+01   1.232705E+02  -5.411600E-01   -89.8300    1.232721E+02   -5.909979E+01   9.118597E+01 
+             0.0              -3.253983E-01   1.226985E+02  -7.558006E-01   -89.6480    1.227032E+02   -3.300438E-01   6.151661E+01 
+0      42    1.510220E+00     -5.909996E+01   1.232722E+02   5.375404E-01    89.8311    1.232738E+02   -5.910155E+01   9.118768E+01 
+             0.0              -3.262142E-01   1.226991E+02   7.555966E-01    89.6481    1.227037E+02   -3.308601E-01   6.151730E+01 
+0      46    1.510220E+00     -5.910020E+01   1.232715E+02   5.375702E-01    89.8311    1.232731E+02   -5.910178E+01   9.118744E+01 
+             0.0              -3.264537E-01   1.226989E+02   7.553787E-01    89.6482    1.227036E+02   -3.310928E-01   6.151734E+01 
+0      50    1.510220E+00     -5.335324E+01   1.112085E+02   1.560103E+00    89.4569    1.112233E+02   -5.336803E+01   8.229565E+01 
+             0.0              -2.946036E-01   1.106926E+02   2.193105E+00    88.8684    1.107359E+02   -3.379211E-01   5.553690E+01 
+0      54    1.510220E+00     -5.335307E+01   1.112078E+02   1.560209E+00    89.4568    1.112226E+02   -5.336786E+01   8.229521E+01 
+             0.0              -2.944418E-01   1.106924E+02   2.193352E+00    88.8683    1.107357E+02   -3.377686E-01   5.553675E+01 
+0      58    1.510220E+00     -4.236049E+01   8.825817E+01   2.425261E+00    88.9367    8.830318E+01   -4.240550E+01   6.535434E+01 
+             0.0              -2.338928E-01   8.784814E+01   3.416876E+00    87.7818    8.798050E+01   -3.662453E-01   4.417337E+01 
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    49
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0             BUCKLING SOLUTION                                                                              SUBCASE 2              
+      EIGENVALUE =  0.228891E+01    (CYCLIC FREQUENCY =  2.407876E-01 HZ)
+
+                  S T R E S S E S   I N   G E N E R A L   T R I A N G U L A R   E L E M E N T S       ( C T R I A 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      62    1.510220E+00     -4.236030E+01   8.825693E+01   2.425831E+00    88.9364    8.830196E+01   -4.240533E+01   6.535365E+01 
+             0.0              -2.337449E-01   8.784804E+01   3.417305E+00    87.7815    8.798042E+01   -3.661232E-01   4.417327E+01 
+0      66    1.510220E+00     -2.716907E+01   5.666352E+01   3.054881E+00    87.9158    5.677470E+01   -2.728024E+01   4.202747E+01 
+             0.0              -1.500043E-01   5.639989E+01   4.305948E+00    85.6705    5.672589E+01   -4.759998E-01   2.860094E+01 
+0      70    1.510220E+00     -2.716890E+01   5.666261E+01   3.055169E+00    87.9156    5.677380E+01   -2.728009E+01   4.202694E+01 
+             0.0              -1.498675E-01   5.639983E+01   4.306484E+00    85.6700    5.672590E+01   -4.759445E-01   2.860092E+01 
+0      74    1.510220E+00     -9.317866E+00   1.952422E+01   3.390936E+00    83.3840    1.991753E+01   -9.711172E+00   1.481435E+01 
+             0.0              -5.148113E-02   1.943248E+01   4.772472E+00    76.9502    2.053866E+01   -1.157665E+00   1.084816E+01 
+0      78    1.510220E+00     -9.317472E+00   1.952392E+01   3.391609E+00    83.3826    1.991739E+01   -9.710941E+00   1.481416E+01 
+             0.0              -5.121076E-02   1.943245E+01   4.773004E+00    76.9487    2.053889E+01   -1.157644E+00   1.084827E+01 
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    50
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          ORTHOGRAPHIC PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =  23.17, ALPHA =   0.00,  AXES = +Y,+X,-Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 1.153226E-01                                                                                
+                                                                                                                                    
+          ORIGIN       2   -   X0 = -8.711188E-01, Y0 = -0.298235E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+          PLOT    3   MODAL  DEFORM.     2 - SUBCASE       1 - MODE   9.942567E-01 - EIGENVALUE                                     
+          PLOT    4   MODAL  DEFORM.     2 - SUBCASE       2 - MODE   1.274364E+00 - EIGENVALUE                                     
+          PLOT    5   MODAL  DEFORM.     2 - SUBCASE       3 - MODE   2.006962E+00 - EIGENVALUE                                     
+          PLOT    6   MODAL  DEFORM.     2 - SUBCASE       4 - MODE   2.288906E+00 - EIGENVALUE                                     
+                                                 ORIGIN      2  USED IN THIS PLOT                                                   
+1     SYMMETRIC BUCKLING OF A CYLINDER                                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    51
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-01-1A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          ORTHOGRAPHIC PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =   0.00, BETA =   0.00, ALPHA =   0.00,  AXES = +Y,+X,-Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 1.077510E-01                                                                                
+                                                                                                                                    
+          ORIGIN       2   -   X0 = -8.711188E-01, Y0 = -0.298235E+01     (INCHES)                                                  
+          ORIGIN       1   -   X0 = -5.598906E-01, Y0 = -0.361539E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+          PLOT    7   MODAL  DEFORM.     2 - SUBCASE       1 - MODE   9.942567E-01 - EIGENVALUE                                     
+          PLOT    8   MODAL  DEFORM.     2 - SUBCASE       2 - MODE   1.274364E+00 - EIGENVALUE                                     
+          PLOT    9   MODAL  DEFORM.     2 - SUBCASE       3 - MODE   2.006962E+00 - EIGENVALUE                                     
+          PLOT   10   MODAL  DEFORM.     2 - SUBCASE       4 - MODE   2.288906E+00 - EIGENVALUE                                     
+                                                 ORIGIN      1  USED IN THIS PLOT                                                   
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  SYMMETRIC BUCKLING OF A CYLINDER                                   
+ DATE:  5/17/95
+ END TIME: 15:48:29
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

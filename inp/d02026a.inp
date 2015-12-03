@@ -1,0 +1,83 @@
+ID    D02026A,NASTRAN                                                           
+APP   DISPLACEMENT,SUBS                                                         
+SOL   1,0                                                                       
+TIME  5                                                                         
+DIAG  23                                                                        
+CEND                                                                            
+SUBSTRUCTURE PHASE3                                                             
+  PASSWORD = DEMO                                                               
+   SOF(1)  = FT18,950 $ DEC VAX                                                 
+   SOFPRINT TOC                                                                 
+  BRECOVER HUB                                                                  
+ENDSUBS                                                                         
+TITLE    = WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTURING     
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                          
+LABEL    = RECOVER HUB, RUN 6, PHASE 3                                          
+    DISP = ALL                                                                  
+  STRESS = ALL                                                                  
+SPC = 30                                                                        
+SUBCASE 1                                                                       
+LABEL = ROTATIONAL FORCES DUE TO UNIT OMEGA ABOUT CENTER OF STRUCTURE           
+SUBCASE 2                                                                       
+LABEL = EXTENSION OF RIGHT PANEL AND COMPRESSION OF BOTTOM PANEL                
+SUBCASE 3                                                                       
+LABEL = CHECK ON RELEASE FEATURE AT GRID POINT 5                                
+BEGIN BULK                                                                      
+CORD2C  1       0       .0      .0      .0      .0      .0      1.0     +COR    
++COR    1.0     .0      .0                                                      
+CQDMEM  1       10      1       4       5       2                               
+CQDMEM  3       10      4       7       108     5                               
+CQDMEM  5       10      108     7       10      11                              
+CQDMEM  7       10      13      14      11      10                              
+CQDMEM  9       10      16      17      14      13                              
+CQDMEM  11      10      19      20      17      16                              
+CQDMEM  13      10      20      19      22      23                              
+CQDMEM  15      10      25      26      23      22                              
+CQDMEM  17      10      29      26      25      28                              
+CQDMEM  19      10      32      29      28      31                              
+CQDMEM  21      10      32      31      34      35                              
+CQDMEM  23      10      37      38      35      34                              
+CQDMEM  25      10      38      37      40      41                              
+CQDMEM  27      10      41      40      43      44                              
+CQDMEM  29      10      44      43      46      47                              
+CQDMEM  31      10      1       2       47      46                              
+FORCE1  3       4       1.0     5       4                                       
+GRDSET                                                  3456                    
+GRID    1               -5.0    10.0                                            
+GRID    2               -5.0    15.0                                            
+GRID    4               .0      10.0                                            
+GRID    5               .0      15.0                                            
+GRID    7               5.0     10.0                                            
+GRID    10              7.5     7.5                                             
+GRID    11              10.0    10.0                                            
+GRID    13              10.0    5.0                                             
+GRID    14              15.0    5.0                                             
+GRID    16              10.0    .0                                              
+GRID    17              15.0    .0                                              
+GRID    19              10.0    -5.0                                            
+GRID    20              15.0    -5.0                                            
+GRID    22              7.5     -7.5                                            
+GRID    23              10.0    -10.0                                           
+GRID    25              5.0     -10.0                                           
+GRID    26              5.0     -15.0                                           
+GRID    28              .0      -10.0                                           
+GRID    29              .0      -15.0                                           
+GRID    31              -5.0    -10.0                                           
+GRID    32              -5.0    -15.0                                           
+GRID    34              -7.5    -7.5                                            
+GRID    35              -10.0   -10.0                                           
+GRID    37              -10.0   -5.0                                            
+GRID    38              -15.0   -5.0                                            
+GRID    40              -10.0   .0                                              
+GRID    41              -15.0   .0                                              
+GRID    43              -10.0   5.0                                             
+GRID    44              -15.0   5.0                                             
+GRID    46              -7.5    7.5                                             
+GRID    47              -10.0   10.0                                            
+GRID    108             5.0     15.0            1                               
+MAT1    50      1.0+7           .25     2.5E-4  1.0E-6  70.0                    
+PQDMEM  10      50      .1                                                      
+RFORCE  1       0       0       .1591579.0      .0      1.0                     
+SPC1    30      1       13      19      37      43                              
+SPC1    30      2       1       7       31      25                              
+ENDDATA                                                                         

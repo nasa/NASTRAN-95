@@ -1,0 +1,733 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T13021A,NASTRAN                                                           
+     APP   DISP                                                                      
+     SOL   13                                                                        
+     DIAG  38                                                                        
+     TIME  10                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE = OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS             
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                          
+                  3      ECHO  = BOTH                                                                    
+                  4      DISP  = ALL                                                                     
+                  5      SPC = 1                                                                         
+                  6      SUBCASE 1                                                                       
+                  7      LABEL = STATIC SOLUTION                                                         
+                  8      LOAD  = 1                                                                       
+                  9      OLOAD = ALL                                                                     
+                 10      SUBCASE 2                                                                       
+                 11      LABEL = SECOND ORDER STATICS SOLUTION                                           
+                 12      DSCOEFFICIENT = DEFAULT                                                         
+                 13      SUBCASE 3                                                                       
+                 14      LABEL = NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                
+                 15      METHOD = 1                                                                      
+                 16      BEGIN BULK                                                                      
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0                                                                                                                                   
+0                                             I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              -FF-    SPC,1,1,126                                                                                   
+                              -FF-    CORD2C,  1  0  0.  0.  0.  0.  0.  1.                                                         
+                              -FF-    ,    1.  0. 0.                                                                                
+                              -FF-    CONM2,   9  1,,   5.74025  0.  0.  0.  )+C-21                                                 
+                              -FF-    =(7), *(1),*(1),,==                                                                           
+                              -FF-    +C-21,  5.74025  0.0  5.74025,  0.  0.  5.74025                                               
+                              -FF-    =(7),==                                                                                       
+                              -FF-    FORCE1, 1  1   26516.5  5   1                                                                 
+                              -FF-    =(3),  =,*(1),       = *(1),/                                                                 
+                              -FF-    FORCE1, 1  5   26516.5  1   5                                                                 
+                              -FF-    =(3),  =,*(1),       = *(1),/                                                                 
+                              -FF-    GRID,  1  0   0.     75.     0.   0  345                                                      
+                              -FF-    GRID,  2  0  53.033  53.033  ==                                                               
+                              -FF-    GRID,  3  0  75.      0.     ==                                                               
+                              -FF-    GRID,  4  0  53.033 -53.033  ==                                                               
+                              -FF-    GRID,  5  0   0.    -75.     ==                                                               
+                              -FF-    GRID,  6  0 -53.033 -53.033  ==                                                               
+                              -FF-    GRID,  7  0 -75.      0.     ==                                                               
+                              -FF-    GRID,  8  0 -53.033  53.033  ==                                                               
+                              -FF-    BAROR,,1,,,   1.  0.  0.                                                                      
+                              -FF-    CBAR,  1  1   1   2                                                                           
+                              -FF-    =(6),*(1),=, *(1),/                                                                           
+                              -FF-    CBAR,  8  1   8   1                                                                           
+                              -FF-    PBAR,  1  1   1.  .83333  .83333                                                              
+                              -FF-    CPSE2,17  2   1   2                                                                           
+                              -FF-    =(6),*(1),=, *(1),/                                                                           
+                              -FF-    CPSE2,24  2   8   1                                                                           
+                              -FF-    PPSE,  2  500.                                                                                
+                              -FF-    MAT1,  1  1.E7,, 0.3                                                                          
+                              -FF-    EIGR,  1  FEER,, 1.0E-8,, 10                                                                  
+                              -FF-    , MAX                                                                                         
+                              ENDDATA                                                                                       
+
+
+                        TOTAL COUNT=     31
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        BAROR           1                       1.      0.      0.                      
+                    2-        CBAR    1       1       1       2                                               
+                    3-        CBAR    2       1       2       3                                               
+                    4-        CBAR    3       1       3       4                                               
+                    5-        CBAR    4       1       4       5                                               
+                    6-        CBAR    5       1       5       6                                               
+                    7-        CBAR    6       1       6       7                                               
+                    8-        CBAR    7       1       7       8                                               
+                    9-        CBAR    8       1       8       1                                               
+                   10-        CONM2   9       1               5.74025 0.      0.      0.              +C-21   
+                   11-        +C-21   5.74025 0.0     5.74025 0.      0.      5.74025                         
+                   12-        CONM2   10      2               5.74025 0.      0.      0.              +C-22   
+                   13-        +C-22   5.74025 0.0     5.74025 0.      0.      5.74025                         
+                   14-        CONM2   11      3               5.74025 0.      0.      0.              +C-23   
+                   15-        +C-23   5.74025 0.0     5.74025 0.      0.      5.74025                         
+                   16-        CONM2   12      4               5.74025 0.      0.      0.              +C-24   
+                   17-        +C-24   5.74025 0.0     5.74025 0.      0.      5.74025                         
+                   18-        CONM2   13      5               5.74025 0.      0.      0.              +C-25   
+                   19-        +C-25   5.74025 0.0     5.74025 0.      0.      5.74025                         
+                   20-        CONM2   14      6               5.74025 0.      0.      0.              +C-26   
+                   21-        +C-26   5.74025 0.0     5.74025 0.      0.      5.74025                         
+                   22-        CONM2   15      7               5.74025 0.      0.      0.              +C-27   
+                   23-        +C-27   5.74025 0.0     5.74025 0.      0.      5.74025                         
+                   24-        CONM2   16      8               5.74025 0.      0.      0.              +C-28   
+                   25-        +C-28   5.74025 0.0     5.74025 0.      0.      5.74025                         
+                   26-        CORD2C  1       0       0.      0.      0.      0.      0.      1.      +C0N0001
+                   27-        +C0N00011.      0.      0.                                                      
+                   28-        CPSE2   17      2       1       2                                               
+                   29-        CPSE2   18      2       2       3                                               
+                   30-        CPSE2   19      2       3       4                                               
+                   31-        CPSE2   20      2       4       5                                               
+                   32-        CPSE2   21      2       5       6                                               
+                   33-        CPSE2   22      2       6       7                                               
+                   34-        CPSE2   23      2       7       8                                               
+                   35-        CPSE2   24      2       8       1                                               
+                   36-        EIGR    1       FEER            1.0E-8          10                      +C0N0002
+                   37-        +C0N0002MAX                                                                     
+                   38-        FORCE1  1       1       26516.5 5       1                                       
+                   39-        FORCE1  1       2       26516.5 6       2                                       
+                   40-        FORCE1  1       3       26516.5 7       3                                       
+                   41-        FORCE1  1       4       26516.5 8       4                                       
+                   42-        FORCE1  1       5       26516.5 1       5                                       
+                   43-        FORCE1  1       6       26516.5 2       6                                       
+                   44-        FORCE1  1       7       26516.5 3       7                                       
+                   45-        FORCE1  1       8       26516.5 4       8                                       
+                   46-        GRID    1       0       0.      75.     0.      0       345                     
+                   47-        GRID    2       0       53.033  53.033  0.      0       345                     
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        GRID    3       0       75.     0.      0.      0       345                     
+                   49-        GRID    4       0       53.033  -53.033 0.      0       345                     
+                   50-        GRID    5       0       0.      -75.    0.      0       345                     
+                   51-        GRID    6       0       -53.033 -53.033 0.      0       345                     
+                   52-        GRID    7       0       -75.    0.      0.      0       345                     
+                   53-        GRID    8       0       -53.033 53.033  0.      0       345                     
+                   54-        MAT1    1       1.E7            0.3                                             
+                   55-        PBAR    1       1       1.      .83333  .83333                                  
+                   56-        PPSE    2       500.                                                            
+                   57-        SPC     1       1       126                                                     
+                              ENDDATA
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     SMALL PROBLEM SIZE
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        1
+     ELEMENT        1 IS BEING PROCESSED
+     ELEMENT        2 IS BEING PROCESSED
+     ELEMENT        3 IS BEING PROCESSED
+     ELEMENT        4 IS BEING PROCESSED
+     ELEMENT        5 IS BEING PROCESSED
+     ELEMENT        6 IS BEING PROCESSED
+     ELEMENT        7 IS BEING PROCESSED
+     ELEMENT        8 IS BEING PROCESSED
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION CONM2    ELEMENTS (ELEMENT TYPE  30) STARTING WITH ID        9
+     ELEMENT        9 IS BEING PROCESSED
+     ELEMENT       10 IS BEING PROCESSED
+     ELEMENT       11 IS BEING PROCESSED
+     ELEMENT       12 IS BEING PROCESSED
+     ELEMENT       13 IS BEING PROCESSED
+     ELEMENT       14 IS BEING PROCESSED
+     ELEMENT       15 IS BEING PROCESSED
+     ELEMENT       16 IS BEING PROCESSED
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION PSE2     ELEMENTS (ELEMENT TYPE  84) STARTING WITH ID       17
+     (STEPPING THRU ONLY. NO REAL COMPUTATION HERE FOR THIS DIFFERENTIAL STIFFNESS ELEMENT)
+     ELEMENT       17 IS BEING PROCESSED
+     ELEMENT       18 IS BEING PROCESSED
+     ELEMENT       19 IS BEING PROCESSED
+     ELEMENT       20 IS BEING PROCESSED
+     ELEMENT       21 IS BEING PROCESSED
+     ELEMENT       22 IS BEING PROCESSED
+     ELEMENT       23 IS BEING PROCESSED
+     ELEMENT       24 IS BEING PROCESSED
+
+
+
+ *** EMG ELEMENT PROCESSING TIME =         0 SECONDS
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -1.7223002E-17
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     STATIC SOLUTION                                                                                        SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      1.837395E-01  -7.609576E-02   0.0            0.0            0.0           -3.498168E-15                  
+             3      G      2.598352E-01  -2.598352E-01   0.0            0.0            0.0           -3.885781E-15                  
+             4      G      1.837395E-01  -4.435747E-01   0.0            0.0            0.0           -2.811119E-15                  
+             5      G     -4.842515E-13  -5.196705E-01   0.0            0.0            0.0           -2.224783E-15                  
+             6      G     -1.837395E-01  -4.435747E-01   0.0            0.0            0.0           -2.735659E-15                  
+             7      G     -2.598352E-01  -2.598352E-01   0.0            0.0            0.0           -3.795358E-15                  
+             8      G     -1.837395E-01  -7.609576E-02   0.0            0.0            0.0           -3.705494E-15                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     STATIC SOLUTION                                                                                        SUBCASE 1              
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            2.651650E+04   0.0            0.0            0.0            0.0                           
+             2      G      1.875000E+04   1.875000E+04   0.0            0.0            0.0            0.0                           
+             3      G      2.651650E+04   0.0            0.0            0.0            0.0            0.0                           
+             4      G      1.875000E+04  -1.875000E+04   0.0            0.0            0.0            0.0                           
+             5      G      0.0           -2.651650E+04   0.0            0.0            0.0            0.0                           
+             6      G     -1.875000E+04  -1.875000E+04   0.0            0.0            0.0            0.0                           
+             7      G     -2.651650E+04   0.0            0.0            0.0            0.0            0.0                           
+             8      G     -1.875000E+04   1.875000E+04   0.0            0.0            0.0            0.0                           
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+
+                                                                                                                                    
+
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+0*** USER WARNING MESSAGE 3117, DIFFERENTIAL STIFFNESS CAPABILITY NOT DEFINED FOR CONM2    ELEMENTS (ELEMENT TYPE  30).
+0*** DS1 MODULE PROCESSING BAR      ELEMENTS (ELEM.TYPE   2)
+0*** DS1 MODULE PROCESSING PSE2     ELEMENTS (ELEM.TYPE  84)
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0                                                                                                                                   
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    DET                 7.334229E+05
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0                                                                                                                                   
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    POWER                     98
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   5.5188415E-17
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     SECOND ORDER STATICS SOLUTION                                                                          SUBCASE 2              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      1.843757E-01  -7.636641E-02   0.0            0.0            0.0           -1.599281E-15                  
+             3      G      2.607422E-01  -2.607422E-01   0.0            0.0            0.0           -1.429412E-15                  
+             4      G      1.843757E-01  -4.451179E-01   0.0            0.0            0.0           -1.315354E-15                  
+             5      G     -2.094713E-13  -5.214843E-01   0.0            0.0            0.0           -1.290201E-15                  
+             6      G     -1.843757E-01  -4.451179E-01   0.0            0.0            0.0           -1.356771E-15                  
+             7      G     -2.607422E-01  -2.607422E-01   0.0            0.0            0.0           -1.471046E-15                  
+             8      G     -1.843757E-01  -7.636641E-02   0.0            0.0            0.0           -1.500043E-15                  
+                        0 ROOTS BELOW   9.261520E-01
+0*** USER WARNING MESSAGE 2399
+     ONLY THE FIRST   14 EIGENSOLUTIONS CLOSEST TO THE SHIFT POINT (F1 OR ZERO) PASS THE FEER ACCURACY TEST FOR EIGENVECTORS.
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 2392
+       11 MORE ACCURATE EIGENSOLUTIONS THAN THE   10 REQUESTED HAVE BEEN FOUND.
+     USE DIAG 16 TO DETERMINE ERROR BOUNDS
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y         (FEER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .        21
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         1
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        20
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         0*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.00E+00
+0                                                                              . . .         0
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         0
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* NORMAL TERMINATION              
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1         1        2.707658E+00        1.645496E+00        2.618889E-01        2.242280E+01        6.071328E+01             
+        2         2        5.587644E+01        7.475055E+00        1.189692E+00        2.450578E+01        1.369296E+03             
+        3         3        1.857250E+02        1.362810E+01        2.168979E+00        3.909978E+01        7.261808E+03             
+        4         4        3.711505E+02        1.926526E+01        3.066162E+00        2.610142E+01        9.687553E+03             
+        5         5        5.775303E+02        2.403186E+01        3.824789E+00        2.096560E+01        1.210827E+04             
+        6         6        7.428421E+02        2.725513E+01        4.337789E+00        2.291893E+01        1.702515E+04             
+        7         7        1.464524E+04        1.210175E+02        1.926054E+01        2.831314E+01        4.146527E+05             
+        8         8        1.618473E+04        1.272192E+02        2.024757E+01        2.160113E+01        3.496086E+05             
+        9         9        2.712078E+04        1.646839E+02        2.621025E+01        3.319649E+01        9.003148E+05             
+       10        10        4.169686E+04        2.041981E+02        3.249913E+01        3.089459E+01        1.288207E+06             
+       11        11        5.886928E+04        2.426299E+02        3.861575E+01        4.757251E+01        2.800559E+06             
+       12        12        7.603062E+04        2.757365E+02        4.388483E+01        2.409207E+01        1.831735E+06             
+       13        13        9.056866E+04        3.009463E+02        4.789708E+01        2.311527E+01        2.093519E+06             
+       14        14        1.002732E+05        3.166595E+02        5.039792E+01        2.260348E+01        2.266524E+06             
+       15        15        2.226074E+05        4.718129E+02        7.509135E+01        2.297425E+01        5.114237E+06             
+       16        16        2.395745E+05        4.894635E+02        7.790054E+01        2.297670E+01        5.504632E+06             
+       17        17        2.649443E+05        5.147274E+02        8.192141E+01        2.297722E+01        6.087686E+06             
+       18        18        2.948386E+05        5.429904E+02        8.641961E+01        2.297125E+01        6.772811E+06             
+       19        19        3.247055E+05        5.698294E+02        9.069116E+01        2.296775E+01        7.457754E+06             
+       20        20        3.500086E+05        5.916152E+02        9.415849E+01        2.296216E+01        8.036952E+06             
+       21        21        3.669085E+05        6.057297E+02        9.640488E+01        2.295811E+01        8.423527E+06             
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.270766E+01    (CYCLIC FREQUENCY =  2.618889E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      1.284672E-01   3.101401E-01   0.0            0.0            0.0            7.380137E-03                  
+             3      G      5.145237E-01   4.702508E-01   0.0            0.0            0.0            6.970944E-03                  
+             4      G      8.652695E-01   3.251251E-01   0.0            0.0            0.0            6.331475E-03                  
+             5      G      1.000000E+00   3.829219E-13   0.0            0.0            0.0            6.077970E-03                  
+             6      G      8.652695E-01  -3.251251E-01   0.0            0.0            0.0            6.331475E-03                  
+             7      G      5.145237E-01  -4.702508E-01   0.0            0.0            0.0            6.970944E-03                  
+             8      G      1.284672E-01  -3.101401E-01   0.0            0.0            0.0            7.380137E-03                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.558764E+02    (CYCLIC FREQUENCY =  1.189692E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      2.414915E-01   5.898918E-01   0.0            0.0            0.0            9.245618E-03                  
+             3      G      4.015038E-01   6.590679E-01   0.0            0.0            0.0           -2.270583E-03                  
+             4      G      8.710332E-02   7.905549E-01   0.0            0.0            0.0           -5.954274E-03                  
+             5      G     -2.153988E-13   1.000000E+00   0.0            0.0            0.0           -1.894805E-15                  
+             6      G     -8.710332E-02   7.905549E-01   0.0            0.0            0.0            5.954274E-03                  
+             7      G     -4.015038E-01   6.590679E-01   0.0            0.0            0.0            2.270583E-03                  
+             8      G     -2.414915E-01   5.898918E-01   0.0            0.0            0.0           -9.245618E-03                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.185725E+03    (CYCLIC FREQUENCY =  2.168979E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      3.893155E-01   9.574886E-01   0.0            0.0            0.0            6.798845E-03                  
+             3      G     -1.735202E-01   7.295842E-01   0.0            0.0            0.0           -1.583200E-02                  
+             4      G     -8.291520E-01   1.000000E+00   0.0            0.0            0.0            3.153949E-03                  
+             5      G     -4.169843E-01   9.922094E-13   0.0            0.0            0.0            2.301272E-02                  
+             6      G     -8.291520E-01  -1.000000E+00   0.0            0.0            0.0            3.153949E-03                  
+             7      G     -1.735202E-01  -7.295842E-01   0.0            0.0            0.0           -1.583200E-02                  
+             8      G      3.893155E-01  -9.574886E-01   0.0            0.0            0.0            6.798845E-03                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.371150E+03    (CYCLIC FREQUENCY =  3.066162E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G     -3.166766E-01  -7.849174E-01   0.0            0.0            0.0            2.817299E-03                  
+             3      G      8.335888E-01  -3.123398E-01   0.0            0.0            0.0            1.179721E-02                  
+             4      G      4.862138E-01  -1.667335E-01   0.0            0.0            0.0           -1.966327E-02                  
+             5      G     -8.856540E-15   1.000000E+00   0.0            0.0            0.0           -2.221121E-14                  
+             6      G     -4.862138E-01  -1.667335E-01   0.0            0.0            0.0            1.966327E-02                  
+             7      G     -8.335888E-01  -3.123398E-01   0.0            0.0            0.0           -1.179721E-02                  
+             8      G      3.166766E-01  -7.849174E-01   0.0            0.0            0.0           -2.817299E-03                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.577530E+03    (CYCLIC FREQUENCY =  3.824789E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G     -2.328868E-01  -5.806748E-01   0.0            0.0            0.0            7.996460E-03                  
+             3      G      1.000000E+00  -7.167260E-02   0.0            0.0            0.0           -1.341993E-03                  
+             4      G     -3.945546E-01   5.059425E-01   0.0            0.0            0.0           -1.249310E-02                  
+             5      G     -1.878534E-01   4.565514E-13   0.0            0.0            0.0            1.538239E-02                  
+             6      G     -3.945546E-01  -5.059425E-01   0.0            0.0            0.0           -1.249310E-02                  
+             7      G      1.000000E+00   7.167260E-02   0.0            0.0            0.0           -1.341993E-03                  
+             8      G     -2.328868E-01   5.806748E-01   0.0            0.0            0.0            7.996460E-03                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.742842E+03    (CYCLIC FREQUENCY =  4.337789E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          6
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      1.360774E-01   3.411555E-01   0.0            0.0            0.0           -7.494777E-03                  
+             3      G     -7.441465E-01  -2.299829E-02   0.0            0.0            0.0            7.754824E-03                  
+             4      G      6.644291E-01  -6.046113E-01   0.0            0.0            0.0           -3.380214E-03                  
+             5      G      1.688945E-13   1.000000E+00   0.0            0.0            0.0           -3.453027E-14                  
+             6      G     -6.644291E-01  -6.046113E-01   0.0            0.0            0.0            3.380214E-03                  
+             7      G      7.441465E-01  -2.299829E-02   0.0            0.0            0.0           -7.754824E-03                  
+             8      G     -1.360774E-01   3.411555E-01   0.0            0.0            0.0            7.494777E-03                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.146452E+05    (CYCLIC FREQUENCY =  1.926054E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          7
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      1.000000E+00   4.690230E-01   0.0            0.0            0.0            5.165213E-03                  
+             3      G      7.710513E-01  -2.189006E-01   0.0            0.0            0.0           -8.675564E-03                  
+             4      G      3.816655E-01  -5.275086E-01   0.0            0.0            0.0           -2.514183E-03                  
+             5      G      2.768440E-15  -5.995524E-01   0.0            0.0            0.0           -1.521622E-15                  
+             6      G     -3.816655E-01  -5.275086E-01   0.0            0.0            0.0            2.514183E-03                  
+             7      G     -7.710513E-01  -2.189006E-01   0.0            0.0            0.0            8.675564E-03                  
+             8      G     -1.000000E+00   4.690230E-01   0.0            0.0            0.0           -5.165213E-03                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.161847E+05    (CYCLIC FREQUENCY =  2.024757E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          8
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      1.000000E+00   3.513371E-01   0.0            0.0            0.0            2.362088E-03                  
+             3      G      5.868518E-01  -3.873774E-01   0.0            0.0            0.0           -1.328794E-02                  
+             4      G     -4.683682E-02  -4.510217E-01   0.0            0.0            0.0           -9.488540E-03                  
+             5      G     -3.397721E-01   6.935726E-15   0.0            0.0            0.0           -9.669770E-03                  
+             6      G     -4.683682E-02   4.510217E-01   0.0            0.0            0.0           -9.488540E-03                  
+             7      G      5.868518E-01   3.873774E-01   0.0            0.0            0.0           -1.328794E-02                  
+             8      G      1.000000E+00  -3.513371E-01   0.0            0.0            0.0            2.362088E-03                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.271208E+05    (CYCLIC FREQUENCY =  2.621025E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          9
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      8.503376E-01  -2.302047E-01   0.0            0.0            0.0           -9.969116E-03                  
+             3      G     -2.258148E-01  -8.219364E-01   0.0            0.0            0.0           -2.382434E-02                  
+             4      G     -9.247613E-01   1.813018E-01   0.0            0.0            0.0           -1.390307E-02                  
+             5      G      4.388331E-16   1.000000E+00   0.0            0.0            0.0           -8.210075E-15                  
+             6      G      9.247613E-01   1.813018E-01   0.0            0.0            0.0            1.390307E-02                  
+             7      G      2.258148E-01  -8.219364E-01   0.0            0.0            0.0            2.382434E-02                  
+             8      G     -8.503376E-01  -2.302047E-01   0.0            0.0            0.0            9.969116E-03                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.416969E+05    (CYCLIC FREQUENCY =  3.249913E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         10
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      7.873756E-01  -6.032104E-01   0.0            0.0            0.0           -1.640907E-02                  
+             3      G     -5.326929E-01  -6.055111E-01   0.0            0.0            0.0           -1.645636E-02                  
+             4      G     -1.096961E-01   7.374341E-01   0.0            0.0            0.0            1.131108E-02                  
+             5      G      1.000000E+00  -5.453509E-15   0.0            0.0            0.0            2.489663E-02                  
+             6      G     -1.096961E-01  -7.374341E-01   0.0            0.0            0.0            1.131108E-02                  
+             7      G     -5.326929E-01   6.055111E-01   0.0            0.0            0.0           -1.645636E-02                  
+             8      G      7.873756E-01   6.032104E-01   0.0            0.0            0.0           -1.640907E-02                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.588693E+05    (CYCLIC FREQUENCY =  3.861575E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         11
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G     -8.927019E-01   1.000000E+00   0.0            0.0            0.0            2.110830E-02                  
+             3      G      5.846779E-01  -1.202493E-01   0.0            0.0            0.0           -1.221400E-03                  
+             4      G     -9.715657E-01  -9.345144E-01   0.0            0.0            0.0           -2.953043E-02                  
+             5      G     -9.657251E-15   5.864559E-01   0.0            0.0            0.0           -2.214513E-14                  
+             6      G      9.715657E-01  -9.345144E-01   0.0            0.0            0.0            2.953043E-02                  
+             7      G     -5.846779E-01  -1.202493E-01   0.0            0.0            0.0            1.221400E-03                  
+             8      G      8.927019E-01   1.000000E+00   0.0            0.0            0.0           -2.110830E-02                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.760306E+05    (CYCLIC FREQUENCY =  4.388483E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         12
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G     -5.334819E-01   7.205676E-01   0.0            0.0            0.0            1.054802E-02                  
+             3      G      1.910303E-01  -7.480000E-01   0.0            0.0            0.0           -1.176767E-02                  
+             4      G     -4.410776E-01  -6.102697E-02   0.0            0.0            0.0           -6.138468E-03                  
+             5      G      1.000000E+00  -4.613551E-15   0.0            0.0            0.0            1.689395E-02                  
+             6      G     -4.410776E-01   6.102697E-02   0.0            0.0            0.0           -6.138468E-03                  
+             7      G      1.910303E-01   7.480000E-01   0.0            0.0            0.0           -1.176767E-02                  
+             8      G     -5.334819E-01  -7.205676E-01   0.0            0.0            0.0            1.054802E-02                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.905687E+05    (CYCLIC FREQUENCY =  4.789708E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         13
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      3.788773E-01  -5.653406E-01   0.0            0.0            0.0           -3.777566E-03                  
+             3      G      6.429062E-03   1.000000E+00   0.0            0.0            0.0            9.576125E-03                  
+             4      G     -4.222890E-01  -5.966369E-01   0.0            0.0            0.0           -7.219894E-03                  
+             5      G      8.184130E-16   1.776311E-01   0.0            0.0            0.0           -1.112045E-14                  
+             6      G      4.222890E-01  -5.966369E-01   0.0            0.0            0.0            7.219894E-03                  
+             7      G     -6.429062E-03   1.000000E+00   0.0            0.0            0.0           -9.576125E-03                  
+             8      G     -3.788773E-01  -5.653406E-01   0.0            0.0            0.0            3.777566E-03                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.100273E+06    (CYCLIC FREQUENCY =  5.039792E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         14
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      1.971174E-01  -3.092896E-01   0.0            0.0            0.0            4.216887E-04                  
+             3      G      6.124544E-02   6.944457E-01   0.0            0.0            0.0            1.914955E-03                  
+             4      G     -6.743907E-01  -6.273094E-01   0.0            0.0            0.0           -2.910041E-03                  
+             5      G      1.000000E+00   2.413634E-15   0.0            0.0            0.0            3.212500E-03                  
+             6      G     -6.743907E-01   6.273094E-01   0.0            0.0            0.0           -2.910041E-03                  
+             7      G      6.124544E-02  -6.944457E-01   0.0            0.0            0.0            1.914955E-03                  
+             8      G      1.971174E-01   3.092896E-01   0.0            0.0            0.0            4.216887E-04                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.222607E+06    (CYCLIC FREQUENCY =  7.509135E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         15
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      6.849311E-03   7.116025E-03   0.0            0.0            0.0           -3.832616E-01                  
+             3      G     -7.422060E-03  -1.493988E-03   0.0            0.0            0.0            7.073861E-01                  
+             4      G      4.286518E-03  -1.377274E-03   0.0            0.0            0.0           -9.239542E-01                  
+             5      G     -2.236648E-03   7.262262E-14   0.0            0.0            0.0            1.000000E+00                  
+             6      G      4.286518E-03   1.377274E-03   0.0            0.0            0.0           -9.239542E-01                  
+             7      G     -7.422060E-03   1.493988E-03   0.0            0.0            0.0            7.073861E-01                  
+             8      G      6.849311E-03  -7.116025E-03   0.0            0.0            0.0           -3.832616E-01                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.239575E+06    (CYCLIC FREQUENCY =  7.790054E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         16
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      6.842889E-03   1.200935E-02   0.0            0.0            0.0           -7.079053E-01                  
+             3      G     -2.902029E-05  -6.538044E-03   0.0            0.0            0.0            1.000000E+00                  
+             4      G     -5.866607E-03   1.251013E-02   0.0            0.0            0.0           -7.068552E-01                  
+             5      G      8.330797E-15  -1.837641E-02   0.0            0.0            0.0            1.892045E-12                  
+             6      G      5.866607E-03   1.251013E-02   0.0            0.0            0.0            7.068552E-01                  
+             7      G      2.902029E-05  -6.538044E-03   0.0            0.0            0.0           -1.000000E+00                  
+             8      G     -6.842889E-03   1.200935E-02   0.0            0.0            0.0            7.079053E-01                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.264944E+06    (CYCLIC FREQUENCY =  8.192141E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         17
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G     -3.747096E-04  -1.213748E-02   0.0            0.0            0.0            9.244390E-01                  
+             3      G     -1.566443E-02   7.100719E-03   0.0            0.0            0.0           -7.064996E-01                  
+             4      G      1.726858E-02  -1.171307E-02   0.0            0.0            0.0           -3.830836E-01                  
+             5      G     -1.022344E-02   3.037211E-14   0.0            0.0            0.0            1.000000E+00                  
+             6      G      1.726858E-02   1.171307E-02   0.0            0.0            0.0           -3.830836E-01                  
+             7      G     -1.566443E-02  -7.100719E-03   0.0            0.0            0.0           -7.064996E-01                  
+             8      G     -3.747096E-04   1.213748E-02   0.0            0.0            0.0            9.244390E-01                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    36
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.294839E+06    (CYCLIC FREQUENCY =  8.641961E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         18
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      7.694811E-03  -8.134854E-03   0.0            0.0            0.0            1.000000E+00                  
+             3      G     -2.189531E-02  -1.008891E-04   0.0            0.0            0.0            8.708183E-04                  
+             4      G      8.602217E-03   8.619879E-03   0.0            0.0            0.0           -9.999493E-01                  
+             5      G     -3.021647E-14  -2.192677E-02   0.0            0.0            0.0            2.656466E-12                  
+             6      G     -8.602217E-03   8.619879E-03   0.0            0.0            0.0            9.999493E-01                  
+             7      G      2.189531E-02  -1.008891E-04   0.0            0.0            0.0           -8.708183E-04                  
+             8      G     -7.694811E-03  -8.134854E-03   0.0            0.0            0.0           -1.000000E+00                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    37
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.324706E+06    (CYCLIC FREQUENCY =  9.069116E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         19
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G     -1.282935E-02   3.113260E-03   0.0            0.0            0.0           -9.234838E-01                  
+             3      G      1.311155E-02   9.262266E-03   0.0            0.0            0.0           -7.076359E-01                  
+             4      G      8.626055E-03  -1.566437E-02   0.0            0.0            0.0            3.823353E-01                  
+             5      G     -1.300315E-02   2.997951E-14   0.0            0.0            0.0            1.000000E+00                  
+             6      G      8.626055E-03   1.566437E-02   0.0            0.0            0.0            3.823353E-01                  
+             7      G      1.311155E-02  -9.262266E-03   0.0            0.0            0.0           -7.076359E-01                  
+             8      G     -1.282935E-02  -3.113260E-03   0.0            0.0            0.0           -9.234838E-01                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    38
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.350009E+06    (CYCLIC FREQUENCY =  9.415849E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         20
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      1.281643E-02   2.297516E-04   0.0            0.0            0.0            7.065557E-01                  
+             3      G      1.993990E-05  -1.331232E-02   0.0            0.0            0.0            1.000000E+00                  
+             4      G     -1.327742E-02   1.064000E-06   0.0            0.0            0.0            7.073002E-01                  
+             5      G      9.228199E-15   1.328060E-02   0.0            0.0            0.0           -1.880622E-12                  
+             6      G      1.327742E-02   1.064000E-06   0.0            0.0            0.0           -7.073002E-01                  
+             7      G     -1.993990E-05  -1.331232E-02   0.0            0.0            0.0           -1.000000E+00                  
+             8      G     -1.281643E-02   2.297516E-04   0.0            0.0            0.0           -7.065557E-01                  
+1     OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    39
+      NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A                                                                                   
+0     NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                                               SUBCASE 3              
+      EIGENVALUE =  0.366908E+06    (CYCLIC FREQUENCY =  9.640488E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         21
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      7.871917E-03   9.971954E-04   0.0            0.0            0.0            3.823031E-01                  
+             3      G      4.871997E-03  -9.440393E-03   0.0            0.0            0.0            7.069060E-01                  
+             4      G     -6.845628E-03  -1.056958E-02   0.0            0.0            0.0            9.238254E-01                  
+             5      G     -1.333125E-02   1.835575E-14   0.0            0.0            0.0            1.000000E+00                  
+             6      G     -6.845628E-03   1.056958E-02   0.0            0.0            0.0            9.238254E-01                  
+             7      G      4.871997E-03   9.440393E-03   0.0            0.0            0.0            7.069060E-01                  
+             8      G      7.871917E-03  -9.971954E-04   0.0            0.0            0.0            3.823031E-01                  
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS        
+ DATE:  5/18/95
+ END TIME: 10:58:16
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

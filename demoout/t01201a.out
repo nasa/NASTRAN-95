@@ -1,0 +1,875 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T01201A,NASTRAN                                                           
+     APP   HEAT                                                                      
+     SOL   1,0                                                                       
+     TIME  10                                                                        
+     DIAG  14                                                                        
+     ALTER   67,67 $                                                                 
+     SSG1    HSLT,BGPDT,CSTM,HSIL,HEST,MPT,GPTT,EDT,,CASECC,DIT,/                    
+             HPG,HCFLD,REMFLD,HCCEN,NSLT/HLUSET/NSKIP $                              
+     ALTER   84 $                                                                    
+     EMFLD   HOEF1,HEST,CASECC,HCFLD,MPT,DIT,REMFLD,GEOM1,CSTM,HCCEN/HOEH1/          
+             V,N,HLUSET $                                                            
+     ALTER   85 $                                                                    
+     OFP     HOEH1,,,,,//S,N,CARDNO$                                                 
+     ENDALTER $                                                                      
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS               
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T01-20-1A                                   
+                  3      DISP     = ALL                                                                  
+                  4      ELFORCE  = ALL                                                                  
+                  5      OLOAD    = ALL                                                                  
+                  6      SUBCASE  1                                                                      
+                  7         LOAD  = 50                                                                   
+                  8      SUBCASE  2                                                                      
+                  9         LOAD  = 51                                                                   
+                 10      SUBCASE  3                                                                      
+                 11         LOAD  = 12                                                                   
+                 12      SUBCOM   20                                                                     
+                 13        SUBSEQ = .5,.5,0.                                                             
+                 14      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    49, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CEMLOOP 12      5.      0       5.      0.      0.      1.25    3.75    +CM12   
+                    2-        +CM12   0.      1.25    0.      0.                                              
+                    3-        CEMLOOP 12      5.      0       5.      0.      0.      1.25    3.75    +CM13   
+                    4-        +CM13   0.      1.25    0.      0.                                              
+                    5-        CHEXA1  20      2       21      22      23      24      25      26      +E1     
+                    6-        +E1     27      28                                                              
+                    7-        CHEXA2  22      2       31      32      33      34      35      36      +E2     
+                    8-        +E2     37      38                                                              
+                    9-        CTETRA  16      2       1       2       3       4                               
+                   10-        CWEDGE  18      2       11      12      13      14      15      16              
+                   11-        GRID    1               1.      0.      3.              1                       
+                   12-        GRID    2               2.      0.      3.                                      
+                   13-        GRID    3               3.      2.      3.                                      
+                   14-        GRID    4               2.      1.      5.                                      
+                   15-        GRID    11              1.      2.      1.              1                       
+                   16-        GRID    12              3.      1.      -3.                                     
+                   17-        GRID    13              6.      2.      2.                                      
+                   18-        GRID    14              1.      6.      1.                                      
+                   19-        GRID    15              4.      4.      -3.                                     
+                   20-        GRID    16              5.      6.      1.                                      
+                   21-        GRID    21              1.      2.      1.              1                       
+                   22-        GRID    22              2.      .5      3.                                      
+                   23-        GRID    23              7.      2.      4.                                      
+                   24-        GRID    24              5.      3.      2.                                      
+                   25-        GRID    25              1.5     5.      2.                                      
+                   26-        GRID    26              2.5     5.      3.                                      
+                   27-        GRID    27              7.      6.      4.                                      
+                   28-        GRID    28              6.      9.      3.                                      
+                   29-        GRID    31              1.      2.      1.              1                       
+                   30-        GRID    32              2.      .5      3.                                      
+                   31-        GRID    33              7.      2.      4.                                      
+                   32-        GRID    34              5.      3.      2.                                      
+                   33-        GRID    35              1.5     5.      2.                                      
+                   34-        GRID    36              2.5     5.      3.                                      
+                   35-        GRID    37              7.      6.      4.                                      
+                   36-        GRID    38              6.      9.      3.                                      
+                   37-        MAT4    2       250.                                                            
+                   38-        MDIPOLE 12      0       5.      0.      0.      10.     10.     10.     +M1     
+                   39-        +M1     0.      0.                                                              
+                   40-        REMFLUX 51              750.    1000.   500.    20                              
+                   41-        REMFLUX 51              1000.   250.    750.    22                              
+                   42-        REMFLUX 51              500.    0.      250.    16                              
+                   43-        REMFLUX 51              250.    500.    750.    18                              
+                   44-        SPCFLD  50      0       2.      0.      1.      1       2       3               
+                   45-        SPCFLD  50      0       2.      0.      1.      4                               
+                   46-        SPCFLD  50      0       1.      2.      3.      11      12      13              
+                   47-        SPCFLD  50      0       1.      2.      3.      14      15      16              
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        SPCFLD  50      0       3.      4.      2.      21      THRU    28              
+                   49-        SPCFLD  50      0       4.      1.      3.      31      THRU    38              
+                              ENDDATA
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    HEAT 01 - STATIC HEAT TRANSFER ANALYSIS - APR. 1995 $          
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     HQG=APPEND/HPGG=APPEND/HUGV=APPEND/HGM=SAVE/HKNN=SAVE $        
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,HSIL/S,N,HLUSET/       
+                   NOGPDT/MINUS1=-1 $                                             
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  PLTTRAN  BGPDT,HSIL/BGPDP,HSIP/HLUSET/S,N,HLUSEP $                      
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      12  COND     HP1,JUMPPLOT $                                                 
+
+      13  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,HNSIL/    
+                   S,N,JUMPPLOT $                                                 
+
+      14  PRTMSG   PLTSETX// $                                                    
+
+      15  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      16  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      17  COND     HP1,JUMPPLOT $                                                 
+
+      18  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,HSIL,,ECT,,,,/PLOTX1/ 
+                   HNSIL/HLUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE $               
+
+      19  PRTMSG   PLOTX1// $                                                     
+
+      20  LABEL    HP1 $                                                          
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/HSLT,GPTT/NOGRAV $                          
+
+      22  TA1      ECT,EPT,BGPDT,HSIL,GPTT,CSTM,,EQEXIN/HEST,HGEI,HGPECT,,,,,/    
+                   HLUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL $                         
+
+      23  PARAM    //*AND*/NOELMT/NOGENL/NOSIMP $                                 
+
+      24  COND     ERROR4,NOELMT $                                                
+
+      25  PURGE    HKGGX/NOSIMP $                                                 
+
+      26  COND     HLBL1,NOSIMP $                                                 
+
+      27  PARAM    //*ADD*/HNOKGG/1/0 $                                           
+
+      28  EMG      HEST,CSTM,MPT,DIT,GEOM2,/HKELM,HKDICT,,,,,/S,N,HNOKGG $        
+
+      29  PURGE    HKGGX/HNOKGG $                                                 
+
+      30  COND     HLBL1,HNOKGG $                                                 
+
+      31  EMA      HGPECT,HKDICT,HKELM/HKGGX $                                    
+
+      32  PURGE    HKDICT,HKELM/MINUS1 $                                          
+
+      33  LABEL    HLBL1 $                                                        
+
+      34  EQUIV    HKGGX,HKGG/NOGENL $                                            
+
+      35  COND     HLBL11A,NOGENL $                                               
+
+      36  SMA3     HGEI,HKGGX/HKGG/HLUSET/NOGENL/NOSIMP $                         
+
+      37  LABEL    HLBL11A $                                                      
+
+      38  GPSTGEN  HKGG,HSIL/GPST $                                               
+
+      39  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      40  LABEL    HLBL11 $                                                       
+
+      41  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,HUSET,          
+                   HASET,OGPST/HLUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/    
+                   S,N,REACT/S,N,NSKIP/S,N,HREPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/     
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      42  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      43  COND     ERROR3,NOL $                                                   
+
+      44  PARAM    //*AND*/NOSR/SINGLE/REACT $                                    
+
+      45  PURGE    HKRR,HKLR,HQR,HDM/REACT/GM/MPCF1/HGO,HKOO,HLOO,HPO,HUOOV,      
+                   HRUOV/OMIT/HPS,HKFS,HKSS/SINGLE/HQG/NOSR $                     
+
+      46  EQUIV    HKGG,HKNN/MPCF1 $                                              
+
+      47  COND     HLBL2,MPCF1 $                                                  
+
+      48  MCE1     HUSET,RG/GM $                                                  
+
+      49  MCE2     HUSET,GM,HKGG,,,/HKNN,,, $                                     
+
+      50  LABEL    HLBL2 $                                                        
+
+      51  EQUIV    HKNN,HKFF/SINGLE $                                             
+
+      52  COND     HLBL3,SINGLE $                                                 
+
+      53  SCE1     HUSET,HKNN,,,/HKFF,HKFS,HKSS,,, $                              
+
+      54  LABEL    HLBL3 $                                                        
+
+      55  EQUIV    HKFF,HKAA/OMIT $                                               
+
+      56  COND     HLBL5,OMIT $                                                   
+
+      57  SMP1     HUSET,HKFF,,,/HGO,HKAA,HKOO,HLOO,,,,, $                        
+
+      58  LABEL    HLBL5 $                                                        
+
+      59  EQUIV    HKAA,HKLL/REACT $                                              
+
+      60  COND     HLBL6,REACT $                                                  
+
+      61  RBMG1    HUSET,HKAA,/HKLL,HKLR,HKRR,,, $                                
+
+      62  LABEL    HLBL6 $                                                        
+
+      63  RBMG2    HKLL/HLLL $                                                    
+
+      64  COND     HLBL7,REACT $                                                  
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      65  RBMG3    HLLL,HKLR,HKRR/HDM $                                           
+
+      66  LABEL    HLBL7 $                                                        
+
+      67  SSG1    HSLT,BGPDT,CSTM,HSIL,HEST,MPT,GPTT,EDT,,CASECC,DIT,/            
+                  HPG,HCFLD,REMFLD,HCCEN,NSLT/HLUSET/NSKIP $                      
+
+      68  EQUIV    HPG,HPL/NOSET $                                                
+
+      69  COND     HLBL10,NOSET $                                                 
+
+      70  SSG2     HUSET,GM,YS,HKFS,HGO,HDM,HPG/HQR,HPO,HPS,HPL $                 
+
+      71  LABEL    HLBL10 $                                                       
+
+      72  SSG3     HLLL,HKLL,HPL,HLOO,HKOO,HPO/HULV,HUOOV,HRULV,HRUOV/OMIT/       
+                   V,Y,IRES=-1/NSKIP/S,N,EPSI $                                   
+
+      73  COND     HLBL9,IRES $                                                   
+
+      74  MATGPR   GPL,HUSET,HSIL,HRULV//*L* $                                    
+
+      75  MATGPR   GPL,HUSET,HSIL,HRUOV//*O* $                                    
+
+      76  LABEL    HLBL9 $                                                        
+
+      77  SDR1     HUSET,HPG,HULV,HUOOV,YS,HGO,GM,HPS,HKFS,HKSS,HQR/HUGV,HPGG,    
+                   HQG/NSKIP/*HSTATICS* $                                         
+
+      78  COND     HLBL8,HREPEAT $                                                
+
+      79  REPT     HLBL11,100 $                                                   
+
+      80  JUMP     ERROR1 $                                                       
+
+      81  PARAM    //*NOT*/HTEST/HREPEAT $                                        
+
+      82  COND     ERROR2,HTEST $                                                 
+
+      83  LABEL    HLBL8 $                                                        
+
+      84  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,HSIL,GPTT,EDT,BGPDP,,HQG,HUGV,      
+                   HEST,,HPGG,/HOPG1,HOQG1,HOUGV1,HOES1,HOEF1,HPUGV1,,/           
+                   *STATICS* $                                                    
+
+      84  EMFLD   HOEF1,HEST,CASECC,HCFLD,MPT,DIT,REMFLD,GEOM1,CSTM,HCCEN/HOEH1/  
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                  V,N,HLUSET $                                                    
+
+      85  OFP      HOUGV1,HOPG1,HOQG1,HOEF1,,//S,N,CARDNO $                       
+
+      85  OFP     HOEH1,,,,,//S,N,CARDNO$                                         
+
+      86  COND     HP2,JUMPPLOT $                                                 
+
+      87  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,HSIP,HPUGV1,HOES1,    
+                   HGPECT,,,/PLOTX2/HNSIL/HLUSEP/JUMPPLOT/PLTFLG/                 
+                   S,N,PFILE $                                                    
+
+      88  PRTMSG   PLOTX2// $                                                     
+
+      89  LABEL    HP2 $                                                          
+
+      90  JUMP     FINIS $                                                        
+
+      91  LABEL    ERROR1 $                                                       
+
+      92  PRTPARM  //-1/*HSTA* $                                                  
+
+      93  LABEL    ERROR2 $                                                       
+
+      94  PRTPARM  //-2/*HSTA* $                                                  
+
+      95  LABEL    ERROR3 $                                                       
+
+      96  PRTPARM  //-3/*HSTA* $                                                  
+
+      97  LABEL    ERROR4 $                                                       
+
+      98  PRTPARM  //-4/*HSTA* $                                                  
+
+      99  LABEL    FINIS $                                                        
+
+     100  PURGE    DUMMY/MINUS1 $                                                 
+
+     101  END      $                                                              
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            8
+                                        PROFILE            103
+                                        MAX WAVEFRONT        8
+                                        AVG WAVEFRONT    3.962
+                                        RMS WAVEFRONT    4.511
+                                        RMS BANDWIDTH    4.511
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            8
+                                        PROFILE            103
+                                        MAX WAVEFRONT        8
+                                        AVG WAVEFRONT    3.962
+                                        RMS WAVEFRONT    4.511
+                                        RMS BANDWIDTH    4.511
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        8         8
+                                        PROFILE (P)                        103       103
+                                        MAXIMUM WAVEFRONT (C-MAX)            8         8
+                                        AVERAGE WAVEFRONT (C-AVG)        3.962     3.962
+                                        RMS WAVEFRONT (C-RMS)            4.511     4.511
+                                        RMS BANDWITCH (B-RMS)            4.511     4.511
+                                        NUMBER OF GRID POINTS (N)                     26
+                                        NUMBER OF ELEMENTS (NON-RIGID)                 4
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           4
+                                        MAXIMUM NODAL DEGREE                           7
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                        77
+                                        MATRIX DENSITY, PERCENT                   26.627
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION HEXA1    ELEMENTS (ELEMENT TYPE  41) STARTING WITH ID       20
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION HEXA2    ELEMENTS (ELEMENT TYPE  42) STARTING WITH ID       22
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TETRA    ELEMENTS (ELEMENT TYPE  39) STARTING WITH ID       16
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION WEDGE    ELEMENTS (ELEMENT TYPE  40) STARTING WITH ID       18
+0*** USER WARNING MESSAGE 4000, ONE SIDE OF ELEMENT        18 CONNECTING FOUR POINTS IS NOT APPROXIMATELY PLANER.
+0*** SYSTEM WARNING MESSAGE 2363, SSG2B FORCED MPYAD COMPATIBILITY OF MATRIX ON  103, FROM (    4,    1), TO (    4,    3)
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   1.6306777E-15
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     2, EPSILON SUB E =   2.2724452E-15
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     3, EPSILON SUB E =   1.4132512E-15
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  1             
+ 
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      0.0           -2.000000E+00  -4.000000E+00  -4.000000E+00                                                
+            11      S      0.0            1.200000E+01  -8.000000E+00  -8.000000E+00   4.999998E+00  -1.200000E+01                  
+            21      S      0.0           -1.000000E+00  -2.400000E+01  -1.800000E+01  -1.550000E+01  -2.050000E+01                  
+            27      S     -4.000000E+01  -4.700000E+01                                                                              
+            31      S      0.0           -8.499998E+00  -3.299999E+01  -2.000000E+01  -7.999998E+00  -1.500000E+01                  
+            37      S     -3.699999E+01  -3.299999E+01                                                                              
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  2             
+ 
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      0.0           -2.000000E+00  -4.000000E+00  -4.000000E+00                                                
+            11      S      0.0            1.200000E+01  -8.000000E+00  -8.000000E+00   5.000000E+00  -1.200000E+01                  
+            21      S      0.0           -9.999999E-01  -2.400000E+01  -1.800000E+01  -1.550000E+01  -2.050000E+01                  
+            27      S     -4.000000E+01  -4.700000E+01                                                                              
+            31      S      0.0           -8.500001E+00  -3.300000E+01  -2.000000E+01  -8.000001E+00  -1.500000E+01                  
+            37      S     -3.700000E+01  -3.300000E+01                                                                              
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  3             
+ 
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      0.0           -6.558833E-02  -2.706673E-01  -1.126974E+00                                                
+            11      S      0.0            3.038230E+00  -8.174294E-01   2.705287E-01   1.053199E+00   4.066616E-01                  
+            21      S      0.0           -5.082290E-01  -1.533721E+00  -1.203064E+00  -1.283453E+00  -1.435301E+00                  
+            27      S     -2.610754E+00  -3.221736E+00                                                                              
+            31      S      0.0           -5.194401E-01  -1.662314E+00  -1.315280E+00  -1.344715E+00  -1.560846E+00                  
+            37      S     -2.638896E+00  -3.284950E+00                                                                              
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCOM   20            
+ 
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      0.0           -2.000000E+00  -4.000000E+00  -4.000000E+00                                                
+            11      S      0.0            1.200000E+01  -8.000000E+00  -8.000000E+00   4.999999E+00  -1.200000E+01                  
+            21      S      0.0           -1.000000E+00  -2.400000E+01  -1.800000E+01  -1.550000E+01  -2.050000E+01                  
+            27      S     -4.000000E+01  -4.700000E+01                                                                              
+            31      S      0.0           -8.500000E+00  -3.300000E+01  -2.000000E+01  -8.000000E+00  -1.500000E+01                  
+            37      S     -3.700000E+01  -3.300000E+01                                                                              
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  1             
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      3.750000E+02  -3.333333E+02   4.166666E+01  -8.333333E+01                                                
+            11      S      1.875003E+02   4.041666E+03  -1.854167E+03  -9.791666E+02   2.291666E+03  -3.687500E+03                  
+            21      S      4.750000E+03   8.749997E+02  -2.291665E+02   1.375000E+03   2.083333E+02  -3.312500E+03                  
+            27      S     -2.458333E+03  -1.208333E+03                                                                              
+            31      S      3.937500E+03  -9.062497E+02  -2.265625E+03   2.885416E+03   2.317708E+03  -2.786458E+03                  
+            37      S     -4.296874E+03   1.114583E+03                                                                              
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  2             
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      3.750000E+02  -3.333333E+02   4.166667E+01  -8.333334E+01                                                
+            11      S      1.875001E+02   4.041667E+03  -1.854167E+03  -9.791666E+02   2.291667E+03  -3.687500E+03                  
+            21      S      4.750000E+03   8.750000E+02  -2.291666E+02   1.375000E+03   2.083333E+02  -3.312500E+03                  
+            27      S     -2.458333E+03  -1.208333E+03                                                                              
+            31      S      3.937500E+03  -9.062502E+02  -2.265625E+03   2.885417E+03   2.317708E+03  -2.786458E+03                  
+            37      S     -4.296875E+03   1.114583E+03                                                                              
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  3             
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      2.577845E+01   6.928348E-01   1.484706E+01  -4.131835E+01                                                
+            11      S     -7.203434E+02   1.454882E+03  -6.256616E+02   7.093627E+00  -5.502642E+02   4.342934E+02                  
+            21      S      6.252248E+02  -1.857528E+02   3.674830E+01   4.066843E+01  -7.506778E+01  -2.815413E+02                  
+            27      S      1.513343E+00  -1.617930E+02                                                                              
+            31      S      5.438952E+02  -1.668041E+02   9.372454E-01   1.542883E+02  -1.104139E+02  -2.262326E+02                  
+            37      S     -7.924213E+01  -1.164280E+02                                                                              
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCOM   20            
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE      ID   VALUE     ID+1 VALUE    ID+2 VALUE     ID+3 VALUE     ID+4 VALUE     ID+5 VALUE
+             1      S      3.750000E+02  -3.333333E+02   4.166666E+01  -8.333333E+01                                                
+            11      S      1.875002E+02   4.041667E+03  -1.854167E+03  -9.791666E+02   2.291667E+03  -3.687500E+03                  
+            21      S      4.750000E+03   8.749999E+02  -2.291666E+02   1.375000E+03   2.083333E+02  -3.312500E+03                  
+            27      S     -2.458333E+03  -1.208333E+03                                                                              
+            31      S      3.937500E+03  -9.062499E+02  -2.265625E+03   2.885416E+03   2.317708E+03  -2.786458E+03                  
+            37      S     -4.296875E+03   1.114583E+03                                                                              
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  1             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            20    HEXA1       -3.000001E+00    -4.000000E+00    -2.000002E+00     7.500002E+02     1.000000E+03     5.000005E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  1             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            22    HEXA2       -3.999999E+00    -9.999998E-01    -3.000000E+00     9.999998E+02     2.499999E+02     7.500000E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  1             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            16    TETRA       -2.000000E+00     0.000000E+00    -9.999999E-01     5.000000E+02     0.000000E+00     2.500000E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  1             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            18    WEDGE       -1.000000E+00    -2.000000E+00    -3.000000E+00     2.500001E+02     5.000000E+02     7.499999E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  2             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            20    HEXA1       -3.000001E+00    -4.000000E+00    -2.000002E+00     7.500002E+02     1.000000E+03     5.000005E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  2             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            22    HEXA2       -4.000000E+00    -1.000000E+00    -3.000001E+00     1.000000E+03     2.500000E+02     7.500004E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  2             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            16    TETRA       -2.000000E+00     0.000000E+00    -1.000000E+00     5.000000E+02     0.000000E+00     2.500000E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  2             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            18    WEDGE       -1.000000E+00    -2.000000E+00    -3.000000E+00     2.500001E+02     5.000000E+02     7.500000E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  3             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            20    HEXA1       -1.451954E-01    -2.858005E-01    -1.399450E-01     3.629885E+01     7.145011E+01     3.498626E+01
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  3             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            22    HEXA2       -1.505974E-01    -2.687044E-01    -1.565849E-01     3.764934E+01     6.717610E+01     3.914623E+01
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  3             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            16    TETRA       -6.558833E-02    -6.974534E-02    -4.958202E-01     1.639708E+01     1.743633E+01     1.239550E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  3             
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            18    WEDGE        3.911342E-01    -2.894688E-01    -3.064600E-01    -9.778355E+01     7.236719E+01     7.661500E+01
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCOM   20            
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            20    HEXA1       -3.000001E+00    -4.000000E+00    -2.000002E+00     7.500002E+02     1.000000E+03     5.000005E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCOM   20            
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            22    HEXA2       -4.000000E+00    -1.000000E+00    -3.000000E+00     1.000000E+03     2.500001E+02     7.500001E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    36
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCOM   20            
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            16    TETRA       -2.000000E+00     0.000000E+00    -1.000000E+00     5.000000E+02     0.000000E+00     2.500000E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    37
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCOM   20            
+ 
+                   F I N I T E   E L E M E N T   T E M P E R A T U R E   G R A D I E N T S   A N D   F L U X E S
+ 
+    ELEMENT-ID   EL-TYPE        X-GRADIENT       Y-GRADIENT       Z-GRADIENT        X-FLUX           Y-FLUX           Z-FLUX
+            18    WEDGE       -1.000000E+00    -2.000000E+00    -3.000000E+00     2.500001E+02     5.000000E+02     7.499999E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    38
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  1             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            20    HEXA1       -7.152557E-07     0.000000E+00    -1.907349E-06    -1.788139E-04     0.000000E+00    -4.768372E-04
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    39
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  1             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            22    HEXA2        7.152557E-07     2.384186E-07     0.000000E+00     1.788139E-04     5.960464E-05     0.000000E+00
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    40
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  1             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            16    TETRA        1.192093E-07     0.000000E+00     5.960464E-08     2.980232E-05     0.000000E+00     1.490116E-05
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    41
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  1             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            18    WEDGE       -2.384186E-07     0.000000E+00     4.768372E-07    -5.960464E-05     0.000000E+00     1.192093E-04
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    42
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  2             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            20    HEXA1       -3.000001E+00    -4.000000E+00    -2.000002E+00    -1.831055E-04     0.000000E+00    -4.882812E-04
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    43
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  2             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            22    HEXA2       -4.000000E+00    -1.000000E+00    -3.000001E+00    -1.220703E-04    -3.051758E-05    -3.662109E-04
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    44
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  2             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            16    TETRA       -2.000000E+00     0.000000E+00    -1.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    45
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  2             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            18    WEDGE       -1.000000E+00    -2.000000E+00    -3.000000E+00    -9.155273E-05     3.051758E-05     0.000000E+00
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    46
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  3             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            20    HEXA1        1.824987E-02    -1.688451E-02    -7.305020E-02     4.562468E+00    -4.221127E+00    -1.826255E+01
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    47
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  3             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            22    HEXA2        1.284792E-02     2.115369E-04    -8.969009E-02     3.211979E+00     5.288422E-02    -2.242252E+01
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    48
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  3             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            16    TETRA       -1.453012E-04     7.337257E-04    -7.843077E-04    -3.632531E-02     1.834314E-01    -1.960769E-01
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    49
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCASE  3             
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            18    WEDGE       -6.035613E-01    -1.922793E+00    -3.367156E+00    -1.508903E+02    -4.806983E+02    -8.417891E+02
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    50
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCOM   20            
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            20    HEXA1       -1.500001E+00    -2.000000E+00    -1.000002E+00    -1.831055E-04     0.000000E+00    -4.730225E-04
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    51
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCOM   20            
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            22    HEXA2       -2.000000E+00    -5.000004E-01    -1.500000E+00    -1.220703E-04    -9.155273E-05    -1.220703E-04
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    52
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCOM   20            
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            16    TETRA       -1.000000E+00     0.000000E+00    -5.000000E-01     0.000000E+00     0.000000E+00     0.000000E+00
+1     ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    53
+      NASTRAN TEST PROBLEM NO. T01-20-1A                                                                                            
+0                                                                                                            SUBCOM   20            
+ 
+                   F I N I T E   E L E M E N T   M A G N E T I C   F I E L D   A N D   I N D U C T I O N
+
+ 
+    ELEMENT-ID   EL-TYPE         X-FIELD          Y-FIELD          Z-FIELD        X-INDUCTION      Y-INDUCTION      Z-INDUCTION
+            18    WEDGE       -5.000002E-01    -1.000000E+00    -1.500000E+00    -6.103516E-05     0.000000E+00     1.220703E-04
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS             
+ DATE:  5/17/95
+ END TIME: 16:33:36
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

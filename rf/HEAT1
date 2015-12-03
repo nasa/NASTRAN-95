@@ -1,0 +1,524 @@
+APR.95
+$$$$$$$$
+BEGIN    HEAT 01 - STATIC HEAT TRANSFER ANALYSIS - APR. 1995 $
+****CARD   1- 19, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+PRECHK   ALL $
+****CARD   1- 19, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+FILE     HQG=APPEND/HPGG=APPEND/HUGV=APPEND/HGM=SAVE/HKNN=SAVE $
+****SBST   1,  3
+****CARD   1- 19, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+PARAM    //*MPY*/CARDNO/0/0 $
+****CARD   1-  3,  6,  8- 10, 15, 19, 22, 23
+****FILE 101,114
+$$$$
+GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,HSIL/S,N,HLUSET/
+         NOGPDT/MINUS1=-1 $
+****CARD   1
+****FILE  94
+$$$$
+ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $
+****CARD   8
+****FILE 120
+$$$$
+EQUIV    MPTA,MPT/ISOP $
+****CARD   8
+****FILE 120
+$$$$
+PLTTRAN  BGPDT,HSIL/BGPDP,HSIP/HLUSET/S,N,HLUSEP $
+****CARD   1
+****FILE 119
+$$$$
+GP2      GEOM2,EQEXIN/ECT $
+****CARD   1,  2,  4, 16
+****FILE  95
+$$$$
+PARAML   PCDB//*PRES*////JUMPPLOT $
+****SBST   7
+****CARD  18
+****FILE 115,117
+$$$$
+PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $
+****SBST   7
+****CARD  18
+****FILE 115
+$$$$
+COND     HP1,JUMPPLOT $
+****SBST   7
+****CARD   1,  2,  4, 16, 18
+****FILE 115,117
+$$$$
+PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,HNSIL/
+         S,N,JUMPPLOT $
+****SBST   7
+****CARD   1,  2,  4, 16, 18
+****FILE 115
+$$$$
+PRTMSG   PLTSETX// $
+****SBST   7
+****CARD   1,  2,  4, 16, 18
+****FILE 115
+$$$$
+PARAM    //*MPY*/PLTFLG/1/1 $
+****SBST   7
+****CARD   1,  2,  4, 16, 18
+****FILE 117
+$$$$
+PARAM    //*MPY*/PFILE/0/0 $
+****SBST   7
+****CARD   1,  2,  4, 16, 18
+****FILE 117
+$$$$
+COND     HP1,JUMPPLOT $
+****SBST   7
+****CARD   1,  2,  4, 16, 18
+****FILE 117
+$$$$
+PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,HSIL,,ECT,,,,/PLOTX1/
+         HNSIL/HLUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE $
+****SBST   7
+****CARD   1,  2,  4, 16, 18
+****FILE 117
+$$$$
+PRTMSG   PLOTX1// $
+****SBST   7
+****CARD   1,  2,  4, 16, 18
+****FILE 117
+$$$$
+LABEL    HP1 $
+****SBST   7
+****CARD   1,  2,  4, 16, 18
+****FILE 115,117
+$$$$
+GP3      GEOM3,EQEXIN,GEOM2/HSLT,GPTT/NOGRAV $
+****CARD   1,  2, 13, 60
+****FILE  96
+$$$$
+TA1      ECT,EPT,BGPDT,HSIL,GPTT,CSTM,,EQEXIN/HEST,HGEI,HGPECT,,,,,/
+         HLUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL $
+****CARD   1-  6, 13, 16
+****FILE  97
+$$$$
+PARAM    //*AND*/NOELMT/NOGENL/NOSIMP $
+****CARD   1,  2,  4-  6, 16
+****FILE  97
+$$$$
+COND     ERROR4,NOELMT $
+****CARD   1,  2,  4-  6, 16
+****FILE  97
+****RFMT 187-204,208,209
+$$$$
+PURGE    HKGGX/NOSIMP $
+****CARD   1,  2,  4-  6, 16
+****FILE  98
+$$$$
+COND     HLBL1,NOSIMP $
+****CARD   1-  3,  6,  8
+****FILE  98,116
+$$$$
+PARAM    //*ADD*/HNOKGG/1/0 $
+****CARD   1-  3,  6,  8
+****FILE 116
+$$$$
+EMG      HEST,CSTM,MPT,DIT,GEOM2,/HKELM,HKDICT,,,,,/S,N,HNOKGG $
+****CARD   1-  3,  6,  8
+****FILE 116
+$$$$
+PURGE    HKGGX/HNOKGG $
+****CARD   1-  3,  6,  8
+****FILE  98
+$$$$
+COND     HLBL1,HNOKGG $
+****CARD   1-  3,  6,  8
+****FILE  98
+$$$$
+EMA      HGPECT,HKDICT,HKELM/HKGGX $
+****CARD   1-  3,  6,  8
+****FILE  98
+$$$$
+PURGE    HKDICT,HKELM/MINUS1 $
+****CARD   1-  3,  6,  8
+****FILE 116
+$$$$
+LABEL    HLBL1 $
+****CARD   1-  3,  6,  8
+****FILE  98,116
+$$$$
+EQUIV    HKGGX,HKGG/NOGENL $
+****CARD   1-  4,  6,  8
+****FILE 100
+$$$$
+COND     HLBL11A,NOGENL $
+****CARD   1-  4,  6,  8
+****FILE 100
+$$$$
+SMA3     HGEI,HKGGX/HKGG/HLUSET/NOGENL/NOSIMP $
+****CARD   1-  4,  6,  8
+****FILE 100
+$$$$
+LABEL    HLBL11A $
+****CARD   1-  4,  6,  8
+****FILE 100
+$$$$
+GPSTGEN  HKGG,HSIL/GPST $
+****CARD   1-  4,  6,  8
+****FILE 102
+$$$$
+PARAM    //*MPY*/NSKIP/0/0 $
+****CARD   1,  9- 12, 22, 23
+****FILE 101
+$$$$
+LABEL    HLBL11 $
+****SBST   1,  3
+****CARD  22, 23
+****FILE 101
+$$$$
+GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,HUSET,
+         HASET,OGPST/HLUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/
+         S,N,REACT/S,N,NSKIP/S,N,HREPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/
+         C,Y,ASETOUT/C,Y,AUTOSPC $
+****CARD   1-  4,  6,  8- 12, 14, 15, 22, 23, 59
+****FILE 101
+$$$$
+OFP      OGPST,,,,,//S,N,CARDNO $
+****CARD   1-  4,  6,  8- 12, 14, 15, 22, 23, 59
+****FILE 101
+$$$$
+COND     ERROR3,NOL $
+****CARD   1,  9- 12, 14, 15, 22, 23, 59
+****FILE 101
+****RFMT 187-204,208,209
+$$$$
+PARAM    //*AND*/NOSR/SINGLE/REACT $
+****CARD   1,  9- 12, 22, 23, 59
+****FILE 101
+$$$$
+PURGE    HKRR,HKLR,HQR,HDM/REACT/GM/MPCF1/HGO,HKOO,HLOO,HPO,HUOOV,
+         HRUOV/OMIT/HPS,HKFS,HKSS/SINGLE/HQG/NOSR $
+****CARD   1,  9- 12, 22, 23, 59
+****FILE 103,105-107,109,111-113
+$$$$
+EQUIV    HKGG,HKNN/MPCF1 $
+****CARD   1-  4,  6,  8,  9, 22, 23
+****FILE 104
+$$$$
+COND     HLBL2,MPCF1 $
+****CARD   1-  4,  6,  8,  9, 22, 23
+****FILE 103,104
+$$$$
+MCE1     HUSET,RG/GM $
+****CARD   1,  9, 22, 23
+****FILE 103
+$$$$
+MCE2     HUSET,GM,HKGG,,,/HKNN,,, $
+****CARD   1-  4,  6,  8,  9, 22, 23
+****FILE 104
+$$$$
+LABEL    HLBL2 $
+****CARD   1-  4,  6,  8,  9, 22, 23
+****FILE 103,104
+$$$$
+EQUIV    HKNN,HKFF/SINGLE $
+****CARD   1-  4,  6,  8- 10, 22, 23
+****FILE 105
+$$$$
+COND     HLBL3,SINGLE $
+****CARD   1-  4,  6,  8- 10, 22, 23
+****FILE 105
+$$$$
+SCE1     HUSET,HKNN,,,/HKFF,HKFS,HKSS,,, $
+****CARD   1-  4,  6,  8- 10, 22, 23
+****FILE 105
+$$$$
+LABEL    HLBL3 $
+****CARD   1-  4,  6,  8- 10, 22, 23
+****FILE 105
+$$$$
+EQUIV    HKFF,HKAA/OMIT $
+****CARD   1-  4,  6,  8- 11, 22, 23
+****FILE 106
+$$$$
+COND     HLBL5,OMIT $
+****CARD   1-  4,  6,  8- 11, 22, 23
+****FILE 106
+$$$$
+SMP1     HUSET,HKFF,,,/HGO,HKAA,HKOO,HLOO,,,,, $
+****CARD   1-  4,  6,  8- 11, 22, 23
+****FILE 106
+$$$$
+LABEL    HLBL5 $
+****CARD   1-  4,  6,  8- 11, 22, 23
+****FILE 106
+$$$$
+EQUIV    HKAA,HKLL/REACT $
+****CARD   1-  4,  6,  8- 12, 22, 23
+****FILE 107
+$$$$
+COND     HLBL6,REACT $
+****CARD   1-  4,  6,  8- 12, 22, 23
+****FILE 107
+$$$$
+RBMG1    HUSET,HKAA,/HKLL,HKLR,HKRR,,, $
+****CARD   1-  4,  6,  8- 12, 22, 23
+****FILE 107
+$$$$
+LABEL    HLBL6 $
+****CARD   1-  4,  6,  8- 12, 22, 23
+****FILE 107
+$$$$
+RBMG2    HKLL/HLLL $
+****CARD   1-  4,  6,  8- 12, 22, 23
+****FILE 108
+$$$$
+COND     HLBL7,REACT $
+****CARD   1-  4,  6,  8- 12, 22, 23
+****FILE 109
+$$$$
+RBMG3    HLLL,HKLR,HKRR/HDM $
+****CARD   1-  4,  6,  8- 12, 22, 23
+****FILE 109
+$$$$
+LABEL    HLBL7 $
+****CARD   1-  4,  6,  8- 12, 22, 23
+****FILE 109
+$$$$
+SSG1     HSLT,BGPDT,CSTM,HSIL,HEST,MPT,GPTT,EDT,,CASECC,DIT,/
+         HPG,,,,SCR/HLUSET/NSKIP $
+****CARD   1-  3,  6,  8, 22, 23, 59- 62
+****FILE 110
+$$$$
+EQUIV    HPG,HPL/NOSET $
+****CARD   1-  3,  6,  8- 12, 22, 23, 59- 62
+****FILE 111
+$$$$
+COND     HLBL10,NOSET $
+****CARD   1-  3,  6,  8- 12, 22, 23, 59- 62
+****FILE 111
+$$$$
+SSG2     HUSET,GM,YS,HKFS,HGO,HDM,HPG/HQR,HPO,HPS,HPL $
+****CARD   1-  3,  6,  8- 12, 22, 23, 59- 62
+****FILE 111
+$$$$
+LABEL    HLBL10 $
+****CARD   1-  3,  6,  8- 12, 22, 23, 59- 62
+****FILE 111
+$$$$
+SSG3     HLLL,HKLL,HPL,HLOO,HKOO,HPO/HULV,HUOOV,HRULV,HRUOV/OMIT/
+         V,Y,IRES=-1/NSKIP/S,N,EPSI $
+****CARD   1-  6,  8- 12, 17, 22, 23, 59- 62
+****FILE 112
+****RFMT 188
+$$$$
+COND     HLBL9,IRES $
+****CARD   1-  6,  8- 12, 17, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+MATGPR   GPL,HUSET,HSIL,HRULV//*L* $
+****CARD   1-  6,  8- 12, 17, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+MATGPR   GPL,HUSET,HSIL,HRUOV//*O* $
+****CARD   1-  6,  8- 12, 17, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+LABEL    HLBL9 $
+****CARD   1-  6,  8- 12, 17, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+SDR1     HUSET,HPG,HULV,HUOOV,YS,HGO,GM,HPS,HKFS,HKSS,HQR/HUGV,HPGG,
+         HQG/NSKIP/*HSTATICS* $
+****CARD   1-  6,  8- 12, 22, 23, 59- 62
+****FILE 113
+****RFMT 187-204,208,209
+$$$$
+COND     HLBL8,HREPEAT $
+****SBST   1,  3
+****CARD  22, 23
+****RFMT 187-204,208,209
+$$$$
+REPT     HLBL11,100 $
+****SBST   1,  3
+****CARD  22, 23
+****RFMT 187-204,208,209
+$$$$
+JUMP     ERROR1 $
+****SBST   1,  3
+****CARD  22, 23
+****RFMT 187-204,208,209
+$$$$
+PARAM    //*NOT*/HTEST/HREPEAT $
+****CARD  22, 23
+****RFMT 187-204,208,209
+$$$$
+COND     ERROR2,HTEST $
+****CARD  22, 23
+****RFMT 187-204,208,209
+$$$$
+LABEL    HLBL8 $
+****SBST   1,  3
+****CARD  22, 23
+****RFMT 187-204,208,209
+$$$$
+SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,HSIL,GPTT,EDT,BGPDP,,HQG,HUGV,
+         HEST,,HPGG,/HOPG1,HOQG1,HOUGV1,HOES1,HOEF1,HPUGV1,,/
+         *STATICS* $
+****CARD  18, 19
+****FILE 114
+$$$$
+OFP      HOUGV1,HOPG1,HOQG1,HOEF1,,//S,N,CARDNO $
+****CARD  19
+****FILE 114
+$$$$
+COND     HP2,JUMPPLOT $
+****SBST   7
+****CARD  18
+****FILE 118
+$$$$
+PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,HSIP,HPUGV1,HOES1,
+         HGPECT,,,/PLOTX2/HNSIL/HLUSEP/JUMPPLOT/PLTFLG/
+         S,N,PFILE $
+****SBST   7
+****CARD  18
+****FILE 118
+$$$$
+PRTMSG   PLOTX2// $
+****SBST   7
+****CARD  18
+****FILE 118
+$$$$
+LABEL    HP2 $
+****SBST   7
+****CARD  18
+****FILE 118
+$$$$
+JUMP     FINIS $
+****CARD   1-  6,  8- 16, 18, 19, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+LABEL    ERROR1 $
+****SBST   1,  3
+****CARD  22, 23
+****RFMT 187-204,208,209
+$$$$
+PRTPARM  //-1/*HSTA* $
+****SBST   1,  3
+****CARD  22, 23
+****RFMT 187-204,208,209
+$$$$
+LABEL    ERROR2 $
+****CARD  22, 23
+****RFMT 187-204,208,209
+$$$$
+PRTPARM  //-2/*HSTA* $
+****CARD  22, 23
+****RFMT 187-204,208,209
+$$$$
+LABEL    ERROR3 $
+****CARD   1,  9- 12, 14, 15, 22, 23, 59
+****FILE 101
+****RFMT 187-204,208,209
+$$$$
+PRTPARM  //-3/*HSTA* $
+****CARD   1,  9- 12, 14, 15, 22, 23, 59
+****FILE 101
+****RFMT 187-204,208,209
+$$$$
+LABEL    ERROR4 $
+****CARD   1,  2,  4-  6, 16
+****FILE  97
+****RFMT 187-204,208,209
+$$$$
+PRTPARM  //-4/*HSTA* $
+****CARD   1,  2,  4-  6, 16
+****FILE  97
+****RFMT 187-204,208,209
+$$$$
+LABEL    FINIS $
+****CARD   1-  6,  8- 16, 18, 19, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+PURGE    DUMMY/MINUS1 $
+****CARD   1-  6,  8- 16, 18, 19, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+END      $
+****CARD   1-  6,  8- 16, 18, 19, 22, 23, 59- 62
+****RFMT 187-204,208,209
+$$$$
+$*CARD BITS
+  1    CELAS1   CELAS2   CELAS3   CELAS4
+  1    CORD1C   CORD1R   CORD1S   CORD2C   CORD2R   CORD2S
+  1    GRDSET   GRID     GRIDB    POINTAX  RINGAX   RINGFL   SECTAX
+  1    SEQGP    SPOINT
+  2    ADUM1    ADUM2    ADUM3    ADUM4    ADUM5    ADUM6    ADUM7
+  2    ADUM8
+  2    ADUM9    BAROR    CBAR     CDUM1    CDUM2    CDUM3    CDUM4
+  2    CDUM5    CDUM6    CDUM7    CDUM8    CDUM9    CELBOW   CFTUBE
+  2    CHBDY
+  2    CHEXA1   CHEXA2   CIHEX1   CIHEX2   CIHEX3   CIS2D8   CONROD
+  2    CQDMEM   CQDMEM1  CQDMEM2  CQUAD1   CQUAD2   CQUAD4   CROD
+  2    CTETRA   CTRAPRG  CTRIA1   CTRIA2   CTRIA3
+  2    CTRIARG  CTRMEM   CTUBE
+  2    CWEDGE
+  3    PBAR     PDUM1    PDUM2    PDUM3    PDUM4    PDUM5    PDUM6
+  3    PDUM7    PDUM8    PDUM9    PELBOW   PFTUBE   PHBDY    PIHEX
+  3    PIS2D8   PQDMEM   PQDMEM1  PQDMEM2  PQUAD1   PQUAD2   PROD
+  3    PTRIA1   PTRIA2   PSHELL   PCOMP    PCOMP1   PCOMP2
+  3    PTRMEM   PTUBE
+  4    GENEL
+  6    PELAS
+  8    MAT1     MAT2     MAT3     MAT4     MAT5     MATT1    MATT2
+  8    MATT3    MATT4    MATT5    MAT8     TABLEM1  TABLEM2  TABLEM3
+  8    MAT6     TABLEM4  TEMPMT$  TEMPMX$
+  9    AXISYM$  MPC      MPCADD   MPCAX    MPC$
+ 10    SPC      SPC1     SPCADD   SPCAX    SPC$
+ 11    ASET     ASET1    OMIT     OMIT1    OMITAX   SUPAX    SUPORT
+ 13    TEMP     TEMPAX   TEMPD    TEMPP1   TEMPP2   TEMPP3   TEMPRB
+ 14    ASETOUT
+ 15    AUTOSPC
+ 16    PLOTEL
+ 17    IRES
+ 18    PLOT$
+ 19    POUT$
+ 22    LOOP$
+ 23    LOOP1$
+ 59    DEFORM   DEFORM$  LOAD$    SPCD
+ 60    FORCE    FORCE1   FORCE2   FORCEAX  LOAD     MOMAX    MOMENT
+ 60    MOMENT1  PLOAD4
+ 60    MOMENT2  PLOAD    PLOAD1   PLOAD2   PLOAD3   PRESAX   QBDY1
+ 60    QBDY2    QHBDY    QVECT    QVOL     SLOAD
+ 62    TEMPLD$
+$$$$
+$*FILE BITS
+ 94    BGPDT    CSTM     EQEXIN   GPDT     GPL      HSIL
+ 95    ECT
+ 96    GPTT     HSLT
+ 97    HGPECT   HEST     HGEI
+ 98    HKGGX
+100    HKGG
+101    HASET    RG       HUSET    YS       OGPST
+102    GPST
+103    GM
+104    HKNN
+105    HKFF     HKSS     HKFS
+106    HGO      HKAA     HKOO     HLOO
+107    HKLL     HKLR     HKRR
+108    HLLL
+109    HDM
+110    HPG      SCR
+111    HPL      HPO      HPS      HQR
+112    HRULV    HRUOV    HULV     HUOOV
+113    HPGG     HQG      HUGV
+114    HOEF1    HOPG1    HOQG1    HOUGV1   HPUGV1   HOES1
+115    ELSETS   GPSETS   PLTPAR   PLTSETX
+116    HKDICT   HKELM
+117    PLOTX1
+118    PLOTX2
+119    BGPDP    HSIP
+120    MPT
+$*

@@ -1,0 +1,93 @@
+$-------------------------------------------------------------------------------
+$                     RIGID FORMAT No. 1, Static Analysis
+$                Spherical Shell with Pressure Loading (1-2-1)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates the finite element approach to the modeling of a
+$ uniform spherical shell (Problem 1-2-1). A spherical coordinate system is
+$ chosen to describe the location and displacement degrees of freedom at each
+$ grid point. Triangular plate elements are chosen to provide a nearly uniform
+$ pattern. Two symmetric boundaries are used to analyze the structure with a
+$ symmetric pressure load.
+$ 
+$ Two different sets of boundary conditions are used on the outside edge to
+$ demonstrate the ability of NASTRAN to restart (Problem 1-2-1A) with different
+$ constraint sets by simply changing the case control request. The membrane
+$ support, under a uniform inward pressure load, results in uniform in-plane
+$ compression in two directions. The clamped support produces bending moments in
+$ addition to in-plane stresses.
+$ 
+$ The grid point numbering sequence used minimizes the computer time required to
+$ perform the triangular decomposition of the constrained stiffness matrix. This
+$ numbering sequence results in a partially banded matrix with all terms outside
+$ the band located in a single column. The grid points are arranged to form five
+$ rings; the center point is sequenced last.
+$ 
+$ Orthographlc and perspective plots of the deformed and undeformed structure
+$ are requested. For the orthographlc projections the plots are fully labeled to
+$ aid in checking the model. The perspective projection uses the symmetric
+$ plotting capability to plot all four quadrants of the shell. A region request
+$ is used to find an origin location that will allow all quadrants to be
+$ plotted. The deformed plot uses plot elements to simplify the presentation.
+$ Umderlays of the undeformed structure are also shown for both projections.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters
+$ 
+$      r = 90.0 in.           (radius)
+$ 
+$      t = 3.0 in.            (thickness)
+$                   6      2
+$      E = 3.0  x 10  lb/in   (modulus of elasticity)
+$ 
+$      v = .1666              (Poisson's ratio)
+$ 
+$ 2. Constraints
+$ 
+$    Problem 1-2-1
+$ 
+$      a)  Grids at phi = theta degrees and phi = 90 degrees are constrained
+$          u sub phi = theta sub r  = 0.0
+$ 
+$      b)  Grids at theta = 35 degrees are constrained u sub theta  = 0.0 only
+$ 
+$    Problem 1-2-1A
+$ 
+$      a)  Grids at phi = 0 degrees and phi = 90 degrees are constrained
+$          u sub phi = theta sub r  = 0.0
+$ 
+$      b)  Grids at theta = 35 degrees are constrained u sub r = u sub phi =
+$          u sub theta = theta sub r = theta sub phi = theta sub theta = 0.0
+$ 
+$ 3. Loads
+$ 
+$                                   2
+$ A uniform pressure load of 1 lb/in  is applied in the -R direction (acting
+$ inward).
+$ 
+$ C. Theory
+$ 
+$ Theoretical solutions for the continuum shell were obtained from Reference 4
+$ using the first 20 terms of the series shown in Equation (j) of Section 94.
+$ 
+$ D. Results
+$ 
+$ The slight differences between theoretical and computed answers are due to the
+$ combined effects of the finite element theory and the structural behavior in
+$ the region of the clamped boundary. In the region of the clamped boundary, in-
+$ plane stresses and bending moments are predicted to have large variations.
+$ However, the elements used in the model assume a constant in-plane stress and
+$ linearly varying bending moment and do not accurately represent the structural
+$ response. In addition, the irregularities of the finite element model cause
+$ extra coupling between bending and membrane action. Since the elements are
+$ planar, the curvature is modeled, in effect, by the dihedral angles between
+$ elements. Since the elements are different sizes and shapes, these dihedral
+$ angles vary, which results in slight differences In curvature that cause small
+$ errors.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 4. S. Timoshemko, THEORY OF PLATES AND SHELLS. McGraw Hill, 1940.
+$-------------------------------------------------------------------------------

@@ -1,0 +1,215 @@
+$-------------------------------------------------------------------------------
+$           RIGID FORMAT No. 9, Transient Analysis - Direct Formulation
+$          Transient Analysis of a Fluid-Filled Elastic Cylinder (9-3-1)
+$ 
+$ A. Description
+$ 
+$ The fluid-filled shell used for analysis of the third harmonic in
+$ Demonstration Problem No. 7-2-1 is subjected to a step change in external
+$ pressure at t = 0 of the form
+$ 
+$                 pi z
+$    p  =  p  sin ---- cos n phi
+$           o      l
+$ 
+$ The fluid is assumed incompressible in order to obtain an analytical solution
+$ with reasonable effort. The harmonic used is n = 3.
+$ 
+$ In addition to the cards of Demonstration Problem No. 7-2-1, DAREA, PRESPT,
+$ TLOAD2, and TSTEP cards are also used. Selected displacements and pressures
+$ are plotted against time.
+$ 
+$ B. Input
+$ 
+$    Parameters used are:
+$ 
+$      B  =  infinity                   (Bulk modulus of fluid - incompressible)
+$ 
+$                    -2       2   4
+$      p  =  1.8 x 10   lb-sec /in      (Fluid mass density)
+$       f
+$ 
+$                    -2       2   4
+$      p  =  6.0 x 10   lb-sec /in      (Structure mass density)
+$       s
+$                    5      2
+$      E  =  1.6 x 10  lb/in            (Young's modulus for structure)
+$ 
+$                    4      2
+$      G  =  6.0 x 10  lb/in            (Shear modulus for structure)
+$ 
+$      a  =  10.0 inch                  (Radius of cylinder)
+$ 
+$      l  =  10.0 inch                  (Length of cylinder)
+$ 
+$      h  =  0.01 inch                  (Thickness of cylinder wall)
+$ 
+$      p  =  2.0                        (Pressure load coefficient)
+$       o
+$ 
+$ C. Theory
+$ 
+$ The theory was derived with the aid of Reference 16 as in Demonstration
+$ Problem No. 7-2-1. Since the fluid is incompressible, it acts on the structure
+$ like a pure mass. Neglecting the bending stiffness, the equation of force on
+$ the structure is:
+$ 
+$                             2
+$                    ..   1  a F
+$    p   =  (m + m ) w  + -  ---                                             (1)
+$     s           f       a    2
+$                            aZ
+$ 
+$ where:
+$ 
+$    p  is the loading pressure on the structure (positive outward).
+$     s
+$ 
+$    m = p h is the mass per area of the structure.
+$         s
+$ 
+$    m  is the apparent mass of the fluid.
+$     f
+$ 
+$    w is the normal displacement (positive outward).
+$ 
+$ The function F is defined by the equation,
+$ 
+$                        2
+$            4      Eh  a w
+$    gradient F  =  --  ---                                                  (2)
+$                   a     2
+$                       az
+$ 
+$ The spatial functions of pressure, displacement, and function F may be written
+$ in the form:
+$ 
+$                  pi z
+$    p   =  p  sin ----  cos n phi
+$     s      o      l
+$ 
+$                 pi z
+$    w  =  w  sin ----  cos n phi                                            (3)
+$           o      l
+$ 
+$                 pi z
+$    F  =  F  sin ----  cos n phi
+$           o      l
+$ 
+$ where p , w , and F  are variables with respect to time only.
+$        o   o       o
+$ 
+$ Substituting Equations 3 into Equation 2 we obtain:
+$ 
+$                               w
+$             Eh       2         o
+$    F   =  - -- (l/pi)  -----------------                                   (4)
+$     o       a                        2 2
+$                        [1 + (nl/pi a) ]
+$ 
+$ Substituting Equations 3 and 4 into Equation 1 we obtain:
+$ 
+$                   ..          Eh
+$    p   = (m + m ) w  + -------------------  w                              (5)
+$     o          f   o    2              2 2   o
+$                        a [1 + (nl/pi a) ]
+$ 
+$ The incompressible fluid is described by the differential equation:
+$ 
+$            2
+$    gradient  p  =  0                                                       (6)
+$ 
+$ Applying the appropriate boundary conditions to Equation 6 results in the
+$ pressure distribution:
+$ 
+$                 pi z                  pi r
+$    p  =  p  sin ----  cos (n phi) I  (----)                                (7)
+$           r      l                 n   l
+$ 
+$ where I  is the modified Bessel function of the first kind and is an
+$        n
+$ undetermined variable. The balance of pressure and flow at the boundary of the
+$ fluid, with no structural effects, is described by the equations:
+$ 
+$                    pi a
+$    p   =  - p  I  (----)                                                   (8)
+$     o        r  n   l
+$ 
+$      ..     ap |
+$    p w  = - -- |                                                           (9)
+$     f       ar |r=a
+$ 
+$ Substituting Equations 3 and 7 into Equation 9 results in:
+$ 
+$      ..     pi     pi a
+$    p w   =  -- I' (----) p                                                (10)
+$     f o     l   n   l     r
+$ 
+$ Eliminating P  with Equations 8 and 10 gives the expression for apparent mass,
+$              f
+$ m :
+$  f
+$ 
+$                          ..
+$                       p  w
+$               pi a     f  o             ..
+$    p   =  I  (----) ------------  =  m  w                                 (11)
+$     o      n   l    pi     pi a       f  o
+$                     -- I' (----)
+$                     l   n   l
+$ 
+$ Substituting the expression for mf from Equation 11 into Equation 5 results in
+$ a simple single degree of freedom system.  When the applied loading pressure
+$ is a step function at t = 0,
+$ 
+$          p
+$           o                     pi z
+$    w  =  -- (1 - cos n phi) sin ---- cos n phi                            (12)
+$          k                       l
+$ 
+$ where
+$ 
+$    w  =  sqrt(k/m )
+$                  T
+$ 
+$ and
+$ 
+$                 Eh
+$    k  =  -------------------
+$           2              2 2
+$          a [1 + (nl/pi a) ]
+$ 
+$ and
+$ 
+$                                 I (pi a/l)
+$                              l   n
+$    m  =  m + m   =  p h + p  -- ----------
+$     T         f      s     f pi I'(pi a/l)
+$                                  n
+$ 
+$ D. Results
+$ 
+$ A transient analysis was performed for the case n = 3 on the model and various
+$ displacements and pressures were output versus time up to one second. The
+$ theoretical frequency is calculated to be 1.580 Hertz and the period is 0.633
+$ seconds.  The displacements at two points on the structure (Point 91 is located
+$ at phi = 0, z = 5.0; Point 94 is located at phi = 18 degrees, z = 5.0) were
+$ plotted versus time.
+$ 
+$ The maximum error for the first full cycle occurs at the end of the cycle.
+$ The ratio of the error to maximum displacement is 4.75%. Changes in the time
+$ step used in the transient integration algorithm did not affect the accuracy
+$ to any great extent. The most probable causes for error were the mesh size of
+$ the model and the method used to apply the distributed load. The applied load
+$ was calculated by multiplying the pressure value at the point by an associated
+$ area. The "consistent method" of assuming a cubic polynomial displacement and
+$ integrating would eliminate the extraneous response of higher modes. The
+$ method chosen in this problem, however, is typical of actual applications.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 16. J. G. Berry and E. Reissner, "The Effect of an Internal Compressible Fluid
+$     Column on the Breathing Vibrations of a Thin Pressurized Cylindrical
+$     Shell", Journal of the Aeronautical Sciences, Vol. 25, No. 5, pp 288-294,
+$     May 1958.
+$-------------------------------------------------------------------------------

@@ -1,0 +1,681 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01014A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   1,1                                                                       
+     TIME  5                                                                         
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS         
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                          
+                  3      LABEL    = LOAD ON TRAILING EDGE                                                
+                  4         SPC   = 1                                                                    
+                  5          LOAD = 1                                                                    
+                  6      OUTPUT                                                                          
+                  7      $   SET 1  HAS GRIDS ON THE UPPER SURFACE  * * * * * * * * * * * * * * *        
+                  8      $   SET 2  HAS TOP SURFACE ELEMENTS, SHEAR(TRAILING AND LEADING EDGE),          
+                  9      $   SHEAR(CENTERLINE - BOTH DIRECTIONS), SHEAR(TIP)   * * * * * * * *           
+                 10      $                                                                               
+                 11              SET 1 = 11 THRU 16,31 THRU 36,51 THRU 55,71 THRU 74,91 THRU 93          
+                 12              SET 2 =  1 THRU 22,28 THRU 31, 35, 36, 41 THRU 44, 50                   
+                 13      $                                                                               
+                 14              DISPLACEMENTS = 1                                                       
+                 15              SPCFORCE      = ALL                                                     
+                 16              ESE           = ALL                                                     
+                 17              ELSTRESS      = 2                                                       
+                 18      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   169, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CONROD  100     11      12      1       .035                                    
+                    2-        CONROD  101     12      13      1       .035                                    
+                    3-        CONROD  102     13      14      1       .0344                                   
+                    4-        CONROD  103     14      15      1       .0325                                   
+                    5-        CONROD  104     15      16      1       .03                                     
+                    6-        CONROD  105     31      32      1       .091                                    
+                    7-        CONROD  106     32      33      1       .091                                    
+                    8-        CONROD  107     33      34      1       .088                                    
+                    9-        CONROD  108     34      35      1       .0719                                   
+                   10-        CONROD  109     35      36      1       .0453                                   
+                   11-        CONROD  110     51      52      1       .11                                     
+                   12-        CONROD  111     52      53      1       .11                                     
+                   13-        CONROD  112     53      54      1       .094                                    
+                   14-        CONROD  113     54      55      1       .0563                                   
+                   15-        CONROD  114     71      72      1       .091                                    
+                   16-        CONROD  115     72      73      1       .091                                    
+                   17-        CONROD  116     73      74      1       .0649                                   
+                   18-        CONROD  117     91      92      1       .035                                    
+                   19-        CONROD  118     92      93      1       .035                                    
+                   20-        CONROD  119     12      32      1       .063                                    
+                   21-        CONROD  120     32      52      1       .1002                                   
+                   22-        CONROD  121     52      72      1       .1002                                   
+                   23-        CONROD  122     72      92      1       .063                                    
+                   24-        CONROD  123     13      33      1       .063                                    
+                   25-        CONROD  124     33      53      1       .1002                                   
+                   26-        CONROD  125     53      73      1       .1002                                   
+                   27-        CONROD  126     73      93      1       .063                                    
+                   28-        CONROD  127     14      34      1       .0572                                   
+                   29-        CONROD  128     34      54      1       .0805                                   
+                   30-        CONROD  129     54      74      1       .0572                                   
+                   31-        CONROD  130     15      35      1       .0474                                   
+                   32-        CONROD  131     35      55      1       .0474                                   
+                   33-        CONROD  132     16      36      1       .028                                    
+                   34-        CONROD  133     93      74      1       .0344                                   
+                   35-        CONROD  134     74      55      1       .0325                                   
+                   36-        CONROD  135     55      36      1       .03                                     
+                   37-        CQDMEM2 1       1       11      12      32      31                              
+                   38-        CQDMEM2 2       1       12      13      33      32                              
+                   39-        CQDMEM2 3       1       13      14      34      33                              
+                   40-        CQDMEM2 4       1       14      15      35      34                              
+                   41-        CQDMEM2 5       1       15      16      36      35                              
+                   42-        CQDMEM2 6       1       31      32      52      51                              
+                   43-        CQDMEM2 7       1       32      33      53      52                              
+                   44-        CQDMEM2 8       1       33      34      54      53                              
+                   45-        CQDMEM2 9       1       34      35      55      54                              
+                   46-        CQDMEM2 11      1       51      52      72      71                              
+                   47-        CQDMEM2 12      1       52      53      73      72                              
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+
+      LOAD ON TRAILING EDGE                                                                                                         
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CQDMEM2 13      1       53      54      74      73                              
+                   49-        CQDMEM2 15      1       71      72      92      91                              
+                   50-        CQDMEM2 16      1       72      73      93      92                              
+                   51-        CROD    60      5       1       11      61      6       2       12              
+                   52-        CROD    62      8       3       13      63      8       4       14              
+                   53-        CROD    64      8       5       15      65      6       6       16              
+                   54-        CROD    66      6       21      31      67      7       22      32              
+                   55-        CROD    68      9       23      33      69      9       24      34              
+                   56-        CROD    70      9       25      35      71      8       26      36              
+                   57-        CROD    72      6       41      51      73      7       42      52              
+                   58-        CROD    74      9       43      53      75      9       44      54              
+                   59-        CROD    76      9       45      55      77      6       61      71              
+                   60-        CROD    78      7       62      72      79      9       63      73              
+                   61-        CROD    80      9       64      74      81      5       81      91              
+                   62-        CROD    82      6       82      92      83      8       83      93              
+                   63-        CSHEAR  18      2       1       2       12      11                              
+                   64-        CSHEAR  19      2       2       3       13      12                              
+                   65-        CSHEAR  20      2       3       4       14      13                              
+                   66-        CSHEAR  21      2       4       5       15      14                              
+                   67-        CSHEAR  22      2       5       6       16      15                              
+                   68-        CSHEAR  23      2       21      22      32      31                              
+                   69-        CSHEAR  24      2       22      23      33      32                              
+                   70-        CSHEAR  25      2       23      24      34      33                              
+                   71-        CSHEAR  26      2       24      25      35      34                              
+                   72-        CSHEAR  27      2       25      26      36      35                              
+                   73-        CSHEAR  28      2       41      42      52      51                              
+                   74-        CSHEAR  29      2       42      43      53      52                              
+                   75-        CSHEAR  30      2       43      44      54      53                              
+                   76-        CSHEAR  31      2       44      45      55      54                              
+                   77-        CSHEAR  32      2       61      62      72      71                              
+                   78-        CSHEAR  33      2       62      63      73      72                              
+                   79-        CSHEAR  34      2       63      64      74      73                              
+                   80-        CSHEAR  35      2       81      82      92      91                              
+                   81-        CSHEAR  36      2       82      83      93      92                              
+                   82-        CSHEAR  37      2       2       22      32      12                              
+                   83-        CSHEAR  38      2       22      42      52      32                              
+                   84-        CSHEAR  39      2       42      62      72      52                              
+                   85-        CSHEAR  40      2       62      82      92      72                              
+                   86-        CSHEAR  41      2       3       23      33      13                              
+                   87-        CSHEAR  42      2       23      43      53      33                              
+                   88-        CSHEAR  43      2       43      63      73      53                              
+                   89-        CSHEAR  44      2       63      83      93      73                              
+                   90-        CSHEAR  45      2       4       24      34      14                              
+                   91-        CSHEAR  46      2       24      44      54      34                              
+                   92-        CSHEAR  47      2       44      64      74      54                              
+                   93-        CSHEAR  48      2       5       25      35      15                              
+                   94-        CSHEAR  49      2       25      45      55      35                              
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+
+      LOAD ON TRAILING EDGE                                                                                                         
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CSHEAR  50      2       6       26      36      16                              
+                   96-        CSHEAR  51      2       26      45      55      36                              
+                   97-        CSHEAR  52      2       45      64      74      55                              
+                   98-        CSHEAR  53      2       64      83      93      74                              
+                   99-        CTRMEM  10      3       35      36      55                                      
+                  100-        CTRMEM  14      3       54      55      74                                      
+                  101-        CTRMEM  17      3       73      74      93                                      
+                  102-        FORCE   1       16      0       -1.     .0      .0      500.                    
+                  103-        FORCE   2       36              -1.0    .0      .0      500.0                   
+                  104-        GRDSET                                                  456                     
+                  105-        GRID    1               .0      .0      .0                                      
+                  106-        GRID    2               10.     .0      .0                                      
+                  107-        GRID    3               30.     .0      .0                                      
+                  108-        GRID    4               50.     .0      .0                                      
+                  109-        GRID    5               70.     .0      .0                                      
+                  110-        GRID    6               90.     .0      .0                                      
+                  111-        GRID    11              .0      .0      .82                                     
+                  112-        GRID    12              10.     .0      .82                                     
+                  113-        GRID    13              30.     .0      .82                                     
+                  114-        GRID    14              50.     .0      .795                                    
+                  115-        GRID    15              70.     .0      .754                                    
+                  116-        GRID    16              90.     .0      .67                                     
+                  117-        GRID    21              .0      20.     .0                                      
+                  118-        GRID    22              10.     20.     .0                                      
+                  119-        GRID    23              30.     20.     .0                                      
+                  120-        GRID    24              50.     20.     .0                                      
+                  121-        GRID    25              70.     20.     .0                                      
+                  122-        GRID    26              90.     20.     .0                                      
+                  123-        GRID    31              .0      20.     2.02                                    
+                  124-        GRID    32              10.     20.     2.02                                    
+                  125-        GRID    33              30.     20.     2.02                                    
+                  126-        GRID    34              50.     20.     1.795                                   
+                  127-        GRID    35              70.     20.     1.42                                    
+                  128-        GRID    36              90.     20.     .67                                     
+                  129-        GRID    41              .0      40.     .0                                      
+                  130-        GRID    42              10.     40.     .0                                      
+                  131-        GRID    43              30.     40.     .0                                      
+                  132-        GRID    44              50.     40.     .0                                      
+                  133-        GRID    45              70.     40.     .0                                      
+                  134-        GRID    51              .0      40.     2.42                                    
+                  135-        GRID    52              10.     40.     2.42                                    
+                  136-        GRID    53              30.     40.     2.42                                    
+                  137-        GRID    54              50.     40.     1.795                                   
+                  138-        GRID    55              70.     40.     .754                                    
+                  139-        GRID    61              .0      60.     .0                                      
+                  140-        GRID    62              10.     60.     .0                                      
+                  141-        GRID    63              30.     60.     .0                                      
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+
+      LOAD ON TRAILING EDGE                                                                                                         
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        GRID    64              50.     60.     .0                                      
+                  143-        GRID    71              .0      60.     2.02                                    
+                  144-        GRID    72              10.     60.     2.02                                    
+                  145-        GRID    73              30.     60.     2.02                                    
+                  146-        GRID    74              50.     60.     .795                                    
+                  147-        GRID    81              .0      80.     .0                                      
+                  148-        GRID    82              10.     80.     .0                                      
+                  149-        GRID    83              30.     80.     .0                                      
+                  150-        GRID    91              .0      80.     .82                                     
+                  151-        GRID    92              10.     80.     .82                                     
+                  152-        GRID    93              30.     80.     .82                                     
+                  153-        MAT1    1       10.4  +64.   +6                                                 
+                  154-        MAT1    2       1.04+7  4.+6            .2523-3                                 
+                  155-        PARAM   IRES    1                                                               
+                  156-        PQDMEM2 1       2       .16     .0                                              
+                  157-        PROD    5       1       2.1                                                     
+                  158-        PROD    6       1       3.5                                                     
+                  159-        PROD    7       1       4.91                                                    
+                  160-        PROD    8       1       4.2                                                     
+                  161-        PROD    9       1       5.6                                                     
+                  162-        PSHEAR  2       2       .14     .0                                              
+                  163-        PTRMEM  3       2       .16     .0                                              
+                  164-        SPC1    1       1       11      31      51      71      91                      
+                  165-        SPC1    1       3       13      33      53      73      93                      
+                  166-        SPC1    1       12      1       2       3       4       5       6       +SPC-A  
+                  167-        +SPC-A  21      22      23      24      25      26      41      42      +SPC-B  
+                  168-        +SPC-B  43      44      45      61      62      63      64      81      +SPC-C  
+                  169-        +SPC-C  82      83                                                              
+                              ENDDATA
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           19
+                                        PROFILE            509
+                                        MAX WAVEFRONT       17
+                                        AVG WAVEFRONT   10.604
+                                        RMS WAVEFRONT   11.331
+                                        RMS BANDWIDTH   12.060
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH           15
+                                        PROFILE            486
+                                        MAX WAVEFRONT       15
+                                        AVG WAVEFRONT   10.125
+                                        RMS WAVEFRONT   10.743
+                                        RMS BANDWIDTH   10.914
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       19        15
+                                        PROFILE (P)                        509       486
+                                        MAXIMUM WAVEFRONT (C-MAX)           17        15
+                                        AVERAGE WAVEFRONT (C-AVG)       10.604    10.125
+                                        RMS WAVEFRONT (C-RMS)           11.331    10.743
+                                        RMS BANDWITCH (B-RMS)           12.060    10.914
+                                        NUMBER OF GRID POINTS (N)                     48
+                                        NUMBER OF ELEMENTS (NON-RIGID)               113
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                          13
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                       200
+                                        MATRIX DENSITY, PERCENT                   19.444
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF SEQGP CARDS GENERATED                  12
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       1       2       4       3      11       4      13
+                         SEQGP          5       7       6       2      11       3      12       5
+                         SEQGP         13      12      14      14      15      10      16       6
+                         SEQGP         21      27      22      18      23      24      24      25
+                         SEQGP         25      15      26       8      31      16      32      17
+                         SEQGP         33      19      34      23      35      20      36       9
+                         SEQGP         41      37      42      30      43      32      44      26
+                         SEQGP         45      21      51      28      52      29      53      31
+                         SEQGP         54      33      55      22      61      44      62      40
+                         SEQGP         63      36      64      34      71      38      72      39
+                         SEQGP         73      41      74      35      81      48      82      47
+                         SEQGP         83      42      91      45      92      46      93      43
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION CONROD   ELEMENTS (ELEMENT TYPE  10) STARTING WITH ID      100
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QDMEM2   ELEMENTS (ELEMENT TYPE  63) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ROD      ELEMENTS (ELEMENT TYPE   1) STARTING WITH ID       60
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION SHEAR    ELEMENTS (ELEMENT TYPE   4) STARTING WITH ID       18
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TRMEM    ELEMENTS (ELEMENT TYPE   9) STARTING WITH ID       10
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -8.0193690E-12
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0                RULV                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       1-T3).
+             1 T3 -2.94449E-10        6 T3  4.83465E-09       11 T2  2.27374E-13       11 T3  3.61528E-10        2 T3  1.61037E-10
+            12 T1  1.63425E-13       12 T2 -4.26326E-14       12 T3 -3.33218E-10       16 T1 -2.81943E-11       16 T2 -2.36469E-11
+            16 T3 -3.18065E-09        5 T3  4.57658E-09       26 T3 -3.81249E-10       36 T1 -1.81899E-12       36 T2 -1.45519E-11
+            36 T3  6.66262E-10       15 T1  1.93268E-11       15 T2 -5.00222E-12       15 T3 -2.23474E-09        3 T3  5.07580E-14
+            13 T1  9.43601E-12       13 T2  1.32971E-12        4 T3  1.23464E-09       14 T1  6.42331E-12       14 T2 -6.36646E-12
+            14 T3 -4.40821E-11       25 T3 -1.19519E-09       31 T2 -3.41061E-13       31 T3 -2.50496E-10       32 T1 -2.50111E-12
+            32 T2  8.81073E-13       32 T3 -1.30300E-11       22 T3  1.24146E-10       33 T1  1.70530E-13       33 T2  1.98952E-12
+            35 T1  6.08225E-12       35 T2 -2.07478E-11       35 T3  2.27926E-09       45 T3  1.13586E-09       55 T1  9.09495E-13
+            55 T2 -4.54747E-13       55 T3 -3.41011E-10       34 T1 -6.05382E-12       34 T2 -1.27329E-11       34 T3  3.47654E-10
+            23 T3 -2.09888E-13       24 T3 -1.51203E-11       44 T3 -3.33273E-10       51 T2  2.84217E-14       51 T3  9.94276E-11
+            52 T1  8.81073E-13       52 T2  8.52651E-13       52 T3  7.03699E-11       42 T3  1.30740E-11       53 T1 -7.29139E-13
+            53 T2 -3.12639E-13       43 T3  1.49214E-13       54 T1 -1.57883E-11       54 T2 -7.47491E-12       54 T3  1.75793E-10
+            64 T3  2.83924E-10       74 T1  1.16529E-12       74 T2  2.95586E-12       74 T3  7.53442E-11       63 T3 -1.02141E-13
+            41 T3 -5.82077E-11       71 T2 -1.13687E-13       71 T3 -2.15046E-11       72 T1 -1.13687E-13       72 T2  3.63798E-12
+            72 T3 -2.93312E-11       62 T3 -2.14584E-11       73 T1 -5.68434E-14       73 T2 -6.25278E-13       83 T3  7.10543E-14
+            93 T1  1.81899E-12       93 T2  6.11067E-13       91 T2  5.68434E-14       91 T3  1.16415E-10       92 T1  1.36424E-12
+            92 T2  2.27374E-12       92 T3  3.94493E-11       82 T3 -3.09797E-10
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                                           E L E M E N T   S T R A I N   E N E R G I E S
+ 
+                              ELEMENT-TYPE = CONROD           * TOTAL FOR ALL TYPES =   1.0669881E+02
+0                                                                                               *
+                                    ELEMENT-ID          STRAIN-ENERGY           PERCENT OF TOTAL
+                                           100          7.988407E-03                 0.0075                                         
+                                           101          2.409836E-02                 0.0226                                         
+                                           102          3.317267E-02                 0.0311                                         
+                                           103          6.349654E-02                 0.0595                                         
+                                           104          1.417728E-02                 0.0133                                         
+                                           105          9.144345E-02                 0.0857                                         
+                                           106          2.413033E-01                 0.2262                                         
+                                           107          2.883048E-01                 0.2702                                         
+                                           108          1.747854E-01                 0.1638                                         
+                                           109          2.152781E-02                 0.0202                                         
+                                           110          1.064239E-01                 0.0997                                         
+                                           111          2.123052E-01                 0.1990                                         
+                                           112          1.469294E-01                 0.1377                                         
+                                           113          1.666902E-02                 0.0156                                         
+                                           114          4.466923E-02                 0.0419                                         
+                                           115          5.330126E-02                 0.0500                                         
+                                           116          9.557900E-04                 0.0009                                         
+                                           117          5.726366E-03                 0.0054                                         
+                                           118          2.457197E-04                 0.0002                                         
+                                           119          3.711989E-03                 0.0035                                         
+                                           120          4.448529E-03                 0.0042                                         
+                                           121          1.889404E-03                 0.0018                                         
+                                           122          9.093166E-04                 0.0009                                         
+                                           123          2.691366E-03                 0.0025                                         
+                                           124          9.108512E-04                 0.0009                                         
+                                           125          2.005136E-04                 0.0002                                         
+                                           126          1.883429E-03                 0.0018                                         
+                                           127          5.049681E-03                 0.0047                                         
+                                           128          5.204062E-05                 0.0000                                         
+                                           129          3.108810E-03                 0.0029                                         
+                                           130          2.271276E-03                 0.0021                                         
+                                           131          1.749204E-03                 0.0016                                         
+                                           132          5.887068E-06                 0.0000                                         
+                                           133          3.266075E-03                 0.0031                                         
+                                           134          3.249414E-02                 0.0305                                         
+                                           135          6.731627E-02                 0.0631                                         
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                                           E L E M E N T   S T R A I N   E N E R G I E S
+ 
+                              ELEMENT-TYPE = QDMEM2           * TOTAL FOR ALL TYPES =   1.0669881E+02
+0                                                                                               *
+                                    ELEMENT-ID          STRAIN-ENERGY           PERCENT OF TOTAL
+                                             1          1.877714E+00                 1.7598                                         
+                                             2          5.519096E+00                 5.1726                                         
+                                             3          8.704336E+00                 8.1579                                         
+                                             4          1.463803E+01                13.7190                                         
+                                             5          1.327264E+01                12.4393                                         
+                                             6          3.221649E+00                 3.0194                                         
+                                             7          8.364882E+00                 7.8397                                         
+                                             8          1.304429E+01                12.2253                                         
+                                             9          1.388945E+01                13.0174                                         
+                                            11          2.380748E+00                 2.2313                                         
+                                            12          4.562165E+00                 4.2757                                         
+                                            13          5.533886E+00                 5.1865                                         
+                                            15          1.045589E+00                 0.9799                                         
+                                            16          9.123661E-01                 0.8551                                         
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                                           E L E M E N T   S T R A I N   E N E R G I E S
+ 
+                              ELEMENT-TYPE = ROD              * TOTAL FOR ALL TYPES =   1.0669881E+02
+0                                                                                               *
+                                    ELEMENT-ID          STRAIN-ENERGY           PERCENT OF TOTAL
+                                            60          0.0                          0.0                                            
+                                            61          0.0                          0.0                                            
+                                            62          1.111976E-06                 0.0000                                         
+                                            63          1.372487E-06                 0.0000                                         
+                                            64          1.134541E-05                 0.0000                                         
+                                            65          4.014914E-04                 0.0004                                         
+                                            66          1.125337E-07                 0.0000                                         
+                                            67          2.653774E-06                 0.0000                                         
+                                            68          6.395850E-04                 0.0006                                         
+                                            69          3.602195E-09                 0.0000                                         
+                                            70          3.319486E-06                 0.0000                                         
+                                            71          2.895196E-08                 0.0000                                         
+                                            72          4.826075E-07                 0.0000                                         
+                                            73          4.930169E-06                 0.0000                                         
+                                            74          7.130022E-05                 0.0001                                         
+                                            75          9.095766E-06                 0.0000                                         
+                                            76          1.562888E-06                 0.0000                                         
+                                            77          3.316307E-07                 0.0000                                         
+                                            78          1.736600E-06                 0.0000                                         
+                                            79          1.984971E-04                 0.0002                                         
+                                            80          2.033314E-07                 0.0000                                         
+                                            81          0.0                          0.0                                            
+                                            82          0.0                          0.0                                            
+                                            83          6.973851E-05                 0.0001                                         
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                                           E L E M E N T   S T R A I N   E N E R G I E S
+ 
+                              ELEMENT-TYPE = SHEAR            * TOTAL FOR ALL TYPES =   1.0669881E+02
+0                                                                                               *
+                                    ELEMENT-ID          STRAIN-ENERGY           PERCENT OF TOTAL
+                                            18          3.264712E-14                 0.0000                                         
+                                            19          5.555574E-04                 0.0005                                         
+                                            20          7.848595E-02                 0.0736                                         
+                                            21          1.396061E-01                 0.1308                                         
+                                            22          1.452987E+00                 1.3618                                         
+                                            23          7.231098E-05                 0.0001                                         
+                                            24          1.236306E-01                 0.1159                                         
+                                            25          9.840964E-02                 0.0922                                         
+                                            26          1.042789E-01                 0.0977                                         
+                                            27          2.791686E-01                 0.2616                                         
+                                            28          2.136098E-04                 0.0002                                         
+                                            29          2.702962E-02                 0.0253                                         
+                                            30          1.151129E-02                 0.0108                                         
+                                            31          1.476611E-02                 0.0138                                         
+                                            32          2.131561E-04                 0.0002                                         
+                                            33          3.900273E-02                 0.0366                                         
+                                            34          3.468137E-03                 0.0033                                         
+                                            35          4.462504E-15                 0.0000                                         
+                                            36          8.715755E-02                 0.0817                                         
+                                            37          1.588225E-04                 0.0001                                         
+                                            38          5.359860E-02                 0.0502                                         
+                                            39          9.389047E-02                 0.0880                                         
+                                            40          2.491763E-02                 0.0234                                         
+                                            41          6.308967E-03                 0.0059                                         
+                                            42          1.656711E-01                 0.1553                                         
+                                            43          2.359575E-01                 0.2211                                         
+                                            44          3.356045E-02                 0.0315                                         
+                                            45          6.654442E-04                 0.0006                                         
+                                            46          6.962767E-03                 0.0065                                         
+                                            47          3.295067E-05                 0.0000                                         
+                                            48          5.229048E-02                 0.0490                                         
+                                            49          7.263252E-02                 0.0681                                         
+                                            50          7.150434E-01                 0.6702                                         
+                                            51          3.951204E-03                 0.0037                                         
+                                            52          3.625683E-07                 0.0000                                         
+                                            53          4.113988E-02                 0.0386                                         
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                                           E L E M E N T   S T R A I N   E N E R G I E S
+ 
+                              ELEMENT-TYPE = TRMEM            * TOTAL FOR ALL TYPES =   1.0669881E+02
+0                                                                                               *
+                                    ELEMENT-ID          STRAIN-ENERGY           PERCENT OF TOTAL
+                                            10          2.693934E+00                 2.5248                                         
+                                            14          1.257643E+00                 1.1787                                         
+                                            17          1.321577E-01                 0.1239                                         
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G      0.0            6.369039E-04   4.026382E-02   0.0            0.0            0.0                           
+            12      G      6.625130E-04   6.035610E-04   3.622411E-02   0.0            0.0            0.0                           
+            13      G      2.289834E-03   2.433819E-04   0.0            0.0            0.0            0.0                           
+            14      G      4.113281E-03  -4.025157E-04  -8.193040E-02   0.0            0.0            0.0                           
+            15      G      6.564544E-03  -1.838500E-03  -2.233857E-01   0.0            0.0            0.0                           
+            16      G      7.058426E-03  -3.955205E-03  -4.267952E-01   0.0            0.0            0.0                           
+            31      G      0.0            6.929894E-04   3.088420E-02   0.0            0.0            0.0                           
+            32      G      1.390125E-03   6.509469E-04   2.747888E-02   0.0            0.0            0.0                           
+            33      G      4.583679E-03  -1.630613E-04   0.0            0.0            0.0            0.0                           
+            34      G      7.405066E-03  -1.844160E-03  -6.477342E-02   0.0            0.0            0.0                           
+            35      G      8.560961E-03  -4.170824E-03  -1.662485E-01   0.0            0.0            0.0                           
+            36      G      4.914715E-03  -3.983642E-03  -2.995721E-01   0.0            0.0            0.0                           
+            51      G      0.0            3.152463E-04   2.439899E-02   0.0            0.0            0.0                           
+            52      G      1.364023E-03   3.544406E-04   2.163669E-02   0.0            0.0            0.0                           
+            53      G      4.088589E-03  -3.501009E-04   0.0            0.0            0.0            0.0                           
+            54      G      5.152458E-03  -1.894024E-03  -4.447462E-02   0.0            0.0            0.0                           
+            55      G      2.889915E-03  -1.870304E-03  -1.084868E-01   0.0            0.0            0.0                           
+            71      G      0.0           -6.402508E-05   2.056971E-02   0.0            0.0            0.0                           
+            72      G      9.715874E-04   1.684427E-05   1.822609E-02   0.0            0.0            0.0                           
+            73      G      2.472521E-03  -2.623439E-04   0.0            0.0            0.0            0.0                           
+            74      G      1.121520E-03  -5.099169E-04  -2.595375E-02   0.0            0.0            0.0                           
+            91      G      0.0           -2.568779E-04   2.186147E-02   0.0            0.0            0.0                           
+            92      G      5.609238E-04  -2.064985E-04   1.844120E-02   0.0            0.0            0.0                           
+            93      G      7.252471E-04   7.766333E-05   0.0            0.0            0.0            0.0                           
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      3.583409E-10   0.0            0.0            0.0            0.0            0.0                           
+             2      G      6.159551E+01  -2.500412E+01   0.0            0.0            0.0            0.0                           
+             3      G      7.993619E+02  -1.575899E+02   0.0            0.0            0.0            0.0                           
+             4      G      1.742463E+03   5.360886E+01   0.0            0.0            0.0            0.0                           
+             5      G      4.385215E+03  -5.188792E+02   0.0            0.0            0.0            0.0                           
+             6      G      3.380518E+03  -2.444683E+03   0.0            0.0            0.0            0.0                           
+            11      G     -1.440464E+03   0.0            0.0            0.0            0.0            0.0                           
+            13      G      0.0            0.0            2.328759E+01   0.0            0.0            0.0                           
+            21      G     -1.001171E+01   0.0            0.0            0.0            0.0            0.0                           
+            22      G     -5.954501E+02   3.426589E+02   0.0            0.0            0.0            0.0                           
+            23      G     -4.795281E+01   4.888026E+02   0.0            0.0            0.0            0.0                           
+            24      G      1.140154E+03   2.009932E+02   0.0            0.0            0.0            0.0                           
+            25      G      1.825346E+03  -1.130416E+03   0.0            0.0            0.0            0.0                           
+            26      G      1.074440E+03  -2.296445E+03   0.0            0.0            0.0            0.0                           
+            31      G     -4.576857E+03   0.0            0.0            0.0            0.0            0.0                           
+            33      G      0.0            0.0            4.822010E+02   0.0            0.0            0.0                           
+            41      G     -1.572080E+01   0.0            0.0            0.0            0.0            0.0                           
+            42      G     -2.658167E+02   8.542761E+02   0.0            0.0            0.0            0.0                           
+            43      G     -7.524690E+01   1.417811E+03   0.0            0.0            0.0            0.0                           
+            44      G      4.293880E+02   1.593136E+02   0.0            0.0            0.0            0.0                           
+            45      G      1.076619E+02  -4.646599E+02   0.0            0.0            0.0            0.0                           
+            51      G     -4.769151E+03   0.0            0.0            0.0            0.0            0.0                           
+            53      G      0.0            0.0            2.748912E+02   0.0            0.0            0.0                           
+            61      G     -1.718889E+01   0.0            0.0            0.0            0.0            0.0                           
+            62      G      3.116368E+02   7.997990E+02   0.0            0.0            0.0            0.0                           
+            63      G      4.461806E+02   1.134884E+03   0.0            0.0            0.0            0.0                           
+            64      G     -3.304393E+02   4.597235E+02   0.0            0.0            0.0            0.0                           
+            71      G     -3.513612E+03   0.0            0.0            0.0            0.0            0.0                           
+            73      G      0.0            0.0           -8.953587E+01   0.0            0.0            0.0                           
+            81      G     -3.165042E-10   0.0            0.0            0.0            0.0            0.0                           
+            82      G      7.715068E+02   3.131859E+02   0.0            0.0            0.0            0.0                           
+            83      G      3.223515E+02   8.126208E+02   0.0            0.0            0.0            0.0                           
+            91      G     -1.139908E+03   0.0            0.0            0.0            0.0            0.0                           
+            93      G      0.0            0.0           -1.908440E+02   0.0            0.0            0.0                           
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                          S T R E S S E S   A C T I N G   I N   Q D M E M 2   E L E M E N T S   (CQDMEM2)
+     ELEMENT        STRESSES IN MATERIAL COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+        1        1.088894E+03   7.174078E+01  -3.159946E+01       -1.7777       1.089875E+03   7.076007E+01   5.095574E+02          
+        2        1.301913E+03   1.616174E+02  -1.971363E+02       -9.5368       1.335032E+03   1.284980E+02   6.032670E+02          
+        3        1.495339E+03   2.029335E+02  -4.909373E+02      -18.6124       1.660676E+03   3.759601E+01   8.115400E+02          
+        4        1.631106E+03   2.694280E+02  -9.355760E+02      -26.9779       2.107351E+03  -2.068174E+02   1.157084E+03          
+        5        9.478574E+02   3.167808E+02  -1.152115E+03      -37.3418       1.826862E+03  -5.622238E+02   1.194543E+03          
+        6        1.494905E+03   2.091598E+02  -2.784482E+01       -1.2401       1.495508E+03   2.085571E+02   6.434753E+02          
+        7        1.639450E+03   3.357961E+02  -3.021451E+02      -12.4347       1.706073E+03   2.691732E+02   7.184498E+02          
+        8        1.731677E+03   4.841033E+02  -7.492800E+02      -25.1111       2.082842E+03   1.329387E+02   9.749516E+02          
+        9        1.322923E+03   5.638553E+02  -1.022839E+03      -34.8211       2.034373E+03  -1.475947E+02   1.090984E+03          
+       11        1.285619E+03   2.370070E+02   5.191833E+00        0.2837       1.285645E+03   2.369814E+02   5.243318E+02          
+       12        1.191724E+03   3.103128E+02  -2.194538E+02      -13.2357       1.243341E+03   2.586960E+02   4.923223E+02          
+       13        8.675933E+02   4.397802E+02  -5.826329E+02      -34.9200       1.274345E+03   3.302814E+01   6.206586E+02          
+       15        8.324529E+02   1.184902E+02   5.425244E+01        4.3207       8.365519E+02   1.143912E+02   3.610804E+02          
+       16        4.846491E+02   1.722750E+02   4.698929E+00        0.8616       4.847198E+02   1.722043E+02   1.562577E+02          
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+         ELEMENT            MAX            AVG        SAFETY         ELEMENT            MAX            AVG        SAFETY
+           ID.             SHEAR          SHEAR       MARGIN           ID.             SHEAR          SHEAR       MARGIN
+              18        9.765625E-04   9.765625E-04                       19        4.399683E+01  -4.399683E+01                     
+              20        5.269736E+02  -5.269736E+02                       21        7.176406E+02  -7.176406E+02                     
+              22        2.414652E+03  -2.414652E+03                       28        2.245850E+01   2.245850E+01                     
+              29        1.786398E+02   1.786398E+02                       30        1.683785E+02  -1.305078E+02                     
+              31        4.328295E+02  -2.546004E+02                       35        4.882812E-04  -4.882812E-04                     
+              36        5.510758E+02  -5.510758E+02                       41        2.772922E+02   1.614933E+02                     
+              42        5.531365E+02  -4.692649E+02                       43        6.601245E+02  -5.600304E+02                     
+              44        6.395472E+02  -3.724684E+02                       50        1.746203E+03   1.746203E+03                     
+1     DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS          /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-4A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                      S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E S      ( C T R M E M )
+  ELEMENT           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+       10        8.375298E+02   4.491918E+02  -6.419191E+02      -36.5852       1.314004E+03  -2.728198E+01   6.706428E+02          
+       14        6.884886E+02   4.465347E+02  -3.543126E+02      -35.5740       9.419083E+02   1.931150E+02   3.743966E+02          
+       17        1.942242E+02   2.352710E+02  -8.755251E+01      -51.5963       3.046734E+02   1.248218E+02   8.992580E+01          
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  DELTA WING WITH BICONVEX CROSS SECTION USING QDMEM2 ELEMENTS       
+ DATE:  5/17/95
+ END TIME: 14: 6: 4
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

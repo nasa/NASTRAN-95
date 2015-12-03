@@ -1,0 +1,99 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$            Nonsymmetric Bending of a Cylinder of Revolution (1-5-1)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the application of the conical shell element and its
+$ related special data. This element uses the Fourier components of displacement
+$ around an axisymmetric structure as the solution coordinates. The geometry of
+$ the structure is defined by rings instead of grid points. Its constraints must
+$ be defined by the particular Fourier harmonics, and the loads must be defined
+$ either with special data or in a harmonic form. This element may not be used
+$ in conjunction with any of the other structural elements.
+$ 
+$ The structure to be solved is described in Reference 6. It consists of a
+$ short, wide cylinder with a moderate thickness ratio. The applied loads and
+$ the output stresses are pure uncoupled harmonics. The basic purpose of this
+$ problem is to check the harmonic deflections, element stresses, and forces.
+$ 
+$ B. Input
+$ 
+$ The Fourier coefficients of the applied moment per length are:
+$ 
+$ m   = cos(n theta)                                                         (1)
+$  n
+$ 
+$ The applied input loads are defined as:
+$ 
+$ M   = integrate o to 2 pi (m  cos (n theta) R d theta)                     (2)
+$  n                          n
+$ 
+$ The values of applied moment on the MOMAX cards are:
+$ 
+$ M      = piR      n > 0                                                    (3)
+$  n phi
+$ 
+$ and
+$ 
+$ M      =  2piR    n = 0                                                    (4)
+$  o phi
+$ 
+$ The bending moments in the elements are defined as:
+$ 
+$ M   =  Moment about u                                                      (5)
+$  v                   phi
+$ 
+$ and
+$ 
+$ M   =  Moment about u                                                      (6)
+$  u                   z
+$ 
+$ Positive bending moments indicate compression on the outer side.
+$ 
+$ 1. Parameters:
+$ 
+$  R  =  50    Radius
+$ 
+$  s  =  50    Height
+$ 
+$  t  =  1.0   Thickness
+$ 
+$  E  =  91.0  Modulus of Elasticity
+$ 
+$  v  =  0.3   Poisson's Ratio
+$ 
+$ 2. Loads:
+$ 
+$  M (100) =  157.0796    Force x Length
+$   n
+$ 
+$  M (50)  = -157.0796    Force x Length
+$   n
+$ 
+$ 3. Single Point Constraints:
+$ 
+$  Ring ID  Harmonic   Coordinates
+$ 
+$    50       all      u ,u   ,u    Radial, tangential and axial translations
+$                       r  phi  z
+$   100       all      u ,u   ,u    Radial, tangential and axial translations
+$                       r  phi  z
+$   all       all      theta        Rotation normal to surface
+$                           r
+$ 
+$ The AXISYM = COSINE statement in case control defines the motions to be
+$ symmetric with respect to the x-z plane.
+$ 
+$ C. Results
+$ 
+$ Notice that for higher harmonics the effect of the load is limited to the
+$ edges. A smaller element size at the edges and a relatively large size in the
+$ center would have given the same accuracy with fewer degrees of freedom.
+$  
+$ APPLICABLE REFERENCES
+$ 
+$ 6. B. Budiansky and P. P. Radkowski, "Numerical Analysis of Unsymmetrlc
+$    Bending of Shells of Revolution", AIAA Journal, August, 1963.
+$ 
+$-------------------------------------------------------------------------------

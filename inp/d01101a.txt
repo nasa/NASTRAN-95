@@ -1,0 +1,188 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$                       Thermal Bending of a Beam (1-10-1)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates the solution of a beam subjected to a thermal
+$ gradient over the cross-section. Two end conditions are solved, clamped-free
+$ and clamped-pinned end conditions.
+$ 
+$ An equivalent linear gradient in the normal direction was used for the input
+$ data. However, the actual temperatures at points on the cross-section were
+$ input on the TEMPRB card in order to produce correct stresses. The beam was
+$ subdivided into 14 variable lengths for maximum efficiency.
+$ 
+$ B. Input
+$ 
+$ [???Fig. refs.]
+$ 
+$ C. Theory
+$ 
+$ For subcase 1, the effective temperature gradient, T', (see NASTRAN
+$ Theoretical Manual) is:
+$ 
+$                  1
+$        T'(x)  =  - integral from z integral from y  T(x,y,z)y dy dz        (1)
+$                  I
+$ 
+$ where
+$ 
+$        I =   integral from z integral from y  y  dy dz                     (2)
+$ 
+$ Using the given temperature distribution the effective gradient is:
+$ 
+$                  3
+$        T' =  T  x                                                          (3)
+$               c
+$                                              4
+$ where T  is calculated to be 0.170054 deg./in  by substituting the temperature
+$        c
+$ distribution into Equation 1 and evaluating the expression:
+$ 
+$               1
+$        T   =  -  integral from z integral from y  Cy  dy dz                (4)
+$         c     I
+$ 
+$ Since the bar is not redundantly constrained the curvature at the center line
+$ is:
+$ 
+$       2
+$      d v                            3
+$      ---  =  -alphaT'  =  -alphaT  x                                       (5)
+$        2                         c
+$      dx
+$ 
+$ The slope is:
+$ 
+$                                   2
+$      dv                          d v           alpha     4
+$      --  =  integral from 0 to x --- dx  =  -  ----- T  x                  (6)
+$      dx                            2             4    c
+$                                  dx
+$ 
+$ The deflection is:
+$ 
+$                                    dv          alpha     5
+$      v(x)  =  integral from 0 to x -- dx  =  - ----- T  x                  (7)
+$                                    dx           20    c
+$ 
+$ The moment, M, shear, V, and axial stress, Â , are:
+$                                             x
+$                                                                    +
+$               ( 2         )                                        |
+$               (d v        )                                        |
+$      M  =  EI (---  +  ‡T')  =  0                                  |
+$               (  2        )                                        |
+$               (dx         )                                        |
+$                                                                    |
+$            dM                                                      |       (8)
+$      V  =  --   =  0                                               |
+$            dx                                                      |
+$                                                                    |
+$                                                                    |
+$      sigma (x,y)  =  E(epsilon  - alphaT) =                        |
+$           x                   x                                    |
+$                                                                    |
+$                                              3   3                 |
+$      E(alphayT' - alphaT)  =  Ealpha(T y - Cy ) x                  |
+$                                       c                            |
+$                                                                    +
+$                                             6
+$ where C = 1 has dimensions of degrees/length .
+$ 
+$ For subcase 2, with a simple support at x = 10.0, we calculate the deflection
+$ due to subcase 1 and apply a constraint load P  to remove the deflection at
+$ the end.                                      L
+$ 
+$                                   alphaT
+$                3EI                      c   2
+$      P   =  -  ---  v(L)  =  3EI  -------  L                               (9)
+$       L          3                 20
+$                 L
+$ 
+$ Note: Transverse shear deflection is neglected.
+$ 
+$ The deflections and slopes are the sum of the results for the two independent
+$ loads as follows.
+$ 
+$                       P                alphaT
+$                        L     2    3          c  5
+$ deflection: v(x)  =  --- (3Lx  - x ) - ------- x   =
+$                      6EI                20
+$                                                                           (10)
+$                      alphaT
+$                            c    3    2      3   2
+$                      ------- (3L  - L x - 2x ) x
+$                       40
+$ 
+$                                 alphaT
+$                      alphav           c     3     2       3
+$ slope: alpha (x)  =  ------  =  -------  (6L  - 3L x - 10x )x             (11)
+$             z        alphax      40
+$ 
+$ The net stress is the sum of the stress due to each load:
+$ 
+$                                     M y
+$                              3  3    L
+$ sigma (x,y) = Ealpha(T y - Cy )x  - ---  =
+$      x                c              I
+$                                                                           (12)
+$                           3  3   3     2
+$           Ealpha[(T y - Cy )x  - -- T L (L - x)y]
+$                    c             20  c
+$ 
+$ 
+$ where M  is the moment due to the constraint load.
+$        L
+$ 
+$ D. Results
+$ 
+$ Tables 1 and 2 compare the analytical maximum value of displacement,
+$ constraint force, element force, and stress to the maximum deviation of
+$ NASTRAN in each category. All results are within 2.66%.
+$ 
+$    Table 1. Comparison of NASTRAN and Analytical Results, Clamped-Free Ends
+$                                   (Subcase 1)
+$              -------------------------------------------------------
+$               CATEGORY       MAXIMUM         MAXIMUM
+$                              ANALYTICAL      NASTRAN        PERCENT
+$                              VALUE           DIFFERENCE     ERROR
+$              -------------------------------------------------------
+$              Displacement              -2              -4
+$                            -1.1054 x 10     2.9424 x 10     2.66
+$              -------------------------------------------------------
+$              Constraint            0              *           *
+$              Force
+$              -------------------------------------------------------
+$              Element               0              *           *
+$              Force
+$              -------------------------------------------------------
+$              Element                   +3
+$              Stress         5.1965 x 10         0.671         0.01
+$              -------------------------------------------------------
+$ 
+$             * These results vary with the computer. The very small numbers are
+$               essentially zero when compared to subcase 2 results.
+$ 
+$ 
+$   Table 2. Comparison of NASTRAN and Analytical Results, Clamped-Pinned Ends
+$                                   (Subcase 2)
+$              -------------------------------------------------------
+$               CATEGORY       MAXIMUM         MAXIMUM
+$                              ANALYTICAL      NASTRAN        PERCENT
+$                              VALUE           DIFFERENCE     ERROR
+$              -------------------------------------------------------
+$              Displacement              -3             -4
+$                             4.3936 x 10     8.024 x 10      0.18
+$              -------------------------------------------------------
+$              Constraint                +2
+$              Force         -2.2859 x 10     6.0841          2.66
+$              -------------------------------------------------------
+$              Element                   +2
+$              Force          2.2859 x 10     6.0846          2.66
+$              -------------------------------------------------------
+$              Element                   +3
+$              Stress         5.1965 x 10     4.4136 x 10     0.85
+$              -------------------------------------------------------
+$-------------------------------------------------------------------------------

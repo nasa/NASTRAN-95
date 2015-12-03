@@ -1,0 +1,82 @@
+$-------------------------------------------------------------------------------
+$          RIGID FORMAT No. 13 Normal Modes with Differential Stiffness
+$      Normal Modes of a 100-Ce1l Beam with Differential Stiffness (13-1-1)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the effects of differential stiffness on the solution
+$ for the normal modes of a beam under axial compression.
+$ 
+$ The natural frequencies of the beam are affected by this load as shown in
+$ Reference 23. The loading specified here is one half of the Euler value for
+$ compression buckling, which decreases the unloaded natural frequency, w,
+$ proportional to
+$ 
+$      +            +
+$      |   2        | 1/2
+$      | pi EI      |
+$      | -----  - F |
+$      |   2        |
+$      |  l         |
+$      +            +
+$ 
+$ where F is the applied load.
+$ 
+$ The structural model is a uniform 100 cell beam hinged at both ends.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    A = 2.0         (cross sectional area)
+$ 
+$    I = 0.667       (bending inertia)
+$ 
+$                 6
+$    E = 10.4 x 10   (modulus of elasticity)
+$ 
+$    l = 100.0       (length)
+$                -4
+$    p = 2.0 x 10    (mass density)
+$ 
+$ 2. Constraints:
+$ 
+$    u  = theta  = 0  = 0     (all points)
+$     z        x    y
+$ 
+$    u  = 0                    (point 101)
+$     y
+$ 
+$    u  = u  = 0               (point 1)
+$     x    y
+$ 
+$ 3. Loads:
+$ 
+$    F      = 3423.17
+$     101,x
+$ 
+$    B      = 1.0       (default load factor)
+$ 
+$ C. Theory
+$ 
+$ The theoretical natural frequency for the first mode is given by
+$ 
+$         +                      +
+$         |             2        | 1/2
+$         |    l      pi EI      |
+$    f  = |  ------  (----- - F) |                                           (1)
+$         |       2      2       |
+$         |  4pA l      l        |
+$         +                      +
+$ 
+$ For this loading of one half the Euler buckling value, the theoretical value
+$ is 14.6269 Hertz for the bending mode.
+$ 
+$ D. Results
+$ 
+$ The natural frequency computed using NASTRAN is 14.62325 Hertz.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 23. Timoshenko, S. P., Theory of Elastic Stability, McGraw-Hill, 1961, p 159.
+$-------------------------------------------------------------------------------

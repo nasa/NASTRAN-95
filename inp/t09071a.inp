@@ -1,0 +1,39 @@
+ID    T09071A,NASTRAN                                                           
+APP   DISP                                                                      
+TIME  40                                                                        
+SOL   9                                                                         
+DIAG  14                                                                        
+READFILE COSDBCL                                            
+CEND                                                                            
+TITLE    = DYNAMIC DELAMINATION BUCKLING IN COMPOSITE LAMINATES UDER            
+SUBTITLE = NASTRAN TEST PROBLEM NO. T09-07-1A                                   
+LABEL    = A DYNAMIC TRANSIENT RESPONSE ANALYSIS - IMPACT LOADING               
+  DISP   = ALL                                                                  
+  SPC    = 4                                                                    
+SUBCASE 1                                                                       
+  DLOAD  = 4                                                                    
+  TSTEP  = 7                                                                    
+  STRESS = ALL                                                                  
+SUBCASE 2                                                                       
+  METHOD = 25                                                                   
+BEGIN BULK                                                                      
+CBAR,  1, 1,  1, 2,  0.  0.  1.0  1                                             
+=(9),*(1),=,*(1),/, ==                                                          
+DAREA, 8, 1,  2, +1.0                                                           
+DMI     TIP1    0       2       1       1               1000    1               
+DMI     TIP1    1       1       1.0                                             
+DMI     BAS1    0       2       1       1               1000    1               
+DMI     BAS1    1       1000    1.0                                             
+EIGB,  25 INV  0.01  1.0 2                                                      
+, MAX                                                                           
+GRID,    1 ,, 0.0  0.0  0.0                                                     
+=(10), *(1),, =, *(10.),==                                                      
+MAT1,11  10.0+6, 16.5+6,, 2.59-4                                                
+PBAR, 1  11 .785 .049 .049 .098                                                 
+SPC,  4  11 123456                                                              
+TABLED1, 4  )+S4                                                                
+),  0.0  0.0  25.E-6  120.9  1.0  120.9  ENDT                                   
+TLOAD1, 4  8   0,, 4                                                            
+TSTEP,  6  20  0.0002  1                                                        
+TSTEP,  7 200  12.5-6  4                                                        
+ENDDATA                                                                         

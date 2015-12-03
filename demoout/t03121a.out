@@ -1,0 +1,1656 @@
+     NASTRAN FILES=NPTP                                                              
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T03121A,NASTRAN                                                           
+     DIAG  14                                                                        
+     TIME  10                                                                        
+     SOL   3,0                                                                       
+     APP   DISP                                                                      
+     CHKPNT  YES                                                                     
+     $ INSERT HYDRO MODAL DMAP ALTERS (COSHYD2) AFTER THIS CARD                      
+0*** $   ... READFILE FROM-  COSHYD2                                                 
+     $ COSMIC ALTERS FOR HYDROELASTIC ANALYSIS - MODAL FORMULATION (COSHYD2)         
+     $ ALTER    1,1 $  COSMIC/NASTRAN RF 3. REPLACING BEGIN                          
+     DELETE BEGIN $                                                                  
+     XDMAP    GO,ERR=2 $                                                             
+     BEGIN    HYDROELASTIC ANALYSIS - MODAL FORMULATION                              
+     $ ALTER    3 $  AFTER PRECHK/FILE                                               
+     INSERT FILE $                                                                   
+     COMPOFF  NEW1,NEWMODE $                                                         
+     $ ALTER    46 $  AFTER OFP/COND/PURGE                                           
+     INSERT GP4,3 $                                                                  
+     FLBMG    GEOM2,ECT,BGPDT,SIL,MPT,GEOM3,CSTM,USET,EQEXIN/USETF,USETS,AF,         
+              DKGG/S,N,NOGRAV/S,N,NOFREE/S,N,TILT $                                  
+     VEC      USETF/PV1/*G*/*X*/*Y* $                                                
+     PARTN    KGG,PV1,/KXX,,,KYY $                                                   
+     PARTN    MGG,PV1,/MXX,,, $                                                      
+     PARTN    RG,PV1,/RX,,,/1 $                                                      
+     EQUIV    RX,RG $                                                                
+     PARTN    AF,PV1,/,,AXY,AYY $                                                    
+     COND     MODAL1,NOGRAV $                                                        
+     PARTN    DKGG,PV1,/DKXX,,,DKYY $                                                
+     COND     MODAL1,NOFREE $                                                        
+     VEC      USETF/PV2/*Y*/*FR*/*COMP* $                                            
+     PARTN    AYY,,PV2/AFRY,,,/0 $                                                   
+     PARTN    DKYY,PV2,/DKFRFR,,, $                                                  
+     LABEL    MODAL1 $                                                               
+     LABEL    NEW1 $                                                                 
+     DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,,,,,,,EED,EQDYN/LUSET/           
+              LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/NONLFT/NOTRL/S,N,NOEED//NOUE $         
+     COND     ERROR2,NOEED $                                                         
+     COMPOFF  NEW2,NEWMODE $                                                         
+     PARAM    //*MPY*/CARDNO/0/0 $                                                   
+     COMPOFF  NOSTRUC,OLDSTR $                                                       
+     COMPON   2,DIFSTIF $                                                            
+     PARAMR   //*COMPLEX*//V,Y,DIFSCALE=1.0/0.0/DIFSCAL/// $                         
+     ADD      KXX,KDGG/KGG/(1.0,0.0)/DIFSCAL $                                       
+     COMPOFF  1,DIFSTIF $                                                            
+     EQUIV    KXX,KGG $                                                              
+     EQUIV    MXX,MGG $                                                              
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     5
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     $ ALTER    49,50 $  REPLACING MCE1, MCE2                                        
+     DELETE MCE1,MCE2 $                                                              
+     MCE1     USETS,RG/GM $                                                          
+     MCE2     USETS,GM,KGG,MGG,,/KNN,MNN,, $                                         
+     $ ALTER    54,54 $  REPLACING SCE1                                              
+     DELETE SCE1 $                                                                   
+     SCE1     USETS,KNN,MNN,,/KFF,KFS,,MFF,, $                                       
+     $ ALTER    59,60 $  REPLACING SMP1, SMP2                                        
+     DELETE SMP1,SMP2 $                                                              
+     SMP1     USETS,KFF,,,/GO,KAA,KOO,LOO,,,,, $                                     
+     SMP2     USETS,GO,MFF/MAA $                                                     
+     $ ALTER    63,63 $  REPLACING RBMG1                                             
+     DELETE RBMG1 $                                                                  
+     RBMG1    USETS,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                                
+     $ ALTER    68,69 $  REPLACING DPD, COND                                         
+     DELETE DPD,DPD,1 $                                                              
+     CASE     CASECC,/CASE1/*REIGEN*/S,N,REPT/S,N,LOLP $                             
+     $ ALTER    71,71 $  REPLACING READ                                              
+     DELETE READ $                                                                   
+     READ     KAA,MAA,MR,DM,EED,USETS,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/             
+              S,N,NEIGV $                                                            
+     $ ALTER    75,77 $  REPLACING SDR1, COND, EQMCK                                 
+     DELETE SDR1,EQMCK $                                                             
+     SDR1     USETS,,PHIA,,,GO,GM,,KFS,,/PHIG,,QG/1/*REIG* $                         
+     COND     NOMPCF,GRDEQ $                                                         
+     EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USETS,KGG,GM,PHIG,LAMA,QG,CSTM/            
+              OQM1/V,Y,OPT=0/V,Y,GRDEQ/-1 $                                          
+     $ ALTER    80,80 $  REPLACING SDR2                                              
+     DELETE SDR2 $                                                                   
+     MERGE    PHIG,,,,,PV1/PHIGS/0 $                                                 
+     MERGE    QG,,,,,PV1/QGS/0 $                                                     
+     SDR2     CASE1,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDT,LAMA,QGS,PHIGS,EST,,,/,          
+              OQGS,OPHIGS,,OEFS,PPHIGS,,/*REIG* $                                    
+     OFP      OPHIGS,OQGS,OEFS,,,//S,N,CARDNO $                                      
+     LABEL    NOSTRUC $                                                              
+     PURGE    DKAA/NOGRAV $                                                          
+     COND     MODAL4,NOGRAV $                                                        
+     EQUIV    DKXX,DKNN/MPCF1 $                                                      
+     COND     MODAL2,MPCF2 $                                                         
+     MCE2     USETS,GM,DKXX,,,/DKNN,,, $                                             
+     LABEL    MODAL2 $                                                               
+     EQUIV    DKNN,DKFF/SINGLE $                                                     
+     COND     MODAL3,SINGLE $                                                        
+     SCE1     USETS,DKNN,,,/DKFF,,,,, $                                              
+     LABEL    MODAL3 $                                                               
+     EQUIV    DKFF,DKAA/OMIT $                                                       
+     COND     MODAL4,OMIT $                                                          
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     6
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SMP2     USETS,GO,DKFF/DKAA $                                                   
+     LABEL    MODAL4 $                                                               
+     GFSMA    AXY,AFRY,KYY,DKAA,DKFRFR,,,,,,USETF,PHIA,PHIG,LAMA/KMAT,MMAT,          
+              GIH,PV4,/NOGRAV/NOFREE/V,Y,KCOMP/V,Y,COMPTYP/FORM=1/                   
+              S,Y,LMODES $                                                           
+     JUMP     OLD2 $                                                                 
+     LABEL    NEW2 $                                                                 
+     PARAM    //*MPY*/REPT/1/1 $                                                     
+     LABEL    OLD2 $                                                                 
+     CASE     CASECC,/CASE2/*REIGEN*/S,N,REPT/S,N,LOLP $                             
+     PARAM    //*MPY*/NEIGV/1/-1 $                                                   
+     READ     KMAT,MMAT,,,EED,USETF,CASE2/LAMAT,PHIH,MH,OEIGH/*MODES*/               
+              S,N,NEIGV $                                                            
+     OFP      LAMAT,OEIGH,,,,//S,N,CARDNO $                                          
+     COND     FINIS,NEIGV $                                                          
+     MPYAD    GIH,PHIH,/PHII/0/1/0 $                                                 
+     EQUIV    PHIH,PHIZ/NOFREE $                                                     
+     EQUIV    PHII,PHIY/NOFREE $                                                     
+     COND     MODAL5,NOFREE $                                                        
+     PARTN    PHIH,,PV4/PHIZ,PHIFR,,/0 $                                             
+     MERGE    PHIFR,PHII,,,,PV2/PHIY/0 $                                             
+     LABEL    MODAL5 $                                                               
+     COND     ALLMODES,LMODES                                                        
+     TRAILER  PHIG//*STORE*/1/V,Y,LMODES $                                           
+     TRAILER  QG//*STORE*/1/V,Y,LMODES $                                             
+     LABEL    ALLMODES $                                                             
+     MPYAD    PHIG,PHIZ,/PHIX/0/1/0 $                                                
+     MPYAD    QG,PHIZ,/QX/0/1/0 $                                                    
+     MERGE    PHIX,PHIY,,,,PV1/PHIGT/0 $                                             
+     MERGE    QX,,,,,PV1/QGT/0 $                                                     
+     SDR2     CASE2,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDP,LAMAT,QGT,PHIGT,EST,,,           
+              PCOMPS/,OQG1,OPHIG,OES1,OEF1,PPHIG,OES1L,OEF1L/*REIG* $                
+     ENDALTER $                                                                      
+0*** $   END READFILE                                                                
+     $ INSERT HYDRO MODAL DMAP ALTERS (COSHYD2) BEFORE THIS CARD                     
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     7
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+0ECHO OF FIRST CARD IN CHECKPOINT DICTIONARY TO BE PUNCHED OUT FOR THIS PROBLEM
+0   RESTART   T03121A ,NASTRAN , 5/18/95,   36590,
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT              
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T03-12-1A                                   
+                  3      $ REFERENCE PROBLEM IV.1                                                        
+                  4      SPC  = 10                                                                       
+                  5      DISP = ALL                                                                      
+                  6      SUBCASE 1                                                                       
+                  7          LABEL  = MODES OF EMPTY STRUCTURE                                           
+                  8          METHOD = 50                                                                 
+                  9      SUBCASE 2                                                                       
+                 10          LABEL  = MODES WITH FLUID INCLUDED                                          
+                 11          METHOD = 60                                                                 
+                 12          SPCF   = ALL                                                                
+                 13      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    35, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CFFREE  1       100     6                                                       
+                    2-        CFHEX2  1       200     1       2       4       3       5       6       +CFH1   
+                    3-        +CFH1   8       7                                                               
+                    4-        CFLSTR  1       100     101     THRU    104                                     
+                    5-        CQUAD2  101     100     101     102     106     105                             
+                    6-        CQUAD2  102     100     102     104     108     106                             
+                    7-        CQUAD2  103     100     104     103     107     108                             
+                    8-        CQUAD2  104     100     101     103     104     102                             
+                    9-        EIGR    50      GIV     0.0     2600.0  10      10      0               +EMOD1  
+                   10-        +EMOD1  MAX                                                                     
+                   11-        EIGR    60      GIV     0.0     10.0    6       6       0               +E1     
+                   12-        +E1     MAX                                                                     
+                   13-        GRAV    100             386.0   0.0     0.0     -1.0                            
+                   14-        GRID    1               0.0     0.0     0.0                                     
+                   15-        GRID    2               6.0     0.0     0.0                                     
+                   16-        GRID    3               0.0     12.0    0.0                                     
+                   17-        GRID    4               6.0     12.0    0.0                                     
+                   18-        GRID    5               0.0     0.0     12.0                                    
+                   19-        GRID    6               6.0     0.0     12.0                                    
+                   20-        GRID    7               0.0     12.0    12.0                                    
+                   21-        GRID    8               6.0     12.0    12.0                                    
+                   22-        GRID    101             0.0     0.0     0.0                                     
+                   23-        GRID    102             6.0     0.0     0.0                                     
+                   24-        GRID    103             0.0     12.0    0.0                                     
+                   25-        GRID    104             6.0     12.0    0.0                                     
+                   26-        GRID    105             0.0     0.0     12.0                                    
+                   27-        GRID    106             6.0     0.0     12.0                                    
+                   28-        GRID    107             0.0     12.0    12.0                                    
+                   29-        GRID    108             6.0     12.0    12.0                                    
+                   30-        MAT1    100     10.6+6          .3      .92-3                                   
+                   31-        MATF    200     9.355-4                                                         
+                   32-        OMIT1   4       101     103     105     107                                     
+                   33-        OMIT1   456     102     104     106     108                                     
+                   34-        PQUAD2  100     100     .06                                                     
+                   35-        SPC1    10      1256    101     103     105     107                             
+                              ENDDATA
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  XDMAP    GO,ERR=2 $                                                     
+
+       1  BEGIN    HYDROELASTIC ANALYSIS - MODAL FORMULATION                      
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     LAMA=APPEND/PHIA=APPEND $                                      
+
+       3  COMPOFF  NEW1,NEWMODE $                                                 
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/ALWAYS=-1 $                                             
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      12  COND     P1,JUMPPLOT $                                                  
+
+      13  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      14  PRTMSG   PLTSETX// $                                                    
+
+      15  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      16  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      17  COND     P1,JUMPPLOT $                                                  
+
+      18  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE  $                
+
+      19  PRTMSG   PLOTX1//$                                                      
+
+      20  LABEL    P1 $                                                           
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $                              
+
+      22  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      23  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      24  COND     ERROR4,NOSIMP $                                                
+
+      25  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      26  PARAM    //*ADD*/NOMGG/1/0 $                                            
+
+      27  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/C,Y,CPROD/C,Y,CPQUAD1/     
+                   C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/C,Y,CPTUBE/C,Y,CPQDPLT/    
+                   C,Y,CPTRPLT/C,Y,CPTRBSC/C,Y,VOLUME/C,Y,SURFACE $               
+
+      28  PURGE    KGGX/NOKGGX $                                                  
+
+      29  COND     JMPKGG,NOKGGX $                                                
+
+      30  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      31  LABEL    JMPKGG $                                                       
+
+      32  COND     ERROR1,NOMGG $                                                 
+
+      33  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      34  PURGE    MDICT,MELM/ALWAYS $                                            
+
+      35  COND     LGPWG,GRDPNT $                                                 
+
+      36  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/C,Y,WTMASS $         
+
+      37  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      38  LABEL    LGPWG $                                                        
+
+      39  EQUIV    KGGX,KGG/NOGENL $                                              
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      40  COND     LBL11,NOGENL $                                                 
+
+      41  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      42  LABEL    LBL11 $                                                        
+
+      43  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      44  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      45  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      46  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      47  COND     ERROR3,NOL $                                                   
+
+      48  PURGE    KRR,KLR,DM,MLR,MR/REACT/GM/MPCF1/GO/OMIT/KFS/SINGLE/QG/NOSET $ 
+
+      48  FLBMG    GEOM2,ECT,BGPDT,SIL,MPT,GEOM3,CSTM,USET,EQEXIN/USETF,USETS,AF, 
+                   DKGG/S,N,NOGRAV/S,N,NOFREE/S,N,TILT $                          
+
+      48  VEC      USETF/PV1/*G*/*X*/*Y* $                                        
+
+      48  PARTN    KGG,PV1,/KXX,,,KYY $                                           
+
+      48  PARTN    MGG,PV1,/MXX,,, $                                              
+
+      48  PARTN    RG,PV1,/RX,,,/1 $                                              
+
+      48  EQUIV    RX,RG $                                                        
+
+      48  PARTN    AF,PV1,/,,AXY,AYY $                                            
+
+      48  COND     MODAL1,NOGRAV $                                                
+
+      48  PARTN    DKGG,PV1,/DKXX,,,DKYY $                                        
+
+      48  COND     MODAL1,NOFREE $                                                
+
+      48  VEC      USETF/PV2/*Y*/*FR*/*COMP* $                                    
+
+      48  PARTN    AYY,,PV2/AFRY,,,/0 $                                           
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      48  PARTN    DKYY,PV2,/DKFRFR,,, $                                          
+
+      48  LABEL    MODAL1 $                                                       
+
+      48  LABEL    NEW1 $                                                         
+
+      48  DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,,,,,,,EED,EQDYN/LUSET/   
+                   LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/NONLFT/NOTRL/S,N,NOEED//NOUE $ 
+
+      48  COND     ERROR2,NOEED $                                                 
+
+      48  COMPOFF  NEW2,NEWMODE $                                                 
+
+      48  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+      48  COMPOFF  NOSTRUC,OLDSTR $                                               
+
+      48  COMPON   2,DIFSTIF $                                                    
+
+      48  COMPOFF  1,DIFSTIF $                                                    
+
+      48  EQUIV    KXX,KGG $                                                      
+
+      48  EQUIV    MXX,MGG $                                                      
+
+      49  EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1 $                                  
+
+      50  COND     LBL2,MPCF1 $                                                   
+
+      52  MCE1     USETS,RG/GM $                                                  
+
+      52  MCE2     USETS,GM,KGG,MGG,,/KNN,MNN,, $                                 
+
+      53  LABEL    LBL2 $                                                         
+
+      54  EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE $                                
+
+      55  COND     LBL3,SINGLE $                                                  
+
+      56  SCE1     USETS,KNN,MNN,,/KFF,KFS,,MFF,, $                               
+
+      57  LABEL    LBL3  $                                                        
+
+      58  EQUIV    KFF,KAA/OMIT $                                                 
+
+      59  EQUIV    MFF,MAA/OMIT $                                                 
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      60  COND     LBL5,OMIT $                                                    
+
+      62  SMP1     USETS,KFF,,,/GO,KAA,KOO,LOO,,,,, $                             
+
+      62  SMP2     USETS,GO,MFF/MAA $                                             
+
+      63  LABEL    LBL5 $                                                         
+
+      64  COND     LBL6,REACT $                                                   
+
+      65  RBMG1    USETS,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                        
+
+      66  RBMG2    KLL/LLL $                                                      
+
+      67  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      68  RBMG4    DM,MLL,MLR,MRR/MR $                                            
+
+      69  LABEL    LBL6 $                                                         
+
+      71  CASE     CASECC,/CASE1/*REIGEN*/S,N,REPT/S,N,LOLP $                     
+
+      72  PARAM    //*MPY*/NEIGV/1/-1 $                                           
+
+      73  READ     KAA,MAA,MR,DM,EED,USETS,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/     
+                   S,N,NEIGV $                                                    
+
+      74  OFP      OEIGS,,,,,//S,N,CARDNO $                                       
+
+      75  COND     FINIS,NEIGV $                                                  
+
+      76  OFP      LAMA,,,,,//S,N,CARDNO $                                        
+
+      79  SDR1     USETS,,PHIA,,,GO,GM,,KFS,,/PHIG,,QG/1/*REIG* $                 
+
+      79  COND     NOMPCF,GRDEQ $                                                 
+
+      79  EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USETS,KGG,GM,PHIG,LAMA,QG,CSTM/    
+                   OQM1/V,Y,OPT=0/V,Y,GRDEQ/-1 $                                  
+
+      80  OFP      OQM1,,,,,//S,N,CARDNO $                                        
+
+      81  LABEL    NOMPCF $                                                       
+
+      82  MERGE    PHIG,,,,,PV1/PHIGS/0 $                                         
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      82  MERGE    QG,,,,,PV1/QGS/0 $                                             
+
+      82  SDR2     CASE1,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDT,LAMA,QGS,PHIGS,EST,,,/,  
+                   OQGS,OPHIGS,,OEFS,PPHIGS,,/*REIG* $                            
+
+      82  OFP      OPHIGS,OQGS,OEFS,,,//S,N,CARDNO $                              
+
+      82  LABEL    NOSTRUC $                                                      
+
+      82  PURGE    DKAA/NOGRAV $                                                  
+
+      82  COND     MODAL4,NOGRAV $                                                
+
+      82  EQUIV    DKXX,DKNN/MPCF1 $                                              
+
+      82  COND     MODAL2,MPCF2 $                                                 
+
+      82  MCE2     USETS,GM,DKXX,,,/DKNN,,, $                                     
+
+      82  LABEL    MODAL2 $                                                       
+
+      82  EQUIV    DKNN,DKFF/SINGLE $                                             
+
+      82  COND     MODAL3,SINGLE $                                                
+
+      82  SCE1     USETS,DKNN,,,/DKFF,,,,, $                                      
+
+      82  LABEL    MODAL3 $                                                       
+
+      82  EQUIV    DKFF,DKAA/OMIT $                                               
+
+      82  COND     MODAL4,OMIT $                                                  
+
+      82  SMP2     USETS,GO,DKFF/DKAA $                                           
+
+      82  LABEL    MODAL4 $                                                       
+
+      82  GFSMA    AXY,AFRY,KYY,DKAA,DKFRFR,,,,,,USETF,PHIA,PHIG,LAMA/KMAT,MMAT,  
+                   GIH,PV4,/NOGRAV/NOFREE/V,Y,KCOMP/V,Y,COMPTYP/FORM=1/           
+                   S,Y,LMODES $                                                   
+
+      82  JUMP     OLD2 $                                                         
+
+      82  LABEL    NEW2 $                                                         
+
+      82  PARAM    //*MPY*/REPT/1/1 $                                             
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      82  LABEL    OLD2 $                                                         
+
+      82  CASE     CASECC,/CASE2/*REIGEN*/S,N,REPT/S,N,LOLP $                     
+
+      82  PARAM    //*MPY*/NEIGV/1/-1 $                                           
+
+      82  READ     KMAT,MMAT,,,EED,USETF,CASE2/LAMAT,PHIH,MH,OEIGH/*MODES*/       
+                   S,N,NEIGV $                                                    
+
+      82  OFP      LAMAT,OEIGH,,,,//S,N,CARDNO $                                  
+
+      82  COND     FINIS,NEIGV $                                                  
+
+      82  MPYAD    GIH,PHIH,/PHII/0/1/0 $                                         
+
+      82  EQUIV    PHIH,PHIZ/NOFREE $                                             
+
+      82  EQUIV    PHII,PHIY/NOFREE $                                             
+
+      82  COND     MODAL5,NOFREE $                                                
+
+      82  PARTN    PHIH,,PV4/PHIZ,PHIFR,,/0 $                                     
+
+      82  MERGE    PHIFR,PHII,,,,PV2/PHIY/0 $                                     
+
+      82  LABEL    MODAL5 $                                                       
+
+      82  COND     ALLMODES,LMODES                                                
+
+      82  TRAILER  PHIG//*STORE*/1/V,Y,LMODES $                                   
+
+      82  TRAILER  QG//*STORE*/1/V,Y,LMODES $                                     
+
+      82  LABEL    ALLMODES $                                                     
+
+      82  MPYAD    PHIG,PHIZ,/PHIX/0/1/0 $                                        
+
+      82  MPYAD    QG,PHIZ,/QX/0/1/0 $                                            
+
+      82  MERGE    PHIX,PHIY,,,,PV1/PHIGT/0 $                                     
+
+      82  MERGE    QX,,,,,PV1/QGT/0 $                                             
+
+      82  SDR2     CASE2,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDP,LAMAT,QGT,PHIGT,EST,,,   
+                   PCOMPS/,OQG1,OPHIG,OES1,OEF1,PPHIG,OES1L,OEF1L/*REIG* $        
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      83  OFP      OPHIG,OQG1,OEF1,OES1,OEF1L,OES1L//S,N,CARDNO $                 
+
+      84  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
+
+      85  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
+
+      86  GPFDR    CASECC,PHIG,KELM,KDICT,ECT,EQEXIN,GPECT,LAMA,/ONRGY1,/*REIG* $ 
+
+      87  OFP      ONRGY1,,,,,//S,N,CARDNO $                                      
+
+      88  PURGE    KDICT,KELM/ALWAYS $                                            
+
+      89  COND     P2,JUMPPLOT $                                                  
+
+      90  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,,PPHIG,GPECT,OES1,
+                   OES1L,/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $           
+
+      91  PRTMSG   PLOTX2// $                                                     
+
+      92  LABEL    P2 $                                                           
+
+      93  JUMP     FINIS $                                                        
+
+      94  LABEL    ERROR1 $                                                       
+
+      95  PRTPARM  //-1/*MODES* $                                                 
+
+      96  LABEL    ERROR2 $                                                       
+
+      97  PRTPARM  //-2/*MODES* $                                                 
+
+      98  LABEL    ERROR3 $                                                       
+
+      99  PRTPARM  //-3/*MODES* $                                                 
+
+     100  LABEL    ERROR4 $                                                       
+
+     101  PRTPARM  //-4/*MODES* $                                                 
+
+     102  LABEL    FINIS $                                                        
+
+     103  PURGE    DUMMY/ALWAYS $                                                 
+
+     104  END      $                                                              
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+         CONTINUATION OF CHECKPOINT DICTIONARY
+ 
+         1,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =      6
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    19
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            8
+                                        PROFILE             69
+                                        MAX WAVEFRONT        8
+                                        AVG WAVEFRONT    4.312
+                                        RMS WAVEFRONT    4.789
+                                        RMS BANDWIDTH    4.802
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            8
+                                        PROFILE             64
+                                        MAX WAVEFRONT        8
+                                        AVG WAVEFRONT    4.000
+                                        RMS WAVEFRONT    4.444
+                                        RMS BANDWIDTH    4.444
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        8         8
+                                        PROFILE (P)                         69        64
+                                        MAXIMUM WAVEFRONT (C-MAX)            8         8
+                                        AVERAGE WAVEFRONT (C-AVG)        4.312     4.000
+                                        RMS WAVEFRONT (C-RMS)            4.789     4.444
+                                        RMS BANDWITCH (B-RMS)            4.802     4.444
+                                        NUMBER OF GRID POINTS (N)                     16
+                                        NUMBER OF ELEMENTS (NON-RIGID)                 5
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           2
+                                        MAXIMUM NODAL DEGREE                           7
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                        47
+                                        MATRIX DENSITY, PERCENT                   42.969
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF SEQGP CARDS GENERATED                   4
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    20
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       9       2      16       3      11       4      10
+                         SEQGP          5      12       6      13       7      15       8      14
+                         SEQGP        101       2     102       4     103       5     104       6
+                         SEQGP        105       1     106       3     107       8     108       7
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** SYSTEM WARNING MESSAGE 2072, CARD TYPE     4802 NOT FOUND ON DATA BLOCK.  BIT POSITION =  48
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    21
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+         2,   REENTER AT DMAP SEQUENCE NUMBER     6
+         3,   GPL     ,   FLAGS = 0,   REEL =  1,   FILE =      7
+         4,   EQEXIN  ,   FLAGS = 0,   REEL =  1,   FILE =      8
+         5,   GPDT    ,   FLAGS = 0,   REEL =  1,   FILE =      9
+         6,   BGPDT   ,   FLAGS = 0,   REEL =  1,   FILE =     10
+         7,   SIL     ,   FLAGS = 0,   REEL =  1,   FILE =     11
+         8,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     12
+         9,   CSTM    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        10,   REENTER AT DMAP SEQUENCE NUMBER     7
+        11,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     13
+        12,   MPTA    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        13,   REENTER AT DMAP SEQUENCE NUMBER     8
+        14,   MPT     ,   FLAGS = 0,   REEL =  1,   FILE =     14
+        15,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     15
+ 
+        16,   REENTER AT DMAP SEQUENCE NUMBER     9
+        17,   BGPDP   ,   FLAGS = 0,   REEL =  1,   FILE =     16
+        18,   SIP     ,   FLAGS = 0,   REEL =  1,   FILE =     17
+        19,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     18
+ 
+        20,   REENTER AT DMAP SEQUENCE NUMBER    10
+        21,   ECT     ,   FLAGS = 0,   REEL =  1,   FILE =     19
+        22,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     20
+ 
+        23,   REENTER AT DMAP SEQUENCE NUMBER    12
+        24,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     21
+        25,   PLTSETX ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        26,   PLTPAR  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        27,   GPSETS  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        28,   ELSETS  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        29,   REENTER AT DMAP SEQUENCE NUMBER    22
+        30,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     22
+        31,   GPTT    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        32,   REENTER AT DMAP SEQUENCE NUMBER    23
+        33,   EST     ,   FLAGS = 0,   REEL =  1,   FILE =     23
+        34,   GPECT   ,   FLAGS = 0,   REEL =  1,   FILE =     24
+        35,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     25
+        36,   GEI     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        37,   MPTX    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        38,   PCOMPS  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        39,   EPTX    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    22
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+        40,   REENTER AT DMAP SEQUENCE NUMBER    24
+        41,   MPT     ,   FLAGS = 0,   REEL =  1,   FILE =     26
+        42,   EPT     ,   FLAGS = 0,   REEL =  1,   FILE =     27
+        43,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     28
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION FHEX2    ELEMENTS (ELEMENT TYPE  77) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD2    ELEMENTS (ELEMENT TYPE  18) STARTING WITH ID      101
+ 
+        44,   REENTER AT DMAP SEQUENCE NUMBER    28
+        45,   KELM    ,   FLAGS = 0,   REEL =  1,   FILE =     29
+        46,   KDICT   ,   FLAGS = 0,   REEL =  1,   FILE =     30
+        47,   MELM    ,   FLAGS = 0,   REEL =  1,   FILE =     31
+        48,   MDICT   ,   FLAGS = 0,   REEL =  1,   FILE =     32
+        49,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     33
+ 
+        50,   REENTER AT DMAP SEQUENCE NUMBER    29
+        51,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     34
+        52,   KGGX    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        53,   REENTER AT DMAP SEQUENCE NUMBER    31
+        54,   KGGX    ,   FLAGS = 0,   REEL =  1,   FILE =     35
+        55,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     36
+ 
+        56,   REENTER AT DMAP SEQUENCE NUMBER    34
+        57,   MGG     ,   FLAGS = 0,   REEL =  1,   FILE =     37
+        58,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     38
+ 
+        59,   REENTER AT DMAP SEQUENCE NUMBER    35
+        60,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     39
+        61,   MDICT   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        62,   MELM    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        63,   REENTER AT DMAP SEQUENCE NUMBER    40
+        64,   KGGX    ,   FLAGS = 4,   REEL =  1,   FILE =     35
+        65,   KGG     ,   FLAGS = 4,   REEL =  1,   FILE =     35
+        66,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     40
+ 
+        67,   REENTER AT DMAP SEQUENCE NUMBER    44
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    23
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+        68,   GPST    ,   FLAGS = 0,   REEL =  1,   FILE =     41
+        69,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     42
+ 
+        70,   REENTER AT DMAP SEQUENCE NUMBER    46
+        71,   YS      ,   FLAGS = 0,   REEL =  1,   FILE =     43
+        72,   USET    ,   FLAGS = 0,   REEL =  1,   FILE =     44
+        73,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     45
+        74,   RG      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        75,   ASET    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        76,   OGPST   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        77,   REENTER AT DMAP SEQUENCE NUMBER    48
+        78,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     46
+        79,   KRR     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        80,   KLR     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        81,   DM      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        82,   MLR     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        83,   MR      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        84,   GM      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        85,   GO      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        86,   KFS     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        87,   QG      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        88,   REENTER AT DMAP SEQUENCE NUMBER    49
+        89,   USETF   ,   FLAGS = 0,   REEL =  1,   FILE =     47
+        90,   USETS   ,   FLAGS = 0,   REEL =  1,   FILE =     48
+        91,   AF      ,   FLAGS = 0,   REEL =  1,   FILE =     49
+        92,   DKGG    ,   FLAGS = 0,   REEL =  1,   FILE =     50
+        93,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     51
+ 
+        94,   REENTER AT DMAP SEQUENCE NUMBER    49
+        95,   PV1     ,   FLAGS = 0,   REEL =  1,   FILE =     52
+        96,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     53
+ 
+        97,   REENTER AT DMAP SEQUENCE NUMBER    49
+        98,   KXX     ,   FLAGS = 0,   REEL =  1,   FILE =     54
+        99,   KYY     ,   FLAGS = 0,   REEL =  1,   FILE =     55
+       100,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     56
+ 
+       101,   REENTER AT DMAP SEQUENCE NUMBER    49
+       102,   MXX     ,   FLAGS = 0,   REEL =  1,   FILE =     57
+       103,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     58
+ 
+       104,   REENTER AT DMAP SEQUENCE NUMBER    49
+       105,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     59
+       106,   RX      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       107,   REENTER AT DMAP SEQUENCE NUMBER    48
+       108,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     60
+ 
+       109,   REENTER AT DMAP SEQUENCE NUMBER    49
+       110,   AXY     ,   FLAGS = 0,   REEL =  1,   FILE =     61
+       111,   AYY     ,   FLAGS = 0,   REEL =  1,   FILE =     62
+       112,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     63
+ 
+       113,   REENTER AT DMAP SEQUENCE NUMBER    49
+       114,   DKXX    ,   FLAGS = 0,   REEL =  1,   FILE =     64
+       115,   DKYY    ,   FLAGS = 0,   REEL =  1,   FILE =     65
+       116,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     66
+ 
+       117,   REENTER AT DMAP SEQUENCE NUMBER    49
+       118,   PV2     ,   FLAGS = 0,   REEL =  1,   FILE =     67
+       119,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     68
+0*** SYSTEM WARNING MESSAGE 2173, PARTITIONING VECTOR FILE  103 CONTAINS         1 COLUMNS.
+      THE FIRST COLUMN WILL BE USED, NOT THE REQUESTED COLUMN        -1
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    24
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       120,   REENTER AT DMAP SEQUENCE NUMBER    49
+       121,   AFRY    ,   FLAGS = 0,   REEL =  1,   FILE =     69
+       122,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     70
+ 
+       123,   REENTER AT DMAP SEQUENCE NUMBER    49
+       124,   DKFRFR  ,   FLAGS = 0,   REEL =  1,   FILE =     71
+       125,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     72
+ 
+       126,   REENTER AT DMAP SEQUENCE NUMBER    49
+       127,   GPLD    ,   FLAGS = 0,   REEL =  1,   FILE =     73
+       128,   SILD    ,   FLAGS = 0,   REEL =  1,   FILE =     74
+       129,   USETD   ,   FLAGS = 0,   REEL =  1,   FILE =     75
+       130,   EED     ,   FLAGS = 0,   REEL =  1,   FILE =     76
+       131,   EQDYN   ,   FLAGS = 0,   REEL =  1,   FILE =     77
+       132,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     78
+ 
+       133,   REENTER AT DMAP SEQUENCE NUMBER    48
+       134,   KXX     ,   FLAGS = 4,   REEL =  1,   FILE =     35
+       135,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     79
+ 
+       136,   REENTER AT DMAP SEQUENCE NUMBER    48
+       137,   MXX     ,   FLAGS = 4,   REEL =  1,   FILE =     57
+       138,   MGG     ,   FLAGS = 4,   REEL =  1,   FILE =     57
+       139,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     80
+ 
+       140,   REENTER AT DMAP SEQUENCE NUMBER    50
+       141,   KNN     ,   FLAGS = 4,   REEL =  1,   FILE =     81
+       142,   KGG     ,   FLAGS = 4,   REEL =  1,   FILE =     81
+       143,   KXX     ,   FLAGS = 4,   REEL =  1,   FILE =     81
+       144,   KGGX    ,   FLAGS = 4,   REEL =  1,   FILE =     81
+       145,   MNN     ,   FLAGS = 4,   REEL =  1,   FILE =     82
+       146,   MXX     ,   FLAGS = 4,   REEL =  1,   FILE =     82
+       147,   MGG     ,   FLAGS = 4,   REEL =  1,   FILE =     82
+       148,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     83
+ 
+       149,   REENTER AT DMAP SEQUENCE NUMBER    55
+       150,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     84
+       151,   KFF     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       152,   MFF     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       153,   REENTER AT DMAP SEQUENCE NUMBER    57
+       154,   KFF     ,   FLAGS = 0,   REEL =  1,   FILE =     85
+       155,   KFS     ,   FLAGS = 0,   REEL =  1,   FILE =     86
+       156,   MFF     ,   FLAGS = 0,   REEL =  1,   FILE =     87
+       157,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     88
+ 
+       158,   REENTER AT DMAP SEQUENCE NUMBER    59
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    25
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+       159,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     89
+       160,   KAA     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       161,   REENTER AT DMAP SEQUENCE NUMBER    60
+       162,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     90
+       163,   MAA     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       164,   REENTER AT DMAP SEQUENCE NUMBER    63
+       165,   GO      ,   FLAGS = 0,   REEL =  1,   FILE =     91
+       166,   KAA     ,   FLAGS = 0,   REEL =  1,   FILE =     92
+       167,   KOO     ,   FLAGS = 0,   REEL =  1,   FILE =     93
+       168,   LOO     ,   FLAGS = 0,   REEL =  1,   FILE =     94
+       169,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     95
+ 
+       170,   REENTER AT DMAP SEQUENCE NUMBER    63
+       171,   MAA     ,   FLAGS = 0,   REEL =  1,   FILE =     96
+       172,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     97
+ 
+       173,   REENTER AT DMAP SEQUENCE NUMBER    72
+       174,   CASE1   ,   FLAGS = 0,   REEL =  1,   FILE =     98
+       175,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     99
+0*** USER INFORMATION MESSAGE 2016, GIVENS TIME ESTIMATE IS        0 SECONDS.
+                                    PROBLEM SIZE IS      16, SPILL WILL OCCUR FOR THIS CORE AT A PROBLEM SIZE OF    1413 .
+ 
+       176,   REENTER AT DMAP SEQUENCE NUMBER    74
+       177,   LAMA    ,   FLAGS = 0,   REEL =  1,   FILE =    100
+       178,   PHIA    ,   FLAGS = 0,   REEL =  1,   FILE =    101
+       179,   MI      ,   FLAGS = 0,   REEL =  1,   FILE =    102
+       180,   OEIGS   ,   FLAGS = 0,   REEL =  1,   FILE =    103
+       181,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    104
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    26
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y   (GIVENS METHOD)
+
+
+
+                                    NUMBER OF EIGENVALUES EXTRACTED . . . . . . .        16
+
+                                    NUMBER OF EIGENVECTORS COMPUTED . . . . . . .        10
+
+                                    NUMBER OF EIGENVALUE CONVERGENCE FAILURES . .         0
+
+                                    NUMBER OF EIGENVECTOR CONVERGENCE FAILURES. .         0
+
+
+                                    REASON FOR TERMINATION. . . . . . . . . . . .         1*
+
+
+                                    LARGEST OFF-DIAGONAL MODAL MASS TERM. . . . .  0.00E+00
+
+                                                                            . . .         0
+                                              MODE PAIR. . . . . . . . . . .
+                                                                            . . .         0
+
+                                    NUMBER OF OFF-DIAG0NAL MODAL MASS
+                                         TERMS FAILING CRITERION. . . . . . . . .         0
+
+
+                                    (* NORMAL TERMINATION)
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    27
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1        16        7.874970E-06        2.806238E-03        4.466266E-04        1.987200E-02        1.564914E-07             
+        2        15        7.009578E+03        8.372322E+01        1.332496E+01        1.093183E-02        7.662748E+01             
+        3        14        3.602324E+07        6.001936E+03        9.552377E+02        1.730355E-02        6.233300E+05             
+        4        13        1.190563E+08        1.091129E+04        1.736586E+03        1.358900E-02        1.617856E+06             
+        5        12        1.712768E+08        1.308728E+04        2.082905E+03        9.036543E-03        1.547750E+06             
+        6        11        2.047793E+08        1.431011E+04        2.277525E+03        1.303608E-02        2.669520E+06             
+        7        10        2.264891E+08        1.504955E+04        2.395211E+03        1.291201E-02        2.924430E+06             
+        8         9        2.692251E+08        1.640808E+04        2.611427E+03        1.603370E-02        4.316672E+06             
+        9         8        2.806849E+08        1.675365E+04        2.666427E+03        1.390103E-02        3.901808E+06             
+       10         7        3.246613E+08        1.801836E+04        2.867711E+03        2.022416E-02        6.566002E+06             
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    28
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       182,   REENTER AT DMAP SEQUENCE NUMBER    80
+       183,   PHIG    ,   FLAGS = 0,   REEL =  1,   FILE =    105
+       184,   QG      ,   FLAGS = 0,   REEL =  1,   FILE =    106
+       185,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    107
+ 
+       186,   REENTER AT DMAP SEQUENCE NUMBER    83
+       187,   PHIGS   ,   FLAGS = 0,   REEL =  1,   FILE =    108
+       188,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    109
+ 
+       189,   REENTER AT DMAP SEQUENCE NUMBER    83
+       190,   QGS     ,   FLAGS = 0,   REEL =  1,   FILE =    110
+       191,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    111
+ 
+       192,   REENTER AT DMAP SEQUENCE NUMBER    83
+       193,   OPHIGS  ,   FLAGS = 0,   REEL =  1,   FILE =    112
+       194,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    113
+       195,   OQGS    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       196,   OEFS    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       197,   PPHIGS  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    29
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES OF EMPTY STRUCTURE                                                                               SUBCASE 1              
+      EIGENVALUE =  0.787497E-05    (CYCLIC FREQUENCY =  4.466266E-04 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      0.0            0.0            0.0            0.0            0.0            0.0                           
+             7      S      0.0            0.0                                                                                       
+           101      G      0.0            0.0            1.000000E+00  -1.648181E-12   0.0            0.0                           
+           102      G     -3.103168E-16  -2.342892E-15   1.000000E+00  -1.657810E-12  -3.363634E-13   1.125652E-13                  
+           103      G      0.0            0.0            1.000000E+00  -1.648434E-12   0.0            0.0                           
+           104      G      3.956539E-16  -2.296344E-15   1.000000E+00  -1.658011E-12   3.364156E-13   1.125457E-13                  
+           105      G      0.0            0.0            1.000000E+00   1.556365E-12   0.0            0.0                           
+           106      G      6.136280E-16   1.921746E-11   1.000000E+00  -2.790411E-12  -8.332017E-14   1.870215E-12                  
+           107      G      0.0            0.0            1.000000E+00   1.556540E-12   0.0            0.0                           
+           108      G     -3.687119E-16   1.921669E-11   1.000000E+00  -2.790119E-12   8.336489E-14   1.870124E-12                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    30
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES OF EMPTY STRUCTURE                                                                               SUBCASE 1              
+      EIGENVALUE =  0.700958E+04    (CYCLIC FREQUENCY =  1.332496E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      0.0            0.0            0.0            0.0            0.0            0.0                           
+             7      S      0.0            0.0                                                                                       
+           101      G      0.0            0.0            5.001284E-01  -8.576138E-02   0.0            0.0                           
+           102      G     -4.927059E-06  -7.136117E-05   5.001084E-01  -8.626356E-02  -1.751013E-02   5.864994E-03                  
+           103      G      0.0            0.0           -5.001284E-01  -8.576138E-02   0.0            0.0                           
+           104      G      4.927059E-06  -7.136117E-05  -5.001084E-01  -8.626356E-02   1.751013E-02   5.864994E-03                  
+           105      G      0.0            0.0            5.001232E-01   8.098758E-02   0.0            0.0                           
+           106      G      2.259931E-05   1.000000E+00   5.001021E-01  -1.451946E-01  -4.332843E-03   9.731877E-02                  
+           107      G      0.0            0.0           -5.001232E-01   8.098758E-02   0.0            0.0                           
+           108      G     -2.259931E-05   1.000000E+00  -5.001021E-01  -1.451946E-01   4.332843E-03   9.731877E-02                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    31
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES OF EMPTY STRUCTURE                                                                               SUBCASE 1              
+      EIGENVALUE =  0.360232E+08    (CYCLIC FREQUENCY =  9.552377E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      0.0            0.0            0.0            0.0            0.0            0.0                           
+             7      S      0.0            0.0                                                                                       
+           101      G      0.0            0.0           -6.319013E-01   3.371123E-02   0.0            0.0                           
+           102      G      9.655136E-02   1.000000E+00  -4.547352E-01   6.417513E-02  -6.931483E-02   1.392699E-01                  
+           103      G      0.0            0.0            6.319013E-01   3.371123E-02   0.0            0.0                           
+           104      G     -9.655136E-02   1.000000E+00   4.547352E-01   6.417513E-02   6.931483E-02   1.392699E-01                  
+           105      G      0.0            0.0           -5.995761E-01   2.629951E-02   0.0            0.0                           
+           106      G     -2.573807E-02   8.355103E-01  -4.430087E-01  -3.102301E-02   6.121713E-02   9.538240E-02                  
+           107      G      0.0            0.0            5.995761E-01   2.629951E-02   0.0            0.0                           
+           108      G      2.573807E-02   8.355103E-01   4.430087E-01  -3.102301E-02  -6.121713E-02   9.538240E-02                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    32
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES OF EMPTY STRUCTURE                                                                               SUBCASE 1              
+      EIGENVALUE =  0.119056E+09    (CYCLIC FREQUENCY =  1.736586E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      0.0            0.0            0.0            0.0            0.0            0.0                           
+             7      S      0.0            0.0                                                                                       
+           101      G      0.0            0.0            1.000000E+00  -1.200209E-01   0.0            0.0                           
+           102      G      6.090973E-02   8.730151E-01   1.828061E-01   5.935423E-02   1.224368E-01   9.020450E-02                  
+           103      G      0.0            0.0           -1.000000E+00  -1.200209E-01   0.0            0.0                           
+           104      G     -6.090973E-02   8.730151E-01  -1.828061E-01   5.935423E-02  -1.224368E-01   9.020450E-02                  
+           105      G      0.0            0.0            6.087350E-01   8.717962E-02   0.0            0.0                           
+           106      G      2.838096E-01  -5.832370E-01   5.302334E-02   2.463192E-01   2.326653E-02  -2.980423E-02                  
+           107      G      0.0            0.0           -6.087350E-01   8.717962E-02   0.0            0.0                           
+           108      G     -2.838096E-01  -5.832370E-01  -5.302334E-02   2.463192E-01  -2.326653E-02  -2.980423E-02                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    33
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES OF EMPTY STRUCTURE                                                                               SUBCASE 1              
+      EIGENVALUE =  0.171277E+09    (CYCLIC FREQUENCY =  2.082905E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      0.0            0.0            0.0            0.0            0.0            0.0                           
+             7      S      0.0            0.0                                                                                       
+           101      G      0.0            0.0            1.000000E+00  -4.607198E-02   0.0            0.0                           
+           102      G     -3.000264E-02  -8.090483E-02  -1.643192E-01   6.709524E-03   2.222775E-01  -2.701596E-02                  
+           103      G      0.0            0.0            1.000000E+00   4.607198E-02   0.0            0.0                           
+           104      G     -3.000264E-02   8.090483E-02  -1.643192E-01  -6.709524E-03   2.222775E-01   2.701596E-02                  
+           105      G      0.0            0.0            2.260682E-01   1.932247E-02   0.0            0.0                           
+           106      G      6.995302E-01  -1.528455E-01  -5.229304E-01   1.007143E-02  -3.781930E-02  -1.506352E-02                  
+           107      G      0.0            0.0            2.260682E-01  -1.932247E-02   0.0            0.0                           
+           108      G      6.995302E-01   1.528455E-01  -5.229304E-01  -1.007143E-02  -3.781930E-02   1.506352E-02                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    34
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES OF EMPTY STRUCTURE                                                                               SUBCASE 1              
+      EIGENVALUE =  0.204779E+09    (CYCLIC FREQUENCY =  2.277525E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          6
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      0.0            0.0            0.0            0.0            0.0            0.0                           
+             7      S      0.0            0.0                                                                                       
+           101      G      0.0            0.0            7.029415E-01  -5.486291E-02   0.0            0.0                           
+           102      G     -3.957042E-02  -3.546025E-01  -3.852553E-01   8.923478E-02   1.833769E-01  -6.249641E-02                  
+           103      G      0.0            0.0           -7.029415E-01  -5.486291E-02   0.0            0.0                           
+           104      G      3.957042E-02  -3.546025E-01   3.852553E-01   8.923478E-02  -1.833769E-01  -6.249641E-02                  
+           105      G      0.0            0.0           -6.244392E-02  -9.546609E-03   0.0            0.0                           
+           106      G      1.000000E+00   3.385811E-01  -6.112938E-01  -2.052135E-01   2.808534E-02   8.819088E-02                  
+           107      G      0.0            0.0            6.244392E-02  -9.546609E-03   0.0            0.0                           
+           108      G     -1.000000E+00   3.385811E-01   6.112938E-01  -2.052135E-01  -2.808534E-02   8.819088E-02                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    35
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES OF EMPTY STRUCTURE                                                                               SUBCASE 1              
+      EIGENVALUE =  0.226489E+09    (CYCLIC FREQUENCY =  2.395211E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          7
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      0.0            0.0            0.0            0.0            0.0            0.0                           
+             7      S      0.0            0.0                                                                                       
+           101      G      0.0            0.0           -3.049295E-01   9.840952E-02   0.0            0.0                           
+           102      G      2.253884E-01  -3.840320E-01   6.103872E-01   4.409168E-02  -1.808270E-01  -8.681224E-02                  
+           103      G      0.0            0.0           -3.049295E-01  -9.840952E-02   0.0            0.0                           
+           104      G      2.253884E-01   3.840320E-01   6.103872E-01  -4.409168E-02  -1.808270E-01   8.681224E-02                  
+           105      G      0.0            0.0           -8.256519E-01  -7.857429E-02   0.0            0.0                           
+           106      G      5.520390E-02  -1.000000E+00  -3.353460E-01   9.629875E-02   9.223031E-02  -1.778240E-01                  
+           107      G      0.0            0.0           -8.256519E-01   7.857429E-02   0.0            0.0                           
+           108      G      5.520390E-02   1.000000E+00  -3.353460E-01  -9.629875E-02   9.223031E-02   1.778240E-01                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    36
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES OF EMPTY STRUCTURE                                                                               SUBCASE 1              
+      EIGENVALUE =  0.269225E+09    (CYCLIC FREQUENCY =  2.611427E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          8
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      0.0            0.0            0.0            0.0            0.0            0.0                           
+             7      S      0.0            0.0                                                                                       
+           101      G      0.0            0.0           -5.067990E-01   5.058000E-03   0.0            0.0                           
+           102      G      6.107841E-01   3.380395E-01   3.791914E-01  -3.150927E-02  -1.391838E-01   8.410074E-02                  
+           103      G      0.0            0.0           -5.067990E-01  -5.058000E-03   0.0            0.0                           
+           104      G      6.107841E-01  -3.380395E-01   3.791914E-01   3.150927E-02  -1.391838E-01  -8.410074E-02                  
+           105      G      0.0            0.0           -8.150305E-01   2.093689E-02   0.0            0.0                           
+           106      G      1.000000E+00   6.667446E-01   1.039544E-01  -4.559622E-02   1.342700E-01   1.021551E-01                  
+           107      G      0.0            0.0           -8.150305E-01  -2.093689E-02   0.0            0.0                           
+           108      G      1.000000E+00  -6.667446E-01   1.039544E-01   4.559622E-02   1.342700E-01  -1.021551E-01                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    37
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES OF EMPTY STRUCTURE                                                                               SUBCASE 1              
+      EIGENVALUE =  0.280685E+09    (CYCLIC FREQUENCY =  2.666427E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          9
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      0.0            0.0            0.0            0.0            0.0            0.0                           
+             7      S      0.0            0.0                                                                                       
+           101      G      0.0            0.0           -6.118988E-01   6.772315E-02   0.0            0.0                           
+           102      G      5.519021E-01   6.493690E-02   7.103338E-01  -1.675558E-01  -1.428724E-01   8.185375E-02                  
+           103      G      0.0            0.0            6.118988E-01   6.772315E-02   0.0            0.0                           
+           104      G     -5.519021E-01   6.493690E-02  -7.103338E-01  -1.675558E-01   1.428724E-01   8.185375E-02                  
+           105      G      0.0            0.0           -1.000000E+00  -5.992281E-02   0.0            0.0                           
+           106      G      7.962918E-01  -1.482977E-01   9.069622E-02   1.691259E-01   9.371361E-02   9.847935E-02                  
+           107      G      0.0            0.0            1.000000E+00  -5.992281E-02   0.0            0.0                           
+           108      G     -7.962918E-01  -1.482977E-01  -9.069622E-02   1.691259E-01  -9.371361E-02   9.847935E-02                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    38
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES OF EMPTY STRUCTURE                                                                               SUBCASE 1              
+      EIGENVALUE =  0.324661E+09    (CYCLIC FREQUENCY =  2.867711E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .         10
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      0.0            0.0            0.0            0.0            0.0            0.0                           
+             7      S      0.0            0.0                                                                                       
+           101      G      0.0            0.0           -8.993527E-01   6.213098E-02   0.0            0.0                           
+           102      G     -5.434843E-01  -1.682397E-01  -3.462511E-01   2.458907E-02  -7.078493E-02  -4.130588E-02                  
+           103      G      0.0            0.0           -8.993527E-01  -6.213098E-02   0.0            0.0                           
+           104      G     -5.434843E-01   1.682397E-01  -3.462511E-01  -2.458907E-02  -7.078493E-02   4.130588E-02                  
+           105      G      0.0            0.0            9.698256E-01  -4.308113E-02   0.0            0.0                           
+           106      G      1.000000E+00  -6.353323E-01   7.379614E-01   7.938575E-02   2.525044E-01  -1.164684E-01                  
+           107      G      0.0            0.0            9.698256E-01   4.308113E-02   0.0            0.0                           
+           108      G      1.000000E+00   6.353323E-01   7.379614E-01  -7.938575E-02   2.525044E-01   1.164684E-01                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    39
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       198,   REENTER AT DMAP SEQUENCE NUMBER    82
+       199,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    114
+       200,   DKAA    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       201,   REENTER AT DMAP SEQUENCE NUMBER    82
+       202,   DKXX    ,   FLAGS = 4,   REEL =  1,   FILE =     64
+       203,   DKNN    ,   FLAGS = 4,   REEL =  1,   FILE =     64
+       204,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    115
+ 
+       205,   REENTER AT DMAP SEQUENCE NUMBER    82
+       206,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    116
+       207,   DKFF    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       208,   REENTER AT DMAP SEQUENCE NUMBER    83
+       209,   DKFF    ,   FLAGS = 0,   REEL =  1,   FILE =    117
+       210,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    118
+ 
+       211,   REENTER AT DMAP SEQUENCE NUMBER    82
+       212,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    119
+ 
+       213,   REENTER AT DMAP SEQUENCE NUMBER    83
+       214,   DKAA    ,   FLAGS = 0,   REEL =  1,   FILE =    120
+       215,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    121
+                        0 ROOTS BELOW   1.000000E-10
+ 
+       216,   REENTER AT DMAP SEQUENCE NUMBER    83
+       217,   KMAT    ,   FLAGS = 0,   REEL =  1,   FILE =    122
+       218,   MMAT    ,   FLAGS = 0,   REEL =  1,   FILE =    123
+       219,   GIH     ,   FLAGS = 0,   REEL =  1,   FILE =    124
+       220,   PV4     ,   FLAGS = 0,   REEL =  1,   FILE =    125
+       221,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    126
+ 
+       222,   REENTER AT DMAP SEQUENCE NUMBER    83
+       223,   CASE2   ,   FLAGS = 0,   REEL =  1,   FILE =    127
+       224,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    128
+0*** USER INFORMATION MESSAGE 2016, GIVENS TIME ESTIMATE IS        0 SECONDS.
+                                    PROBLEM SIZE IS      14, SPILL WILL OCCUR FOR THIS CORE AT A PROBLEM SIZE OF    1413 .
+ 
+       225,   REENTER AT DMAP SEQUENCE NUMBER    83
+       226,   LAMAT   ,   FLAGS = 0,   REEL =  1,   FILE =    129
+       227,   PHIH    ,   FLAGS = 0,   REEL =  1,   FILE =    130
+       228,   MH      ,   FLAGS = 0,   REEL =  1,   FILE =    131
+       229,   OEIGH   ,   FLAGS = 0,   REEL =  1,   FILE =    132
+       230,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    133
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    40
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1        13       -1.574339E-01        3.967794E-01        6.314941E-02        8.241057E-01       -1.297422E-01             
+        2        14        1.490182E+02        1.220730E+01        1.942852E+00        9.557772E-02        1.424282E+01             
+        3        12        6.146253E+02        2.479164E+01        3.945712E+00        8.442485E-03        5.188965E+00             
+        4        11        7.383858E+02        2.717326E+01        4.324758E+00        1.173731E-02        8.666662E+00             
+        5        10        2.104722E+03        4.587725E+01        7.301590E+00        3.317093E-03        6.981558E+00             
+        6         9        1.064857E+06        1.031919E+03        1.642350E+02        1.859074E-02        1.979649E+04             
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    41
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y   (GIVENS METHOD)
+
+
+
+                                    NUMBER OF EIGENVALUES EXTRACTED . . . . . . .        14
+
+                                    NUMBER OF EIGENVECTORS COMPUTED . . . . . . .         6
+
+                                    NUMBER OF EIGENVALUE CONVERGENCE FAILURES . .         0
+
+                                    NUMBER OF EIGENVECTOR CONVERGENCE FAILURES. .         0
+
+
+                                    REASON FOR TERMINATION. . . . . . . . . . . .         1*
+
+
+                                    LARGEST OFF-DIAGONAL MODAL MASS TERM. . . . .  0.00E+00
+
+                                                                            . . .         0
+                                              MODE PAIR. . . . . . . . . . .
+                                                                            . . .         0
+
+                                    NUMBER OF OFF-DIAG0NAL MODAL MASS
+                                         TERMS FAILING CRITERION. . . . . . . . .         0
+
+
+                                    (* NORMAL TERMINATION)
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    42
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       231,   REENTER AT DMAP SEQUENCE NUMBER    83
+       232,   PHII    ,   FLAGS = 0,   REEL =  1,   FILE =    134
+       233,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    135
+ 
+       234,   REENTER AT DMAP SEQUENCE NUMBER    82
+       235,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    136
+       236,   PHIZ    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       237,   REENTER AT DMAP SEQUENCE NUMBER    82
+       238,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    137
+       239,   PHIY    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       240,   REENTER AT DMAP SEQUENCE NUMBER    83
+       241,   PHIZ    ,   FLAGS = 0,   REEL =  1,   FILE =    138
+       242,   PHIFR   ,   FLAGS = 0,   REEL =  1,   FILE =    139
+       243,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    140
+ 
+       244,   REENTER AT DMAP SEQUENCE NUMBER    83
+       245,   PHIY    ,   FLAGS = 0,   REEL =  1,   FILE =    141
+       246,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    142
+ 
+       247,   REENTER AT DMAP SEQUENCE NUMBER    83
+       248,   PHIX    ,   FLAGS = 0,   REEL =  1,   FILE =    143
+       249,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    144
+ 
+       250,   REENTER AT DMAP SEQUENCE NUMBER    83
+       251,   QX      ,   FLAGS = 0,   REEL =  1,   FILE =    145
+       252,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    146
+ 
+       253,   REENTER AT DMAP SEQUENCE NUMBER    83
+       254,   PHIGT   ,   FLAGS = 0,   REEL =  1,   FILE =    147
+       255,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    148
+ 
+       256,   REENTER AT DMAP SEQUENCE NUMBER    83
+       257,   QGT     ,   FLAGS = 0,   REEL =  1,   FILE =    149
+       258,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    150
+ 
+       259,   REENTER AT DMAP SEQUENCE NUMBER    83
+       260,   OQG1    ,   FLAGS = 0,   REEL =  1,   FILE =    151
+       261,   OPHIG   ,   FLAGS = 0,   REEL =  1,   FILE =    152
+       262,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    153
+       263,   OES1    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       264,   OEF1    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       265,   PPHIG   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       266,   OES1L   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    43
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+       267,   OEF1L   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    44
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE = -0.157434E+00    (CYCLIC FREQUENCY =  6.314941E-02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -5.598960E-03  -5.598961E-03  -5.598960E-03  -5.598961E-03   9.949976E-01   9.949976E-01                  
+             7      S      9.949976E-01   9.949976E-01                                                                              
+           101      G      0.0            0.0            1.000000E+00  -1.223401E-09   0.0            0.0                           
+           102      G     -1.961513E-09   1.229128E-08   1.000000E+00  -1.534302E-09  -5.095475E-09   3.268961E-09                  
+           103      G      0.0            0.0            1.000000E+00   1.219465E-09   0.0            0.0                           
+           104      G     -1.961215E-09  -1.229022E-08   1.000000E+00   1.530570E-09  -5.094774E-09  -3.268624E-09                  
+           105      G      0.0            0.0            1.000000E+00   1.419803E-09   0.0            0.0                           
+           106      G     -9.304541E-08   3.783302E-08   1.000000E+00  -4.202198E-09  -9.224661E-09   6.372701E-09                  
+           107      G      0.0            0.0            1.000000E+00  -1.416066E-09   0.0            0.0                           
+           108      G     -9.304436E-08  -3.778921E-08   1.000000E+00   4.196006E-09  -9.224403E-09  -6.368534E-09                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    45
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE =  0.149018E+03    (CYCLIC FREQUENCY =  1.942852E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -1.478352E-03  -1.506407E-03   1.478352E-03   1.506407E-03  -7.336721E-01  -1.000000E+00                  
+             7      S      7.336721E-01   1.000000E+00                                                                              
+           101      G      0.0            0.0            1.755916E-01  -3.011164E-02   0.0            0.0                           
+           102      G     -4.300262E-06  -4.231048E-06   1.755845E-01  -3.028642E-02  -6.149380E-03   2.061619E-03                  
+           103      G      0.0            0.0           -1.755916E-01  -3.011164E-02   0.0            0.0                           
+           104      G      4.300262E-06  -4.231049E-06  -1.755845E-01  -3.028642E-02   6.149380E-03   2.061619E-03                  
+           105      G      0.0            0.0            1.755996E-01   2.843693E-02   0.0            0.0                           
+           106      G     -7.572113E-06   3.511234E-01   1.755895E-01  -5.097926E-02  -1.521295E-03   3.416974E-02                  
+           107      G      0.0            0.0           -1.755996E-01   2.843693E-02   0.0            0.0                           
+           108      G      7.572112E-06   3.511234E-01  -1.755895E-01  -5.097926E-02   1.521295E-03   3.416974E-02                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    46
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE =  0.614625E+03    (CYCLIC FREQUENCY =  3.945712E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -2.338617E-05  -5.657782E-05   2.338617E-05   5.657782E-05   1.000000E+00  -2.992511E-01                  
+             7      S     -1.000000E+00   2.992511E-01                                                                              
+           101      G      0.0            0.0            4.361956E-02  -7.480458E-03   0.0            0.0                           
+           102      G     -9.642910E-07  -4.255490E-07   4.362029E-02  -7.524231E-03  -1.528189E-03   5.123292E-04                  
+           103      G      0.0            0.0           -4.361956E-02  -7.480458E-03   0.0            0.0                           
+           104      G      9.642911E-07  -4.255490E-07  -4.362029E-02  -7.524231E-03   1.528189E-03   5.123292E-04                  
+           105      G      0.0            0.0            4.362280E-02   7.064622E-03   0.0            0.0                           
+           106      G     -3.053602E-06   8.723374E-02   4.362193E-02  -1.266540E-02  -3.778802E-04   8.489138E-03                  
+           107      G      0.0            0.0           -4.362280E-02   7.064622E-03   0.0            0.0                           
+           108      G      3.053602E-06   8.723374E-02  -4.362193E-02  -1.266540E-02   3.778802E-04   8.489138E-03                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    47
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE =  0.738386E+03    (CYCLIC FREQUENCY =  4.324758E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -2.125727E-05   2.125758E-05  -2.125727E-05   2.125758E-05   1.000000E+00  -9.999557E-01                  
+             7      S      1.000000E+00  -9.999557E-01                                                                              
+           101      G      0.0            0.0           -3.302800E-06  -2.590020E-07   0.0            0.0                           
+           102      G     -2.859421E-07   2.462792E-06   3.244163E-07  -3.077461E-07  -9.686239E-07   6.533403E-07                  
+           103      G      0.0            0.0           -3.302755E-06   2.590095E-07   0.0            0.0                           
+           104      G     -2.859397E-07  -2.462766E-06   3.244632E-07   3.077559E-07  -9.686252E-07  -6.533383E-07                  
+           105      G      0.0            0.0            2.771216E-07   2.917056E-07   0.0            0.0                           
+           106      G     -1.844780E-05   7.595462E-06   4.837300E-06  -8.448688E-07  -1.868571E-06   1.282514E-06                  
+           107      G      0.0            0.0            2.771532E-07  -2.917118E-07   0.0            0.0                           
+           108      G     -1.844778E-05  -7.595588E-06   4.837339E-06   8.448928E-07  -1.868570E-06  -1.282528E-06                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    48
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE =  0.210472E+04    (CYCLIC FREQUENCY =  7.301590E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -2.802496E-04  -2.730274E-04   2.802496E-04   2.730274E-04   4.301123E-02   1.000000E+00                  
+             7      S     -4.301123E-02  -1.000000E+00                                                                              
+           101      G      0.0            0.0            1.036686E-01  -1.777259E-02   0.0            0.0                           
+           102      G     -1.658996E-06  -1.427230E-05   1.036225E-01  -1.787006E-02  -3.619902E-03   1.213924E-03                  
+           103      G      0.0            0.0           -1.036686E-01  -1.777259E-02   0.0            0.0                           
+           104      G      1.658996E-06  -1.427230E-05  -1.036225E-01  -1.787006E-02   3.619902E-03   1.213924E-03                  
+           105      G      0.0            0.0            1.036466E-01   1.678029E-02   0.0            0.0                           
+           106      G      2.366805E-05   2.071273E-01   1.036143E-01  -3.007174E-02  -8.982299E-04   2.015841E-02                  
+           107      G      0.0            0.0           -1.036466E-01   1.678029E-02   0.0            0.0                           
+           108      G     -2.366805E-05   2.071273E-01  -1.036143E-01  -3.007174E-02   8.982299E-04   2.015841E-02                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    49
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE =  0.106486E+07    (CYCLIC FREQUENCY =  1.642350E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          6
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -1.376886E-04  -1.266750E-04  -1.376886E-04  -1.266750E-04   1.000000E+00   9.950455E-01                  
+             7      S      1.000000E+00   9.950455E-01                                                                              
+           101      G      0.0            0.0           -9.476522E-01  -4.816047E-04   0.0            0.0                           
+           102      G     -1.732436E-03  -4.537095E-04  -9.581849E-01   1.763225E-05   1.932073E-03  -1.673748E-04                  
+           103      G      0.0            0.0           -9.476522E-01   4.816047E-04   0.0            0.0                           
+           104      G     -1.732436E-03   4.537095E-04  -9.581849E-01  -1.763225E-05   1.932073E-03   1.673748E-04                  
+           105      G      0.0            0.0           -9.512700E-01   2.250103E-04   0.0            0.0                           
+           106      G      8.646619E-04  -2.480627E-04  -9.583734E-01  -5.584203E-05  -8.339130E-04   6.382379E-05                  
+           107      G      0.0            0.0           -9.512700E-01  -2.250103E-04   0.0            0.0                           
+           108      G      8.646619E-04   2.480627E-04  -9.583734E-01   5.584203E-05  -8.339130E-04  -6.382379E-05                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    50
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE = -0.157434E+00    (CYCLIC FREQUENCY =  6.314941E-02 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -8.990772E-04  -2.801287E-03   0.0            0.0            2.050274E-06  -1.386574E-06                  
+           103      G     -8.994231E-04   2.800992E-03   0.0            0.0            2.050385E-06   1.386035E-06                  
+           105      G      6.532940E-02  -1.009111E-06   0.0            0.0            0.0           -4.421665E-06                  
+           107      G      6.532884E-02   1.007414E-06   0.0            0.0            0.0            4.416260E-06                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    51
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE =  0.149018E+03    (CYCLIC FREQUENCY =  1.942852E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      6.894511E+00   7.060339E-01   0.0            0.0           -2.555356E-01  -3.026443E+00                  
+           103      G     -6.894511E+00   7.060339E-01   0.0            0.0            2.555356E-01  -3.026443E+00                  
+           105      G      3.558559E+00  -1.345169E+01   0.0            0.0            0.0           -4.314366E+01                  
+           107      G     -3.558559E+00  -1.345169E+01   0.0            0.0            0.0           -4.314366E+01                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    52
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE =  0.614625E+03    (CYCLIC FREQUENCY =  3.945712E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      1.153063E+00   3.503764E-02   0.0            0.0           -6.320915E-02  -7.520571E-01                  
+           103      G     -1.153063E+00   3.503765E-02   0.0            0.0            6.320915E-02  -7.520571E-01                  
+           105      G      1.870182E+00  -3.341969E+00   0.0            0.0            0.0           -1.071878E+01                  
+           107      G     -1.870181E+00  -3.341969E+00   0.0            0.0            0.0           -1.071878E+01                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    53
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE =  0.738386E+03    (CYCLIC FREQUENCY =  4.324758E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -2.670212E-01  -5.725096E-01   0.0            0.0            3.749093E-04  -2.749914E-04                  
+           103      G     -2.670209E-01   5.725030E-01   0.0            0.0            3.749087E-04   2.749883E-04                  
+           105      G      1.296968E+01  -2.021789E-04   0.0            0.0            0.0           -8.852178E-04                  
+           107      G      1.296966E+01   2.021834E-04   0.0            0.0            0.0            8.852328E-04                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    54
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE =  0.210472E+04    (CYCLIC FREQUENCY =  7.301590E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      1.044252E+01   3.405743E+00   0.0            0.0           -1.553467E-01  -1.782191E+00                  
+           103      G     -1.044252E+01   3.405743E+00   0.0            0.0            1.553467E-01  -1.782191E+00                  
+           105      G     -1.975141E+01  -7.934927E+00   0.0            0.0            0.0           -2.544849E+01                  
+           107      G      1.975141E+01  -7.934927E+00   0.0            0.0            0.0           -2.544849E+01                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    55
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0     MODES WITH FLUID INCLUDED                                                                              SUBCASE 2              
+      EIGENVALUE =  0.106486E+07    (CYCLIC FREQUENCY =  1.642350E+02 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      3.652062E+03   2.926631E+02   0.0            0.0           -1.367471E+00   1.582920E-01                  
+           103      G      3.652062E+03  -2.926631E+02   0.0            0.0           -1.367471E+00  -1.582920E-01                  
+           105      G     -1.483304E+03   2.065524E-02   0.0            0.0            0.0            1.206516E-01                  
+           107      G     -1.483304E+03  -2.065524E-02   0.0            0.0            0.0           -1.206516E-01                  
+1     HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT               /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    56
+      NASTRAN TEST PROBLEM NO. T03-12-1A                                                                                            
+0                                                                                                                                   
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       268,   REENTER AT DMAP SEQUENCE NUMBER    85
+       269,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    154
+       270,   OESF1   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       271,   OESF1L  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       272,   REENTER AT DMAP SEQUENCE NUMBER    87
+       273,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    155
+       274,   ONRGY1  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       275,   REENTER AT DMAP SEQUENCE NUMBER    89
+       276,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    156
+       277,   KDICT   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       278,   KELM    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       279,   REENTER AT DMAP SEQUENCE NUMBER   104
+       280,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    157
+       281,   DUMMY   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  HYDROELASTIC MODAL FORMULATION SOLUTION WITH CHECKPOINT            
+ DATE:  5/18/95
+ END TIME: 10:10:14
+ TOTAL WALL CLOCK TIME      5 SEC.
+ 

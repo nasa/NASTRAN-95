@@ -1,0 +1,970 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D02026A,NASTRAN                                                           
+     APP   DISPLACEMENT,SUBS                                                         
+     SOL   1,0                                                                       
+     TIME  5                                                                         
+     DIAG  23                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+                                                                                                                                    
+0                            N A S T R A N  S U B S T R U C T U R E  D E C K  E C H O                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SUBSTRUCTURE PHASE3                                                             
+       PASSWORD = DEMO                                                               
+        SOF(1)  = FT18,950 $ DEC VAX                                                 
+        SOFPRINT TOC                                                                 
+       BRECOVER HUB                                                                  
+       ENDSUBS
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+                                                                                                                                    
+0                            N A S T R A N  S U B S T R U C T U R E  D E C K  E C H O                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ALTER DECK ECHO
+        1    ALTER         78, 85
+        2    PARAM     //*ADD*/DRY/1  /0 $                                           
+        3    LABEL     LBSBEG $                                                      
+        4    SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+        5              *    */*    */*    * $                                        
+        6    ALTER         88, 95
+        7    PARAM     //*NOP*/ALWAYS=-1 $                                           
+        8    SSG2      USET,GM,YS,KFS,GO,,PG/QR,PO,PS,PL $                           
+        9    RCOVR3    ,PG,PS,PO,YS/ULV ,QAS,PGS,PSS,POS,YSS,    /1   /*HUB     */   
+       10                   $                                                        
+       11    EQUIV     PGS,PG/ALWAYS $                                               
+       12    EQUIV     PSS,PS/ALWAYS $                                               
+       13    EQUIV     POS,PO/ALWAYS $                                               
+       14    EQUIV     YSS,YS/ALWAYS $                                               
+       15    COND      LBS3  ,OMIT $                                                 
+       16    FBS       LOO,,POS/UOOV/1/1/2   /0 $                                    
+       17    LABEL     LBS3   $                                                      
+       18    ALTER         96
+       19    UMERGE    USET,QAS,/QGS/*G*/*A*/*O* $                                   
+       20    ADD       QG ,QGS/QGT/  (1.0,0.0)/(1.0,0.0) $                           
+       21    EQUIV     QGT,QG /ALWAYS $                                              
+       22    LABEL     LBSEND $                                                      
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTURING     
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                          
+                  3      LABEL    = RECOVER HUB, RUN 6, PHASE 3                                          
+                  4          DISP = ALL                                                                  
+                  5        STRESS = ALL                                                                  
+                  6      SPC = 30                                                                        
+                  7      SUBCASE 1                                                                       
+                  8      LABEL = ROTATIONAL FORCES DUE TO UNIT OMEGA ABOUT CENTER OF STRUCTURE           
+                  9      SUBCASE 2                                                                       
+                 10      LABEL = EXTENSION OF RIGHT PANEL AND COMPRESSION OF BOTTOM PANEL                
+                 11      SUBCASE 3                                                                       
+                 12      LABEL = CHECK ON RELEASE FEATURE AT GRID POINT 5                                
+                 13      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    57, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CORD2C  1       0       .0      .0      .0      .0      .0      1.0     +COR    
+                    2-        +COR    1.0     .0      .0                                                      
+                    3-        CQDMEM  1       10      1       4       5       2                               
+                    4-        CQDMEM  3       10      4       7       108     5                               
+                    5-        CQDMEM  5       10      108     7       10      11                              
+                    6-        CQDMEM  7       10      13      14      11      10                              
+                    7-        CQDMEM  9       10      16      17      14      13                              
+                    8-        CQDMEM  11      10      19      20      17      16                              
+                    9-        CQDMEM  13      10      20      19      22      23                              
+                   10-        CQDMEM  15      10      25      26      23      22                              
+                   11-        CQDMEM  17      10      29      26      25      28                              
+                   12-        CQDMEM  19      10      32      29      28      31                              
+                   13-        CQDMEM  21      10      32      31      34      35                              
+                   14-        CQDMEM  23      10      37      38      35      34                              
+                   15-        CQDMEM  25      10      38      37      40      41                              
+                   16-        CQDMEM  27      10      41      40      43      44                              
+                   17-        CQDMEM  29      10      44      43      46      47                              
+                   18-        CQDMEM  31      10      1       2       47      46                              
+                   19-        FORCE1  3       4       1.0     5       4                                       
+                   20-        GRDSET                                                  3456                    
+                   21-        GRID    1               -5.0    10.0                                            
+                   22-        GRID    2               -5.0    15.0                                            
+                   23-        GRID    4               .0      10.0                                            
+                   24-        GRID    5               .0      15.0                                            
+                   25-        GRID    7               5.0     10.0                                            
+                   26-        GRID    10              7.5     7.5                                             
+                   27-        GRID    11              10.0    10.0                                            
+                   28-        GRID    13              10.0    5.0                                             
+                   29-        GRID    14              15.0    5.0                                             
+                   30-        GRID    16              10.0    .0                                              
+                   31-        GRID    17              15.0    .0                                              
+                   32-        GRID    19              10.0    -5.0                                            
+                   33-        GRID    20              15.0    -5.0                                            
+                   34-        GRID    22              7.5     -7.5                                            
+                   35-        GRID    23              10.0    -10.0                                           
+                   36-        GRID    25              5.0     -10.0                                           
+                   37-        GRID    26              5.0     -15.0                                           
+                   38-        GRID    28              .0      -10.0                                           
+                   39-        GRID    29              .0      -15.0                                           
+                   40-        GRID    31              -5.0    -10.0                                           
+                   41-        GRID    32              -5.0    -15.0                                           
+                   42-        GRID    34              -7.5    -7.5                                            
+                   43-        GRID    35              -10.0   -10.0                                           
+                   44-        GRID    37              -10.0   -5.0                                            
+                   45-        GRID    38              -15.0   -5.0                                            
+                   46-        GRID    40              -10.0   .0                                              
+                   47-        GRID    41              -15.0   .0                                              
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+
+      RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        GRID    43              -10.0   5.0                                             
+                   49-        GRID    44              -15.0   5.0                                             
+                   50-        GRID    46              -7.5    7.5                                             
+                   51-        GRID    47              -10.0   10.0                                            
+                   52-        GRID    108             5.0     15.0            1                               
+                   53-        MAT1    50      1.0+7           .25     2.5E-4  1.0E-6  70.0                    
+                   54-        PQDMEM  10      50      .1                                                      
+                   55-        RFORCE  1       0       0       .1591579.0      .0      1.0                     
+                   56-        SPC1    30      1       13      19      37      43                              
+                   57-        SPC1    30      2       1       7       31      25                              
+                              ENDDATA
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 01 - STATIC ANALYSIS - APR. 1995 $                        
+
+       2  FILE     OPTP2=SAVE/EST1=SAVE $                                         
+
+       3  FILE     QG=APPEND/PGG=APPEND/UGV=APPEND/GM=SAVE/KNN=SAVE $             
+
+       4  SETVAL   //V,Y,INTERACT/0/V,Y,SYS21/0 $                                 
+
+       5  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       6  COMPOFF  1,INTERACT $                                                   
+
+       7  PRECHK   ALL $                                                          
+
+       8  COMPON   1,INTERACT $                                                   
+
+      10  COMPOFF  LBLINT02,SYS21 $                                               
+
+      11  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/ALWAYS=-1 $                                             
+
+      12  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+      13  EQUIV    MPTA,MPT/ISOP $                                                
+
+      14  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+      15  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      16  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      17  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      18  COND     P1,JUMPPLOT $                                                  
+
+      19  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      20  PRTMSG   PLTSETX// $                                                    
+
+      21  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+
+      RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      22  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      23  COND     P1,JUMPPLOT $                                                  
+
+      24  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE  $                
+
+      25  PRTMSG   PLOTX1// $                                                     
+
+      26  LABEL    P1 $                                                           
+
+      27  GP3      GEOM3,EQEXIN,GEOM2/SLT,GPTT/S,N,NOGRAV/NEVER=1 $               
+
+      28  PARAM    //*AND*/NOMGG/NOGRAV/V,Y,GRDPNT=-1 $                           
+
+      29  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      30  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      31  PARAM    //*AND*/NOELMT/NOGENL/NOSIMP $                                 
+
+      32  COND     ERROR4,NOELMT $                                                
+
+      33  PURGE    KGGX/NOSIMP $                                                  
+
+      34  OPTPR1   MPT,EPT,ECT,DIT,EST/OPTP1/S,N,PRINT/S,N,TSTART/S,N,COUNT $     
+
+      35  LABEL    LOOPTOP $                                                      
+
+      36  COND     LBL1,NOSIMP $                                                  
+
+      37  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      38  EQUIV    OPTP1,OPTP2/NEVER/EST,EST1/NEVER $                             
+
+      39  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/                           
+                   C,Y,CPROD/C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/     
+                   C,Y,CPTUBE/C,Y,CPQDPLT/C,Y,CPTRPLT/C,Y,CPTRBSC/                
+                   C,Y,VOLUME/C,Y,SURFACE $                                       
+
+      40  COND     JMPKGG,NOKGGX $                                                
+
+      41  EMA      GPECT,KDICT,KELM/KGGX $                                        
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+
+      RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      42  LABEL    JMPKGG $                                                       
+
+      43  PURGE    MGG/NOMGG $                                                    
+
+      44  COND     JMPMGG,NOMGG $                                                 
+
+      45  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      46  PURGE    MDICT,MELM/ALWAYS $                                            
+
+      47  LABEL    JMPMGG $                                                       
+
+      48  COND     LBL1,GRDPNT $                                                  
+
+      49  COND     ERROR2,NOMGG $                                                 
+
+      50  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT/C,Y,WTMASS $            
+
+      51  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      52  LABEL    LBL1 $                                                         
+
+      53  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      54  COND     LBL11A,NOGENL $                                                
+
+      55  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      56  LABEL    LBL11A $                                                       
+
+      57  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      58  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      59  LABEL    LBL11 $                                                        
+
+      60  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      61  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      62  COND     ERROR3,NOL $                                                   
+
+      63  PARAM    //*AND*/NOSR/SINGLE/REACT $                                    
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+
+      RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      64  PURGE    KRR,KLR,QR,DM/REACT/GM/MPCF1/GO,KOO,LOO,PO,UOOV,RUOV/OMIT/PS,  
+                   KFS,KSS/SINGLE/QG/NOSR $                                       
+
+      65  EQUIV    KGG,KNN/MPCF1 $                                                
+
+      66  COND     LBL2,MPCF2 $                                                   
+
+      67  MCE1     USET,RG/GM $                                                   
+
+      68  MCE2     USET,GM,KGG,,,/KNN,,, $                                        
+
+      69  LABEL    LBL2 $                                                         
+
+      70  EQUIV    KNN,KFF/SINGLE $                                               
+
+      71  COND     LBL3,SINGLE $                                                  
+
+      72  SCE1     USET,KNN,,,/KFF,KFS,KSS,,, $                                   
+
+      73  LABEL    LBL3 $                                                         
+
+      74  EQUIV    KFF,KAA/OMIT $                                                 
+
+      75  COND     LBL5,OMIT $                                                    
+
+      76  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      77  LABEL    LBL5 $                                                         
+
+      85  PARAM     //*ADD*/DRY/1  /0 $                                           
+
+      85  LABEL     LBSBEG $                                                      
+
+      85  SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+                    *    */*    */*    * $                                        
+
+      86  SSG1     SLT,BGPDT,CSTM,SIL,EST,MPT,GPTT,EDT,MGG,CASECC,DIT,PCOMPS/     
+                   PG,,,,/LUSET/NSKIP/COMPS $                                     
+
+      87  EQUIV    PG,PL/NOSET $                                                  
+
+      95  PARAM     //*NOP*/ALWAYS=-1 $                                           
+0*** USER WARNING MESSAGE   42,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION PARAM      INSTRUCTION NO.  95
+     PARAMETER NAMED ALWAYS   ALREADY HAD VALUE ASSIGNED PREVIOUSLY
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+
+      RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      95  SSG2      USET,GM,YS,KFS,GO,,PG/QR,PO,PS,PL $                           
+
+      95  RCOVR3    ,PG,PS,PO,YS/ULV ,QAS,PGS,PSS,POS,YSS,    /1   /*HUB     */   
+                         $                                                        
+
+      95  EQUIV     PGS,PG/ALWAYS $                                               
+
+      95  EQUIV     PSS,PS/ALWAYS $                                               
+
+      95  EQUIV     POS,PO/ALWAYS $                                               
+
+      95  EQUIV     YSS,YS/ALWAYS $                                               
+
+      95  COND      LBS3  ,OMIT $                                                 
+
+      95  FBS       LOO,,POS/UOOV/1/1/2   /0 $                                    
+
+      95  LABEL     LBS3   $                                                      
+
+      96  SDR1     USET,PG,ULV,UOOV,YS,GO,GM,PS,KFS,KSS,QR/UGV,PGG,QG/NSKIP/      
+                   *STATICS* $                                                    
+
+      96  UMERGE    USET,QAS,/QGS/*G*/*A*/*O* $                                   
+
+      96  ADD       QG ,QGS/QGT/  (1.0,0.0)/(1.0,0.0) $                           
+
+      96  EQUIV     QGT,QG /ALWAYS $                                              
+
+      96  LABEL     LBSEND $                                                      
+
+      97  COND     LBL8,REPEAT $                                                  
+
+      98  REPT     LBL11,360 $                                                    
+
+      99  JUMP     ERROR1 $                                                       
+
+     100  PARAM    //*NOT*/TEST/REPEAT $                                          
+
+     101  COND     ERROR5,TEST $                                                  
+
+     102  LABEL    LBL8 $                                                         
+
+     103  GPFDR    CASECC,UGV,KELM,KDICT,ECT,EQEXIN,GPECT,PGG,QG/ONRGY1,OGPFB1/   
+                   *STATICS* $                                                    
+
+     104  PURGE    KDICT,KELM/REPEAT $                                            
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+
+      RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     105  OFP      ONRGY1,OGPFB1,,,,//S,N,CARDNO $                                
+
+     106  COND     NOMPCF,GRDEQ $                                                 
+
+     107  EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USET,KGG,GM,UGV,PGG,QG,CSTM/       
+                   OQM1/V,Y,OPT=0/V,Y,GRDEQ/NSKIP $                               
+
+     108  OFP      OQM1,,,,,//S,N,CARDNO $                                        
+
+     109  LABEL    NOMPCF $                                                       
+
+     110  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDP,,QG,UGV,EST,     
+                   XYCDB,PGG,PCOMPS/OPG1,OQG1,OUGV1,OES1,OEF1,PUGV1,OES1L,        
+                   OEF1L/*STATICS*/S,N,NOSORT2/-1/S,N,STRNFLG/COMPS $             
+
+     111  COND     LBLSTRS,STRESS $                                               
+
+     112  CURV     OES1,MPT,CSTM,EST,SIL,GPL/OES1M,OES1G/V,Y,STRESS/              
+                   V,Y,NINTPTS $                                                  
+
+     113  LABEL    LBLSTRS $                                                      
+
+     114  PURGE    OES1M/STRESS $                                                 
+
+     115  COND     LBLSTRN,STRNFLG $                                              
+
+     116  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDT,,,UGV,EST,,,/    
+                   ,,,OES1A,,,,/*STATICS*//1 $                                    
+
+     117  COND     LBLSTRN,STRAIN $                                               
+
+     118  CURV     OES1A,MPT,CSTM,EST,SIL,GPL/OES1AM,OES1AG/V,Y,STRAIN/           
+                   V,Y,NINTPTS $                                                  
+
+     119  LABEL    LBLSTRN $                                                      
+
+     120  PURGE    OES1A/STRNFLG $                                                
+
+     121  COND     LBL17,NOSORT2 $                                                
+
+     122  SDR3     OUGV1,OPG1,OQG1,OEF1,OES1,/OUGV2,OPG2,OQG2,OEF2,OES2, $        
+
+     123  PARAM    //*SUB*/PRTSORT2/NOSORT2/1 $                                   
+
+     124  COND     LBLSORT1,PRTSORT2 $                                            
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+
+      RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     125  OFP      OUGV2,OPG2,OQG2,OEF2,OES2,//S,N,CARDNO $                       
+
+     126  SCAN     CASECC,OES2,OEF2,,/OESF2,/*RF* $                               
+
+     127  OFP      OESF2,,,,,//S,N,CARDNO $                                       
+
+     128  JUMP     LBLXYPLT $                                                     
+
+     129  LABEL    LBLSORT1 $                                                     
+
+     130  OFP      OUGV1,OPG1,OQG1,OEF1,OES1,//S,N,CARDNO $                       
+
+     131  OFP      OEF1L,OES1L,,,,//S,N,CARDNO $                                  
+
+     132  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
+
+     133  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
+
+     134  LABEL    LBLXYPLT $                                                     
+
+     135  OFP      OES1M,OES1G,OES1A,OES1AM,OES1AG,//S,N,CARDNO $                 
+
+     136  XYTRAN   XYCDB,OPG2,OQG2,OUGV2,OES2,OEF2/XYPLTT/*TRAN*/*PSET*/S,N,      
+                   PFILE/S,N,CARDNO $                                             
+
+     137  XYPLOT   XYPLTT// $                                                     
+
+     138  JUMP     DPLOT $                                                        
+
+     139  LABEL    LBL17 $                                                        
+
+     140  PURGE    OUGV2/NOSORT2 $                                                
+
+     141  COND     LBLOFP,COUNT $                                                 
+
+     142  OPTPR2   OPTP1,OES1,EST/OPTP2,EST1/S,N,PRINT/TSTART/S,N,COUNT/S,N,      
+                   CARDNO $                                                       
+
+     143  EQUIV    EST1,EST/ALWAYS/OPTP2,OPTP1/ALWAYS $                           
+
+     144  COND     LOOPEND,PRINT $                                                
+
+     145  LABEL    LBLOFP $                                                       
+
+     146  OFP      OUGV1,OPG1,OQG1,OEF1,OES1,//S,N,CARDNO $                       
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+
+      RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     147  OFP      OEF1L,OES1L,,,,//S,N,CARDNO $                                  
+
+     148  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1X,OESF1Y/*RF* $              
+
+     149  OFP      OESF1X,OESF1Y,,,,//S,N,CARDNO $                                
+
+     150  OFP      OES1M,OES1G,OES1A,OES1AM,OES1AG,//S,N,CARDNO $                 
+
+     151  LABEL    DPLOT $                                                        
+
+     152  COND     P2,JUMPPLOT $                                                  
+
+     153  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,PUGV1,,GPECT,OES1,
+                   OES1L,ONRGY1/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $     
+
+     154  PRTMSG   PLOTX2// $                                                     
+
+     155  LABEL    P2 $                                                           
+
+     156  LABEL    LOOPEND $                                                      
+
+     157  COND     FINIS,COUNT $                                                  
+
+     158  REPT     LOOPTOP,360 $                                                  
+
+     159  JUMP     FINIS $                                                        
+
+     160  LABEL    ERROR1 $                                                       
+
+     161  PRTPARM  //-1/*STATICS* $                                               
+
+     162  LABEL    ERROR2 $                                                       
+
+     163  PRTPARM  //-2/*STATICS* $                                               
+
+     164  LABEL    ERROR3 $                                                       
+
+     165  PRTPARM  //-3/*STATICS* $                                               
+
+     166  LABEL    ERROR4 $                                                       
+
+     167  PRTPARM  //-4/*STATICS* $                                               
+
+     168  LABEL    ERROR5 $                                                       
+
+     169  PRTPARM  //-5/*STATICS* $                                               
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+
+      RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     170  LABEL    FINIS $                                                        
+
+     171  PURGE    DUMMY/ALWAYS $                                                 
+
+     172  LABEL    LBLINT02 $                                                     
+
+     173  COMPON   LBLINT01,SYS21 $                                               
+
+     228  END      $                                                              
+0*** USER WARNING MESSAGE   27,
+     LABEL NAMED LBSEND   NOT REFERENCED
+0*** USER WARNING MESSAGE   27,
+     LABEL NAMED LBSBEG   NOT REFERENCED
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           31
+                                        PROFILE            186
+                                        MAX WAVEFRONT        7
+                                        AVG WAVEFRONT    5.812
+                                        RMS WAVEFRONT    5.990
+                                        RMS BANDWIDTH    9.823
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            6
+                                        PROFILE            164
+                                        MAX WAVEFRONT        6
+                                        AVG WAVEFRONT    5.125
+                                        RMS WAVEFRONT    5.256
+                                        RMS BANDWIDTH    5.256
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       31         6
+                                        PROFILE (P)                        186       164
+                                        MAXIMUM WAVEFRONT (C-MAX)            7         6
+                                        AVERAGE WAVEFRONT (C-AVG)        5.812     5.125
+                                        RMS WAVEFRONT (C-RMS)            5.990     5.256
+                                        RMS BANDWITCH (B-RMS)            9.823     5.256
+                                        NUMBER OF GRID POINTS (N)                     32
+                                        NUMBER OF ELEMENTS (NON-RIGID)                16
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           5
+                                        MINIMUM NODAL DEGREE                           5
+                                        NUMBER OF UNIQUE EDGES                        80
+                                        MATRIX DENSITY, PERCENT                   18.750
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF SEQGP CARDS GENERATED                   8
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       1       2       2       4       3       5       4
+                         SEQGP          7       7      10      11      11      12      13      15
+                         SEQGP         14      16      16      19      17      20      19      23
+                         SEQGP         20      24      22      27      23      28      25      31
+                         SEQGP         26      32      28      30      29      29      31      26
+                         SEQGP         32      25      34      22      35      21      37      18
+                         SEQGP         38      17      40      14      41      13      43      10
+                         SEQGP         44       9      46       6      47       5     108       8
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QDMEM    ELEMENTS (ELEMENT TYPE  16) STARTING WITH ID        1
+0*** SYSTEM INFORMATION MESSAGE 6201,  1 FILES HAVE BEEN ALLOCATED TO THE SOF WHERE --
+     SIZE OF FILE  1 =        926 BLOCKS
+     AND WHERE A BLOCK CONTAINS 1024 WORDS
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     RECOVER HUB, RUN 6, PHASE 3                                                                                                   
+
+
+                          S U B S T R U C T U R E   O P E R A T I N G   F I L E   T A B L E   O F   C O N T E N T S 
+
+                                                    E  B  C  L  P  K  M  P  P  U  H  U  Q  S  P  P  L  L  G  P  L  K  B  P  H      
+                                                    Q  G  S  O  L  M  M  V  O  P  O  V  V  O  A  O  O  M  I  H  A  4  M  H  L      
+                                                    S  S  T  D  T  T  T  E  V  R  R  E  E  L  P  A  A  T  M  I  M  M  T  I  F      
+     SUBSTRUCTURE                                   S  S  M  S  S  X  X  C  E  T  G  C  C  N  P  P  P  X  S  S  S  X  X  L  T      
+     NO.   NAME    TYPE   SS   PS   LL   CS   HL    --------------------------------------------------------------------------------
+
+       1  HUB        B     0    0    0   27   28    3  3  3  3  3  3  3  3        3  3     3                                 
+       2  ROOT1      B    24    0    0    6    7    3  3     3  3  3  3  3        3                                          
+       3  VANE1      B    15    0    0    4    5    3  3  3  3  3  3  3  3        3                                          
+       4  VANE2      B    14    3    0    3    5    3  0  0  3  3  0  0  0        3                                          
+       5  VANETOP    C    16    0    3    7   26    3  3  3  3  3  3  3  3        3                                          
+       6  ROOT2      B    23    2    0    2    7    3  0     3  3  0  0  0        3                                          
+       7  ROOTTOP    C    25    0    2   10   26    3  3     3  3  3  3  3        3                                          
+       8  LVANE2    IB     0    3    0    9   10    3  0  0  3  3  0  0  0        0                                          
+       9  LVANE1    IB     4    3    0    8   10    3  0  0  3  3  0  0  0        0                                          
+      10  VANELFT    C     0    5    9   19   26    3  0  0  3  3  0  0  0        3                                          
+      11  RVANE2    IB     8    3    0   12   13    3  0  0  3  3  0  0  0        0                                          
+      12  RVANE1    IB     9    3    0   11   13    3  0  0  3  3  0  0  0        0  3     3                                 
+      13  VANERGT    C    10    5   12   26   27    3  0  0  3  3  0  0  0        3  3     3                                 
+      14  BVANE2    IB    11    3    0   15   16    3  0  0  3  3  0  0  0        0                                          
+      15  BVANE1    IB    12    3    0   14   16    3  0  0  3  3  0  0  0        0                                          
+      16  VANEBOT    C    13    5   15   25   26    3  0  0  3  3  0  0  0        3                                          
+      17  LROOT2    IB     0    2    0   18   19    3  0     3  3  0  0  0        0                                          
+      18  LROOT1    IB     6    2    0   17   19    3  0     3  3  0  0  0        0                                          
+      19  ROOTLFT    C     0    7   18   16   26    3  0     3  3  0  0  0        3                                          
+      20  RROOT2    IB    17    2    0   21   22    3  0     3  3  0  0  0        0                                          
+      21  RROOT1    IB    18    2    0   20   22    3  0     3  3  0  0  0        0                                          
+      22  ROOTRGT    C    19    7   21    5   26    3  0     3  3  0  0  0        3                                          
+      23  BROOT2    IB    20    2    0   24   25    3  0     3  3  0  0  0        0                                          
+      24  BROOT1    IB    21    2    0   23   25    3  0     3  3  0  0  0        0                                          
+      25  ROOTBOT    C    22    7   24   22   26    3  0     3  3  0  0  0        3                                          
+      26  RING       C     0    0    5   13   27    3  3  3  3  3  4  3  3        3                                          
+      27  BLADES     C     0    0   26    1   28    3  3  3  3  3  4  3  3        3  3     3                                 
+      28  WINDMIL    C     0    0    1    0   29    3  3  3  3  3  4  3  3  3  3  4  3     3           3                     
+      29  SMALLMIL   R     0    0   28    0    0    3  3  3  3  3  4  4  4           3     3                                 
+
+
+                                                   SIZE OF ITEM IS GIVEN IN POWERS OF TEN   (0 INDICATES DATA IS STORED IN PRIMARY)
+0*** UNUSED SPACE ON SOF =   663552 WORDS.
+                      OR =      648 BLOCKS.
+                      OR =       69 PERCENT.
+0*** HIGHEST BLOCK USED  =      278
+0*** USER INFORMATION MESSAGE 6321, SUBSTRUCTURE PHASE 3 RECOVER FOR FINAL SOLUTION STRUCTURE SMALLMIL
+                                    AND BASIC SUBSTRUCTURE HUB     
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     ROTATIONAL FORCES DUE TO UNIT OMEGA ABOUT CENTER OF STRUCTURE                                          SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -6.885472E-09   0.0            0.0            0.0            0.0            0.0                           
+             2      G      6.815310E-09   1.102501E-07   0.0            0.0            0.0            0.0                           
+             4      G     -2.260284E-14   4.903196E-08   0.0            0.0            0.0            0.0                           
+             5      G     -3.257896E-14   6.704929E-08   0.0            0.0            0.0            0.0                           
+             7      G      6.885431E-09   0.0            0.0            0.0            0.0            0.0                           
+            10      G      3.999435E-09   3.999455E-09   0.0            0.0            0.0            0.0                           
+            11      G      6.384132E-09   6.384167E-09   0.0            0.0            0.0            0.0                           
+            13      G      0.0            6.885465E-09   0.0            0.0            0.0            0.0                           
+            14      G      1.102501E-07  -6.815319E-09   0.0            0.0            0.0            0.0                           
+            16      G      4.903196E-08   1.131666E-14   0.0            0.0            0.0            0.0                           
+            17      G      6.704929E-08   1.798945E-14   0.0            0.0            0.0            0.0                           
+            19      G      0.0           -6.885445E-09   0.0            0.0            0.0            0.0                           
+            20      G      1.102501E-07   6.815356E-09   0.0            0.0            0.0            0.0                           
+            22      G      3.999454E-09  -3.999445E-09   0.0            0.0            0.0            0.0                           
+            23      G      6.384163E-09  -6.384147E-09   0.0            0.0            0.0            0.0                           
+            25      G      6.885462E-09   0.0            0.0            0.0            0.0            0.0                           
+            26      G     -6.815327E-09  -1.102501E-07   0.0            0.0            0.0            0.0                           
+            28      G      8.188964E-15  -4.903196E-08   0.0            0.0            0.0            0.0                           
+            29      G      1.180331E-14  -6.704929E-08   0.0            0.0            0.0            0.0                           
+            31      G     -6.885447E-09   0.0            0.0            0.0            0.0            0.0                           
+            32      G      6.815351E-09  -1.102501E-07   0.0            0.0            0.0            0.0                           
+            34      G     -3.999445E-09  -3.999454E-09   0.0            0.0            0.0            0.0                           
+            35      G     -6.384148E-09  -6.384164E-09   0.0            0.0            0.0            0.0                           
+            37      G      0.0           -6.885463E-09   0.0            0.0            0.0            0.0                           
+            38      G     -1.102501E-07   6.815324E-09   0.0            0.0            0.0            0.0                           
+            40      G     -4.903196E-08  -9.811720E-15   0.0            0.0            0.0            0.0                           
+            41      G     -6.704929E-08  -1.471499E-14   0.0            0.0            0.0            0.0                           
+            43      G      0.0            6.885445E-09   0.0            0.0            0.0            0.0                           
+            44      G     -1.102501E-07  -6.815354E-09   0.0            0.0            0.0            0.0                           
+            46      G     -3.999458E-09   3.999444E-09   0.0            0.0            0.0            0.0                           
+            47      G     -6.384170E-09   6.384145E-09   0.0            0.0            0.0            0.0                           
+           108      G      1.024372E-07   4.132977E-08   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     EXTENSION OF RIGHT PANEL AND COMPRESSION OF BOTTOM PANEL                                               SUBCASE 2              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      6.172360E-06   0.0            0.0            0.0            0.0            0.0                           
+             2      G      9.928668E-06   7.763517E-07   0.0            0.0            0.0            0.0                           
+             4      G      7.811291E-06  -3.324972E-07   0.0            0.0            0.0            0.0                           
+             5      G      1.047571E-05  -6.439687E-07   0.0            0.0            0.0            0.0                           
+             7      G      8.371261E-06   0.0            0.0            0.0            0.0            0.0                           
+            10      G      5.991280E-06  -2.600528E-06   0.0            0.0            0.0            0.0                           
+            11      G      1.164498E-05  -7.079488E-06   0.0            0.0            0.0            0.0                           
+            13      G      0.0            2.686615E-06   0.0            0.0            0.0            0.0                           
+            14      G      4.018371E-05   5.140406E-07   0.0            0.0            0.0            0.0                           
+            16      G      1.393543E-05   7.811291E-06   0.0            0.0            0.0            0.0                           
+            17      G      2.207221E-05   1.047571E-05   0.0            0.0            0.0            0.0                           
+            19      G      0.0            1.185701E-05   0.0            0.0            0.0            0.0                           
+            20      G      4.312564E-05   2.097850E-05   0.0            0.0            0.0            0.0                           
+            22      G      1.186977E-05   1.186977E-05   0.0            0.0            0.0            0.0                           
+            23      G      2.433343E-05   2.433343E-05   0.0            0.0            0.0            0.0                           
+            25      G      1.185701E-05   0.0            0.0            0.0            0.0            0.0                           
+            26      G      2.097850E-05   4.312564E-05   0.0            0.0            0.0            0.0                           
+            28      G      7.811291E-06   1.393543E-05   0.0            0.0            0.0            0.0                           
+            29      G      1.047571E-05   2.207221E-05   0.0            0.0            0.0            0.0                           
+            31      G      2.686615E-06   0.0            0.0            0.0            0.0            0.0                           
+            32      G      5.140405E-07   4.018371E-05   0.0            0.0            0.0            0.0                           
+            34      G     -2.600528E-06   5.991280E-06   0.0            0.0            0.0            0.0                           
+            35      G     -7.079488E-06   1.164498E-05   0.0            0.0            0.0            0.0                           
+            37      G      0.0            8.371262E-06   0.0            0.0            0.0            0.0                           
+            38      G     -2.165587E-06   1.156387E-05   0.0            0.0            0.0            0.0                           
+            40      G     -3.324968E-07   7.811291E-06   0.0            0.0            0.0            0.0                           
+            41      G     -6.439684E-07   1.047571E-05   0.0            0.0            0.0            0.0                           
+            43      G      0.0            6.172360E-06   0.0            0.0            0.0            0.0                           
+            44      G      7.763518E-07   9.928668E-06   0.0            0.0            0.0            0.0                           
+            46      G      3.277963E-06   3.277963E-06   0.0            0.0            0.0            0.0                           
+            47      G      5.608956E-06   5.608956E-06   0.0            0.0            0.0            0.0                           
+           108      G      1.602361E-06  -1.165527E-05   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     CHECK ON RELEASE FEATURE AT GRID POINT 5                                                               SUBCASE 3              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -1.030348E-07   0.0            0.0            0.0            0.0            0.0                           
+             2      G      6.187168E-08  -1.398604E-07   0.0            0.0            0.0            0.0                           
+             4      G      5.649104E-14  -1.586544E-06   0.0            0.0            0.0            0.0                           
+             5      G      7.715708E-14  -1.218223E-06   0.0            0.0            0.0            0.0                           
+             7      G      1.030349E-07   0.0            0.0            0.0            0.0            0.0                           
+            10      G      7.883455E-08   3.399462E-09   0.0            0.0            0.0            0.0                           
+            11      G      4.464573E-08  -2.663294E-09   0.0            0.0            0.0            0.0                           
+            13      G      0.0            5.574307E-10   0.0            0.0            0.0            0.0                           
+            14      G      9.545968E-09  -1.067458E-08   0.0            0.0            0.0            0.0                           
+            16      G      3.383299E-10  -2.378025E-09   0.0            0.0            0.0            0.0                           
+            17      G      9.869841E-10  -8.726363E-09   0.0            0.0            0.0            0.0                           
+            19      G      0.0           -3.605775E-09   0.0            0.0            0.0            0.0                           
+            20      G     -2.253810E-10  -8.167829E-09   0.0            0.0            0.0            0.0                           
+            22      G     -9.613698E-10  -1.313596E-09   0.0            0.0            0.0            0.0                           
+            23      G     -1.936940E-09  -2.810916E-09   0.0            0.0            0.0            0.0                           
+            25      G     -7.297873E-10   0.0            0.0            0.0            0.0            0.0                           
+            26      G     -9.521191E-10  -8.604193E-10   0.0            0.0            0.0            0.0                           
+            28      G     -1.644306E-14  -1.626000E-10   0.0            0.0            0.0            0.0                           
+            29      G     -2.420368E-14  -4.754937E-10   0.0            0.0            0.0            0.0                           
+            31      G      7.297578E-10   0.0            0.0            0.0            0.0            0.0                           
+            32      G      9.520696E-10  -8.604117E-10   0.0            0.0            0.0            0.0                           
+            34      G      9.613531E-10  -1.313576E-09   0.0            0.0            0.0            0.0                           
+            35      G      1.936910E-09  -2.810881E-09   0.0            0.0            0.0            0.0                           
+            37      G      0.0           -3.605737E-09   0.0            0.0            0.0            0.0                           
+            38      G      2.253748E-10  -8.167763E-09   0.0            0.0            0.0            0.0                           
+            40      G     -3.383293E-10  -2.377982E-09   0.0            0.0            0.0            0.0                           
+            41      G     -9.869821E-10  -8.726295E-09   0.0            0.0            0.0            0.0                           
+            43      G      0.0            5.574692E-10   0.0            0.0            0.0            0.0                           
+            44      G     -9.545950E-09  -1.067451E-08   0.0            0.0            0.0            0.0                           
+            46      G     -7.883449E-08   3.399481E-09   0.0            0.0            0.0            0.0                           
+            47      G     -4.464564E-08  -2.663251E-09   0.0            0.0            0.0            0.0                           
+           108      G     -1.522487E-07   1.446874E-08   0.0            0.0            0.0            0.0                           
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     ROTATIONAL FORCES DUE TO UNIT OMEGA ABOUT CENTER OF STRUCTURE                                          SUBCASE 1              
+ 
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M )
+  ELEMENT           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+        1        3.427942E-02   1.368372E-01   7.812783E-03       85.6686       1.374290E-01   3.368766E-02   5.187067E-02          
+        3        3.427943E-02   1.368373E-01  -7.812796E-03      -85.6685       1.374290E-01   3.368767E-02   5.187068E-02          
+        5        1.441762E-01   3.029857E-02  -1.102462E-02       -5.4791       1.452337E-01   2.924108E-02   5.799630E-02          
+        7        1.441762E-01   3.029857E-02   1.102461E-02        5.4791       1.452337E-01   2.924109E-02   5.799629E-02          
+        9        1.368372E-01   3.427943E-02  -7.812787E-03       -4.3314       1.374290E-01   3.368767E-02   5.187067E-02          
+       11        1.368373E-01   3.427943E-02   7.812796E-03        4.3314       1.374290E-01   3.368767E-02   5.187068E-02          
+       13        1.441762E-01   3.029858E-02  -1.102462E-02       -5.4791       1.452336E-01   2.924109E-02   5.799628E-02          
+       15        1.441762E-01   3.029857E-02   1.102462E-02        5.4791       1.452337E-01   2.924109E-02   5.799629E-02          
+       17        3.427942E-02   1.368372E-01   7.812788E-03       85.6686       1.374290E-01   3.368766E-02   5.187067E-02          
+       19        3.427943E-02   1.368373E-01  -7.812793E-03      -85.6686       1.374290E-01   3.368767E-02   5.187068E-02          
+       21        1.441762E-01   3.029857E-02  -1.102463E-02       -5.4791       1.452337E-01   2.924109E-02   5.799628E-02          
+       23        1.441762E-01   3.029857E-02   1.102462E-02        5.4791       1.452337E-01   2.924109E-02   5.799629E-02          
+       25        1.368372E-01   3.427943E-02  -7.812787E-03       -4.3314       1.374290E-01   3.368767E-02   5.187067E-02          
+       27        1.368373E-01   3.427943E-02   7.812798E-03        4.3314       1.374290E-01   3.368767E-02   5.187067E-02          
+       29        1.441762E-01   3.029857E-02  -1.102463E-02       -5.4791       1.452337E-01   2.924109E-02   5.799628E-02          
+       31        1.441762E-01   3.029856E-02   1.102463E-02        5.4791       1.452337E-01   2.924107E-02   5.799630E-02          
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     EXTENSION OF RIGHT PANEL AND COMPRESSION OF BOTTOM PANEL                                               SUBCASE 2              
+ 
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M )
+  ELEMENT           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+        1        2.455675E+00   1.078799E+00   1.867165E+00       34.8803       3.757275E+00  -2.228009E-01   1.990038E+00          
+        3        1.097456E+00  -2.202694E+00   1.867165E+00       24.2660       1.939178E+00  -3.044416E+00   2.491797E+00          
+        5       -2.966948E+00   4.595438E+00   1.685894E+00       77.9848       4.954252E+00  -3.325761E+00   4.140007E+00          
+        7        4.790092E+01  -8.302165E+00   1.252428E+01       12.0108       5.056550E+01  -1.096675E+01   3.076612E+01          
+        9        4.751884E+01  -3.206642E+00   1.867165E+00        2.1052       4.758747E+01  -3.275278E+00   2.543138E+01          
+       11        5.080033E+01  -1.848424E+00   1.867165E+00        2.0286       5.086646E+01  -1.914558E+00   2.639051E+01          
+       13        5.154383E+01  -1.123453E+01  -1.542390E+01      -13.0842       5.512861E+01  -1.481930E+01   3.497395E+01          
+       15       -5.154385E+01   1.123453E+01  -1.542390E+01      -76.9158       1.481930E+01  -5.512862E+01   3.497396E+01          
+       17        1.848424E+00  -5.080033E+01  -1.867165E+00       -2.0286       1.914558E+00  -5.086646E+01   2.639051E+01          
+       19        3.206641E+00  -4.751884E+01  -1.867166E+00       -2.1052       3.275278E+00  -4.758747E+01   2.543138E+01          
+       21       -4.790091E+01   8.302166E+00   1.252428E+01       77.9892       1.096675E+01  -5.056549E+01   3.076612E+01          
+       23        2.966948E+00  -4.595437E+00   1.685894E+00       12.0152       3.325762E+00  -4.954251E+00   4.140007E+00          
+       25        2.202694E+00  -1.097459E+00  -1.867165E+00      -24.2659       3.044416E+00  -1.939180E+00   2.491798E+00          
+       27       -1.078799E+00  -2.455676E+00  -1.867165E+00      -34.8803       2.228013E-01  -3.757276E+00   1.990039E+00          
+       29       -6.759804E-01  -1.663074E+00   1.213726E+00       33.9357       1.407092E-01  -2.479764E+00   1.310237E+00          
+       31        6.759810E-01   1.663077E+00   1.213726E+00       56.0643       2.479766E+00  -1.407081E-01   1.310237E+00          
+1     WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-02-6A                                                                                   
+0     CHECK ON RELEASE FEATURE AT GRID POINT 5                                                               SUBCASE 3              
+ 
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M )
+  ELEMENT           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+        1        1.048302E-01   2.546678E-01  -9.999999E-01      -47.1423       1.182552E+00  -8.230535E-01   1.002802E+00          
+        3        1.048301E-01   2.546678E-01   1.000000E+00       47.1423       1.182551E+00  -8.230535E-01   1.002802E+00          
+        5       -2.355191E-01  -2.143876E-01   1.006202E-01       47.9972      -1.237799E-01  -3.261268E-01   1.011734E-01          
+        7       -7.956360E-02  -2.691416E-02   3.968607E-02       61.7786      -5.615611E-03  -1.008621E-01   4.762327E-02          
+        9        1.113753E-02   3.771619E-03  -3.743878E-03      -22.7350       1.270631E-02   2.202833E-03   5.251741E-03          
+       11        6.299490E-04   8.267039E-04  -3.743878E-03      -45.7526       4.473497E-03  -3.016844E-03   3.745171E-03          
+       13       -6.842900E-04  -1.567654E-03  -1.847207E-03      -38.2763       7.733057E-04  -3.025250E-03   1.899278E-03          
+       15        6.851682E-04  -2.112600E-03   1.982040E-03       27.3932       1.712260E-03  -3.139691E-03   2.425976E-03          
+       17       -1.481107E-03   8.030364E-04   5.558832E-09       89.9999       8.030364E-04  -1.481107E-03   1.142072E-03          
+       19       -1.481111E-03   8.030277E-04   5.558832E-09       89.9999       8.030276E-04  -1.481111E-03   1.142069E-03          
+       21        6.851617E-04  -2.112601E-03  -1.982029E-03      -27.3931       1.712246E-03  -3.139685E-03   2.425965E-03          
+       23       -6.842817E-04  -1.567642E-03   1.847208E-03       38.2763       7.733169E-04  -3.025240E-03   1.899279E-03          
+       25        6.299561E-04   8.267108E-04   3.743862E-03       45.7526       4.473487E-03  -3.016821E-03   3.745154E-03          
+       27        1.113751E-02   3.771613E-03   3.743861E-03       22.7350       1.270628E-02   2.202837E-03   5.251723E-03          
+       29       -7.956360E-02  -2.691415E-02  -3.968603E-02      -61.7787      -5.615648E-03  -1.008621E-01   4.762323E-02          
+       31       -2.355190E-01  -2.143876E-01  -1.006202E-01      -47.9972      -1.237799E-01  -3.261267E-01   1.011734E-01          
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTUR      
+ DATE:  5/17/95
+ END TIME: 15:21:25
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

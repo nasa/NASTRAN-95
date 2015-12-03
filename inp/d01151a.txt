@@ -1,0 +1,125 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$  Axisymmetric Cylindrical Thick Shell Subjected to Asymmetric Pressure Loading
+$                                    (1-15-1)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates the use of elements TRAPAX and TRIAAX in the
+$ analysis of asymmetrically loaded solids of revolution. The structure consists
+$ of a circular cylindrical shell loaded with a uniform external pressure over a
+$ small square area.
+$ 
+$ The cylindrical shell wall is assumed to be simply supported, i.e., the radial
+$ and circumferential deflections and the bending moments are zero at the ends.
+$ 
+$ Trapezoidal elements having small and large dimensions are used in the
+$ vicinity of the load and away from the load, respectively. A transition area,
+$ between the two trapezoidal configurations, is modeled with triangular
+$ elements to illustrate their use.
+$ 
+$ The loads and deflections, not required to be axisymmetric, are expanded in
+$ Fourier series with respect to the azimuthal coordinate. Due to the one plane
+$ of symmetry of this problem with respect to the phi = 0 plane, the deflections
+$ are represented by a cosine series selected by the AXISYM Case Control card.
+$ The highest harmonic used, 10, is defined on the AXIC bulk data card. The
+$ pressure load is defined using PRESAX bulk data cards.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    r   =  15 in.         (Average radius)
+$     a
+$ 
+$    t      1 in.          (Thickness)
+$ 
+$    l   =  45 in.         (Length)
+$ 
+$    2c  =  3.75 in.       (Load Length)
+$ 
+$    beta =  0.125 radians (Load Arc (beta = c/r ))
+$                                               a
+$ 
+$    E   =  66666.7 psi    (Modulus of Elasticity)
+$ 
+$    v   =  0.3            (Poisson's ratio)
+$ 
+$    n   =  10             (Harmonics)
+$ 
+$ 2. Loads:
+$ 
+$    p = 7.11111 psi       (Pressure)
+$ 
+$                 2                             2
+$    A = 14.063 in         (Area of Load (A = 4c ))
+$ 
+$ 3. Supports
+$ 
+$    Simply supported at the ends:   u   =  0, u     =  0
+$                                     r         phi
+$ 
+$    Symmetry at the midplane:       u   =  0
+$                                        z
+$ 
+$ C. Theory
+$ 
+$ Theoretical results for this problem are taken from Reference 20, p. 568.
+$ 
+$ The following theoretical values occur at the center of the load
+$      l
+$ (z = -, phi = 0):
+$      2
+$ 
+$              pA
+$   u   =  272 ---  =  0.0272 in.       (Radial Deflection (inward))
+$    r         Er
+$                a
+$ 
+$   M     = 0.1324 pA = 13.24 in-lb/in  (Circumferential Bending Moment)
+$    phi
+$ 
+$   M   = 0.1057 pA = 10.57 in-lb/in    (Longitudinal Bending Moment)
+$    z
+$ 
+$                   pA
+$   F     = -2.6125 ---  = -17.42 lb/in (Circumferential Membrane Force)
+$    phi            r
+$                    a
+$ 
+$                pA
+$   F   = -2.320 ---  =  -15.47 lb/in   (Longitudinal Membrane Force)
+$    z           r
+$                 a
+$ 
+$ Theoretical stresses on the inside and outside walls at this point
+$      l
+$ (z = -, phi = 0) are computed as follows:
+$      2
+$ 
+$            F        6M
+$             z         z     47.95 psi (Inside Wall Longitudinal Stress)
+$   sigma  = --  +/-  ---  =
+$        z   t         2     -78.89 psi (Outside Wall Longitudinal Stress)
+$                     t
+$ 
+$              F          6M
+$               phi         phi   62.02 psi (Inside Wall Circumferential Stress)
+$   sigma  = --    +/-  ---    =
+$        phi   t           2    -96.86 psi (Outside Wall Circumferential Stress)
+$                         t
+$ 
+$ D. Results
+$ 
+$ The solution is near convergence with ten harmonics.
+$ 
+$ Ten harmonics shows very good convergence to nearly the theoretical values
+$ computed above. However, seven harmonics would result in relatively poor
+$ convergence. Thus, displacement convergence alone may be an invalid indicator
+$ of an adequate solution.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 20. Biljaard, P. P., ASME "Pressure Vessel and Piping Design", Welding Journal
+$     Research Supplement. 1954, pp 567-575.
+$-------------------------------------------------------------------------------

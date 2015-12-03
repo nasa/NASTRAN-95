@@ -1,0 +1,91 @@
+ID    D01092A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   1,0                                                                       
+TIME  10                                                                        
+CEND                                                                            
+TITLE    = 2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                     
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                          
+SPC  = 1                                                                        
+OUTPUT                                                                          
+DISP =  ALL                                                                     
+SPCFORCE = ALL                                                                  
+  STRESS = ALL                                                                  
+SUBCASE 1                                                                       
+LABEL = CONSISTENT LOADING (FORCE RATIO 1 TO 4 TO 1)                            
+LOAD  = 20                                                                      
+OLOAD = ALL                                                                     
+SUBCASE 2                                                                       
+LABEL = UNIFORM TEMPERATURE LOAD                                                
+TEMPERATURE(LOAD) = 30                                                          
+SUBCASE  3                                                                      
+LABEL = LUMPED STRESS LOADING (FORCE RATIO 1 TO 2 TO 1)                         
+LOAD  = 40                                                                      
+OLOAD = ALL                                                                     
+BEGIN BULK                                                                      
+CTRIM6  1       80      9       6       3       2       1       5       +TE1    
++TE1                                                                            
+CTRIM6  2       80      1       4       7       8       9       5       +TE2    
++TE2                                                                            
+CTRIM6  3       80      15      12      9       8       7       11      +TE3    
++TE3                                                                            
+CTRIM6  4       80      7       10      13      14      15      11      +TE4    
++TE4                                                                            
+CTRIM6  5       80      21      18      15      14      13      17      +TE5    
++TE5                                                                            
+CTRIM6  6       80      13      16      19      20      21      17      +TE6    
++TE6                                                                            
+CTRIM6  7       80      27      24      21      20      19      23      +TE7    
++TE7                                                                            
+CTRIM6  8       80      19      22      25      26      27      23      +TE8    
++TE8                                                                            
+CTRIM6  9       80      33      30      27      26      25      29      +TE9    
++TE9                                                                            
+CTRIM6  10      80      25      28      31      32      33      29      +TE10   
++TE10                                                                           
+FORCE1  20      31      2.0+3   28      31                                      
+FORCE1  20      32      8.0+3   29      32                                      
+FORCE1  20      33      2.0+3   30      33                                      
+FORCE1  40      31      3.0+3   28      31                                      
+FORCE1  40      32      6.0+3   29      32                                      
+FORCE1  40      33      3.0+3   30      33                                      
+GRDSET                                                  3456                    
+GRID    1               .0      .0      .0                                      
+GRID    2               .0      1.      .0                                      
+GRID    3               .0      2.      .0                                      
+GRID    4               2.      .0      .0                                      
+GRID    5               2.      1.      .0                                      
+GRID    6               2.      2.      .0                                      
+GRID    7               4.      .0      .0                                      
+GRID    8               4.      1.      .0                                      
+GRID    9               4.      2.      .0                                      
+GRID    10              6.      .0      .0                                      
+GRID    11              6.      1.      .0                                      
+GRID    12              6.      2.      .0                                      
+GRID    13              8.      .0      .0                                      
+GRID    14              8.      1.      .0                                      
+GRID    15              8.      2.      .0                                      
+GRID    16              10.     .0      .0                                      
+GRID    17              10.     1.      .0                                      
+GRID    18              10.     2.      .0                                      
+GRID    19              12.     .0      .0                                      
+GRID    20              12.     1.      .0                                      
+GRID    21              12.     2.      .0                                      
+GRID    22              14.     .0      .0                                      
+GRID    23              14.     1.      .0                                      
+GRID    24              14.     2.      .0                                      
+GRID    25              16.     .0      .0                                      
+GRID    26              16.     1.      .0                                      
+GRID    27              16.     2.      .0                                      
+GRID    28              18.     .0      .0                                      
+GRID    29              18.     1.      .0                                      
+GRID    30              18.     2.      .0                                      
+GRID    31              20.     .0      .0                                      
+GRID    32              20.     1.      .0                                      
+GRID    33              20.     2.      .0                                      
+MAT1    90      3.0+6           .2      1.      .001    10.                     
+PTRIM6  80      90      4.      .0      .0                                      
+SPC1    1       2       4       7       10      13      16      19      +GJD    
++GJD    22      25      28      31                                              
+SPC1    1       12      1       2       3                                       
+TEMPD   30      60.                                                             
+ENDDATA                                                                         

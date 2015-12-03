@@ -1,0 +1,99 @@
+ID    D14011A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   14,0                                                                      
+TIME  15                                                                        
+CEND                                                                            
+TITLE    = STATIC ANALYSIS OF A CIRCULAR PLATE                                  
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D14-01-1A                          
+LABEL    = DIHEDRAL CYCLIC SYMMETRY                                             
+   SPC   = 101                                                                  
+OUTPUT                                                                          
+   OLOAD = ALL                                                                  
+   DISP  = ALL                                                                  
+   SPCF  = ALL                                                                  
+SUBCASE  1                                                                      
+LABEL    = SEGMENT  1 RIGHT                                                     
+SUBCASE  2                                                                      
+LABEL    = SEGMENT  1 LEFT                                                      
+SUBCASE  3                                                                      
+LABEL    = SEGMENT  2 RIGHT                                                     
+    LOAD = 102                                                                  
+SUBCASE  4                                                                      
+LABEL    = SEGMENT  2 LEFT                                                      
+    LOAD = 102                                                                  
+SUBCASE  5                                                                      
+LABEL    = SEGMENT  3 RIGHT                                                     
+SUBCASE  6                                                                      
+LABEL    = SEGMENT  3 LEFT                                                      
+SUBCASE  7                                                                      
+LABEL    = SEGMENT  4 RIGHT                                                     
+SUBCASE  8                                                                      
+LABEL    = SEGMENT  4 LEFT                                                      
+SUBCASE  9                                                                      
+LABEL    = SEGMENT  5 RIGHT                                                     
+SUBCASE  10                                                                     
+LABEL    = SEGMENT  5 LEFT                                                      
+SUBCASE  11                                                                     
+LABEL    = SEGMENT  6 RIGHT                                                     
+SUBCASE  12                                                                     
+LABEL    = SEGMENT  6 LEFT                                                      
+BEGIN BULK                                                                      
+CBAR    1       1       10      20      .0      .0      1.      1               
+CBAR    2       1       20      30      .0      .0      1.      1               
+CBAR    3       1       30      40      .0      .0      1.      1               
+CBAR    4       1       40      50      .0      .0      1.      1               
+CBAR    5       1       50      60      .0      .0      1.      1               
+CNGRNT  10      11                                                              
+CNGRNT  20      21                                                              
+CNGRNT  30      31                                                              
+CNGRNT  40      41                                                              
+CNGRNT  50      51                                                              
+CORD2C  1       0       .0      .0      .0      .0      .0      1.      +C1     
++C1     1.      .0      .0                                                      
+CQUAD2  10      1       10      11      21      20                              
+CQUAD2  11      1       11      12      22      21                              
+CQUAD2  20      1       20      21      31      30                              
+CQUAD2  21      1       21      22      32      31                              
+CQUAD2  30      1       30      31      41      40                              
+CQUAD2  31      1       31      32      42      41                              
+CQUAD2  40      1       40      41      51      50                              
+CQUAD2  41      1       41      42      52      51                              
+CQUAD2  50      1       50      51      61      60                              
+CQUAD2  51      1       51      52      62      61                              
+CYJOIN  1       C       10      20      30      40      50      60      CYC SYM 
+CYJOIN  2       C       12      22      32      42      52      62      CYC SYM 
+GRDSET          1                               1                               
+GRID    10              1.0     .0      .0                                      
+GRID    11              1.0     15.0    .0                                      
+GRID    12              1.0     30.0    .0                                      
+GRID    20              .68     .0      .0                                      
+GRID    21              .68     15.0    .0                                      
+GRID    22              .68     30.0    .0                                      
+GRID    30              .46     .0      .0                                      
+GRID    31              .46     15.0    .0                                      
+GRID    32              .46     30.0    .0                                      
+GRID    40              .31     .0      .0                                      
+GRID    41              .31     15.0    .0                                      
+GRID    42              .31     30.0    .0                                      
+GRID    50              .21     .0      .0                                      
+GRID    51              .21     15.0    .0                                      
+GRID    52              .21     30.0    .0                                      
+GRID    60              .14     .0      .0                                      
+GRID    61              .14     15.0    .0                                      
+GRID    62              .14     30.0    .0                                      
+MAT1    1       10.6 +6         .325    2.59 -4 12.9 -6                         
+PARAM   CTYPE   DRL                                                     CYC SYM 
+PARAM   KMAX    2                                                       CYC SYM 
+PARAM   NLOAD   1                                                       CYC SYM 
+PARAM   NSEGS   6                                                       CYC SYM 
+PBAR    1       1       1.8 -3  5.4 -7  5.4 -7  1.0 -6                  +PB1    
++PB1    .0      .03     .03     .0      .03     .03     .03     -.03            
+PLOAD2  102     200.    10      20      30      40      50                      
+PLOAD2  102     200.    11      21      31      41      51                      
+PQUAD2  1       1       .01                                                     
+SPC1    110     12346   10      11      12                                      
+SPC1    112     126     10      11      12      20      21      22              
+SPC1    112     126     30      31      32      40      41      42              
+SPC1    112     126     50      51      52      60      61      62              
+SPCADD  101     110     112                                                     
+ENDDATA                                                                         

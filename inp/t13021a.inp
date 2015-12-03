@@ -1,0 +1,54 @@
+ID    T13021A,NASTRAN                                                           
+APP   DISP                                                                      
+SOL   13                                                                        
+DIAG  38                                                                        
+TIME  10                                                                        
+CEND                                                                            
+TITLE = OCTAGONAL FRAME MODELED BY 8 CBARS AND USING CPSE2 ELEMENTS
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. T13-02-1A
+ECHO  = BOTH                                                                    
+DISP  = ALL                                                                     
+SPC = 1
+SUBCASE 1                                                                       
+LABEL = STATIC SOLUTION                                                         
+LOAD  = 1                                                                       
+OLOAD = ALL                                                                     
+SUBCASE 2                                                                       
+LABEL = SECOND ORDER STATICS SOLUTION                                           
+DSCOEFFICIENT = DEFAULT                                                         
+SUBCASE 3                                                                       
+LABEL = NORMAL MODES WITH DIFFERENTIAL STIFFNESS                                
+METHOD = 1                                                                      
+BEGIN BULK                                                                      
+SPC,1,1,126
+CORD2C,  1  0  0.  0.  0.  0.  0.  1.                                           
+,    1.  0. 0.                                                                  
+CONM2,   9  1,,   5.74025  0.  0.  0.  )+C-21                                   
+=(7), *(1),*(1),,==                                                             
++C-21,  5.74025  0.0  5.74025,  0.  0.  5.74025                                 
+=(7),==                                                                         
+FORCE1, 1  1   26516.5  5   1                                                   
+=(3),  =,*(1),       = *(1),/                                                   
+FORCE1, 1  5   26516.5  1   5                                                   
+=(3),  =,*(1),       = *(1),/                                                   
+GRID,  1  0   0.     75.     0.   0  345                                        
+GRID,  2  0  53.033  53.033  ==                                                 
+GRID,  3  0  75.      0.     ==                                                 
+GRID,  4  0  53.033 -53.033  ==                                                 
+GRID,  5  0   0.    -75.     ==                                                 
+GRID,  6  0 -53.033 -53.033  ==                                                 
+GRID,  7  0 -75.      0.     ==                                                 
+GRID,  8  0 -53.033  53.033  ==                                                 
+BAROR,,1,,,   1.  0.  0.                                                        
+CBAR,  1  1   1   2                                                             
+=(6),*(1),=, *(1),/                                                             
+CBAR,  8  1   8   1                                                             
+PBAR,  1  1   1.  .83333  .83333                                                
+CPSE2,17  2   1   2                                                             
+=(6),*(1),=, *(1),/                                                             
+CPSE2,24  2   8   1                                                             
+PPSE,  2  500.                                                                  
+MAT1,  1  1.E7,, 0.3                                                            
+EIGR,  1  FEER,, 1.0E-8,, 10                                                    
+, MAX                                                                           
+ENDDATA                                                                         

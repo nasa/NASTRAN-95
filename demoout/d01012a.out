@@ -1,0 +1,1419 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01012A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   1,0                                                                       
+     TIME  5                                                                         
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0     QDMEM1 AND QDMEM2 ELEMENTS                                                                                                    
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION          
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                          
+                  3      LABEL    = QDMEM1 AND QDMEM2 ELEMENTS                                           
+                  4         SET 1 = 11 THRU 16,31 THRU 36,51 THRU 55,71 THRU 74,91 THRU 93               
+                  5         SET 2 =  1 THRU 22,28 THRU 31,35,36,41 THRU 44,50                            
+                  6      DISPLACEMENTS (SORT2) = 1                                                       
+                  7               SPCF (SORT2) = ALL                                                     
+                  8           ELSTRESS (SORT2) = 2                                                       
+                  9                        SPC = 1                                                       
+                 10      SUBCASE  1                                                                      
+                 11      LOAD = 1                                                                        
+                 12      SUBCASE 2                                                                       
+                 13      LOAD = 2                                                                        
+                 14      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   170, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0     QDMEM1 AND QDMEM2 ELEMENTS                                                                                                    
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CONROD  100     11      12      1       .035                                    
+                    2-        CONROD  101     12      13      1       .035                                    
+                    3-        CONROD  102     13      14      1       .0344                                   
+                    4-        CONROD  103     14      15      1       .0325                                   
+                    5-        CONROD  104     15      16      1       .03                                     
+                    6-        CONROD  105     31      32      1       .091                                    
+                    7-        CONROD  106     32      33      1       .091                                    
+                    8-        CONROD  107     33      34      1       .088                                    
+                    9-        CONROD  108     34      35      1       .0719                                   
+                   10-        CONROD  109     35      36      1       .0453                                   
+                   11-        CONROD  110     51      52      1       .11                                     
+                   12-        CONROD  111     52      53      1       .11                                     
+                   13-        CONROD  112     53      54      1       .094                                    
+                   14-        CONROD  113     54      55      1       .0563                                   
+                   15-        CONROD  114     71      72      1       .091                                    
+                   16-        CONROD  115     72      73      1       .091                                    
+                   17-        CONROD  116     73      74      1       .0649                                   
+                   18-        CONROD  117     91      92      1       .035                                    
+                   19-        CONROD  118     92      93      1       .035                                    
+                   20-        CONROD  119     12      32      1       .063                                    
+                   21-        CONROD  120     32      52      1       .1002                                   
+                   22-        CONROD  121     52      72      1       .1002                                   
+                   23-        CONROD  122     72      92      1       .063                                    
+                   24-        CONROD  123     13      33      1       .063                                    
+                   25-        CONROD  124     33      53      1       .1002                                   
+                   26-        CONROD  125     53      73      1       .1002                                   
+                   27-        CONROD  126     73      93      1       .063                                    
+                   28-        CONROD  127     14      34      1       .0572                                   
+                   29-        CONROD  128     36      54      1       .0805                                   
+                   30-        CONROD  129     54      74      1       .0572                                   
+                   31-        CONROD  130     15      35      1       .0474                                   
+                   32-        CONROD  131     35      55      1       .0474                                   
+                   33-        CONROD  132     16      36      1       .028                                    
+                   34-        CONROD  133     93      74      1       .0344                                   
+                   35-        CONROD  134     74      55      1       .0325                                   
+                   36-        CONROD  135     55      36      1       .03                                     
+                   37-        CQDMEM1 1       1       11      12      32      31                              
+                   38-        CQDMEM1 2       1       12      13      33      32                              
+                   39-        CQDMEM1 3       1       13      14      34      33                              
+                   40-        CQDMEM1 4       1       14      15      35      34                              
+                   41-        CQDMEM1 5       1       15      16      36      35                              
+                   42-        CQDMEM1 6       1       31      32      52      51                              
+                   43-        CQDMEM1 7       1       32      33      53      52                              
+                   44-        CQDMEM2 8       1       33      34      54      53                              
+                   45-        CQDMEM2 9       1       34      35      55      54                              
+                   46-        CQDMEM2 11      1       51      52      72      71                              
+                   47-        CQDMEM2 12      1       52      53      73      72                              
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+
+      QDMEM1 AND QDMEM2 ELEMENTS                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CQDMEM2 13      1       53      54      74      73                              
+                   49-        CQDMEM2 15      1       71      72      92      91                              
+                   50-        CQDMEM2 16      1       72      73      93      92                              
+                   51-        CROD    60      5       1       11      61      6       2       12              
+                   52-        CROD    62      8       3       13      63      8       4       14              
+                   53-        CROD    64      8       5       15      65      6       6       16              
+                   54-        CROD    66      6       21      31      67      7       22      32              
+                   55-        CROD    68      9       23      33      69      9       24      34              
+                   56-        CROD    70      9       25      35      71      8       26      36              
+                   57-        CROD    72      6       41      51      73      7       42      52              
+                   58-        CROD    74      9       43      53      75      9       44      54              
+                   59-        CROD    76      9       45      55      77      6       61      71              
+                   60-        CROD    78      7       62      72      79      9       63      73              
+                   61-        CROD    80      9       64      74      81      5       81      91              
+                   62-        CROD    82      6       82      92      83      8       83      93              
+                   63-        CSHEAR  18      2       1       2       12      11                              
+                   64-        CSHEAR  19      2       2       3       13      12                              
+                   65-        CSHEAR  20      2       3       4       14      13                              
+                   66-        CSHEAR  21      2       4       5       15      14                              
+                   67-        CSHEAR  22      2       5       6       16      15                              
+                   68-        CSHEAR  23      2       21      22      32      31                              
+                   69-        CSHEAR  24      2       22      23      33      32                              
+                   70-        CSHEAR  25      2       23      24      34      33                              
+                   71-        CSHEAR  26      2       24      25      35      34                              
+                   72-        CSHEAR  27      2       25      26      36      35                              
+                   73-        CSHEAR  28      2       41      42      52      51                              
+                   74-        CSHEAR  29      2       42      43      53      52                              
+                   75-        CSHEAR  30      2       43      44      54      53                              
+                   76-        CSHEAR  31      2       44      45      55      54                              
+                   77-        CSHEAR  32      2       61      62      72      71                              
+                   78-        CSHEAR  33      2       62      63      73      72                              
+                   79-        CSHEAR  34      2       63      64      74      73                              
+                   80-        CSHEAR  35      2       81      82      92      91                              
+                   81-        CSHEAR  36      2       82      83      93      92                              
+                   82-        CSHEAR  37      2       2       22      32      12                              
+                   83-        CSHEAR  38      2       22      42      52      32                              
+                   84-        CSHEAR  39      2       42      62      72      52                              
+                   85-        CSHEAR  40      2       62      82      92      72                              
+                   86-        CSHEAR  41      2       3       23      33      13                              
+                   87-        CSHEAR  42      2       23      43      53      33                              
+                   88-        CSHEAR  43      2       43      63      73      53                              
+                   89-        CSHEAR  44      2       63      83      93      73                              
+                   90-        CSHEAR  45      2       4       24      34      14                              
+                   91-        CSHEAR  46      2       24      44      54      34                              
+                   92-        CSHEAR  47      2       44      64      74      54                              
+                   93-        CSHEAR  48      2       5       25      35      15                              
+                   94-        CSHEAR  49      2       25      45      55      35                              
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+
+      QDMEM1 AND QDMEM2 ELEMENTS                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CSHEAR  50      2       6       26      36      16                              
+                   96-        CSHEAR  51      2       26      45      55      36                              
+                   97-        CSHEAR  52      2       45      64      74      55                              
+                   98-        CSHEAR  53      2       64      83      93      74                              
+                   99-        CTRMEM  10      3       35      36      55                                      
+                  100-        CTRMEM  14      3       54      55      74                                      
+                  101-        CTRMEM  17      3       73      74      93                                      
+                  102-        FORCE   1       16      0       -1.0    .0      .0      500.                    
+                  103-        FORCE   2       36              -1.0    .0      .0      500.                    
+                  104-        GRDSET                                                  456                     
+                  105-        GRID    1               .0      .0      .0                                      
+                  106-        GRID    2               10.0    .0      .0                                      
+                  107-        GRID    3               30.0    .0      .0                                      
+                  108-        GRID    4               50.0    .0      .0                                      
+                  109-        GRID    5               70.0    .0      .0                                      
+                  110-        GRID    6               90.0    .0      .0                                      
+                  111-        GRID    11              .0      .0      .82                                     
+                  112-        GRID    12              10.0    .0      .82                                     
+                  113-        GRID    13              30.0    .0      .82                                     
+                  114-        GRID    14              50.0    .0      .795                                    
+                  115-        GRID    15              70.0    .0      .754                                    
+                  116-        GRID    16              90.0    .0      .67                                     
+                  117-        GRID    21              .0      20.0    .0                                      
+                  118-        GRID    22              10.0    20.0    .0                                      
+                  119-        GRID    23              30.0    20.0    .0                                      
+                  120-        GRID    24              50.0    20.0    .0                                      
+                  121-        GRID    25              70.0    20.0    .0                                      
+                  122-        GRID    26              90.0    20.0    .0                                      
+                  123-        GRID    31              .0      20.0    2.02                                    
+                  124-        GRID    32              10.0    20.0    2.02                                    
+                  125-        GRID    33              30.0    20.0    2.02                                    
+                  126-        GRID    34              50.0    20.0    1.795                                   
+                  127-        GRID    35              70.0    20.0    1.42                                    
+                  128-        GRID    36              90.0    20.0    .67                                     
+                  129-        GRID    41              .0      40.0    .0                                      
+                  130-        GRID    42              10.0    40.0    .0                                      
+                  131-        GRID    43              30.0    40.0    .0                                      
+                  132-        GRID    44              50.0    40.0    .0                                      
+                  133-        GRID    45              70.0    40.0    .0                                      
+                  134-        GRID    51              .0      40.0    2.42                                    
+                  135-        GRID    52              10.0    40.0    2.42                                    
+                  136-        GRID    53              30.0    40.0    2.42                                    
+                  137-        GRID    54              50.0    40.0    1.795                                   
+                  138-        GRID    55              70.0    40.0    .754                                    
+                  139-        GRID    61              .0      60.0    .0                                      
+                  140-        GRID    62              10.0    60.0    .0                                      
+                  141-        GRID    63              30.0    60.0    .0                                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+
+      QDMEM1 AND QDMEM2 ELEMENTS                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        GRID    64              50.0    60.0    .0                                      
+                  143-        GRID    71              .0      60.0    2.02                                    
+                  144-        GRID    72              10.     60.0    2.02                                    
+                  145-        GRID    73              30.     60.0    2.02                                    
+                  146-        GRID    74              50.     60.0    .795                                    
+                  147-        GRID    81              .0      80.0    .0                                      
+                  148-        GRID    82              10.     80.0    .0                                      
+                  149-        GRID    83              30.     80.0    .0                                      
+                  150-        GRID    91              .0      80.0    .82                                     
+                  151-        GRID    92              10.     80.0    .82                                     
+                  152-        GRID    93              30.     80.0    .82                                     
+                  153-        MAT1    1       10.4 +6 4.  +6                                                  
+                  154-        MAT1    2       1.04 +7 4.  +6          .2523 -3                                
+                  155-        PARAM   IRES    1                                                               
+                  156-        PQDMEM1 1       2       .16     .0                                              
+                  157-        PQDMEM2 1       2       .16     .0                                              
+                  158-        PROD    5       1       2.1                                                     
+                  159-        PROD    6       1       3.5                                                     
+                  160-        PROD    7       1       4.91                                                    
+                  161-        PROD    8       1       4.2                                                     
+                  162-        PROD    9       1       5.6                                                     
+                  163-        PSHEAR  2       2       .14     .0                                              
+                  164-        PTRMEM  3       2       .16     .0                                              
+                  165-        SPC1    1       1       11      31      51      71      91                      
+                  166-        SPC1    1       3       13      33      53      73      93                      
+                  167-        SPC1    1       12      1       2       3       4       5       6       +SPC-A  
+                  168-        +SPC-A  21      22      23      24      25      26      41      42      +SPC-B  
+                  169-        +SPC-B  43      44      45      61      62      63      64      81      +SPC-C  
+                  170-        +SPC-C  82      83                                                              
+                              ENDDATA
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0     QDMEM1 AND QDMEM2 ELEMENTS                                                                                                    
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           19
+                                        PROFILE            509
+                                        MAX WAVEFRONT       17
+                                        AVG WAVEFRONT   10.604
+                                        RMS WAVEFRONT   11.331
+                                        RMS BANDWIDTH   12.060
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH           16
+                                        PROFILE            459
+                                        MAX WAVEFRONT       15
+                                        AVG WAVEFRONT    9.562
+                                        RMS WAVEFRONT   10.191
+                                        RMS BANDWIDTH   10.707
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       19        16
+                                        PROFILE (P)                        509       459
+                                        MAXIMUM WAVEFRONT (C-MAX)           17        15
+                                        AVERAGE WAVEFRONT (C-AVG)       10.604     9.562
+                                        RMS WAVEFRONT (C-RMS)           11.331    10.191
+                                        RMS BANDWITCH (B-RMS)           12.060    10.707
+                                        NUMBER OF GRID POINTS (N)                     48
+                                        NUMBER OF ELEMENTS (NON-RIGID)               113
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                          13
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                       201
+                                        MATRIX DENSITY, PERCENT                   19.531
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF SEQGP CARDS GENERATED                  12
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0     QDMEM1 AND QDMEM2 ELEMENTS                                                                                                    
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       1       2       3       3       5       4       7
+                         SEQGP          5       9       6      11      11       2      12       4
+                         SEQGP         13       6      14       8      15      10      16      12
+                         SEQGP         21      27      22      17      23      19      24      21
+                         SEQGP         25      13      26      14      31      15      32      16
+                         SEQGP         33      18      34      20      35      22      36      23
+                         SEQGP         41      37      42      30      43      32      44      26
+                         SEQGP         45      24      51      28      52      29      53      31
+                         SEQGP         54      33      55      25      61      44      62      40
+                         SEQGP         63      36      64      34      71      38      72      39
+                         SEQGP         73      41      74      35      81      48      82      47
+                         SEQGP         83      42      91      45      92      46      93      43
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION CONROD   ELEMENTS (ELEMENT TYPE  10) STARTING WITH ID      100
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QDMEM1   ELEMENTS (ELEMENT TYPE  62) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QDMEM2   ELEMENTS (ELEMENT TYPE  63) STARTING WITH ID        8
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ROD      ELEMENTS (ELEMENT TYPE   1) STARTING WITH ID       60
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION SHEAR    ELEMENTS (ELEMENT TYPE   4) STARTING WITH ID       18
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TRMEM    ELEMENTS (ELEMENT TYPE   9) STARTING WITH ID       10
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -1.8001630E-12
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     2, EPSILON SUB E =  -8.9284491E-12
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0     QDMEM1 AND QDMEM2 ELEMENTS                                                                                                    
+0                RULV                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       1-T3).
+             1 T3 -6.32099E-11       11 T3  8.20677E-12        2 T3  2.84558E-10       12 T1 -4.29878E-12       12 T2  2.50111E-12
+            12 T3 -1.42689E-10        3 T3  7.72854E-14       13 T1 -2.27374E-12       13 T2 -9.09495E-13        4 T3 -1.13749E-09
+            14 T1 -3.63798E-12       14 T2  2.27374E-12       14 T3 -1.48603E-10        5 T3  2.92221E-09       15 T1 -1.90994E-11
+            15 T2 -1.47793E-12       15 T3  1.40393E-09        6 T3  4.21574E-09       16 T1 -1.03455E-11       16 T3 -5.06884E-09
+            25 T3 -2.25100E-11       26 T3 -8.12474E-09       31 T2 -2.55795E-13       31 T3  1.84186E-10       32 T1  7.10543E-14
+            32 T2 -3.15481E-12       32 T3  5.19158E-11       22 T3 -1.28466E-11       33 T1 -3.12639E-12       33 T2  1.16529E-12
+            23 T3  1.00024E-13       34 T1  1.50635E-11       34 T2  5.45697E-12       34 T3  7.45786E-11       24 T3 -2.11458E-10
+            35 T1 -1.73941E-11       35 T2 -3.64082E-11       35 T3  3.23977E-10       36 T1 -6.30642E-11       36 T2 -3.21325E-11
+            36 T3  8.24102E-09       45 T3 -2.92033E-11       55 T1 -9.09495E-13       55 T2 -2.27374E-12       55 T3 -1.80816E-09
+            44 T3  5.50997E-10       51 T2  3.41061E-13       51 T3 -1.18755E-10       52 T1  2.24532E-12       52 T2 -1.90425E-12
+            52 T3 -3.23319E-12       42 T3 -2.33058E-12       53 T1  1.96258E-12       53 T2  1.20792E-13       43 T3 -2.20268E-13
+            54 T1  5.82645E-13       54 T2 -7.20490E-12       54 T3 -8.52794E-10       64 T3  4.85849E-10       74 T1  3.29692E-12
+            74 T2 -2.92744E-12       74 T3 -3.54165E-10       63 T3 -2.57572E-14       71 T2 -1.70530E-13       71 T3 -5.23457E-11
+            72 T1 -2.04636E-12       72 T2 -4.54747E-13       72 T3 -6.75300E-11       62 T3  9.94191E-11       73 T1 -3.52429E-12
+            73 T2 -1.02318E-12       83 T3 -1.42109E-14       93 T1 -1.36424E-12       93 T2  1.13687E-13       91 T2 -5.68434E-14
+            91 T3  1.16415E-10       92 T1 -4.54747E-13       92 T2  4.54747E-13       92 T3 -1.16160E-10       82 T3 -1.16160E-10
+            81 T3 -2.32831E-10
+0COLUMN       2 (      11-T2).
+             1 T3  6.95763E-11       11 T2 -3.41061E-13       11 T3  3.93143E-11        2 T3 -1.11612E-10       12 T1 -2.15339E-12
+            12 T2  2.85549E-12       12 T3  2.98156E-10        3 T3  1.40797E-13       13 T1  1.13687E-12       13 T2 -2.27374E-13
+             4 T3 -1.22100E-10       14 T1 -1.36424E-12       14 T2  4.54747E-12       14 T3  5.10880E-11        5 T3  2.44995E-09
+            15 T1 -2.06910E-11       15 T2  8.35598E-12       15 T3  6.52363E-10        6 T3 -1.83331E-09       16 T1 -1.33014E-11
+            16 T2  7.27596E-12       16 T3 -1.20508E-11       25 T3 -2.13299E-09       26 T3  3.50440E-09       31 T2 -4.83169E-13
+            31 T3  2.54632E-11       32 T1  2.97007E-12       32 T2  2.30216E-12       32 T3  9.92166E-11       22 T3 -8.79936E-11
+            33 T1 -1.53477E-12       33 T2  1.08002E-12       23 T3  1.57631E-13       34 T1 -1.08002E-11       34 T2  7.27596E-12
+            34 T3  1.27329E-10       24 T3 -4.14389E-10       35 T1  4.54747E-12       35 T2  3.66640E-12       35 T3  2.97279E-09
+            36 T1  1.81224E-11       36 T2 -3.17986E-11       36 T3  1.64575E-09       45 T3 -6.79321E-10       55 T1  1.68257E-11
+            55 T2 -5.45697E-12       55 T3 -1.24246E-09       44 T3 -5.43068E-10       51 T2  1.27898E-13       51 T3  3.91642E-12
+            52 T1  2.00373E-12       52 T2  4.37694E-12       52 T3 -1.85887E-11       42 T3  3.16618E-11       53 T1 -6.54552E-12
+            53 T2 -5.47118E-13       43 T3  4.44089E-13       54 T1  5.00222E-12       54 T2  2.74269E-12       54 T3  4.77886E-10
+            64 T3 -1.31154E-10       74 T1 -4.50484E-12       74 T2  2.55795E-12       74 T3 -8.32964E-10       63 T3 -8.61533E-14
+            41 T3  1.16415E-10       71 T2 -4.54747E-13       71 T3 -6.83897E-11       72 T1  1.30740E-12       72 T2  1.81899E-12
+            72 T3  2.12026E-11       62 T3 -4.33715E-11       73 T1  7.67386E-12       73 T2 -5.68434E-13       83 T3 -2.84217E-14
+            93 T1 -1.81899E-12       93 T2 -1.37845E-12       61 T3  1.16415E-10       91 T2 -1.13687E-13       91 T3  1.16415E-10
+            92 T1 -4.54747E-13       92 T2 -9.09495E-13       92 T3  1.35401E-10       82 T3 -2.13845E-10
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      11
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            6.257729E-04   4.002068E-02   0.0            0.0            0.0                           
+         2          G      0.0            5.425497E-04   3.733084E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      12
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      6.614148E-04   6.103728E-04   3.598766E-02   0.0            0.0            0.0                           
+         2          G      7.075042E-04   5.407654E-04   3.301679E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      13
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      2.286083E-03   2.316000E-04   0.0            0.0            0.0            0.0                           
+         2          G      1.922652E-03   2.518141E-04   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      14
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      4.013456E-03  -3.404346E-04  -8.052365E-02   0.0            0.0            0.0                           
+         2          G      3.250005E-03   1.797014E-04  -6.407114E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      15
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      6.604909E-03  -1.864302E-03  -2.203135E-01   0.0            0.0            0.0                           
+         2          G      4.753117E-03  -1.348455E-04  -1.684533E-01   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      16
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      6.031278E-03  -3.170522E-03  -4.099651E-01   0.0            0.0            0.0                           
+         2          G      4.131411E-03   5.082322E-04  -2.962814E-01   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      31
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            7.059679E-04   3.046147E-02   0.0            0.0            0.0                           
+         2          G      0.0            5.826884E-04   2.900738E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      32
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      1.359699E-03   6.494537E-04   2.713288E-02   0.0            0.0            0.0                           
+         2          G      1.289995E-03   5.295654E-04   2.586189E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      33
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      4.518996E-03  -1.506429E-04   0.0            0.0            0.0            0.0                           
+         2          G      4.216993E-03  -1.004235E-05   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      34
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      7.318559E-03  -1.829483E-03  -6.408095E-02   0.0            0.0            0.0                           
+         2          G      6.715946E-03  -7.519245E-04  -5.918684E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      35
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      8.301822E-03  -4.006841E-03  -1.637327E-01   0.0            0.0            0.0                           
+         2          G      8.279208E-03  -1.296138E-03  -1.544660E-01   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      36
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      5.033897E-03  -3.913850E-03  -2.962814E-01   0.0            0.0            0.0                           
+         2          G      5.919242E-03  -6.417101E-04  -2.976550E-01   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      51
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            3.042138E-04   2.414064E-02   0.0            0.0            0.0                           
+         2          G      0.0            2.148185E-04   2.450509E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      52
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      1.357335E-03   3.482526E-04   2.139257E-02   0.0            0.0            0.0                           
+         2          G      1.364315E-03   2.441110E-04   2.174565E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      53
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      4.041570E-03  -3.426937E-04   0.0            0.0            0.0            0.0                           
+         2          G      4.177101E-03  -2.452348E-04   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      54
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      5.097058E-03  -1.861349E-03  -4.405385E-02   0.0            0.0            0.0                           
+         2          G      5.685725E-03  -1.324232E-03  -4.790832E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      55
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      2.805925E-03  -1.836757E-03  -1.071679E-01   0.0            0.0            0.0                           
+         2          G      3.546698E-03  -1.710757E-03  -1.240632E-01   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      71
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0           -6.700351E-05   2.037128E-02   0.0            0.0            0.0                           
+         2          G      0.0           -1.310309E-04   2.205973E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      72
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      9.603109E-04   1.428142E-05   1.805558E-02   0.0            0.0            0.0                           
+         2          G      1.022864E-03  -6.170840E-05   1.959186E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      73
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      2.456839E-03  -2.578401E-04   0.0            0.0            0.0            0.0                           
+         2          G      2.811356E-03  -2.472551E-04   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      74
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      1.126683E-03  -5.069801E-04  -2.588153E-02   0.0            0.0            0.0                           
+         2          G      1.332496E-03  -5.904329E-04  -3.141499E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      91
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0           -2.540732E-04   2.168750E-02   0.0            0.0            0.0                           
+         2          G      0.0           -2.861872E-04   2.443044E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      92
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      5.578290E-04  -2.053996E-04   1.828610E-02   0.0            0.0            0.0                           
+         2          G      6.274732E-04  -2.517668E-04   2.060438E-02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    36
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      93
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      7.166527E-04   7.655621E-05   0.0            0.0            0.0            0.0                           
+         2          G      8.210363E-04   3.674682E-05   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    37
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       1
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      3.574314E-10   0.0            0.0            0.0            0.0            0.0                           
+         2          G      3.328751E-10   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    38
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       2
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      1.194901E+01  -4.850588E+00   0.0            0.0            0.0            0.0                           
+         2          G      2.635284E+02  -1.069769E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    39
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       3
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      7.149580E+02  -1.588556E+02   0.0            0.0            0.0            0.0                           
+         2          G      2.674528E+02  -4.752302E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    40
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       4
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      1.456335E+03   8.762498E+01   0.0            0.0            0.0            0.0                           
+         2          G      2.977713E+02  -1.301986E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    41
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       5
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      4.162244E+03  -7.188979E+02   0.0            0.0            0.0            0.0                           
+         2          G      1.146552E+03  -2.302702E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    42
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =       6
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      3.408919E+03  -2.224587E+03   0.0            0.0            0.0            0.0                           
+         2          G      8.527054E+02   9.419288E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    43
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      11
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -1.500892E+03   0.0            0.0            0.0            0.0            0.0                           
+         2          G     -1.520571E+03   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    44
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      12
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    45
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      13
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            3.062576E+01   0.0            0.0            0.0                           
+         2          G      0.0            0.0           -1.079851E+02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    46
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      14
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    47
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      15
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    48
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      16
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    49
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      21
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -1.040310E+01   0.0            0.0            0.0            0.0            0.0                           
+         2          G     -1.336108E+01   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    50
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      22
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -5.609080E+02   3.439765E+02   0.0            0.0            0.0            0.0                           
+         2          G     -4.047155E+02   6.970292E+01   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    51
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      23
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      1.505142E+01   4.625758E+02   0.0            0.0            0.0            0.0                           
+         2          G      1.319108E+02  -1.535788E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    52
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      24
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      1.259721E+03   2.372083E+02   0.0            0.0            0.0            0.0                           
+         2          G      1.082232E+03  -4.971402E+01   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    53
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      25
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      2.074747E+03  -1.504029E+03   0.0            0.0            0.0            0.0                           
+         2          G      2.606057E+03  -9.971176E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    54
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      26
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      1.031446E+03  -1.875451E+03   0.0            0.0            0.0            0.0                           
+         2          G      3.552002E+03  -5.629830E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    55
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      31
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -4.408292E+03   0.0            0.0            0.0            0.0            0.0                           
+         2          G     -4.301350E+03   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    56
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      32
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    57
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      33
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            4.615814E+02   0.0            0.0            0.0                           
+         2          G      0.0            0.0            3.793285E+02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    58
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      34
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    59
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      35
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    60
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      36
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    61
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      41
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -1.583275E+01   0.0            0.0            0.0            0.0            0.0                           
+         2          G     -1.669304E+01   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    62
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      42
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -2.721242E+02   8.258669E+02   0.0            0.0            0.0            0.0                           
+         2          G     -3.388028E+02   5.496343E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    63
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      43
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -6.321099E+01   1.377826E+03   0.0            0.0            0.0            0.0                           
+         2          G     -1.217437E+01   9.418869E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    64
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      44
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      5.022900E+02   1.820793E+02   0.0            0.0            0.0            0.0                           
+         2          G      1.348876E+03  -3.971450E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    65
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      45
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      9.376652E+00  -4.852986E+02   0.0            0.0            0.0            0.0                           
+         2          G      2.531648E+03  -2.259555E+03   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    66
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      51
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -4.727695E+03   0.0            0.0            0.0            0.0            0.0                           
+         2          G     -4.746614E+03   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    67
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      52
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    68
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      53
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            2.813352E+02   0.0            0.0            0.0                           
+         2          G      0.0            0.0            3.662011E+02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    69
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      54
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    70
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      55
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    71
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      61
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -1.718850E+01   0.0            0.0            0.0            0.0            0.0                           
+         2          G     -1.794367E+01   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    72
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      62
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      3.012740E+02   7.888001E+02   0.0            0.0            0.0            0.0                           
+         2          G      1.528159E+02   7.069849E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    73
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      63
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      4.365099E+02   1.113170E+03   0.0            0.0            0.0            0.0                           
+         2          G      7.225114E+02   1.034363E+03   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    74
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      64
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -2.832064E+02   4.337498E+02   0.0            0.0            0.0            0.0                           
+         2          G      1.217794E+02  -4.765714E+01   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    75
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      71
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -3.479487E+03   0.0            0.0            0.0            0.0            0.0                           
+         2          G     -3.684535E+03   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    76
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      72
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    77
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      73
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0           -8.412318E+01   0.0            0.0            0.0                           
+         2          G      0.0            0.0            6.301823E+01   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    78
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      74
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    79
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      81
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      4.092726E-11   0.0            0.0            0.0            0.0            0.0                           
+         2          G      4.456524E-11   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    80
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      82
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      7.679949E+02   3.117603E+02   0.0            0.0            0.0            0.0                           
+         2          G      8.228552E+02   3.340304E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    81
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      83
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      3.174382E+02   8.073326E+02   0.0            0.0            0.0            0.0                           
+         2          G      4.050871E+02   8.318954E+02   0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    82
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      91
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G     -1.131014E+03   0.0            0.0            0.0            0.0            0.0                           
+         2          G     -1.249025E+03   0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    83
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      92
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+         2          G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    84
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      93
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      SUBCASE     TYPE          T1             T2             T3             R1             R2             R3
+         1          G      0.0            0.0           -1.894191E+02   0.0            0.0            0.0                           
+         2          G      0.0            0.0           -2.005627E+02   0.0            0.0            0.0                           
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    85
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =       1
+
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M 1 )
+ 
+                    STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.070748E+03  6.589691E+01  -3.283481E+01       -1.8696        1.071820E+03   6.482516E+01   5.034973E+02          
+         2       1.064582E+03  8.627527E+01  -4.217096E+01       -2.4637        1.066397E+03   8.446082E+01   4.909680E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    86
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =       2
+
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M 1 )
+ 
+                    STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.292163E+03  1.611077E+02  -2.031254E+02       -9.8786        1.327536E+03   1.257348E+02   6.009007E+02          
+         2       1.123485E+03  1.550892E+02  -1.481783E+02       -8.5078        1.145651E+03   1.329232E+02   5.063637E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    87
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =       3
+
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M 1 )
+ 
+                    STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.437977E+03  1.593162E+02  -4.761431E+02      -18.3385        1.595801E+03   1.491882E+00   7.971547E+02          
+         2       1.224964E+03  1.213464E+02  -1.860472E+02       -9.3160        1.255484E+03   9.082672E+01   5.823287E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    88
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =       4
+
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M 1 )
+ 
+                    STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.556770E+03  2.266946E+02  -9.422385E+02      -27.3927        2.045027E+03  -2.615624E+02   1.153295E+03          
+         2       1.328874E+03  3.963416E+01  -2.376794E+02      -10.1198        1.371296E+03  -2.787659E+00   6.870419E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    89
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =       5
+
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M 1 )
+ 
+                    STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       4.630386E+02 -1.218049E+02  -9.425277E+02      -36.3817        1.157465E+03  -8.162312E+02   9.868480E+02          
+         2       6.768657E+02 -2.769043E+02   1.834729E+02       10.5217        7.109421E+02  -3.109807E+02   5.109615E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    90
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =       6
+
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M 1 )
+ 
+                    STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.471693E+03  1.961198E+02  -2.703279E+01       -1.2135        1.472266E+03   1.955471E+02   6.383594E+02          
+         2       1.446003E+03  2.192060E+02  -2.094963E+01       -0.9780        1.446361E+03   2.188484E+02   6.137562E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    91
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =       7
+
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M 1 )
+ 
+                    STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.617482E+03  3.272127E+02  -2.940754E+02      -12.2526        1.681346E+03   2.633487E+02   7.089987E+02          
+         2       1.588276E+03  3.197727E+02  -1.946288E+02       -8.5297        1.617466E+03   2.905822E+02   6.634420E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    92
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =       8
+
+                          S T R E S S E S   A C T I N G   I N   Q D M E M 2   E L E M E N T S   (CQDMEM2)
+ 
+                    STRESSES IN MATERIAL COORD SYSTEM           PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.717684E+03  4.829316E+02  -7.399637E+02      -25.0803        2.063999E+03   1.366172E+02   9.636906E+02          
+         2       1.713714E+03  3.187269E+02  -4.198980E+02      -15.5242        1.830353E+03   2.020881E+02   8.141322E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    93
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =       9
+
+                          S T R E S S E S   A C T I N G   I N   Q D M E M 2   E L E M E N T S   (CQDMEM2)
+ 
+                    STRESSES IN MATERIAL COORD SYSTEM           PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.233284E+03  5.160712E+02  -9.865376E+02      -35.0119        1.924370E+03  -1.750153E+02   1.049693E+03          
+         2       1.365046E+03 -6.816229E+01  -5.311884E+02      -18.2740        1.540452E+03  -2.435686E+02   8.920105E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    94
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      11
+
+                          S T R E S S E S   A C T I N G   I N   Q D M E M 2   E L E M E N T S   (CQDMEM2)
+ 
+                    STRESSES IN MATERIAL COORD SYSTEM           PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.276126E+03  2.365002E+02   5.616386E+00        0.3095        1.276156E+03   2.364699E+02   5.198431E+02          
+         2       1.316148E+03  2.493843E+02   6.485817E+00        0.3483        1.316188E+03   2.493448E+02   5.334214E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    95
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      12
+
+                          S T R E S S E S   A C T I N G   I N   Q D M E M 2   E L E M E N T S   (CQDMEM2)
+ 
+                    STRESSES IN MATERIAL COORD SYSTEM           PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.178878E+03  3.062640E+02  -2.155427E+02      -13.1451        1.229215E+03   2.559268E+02   4.866440E+02          
+         2       1.291966E+03  3.187786E+02  -1.555027E+02       -8.8613        1.316209E+03   2.945352E+02   5.108370E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    96
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      13
+
+                          S T R E S S E S   A C T I N G   I N   Q D M E M 2   E L E M E N T S   (CQDMEM2)
+ 
+                    STRESSES IN MATERIAL COORD SYSTEM           PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       8.638300E+02  4.339889E+02  -5.712037E+02      -34.6904        1.259208E+03   3.861066E+01   6.102988E+02          
+         2       1.023509E+03  3.166426E+02  -5.125945E+02      -27.7069        1.292706E+03   4.744568E+01   6.226299E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    97
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      15
+
+                          S T R E S S E S   A C T I N G   I N   Q D M E M 2   E L E M E N T S   (CQDMEM2)
+ 
+                    STRESSES IN MATERIAL COORD SYSTEM           PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       8.248431E+02  1.180347E+02   5.425122E+01        4.3637        8.289830E+02   1.138948E+02   3.575441E+02          
+         2       8.962290E+02  1.268456E+02   5.663470E+01        4.1875        9.003756E+02   1.226990E+02   3.888383E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    98
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      16
+
+                          S T R E S S E S   A C T I N G   I N   Q D M E M 2   E L E M E N T S   (CQDMEM2)
+ 
+                    STRESSES IN MATERIAL COORD SYSTEM           PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       4.815739E+02  1.706079E+02   4.758087E+00        0.8764        4.816466E+02   1.705351E+02   1.555558E+02          
+         2       5.691362E+02  1.793398E+02   1.287994E+01        1.8905        5.695614E+02   1.789147E+02   1.953233E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    99
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      18
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             9.765625E-04  -9.765625E-04                   2             0.0            0.0                               
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   100
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      19
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             8.534302E+00  -8.534302E+00                   2             1.882340E+02  -1.882340E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   101
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      20
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             5.021479E+02  -5.021479E+02                   2             2.802246E+00  -2.802246E+00                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   102
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      21
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             5.380898E+02  -5.380898E+02                   2             2.098916E+02  -2.098916E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   103
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      22
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             2.434938E+03  -2.434938E+03                   2             6.090742E+02  -6.090742E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   104
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      28
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             2.261768E+01   2.261768E+01                   2             2.384766E+01   2.384766E+01                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   105
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      29
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             1.830655E+02   1.830655E+02                   2             2.300782E+02   2.300782E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   106
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      30
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             1.859350E+02  -1.441155E+02                   2             2.984656E+02  -2.313365E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   107
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      31
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             5.257952E+02  -3.092850E+02                   2             1.766674E+03  -1.039199E+03                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   108
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      35
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             0.0            0.0                            2             4.882812E-04  -4.882812E-04                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   109
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      36
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             5.485675E+02  -5.485675E+02                   2             5.877533E+02  -5.877533E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   110
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      41
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             2.795193E+02   1.627903E+02                   2             8.362063E+02   4.870014E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   111
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      42
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             5.317766E+02  -4.511438E+02                   2             2.752463E+02  -2.335110E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   112
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      43
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             6.472682E+02  -5.491236E+02                   2             5.307532E+02  -4.502756E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   113
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      44
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             6.277762E+02  -3.656130E+02                   2             7.286907E+02  -4.243850E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   114
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      50
+
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+ 
+                          MAXIMUM        AVERAGE      SAFETY                          MAXIMUM        AVERAGE      SAFETY
+      SUBCASE              SHEAR          SHEAR       MARGIN      SUBCASE              SHEAR          SHEAR       MARGIN
+         1             1.588992E+03   1.588992E+03                   2             6.728047E+02  -6.728047E+02                      
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   115
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      10
+
+                      S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E S      ( C T R M E M )
+ 
+                    STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       1.021298E+03  4.572069E+02  -6.221107E+02      -32.8060        1.422312E+03   5.619202E+01   6.830602E+02          
+         2       1.473103E+03 -2.990100E+02  -9.138440E+01       -2.9442        1.477803E+03  -3.037101E+02   8.907563E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   116
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      14
+
+                      S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E S      ( C T R M E M )
+ 
+                    STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       6.434332E+02  4.265853E+02  -3.473189E+02      -36.3315        8.988584E+02   1.711602E+02   3.638491E+02          
+         2       1.025203E+03  2.628444E+02  -3.590580E+02      -21.6441        1.167685E+03   1.203632E+02   5.236607E+02          
+1     STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE   117
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-2A                                                                                   
+0                                                                                                                                   
+      ELEMENT-ID =      17
+
+                      S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E S      ( C T R M E M )
+ 
+                    STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES          MAXIMUM
+      SUBCASE      NORMAL-X      NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+         1       2.026129E+02  2.348782E+02  -8.734007E+01      -50.2326        3.075631E+02   1.299281E+02   8.881751E+01          
+         2       3.023042E+02  2.386986E+02  -9.004135E+01      -35.2733        3.659941E+02   1.750087E+02   9.549274E+01          
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  STATIC ANALYSIS OF A DELTA WING WITH BICONVEX CROSS SECTION        
+ DATE:  5/17/95
+ END TIME: 14: 4:53
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

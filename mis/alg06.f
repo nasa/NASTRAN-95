@@ -1,0 +1,103 @@
+      SUBROUTINE ALG06(R1,R2,X1,X2,H,S,VM,TB1,TB2,W,XK,SCLFAC,SPEED,SPD
+     1FAC,G,EJ,HMIN,NSTRMS,PI)
+C
+      DIMENSION R1(1),R2(1),X1(1),X2(1),H(1),S(1),VM(1),TB1(1),TB2(1),W(
+     11)
+      DIMENSION R(150),W2D(150),W3D(150),XX1(150),XX2(150),XX3(150),XX5(
+     19,9),B(150)
+C
+      EQUIVALENCE (XX2(1),XX5(1,1))
+C
+      NTUB=NSTRMS-1
+      DO 50 J=1,NSTRMS
+      Q1=H(J)-VM(J)**2*(1.0+(TB2(J)+R2(J)*SPEED*SPDFAC*PI/(SCLFAC*30.0*V
+     1M(J)))**2)/(2.0*G*EJ)
+      IF(Q1.LT.HMIN)Q1=HMIN
+      XX1(J)=ALG4(Q1,S(J))
+50    XX2(J)=ALG5(Q1,S(J))
+      CALL ALG01(R2,XX1,NSTRMS,R2,Q1,XX3,NSTRMS,0,1)
+      DO 60 J=1,NSTRMS
+60    XX1(J)=XX3(J)*G/XX2(J)
+      Q1=(R2(NSTRMS)-R2(1))/149.0
+      R(1)=R2(1)
+      DO 70 J=2,150
+70    R(J)=R(J-1)+Q1
+      CALL ALG01(R2,XX1,NSTRMS,R,XX2,Q1,150,0,0)
+      DO 80 J=1,NSTRMS
+80    XX3(J)=((R2(J)-R1(J))**2+(X2(J)-X1(J))**2)*(1.0+((TB1(J)+TB2(J))*0
+     1.5)**2)
+      CALL ALG01(R2,XX3,NSTRMS,R,XX1,Q1,150,0,0)
+      DO 90 J=1,NSTRMS
+90    W2D(J)=VM(J)**2*(1.0+TB2(J)**2)
+      CALL ALG01(R2,W2D,NSTRMS,R,XX3,Q1,150,0,0)
+      CALL ALG01(R2,W  ,NSTRMS,R,W2D,Q1,150,0,0)
+      NKEEP=NSTRMS
+      NSTRMS=150
+      NTUB=149
+      Q2=(SPEED*SPDFAC*PI/(30.0*SCLFAC))**2
+      DO 100 J=1,NSTRMS
+100   W3D(J)=0.0
+      B(1)=(R(2)-R(1))/2.0
+      B(NSTRMS)=(R(NSTRMS)-R(NTUB))/2.0
+      DO 110 J=2,NTUB
+110   B(J)=(R(J+1)-R(J-1))/2.0
+      DO 270 J=1,NSTRMS
+      DR=XK*XX1(J)/XX3(J)*(Q2*R(J)-XX2(J))
+      IF(DR)130,120,200
+120   W3D(J)=W3D(J)+W2D(J)
+      GO TO 270
+130   IF(J.EQ.1)GO TO 120
+      IF(R(J)+DR.LE.R(1))GO TO 180
+      DO 140 JJ=2,J
+      JJJ=J-JJ+1
+      IF(R(J)+DR.GE.R(JJJ))GO TO 150
+140   CONTINUE
+150   JJJ=JJJ+1
+      Q1=W2D(J)*B(J)/(B(J)-DR)
+      DO 170 JJ=JJJ,J
+170   W3D(JJ)=W3D(JJ)+Q1
+      GO TO 270
+180   A=B(J)*W2D(J)/(R(NSTRMS)-R(1))
+      IF(J.NE.NSTRMS)A=B(J)*W2D(J)/((R(J+1)+R(J))*0.5-R(1))
+      DO 190 JJ=1,J
+190   W3D(JJ)=W3D(JJ)+A
+      GO TO 270
+200   IF(J.EQ.NSTRMS)GO TO 120
+      IF(R(J)+DR.GE.R(NSTRMS))GO TO 250
+      DO 210 JJ=J,NSTRMS
+      IF(R(J)+DR.LT.R(JJ))GO TO 220
+210   CONTINUE
+220   JJ=JJ-1
+      Q1=W2D(J)*B(J)/(B(J)+DR)
+      DO 240 JJJ=J,JJ
+240   W3D(JJJ)=W3D(JJJ)+Q1
+      GO TO 270
+250   A=B(J)*W2D(J)/(R(NSTRMS)-R(1))
+      IF(J.NE.1)A=B(J)*W2D(J)/(R(NSTRMS)-(R(J)+R(J-1))*0.5)
+      DO 260 JJ=J,NSTRMS
+260   W3D(JJ)=W3D(JJ)+A
+270   CONTINUE
+      NSTRMS=NKEEP
+      XX1(1)=0.0
+      DO 280 LL=1,150
+280   XX1(1)=XX1(1)+W3D(LL)
+      DO 290 L=2,9
+      XX1(L)=0.0
+      DO 290 LL=1,150
+290   XX1(L)=XX1(L)+R(LL)**(L-1)*W3D(LL)
+      DO 330 L=1,9
+      DO 320 J=L,9
+      IF(J.EQ.1)GO TO 310
+      XX5(L,J)=0.0
+      DO 300 LL=1,150
+300   XX5(L,J)=XX5(L,J)+R(LL)**(L+J-2)
+      GO TO 320
+310   XX5(1,1)=150
+320   XX5(J,L)=XX5(L,J)
+330   CONTINUE
+      CALL ALG30(XX5,XX1)
+      DO 340 J=1,NSTRMS
+340   W(J)=(((((((XX1(9)*R2(J)+XX1(8))*R2(J)+XX1(7))*R2(J)+XX1(6))*R2(J)
+     1+XX1(5))*R2(J)+XX1(4))*R2(J)+XX1(3))*R2(J)+XX1(2))*R2(J)+XX1(1)
+      RETURN
+      END

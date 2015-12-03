@@ -1,0 +1,1120 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01032A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   1,1                                                                       
+     TIME  20                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+0     LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)        
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                          
+                  3      LABEL = LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL          
+                  4      SPC   = 1                                                                       
+                  5      TEMPERATURE = 1                                                                 
+                  6      OUTPUT                                                                          
+                  7      SET 1 = 1 THRU 13, 79 THRU 91, 157 THRU 169, 235 THRU 247                       
+                  8      SET 2 = 1 THRU 26                                                               
+                  9      DISPLACEMENTS = 1                                                               
+                 10      OLOAD = 2                                                                       
+                 11      $       STRESSES FOR POINTS ON PUBLISHED CURVES                                 
+                 12      SET 3 = 1 THRU 12, 15,20, 28,33, 41,46, 54,59, 67,72, 80,85, 93,98,             
+                 13              106,111, 118 THRU 129, 132,137, 145,150, 158,163, 171,176,              
+                 14              184,189, 197,202, 210,215, 223,228                                      
+                 15      STRESSES = 3                                                                    
+                 16      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   595, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+0     LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CNGRNT  1       14      27      40      53      66      79      92      +CNG11  
+                    2-        +CNG11  105     118     131     144     157     170     183     196     +CNG12  
+                    3-        +CNG12  209     222                                                             
+                    4-        CNGRNT  2       15      28      41      54      67      80      93      +CNG21  
+                    5-        +CNG21  106     119     132     145     158     171     184     197     +CNG22  
+                    6-        +CNG22  210     223                                                             
+                    7-        CNGRNT  3       16      29      42      55      68      81      94      +CNG31  
+                    8-        +CNG31  107     120     133     146     159     172     185     198     +CNG32  
+                    9-        +CNG32  211     224                                                             
+                   10-        CNGRNT  4       17      30      43      56      69      82      95      +CNG41  
+                   11-        +CNG41  108     121     134     147     160     173     186     199     +CNG42  
+                   12-        +CNG42  212     225                                                             
+                   13-        CNGRNT  5       18      31      44      57      70      83      96      +CNG51  
+                   14-        +CNG51  109     122     135     148     161     174     187     200     +CNG52  
+                   15-        +CNG52  213     226                                                             
+                   16-        CNGRNT  6       19      32      45      58      71      84      97      +CNG61  
+                   17-        +CNG61  110     123     136     149     162     175     188     201     +CNG62  
+                   18-        +CNG62  214     227                                                             
+                   19-        CNGRNT  7       20      33      46      59      72      85      98      +CNG71  
+                   20-        +CNG71  111     124     137     150     163     176     189     202     +CNG72  
+                   21-        +CNG72  215     228                                                             
+                   22-        CNGRNT  8       21      34      47      60      73      86      99      +CNG81  
+                   23-        +CNG81  112     125     138     151     164     177     190     203     +CNG82  
+                   24-        +CNG82  216     229                                                             
+                   25-        CNGRNT  9       22      35      48      61      74      87      100     +CNG91  
+                   26-        +CNG91  113     126     139     152     165     178     191     204     +CNG92  
+                   27-        +CNG92  217     230                                                             
+                   28-        CNGRNT  10      23      36      49      62      75      88      101     +CNG101 
+                   29-        +CNG101 114     127     140     153     166     179     192     205     +CNG102 
+                   30-        +CNG102 218     231                                                             
+                   31-        CNGRNT  11      24      37      50      63      76      89      102     +CNG111 
+                   32-        +CNG111 115     128     141     154     167     180     193     206     +CNG112 
+                   33-        +CNG112 219     232                                                             
+                   34-        CNGRNT  12      25      38      51      64      77      90      103     +CNG121 
+                   35-        +CNG121 116     129     142     155     168     181     194     207     +CNG122 
+                   36-        +CNG122 220     233                                                             
+                   37-        CQDMEM1 1       21      1       2       15      14      .00                     
+                   38-        CQDMEM1 2       21      2       3       16      15      .00                     
+                   39-        CQDMEM1 3       21      3       4       17      16      .00                     
+                   40-        CQDMEM1 4       21      4       5       18      17      .00                     
+                   41-        CQDMEM1 5       21      5       6       19      18      .00                     
+                   42-        CQDMEM1 6       21      6       7       20      19      .00                     
+                   43-        CQDMEM1 7       21      7       8       21      20      .00                     
+                   44-        CQDMEM1 8       21      8       9       22      21      .00                     
+                   45-        CQDMEM1 9       21      9       10      23      22      .00                     
+                   46-        CQDMEM1 10      21      10      11      24      23      .00                     
+                   47-        CQDMEM1 11      21      11      12      25      24      .00                     
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CQDMEM1 12      21      12      13      26      25      .00                     
+                   49-        CQDMEM1 14      21      14      15      28      27      .00                     
+                   50-        CQDMEM1 15      21      15      16      29      28      .00                     
+                   51-        CQDMEM1 16      21      16      17      30      29      .00                     
+                   52-        CQDMEM1 17      21      17      18      31      30      .00                     
+                   53-        CQDMEM1 18      21      18      19      32      31      .00                     
+                   54-        CQDMEM1 19      21      19      20      33      32      .00                     
+                   55-        CQDMEM1 20      21      20      21      34      33      .00                     
+                   56-        CQDMEM1 21      21      21      22      35      34      .00                     
+                   57-        CQDMEM1 22      21      22      23      36      35      .00                     
+                   58-        CQDMEM1 23      21      23      24      37      36      .00                     
+                   59-        CQDMEM1 24      21      24      25      38      37      .00                     
+                   60-        CQDMEM1 25      21      25      26      39      38      .00                     
+                   61-        CQDMEM1 27      21      27      28      41      40      .00                     
+                   62-        CQDMEM1 28      21      28      29      42      41      .00                     
+                   63-        CQDMEM1 29      21      29      30      43      42      .00                     
+                   64-        CQDMEM1 30      21      30      31      44      43      .00                     
+                   65-        CQDMEM1 31      21      31      32      45      44      .00                     
+                   66-        CQDMEM1 32      21      32      33      46      45      .00                     
+                   67-        CQDMEM1 33      21      33      34      47      46      .00                     
+                   68-        CQDMEM1 34      21      34      35      48      47      .00                     
+                   69-        CQDMEM1 35      21      35      36      49      48      .00                     
+                   70-        CQDMEM1 36      21      36      37      50      49      .00                     
+                   71-        CQDMEM1 37      21      37      38      51      50      .00                     
+                   72-        CQDMEM1 38      21      38      39      52      51      .00                     
+                   73-        CQDMEM1 40      21      40      41      54      53      .00                     
+                   74-        CQDMEM1 41      21      41      42      55      54      .00                     
+                   75-        CQDMEM1 42      21      42      43      56      55      .00                     
+                   76-        CQDMEM1 43      21      43      44      57      56      .00                     
+                   77-        CQDMEM1 44      21      44      45      58      57      .00                     
+                   78-        CQDMEM1 45      21      45      46      59      58      .00                     
+                   79-        CQDMEM1 46      21      46      47      60      59      .00                     
+                   80-        CQDMEM1 47      21      47      48      61      60      .00                     
+                   81-        CQDMEM1 48      21      48      49      62      61      .00                     
+                   82-        CQDMEM1 49      21      49      50      63      62      .00                     
+                   83-        CQDMEM1 50      21      50      51      64      63      .00                     
+                   84-        CQDMEM1 51      21      51      52      65      64      .00                     
+                   85-        CQDMEM1 53      21      53      54      67      66      .00                     
+                   86-        CQDMEM1 54      21      54      55      68      67      .00                     
+                   87-        CQDMEM1 55      21      55      56      69      68      .00                     
+                   88-        CQDMEM1 56      21      56      57      70      69      .00                     
+                   89-        CQDMEM1 57      21      57      58      71      70      .00                     
+                   90-        CQDMEM1 58      21      58      59      72      71      .00                     
+                   91-        CQDMEM1 59      21      59      60      73      72      .00                     
+                   92-        CQDMEM1 60      21      60      61      74      73      .00                     
+                   93-        CQDMEM1 61      21      61      62      75      74      .00                     
+                   94-        CQDMEM1 62      21      62      63      76      75      .00                     
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CQDMEM1 63      21      63      64      77      76      .00                     
+                   96-        CQDMEM1 64      21      64      65      78      77      .00                     
+                   97-        CQDMEM1 66      21      66      67      80      79      .00                     
+                   98-        CQDMEM1 67      21      67      68      81      80      .00                     
+                   99-        CQDMEM1 68      21      68      69      82      81      .00                     
+                  100-        CQDMEM1 69      21      69      70      83      82      .00                     
+                  101-        CQDMEM1 70      21      70      71      84      83      .00                     
+                  102-        CQDMEM1 71      21      71      72      85      84      .00                     
+                  103-        CQDMEM1 72      21      72      73      86      85      .00                     
+                  104-        CQDMEM1 73      21      73      74      87      86      .00                     
+                  105-        CQDMEM1 74      21      74      75      88      87      .00                     
+                  106-        CQDMEM1 75      21      75      76      89      88      .00                     
+                  107-        CQDMEM1 76      21      76      77      90      89      .00                     
+                  108-        CQDMEM1 77      21      77      78      91      90      .00                     
+                  109-        CQDMEM1 79      21      79      80      93      92      .00                     
+                  110-        CQDMEM1 80      21      80      81      94      93      .00                     
+                  111-        CQDMEM1 81      21      81      82      95      94      .00                     
+                  112-        CQDMEM1 82      21      82      83      96      95      .00                     
+                  113-        CQDMEM1 83      21      83      84      97      96      .00                     
+                  114-        CQDMEM1 84      21      84      85      98      97      .00                     
+                  115-        CQDMEM1 85      21      85      86      99      98      .00                     
+                  116-        CQDMEM1 86      21      86      87      100     99      .00                     
+                  117-        CQDMEM1 87      21      87      88      101     100     .00                     
+                  118-        CQDMEM1 88      21      88      89      102     101     .00                     
+                  119-        CQDMEM1 89      21      89      90      103     102     .00                     
+                  120-        CQDMEM1 90      21      90      91      104     103     .00                     
+                  121-        CQDMEM1 92      21      92      93      106     105     .00                     
+                  122-        CQDMEM1 93      21      93      94      107     106     .00                     
+                  123-        CQDMEM1 94      21      94      95      108     107     .00                     
+                  124-        CQDMEM1 95      21      95      96      109     108     .00                     
+                  125-        CQDMEM1 96      21      96      97      110     109     .00                     
+                  126-        CQDMEM1 97      21      97      98      111     110     .00                     
+                  127-        CQDMEM1 98      21      98      99      112     111     .00                     
+                  128-        CQDMEM1 99      21      99      100     113     112     .00                     
+                  129-        CQDMEM1 100     21      100     101     114     113     .00                     
+                  130-        CQDMEM1 101     21      101     102     115     114     .00                     
+                  131-        CQDMEM1 102     21      102     103     116     115     .00                     
+                  132-        CQDMEM1 103     21      103     104     117     116     .00                     
+                  133-        CQDMEM1 105     21      105     106     119     118     .00                     
+                  134-        CQDMEM1 106     21      106     107     120     119     .00                     
+                  135-        CQDMEM1 107     21      107     108     121     120     .00                     
+                  136-        CQDMEM1 108     21      108     109     122     121     .00                     
+                  137-        CQDMEM1 109     21      109     110     123     122     .00                     
+                  138-        CQDMEM1 110     21      110     111     124     123     .00                     
+                  139-        CQDMEM1 111     21      111     112     125     124     .00                     
+                  140-        CQDMEM1 112     21      112     113     126     125     .00                     
+                  141-        CQDMEM1 113     21      113     114     127     126     .00                     
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        CQDMEM1 114     21      114     115     128     127     .00                     
+                  143-        CQDMEM1 115     21      115     116     129     128     .00                     
+                  144-        CQDMEM1 116     21      116     117     130     129     .00                     
+                  145-        CQDMEM1 118     21      118     119     132     131     .00                     
+                  146-        CQDMEM1 119     21      119     120     133     132     .00                     
+                  147-        CQDMEM1 120     21      120     121     134     133     .00                     
+                  148-        CQDMEM1 121     21      121     122     135     134     .00                     
+                  149-        CQDMEM1 122     21      122     123     136     135     .00                     
+                  150-        CQDMEM1 123     21      123     124     137     136     .00                     
+                  151-        CQDMEM1 124     21      124     125     138     137     .00                     
+                  152-        CQDMEM1 125     21      125     126     139     138     .00                     
+                  153-        CQDMEM1 126     21      126     127     140     139     .00                     
+                  154-        CQDMEM1 127     21      127     128     141     140     .00                     
+                  155-        CQDMEM1 128     21      128     129     142     141     .00                     
+                  156-        CQDMEM1 129     21      129     130     143     142     .00                     
+                  157-        CQDMEM1 131     21      131     132     145     144     .00                     
+                  158-        CQDMEM1 132     21      132     133     146     145     .00                     
+                  159-        CQDMEM1 133     21      133     134     147     146     .00                     
+                  160-        CQDMEM1 134     21      134     135     148     147     .00                     
+                  161-        CQDMEM1 135     21      135     136     149     148     .00                     
+                  162-        CQDMEM1 136     21      136     137     150     149     .00                     
+                  163-        CQDMEM1 137     21      137     138     151     150     .00                     
+                  164-        CQDMEM1 138     21      138     139     152     151     .00                     
+                  165-        CQDMEM1 139     21      139     140     153     152     .00                     
+                  166-        CQDMEM1 140     21      140     141     154     153     .00                     
+                  167-        CQDMEM1 141     21      141     142     155     154     .00                     
+                  168-        CQDMEM1 142     21      142     143     156     155     .00                     
+                  169-        CQDMEM1 144     21      144     145     158     157     .00                     
+                  170-        CQDMEM1 145     21      145     146     159     158     .00                     
+                  171-        CQDMEM1 146     21      146     147     160     159     .00                     
+                  172-        CQDMEM1 147     21      147     148     161     160     .00                     
+                  173-        CQDMEM1 148     21      148     149     162     161     .00                     
+                  174-        CQDMEM1 149     21      149     150     163     162     .00                     
+                  175-        CQDMEM1 150     21      150     151     164     163     .00                     
+                  176-        CQDMEM1 151     21      151     152     165     164     .00                     
+                  177-        CQDMEM1 152     21      152     153     166     165     .00                     
+                  178-        CQDMEM1 153     21      153     154     167     166     .00                     
+                  179-        CQDMEM1 154     21      154     155     168     167     .00                     
+                  180-        CQDMEM1 155     21      155     156     169     168     .00                     
+                  181-        CQDMEM1 157     21      157     158     171     170     .00                     
+                  182-        CQDMEM1 158     21      158     159     172     171     .00                     
+                  183-        CQDMEM1 159     21      159     160     173     172     .00                     
+                  184-        CQDMEM1 160     21      160     161     174     173     .00                     
+                  185-        CQDMEM1 161     21      161     162     175     174     .00                     
+                  186-        CQDMEM1 162     21      162     163     176     175     .00                     
+                  187-        CQDMEM1 163     21      163     164     177     176     .00                     
+                  188-        CQDMEM1 164     21      164     165     178     177     .00                     
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  189-        CQDMEM1 165     21      165     166     179     178     .00                     
+                  190-        CQDMEM1 166     21      166     167     180     179     .00                     
+                  191-        CQDMEM1 167     21      167     168     181     180     .00                     
+                  192-        CQDMEM1 168     21      168     169     182     181     .00                     
+                  193-        CQDMEM1 170     21      170     171     184     183     .00                     
+                  194-        CQDMEM1 171     21      171     172     185     184     .00                     
+                  195-        CQDMEM1 172     21      172     173     186     185     .00                     
+                  196-        CQDMEM1 173     21      173     174     187     186     .00                     
+                  197-        CQDMEM1 174     21      174     175     188     187     .00                     
+                  198-        CQDMEM1 175     21      175     176     189     188     .00                     
+                  199-        CQDMEM1 176     21      176     177     190     189     .00                     
+                  200-        CQDMEM1 177     21      177     178     191     190     .00                     
+                  201-        CQDMEM1 178     21      178     179     192     191     .00                     
+                  202-        CQDMEM1 179     21      179     180     193     192     .00                     
+                  203-        CQDMEM1 180     21      180     181     194     193     .00                     
+                  204-        CQDMEM1 181     21      181     182     195     194     .00                     
+                  205-        CQDMEM1 183     21      183     184     197     196     .00                     
+                  206-        CQDMEM1 184     21      184     185     198     197     .00                     
+                  207-        CQDMEM1 185     21      185     186     199     198     .00                     
+                  208-        CQDMEM1 186     21      186     187     200     199     .00                     
+                  209-        CQDMEM1 187     21      187     188     201     200     .00                     
+                  210-        CQDMEM1 188     21      188     189     202     201     .00                     
+                  211-        CQDMEM1 189     21      189     190     203     202     .00                     
+                  212-        CQDMEM1 190     21      190     191     204     203     .00                     
+                  213-        CQDMEM1 191     21      191     192     205     204     .00                     
+                  214-        CQDMEM1 192     21      192     193     206     205     .00                     
+                  215-        CQDMEM1 193     21      193     194     207     206     .00                     
+                  216-        CQDMEM1 194     21      194     195     208     207     .00                     
+                  217-        CQDMEM1 196     21      196     197     210     209     .00                     
+                  218-        CQDMEM1 197     21      197     198     211     210     .00                     
+                  219-        CQDMEM1 198     21      198     199     212     211     .00                     
+                  220-        CQDMEM1 199     21      199     200     213     212     .00                     
+                  221-        CQDMEM1 200     21      200     201     214     213     .00                     
+                  222-        CQDMEM1 201     21      201     202     215     214     .00                     
+                  223-        CQDMEM1 202     21      202     203     216     215     .00                     
+                  224-        CQDMEM1 203     21      203     204     217     216     .00                     
+                  225-        CQDMEM1 204     21      204     205     218     217     .00                     
+                  226-        CQDMEM1 205     21      205     206     219     218     .00                     
+                  227-        CQDMEM1 206     21      206     207     220     219     .00                     
+                  228-        CQDMEM1 207     21      207     208     221     220     .00                     
+                  229-        CQDMEM1 209     21      209     210     223     222     .00                     
+                  230-        CQDMEM1 210     21      210     211     224     223     .00                     
+                  231-        CQDMEM1 211     21      211     212     225     224     .00                     
+                  232-        CQDMEM1 212     21      212     213     226     225     .00                     
+                  233-        CQDMEM1 213     21      213     214     227     226     .00                     
+                  234-        CQDMEM1 214     21      214     215     228     227     .00                     
+                  235-        CQDMEM1 215     21      215     216     229     228     .00                     
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  236-        CQDMEM1 216     21      216     217     230     229     .00                     
+                  237-        CQDMEM1 217     21      217     218     231     230     .00                     
+                  238-        CQDMEM1 218     21      218     219     232     231     .00                     
+                  239-        CQDMEM1 219     21      219     220     233     232     .00                     
+                  240-        CQDMEM1 220     21      220     221     234     233     .00                     
+                  241-        CQDMEM1 222     21      222     223     236     235     .00                     
+                  242-        CQDMEM1 223     21      223     224     237     236     .00                     
+                  243-        CQDMEM1 224     21      224     225     238     237     .00                     
+                  244-        CQDMEM1 225     21      225     226     239     238     .00                     
+                  245-        CQDMEM1 226     21      226     227     240     239     .00                     
+                  246-        CQDMEM1 227     21      227     228     241     240     .00                     
+                  247-        CQDMEM1 228     21      228     229     242     241     .00                     
+                  248-        CQDMEM1 229     21      229     230     243     242     .00                     
+                  249-        CQDMEM1 230     21      230     231     244     243     .00                     
+                  250-        CQDMEM1 231     21      231     232     245     244     .00                     
+                  251-        CQDMEM1 232     21      232     233     246     245     .00                     
+                  252-        CQDMEM1 233     21      233     234     247     246     .00                     
+                  253-        GRDSET                                                  3456                    
+                  254-        GRID    1               .0      .0      .0                                      
+                  255-        GRID    2               1.0     .0      .0                                      
+                  256-        GRID    3               2.0     .0      .0                                      
+                  257-        GRID    4               3.0     .0      .0                                      
+                  258-        GRID    5               4.0     .0      .0                                      
+                  259-        GRID    6               5.0     .0      .0                                      
+                  260-        GRID    7               6.0     .0      .0                                      
+                  261-        GRID    8               7.0     .0      .0                                      
+                  262-        GRID    9               8.0     .0      .0                                      
+                  263-        GRID    10              9.0     .0      .0                                      
+                  264-        GRID    11              10.0    .0      .0                                      
+                  265-        GRID    12              11.0    .0      .0                                      
+                  266-        GRID    13              12.0    .0      .0                                      
+                  267-        GRID    14              .0      1.0     .0                                      
+                  268-        GRID    15              1.0     1.0     .0                                      
+                  269-        GRID    16              2.0     1.0     .0                                      
+                  270-        GRID    17              3.0     1.0     .0                                      
+                  271-        GRID    18              4.0     1.0     .0                                      
+                  272-        GRID    19              5.0     1.0     .0                                      
+                  273-        GRID    20              6.0     1.0     .0                                      
+                  274-        GRID    21              7.0     1.0     .0                                      
+                  275-        GRID    22              8.0     1.0     .0                                      
+                  276-        GRID    23              9.0     1.0     .0                                      
+                  277-        GRID    24              10.0    1.0     .0                                      
+                  278-        GRID    25              11.0    1.0     .0                                      
+                  279-        GRID    26              12.0    1.0     .0                                      
+                  280-        GRID    27              .0      2.0     .0                                      
+                  281-        GRID    28              1.0     2.0     .0                                      
+                  282-        GRID    29              2.0     2.0     .0                                      
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  283-        GRID    30              3.0     2.0     .0                                      
+                  284-        GRID    31              4.0     2.0     .0                                      
+                  285-        GRID    32              5.0     2.0     .0                                      
+                  286-        GRID    33              6.0     2.0     .0                                      
+                  287-        GRID    34              7.0     2.0     .0                                      
+                  288-        GRID    35              8.0     2.0     .0                                      
+                  289-        GRID    36              9.0     2.0     .0                                      
+                  290-        GRID    37              10.0    2.0     .0                                      
+                  291-        GRID    38              11.0    2.0     .0                                      
+                  292-        GRID    39              12.0    2.0     .0                                      
+                  293-        GRID    40              .0      3.0     .0                                      
+                  294-        GRID    41              1.0     3.0     .0                                      
+                  295-        GRID    42              2.0     3.0     .0                                      
+                  296-        GRID    43              3.0     3.0     .0                                      
+                  297-        GRID    44              4.0     3.0     .0                                      
+                  298-        GRID    45              5.0     3.0     .0                                      
+                  299-        GRID    46              6.0     3.0     .0                                      
+                  300-        GRID    47              7.0     3.0     .0                                      
+                  301-        GRID    48              8.0     3.0     .0                                      
+                  302-        GRID    49              9.0     3.0     .0                                      
+                  303-        GRID    50              10.0    3.0     .0                                      
+                  304-        GRID    51              11.0    3.0     .0                                      
+                  305-        GRID    52              12.0    3.0     .0                                      
+                  306-        GRID    53              .0      4.0     .0                                      
+                  307-        GRID    54              1.0     4.0     .0                                      
+                  308-        GRID    55              2.0     4.0     .0                                      
+                  309-        GRID    56              3.0     4.0     .0                                      
+                  310-        GRID    57              4.0     4.0     .0                                      
+                  311-        GRID    58              5.0     4.0     .0                                      
+                  312-        GRID    59              6.0     4.0     .0                                      
+                  313-        GRID    60              7.0     4.0     .0                                      
+                  314-        GRID    61              8.0     4.0     .0                                      
+                  315-        GRID    62              9.0     4.0     .0                                      
+                  316-        GRID    63              10.0    4.0     .0                                      
+                  317-        GRID    64              11.0    4.0     .0                                      
+                  318-        GRID    65              12.0    4.0     .0                                      
+                  319-        GRID    66              .0      5.0     .0                                      
+                  320-        GRID    67              1.0     5.0     .0                                      
+                  321-        GRID    68              2.0     5.0     .0                                      
+                  322-        GRID    69              3.0     5.0     .0                                      
+                  323-        GRID    70              4.0     5.0     .0                                      
+                  324-        GRID    71              5.0     5.0     .0                                      
+                  325-        GRID    72              6.0     5.0     .0                                      
+                  326-        GRID    73              7.0     5.0     .0                                      
+                  327-        GRID    74              8.0     5.0     .0                                      
+                  328-        GRID    75              9.0     5.0     .0                                      
+                  329-        GRID    76              10.0    5.0     .0                                      
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  330-        GRID    77              11.0    5.0     .0                                      
+                  331-        GRID    78              12.0    5.0     .0                                      
+                  332-        GRID    79              .0      6.0     .0                                      
+                  333-        GRID    80              1.0     6.0     .0                                      
+                  334-        GRID    81              2.0     6.0     .0                                      
+                  335-        GRID    82              3.0     6.0     .0                                      
+                  336-        GRID    83              4.0     6.0     .0                                      
+                  337-        GRID    84              5.0     6.0     .0                                      
+                  338-        GRID    85              6.0     6.0     .0                                      
+                  339-        GRID    86              7.0     6.0     .0                                      
+                  340-        GRID    87              8.0     6.0     .0                                      
+                  341-        GRID    88              9.0     6.0     .0                                      
+                  342-        GRID    89              10.0    6.0     .0                                      
+                  343-        GRID    90              11.0    6.0     .0                                      
+                  344-        GRID    91              12.0    6.0     .0                                      
+                  345-        GRID    92              .0      7.0     .0                                      
+                  346-        GRID    93              1.0     7.0     .0                                      
+                  347-        GRID    94              2.0     7.0     .0                                      
+                  348-        GRID    95              3.0     7.0     .0                                      
+                  349-        GRID    96              4.0     7.0     .0                                      
+                  350-        GRID    97              5.0     7.0     .0                                      
+                  351-        GRID    98              6.0     7.0     .0                                      
+                  352-        GRID    99              7.0     7.0     .0                                      
+                  353-        GRID    100             8.0     7.0     .0                                      
+                  354-        GRID    101             9.0     7.0     .0                                      
+                  355-        GRID    102             10.0    7.0     .0                                      
+                  356-        GRID    103             11.0    7.0     .0                                      
+                  357-        GRID    104             12.0    7.0     .0                                      
+                  358-        GRID    105             .0      8.0     .0                                      
+                  359-        GRID    106             1.0     8.0     .0                                      
+                  360-        GRID    107             2.0     8.0     .0                                      
+                  361-        GRID    108             3.0     8.0     .0                                      
+                  362-        GRID    109             4.0     8.0     .0                                      
+                  363-        GRID    110             5.0     8.0     .0                                      
+                  364-        GRID    111             6.0     8.0     .0                                      
+                  365-        GRID    112             7.0     8.0     .0                                      
+                  366-        GRID    113             8.0     8.0     .0                                      
+                  367-        GRID    114             9.0     8.0     .0                                      
+                  368-        GRID    115             10.0    8.0     .0                                      
+                  369-        GRID    116             11.0    8.0     .0                                      
+                  370-        GRID    117             12.0    8.0     .0                                      
+                  371-        GRID    118             .0      9.0     .0                                      
+                  372-        GRID    119             1.0     9.0     .0                                      
+                  373-        GRID    120             2.0     9.0     .0                                      
+                  374-        GRID    121             3.0     9.0     .0                                      
+                  375-        GRID    122             4.0     9.0     .0                                      
+                  376-        GRID    123             5.0     9.0     .0                                      
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  377-        GRID    124             6.0     9.0     .0                                      
+                  378-        GRID    125             7.0     9.0     .0                                      
+                  379-        GRID    126             8.0     9.0     .0                                      
+                  380-        GRID    127             9.0     9.0     .0                                      
+                  381-        GRID    128             10.0    9.0     .0                                      
+                  382-        GRID    129             11.0    9.0     .0                                      
+                  383-        GRID    130             12.0    9.0     .0                                      
+                  384-        GRID    131             .0      10.0    .0                                      
+                  385-        GRID    132             1.0     10.0    .0                                      
+                  386-        GRID    133             2.0     10.0    .0                                      
+                  387-        GRID    134             3.0     10.0    .0                                      
+                  388-        GRID    135             4.0     10.0    .0                                      
+                  389-        GRID    136             5.0     10.0    .0                                      
+                  390-        GRID    137             6.0     10.0    .0                                      
+                  391-        GRID    138             7.0     10.0    .0                                      
+                  392-        GRID    139             8.0     10.0    .0                                      
+                  393-        GRID    140             9.0     10.0    .0                                      
+                  394-        GRID    141             10.0    10.0    .0                                      
+                  395-        GRID    142             11.0    10.0    .0                                      
+                  396-        GRID    143             12.0    10.0    .0                                      
+                  397-        GRID    144             .0      11.0    .0                                      
+                  398-        GRID    145             1.0     11.0    .0                                      
+                  399-        GRID    146             2.0     11.0    .0                                      
+                  400-        GRID    147             3.0     11.0    .0                                      
+                  401-        GRID    148             4.0     11.0    .0                                      
+                  402-        GRID    149             5.0     11.0    .0                                      
+                  403-        GRID    150             6.0     11.0    .0                                      
+                  404-        GRID    151             7.0     11.0    .0                                      
+                  405-        GRID    152             8.0     11.0    .0                                      
+                  406-        GRID    153             9.0     11.0    .0                                      
+                  407-        GRID    154             10.0    11.0    .0                                      
+                  408-        GRID    155             11.0    11.0    .0                                      
+                  409-        GRID    156             12.0    11.0    .0                                      
+                  410-        GRID    157             .0      12.0    .0                                      
+                  411-        GRID    158             1.0     12.0    .0                                      
+                  412-        GRID    159             2.0     12.0    .0                                      
+                  413-        GRID    160             3.0     12.0    .0                                      
+                  414-        GRID    161             4.0     12.0    .0                                      
+                  415-        GRID    162             5.0     12.0    .0                                      
+                  416-        GRID    163             6.0     12.0    .0                                      
+                  417-        GRID    164             7.0     12.0    .0                                      
+                  418-        GRID    165             8.0     12.0    .0                                      
+                  419-        GRID    166             9.0     12.0    .0                                      
+                  420-        GRID    167             10.0    12.0    .0                                      
+                  421-        GRID    168             11.0    12.0    .0                                      
+                  422-        GRID    169             12.0    12.0    .0                                      
+                  423-        GRID    170             .0      13.0    .0                                      
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  424-        GRID    171             1.0     13.0    .0                                      
+                  425-        GRID    172             2.0     13.0    .0                                      
+                  426-        GRID    173             3.0     13.0    .0                                      
+                  427-        GRID    174             4.0     13.0    .0                                      
+                  428-        GRID    175             5.0     13.0    .0                                      
+                  429-        GRID    176             6.0     13.0    .0                                      
+                  430-        GRID    177             7.0     13.0    .0                                      
+                  431-        GRID    178             8.0     13.0    .0                                      
+                  432-        GRID    179             9.0     13.0    .0                                      
+                  433-        GRID    180             10.0    13.0    .0                                      
+                  434-        GRID    181             11.0    13.0    .0                                      
+                  435-        GRID    182             12.0    13.0    .0                                      
+                  436-        GRID    183             .0      14.0    .0                                      
+                  437-        GRID    184             1.0     14.0    .0                                      
+                  438-        GRID    185             2.0     14.0    .0                                      
+                  439-        GRID    186             3.0     14.0    .0                                      
+                  440-        GRID    187             4.0     14.0    .0                                      
+                  441-        GRID    188             5.0     14.0    .0                                      
+                  442-        GRID    189             6.0     14.0    .0                                      
+                  443-        GRID    190             7.0     14.0    .0                                      
+                  444-        GRID    191             8.0     14.0    .0                                      
+                  445-        GRID    192             9.0     14.0    .0                                      
+                  446-        GRID    193             10.0    14.0    .0                                      
+                  447-        GRID    194             11.0    14.0    .0                                      
+                  448-        GRID    195             12.0    14.0    .0                                      
+                  449-        GRID    196             .0      15.0    .0                                      
+                  450-        GRID    197             1.0     15.0    .0                                      
+                  451-        GRID    198             2.0     15.0    .0                                      
+                  452-        GRID    199             3.0     15.0    .0                                      
+                  453-        GRID    200             4.0     15.0    .0                                      
+                  454-        GRID    201             5.0     15.0    .0                                      
+                  455-        GRID    202             6.0     15.0    .0                                      
+                  456-        GRID    203             7.0     15.0    .0                                      
+                  457-        GRID    204             8.0     15.0    .0                                      
+                  458-        GRID    205             9.0     15.0    .0                                      
+                  459-        GRID    206             10.0    15.0    .0                                      
+                  460-        GRID    207             11.0    15.0    .0                                      
+                  461-        GRID    208             12.0    15.0    .0                                      
+                  462-        GRID    209             .0      16.0    .0                                      
+                  463-        GRID    210             1.0     16.0    .0                                      
+                  464-        GRID    211             2.0     16.0    .0                                      
+                  465-        GRID    212             3.0     16.0    .0                                      
+                  466-        GRID    213             4.0     16.0    .0                                      
+                  467-        GRID    214             5.0     16.0    .0                                      
+                  468-        GRID    215             6.0     16.0    .0                                      
+                  469-        GRID    216             7.0     16.0    .0                                      
+                  470-        GRID    217             8.0     16.0    .0                                      
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  471-        GRID    218             9.0     16.0    .0                                      
+                  472-        GRID    219             10.0    16.0    .0                                      
+                  473-        GRID    220             11.0    16.0    .0                                      
+                  474-        GRID    221             12.0    16.0    .0                                      
+                  475-        GRID    222             .0      17.0    .0                                      
+                  476-        GRID    223             1.0     17.0    .0                                      
+                  477-        GRID    224             2.0     17.0    .0                                      
+                  478-        GRID    225             3.0     17.0    .0                                      
+                  479-        GRID    226             4.0     17.0    .0                                      
+                  480-        GRID    227             5.0     17.0    .0                                      
+                  481-        GRID    228             6.0     17.0    .0                                      
+                  482-        GRID    229             7.0     17.0    .0                                      
+                  483-        GRID    230             8.0     17.0    .0                                      
+                  484-        GRID    231             9.0     17.0    .0                                      
+                  485-        GRID    232             10.0    17.0    .0                                      
+                  486-        GRID    233             11.0    17.0    .0                                      
+                  487-        GRID    234             12.0    17.0    .0                                      
+                  488-        GRID    235             .0      18.0    .0                                      
+                  489-        GRID    236             1.0     18.0    .0                                      
+                  490-        GRID    237             2.0     18.0    .0                                      
+                  491-        GRID    238             3.0     18.0    .0                                      
+                  492-        GRID    239             4.0     18.0    .0                                      
+                  493-        GRID    240             5.0     18.0    .0                                      
+                  494-        GRID    241             6.0     18.0    .0                                      
+                  495-        GRID    242             7.0     18.0    .0                                      
+                  496-        GRID    243             8.0     18.0    .0                                      
+                  497-        GRID    244             9.0     18.0    .0                                      
+                  498-        GRID    245             10.0    18.0    .0                                      
+                  499-        GRID    246             11.0    18.0    .0                                      
+                  500-        GRID    247             12.0    18.0    .0                                      
+                  501-        MAT1    75      10.400+6        .3              12.700-675.                     
+                  502-        MATT1   75      100                                                             
+                  503-        PARAM   IRES    1                                                               
+                  504-        PQDMEM1 21      75      .25                                                     
+                  505-        SPC1    1       1       1       14      27      40      53      66      CSPC-A  
+                  506-        +SPC-A  79      92      105     118     131     144     157     170     CSPC-B  
+                  507-        +SPC-B  183     196     209     222     235                                     
+                  508-        SPC1    1       2       1       2       3       4       5       6       CSPC-C  
+                  509-        +SPC-C  7       8       9       10      11      12      13                      
+                  510-        TABLEM1 100                                                             +TM1    
+                  511-        +TM1    80.     10.4+6  150.    10.15+6 200.    9.84+6  250.    9.51+6  +TM2    
+                  512-        +TM2    300.    9.15+6  ENDT                                                    
+                  513-        TEMP    1       1       245.000 2       232.500 3       220.000                 
+                  514-        TEMP    1       4       207.500 5       195.000 6       182.500                 
+                  515-        TEMP    1       7       170.000 8       157.500 9       145.000                 
+                  516-        TEMP    1       10      132.500 11      120.000 12      107.500                 
+                  517-        TEMP    1       13      95.000  14      245.000 15      232.500                 
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  518-        TEMP    1       16      220.000 17      207.500 18      195.000                 
+                  519-        TEMP    1       19      182.500 20      170.000 21      157.500                 
+                  520-        TEMP    1       22      145.000 23      132.500 24      120.000                 
+                  521-        TEMP    1       25      107.500 26      95.000  27      245.000                 
+                  522-        TEMP    1       28      232.500 29      220.000 30      207.500                 
+                  523-        TEMP    1       31      195.000 32      182.500 33      170.000                 
+                  524-        TEMP    1       34      157.500 35      145.000 36      132.500                 
+                  525-        TEMP    1       37      120.000 38      107.500 39      95.000                  
+                  526-        TEMP    1       40      245.000 41      232.500 42      220.000                 
+                  527-        TEMP    1       43      207.500 44      195.000 45      182.500                 
+                  528-        TEMP    1       46      170.000 47      157.500 48      145.000                 
+                  529-        TEMP    1       49      132.500 50      120.000 51      107.500                 
+                  530-        TEMP    1       52      95.000  53      245.000 54      232.500                 
+                  531-        TEMP    1       55      220.000 56      207.500 57      195.000                 
+                  532-        TEMP    1       58      182.500 59      170.000 60      157.500                 
+                  533-        TEMP    1       61      145.000 62      132.500 63      120.000                 
+                  534-        TEMP    1       64      107.500 65      95.000  66      245.000                 
+                  535-        TEMP    1       67      232.500 68      220.000 69      207.500                 
+                  536-        TEMP    1       70      195.000 71      182.500 72      170.000                 
+                  537-        TEMP    1       73      157.500 74      145.000 75      132.500                 
+                  538-        TEMP    1       76      120.000 77      107.500 78      95.000                  
+                  539-        TEMP    1       79      245.000 80      232.500 81      220.000                 
+                  540-        TEMP    1       82      207.500 83      195.000 84      182.500                 
+                  541-        TEMP    1       85      170.000 86      157.500 87      145.000                 
+                  542-        TEMP    1       88      132.500 89      120.000 90      107.500                 
+                  543-        TEMP    1       91      95.000  92      245.000 93      232.500                 
+                  544-        TEMP    1       94      220.000 95      207.500 96      195.000                 
+                  545-        TEMP    1       97      182.500 98      170.000 99      157.500                 
+                  546-        TEMP    1       100     145.000 101     132.500 102     120.000                 
+                  547-        TEMP    1       103     107.500 104     95.000  105     245.000                 
+                  548-        TEMP    1       106     232.500 107     220.000 108     207.500                 
+                  549-        TEMP    1       109     195.000 110     182.500 111     170.000                 
+                  550-        TEMP    1       112     157.500 113     145.000 114     132.500                 
+                  551-        TEMP    1       115     120.000 116     107.500 117     95.000                  
+                  552-        TEMP    1       118     245.000 119     232.500 120     220.000                 
+                  553-        TEMP    1       121     207.500 122     195.000 123     182.500                 
+                  554-        TEMP    1       124     170.000 125     157.500 126     145.000                 
+                  555-        TEMP    1       127     132.500 128     120.000 129     107.500                 
+                  556-        TEMP    1       130     95.000  131     245.000 132     232.500                 
+                  557-        TEMP    1       133     220.000 134     207.500 135     195.000                 
+                  558-        TEMP    1       136     182.500 137     170.000 138     157.500                 
+                  559-        TEMP    1       139     145.000 140     132.500 141     120.000                 
+                  560-        TEMP    1       142     107.500 143     95.000  144     245.000                 
+                  561-        TEMP    1       145     232.500 146     220.000 147     207.500                 
+                  562-        TEMP    1       148     195.000 149     182.500 150     170.000                 
+                  563-        TEMP    1       151     157.500 152     145.000 153     132.500                 
+                  564-        TEMP    1       154     120.000 155     107.500 156     95.000                  
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+
+      LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  565-        TEMP    1       157     245.000 158     232.500 159     220.000                 
+                  566-        TEMP    1       160     207.500 161     195.000 162     182.500                 
+                  567-        TEMP    1       163     170.000 164     157.500 165     145.000                 
+                  568-        TEMP    1       166     132.500 167     120.000 168     107.500                 
+                  569-        TEMP    1       169     95.000  170     245.000 171     232.500                 
+                  570-        TEMP    1       172     220.000 173     207.500 174     195.000                 
+                  571-        TEMP    1       175     182.500 176     170.000 177     157.500                 
+                  572-        TEMP    1       178     145.000 179     132.500 180     120.000                 
+                  573-        TEMP    1       181     107.500 182     95.000  183     245.000                 
+                  574-        TEMP    1       184     232.500 185     220.000 186     207.500                 
+                  575-        TEMP    1       187     195.000 188     182.500 189     170.000                 
+                  576-        TEMP    1       190     157.500 191     145.000 192     132.500                 
+                  577-        TEMP    1       193     120.000 194     107.500 195     95.000                  
+                  578-        TEMP    1       196     245.000 197     232.500 198     220.000                 
+                  579-        TEMP    1       199     207.500 200     195.000 201     182.500                 
+                  580-        TEMP    1       202     170.000 203     157.500 204     145.000                 
+                  581-        TEMP    1       205     132.500 206     120.000 207     107.500                 
+                  582-        TEMP    1       208     95.000  209     245.000 210     232.500                 
+                  583-        TEMP    1       211     220.000 212     207.500 213     195.000                 
+                  584-        TEMP    1       214     182.500 215     170.000 216     157.500                 
+                  585-        TEMP    1       217     145.000 218     132.500 219     120.000                 
+                  586-        TEMP    1       220     107.500 221     95.000  222     245.000                 
+                  587-        TEMP    1       223     232.500 224     220.000 225     207.500                 
+                  588-        TEMP    1       226     195.000 227     182.500 228     170.000                 
+                  589-        TEMP    1       229     157.500 230     145.000 231     132.500                 
+                  590-        TEMP    1       232     120.000 233     107.500 234     95.000                  
+                  591-        TEMP    1       235     245.000 236     232.500 237     220.000                 
+                  592-        TEMP    1       238     207.500 239     195.000 240     182.500                 
+                  593-        TEMP    1       241     170.000 242     157.500 243     145.000                 
+                  594-        TEMP    1       244     132.500 245     120.000 246     107.500                 
+                  595-        TEMP    1       247     95.000                                                  
+                              ENDDATA
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+0     LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           15
+                                        PROFILE           3517
+                                        MAX WAVEFRONT       15
+                                        AVG WAVEFRONT   14.239
+                                        RMS WAVEFRONT   14.436
+                                        RMS BANDWIDTH   14.534
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH           23
+                                        PROFILE           3622
+                                        MAX WAVEFRONT       21
+                                        AVG WAVEFRONT   14.664
+                                        RMS WAVEFRONT   15.039
+                                        RMS BANDWIDTH   15.423
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       15        15
+                                        PROFILE (P)                       3517      3517
+                                        MAXIMUM WAVEFRONT (C-MAX)           15        15
+                                        AVERAGE WAVEFRONT (C-AVG)       14.239    14.239
+                                        RMS WAVEFRONT (C-RMS)           14.436    14.436
+                                        RMS BANDWITCH (B-RMS)           14.534    14.534
+                                        NUMBER OF GRID POINTS (N)                    247
+                                        NUMBER OF ELEMENTS (NON-RIGID)               216
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           8
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                       894
+                                        MATRIX DENSITY, PERCENT                    3.336
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QDMEM1   ELEMENTS (ELEMENT TYPE  62) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   7.1610071E-16
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+0     LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+0                RULV                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       2-T1).
+             2 T1 -1.25056E-12        4 T1 -1.59162E-12        5 T1 -3.86535E-12        6 T1  3.75167E-12        7 T1 -9.09495E-13
+             8 T1  5.57066E-12        9 T1  5.91172E-12       10 T1  5.28644E-12       11 T1  1.02318E-12       12 T1  1.19371E-12
+            13 T1  1.56319E-13       14 T2 -2.27374E-13       15 T1 -1.81899E-12       15 T2  4.54747E-13       16 T1 -1.36424E-12
+            16 T2  1.59162E-12       17 T2 -9.09495E-13       18 T1 -4.32010E-12       18 T2 -1.13687E-12       19 T1  1.11413E-11
+            19 T2 -4.54747E-13       20 T1  6.13909E-12       20 T2  1.13687E-12       21 T1  4.54747E-12       21 T2  9.09495E-13
+            22 T1 -3.63798E-12       22 T2 -2.27374E-13       23 T2  4.54747E-13       24 T1  6.70752E-12       24 T2 -2.72848E-12
+            25 T1 -2.38742E-12       25 T2  5.68434E-12       26 T1 -2.23110E-12       26 T2 -2.95586E-12       27 T2  9.09495E-13
+            28 T1  2.27374E-12       28 T2  1.81899E-12       29 T1 -6.36646E-12       29 T2 -5.45697E-12       30 T1  4.54747E-13
+            30 T2 -9.09495E-13       31 T1  1.59162E-12       31 T2  1.36424E-12       32 T1  1.36424E-12       32 T2  2.72848E-12
+            33 T1  4.09273E-12       33 T2  2.27374E-12       34 T1  1.36424E-12       34 T2 -4.54747E-12       35 T1  9.77707E-12
+            35 T2 -3.18323E-12       36 T1 -1.36424E-12       36 T2  1.36424E-12       37 T1 -6.59384E-12       37 T2  4.54747E-12
+            38 T1  7.50333E-12       38 T2  3.18323E-12       39 T1 -3.26850E-13       39 T2 -5.91172E-12       40 T2  1.81899E-12
+            41 T1  2.72848E-12       41 T2  4.09273E-12       42 T1 -3.18323E-12       42 T2  1.36424E-12       43 T1 -5.45697E-12
+            43 T2  3.18323E-12       44 T1 -6.36646E-12       44 T2 -6.36646E-12       45 T2 -3.18323E-12       46 T1  1.81899E-12
+            46 T2  5.91172E-12       47 T1  1.13687E-11       47 T2 -4.54747E-13       48 T2  2.27374E-12       49 T1  4.32010E-12
+            49 T2 -3.63798E-12       50 T1 -3.41061E-12       50 T2  4.54747E-13       51 T1  7.50333E-12       51 T2 -4.54747E-13
+            52 T1 -7.67386E-13       52 T2  1.81899E-12       53 T2  2.72848E-12       54 T1 -1.36424E-12       54 T2 -3.63798E-12
+            55 T1 -4.54747E-13       55 T2  4.54747E-12       56 T1 -3.63798E-12       56 T2  5.45697E-12       57 T1  4.54747E-12
+            57 T2  8.18545E-12       58 T1 -4.54747E-13       59 T1 -3.18323E-12       59 T2 -9.09495E-12       60 T1  1.81899E-12
+            60 T2 -9.09495E-12       61 T1  7.27596E-12       61 T2  4.54747E-13       62 T1 -6.82121E-12       62 T2 -1.18234E-11
+            63 T1  4.09273E-12       63 T2  4.54747E-12       64 T1  1.13687E-11       64 T2  5.91172E-12       65 T1 -1.33582E-12
+            66 T2 -9.09495E-13       67 T1  4.54747E-13       67 T2 -9.09495E-12       68 T1  9.09495E-13       68 T2  9.09495E-13
+            69 T1  2.72848E-12       69 T2 -1.18234E-11       70 T1  4.54747E-13       71 T1  8.18545E-12       72 T1 -1.36424E-12
+            72 T2  4.54747E-12       73 T1  2.41016E-11       73 T2  5.45697E-12       74 T1  1.09139E-11       74 T2 -8.18545E-12
+            75 T1 -1.00044E-11       75 T2  1.09139E-11       76 T1  9.09495E-12       76 T2 -2.72848E-12       77 T1  1.22782E-11
+            77 T2 -1.00044E-11       78 T1 -8.44125E-12       78 T2 -4.54747E-12       80 T1  4.54747E-12       80 T2  8.18545E-12
+            81 T1 -9.09495E-13       81 T2 -1.00044E-11       82 T1 -7.27596E-12       82 T2  1.72804E-11       83 T1 -4.54747E-12
+            83 T2 -1.27329E-11       84 T1 -5.00222E-12       84 T2  2.72848E-12       85 T1 -9.09495E-13       85 T2 -4.54747E-12
+            86 T1 -1.81899E-11       86 T2  8.18545E-12       87 T1 -2.27374E-12       87 T2 -3.63798E-12       88 T1  1.36424E-12
+            88 T2  2.72848E-12       89 T1  1.27329E-11       89 T2 -9.09495E-12       90 T1 -9.09495E-13       90 T2  9.09495E-12
+            91 T1 -2.33058E-12       91 T2  1.81899E-12       92 T2  7.27596E-12       93 T2 -2.72848E-12       94 T1  7.27596E-12
+            94 T2 -1.81899E-11       95 T1  1.81899E-12       95 T2 -1.09139E-11       96 T1  2.72848E-12       96 T2 -5.45697E-12
+            97 T1  8.18545E-12       97 T2  1.81899E-12       98 T1 -1.36424E-11       98 T2 -1.72804E-11       99 T1  6.36646E-12
+            99 T2  6.36646E-12      100 T1 -1.18234E-11      100 T2  1.18234E-11      101 T1 -3.18323E-12      101 T2  5.45697E-12
+           102 T1 -1.09139E-11      102 T2  7.27596E-12      103 T1  6.36646E-12      103 T2  7.27596E-12      104 T1  5.85487E-12
+           105 T2 -3.63798E-12      106 T1 -4.54747E-12      106 T2 -3.63798E-12      107 T1  9.09495E-13      107 T2  1.27329E-11
+           108 T1 -2.72848E-12      108 T2  9.09495E-12      109 T1  4.54747E-12      109 T2  9.09495E-12      110 T1 -4.54747E-12
+           110 T2 -1.63709E-11      111 T1 -2.72848E-12      111 T2 -3.63798E-12      112 T1  9.09495E-13      112 T2  2.27374E-11
+           113 T1  1.54614E-11      113 T2 -2.72848E-12      114 T1 -9.09495E-12      114 T2 -3.63798E-12      115 T1 -1.81899E-12
+           115 T2  5.45697E-12      116 T1  9.09495E-13      117 T1 -6.42331E-12      117 T2  5.45697E-12      118 T2  3.63798E-12
+           119 T1 -1.81899E-12      119 T2  5.45697E-12      120 T1 -2.72848E-12      120 T2  1.81899E-12      121 T1 -6.36646E-12
+           122 T1  7.27596E-12      122 T2 -2.00089E-11      123 T1  9.09495E-13      123 T2  1.09139E-11      124 T1  5.45697E-12
+           124 T2 -1.09139E-11      125 T1  1.81899E-12      125 T2 -1.09139E-11      126 T1 -1.81899E-12      127 T1  6.36646E-12
+           127 T2  7.27596E-12      128 T1 -1.81899E-12      128 T2  1.18234E-11      129 T1 -1.00044E-11      129 T2 -2.09184E-11
+           130 T1 -1.81899E-12      130 T2 -5.45697E-12      132 T1  9.09495E-13      132 T2 -7.27596E-12      133 T1  2.72848E-12
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+0     LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+0                RULV                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+           133 T2  1.63709E-11      134 T1 -6.36646E-12      134 T2 -1.81899E-11      135 T1  1.81899E-12      135 T2  1.81899E-11
+           136 T1 -1.81899E-12      136 T2 -3.63798E-12      137 T1 -2.72848E-12      137 T2 -1.81899E-12      138 T1 -6.36646E-12
+           138 T2  1.09139E-11      139 T1  1.45519E-11      139 T2  9.09495E-12      140 T1 -9.09495E-13      140 T2  7.27596E-12
+           141 T1  1.81899E-12      141 T2  3.63798E-12      142 T1  9.09495E-13      142 T2  9.09495E-13      143 T1  9.60654E-12
+           143 T2  4.54747E-12      144 T2  1.09139E-11      145 T1  1.81899E-12      145 T2  2.72848E-11      146 T2  3.63798E-12
+           147 T1 -4.54747E-12      147 T2 -1.81899E-12      148 T1 -9.09495E-13      148 T2  1.81899E-12      149 T1  1.18234E-11
+           149 T2 -9.09495E-12      150 T1 -5.45697E-12      150 T2 -3.63798E-12      151 T1  2.72848E-12      151 T2  1.09139E-11
+           152 T1  5.45697E-12      152 T2  5.45697E-12      153 T1 -2.72848E-12      153 T2 -5.45697E-12      154 T1 -5.45697E-12
+           154 T2  4.54747E-12      155 T1  1.18234E-11      155 T2 -1.00044E-11      156 T1 -9.72022E-12      157 T2 -1.81899E-11
+           158 T1 -1.81899E-12      158 T2  1.63709E-11      159 T2  3.63798E-12      160 T1 -1.81899E-12      160 T2 -2.00089E-11
+           161 T1 -2.72848E-12      161 T2 -1.81899E-12      162 T1  1.18234E-11      162 T2  1.81899E-12      163 T1 -1.09139E-11
+           163 T2  1.81899E-12      164 T1 -1.81899E-12      164 T2 -1.45519E-11      165 T1 -1.54614E-11      165 T2 -1.45519E-11
+           166 T1 -1.81899E-12      166 T2  1.09139E-11      167 T2  1.63709E-11      168 T1  9.09495E-13      168 T2 -1.27329E-11
+           169 T1  1.42109E-12      169 T2 -1.81899E-12      170 T2 -5.45697E-12      171 T1  1.81899E-12      171 T2  2.00089E-11
+           172 T2 -1.81899E-11      173 T1  1.81899E-12      173 T2  9.09495E-12      174 T1  9.09495E-12      174 T2  2.72848E-11
+           175 T1  8.18545E-12      175 T2 -9.09495E-12      176 T1 -3.63798E-12      176 T2 -1.09139E-11      177 T1  2.09184E-11
+           177 T2  9.09495E-12      178 T1 -9.09495E-12      178 T2 -5.45697E-12      179 T1  5.45697E-12      179 T2 -1.45519E-11
+           180 T1 -1.09139E-11      180 T2 -7.27596E-12      181 T1 -3.63798E-12      181 T2  2.00089E-11      182 T1 -3.35376E-12
+           182 T2 -1.27329E-11      183 T2 -1.09139E-11      184 T1 -1.81899E-12      184 T2  1.27329E-11      185 T1 -1.81899E-12
+           185 T2 -2.00089E-11      186 T1  1.81899E-12      186 T2 -7.27596E-12      187 T2 -4.54747E-11      188 T2 -1.63709E-11
+           189 T1  9.09495E-13      189 T2 -3.63798E-12      190 T1  1.81899E-11      191 T1 -9.09495E-13      191 T2  1.81899E-12
+           192 T1  1.00044E-11      192 T2 -1.09139E-11      193 T1  3.18323E-11      193 T2 -9.09495E-12      194 T1  1.36424E-11
+           194 T2  1.81899E-12      195 T1  2.72848E-12      195 T2 -3.63798E-12      196 T2 -1.09139E-11      197 T1 -3.63798E-12
+           197 T2  1.09139E-11      198 T1 -5.45697E-12      198 T2  1.81899E-12      199 T1 -1.81899E-12      199 T2 -1.09139E-11
+           200 T1 -3.63798E-12      200 T2 -5.45697E-12      201 T1  1.45519E-11      201 T2  4.00178E-11      202 T2  2.91038E-11
+           203 T1 -4.54747E-12      203 T2  2.72848E-11      204 T1  1.36424E-11      204 T2  1.63709E-11      205 T1  1.81899E-12
+           206 T1  5.45697E-12      206 T2 -1.81899E-12      207 T1  1.54614E-11      207 T2 -2.18279E-11      208 T1 -5.11591E-12
+           208 T2 -1.81899E-12      209 T2 -3.63798E-12      210 T2  1.09139E-11      211 T2 -3.63798E-12      212 T1  1.81899E-12
+           212 T2  5.09317E-11      213 T1  5.45697E-12      213 T2 -3.63798E-12      214 T1  9.09495E-12      214 T2 -2.18279E-11
+           215 T2  2.00089E-11      216 T1  3.63798E-12      216 T2 -1.45519E-11      217 T2  3.63798E-12      218 T1  1.45519E-11
+           218 T2 -1.81899E-11      219 T1 -3.00133E-11      219 T2 -7.27596E-12      220 T1  2.81943E-11      220 T2  3.63798E-11
+           221 T1  1.04592E-11      221 T2  1.81899E-12      222 T2 -7.27596E-12      223 T1  1.81899E-12      223 T2  3.63798E-12
+           224 T1 -3.63798E-12      224 T2  1.45519E-11      225 T1  7.27596E-12      225 T2  1.45519E-11      226 T1 -3.63798E-12
+           226 T2  2.18279E-11      227 T1 -3.63798E-12      227 T2 -3.63798E-12      228 T1  1.45519E-11      228 T2 -3.45608E-11
+           229 T1  1.81899E-12      229 T2 -1.45519E-11      230 T1 -1.00044E-11      231 T1  2.18279E-11      231 T2 -7.27596E-12
+           232 T1 -1.54614E-11      232 T2 -3.27418E-11      233 T1  5.45697E-12      233 T2 -3.09228E-11      234 T1 -1.31308E-11
+           234 T2 -1.45519E-11      235 T2 -9.09495E-13      236 T1  5.22959E-12      236 T2 -1.81899E-12      237 T1  3.18323E-12
+           237 T2 -2.45564E-11      238 T1 -3.41061E-12      238 T2 -2.18279E-11      239 T1  2.95586E-12      239 T2 -2.45564E-11
+           240 T1 -5.11591E-12      241 T1 -4.66116E-12      241 T2 -3.63798E-12      242 T1  3.86535E-12      242 T2  3.27418E-11
+           243 T1  1.71667E-11      243 T2 -3.18323E-12      244 T1 -1.93268E-12      244 T2  4.09273E-12      245 T1 -4.09273E-12
+           245 T2  1.18234E-11      246 T1 -5.40012E-12      246 T2  1.81899E-12      247 T1  3.63798E-12      247 T2 -3.63798E-12
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+0     LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      2.156191E-03   0.0            0.0            0.0            0.0            0.0                           
+             3      G      4.113756E-03   0.0            0.0            0.0            0.0            0.0                           
+             4      G      5.878820E-03   0.0            0.0            0.0            0.0            0.0                           
+             5      G      7.456814E-03   0.0            0.0            0.0            0.0            0.0                           
+             6      G      8.852118E-03   0.0            0.0            0.0            0.0            0.0                           
+             7      G      1.006788E-02   0.0            0.0            0.0            0.0            0.0                           
+             8      G      1.110572E-02   0.0            0.0            0.0            0.0            0.0                           
+             9      G      1.196552E-02   0.0            0.0            0.0            0.0            0.0                           
+            10      G      1.264510E-02   0.0            0.0            0.0            0.0            0.0                           
+            11      G      1.314043E-02   0.0            0.0            0.0            0.0            0.0                           
+            12      G      1.344535E-02   0.0            0.0            0.0            0.0            0.0                           
+            13      G      1.355153E-02   0.0            0.0            0.0            0.0            0.0                           
+            79      G      0.0            8.292265E-03   0.0            0.0            0.0            0.0                           
+            80      G      2.119685E-03   8.262852E-03   0.0            0.0            0.0            0.0                           
+            81      G      4.042593E-03   8.175830E-03   0.0            0.0            0.0            0.0                           
+            82      G      5.776464E-03   8.035133E-03   0.0            0.0            0.0            0.0                           
+            83      G      7.328094E-03   7.847600E-03   0.0            0.0            0.0            0.0                           
+            84      G      8.702945E-03   7.622782E-03   0.0            0.0            0.0            0.0                           
+            85      G      9.904990E-03   7.372671E-03   0.0            0.0            0.0            0.0                           
+            86      G      1.093647E-02   7.111399E-03   0.0            0.0            0.0            0.0                           
+            87      G      1.179777E-02   6.854988E-03   0.0            0.0            0.0            0.0                           
+            88      G      1.248717E-02   6.621099E-03   0.0            0.0            0.0            0.0                           
+            89      G      1.300105E-02   6.428799E-03   0.0            0.0            0.0            0.0                           
+            90      G      1.333340E-02   6.298383E-03   0.0            0.0            0.0            0.0                           
+            91      G      1.347557E-02   6.251092E-03   0.0            0.0            0.0            0.0                           
+           157      G      0.0            1.759259E-02   0.0            0.0            0.0            0.0                           
+           158      G      2.143112E-03   1.750282E-02   0.0            0.0            0.0            0.0                           
+           159      G      4.094586E-03   1.723894E-02   0.0            0.0            0.0            0.0                           
+           160      G      5.866446E-03   1.681674E-02   0.0            0.0            0.0            0.0                           
+           161      G      7.467184E-03   1.626055E-02   0.0            0.0            0.0            0.0                           
+           162      G      8.901473E-03   1.560021E-02   0.0            0.0            0.0            0.0                           
+           163      G      1.017078E-02   1.486834E-02   0.0            0.0            0.0            0.0                           
+           164      G      1.127437E-02   1.409833E-02   0.0            0.0            0.0            0.0                           
+           165      G      1.221035E-02   1.332334E-02   0.0            0.0            0.0            0.0                           
+           166      G      1.297663E-02   1.257614E-02   0.0            0.0            0.0            0.0                           
+           167      G      1.357173E-02   1.189008E-02   0.0            0.0            0.0            0.0                           
+           168      G      1.399530E-02   1.130128E-02   0.0            0.0            0.0            0.0                           
+           169      G      1.424808E-02   1.085224E-02   0.0            0.0            0.0            0.0                           
+           235      G      0.0            2.833324E-02   0.0            0.0            0.0            0.0                           
+           236      G      3.159611E-03   2.802449E-02   0.0            0.0            0.0            0.0                           
+           237      G      6.029882E-03   2.723900E-02   0.0            0.0            0.0            0.0                           
+           238      G      8.589569E-03   2.616550E-02   0.0            0.0            0.0            0.0                           
+           239      G      1.084542E-02   2.488910E-02   0.0            0.0            0.0            0.0                           
+           240      G      1.280617E-02   2.347336E-02   0.0            0.0            0.0            0.0                           
+           241      G      1.448137E-02   2.196799E-02   0.0            0.0            0.0            0.0                           
+           242      G      1.588242E-02   2.041499E-02   0.0            0.0            0.0            0.0                           
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+0     LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           243      G      1.702331E-02   1.885053E-02   0.0            0.0            0.0            0.0                           
+           244      G      1.792178E-02   1.730498E-02   0.0            0.0            0.0            0.0                           
+           245      G      1.859923E-02   1.580316E-02   0.0            0.0            0.0            0.0                           
+           246      G      1.908174E-02   1.435449E-02   0.0            0.0            0.0            0.0                           
+           247      G      1.939889E-02   1.298967E-02   0.0            0.0            0.0            0.0                           
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+0     LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -3.559223E+03  -3.559223E+03   0.0            0.0            0.0            0.0                           
+             2      G      2.433977E+02  -6.875048E+03   0.0            0.0            0.0            0.0                           
+             3      G      2.480757E+02  -6.383575E+03   0.0            0.0            0.0            0.0                           
+             4      G      2.527524E+02  -5.882747E+03   0.0            0.0            0.0            0.0                           
+             5      G      2.585908E+02  -5.371403E+03   0.0            0.0            0.0            0.0                           
+             6      G      2.631287E+02  -4.849684E+03   0.0            0.0            0.0            0.0                           
+             7      G      2.675220E+02  -4.319033E+03   0.0            0.0            0.0            0.0                           
+             8      G      2.719160E+02  -3.779595E+03   0.0            0.0            0.0            0.0                           
+             9      G      2.805852E+02  -3.227094E+03   0.0            0.0            0.0            0.0                           
+            10      G      2.836848E+02  -2.662824E+03   0.0            0.0            0.0            0.0                           
+            11      G      2.862157E+02  -2.092923E+03   0.0            0.0            0.0            0.0                           
+            12      G      2.887468E+02  -1.517961E+03   0.0            0.0            0.0            0.0                           
+            13      G      6.146071E+02  -6.146071E+02   0.0            0.0            0.0            0.0                           
+            14      G     -7.118446E+03   0.0            0.0            0.0            0.0            0.0                           
+            15      G      4.867954E+02  -2.441406E-04   0.0            0.0            0.0            0.0                           
+            16      G      4.961514E+02   0.0            0.0            0.0            0.0            0.0                           
+            17      G      5.055049E+02   0.0            0.0            0.0            0.0            0.0                           
+            18      G      5.171816E+02   0.0            0.0            0.0            0.0            0.0                           
+            19      G      5.262573E+02  -2.441406E-04   0.0            0.0            0.0            0.0                           
+            20      G      5.350439E+02   0.0            0.0            0.0            0.0            0.0                           
+            21      G      5.438320E+02   0.0            0.0            0.0            0.0            0.0                           
+            22      G      5.611704E+02   0.0            0.0            0.0            0.0            0.0                           
+            23      G      5.673696E+02   0.0            0.0            0.0            0.0            0.0                           
+            24      G      5.724314E+02  -1.220703E-04   0.0            0.0            0.0            0.0                           
+            25      G      5.774937E+02   0.0            0.0            0.0            0.0            0.0                           
+            26      G      1.229214E+03   0.0            0.0            0.0            0.0            0.0                           
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+0     LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+ 
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M 1 )
+  ELEMENT           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+        1       -1.501230E+03  -7.430041E+03  -1.090356E+01       -0.1054      -1.501210E+03  -7.430061E+03   2.964425E+03          
+        2       -1.457992E+03  -6.022748E+03  -3.226196E+01       -0.4049      -1.457764E+03  -6.022976E+03   2.282606E+03          
+        3       -1.373389E+03  -4.655514E+03  -5.217676E+01       -0.9105      -1.372559E+03  -4.656343E+03   1.641892E+03          
+        4       -1.251393E+03  -3.323727E+03  -6.957715E+01       -1.9208      -1.249059E+03  -3.326060E+03   1.038500E+03          
+        5       -1.098053E+03  -2.018029E+03  -8.344629E+01       -5.1411      -1.090545E+03  -2.025537E+03   4.674960E+02          
+        6       -9.213984E+02  -7.277109E+02  -9.284082E+01      -68.1045      -6.903976E+02  -9.587118E+02   1.341571E+02          
+        7       -7.312178E+02   5.635908E+02  -9.691602E+01      -85.7430       5.708047E+02  -7.384317E+02   6.546182E+02          
+        8       -5.389014E+02   1.876038E+03  -9.493555E+01      -87.7522       1.879764E+03  -5.426277E+02   1.211196E+03          
+        9       -3.571709E+02   3.223469E+03  -8.629688E+01      -88.6202       3.225547E+03  -3.592495E+02   1.792398E+03          
+       10       -1.997676E+02   4.632628E+03  -7.058984E+01      -89.1633       4.633659E+03  -2.007986E+02   2.417229E+03          
+       11       -8.107324E+01   6.131918E+03  -4.759766E+01      -89.5611       6.132283E+03  -8.143799E+01   3.106860E+03          
+       12       -1.560596E+01   7.750080E+03  -1.742188E+01      -89.8715       7.750119E+03  -1.564502E+01   3.882882E+03          
+       15       -1.468428E+03  -5.981062E+03  -9.700732E+01       -1.2309      -1.466343E+03  -5.983147E+03   2.258402E+03          
+       20       -7.370615E+02   5.659248E+02  -2.913584E+02      -77.9525       6.281074E+02  -7.992441E+02   7.136757E+02          
+       28       -1.487668E+03  -5.897426E+03  -1.624094E+02       -2.1064      -1.481695E+03  -5.903399E+03   2.210852E+03          
+       33       -7.476709E+02   5.706494E+02  -4.875381E+02      -71.7560       7.313585E+02  -9.083799E+02   8.198692E+02          
+       41       -1.512348E+03  -5.771311E+03  -2.288647E+02       -3.0671      -1.500084E+03  -5.783574E+03   2.141745E+03          
+       46       -7.608740E+02   5.778330E+02  -6.862305E+02      -67.1434       8.670964E+02  -1.050137E+03   9.586169E+02          
+       54       -1.537299E+03  -5.601988E+03  -2.967061E+02       -4.1530      -1.515755E+03  -5.623532E+03   2.053889E+03          
+       59       -7.731904E+02   5.875010E+02  -8.876289E+02      -63.7346       1.025527E+03  -1.211216E+03   1.118372E+03          
+       67       -1.555318E+03  -5.388578E+03  -3.662012E+02       -5.4084      -1.520648E+03  -5.423249E+03   1.951300E+03          
+       72       -7.797334E+02   5.994658E+02  -1.091112E+03      -61.1468       1.200631E+03  -1.380899E+03   1.290765E+03          
+       80       -1.556938E+03  -5.130117E+03  -4.375410E+02       -6.8805      -1.504140E+03  -5.182915E+03   1.839387E+03          
+       85       -7.738896E+02   6.131494E+02  -1.294925E+03      -59.0860       1.388575E+03  -1.549315E+03   1.468945E+03          
+       93       -1.530066E+03  -4.825652E+03  -5.108398E+02       -8.6121      -1.452699E+03  -4.903020E+03   1.725161E+03          
+       98       -7.471748E+02   6.272979E+02  -1.495895E+03      -57.3374       1.586268E+03  -1.706145E+03   1.646206E+03          
+      106       -1.459480E+03  -4.474328E+03  -5.861367E+02      -10.6239      -1.349535E+03  -4.584273E+03   1.617369E+03          
+      111       -6.889990E+02   6.397080E+02  -1.689050E+03      -55.7356       1.790363E+03  -1.839654E+03   1.815008E+03          
+      118       -1.378930E+03  -5.386064E+03  -2.254180E+02       -3.2096      -1.366289E+03  -5.398705E+03   2.016208E+03          
+      119       -1.326186E+03  -4.075539E+03  -6.633789E+02      -12.8803      -1.174492E+03  -4.227233E+03   1.526371E+03          
+      120       -1.226352E+03  -2.914125E+03  -1.062240E+03      -25.7675      -7.135883E+02  -3.426888E+03   1.356650E+03          
+      121       -1.089674E+03  -1.885955E+03  -1.397870E+03      -37.0510      -3.435071E+01  -2.941278E+03   1.453464E+03          
+      122       -9.289727E+02  -9.676035E+02  -1.651650E+03      -44.6650       7.034752E+02  -2.600051E+03   1.651763E+03          
+      123       -7.574121E+02  -1.327930E+02  -1.810789E+03      -49.8928       1.392421E+03  -2.282626E+03   1.837524E+03          
+      124       -5.866865E+02   6.467666E+02  -1.867187E+03      -54.1391       1.996442E+03  -1.936362E+03   1.966402E+03          
+      125       -4.260264E+02   1.398310E+03  -1.815149E+03      -58.3405       2.517598E+03  -1.545315E+03   2.031457E+03          
+      126       -2.822529E+02   2.140610E+03  -1.648993E+03      -63.1514       2.975333E+03  -1.116975E+03   2.046154E+03          
+      127       -1.607715E+02   2.899197E+03  -1.360246E+03      -69.1805       3.416436E+03  -6.780100E+02   2.047223E+03          
+      128       -6.774902E+01   3.700368E+03  -9.348584E+02      -76.8048       3.919554E+03  -2.869348E+02   2.103244E+03          
+      129       -1.368799E+01   4.576816E+03  -3.519004E+02      -85.6417       4.603635E+03  -4.050732E+01   2.322071E+03          
+      132       -1.106301E+03  -3.629117E+03  -7.422891E+02      -15.2376      -9.041025E+02  -3.831315E+03   1.463606E+03          
+      137       -4.259561E+02   6.431729E+02  -2.020272E+03      -52.4104       2.198407E+03  -1.981191E+03   2.089799E+03          
+      145       -7.694453E+02  -3.135859E+03  -8.221367E+02      -17.3965      -5.118582E+02  -3.393447E+03   1.440794E+03          
+      150       -1.921201E+02   6.219502E+02  -2.134736E+03      -50.3976       2.388110E+03  -1.958280E+03   2.173195E+03          
+      158       -2.759199E+02  -2.598172E+03  -9.012031E+02      -18.9083       3.277734E+01  -2.906869E+03   1.469823E+03          
+      163        1.272393E+02   5.750947E+02  -2.192363E+03      -47.9160       2.554937E+03  -1.852603E+03   2.203770E+03          
+      171        4.280781E+02  -2.022055E+03  -9.755469E+02      -19.2655       7.690511E+02  -2.363028E+03   1.566039E+03          
+1     FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)         /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-03-2A                                                                                   
+0     LINEARLY VARYING THERMAL LOAD - TEMPERATURE DEPENDENT MATERIAL                                                                
+ 
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M 1 )
+  ELEMENT           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+      176        5.374971E+02   4.958135E+02  -2.168935E+03      -44.7247       2.685690E+03  -1.652379E+03   2.169035E+03          
+      184        1.419258E+03  -1.420977E+03  -1.036184E+03      -18.0581       1.757097E+03  -1.758815E+03   1.757956E+03          
+      189        1.029976E+03   3.827822E+02  -2.032424E+03      -40.4767       2.764403E+03  -1.351645E+03   2.058024E+03          
+      197        2.812936E+03  -8.252656E+02  -1.061332E+03      -15.1305       3.099910E+03  -1.112240E+03   2.106075E+03          
+      202        1.574075E+03   2.459697E+02  -1.741709E+03      -34.5650       2.774028E+03  -9.539829E+02   1.864005E+03          
+      210        4.800756E+03  -3.076484E+02  -9.865586E+02      -10.5595       4.984664E+03  -4.915564E+02   2.738110E+03          
+      215        2.112392E+03   1.118135E+02  -1.246059E+03      -25.6219       2.709989E+03  -4.857837E+02   1.597886E+03          
+      223        7.582367E+03  -1.813281E+01  -5.399531E+02       -4.0433       7.620535E+03  -5.630029E+01   3.838417E+03          
+      228        2.563356E+03   2.243848E+01  -4.865811E+02      -10.4783       2.653349E+03  -6.755359E+01   1.360451E+03          
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  FREE RECTANGULAR PLATE WITH THERMAL LOADING (QDMEM1 ELEMENTS)      
+ DATE:  5/17/95
+ END TIME: 14:31:24
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

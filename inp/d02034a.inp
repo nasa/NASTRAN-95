@@ -1,0 +1,48 @@
+ID    D02034A,NASTRAN                                                           
+APP   DISP,SUBS                                                                 
+SOL   9,0                                                                       
+TIME  40                                                                        
+DIAG  23                                                                        
+CEND                                                                            
+SUBSTRUCTURE PHASE2                                                             
+PASSWORD = MDLSYN                                                               
+SOF(1)   = FT19,500 $ DEC VAX                                                   
+OPTIONS K,M,P                                                                   
+SOFPRINT TOC                                                                    
+SOLVE RTRUSS                                                                    
+RECOVER RTRUSS                                                                  
+PRINT RTRUSS                                                                    
+OLOAD = ALL                                                                     
+ PRINT ABASIC                                                                   
+  UIMPROVE YES                                                                  
+  RANGE 0.0,0.41                                                                
+  ENERGY ALL                                                                    
+ PRINT MA                                                                       
+ PRINT BBASIC                                                                   
+  UIMPROVE YES                                                                  
+  RANGE 0.0,0.41                                                                
+  ENERGY ALL                                                                    
+ PRINT MB                                                                       
+SOFPRINT TOC                                                                    
+ENDSUBS                                                                         
+TITLE    = TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS               
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D02-03-4A                          
+LABEL    = SOLVE AND RECOVERY, RUN 4, PHASE 2, RF 9                             
+   SET 1 = 7 THRU 13                                                            
+     SPC = 123                                                                  
+   DLOAD = 101                                                                  
+      IC = 522                                                                  
+   TSTEP = 40                                                                   
+   OLOAD = ALL                                                                  
+    DISP = ALL                                                                  
+SDISP(SORT2) = 1                                                                
+BEGIN BULK                                                                      
+DAREAS  980     BBASIC  2       2       1.0+3                                   
+LOADC   980     1.0     ABASIC  980     1.0                                     
+PARAM   G       .05                                                             
+PARAM   W3      .01                                                             
+SPCS1   123     ABASIC  12      1       2       3                               
+TICS    522     BBASIC  2       2       .1                                      
+TLOAD2  101     980                     .39     12.0                            
+TSTEP   40      40      2.0-2   1                                               
+ENDDATA                                                                         

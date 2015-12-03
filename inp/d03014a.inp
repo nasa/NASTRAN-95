@@ -1,0 +1,121 @@
+NASTRAN FILES=PLT2                                                              
+ID    D03014A,NASTRAN                                                           
+ALTER 1 $                                                                       
+PARAM   //C,N,NOP/V,N,TRUE=-1 $                                                 
+INPUT,  ,GEOM2,,,/G1,G2,,G4,/C,N,3/C,N,1 $                                      
+EQUIV   G1,GEOM1/TRUE / G2,GEOM2/TRUE / G4,GEOM4/TRUE $                         
+ENDALTER $                                                                      
+APP      DISPLACEMENT                                                           
+SOL      3,1                                                                    
+DIAG     14                                                                     
+TIME     65                                                                     
+CEND                                                                            
+TITLE    =         VIBRATION OF A 20 X 40 HALF PLATE                            
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D03-01-4A                          
+$                                                                               
+  METHOD = 20 $ FEER - NO MODES                                                 
+     SPC = 20040   $ INPUT VERSION                                              
+$                  ROOTS ARE AT THE FOLLOWING FREQUENCIES (THEORETICAL)         
+$       MODE    M       N       FREQ                                            
+$       1       1       1       9.068997E-1                                     
+$       2       1       2       2.267249                                        
+$       5       1       3       4.534498                                        
+$       6       3       1       4.534498                                        
+$       7       3       2       5.894848                                        
+$       9       1       4       7.708647                                        
+$                                                                               
+OUTPUT                                                                          
+   SET 1 = 1 THRU 21, 64 THRU 84, 127 THRU 147, 190 THRU 210,                   
+           253 THRU 273, 316 THRU 336, 379 THRU 399, 442 THRU 462,              
+           505 THRU 525, 568 THRU 588, 631 THRU 651, 694 THRU 714,              
+           757 THRU 777, 820 THRU 840, 841 THRU 861                             
+   DISPLACEMENTS = 1                                                            
+$                                                                               
+PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D03-01-4A                            
+OUTPUT(PLOT)                                                                    
+PLOTTER NASTPLT                                                                 
+        SET 1 INCLUDE PLOTEL                                                    
+        SET 2 INCLUDE QUAD1                                                     
+        MAXIMUM DEFORMATION  1.0                                                
+        FIND SCALE, ORIGIN 10                                                   
+PTITLE = ALL QUADS IN THE PLATE                                                 
+PLOT ORIGIN 10, SET 2, LABELS                                                   
+        FIND SCALE, ORIGIN 11                                                   
+PTITLE = MODE SHAPES USING PLOTEL ELEMENTS                                      
+PLOT MODAL DEFORMATION 1, ORIGIN 11, SHAPE                                      
+BEGIN BULK                                                                      
+EIGR    2       INV     .85     .89     1       1       0               CSIMPL-I
++SIMPL-IMAX                                                                     
+EIGR    3       INV     .89     1.0     1       3       0               +EIG3-I 
++EIG3-I MAX                                                                     
+EIGR    4       DET     .89     1.0     1       1       0               +EIG4-D 
++EIG4-D MAX                                                                     
+EIGR    5       INV     .89     2.4     1       3       0               +EIG5-2 
++EIG5-2 MAX                                                                     
+EIGR    6       DET     .89     2.4     2       2       0               +EIG6-2 
++EIG6-2 MAX                                                                     
+EIGR    7       INV     .89     6.1     5       5       0               +EIG7-5 
++EIG7-5 MAX                                                                     
+EIGR    9       INV     .89     14.5    4       10      0               +EIG9-10
++EIG9-10MAX                                                                     
+EIGR    11      INV     .89     29.0    20      20      0               +EIG1120
++EIG1120MAX                                                                     
+EIGR    20      FEER    .87                     1                       +FEER   
++FEER   MAX                                                                     
+MAT1    2       3.0+7           .300    200.0                           +MAT1   
++MAT1   30000.  28000.                                                          
+PARAM   GRDPNT  421                                                             
+PLOTEL  1000    1       21              1001    21      861                     
+PLOTEL  1002    861     841             1003    841     757                     
+PLOTEL  1004    757     673             1005    673     589                     
+PLOTEL  1006    589     505             1007    505     421                     
+PLOTEL  1008    421     337             1009    337     253                     
+PLOTEL  1010    253     169             1011    169     85                      
+PLOTEL  1012    85      1               1013    5       89                      
+PLOTEL  1014    89      173             1015    173     257                     
+PLOTEL  1016    257     341             1017    341     425                     
+PLOTEL  1018    425     509             1019    509     593                     
+PLOTEL  1020    593     677             1021    677     761                     
+PLOTEL  1022    761     845             1023    849     765                     
+PLOTEL  1024    765     681             1025    681     597                     
+PLOTEL  1026    597     513             1027    513     429                     
+PLOTEL  1028    429     345             1029    345     261                     
+PLOTEL  1030    261     177             1031    177     93                      
+PLOTEL  1032    93      9               1033    13      97                      
+PLOTEL  1034    97      181             1035    181     265                     
+PLOTEL  1036    265     349             1037    349     433                     
+PLOTEL  1038    433     517             1039    517     601                     
+PLOTEL  1040    601     685             1041    685     769                     
+PLOTEL  1042    769     853             1043    857     773                     
+PLOTEL  1044    773     689             1045    689     605                     
+PLOTEL  1046    605     521             1047    521     437                     
+PLOTEL  1048    437     353             1049    353     269                     
+PLOTEL  1050    269     185             1051    185     101                     
+PLOTEL  1052    101     17              1053    105     101                     
+PLOTEL  1054    101     97              1055    97      93                      
+PLOTEL  1056    93      89              1057    89      85                      
+PLOTEL  1058    169     173             1059    173     177                     
+PLOTEL  1060    177     181             1061    181     185                     
+PLOTEL  1062    185     189             1063    273     269                     
+PLOTEL  1064    269     265             1065    265     261                     
+PLOTEL  1066    261     257             1067    257     253                     
+PLOTEL  1068    337     341             1069    341     345                     
+PLOTEL  1070    345     349             1071    349     353                     
+PLOTEL  1072    353     357             1073    441     437                     
+PLOTEL  1074    437     433             1075    433     429                     
+PLOTEL  1076    429     425             1077    425     421                     
+PLOTEL  1078    505     509             1079    509     513                     
+PLOTEL  1080    513     517             1081    517     521                     
+PLOTEL  1082    521     525             1083    609     605                     
+PLOTEL  1084    605     601             1085    601     597                     
+PLOTEL  1086    597     593             1087    593     589                     
+PLOTEL  1088    673     677             1089    677     681                     
+PLOTEL  1090    681     685             1091    685     689                     
+PLOTEL  1092    689     693             1093    777     773                     
+PLOTEL  1094    773     769             1095    769     765                     
+PLOTEL  1096    765     761             1097    761     757                     
+PQUAD1  101     2       1.0     2       .0833333                6.04393 +PQUAD1 
++PQUAD1 .5      .0                                                              
+ENDDATA                                                                         
+      20      40 5.0E-01 5.0E-01     126 0.0     0.0                            
+      35       5      35      34       0       0                                

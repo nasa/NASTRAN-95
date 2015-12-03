@@ -1,0 +1,84 @@
+NASTRAN FILES=PLT2                                                              
+ID    D09011A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   9,1                                                                       
+TIME  20                                                                         
+CEND                                                                            
+TITLE    = TRANSIENT ANALYSIS WITH DIRECT MATRIX INPUT                          
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                          
+TSTEP = 32                                                                      
+IC    = 32                                                                      
+DLOAD = 32                                                                      
+K2PP  = KCOMP                                                                   
+M2PP  = MCOMP                                                                   
+B2PP  = BCOMP                                                                   
+  OUTPUT                                                                        
+SVELO = ALL                                                                     
+DISP(SORT2)=ALL                                                                 
+OLOAD(SORT2)=ALL                                                                
+PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D09-01-1A                            
+OUTPUT(XYOUT)                                                                   
+PLOTTER = NASTPLT                                                               
+  CAMERA = 3                                                                    
+SKIP BETWEEN FRAMES = 1                                                         
+  TCURVE = * * * *   EPOINT       DISPLACEMENT(INCHES)   * * * * * * *          
+  XTITLE =                   TIME (SECONDS)                                     
+$                                                                               
+        YVALUE PRINT SKIP = 1                                                   
+        XDIVISIONS = 25                                                         
+        XVALUE PRINT SKIP = 1                                                   
+$ * * * * * * * * * * * * * * *  FULL FRAME PLOTS  * * * * * * * * * * *        
+        YGRID LINES = YES                                                       
+        XGRID LINES = YES                                                       
+        YDIVISIONS = 22                                                         
+$                                                                               
+     YTITLE = EPOINT 10         DISPLACEMENT *INCH*                             
+XYPLOT DISP / 10(T1)                                                            
+$                                                                               
+        YDIVISIONS = 20                                                         
+     YTITLE = EPOINT 11         DISPLACEMENT *INCH*                             
+XYPLOT DISP / 11(T1)                                                            
+$                                                                               
+     YTITLE = EPOINT 12         DISPLACEMENT *INCH*                             
+XYPLOT DISP / 12(T1)                                                            
+$                                                                               
+     YTITLE = EPOINT 13         DISPLACEMENT *INCH*                             
+XYPLOT DISP / 13(T1)                                                            
+BEGIN BULK                                                                      
+DAREA   1       10              -1.5    11              -1.0                    
+DAREA   1       12              -13.5   13              36.0                    
+DELAY   1       10              1.0     11              1.0                     
+DELAY   1       12              1.0     13              1.0                     
+DMIG    BCOMP   0       1       1       2                                       
+DMIG    BCOMP   11      0               10      0       -15.0           +BC1    
++BC1    11      0       30.0            12      0       -15.0                   
+DMIG    BCOMP   12      0               11      0       -24.0           +BC2    
++BC2    12      0       48.0            13      0       -24.0                   
+DMIG    BCOMP   13      0               12      0       -2.0            +BC3    
++BC3    13      0       4.0                                                     
+DMIG    KCOMP   0       1       1       2                                       
+DMIG    KCOMP   10      0               10      0       2000.           +KC1    
++KC1    11      0       -1000.                                                  
+DMIG    KCOMP   12      0               11      0       -100.0          +KC2    
++KC2    12      0       200.0           13      0       -100.0                  
+DMIG    KCOMP   13      0               12      0       -20.0           +KC3    
++KC3    13      0       40.0                                                    
+DMIG    MCOMP   0       1       1       2                                       
+DMIG    MCOMP   10      0               10      0       20.0            +MC1    
++MC1    11      0       -10.0                                                   
+DMIG    MCOMP   11      0               10      0       -1.5            +MC2    
++MC2    11      0       3.0             12      0       -1.5                    
+DMIG    MCOMP   12      0               11      0       -4.0            +MC4    
++MC4    12      0       8.0             13      0       -4.0                    
+EPOINT  10      11      12      13                                              
+TABLED1 1                                                               +T1     
++T1     -1.0    .0      .0      .0      .00     1.0     100.0   1.0     +T2     
++T2     ENDT                                                                    
+TIC     32      10              .0      10.                                     
+TIC     32      11              .0      .5                                      
+TIC     32      12              .0      .0                                      
+TIC     32      13              -10.0   .0                                      
+TLOAD1  32      1       1               1                                       
+TSTEP   32      200     .005    10                                      +S1     
++S1             100     .015    5                                               
+ENDDATA                                                                         

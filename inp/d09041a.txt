@@ -1,0 +1,79 @@
+$-------------------------------------------------------------------------------
+$     RIGID FORMAT No. 9 (APP HEAT), Linear Transient Heat Transfer Analysis
+$          Plate with Suddenly Applied Flux and Edge Temperature (9-4-1)
+$ 
+$ A. Description
+$ 
+$ The time history of the temperature in a long thin plate initially at zero
+$ degrees is analyzed using NASTRAN's transient heat analysis capability. At
+$ time t=0 a heat flux is applied on one surface of the plate and simultaneously
+$ the temperature along the edges is increased. These temperatures are
+$ maintained at a value by using a large heat flux through a good conductor to
+$ ground. The problem is one dimensional since it is assumed that no temperature
+$ variation exists along the length or through the thickness. Since the plate is
+$ symmetric about the center plane, only one half of the plate is modeled.
+$ 
+$ B. Input
+$ 
+$ The idealized NASTRAN model is represented by five ROD elements going from the
+$ centerplane to the edge. The conductor-ground arrangement is modeled by an
+$ ELAS2 element and an SPC card referenced in Case Control. The injected heat
+$ flux at the edge is specified using DAREA and TLOAD2 cards which are
+$ referenced in Case Control through a DLOAD card. The surface heat flux is
+$ specified on a QBDY1 card and references the TLOAD2 card. The time step
+$ intervals at which the solution is generated are given on the TSTEP card. The
+$ initial temperature conditions are specified on the TEMPD card and referenced
+$ in Case Control by an IC card. The heat capacity and conductivity are given on
+$ the MAT4 card.
+$ 
+$ C. Theory
+$ 
+$ The analytic solution is
+$ 
+$                                                          n         2
+$                         4                            (-1)   -(2n+1) t
+$    T(x,t)  =  0.5 [ 1 - -- sum from n=0 to infinity ------ e
+$                         pi                          (2n+1)
+$ 
+$                                                 2    32
+$               cos(2n+1) pi x/2 ] +  50. [ (1 - x ) - ---                   (1)
+$                                                        3
+$                                                      pi
+$ 
+$                                             n          2
+$                                         (-1)    -(2n+1) t
+$               sum from n=0 to infinity ------- e          cos(2n+1)pi x/2 ]
+$                                              3
+$                                        (2n+1)
+$ 
+$ D. Results
+$ 
+$ A comparison of theoretical and NASTRAN results is given in Table 1.
+$ 
+$                   Table 1. Theoretical and NASTRAN Temperatures
+$       ---------------------------------------------------------------------
+$                                               GRID(X)
+$                         ---------------------------------------------------
+$                         10(0.)   12(.2)   14(.4)   16(.6)   18(.8)   20(1.)
+$       ---------------------------------------------------------------------
+$             Theory*      0.       0.       0.       0.       0.       0.
+$       t = 0
+$             NASTRAN      0.       0.       0.       0.       0.       0.
+$       ---------------------------------------------------------------------
+$             Theory*     31.282   30.222   26.952   21.204   12.562   .500
+$       t = 1
+$             NASTRAN     30.641   29.612   26.433   20.826   12.362   .500
+$       ---------------------------------------------------------------------
+$             Theory*     43.430   41.776   36.780   28.344   16.316   .500
+$       t = 2
+$             NASTRAN     43.117   41.478   36.527   28.160   16.218   .500
+$       ---------------------------------------------------------------------
+$             Theory*     47.916   46.026   40.396   30.971   17.696   .500
+$       t = 3
+$             NASTRAN     47.755   45.890   40.280   30.887   17.652   .500
+$       ---------------------------------------------------------------------
+$       t = infinity
+$             Theory      50.500   48.500   42.500   32.500   18.500   .500
+$       ---------------------------------------------------------------------
+$       * n = 0 term only.
+$-------------------------------------------------------------------------------

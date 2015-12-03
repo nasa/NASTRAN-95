@@ -1,0 +1,140 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$            Static Analysis of a Beam Using General Elements (1-14-1)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates the use of general GENEL elements having various
+$ types of input format in the static analysis of a cantilever beam subjected to
+$ tension and bending. The beam consists of five GENEL elements and one BAR
+$ element.
+$ 
+$ The GENEL elements are constructed as follows:
+$ 
+$      GENEL Element   Approach      Matrix Size  {u }   [S]
+$                                                   d
+$ 
+$            1         Flexibility        3        No     No
+$            2         Stiffness          6        No     No
+$            3         Stiffness          3        Yes    Yes
+$            4         Stiffness          3        Yes    No
+$            5         Flexibility        3        Yes    No
+$ 
+$ B. Input
+$ 
+$ 1. Parameters
+$ 
+$    l = 6.0 m (length)
+$ 
+$               2
+$    E = 6.0 N/m  (modulus of elasticity)
+$ 
+$    V = 0.3 (Poisson's ratio)
+$ 
+$             2
+$    A = 1.0 m  (cross-sectional area)
+$ 
+$              4
+$    I = .083 m  (bending moment of inertia)
+$ 
+$    F  = 1.0 N (axial load)
+$     x
+$ 
+$    P  = 1.0 N (transverse load)
+$     y
+$ 
+$ C. Theory
+$ 
+$ The stiffness matrix for the element in its general form is given in section 8
+$ of the NASTRAN Programmer's Manual.
+$ 
+$ Define [Z] as the matrix of deflection influence coefficients (flexibility
+$ matrix) whose terms are {u } when {u } is rigidly constrained,
+$                           i         d
+$ [K] as the stiffness matrix,
+$ [S] as a rigid body matrix whose terms are {u } due to unit motions of {u }
+$                                              i                           d
+$ when all {f } = 0,
+$            i
+$ {f } as the vector of forces applied to the element at {u },
+$   i                                                      i
+$ and {f } as the vector of forces applied to the element at {u }. They are
+$       d                                                      d
+$ assumed to be statically related to the {f } forces, i.e., they constitute a
+$                                           i
+$ nonredundant set of reactions for the element. If transverse shear is neglected
+$ and the beam is confined to motion in the X-Y plane, then
+$ 
+$      {f }  =  [K] {u }
+$        i            i
+$ 
+$ where
+$             +   +
+$             | F |              +        +
+$             | V |              | deltax |
+$      {f } = |  2|       {u } = | deltay |
+$        i    | M |         i    | deltaz |
+$             |  1|              +        +
+$             +   +
+$            +                    +
+$            | AE                 |     +               +
+$            | --     0       0   |     | 6     0     0 |
+$            | l                  |     |               |
+$            |       12EI    6EI  |     |               |
+$      [K] = | 0     ----    ---- |  =  | 0     6     3 |
+$            |        3       2   |     |               |
+$            |       l       l    |     |               |
+$            |                    |     |               |
+$            |       6EI     4EI  |     | 0     3     2 |
+$            | 0     ----    ---- |     +               +
+$            |        2       l   |
+$            |       l            |
+$            +                    +
+$                   +              +
+$                   | 1            |
+$                   | -    0    0  |
+$                   | 6            |
+$               -1  |      2       |
+$      [F] = [K]    | 0    -    -1 |
+$                   |      3       |
+$                   |              |
+$                   | 0    -1   2  |
+$                   +              +
+$ 
+$ and
+$             +              +   +              +
+$             |1    0    ^u  |   | 1    0    0  |
+$             |            y |   |              |
+$             |              |   |              |
+$      [S] =  |0    1    ^u  | = | 0    1    -1 |
+$             |            x |   |              |
+$             |              |   |              |
+$             |0    0    1   |   | 0    0    1  |
+$             +              +   +              +
+$ 
+$ where ^u = u  - u  ,i.e., the difference between the dependent displacement
+$             d    i
+$ degree of freedom {u } and the independent displacement degree of freedom
+$                     d
+$ {u }.
+$   i  
+$ 
+$ D. Results
+$ 
+$ The theoretical maximum deflections of the cantilever beam subjected to
+$ tension and bending (for the input values) are
+$ 
+$                 F
+$                  l
+$      deltax  =  --  =  1.0 m (tension)
+$                 AE
+$ 
+$ and
+$ 
+$                   3
+$                 Pl
+$      deltay  =  ---  =  144.0 m (bending)
+$                 3EI
+$ 
+$ These results are obtained by NASTRAN.
+$-------------------------------------------------------------------------------

@@ -1,0 +1,140 @@
+$-------------------------------------------------------------------------------
+$                   RIGID FORMAT NO. 2, Inertia Relief Analysis
+$        Windmill Panel Sections for Automated Multi-stage Substructuring,
+$                                 Run 1, (2-2-1)
+$        Windmill Panel Sections for Automated Multi-stage Substructuring,
+$                                 Run 2, (2-2-2)
+$        Windmill Panel Sections for Automated Multi-stage Substructuring,
+$                                 Run 3, (2-2-3)
+$        Windmill Panel Sections for Automated Multi-stage Substructuring,
+$                                 Run 4, (2-2-4)
+$        Windmill Panel Sections for Automated Multi-stage Substructuring,
+$                                 Run 5, (2-2-5)
+$        Windmill Panel Sections for Automated Multi-stage Substructuring,
+$                                 Run 6, (2-2-6)
+$        Windmill Panel Sections for Automated Multi-stage Substructuring,
+$                                 Run 7, (2-2-7)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the fully automated multi-stage substructuring 
+$ capability of NASTRAN. 
+$ 
+$ Of the total of seven runs involved, three Phase 1 runs are made, one for each 
+$ basic substructure, using Rigid Format 2 in order to generate mass matrices. 
+$ The combination and reduction to the final model is accomplished in seven 
+$ distinct Phase 2 steps, plus eight equivalence operations. A static solution, 
+$ Rigid Format 1, is obtained for each of the three load cases specified. Run 4 
+$ produces actual plot output. Runs 5 and 6 demonstrate the Phase 3 data 
+$ recovery for two of the basic substructures. 
+$ 
+$ A seventh run is made to extract normal modes using Rigid Format 3 for the 
+$ reduced structure. 
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$      r   = 50.0 in       (outer radius)
+$       o
+$ 
+$      r   = 10.0 in       (inner radius)
+$       i
+$ 
+$      t   =  0.1 in       (plate thickness)
+$ 
+$                    6
+$      E   =  10 x 10  psi (modulus of elasticity)
+$   
+$      v   =   0.25        (Poisson's ratio)
+$ 
+$ 2. Boundary Conditions:
+$ 
+$      All points u  = theta  = theta  = theta  = 0 (permanent constraint)
+$                  z        x        y        z
+$ 
+$      u  = 0 at HUB grid points 13, 19, 37, 43
+$       x
+$ 
+$      u  = 0 at HUB grid points 1, 7, 25, 31
+$       y
+$ 
+$ 3. Loads:
+$ 
+$      First Subcase:  centrifugal force due to unit angular velocity
+$ 
+$      Second Subcase: unsymmetric load - right panel in tension, bottom panel 
+$                      in compression, F = 100 uniformly distributed over each 
+$                      loaded edge 
+$ 
+$      Third Subcase:  F = 1.0 applied at HUB grid point 4 inward radially
+$ 
+$ 4. Substructuring Parameters:
+$ 
+$      SOF(1) SOF0,950 $ CDC
+$ 
+$      SOF(1) = FT18,950 $ IBM
+$ 
+$      SOF(1) = INPT,950 $ UNIVAC
+$ 
+$      PASSWORD = DEMO
+$ 
+$      OPTIONS = K, M, P
+$ 
+$ C. Theory
+$ 
+$ This problem is designed to illustrate the use of automated multi-stage 
+$ substructuring. No closed form solution is available. Results are compared 
+$ with non-substructured NASTRAN solutions. 
+$ 
+$ D. Results
+$ 
+$ The solutions of the final reduced structure using both Rigid Format 1 and 
+$ Rigid Format 3 are in excellent agreement with the non-substructured 
+$ solutions. Displacements at selected points and eigenvalues are compared in 
+$ Table 1. The values presented were obtained from executions on IBM equlpnent. 
+$ Values obtained from CDC and UNIVAC are of the same order of magnitude with 
+$ slight differences attributable to round-off of very snall numbers. 
+$ 
+$             Table 1. Comparison of Displacements at Selected Points
+$                           for Windmill Panel Problem
+$ -----------------------------------------------------------------------------
+$                          Subcase 1                     Subcase 2
+$ -----------------------------------------------------------------------------
+$ Name/Point/Comp  Single Step    Substructure   Single Step    Substructure
+$ -----------------------------------------------------------------------------
+$ VANE1/1/X        -5.6x10^-14    -5.2x10^-14    -2.19155x10^-5 -2.19155x10^-5
+$ 
+$ VANE1/1/Y        -6.88493x10^-7 -6.88488x10^-7 8.6081x10^-1   8.6081x10^-1
+$ 
+$ RVANE1/1/X       4.4x10^-14     2.1x10^-13     2.19155x10^-5  2.19155x10^-5
+$ 
+$ RVANE1/1/Y       -6.88493x10^-7 -6.88488x10^-7 3.85998x10^-4  -3.85997x10^-4
+$ 
+$ HUB/5/X          -3.5x10^-14    -4.8x10^-14    1.04757x10^-5  1.04757x10^-5
+$ 
+$ HUB/5/Y          6.70493x10^-8  6.70488x10^-8  -6.43969x10^-7 -6.4397x10^-7
+$ ------------------------------------------------------------------------------
+$ Frequency, cps       -               -               -              -
+$ ------------------------------------------------------------------------------
+$ 
+$ ----------------------------------------------
+$                       Eigenvector #1          
+$ ----------------------------------------------
+$ Name/Point/Comp  Single Step    Substructure  
+$ ----------------------------------------------
+$ VANE1/1/X        1.000000       -.999752
+$                                               
+$ VANE1/1/Y        -8.612x10^-9   3.297x10^-7
+$                                               
+$ RVANE1/1/X       1.000000       -.999748
+$                                               
+$ RVANE1/1/Y       1.264x10^-9    -1.688x10^-7
+$                                               
+$ HUB/5/X          -1.46899x10^-1 1.46636x10^-1
+$                                               
+$ HUB/5/Y          -3.140x10^-9   -7.8304x10^-6
+$ ----------------------------------------------
+$ Frequency, cps   288.3          288.3
+$ ----------------------------------------------
+$-------------------------------------------------------------------------------

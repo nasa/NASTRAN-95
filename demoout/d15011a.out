@@ -1,0 +1,686 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D15011A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   15,3                                                                      
+     TIME  30                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                            
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                          
+                  3      LABEL    = ROTATIONAL CYCLIC SYMMETRY                                           
+                  4      SPC      = 101                                                                  
+                  5      METHOD   = 1                                                                    
+                  6      VECTOR   = ALL                                                                  
+                  7      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    92, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CBAR    1       1       10      20      .0      .0      1.      1               
+                    2-        CBAR    2       1       20      30      .0      .0      1.      1               
+                    3-        CBAR    3       1       30      40      .0      .0      1.      1               
+                    4-        CBAR    4       1       40      50      .0      .0      1.      1               
+                    5-        CBAR    5       1       50      60      .0      .0      1.      1               
+                    6-        CBAR    110     1       14      24      .0      .0      1.0     1               
+                    7-        CBAR    120     1       24      34      .0      .0      1.0     1               
+                    8-        CBAR    130     1       34      44      .0      .0      1.0     1               
+                    9-        CBAR    140     1       44      54      .0      .0      1.0     1               
+                   10-        CBAR    150     1       54      64      .0      .0      1.0     1               
+                   11-        CNGRNT  1       110                                                             
+                   12-        CNGRNT  2       120                                                             
+                   13-        CNGRNT  3       130                                                             
+                   14-        CNGRNT  4       140                                                             
+                   15-        CNGRNT  5       150                                                             
+                   16-        CNGRNT  10      11      12      13                                              
+                   17-        CNGRNT  20      21      22      23                                              
+                   18-        CNGRNT  30      31      32      33                                              
+                   19-        CNGRNT  40      41      42      43                                              
+                   20-        CNGRNT  50      51      52      53                                              
+                   21-        CORD2C  1       0       .0      .0      .0      .0      .0      1.      +C1     
+                   22-        +C1     1.      .0      .0                                                      
+                   23-        CQUAD2  10      1       10      11      21      20                              
+                   24-        CQUAD2  11      1       11      12      22      21                              
+                   25-        CQUAD2  12      1       12      13      23      22                              
+                   26-        CQUAD2  13      1       13      14      24      23                              
+                   27-        CQUAD2  20      1       20      21      31      30                              
+                   28-        CQUAD2  21      1       21      22      32      31                              
+                   29-        CQUAD2  22      1       22      23      33      32                              
+                   30-        CQUAD2  23      1       23      24      34      33                              
+                   31-        CQUAD2  30      1       30      31      41      40                              
+                   32-        CQUAD2  31      1       31      32      42      41                              
+                   33-        CQUAD2  32      1       32      33      43      42                              
+                   34-        CQUAD2  33      1       33      34      44      43                              
+                   35-        CQUAD2  40      1       40      41      51      50                              
+                   36-        CQUAD2  41      1       41      42      52      51                              
+                   37-        CQUAD2  42      1       42      43      53      52                              
+                   38-        CQUAD2  43      1       43      44      54      53                              
+                   39-        CQUAD2  50      1       50      51      61      60                              
+                   40-        CQUAD2  51      1       51      52      62      61                              
+                   41-        CQUAD2  52      1       52      53      63      62                              
+                   42-        CQUAD2  53      1       53      54      64      63                              
+                   43-        CYJOIN  1       C       10      20      30      40      50      60      CYC SYM 
+                   44-        CYJOIN  2       C       14      24      34      44      54      64      CYC SYM 
+                   45-        EIGR    1       INV     .0      12000.0 6       6                       +EIG1   
+                   46-        +EIG1   MAX                                                                     
+                   47-        GRDSET          1                               1                               
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+
+      ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        GRID    10              1.0     .0      .0                                      
+                   49-        GRID    11              1.0     15.0    .0                                      
+                   50-        GRID    12              1.0     30.0    .0                                      
+                   51-        GRID    13              1.0     45.0    .0                                      
+                   52-        GRID    14              1.0     60.0    .0                                      
+                   53-        GRID    20              .68     .0      .0                                      
+                   54-        GRID    21              .68     15.0    .0                                      
+                   55-        GRID    22              .68     30.0    .0                                      
+                   56-        GRID    23              .68     45.0    .0                                      
+                   57-        GRID    24              .68     60.0    .0                                      
+                   58-        GRID    30              .46     .0      .0                                      
+                   59-        GRID    31              .46     15.0    .0                                      
+                   60-        GRID    32              .46     30.0    .0                                      
+                   61-        GRID    33              .46     45.0    .0                                      
+                   62-        GRID    34              .46     60.0    .0                                      
+                   63-        GRID    40              .31     .0      .0                                      
+                   64-        GRID    41              .31     15.0    .0                                      
+                   65-        GRID    42              .31     30.0    .0                                      
+                   66-        GRID    43              .31     45.0    .0                                      
+                   67-        GRID    44              .31     60.0    .0                                      
+                   68-        GRID    50              .21     .0      .0                                      
+                   69-        GRID    51              .21     15.0    .0                                      
+                   70-        GRID    52              .21     30.0    .0                                      
+                   71-        GRID    53              .21     45.0    .0                                      
+                   72-        GRID    54              .21     60.0    .0                                      
+                   73-        GRID    60              .14     .0      .0                                      
+                   74-        GRID    61              .14     15.0    .0                                      
+                   75-        GRID    62              .14     30.0    .0                                      
+                   76-        GRID    63              .14     45.0    .0                                      
+                   77-        GRID    64              .14     60.0    .0                                      
+                   78-        MAT1    1       10.6 +6         .325    2.59-4  12.9-6                          
+                   79-        PARAM   CTYPE   ROT                                                     CYC SYM 
+                   80-        PARAM   KINDEX  2                                                       CYC SYM 
+                   81-        PARAM   NSEGS   6                                                       CYC SYM 
+                   82-        PBAR    1       1       1.8  -3 5.4  -7 5.4 -7  1.0 -6                  +PB1    
+                   83-        +PB1    .0      .03     .03     .0      .03     .03     .03     -.03            
+                   84-        PQUAD2  1       1       .01                                                     
+                   85-        SPC1    110     12346   10      THRU    14                                      
+                   86-        SPC1    112     126     10      THRU    14                                      
+                   87-        SPC1    112     126     20      THRU    24                                      
+                   88-        SPC1    112     126     30      THRU    34                                      
+                   89-        SPC1    112     126     40      THRU    44                                      
+                   90-        SPC1    112     126     50      THRU    54                                      
+                   91-        SPC1    112     126     60      THRU    64                                      
+                   92-        SPCADD  101     110     112                                                     
+                              ENDDATA
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            7
+                                        PROFILE            179
+                                        MAX WAVEFRONT        7
+                                        AVG WAVEFRONT    5.967
+                                        RMS WAVEFRONT    6.178
+                                        RMS BANDWIDTH    6.264
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH           10
+                                        PROFILE            179
+                                        MAX WAVEFRONT        8
+                                        AVG WAVEFRONT    5.967
+                                        RMS WAVEFRONT    6.199
+                                        RMS BANDWIDTH    6.535
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        7         7
+                                        PROFILE (P)                        179       179
+                                        MAXIMUM WAVEFRONT (C-MAX)            7         7
+                                        AVERAGE WAVEFRONT (C-AVG)        5.967     5.967
+                                        RMS WAVEFRONT (C-RMS)            6.178     6.178
+                                        RMS BANDWITCH (B-RMS)            6.264     6.264
+                                        NUMBER OF GRID POINTS (N)                     30
+                                        NUMBER OF ELEMENTS (NON-RIGID)                30
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           8
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                        89
+                                        MATRIX DENSITY, PERCENT                   23.111
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD2    ELEMENTS (ELEMENT TYPE  18) STARTING WITH ID       10
+                        4 ROOTS BELOW   2.842446E+09
+                        2 ROOTS BELOW   1.847186E+09
+                        0 ROOTS BELOW   7.249167E+08
+                        4 ROOTS BELOW   5.243110E+09
+                        6 ROOTS BELOW   9.099439E+09
+                        8 ROOTS BELOW   9.246057E+09
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (INVERSE POWER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .         5
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         6
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        42
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         7*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.00E+00
+0                                                                              . . .         0
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         0
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* 1 OR MORE ROOT OUTSIDE FR.RANGE.
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+
+                                     ****************************************************************
+                                     *                                                              *
+                                     *
++                                             NASTRAN INFORMATION MESSAGE 3307, POTENTIALLY         *
+                                     *         8 EIGENVALUE(S) AT LOW FREQ. END NOT FOUND           *
+                                     *                                                              *
+                                     *        (THIS MESSAGE CAN BE SUPPRESSED BY DIAG 37)           *
+                                     ****************************************************************
+
+        1         2        7.259556E+08        2.694356E+04        4.288201E+03        1.951024E-08        1.416357E+01             
+        2         1        1.849364E+09        4.300424E+04        6.844337E+03        1.579538E-08        2.921141E+01             
+        3         4        1.849364E+09        4.300424E+04        6.844337E+03        1.579538E-08        2.921141E+01             
+        4         3        5.243132E+09        7.240948E+04        1.152433E+04        2.586905E-09        1.356348E+01             
+        5         5        9.246057E+09        9.615642E+04        1.530377E+04        4.135707E-09        3.823899E+01             
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+      EIGENVALUE =  0.725956E+09    (CYCLIC FREQUENCY =  4.288201E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0           -7.536714E-02   0.0                           
+            11      G      0.0            0.0            0.0            0.0           -4.072452E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0           -5.916908E-01   0.0                           
+            13      G      0.0            0.0            0.0            0.0           -5.266432E-01   0.0                           
+            14      G      0.0            0.0            0.0            0.0           -2.603087E-01   0.0                           
+            20      G      0.0            0.0           -2.038059E-02  -2.413704E-01  -4.002938E-02   0.0                           
+            21      G      0.0            0.0           -9.479422E-02  -4.664890E-01  -1.231171E-01   0.0                           
+            22      G      0.0            0.0           -1.487562E-01  -1.031668E-01  -1.591766E-01   0.0                           
+            23      G      0.0            0.0           -1.272146E-01   3.173066E-01  -1.797072E-01   0.0                           
+            24      G      0.0            0.0           -7.039203E-02   1.664701E-01  -1.382565E-01   0.0                           
+            30      G      0.0            0.0           -2.393268E-02  -3.451336E-01   7.584304E-03   0.0                           
+            31      G      0.0            0.0           -8.161111E-02  -4.969153E-01   1.880436E-01   0.0                           
+            32      G      0.0            0.0           -1.248449E-01  -1.661474E-01   3.074646E-01   0.0                           
+            33      G      0.0            0.0           -1.182927E-01   2.381727E-01   2.168362E-01   0.0                           
+            34      G      0.0            0.0           -8.266051E-02   2.380343E-01   2.619524E-02   0.0                           
+            40      G      0.0            0.0           -2.079405E-02  -3.853831E-01   3.232019E-02   0.0                           
+            41      G      0.0            0.0           -5.523067E-02  -4.264289E-01   1.686444E-01   0.0                           
+            42      G      0.0            0.0           -8.227098E-02  -2.119622E-01   2.648634E-01   0.0                           
+            43      G      0.0            0.0           -8.704036E-02   8.847205E-02   2.266364E-01   0.0                           
+            44      G      0.0            0.0           -7.182008E-02   2.657938E-01   1.116299E-01   0.0                           
+            50      G      0.0            0.0           -1.710160E-02  -4.025331E-01   4.047792E-02   0.0                           
+            51      G      0.0            0.0           -3.993769E-02  -4.089349E-01   1.424543E-01   0.0                           
+            52      G      0.0            0.0           -5.875663E-02  -2.588466E-01   2.228129E-01   0.0                           
+            53      G      0.0            0.0           -6.621922E-02  -6.584552E-03   2.268930E-01   0.0                           
+            54      G      0.0            0.0           -5.906682E-02   2.776220E-01   1.398057E-01   0.0                           
+            60      G      0.0            0.0           -1.420611E-02  -4.090829E-01   4.190206E-02   0.0                           
+            61      G      0.0            0.0           -3.044997E-02  -4.402837E-01   1.275101E-01   0.0                           
+            62      G      0.0            0.0           -4.487359E-02  -3.180928E-01   1.913506E-01   0.0                           
+            63      G      0.0            0.0           -5.235903E-02  -6.407879E-02   2.026283E-01   0.0                           
+            64      G      0.0            0.0           -4.906614E-02   2.821393E-01   1.447245E-01   0.0                           
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+      EIGENVALUE =  0.725956E+09    (CYCLIC FREQUENCY =  4.288201E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0           -3.440919E-01   0.0                           
+            11      G      0.0            0.0            0.0            0.0           -3.362092E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0           -1.882126E-01   0.0                           
+            13      G      0.0            0.0            0.0            0.0            3.914601E-02   0.0                           
+            14      G      0.0            0.0            0.0            0.0            2.373158E-01   0.0                           
+            20      G      0.0            0.0           -9.304845E-02   5.286785E-02  -1.827559E-01   0.0                           
+            21      G      0.0            0.0           -8.627030E-02   1.098353E-01  -1.371154E-01   0.0                           
+            22      G      0.0            0.0           -4.731828E-02   3.243295E-01  -5.063291E-02   0.0                           
+            23      G      0.0            0.0            1.565089E-02   3.591551E-01   4.078923E-02   0.0                           
+            24      G      0.0            0.0            6.417434E-02   1.825990E-01   1.260444E-01   0.0                           
+            30      G      0.0            0.0           -1.092657E-01   7.559530E-02   3.462646E-02   0.0                           
+            31      G      0.0            0.0           -8.945267E-02   2.897962E-01   1.096530E-01   0.0                           
+            32      G      0.0            0.0           -3.971227E-02   5.223238E-01   9.780229E-02   0.0                           
+            33      G      0.0            0.0            2.586469E-02   5.236224E-01   1.913638E-02   0.0                           
+            34      G      0.0            0.0            7.535915E-02   2.610968E-01  -2.388143E-02   0.0                           
+            40      G      0.0            0.0           -9.493615E-02   8.441123E-02   1.475592E-01   0.0                           
+            41      G      0.0            0.0           -7.262833E-02   4.493306E-01   1.540237E-01   0.0                           
+            42      G      0.0            0.0           -2.616981E-02   6.663533E-01   8.425114E-02   0.0                           
+            43      G      0.0            0.0            2.737294E-02   6.131169E-01  -2.828777E-02   0.0                           
+            44      G      0.0            0.0            6.547626E-02   2.915459E-01  -1.017697E-01   0.0                           
+            50      G      0.0            0.0           -7.807811E-02   8.816762E-02   1.848037E-01   0.0                           
+            51      G      0.0            0.0           -5.819497E-02   5.891494E-01   1.914700E-01   0.0                           
+            52      G      0.0            0.0           -1.869006E-02   8.137455E-01   7.087522E-02   0.0                           
+            53      G      0.0            0.0            2.442723E-02   7.171341E-01  -7.398319E-02   0.0                           
+            54      G      0.0            0.0            5.384948E-02   3.045200E-01  -1.274568E-01   0.0                           
+            60      G      0.0            0.0           -6.485861E-02   8.960225E-02   1.913056E-01   0.0                           
+            61      G      0.0            0.0           -4.760864E-02   7.329575E-01   1.705831E-01   0.0                           
+            62      G      0.0            0.0           -1.427397E-02   1.000000E+00   6.086720E-02   0.0                           
+            63      G      0.0            0.0            2.126769E-02   8.526255E-01  -6.556851E-02   0.0                           
+            64      G      0.0            0.0            4.473216E-02   3.094751E-01  -1.319411E-01   0.0                           
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+      EIGENVALUE =  0.184936E+10    (CYCLIC FREQUENCY =  6.844337E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            1.736460E-01   0.0                           
+            11      G      0.0            0.0            0.0            0.0            4.585972E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0            3.455166E-01   0.0                           
+            13      G      0.0            0.0            0.0            0.0           -2.925720E-02   0.0                           
+            14      G      0.0            0.0            0.0            0.0           -2.644711E-01   0.0                           
+            20      G      0.0            0.0            4.736148E-02   1.845953E-01   9.166744E-02   0.0                           
+            21      G      0.0            0.0            9.858717E-02   1.523408E-01   3.891764E-02   0.0                           
+            22      G      0.0            0.0            7.101270E-02  -4.435492E-01  -3.621241E-02   0.0                           
+            23      G      0.0            0.0           -2.563776E-02  -5.185763E-01  -8.233972E-02   0.0                           
+            24      G      0.0            0.0           -7.213381E-02   4.302983E-02  -1.396139E-01   0.0                           
+            30      G      0.0            0.0            5.552736E-02   1.622728E-01  -1.756587E-02   0.0                           
+            31      G      0.0            0.0            6.431352E-02  -1.214587E-01  -2.878819E-01   0.0                           
+            32      G      0.0            0.0            2.173330E-02  -5.621525E-01  -2.939019E-01   0.0                           
+            33      G      0.0            0.0           -5.085830E-02  -5.257182E-01  -6.999098E-02   0.0                           
+            34      G      0.0            0.0           -8.457083E-02   3.782634E-02   2.675366E-02   0.0                           
+            40      G      0.0            0.0            4.808522E-02   1.130408E-01  -7.791118E-02   0.0                           
+            41      G      0.0            0.0            3.690974E-02  -3.568712E-01  -1.430562E-01   0.0                           
+            42      G      0.0            0.0           -5.013169E-03  -6.313805E-01  -7.085504E-02   0.0                           
+            43      G      0.0            0.0           -5.294726E-02  -4.896728E-01   7.461009E-02   0.0                           
+            44      G      0.0            0.0           -7.323609E-02   2.635020E-02   1.186625E-01   0.0                           
+            50      G      0.0            0.0            3.907244E-02   8.743789E-02  -9.956909E-02   0.0                           
+            51      G      0.0            0.0            2.641332E-02  -4.875620E-01  -1.298029E-01   0.0                           
+            52      G      0.0            0.0           -8.026207E-03  -7.163366E-01   2.756412E-03   0.0                           
+            53      G      0.0            0.0           -4.383083E-02  -5.349127E-01   1.524296E-01   0.0                           
+            54      G      0.0            0.0           -5.950919E-02   2.038207E-02   1.516485E-01   0.0                           
+            60      G      0.0            0.0            3.193291E-02   7.887370E-02  -1.034049E-01   0.0                           
+            61      G      0.0            0.0            2.049434E-02  -5.844045E-01  -9.449413E-02   0.0                           
+            62      G      0.0            0.0           -7.207097E-03  -8.326616E-01   1.690398E-02   0.0                           
+            63      G      0.0            0.0           -3.551585E-02  -6.178299E-01   1.339996E-01   0.0                           
+            64      G      0.0            0.0           -4.863536E-02   1.838574E-02   1.574906E-01   0.0                           
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+      EIGENVALUE =  0.184936E+10    (CYCLIC FREQUENCY =  6.844337E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0           -2.051304E-01   0.0                           
+            11      G      0.0            0.0            0.0            0.0            5.102668E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0            9.622596E-01   0.0                           
+            13      G      0.0            0.0            0.0            0.0            6.854402E-01   0.0                           
+            14      G      0.0            0.0            0.0            0.0           -4.781660E-02   0.0                           
+            20      G      0.0            0.0           -5.594878E-02   1.562628E-01  -1.082880E-01   0.0                           
+            21      G      0.0            0.0            7.927906E-02   1.000000E+00  -8.223456E-02   0.0                           
+            22      G      0.0            0.0            1.977696E-01   1.592643E-01  -1.008510E-01   0.0                           
+            23      G      0.0            0.0            1.238842E-01  -8.684965E-01  -3.869530E-02   0.0                           
+            24      G      0.0            0.0           -1.304185E-02  -2.379956E-01  -2.524232E-02   0.0                           
+            30      G      0.0            0.0           -6.559524E-02   1.373663E-01   2.075080E-02   0.0                           
+            31      G      0.0            0.0           -1.940924E-03   6.791193E-01  -4.592173E-01   0.0                           
+            32      G      0.0            0.0            6.052699E-02   2.018509E-01  -8.185136E-01   0.0                           
+            33      G      0.0            0.0            3.941358E-02  -4.467389E-01  -5.374547E-01   0.0                           
+            34      G      0.0            0.0           -1.529048E-02  -2.092155E-01   4.837086E-03   0.0                           
+            40      G      0.0            0.0           -5.680374E-02   9.569073E-02   9.203757E-02   0.0                           
+            41      G      0.0            0.0           -3.846454E-02   3.369089E-01  -5.623234E-02   0.0                           
+            42      G      0.0            0.0           -1.396163E-02   2.267085E-01  -1.973305E-01   0.0                           
+            43      G      0.0            0.0           -6.199773E-03  -3.294218E-02  -1.343894E-01   0.0                           
+            44      G      0.0            0.0           -1.324115E-02  -1.457416E-01   2.145427E-02   0.0                           
+            50      G      0.0            0.0           -4.615681E-02   7.401749E-02   1.176224E-01   0.0                           
+            51      G      0.0            0.0           -3.686499E-02   2.495046E-01   8.217808E-02   0.0                           
+            52      G      0.0            0.0           -2.235289E-02   2.572135E-01   7.676714E-03   0.0                           
+            53      G      0.0            0.0           -1.164257E-02   1.176333E-01  -1.916253E-02   0.0                           
+            54      G      0.0            0.0           -1.075931E-02  -1.127322E-01   2.741818E-02   0.0                           
+            60      G      0.0            0.0           -3.772280E-02   6.676778E-02   1.221536E-01   0.0                           
+            61      G      0.0            0.0           -3.097310E-02   2.623867E-01   9.603339E-02   0.0                           
+            62      G      0.0            0.0           -2.007168E-02   2.989821E-01   4.707719E-02   0.0                           
+            63      G      0.0            0.0           -1.086164E-02   1.692971E-01   1.398862E-02   0.0                           
+            64      G      0.0            0.0           -8.793312E-03  -1.016905E-01   2.847443E-02   0.0                           
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+      EIGENVALUE =  0.184936E+10    (CYCLIC FREQUENCY =  6.844337E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0           -2.051293E-01   0.0                           
+            11      G      0.0            0.0            0.0            0.0            5.102689E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0            9.622605E-01   0.0                           
+            13      G      0.0            0.0            0.0            0.0            6.854395E-01   0.0                           
+            14      G      0.0            0.0            0.0            0.0           -4.781735E-02   0.0                           
+            20      G      0.0            0.0           -5.594850E-02   1.562625E-01  -1.082875E-01   0.0                           
+            21      G      0.0            0.0            7.927945E-02   1.000000E+00  -8.223452E-02   0.0                           
+            22      G      0.0            0.0            1.977697E-01   1.592624E-01  -1.008511E-01   0.0                           
+            23      G      0.0            0.0            1.238841E-01  -8.684976E-01  -3.869538E-02   0.0                           
+            24      G      0.0            0.0           -1.304205E-02  -2.379963E-01  -2.524261E-02   0.0                           
+            30      G      0.0            0.0           -6.559493E-02   1.373657E-01   2.075056E-02   0.0                           
+            31      G      0.0            0.0           -1.940712E-03   6.791183E-01  -4.592183E-01   0.0                           
+            32      G      0.0            0.0            6.052706E-02   2.018495E-01  -8.185141E-01   0.0                           
+            33      G      0.0            0.0            3.941349E-02  -4.467399E-01  -5.374543E-01   0.0                           
+            34      G      0.0            0.0           -1.529067E-02  -2.092165E-01   4.837363E-03   0.0                           
+            40      G      0.0            0.0           -5.680349E-02   9.569007E-02   9.203698E-02   0.0                           
+            41      G      0.0            0.0           -3.846439E-02   3.369077E-01  -5.623243E-02   0.0                           
+            42      G      0.0            0.0           -1.396157E-02   2.267072E-01  -1.973303E-01   0.0                           
+            43      G      0.0            0.0           -6.199813E-03  -3.294330E-02  -1.343891E-01   0.0                           
+            44      G      0.0            0.0           -1.324128E-02  -1.457427E-01   2.145479E-02   0.0                           
+            50      G      0.0            0.0           -4.615664E-02   7.401685E-02   1.176217E-01   0.0                           
+            51      G      0.0            0.0           -3.686487E-02   2.495034E-01   8.217768E-02   0.0                           
+            52      G      0.0            0.0           -2.235283E-02   2.572122E-01   7.676681E-03   0.0                           
+            53      G      0.0            0.0           -1.164258E-02   1.176320E-01  -1.916224E-02   0.0                           
+            54      G      0.0            0.0           -1.075939E-02  -1.127333E-01   2.741875E-02   0.0                           
+            60      G      0.0            0.0           -3.772267E-02   6.676716E-02   1.221529E-01   0.0                           
+            61      G      0.0            0.0           -3.097300E-02   2.623856E-01   9.603295E-02   0.0                           
+            62      G      0.0            0.0           -2.007162E-02   2.989809E-01   4.707707E-02   0.0                           
+            63      G      0.0            0.0           -1.086162E-02   1.692958E-01   1.398885E-02   0.0                           
+            64      G      0.0            0.0           -8.793348E-03  -1.016917E-01   2.847500E-02   0.0                           
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+      EIGENVALUE =  0.184936E+10    (CYCLIC FREQUENCY =  6.844337E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0           -1.736462E-01   0.0                           
+            11      G      0.0            0.0            0.0            0.0           -4.585979E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0           -3.455173E-01   0.0                           
+            13      G      0.0            0.0            0.0            0.0            2.925656E-02   0.0                           
+            14      G      0.0            0.0            0.0            0.0            2.644703E-01   0.0                           
+            20      G      0.0            0.0           -4.736155E-02  -1.845962E-01  -9.166750E-02   0.0                           
+            21      G      0.0            0.0           -9.858746E-02  -1.523421E-01  -3.891873E-02   0.0                           
+            22      G      0.0            0.0           -7.101311E-02   4.435490E-01   3.621078E-02   0.0                           
+            23      G      0.0            0.0            2.563742E-02   5.185771E-01   8.233837E-02   0.0                           
+            24      G      0.0            0.0            7.213359E-02  -4.302916E-02   1.396135E-01   0.0                           
+            30      G      0.0            0.0           -5.552740E-02  -1.622743E-01   1.756605E-02   0.0                           
+            31      G      0.0            0.0           -6.431394E-02   1.214551E-01   2.878821E-01   0.0                           
+            32      G      0.0            0.0           -2.173400E-02   5.621519E-01   2.939022E-01   0.0                           
+            33      G      0.0            0.0            5.085775E-02   5.257209E-01   6.999104E-02   0.0                           
+            34      G      0.0            0.0            8.457058E-02  -3.782505E-02  -2.675354E-02   0.0                           
+            40      G      0.0            0.0           -4.808523E-02  -1.130425E-01   7.791144E-02   0.0                           
+            41      G      0.0            0.0           -3.690997E-02   3.568682E-01   1.430580E-01   0.0                           
+            42      G      0.0            0.0            5.012766E-03   6.313797E-01   7.085787E-02   0.0                           
+            43      G      0.0            0.0            5.294690E-02   4.896745E-01  -7.460810E-02   0.0                           
+            44      G      0.0            0.0            7.323588E-02  -2.634879E-02  -1.186621E-01   0.0                           
+            50      G      0.0            0.0           -3.907242E-02  -8.743957E-02   9.956936E-02   0.0                           
+            51      G      0.0            0.0           -2.641342E-02   4.875599E-01   1.298038E-01   0.0                           
+            52      G      0.0            0.0            8.026018E-03   7.163355E-01  -2.754891E-03   0.0                           
+            53      G      0.0            0.0            4.383063E-02   5.349131E-01  -1.524284E-01   0.0                           
+            54      G      0.0            0.0            5.950903E-02  -2.038068E-02  -1.516480E-01   0.0                           
+            60      G      0.0            0.0           -3.193288E-02  -7.887540E-02   1.034051E-01   0.0                           
+            61      G      0.0            0.0           -2.049438E-02   5.844024E-01   9.449476E-02   0.0                           
+            62      G      0.0            0.0            7.206989E-03   8.326601E-01  -1.690307E-02   0.0                           
+            63      G      0.0            0.0            3.551571E-02   6.178297E-01  -1.339988E-01   0.0                           
+            64      G      0.0            0.0            4.863523E-02  -1.838435E-02  -1.574901E-01   0.0                           
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+      EIGENVALUE =  0.524313E+10    (CYCLIC FREQUENCY =  1.152433E+04 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            1.381758E-01   0.0                           
+            11      G      0.0            0.0            0.0            0.0            3.856366E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0            5.715094E-02   0.0                           
+            13      G      0.0            0.0            0.0            0.0           -2.922373E-01   0.0                           
+            14      G      0.0            0.0            0.0            0.0           -1.053251E-01   0.0                           
+            20      G      0.0            0.0            2.534877E-02   4.580095E-02  -4.305257E-02   0.0                           
+            21      G      0.0            0.0            5.831124E-02  -1.915582E-02  -7.629408E-02   0.0                           
+            22      G      0.0            0.0            4.758733E-03  -4.362848E-01  -4.133434E-02   0.0                           
+            23      G      0.0            0.0           -5.160214E-02  -4.205896E-02   1.915334E-02   0.0                           
+            24      G      0.0            0.0           -1.932222E-02   1.080818E-01   3.281702E-02   0.0                           
+            30      G      0.0            0.0           -4.344035E-03   7.921172E-02  -1.930773E-01   0.0                           
+            31      G      0.0            0.0            8.398209E-05  -3.214549E-02  -3.123719E-01   0.0                           
+            32      G      0.0            0.0           -1.321664E-02  -1.156404E-01  -6.291242E-02   0.0                           
+            33      G      0.0            0.0           -1.789889E-02   1.051288E-01   2.094846E-01   0.0                           
+            34      G      0.0            0.0            3.311261E-03   1.869250E-01   1.471741E-01   0.0                           
+            40      G      0.0            0.0           -3.392317E-02   9.476028E-02  -1.877853E-01   0.0                           
+            41      G      0.0            0.0           -2.767643E-02   1.190280E-01  -8.077212E-02   0.0                           
+            42      G      0.0            0.0           -1.445124E-02   2.023746E-01   3.534038E-02   0.0                           
+            43      G      0.0            0.0            5.875458E-03   2.745203E-01   1.113386E-01   0.0                           
+            44      G      0.0            0.0            2.585810E-02   2.236167E-01   1.431403E-01   0.0                           
+            50      G      0.0            0.0           -5.145512E-02   1.010387E-01  -1.629114E-01   0.0                           
+            51      G      0.0            0.0           -3.751628E-02   3.948424E-01  -4.498323E-02   0.0                           
+            52      G      0.0            0.0           -1.144448E-02   5.508235E-01   2.644275E-02   0.0                           
+            53      G      0.0            0.0            1.796674E-02   5.077032E-01   6.755827E-02   0.0                           
+            54      G      0.0            0.0            3.922191E-02   2.384327E-01   1.241800E-01   0.0                           
+            60      G      0.0            0.0           -6.255963E-02   1.036592E-01  -1.557391E-01   0.0                           
+            61      G      0.0            0.0           -4.409731E-02   7.441538E-01  -5.216912E-02   0.0                           
+            62      G      0.0            0.0           -1.041193E-02   1.000000E+00   8.471924E-03   0.0                           
+            63      G      0.0            0.0            2.496820E-02   8.341178E-01   5.266275E-02   0.0                           
+            64      G      0.0            0.0            4.768637E-02   2.446167E-01   1.187129E-01   0.0                           
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+      EIGENVALUE =  0.524313E+10    (CYCLIC FREQUENCY =  1.152433E+04 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0           -4.184317E-02   0.0                           
+            11      G      0.0            0.0            0.0            0.0           -1.206531E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0           -2.445787E-01   0.0                           
+            13      G      0.0            0.0            0.0            0.0           -2.790522E-01   0.0                           
+            14      G      0.0            0.0            0.0            0.0           -9.874213E-02   0.0                           
+            20      G      0.0            0.0           -7.676256E-03   1.512453E-01   1.303742E-02   0.0                           
+            21      G      0.0            0.0           -1.514144E-03  -5.615935E-02   1.111162E-01   0.0                           
+            22      G      0.0            0.0           -2.036515E-02  -1.019469E-01   1.768913E-01   0.0                           
+            23      G      0.0            0.0           -2.719765E-02   4.185522E-02   1.334195E-01   0.0                           
+            24      G      0.0            0.0           -1.811455E-02  -1.152875E-01   3.076591E-02   0.0                           
+            30      G      0.0            0.0            1.315485E-03   2.615754E-01   5.846876E-02   0.0                           
+            31      G      0.0            0.0            4.022077E-02   3.022618E-01   1.591835E-01   0.0                           
+            32      G      0.0            0.0            5.656102E-02  -2.702172E-02   2.692359E-01   0.0                           
+            33      G      0.0            0.0            3.601871E-02  -2.852077E-01   2.811259E-01   0.0                           
+            34      G      0.0            0.0            3.104302E-03  -1.993871E-01   1.379755E-01   0.0                           
+            40      G      0.0            0.0            1.027281E-02   3.129203E-01   5.686622E-02   0.0                           
+            41      G      0.0            0.0            4.272892E-02   3.786974E-01  -8.785047E-02   0.0                           
+            42      G      0.0            0.0            6.184453E-02   4.728896E-02  -1.512405E-01   0.0                           
+            43      G      0.0            0.0            5.056901E-02  -2.867368E-01  -4.295986E-02   0.0                           
+            44      G      0.0            0.0            2.424192E-02  -2.385250E-01   1.341938E-01   0.0                           
+            50      G      0.0            0.0            1.558193E-02   3.336532E-01   4.933377E-02   0.0                           
+            51      G      0.0            0.0            3.534907E-02   3.469448E-01  -6.145405E-02   0.0                           
+            52      G      0.0            0.0            4.897701E-02   1.287112E-01  -1.131625E-01   0.0                           
+            53      G      0.0            0.0            4.831382E-02  -1.360466E-01  -3.515645E-02   0.0                           
+            54      G      0.0            0.0            3.677047E-02  -2.543287E-01   1.164186E-01   0.0                           
+            60      G      0.0            0.0            1.894466E-02   3.423067E-01   4.716180E-02   0.0                           
+            61      G      0.0            0.0            3.286253E-02   3.768997E-01  -1.330440E-02   0.0                           
+            62      G      0.0            0.0            4.455817E-02   2.336705E-01  -3.625593E-02   0.0                           
+            63      G      0.0            0.0            4.900110E-02  -8.104252E-03   1.119173E-02   0.0                           
+            64      G      0.0            0.0            4.470589E-02  -2.609249E-01   1.112931E-01   0.0                           
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+      EIGENVALUE =  0.924606E+10    (CYCLIC FREQUENCY =  1.530377E+04 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            4.893882E-03   0.0                           
+            11      G      0.0            0.0            0.0            0.0           -5.286995E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0           -1.279395E-01   0.0                           
+            13      G      0.0            0.0            0.0            0.0            3.413101E-01   0.0                           
+            14      G      0.0            0.0            0.0            0.0           -6.333756E-03   0.0                           
+            20      G      0.0            0.0            4.720588E-03   4.732300E-02   3.877539E-02   0.0                           
+            21      G      0.0            0.0           -5.630494E-02  -1.280055E-01   1.902265E-01   0.0                           
+            22      G      0.0            0.0           -6.665536E-03   4.459296E-01   1.212342E-01   0.0                           
+            23      G      0.0            0.0            4.720217E-02  -8.580338E-02  -3.019522E-02   0.0                           
+            24      G      0.0            0.0           -6.109350E-03   2.102862E-02  -5.018251E-02   0.0                           
+            30      G      0.0            0.0            1.732902E-02   1.872091E-01   6.577487E-02   0.0                           
+            31      G      0.0            0.0            3.367570E-02   6.693871E-02   3.331544E-01   0.0                           
+            32      G      0.0            0.0            3.290442E-02  -1.391944E-01   7.269690E-02   0.0                           
+            33      G      0.0            0.0            3.075926E-03  -3.626743E-01  -2.237298E-01   0.0                           
+            34      G      0.0            0.0           -2.242696E-02   8.318945E-02  -8.512463E-02   0.0                           
+            40      G      0.0            0.0            2.712760E-02   2.010297E-01   6.061678E-02   0.0                           
+            41      G      0.0            0.0            3.666748E-02  -7.634004E-02  -1.869090E-01   0.0                           
+            42      G      0.0            0.0            1.571115E-02  -3.949039E-01  -2.139063E-01   0.0                           
+            43      G      0.0            0.0           -2.103181E-02  -3.949628E-01  -8.561336E-02   0.0                           
+            44      G      0.0            0.0           -3.510810E-02   8.933091E-02  -7.844906E-02   0.0                           
+            50      G      0.0            0.0            3.269599E-02   1.824512E-01   5.019081E-02   0.0                           
+            51      G      0.0            0.0            2.736037E-02  -3.367685E-01  -9.295514E-02   0.0                           
+            52      G      0.0            0.0            6.235373E-04  -6.065282E-01  -8.769936E-02   0.0                           
+            53      G      0.0            0.0           -3.017475E-02  -4.683205E-01  -2.022097E-02   0.0                           
+            54      G      0.0            0.0           -4.231461E-02   8.107527E-02  -6.495593E-02   0.0                           
+            60      G      0.0            0.0            3.607067E-02   1.728772E-01   4.687250E-02   0.0                           
+            61      G      0.0            0.0            2.563952E-02  -5.833523E-01  -4.013754E-02   0.0                           
+            62      G      0.0            0.0           -3.288041E-03  -8.824413E-01  -3.229791E-02   0.0                           
+            63      G      0.0            0.0           -3.345207E-02  -6.502656E-01  -6.572365E-03   0.0                           
+            64      G      0.0            0.0           -4.668204E-02   7.682088E-02  -6.066144E-02   0.0                           
+1     NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                             /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                                                                                   
+0     ROTATIONAL CYCLIC SYMMETRY                                                                                                    
+      EIGENVALUE =  0.924606E+10    (CYCLIC FREQUENCY =  1.530377E+04 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0           -4.488108E-03   0.0                           
+            11      G      0.0            0.0            0.0            0.0           -3.252451E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0           -5.760457E-01   0.0                           
+            13      G      0.0            0.0            0.0            0.0           -5.184744E-01   0.0                           
+            14      G      0.0            0.0            0.0            0.0           -1.994172E-03   0.0                           
+            20      G      0.0            0.0           -4.329037E-03   5.160371E-02  -3.555879E-02   0.0                           
+            21      G      0.0            0.0           -8.998287E-03  -7.126559E-02   3.357905E-01   0.0                           
+            22      G      0.0            0.0           -3.001189E-02  -9.904097E-02   5.458534E-01   0.0                           
+            23      G      0.0            0.0           -3.198718E-02   1.187527E-01   3.847464E-01   0.0                           
+            24      G      0.0            0.0           -1.923630E-03  -6.678477E-02  -1.580108E-02   0.0                           
+            30      G      0.0            0.0           -1.589151E-02   2.041441E-01  -6.031831E-02   0.0                           
+            31      G      0.0            0.0            7.933833E-02   1.000000E+00   1.844995E-01   0.0                           
+            32      G      0.0            0.0            1.481510E-01   3.091548E-02   3.273180E-01   0.0                           
+            33      G      0.0            0.0            8.613461E-02  -9.343166E-01   3.081836E-01   0.0                           
+            34      G      0.0            0.0           -7.061613E-03  -2.641999E-01  -2.680354E-02   0.0                           
+            40      G      0.0            0.0           -2.487722E-02   2.192150E-01  -5.558806E-02   0.0                           
+            41      G      0.0            0.0            2.879206E-02   7.696323E-01  -6.022628E-01   0.0                           
+            42      G      0.0            0.0            7.073896E-02   8.770858E-02  -9.631063E-01   0.0                           
+            43      G      0.0            0.0            4.160715E-02  -6.649554E-01  -6.247607E-01   0.0                           
+            44      G      0.0            0.0           -1.105458E-02  -2.837043E-01  -2.470163E-02   0.0                           
+            50      G      0.0            0.0           -2.998366E-02   1.989559E-01  -4.602697E-02   0.0                           
+            51      G      0.0            0.0           -1.272510E-02   3.855597E-01  -2.467086E-01   0.0                           
+            52      G      0.0            0.0            2.807498E-03   1.347105E-01  -3.948635E-01   0.0                           
+            53      G      0.0            0.0            5.350675E-05  -2.067486E-01  -2.628632E-01   0.0                           
+            54      G      0.0            0.0           -1.332373E-02  -2.574853E-01  -2.045302E-02   0.0                           
+            60      G      0.0            0.0           -3.307837E-02   1.885158E-01  -4.298395E-02   0.0                           
+            61      G      0.0            0.0           -2.415000E-02   2.876310E-01  -1.014278E-01   0.0                           
+            62      G      0.0            0.0           -1.480427E-02   1.959909E-01  -1.454207E-01   0.0                           
+            63      G      0.0            0.0           -1.102571E-02  -1.364352E-02  -1.088828E-01   0.0                           
+            64      G      0.0            0.0           -1.469893E-02  -2.439740E-01  -1.910080E-02   0.0                           
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                          
+ DATE:  5/17/95
+ END TIME: 16:24:30
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

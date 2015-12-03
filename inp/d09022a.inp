@@ -1,0 +1,43 @@
+ID    D09022A,NASTRAN                                                           
+ALTER   1 $                                                                     
+PARAM   //C,N,NOP/V,N,TRUE=-1 $                                                 
+INPUT,  ,,,,/,G2,,,/C,N,5 $                                                     
+EQUIV   G2,GEOM2/TRUE $                                                         
+ENDALTER $                                                                      
+TIME    16                                                                      
+APP     DISP                                                                    
+SOL     9,1                                                                     
+DIAG    14                                                                      
+CEND                                                                            
+TITLE    = TRANSIENT ANALYSIS OF A 1000 CELL STRING                             
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D09-02-2A                          
+   LABEL = TRAVELING WAVE PROBLEM                                               
+   TSTEP = 9                                                                    
+      IC = 9                                                                    
+OUTPUT                                                                          
+   SET 1 = 2,4,5,6,10,12,14,16,18,20,22,24,26,28,30,40,50, 100,200,500          
+   DISPLACEMENT = 1                                                             
+   VELOCITY = 1                                                                 
+BEGIN BULK                                                                      
+TIC     9       2               .2                                              
+TIC     9       3               .4                                              
+TIC     9       4               .6                                              
+TIC     9       5               .8                                              
+TIC     9       6               1.0                                             
+TIC     9       7               1.2                                             
+TIC     9       8               1.4                                             
+TIC     9       9               1.6                                             
+TIC     9       10              1.8                                             
+TIC     9       11              2.0                                             
+TIC     9       12              1.8                                             
+TIC     9       13              1.6                                             
+TIC     9       14              1.4                                             
+TIC     9       15              1.2                                             
+TIC     9       16              1.0                                             
+TIC     9       17              .8                                              
+TIC     9       18              .6                                              
+TIC     9       19              .4                                              
+TIC     9       20              .2                                              
+TSTEP   9       50      .5-3    1                                               
+ENDDATA                                                                         
+    1000 1.0E+07 0.0     1.0E+01 0.0                                            

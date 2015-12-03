@@ -1,0 +1,206 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$       Simply-Supported Rectangular Plate with a Thermal Gradient (1-11-1)
+$   Simply-Supported Rectangular Plate with a Thermal Gradient (INPUT, 1-11-2)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the solution of a general thermal load on a plate 
+$ with the use of an equivalent linear thermal gradient. The thermal field is a 
+$ function of three dimensions, demonstrated by the TEMPP1 card. The plate is 
+$ modeled with the general quadrilateral, QUAD1, elements. Two planes of 
+$ symmetry are used. This problem is repeated via the INPUT module to generate 
+$ the QUAD1 elements. 
+$ 
+$ B. Input
+$ 
+$                    5            2
+$      E  =  3.0 x 10  pounds/inch      (Young's modulus)
+$ 
+$      v  =  0.3                        (Poisson's ratio)
+$                           2     4
+$      p   =  1.0 pound-sec. /inch      (Mass density)
+$ 
+$  alpha   =  0.01 inch/deg. F/inch     (Thermal expansion coefficient)
+$ 
+$      T   =  0.0 deg. F                (Reference temperature)
+$       R
+$ 
+$      T   =  2.5 deg. F                (Temperature difference)
+$       o
+$ 
+$      a   =  10.0 inch                 (Width)
+$ 
+$      b   =  20.0 inch                 (Length)
+$ 
+$      t   =  0.5 inch                  (Thickness)
+$ 
+$ The thermal field is
+$ 
+$                   pix       piy  2z 3
+$      T  =  T (cos ---) (cos ---)(--)  
+$             o      a        b     t
+$ 
+$                      pix        piy   3
+$ and     =  160.0(cos ---)  (cos ---) z  deg. F
+$                      10         20
+$ 
+$ C. Theory
+$ 
+$ The plate was solved using a minimum energy solution. The net moments, 
+$ {M }, in the plate are equal to the sum of the elastic moments, {M }, and the 
+$   N                                                               e
+$ thermal moments, {M }.
+$                    t
+$ 
+$      {M }  =  {M } + {M }                                                  (1)
+$        N        t      e
+$ 
+$ where the thermal moment is
+$ 
+$                                                     +
+$                              +   +                  |
+$                              | 1 |     pix      piy |
+$      {M }  =  alphaT' D(1+v) | 1 | cos ---  cos --- |
+$        t            o        | 0 |      a        b  |
+$                              +   +                  |
+$                3                                    |                      (2)
+$              Et                                     |
+$ and  D =  ---------                                 |
+$                 2                                   |
+$           12(1-v )                                  |
+$                                                     +
+$ 
+$ and T' = 6T /5t is the effective thermal gradient.
+$      o     o
+$ 
+$ The elastic moment is defined by the curvatures, x, with the equation:
+$ 
+$                 +               +
+$                 | x   +  vx     |
+$                 |  x       y    |
+$                 |               |
+$      {M }  =  D | x   +  vx     |                                          (3)
+$        e        |  y       x    |
+$                 |               |
+$                 |    (1-v)      |
+$                 |   ------- x   |
+$                 |      2     xy |
+$                 +               +
+$ 
+$ Assuming a normal displacement function, W, of
+$ 
+$ 
+$                                         npix      mpiy
+$      W  = sum from n sum from m W   cos ----  cos ----                     (4)
+$                                  nm      a         b
+$ 
+$ 
+$ then                                                      
+$                                                                         +
+$            2                                                            |
+$           a W                              2     n  2     npix     mpiy |
+$    x   =  ---  = - sum from n sum from m pi W  ( - )  cos ---- cos ---- |
+$     x       2                                nm  a         a        b   |
+$           ax                                                            |
+$                                                                         |
+$            2                                                            |
+$           a W                              2     m  2     npix     mpiy |
+$    x   =  ---  = - sum from n sum from m pi W  ( - )  cos ---- cos ---- |  (5)
+$     y       2                                nm  a         a        b   |
+$           ay                                                            |
+$                                                                         |
+$            2                                                            |
+$           a W                              2    nm      npix     mpiy   |
+$    x   =2 ---- = - sum from n sum from m pi W  (--) sin ---- sin ----   |
+$     xy    axay                               nm ab       a        b     |
+$                                                                         +
+$ The work done by the thermal load is:
+$ 
+$                             T          1                    T       
+$    U  =  integral from A {X} {M } dA + - integral from A {X} {M } dA       (6)
+$                                t       2                       e    
+$ 
+$ where A is the surface area. Performing the substitution and integrating 
+$ results in the energy expression: 
+$  
+$                            2   2  2
+$            alphaT' D(1+v)pi  (a +b )
+$                  o                      D  
+$      U = - ---------------------  W   + -- sum from n=1 to infinity
+$                   4ab              11   2
+$ 
+$                                                2                           (7)
+$                                 4    ( 2     2)
+$                                piab  (n     m )   2
+$      sum from n=1 to infinity  ----  (--  + --)  W
+$                                 4    ( 2     2)   nm
+$                                      (a     b )
+$ 
+$ The static solution exists at a minimum energy:
+$ 
+$      aU
+$      -----  =  0                                                           (8)
+$      aW
+$        nm
+$ 
+$ This results in all but W   equal to zero. The displacement function is 
+$                          11
+$ therefore: 
+$ 
+$                               2 2  
+$                 alphaT' (1+v)a b 
+$                       o             pix      piy
+$      W(x,y)  =  --------------  cos ---  cos ---                           (9)
+$                   2  2    2          a        b
+$                  ã (a  + b )
+$ 
+$ Solving for moments by differentiating W and using equation (3) results in the 
+$ equations for element moments: 
+$                        +           +
+$                        |     2   2 |
+$                        |    b +va  |     pix     piy
+$      M  = alphaT'D(1+v)|1 - -------| cos --- cos ---                      (10)
+$       x         o      |     2  2  |      a       b
+$                        |    a +b   |
+$                        +           +
+$                        +           +              
+$                        |     2   2 |              
+$                        |    a +vb  |     pix     piy
+$      M  = alphaT'D(1+v)|1 - -------| cos --- cos ---                      (11)
+$       y         o      |     2  2  |      a       b 
+$                        |    a +b   |              
+$                        +           +              
+$ 
+$                        2
+$            alphaT'D(1-v )ab
+$      M           o               pix     piy
+$       xy = ----------------- sin --- cos ---                              (12)
+$              2      2             a       b 
+$             a   +  b
+$ 
+$ D. Results
+$ 
+$ The maximum errors for displacements, constraint forces, element forces, and 
+$ element stresses are listed in Table 1. 
+$ 
+$               Table 1. Comparison of Analytical and NASTRAN Results
+$              --------------------------------------------------------
+$               CATEGORY       MAXIMUM         MAXIMUM                  
+$                              ANALYTICAL      NASTRAN         PERCENT 
+$                              VALUE           DIFFERENCE      ERROR    
+$              --------------------------------------------------------
+$              Displacement              -1               -3            
+$                             6.2898 x 10     11.5464 x 10     -0.25   
+$              -------------------------------------------------------- 
+$              Constraint                                              
+$              Force              150.0           -.9594       -0.65    
+$              --------------------------------------------------------
+$              Element Mom.,             2                              
+$              M              1.4770 x 10        -1.1767       -0.80   
+$               x                                                       
+$              --------------------------------------------------------
+$              Element                     3                            
+$              Stress         7.764618 x 10     -90.33275      -1.16   
+$              --------------------------------------------------------
+$-------------------------------------------------------------------------------

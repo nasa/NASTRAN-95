@@ -1,0 +1,1982 @@
+     NASTRAN FILES=PLT2                                                              
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D09031A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   9,3                                                                       
+     TIME  100                                                                       
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.               
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                          
+                  3         LABEL = THIRD HARMONIC ANALYSIS.                                             
+                  4         TSTEP = 10                                                                   
+                  5         DLOAD = 10                                                                   
+                  6           SPC = 3                                                                    
+                  7         AXISYMMETRIC = FLUID                                                         
+                  8         OUTPUT                                                                       
+                  9         HARMONICS = 3                                                                
+                 10           SET 100 = 10,11, 26,27, 42,43, 58,59, 74,75, 81 THRU 96,                   
+                 11                     106,107, 122,123, 138,139, 154,155, 170,171                      
+                 12         DISPLACEMENT = 100                                                           
+                 13      PLOTID   = NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                          
+                 14      OUTPUT(XYPLOT)                                                                  
+                 15       PLOTTER = NASTPLT                                                              
+                 16        XTGRID = YES                                                                  
+                 17        YTGRID = YES                                                                  
+                 18        XBGRID = YES                                                                  
+                 19        YBGRID = YES                                                                  
+                 20        XDIVISIONS = 10                                                               
+                 21        CURVELINESYMBOL = 1                                                           
+                 22        XTITLE  =                                     TIME (SECONDS)                  
+                 23        YTTITLE =  R DISP      -INCHES-                                               
+                 24        YBTITLE =  R DISP      -INCHES-                                               
+                 25      $                                                                               
+                 26      TCURVE = PLOTTED  *TOP GRID 91(Z=5,A=0), *BOTTOM GRID 110(Z=5,A=18)             
+                 27        XYPLOT DISP   /91(T1,), 110(,T1)                                              
+                 28      TCURVE = PLOTTED GRID(A=0,18) *TOP - 59,62(Z=7) *BOTTOM 123,126(Z=3)            
+                 29        XYPLOT DISP   /59(T1,), 62(T1,), 123(,T1),126(,T1)                            
+                 30      $                                                                               
+                 31        YTTITLE =  PRESSURE     *LB/INCH*                                             
+                 32        YBTITLE =  PRESSURE     *LB/INCH*                                             
+                 33      TCURVE = PLOTTED PRESPT (Z=5,A=0)  *TOP 5301(R=3)  *BOTTOM 5801(R=8)            
+                 34        XYPLOT DISP   / 5301(T1,), 5801(,T1)                                          
+                 35      TCURVE = PLOTTED PRESPT (R=5,A=0,Z=3,5,7)*TOP 3501,5501  *BOT 7501,5501         
+                 36        XYPLOT DISP   / 5501(T1,T1), 3501(T1,), 7501(,T1)                             
+                 37        YTITLE = R DISP       -INCH-                                                  
+                 38      TCURVE = PLOTTED  DISP AT MIDPOINT(Z=5.), ANGLE = 0.0 AND 18.0 DEGREES.         
+                 39        XYPLOT DISP   /  91(T1), 110(T1)                                              
+                 40         YTITLE = HARMONIC PRESSURE                                                   
+                 41      TCURVE = PLOTTED RINGFL (R=5,Z=5)  * 85                                         
+                 42           XYPLOT DISP / 4000085 (T1)                                                 
+                 43      $                                                                               
+                 44      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   333, INCLUDING   0 COMMENT CARDS)
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+
+      THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        AXIF    1       .0      1.8-2   .00     NO                              +AXIF   
+                    2-        +AXIF   3                                                                       
+                    3-        BDYLIST         10      26      42      58      74      90      106     +BDY-1  
+                    4-        +BDY-1  122     138     154     170                                             
+                    5-        CFLUID2 1001    17      1                                                       
+                    6-        CFLUID2 2001    33      17                                                      
+                    7-        CFLUID2 3001    49      33                                                      
+                    8-        CFLUID2 4001    65      49                                                      
+                    9-        CFLUID2 5001    81      65                                                      
+                   10-        CFLUID2 6001    97      81                                                      
+                   11-        CFLUID2 7001    113     97                                                      
+                   12-        CFLUID2 8001    129     113                                                     
+                   13-        CFLUID2 9001    145     129                                                     
+                   14-        CFLUID2 10001   161     145                                                     
+                   15-        CFLUID4 1002    18      2       1       17                                      
+                   16-        CFLUID4 1003    19      3       2       18                                      
+                   17-        CFLUID4 1004    20      4       3       19                                      
+                   18-        CFLUID4 1005    21      5       4       20                                      
+                   19-        CFLUID4 1006    22      6       5       21                                      
+                   20-        CFLUID4 1007    23      7       6       22                                      
+                   21-        CFLUID4 1008    24      8       7       23                                      
+                   22-        CFLUID4 1009    25      9       8       24                                      
+                   23-        CFLUID4 1010    26      10      9       25                                      
+                   24-        CFLUID4 2002    34      18      17      33                                      
+                   25-        CFLUID4 2003    35      19      18      34                                      
+                   26-        CFLUID4 2004    36      20      19      35                                      
+                   27-        CFLUID4 2005    37      21      20      36                                      
+                   28-        CFLUID4 2006    38      22      21      37                                      
+                   29-        CFLUID4 2007    39      23      22      38                                      
+                   30-        CFLUID4 2008    40      24      23      39                                      
+                   31-        CFLUID4 2009    41      25      24      40                                      
+                   32-        CFLUID4 2010    42      26      25      41                                      
+                   33-        CFLUID4 3002    50      34      33      49                                      
+                   34-        CFLUID4 3003    51      35      34      50                                      
+                   35-        CFLUID4 3004    52      36      35      51                                      
+                   36-        CFLUID4 3005    53      37      36      52                                      
+                   37-        CFLUID4 3006    54      38      37      53                                      
+                   38-        CFLUID4 3007    55      39      38      54                                      
+                   39-        CFLUID4 3008    56      40      39      55                                      
+                   40-        CFLUID4 3009    57      41      40      56                                      
+                   41-        CFLUID4 3010    58      42      41      57                                      
+                   42-        CFLUID4 4002    66      50      49      65                                      
+                   43-        CFLUID4 4003    67      51      50      66                                      
+                   44-        CFLUID4 4004    68      52      51      67                                      
+                   45-        CFLUID4 4005    69      53      52      68                                      
+                   46-        CFLUID4 4006    70      54      53      69                                      
+                   47-        CFLUID4 4007    71      55      54      70                                      
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+
+      THIRD HARMONIC ANALYSIS.                                                                                                      
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CFLUID4 4008    72      56      55      71                                      
+                   49-        CFLUID4 4009    73      57      56      72                                      
+                   50-        CFLUID4 4010    74      58      57      73                                      
+                   51-        CFLUID4 5002    82      66      65      81                                      
+                   52-        CFLUID4 5003    83      67      66      82                                      
+                   53-        CFLUID4 5004    84      68      67      83                                      
+                   54-        CFLUID4 5005    85      69      68      84                                      
+                   55-        CFLUID4 5006    86      70      69      85                                      
+                   56-        CFLUID4 5007    87      71      70      86                                      
+                   57-        CFLUID4 5008    88      72      71      87                                      
+                   58-        CFLUID4 5009    89      73      72      88                                      
+                   59-        CFLUID4 5010    90      74      73      89                                      
+                   60-        CFLUID4 6002    98      82      81      97                                      
+                   61-        CFLUID4 6003    99      83      82      98                                      
+                   62-        CFLUID4 6004    100     84      83      99                                      
+                   63-        CFLUID4 6005    101     85      84      100                                     
+                   64-        CFLUID4 6006    102     86      85      101                                     
+                   65-        CFLUID4 6007    103     87      86      102                                     
+                   66-        CFLUID4 6008    104     88      87      103                                     
+                   67-        CFLUID4 6009    105     89      88      104                                     
+                   68-        CFLUID4 6010    106     90      89      105                                     
+                   69-        CFLUID4 7002    114     98      97      113                                     
+                   70-        CFLUID4 7003    115     99      98      114                                     
+                   71-        CFLUID4 7004    116     100     99      115                                     
+                   72-        CFLUID4 7005    117     101     100     116                                     
+                   73-        CFLUID4 7006    118     102     101     117                                     
+                   74-        CFLUID4 7007    119     103     102     118                                     
+                   75-        CFLUID4 7008    120     104     103     119                                     
+                   76-        CFLUID4 7009    121     105     104     120                                     
+                   77-        CFLUID4 7010    122     106     105     121                                     
+                   78-        CFLUID4 8002    130     114     113     129                                     
+                   79-        CFLUID4 8003    131     115     114     130                                     
+                   80-        CFLUID4 8004    132     116     115     131                                     
+                   81-        CFLUID4 8005    133     117     116     132                                     
+                   82-        CFLUID4 8006    134     118     117     133                                     
+                   83-        CFLUID4 8007    135     119     118     134                                     
+                   84-        CFLUID4 8008    136     120     119     135                                     
+                   85-        CFLUID4 8009    137     121     120     136                                     
+                   86-        CFLUID4 8010    138     122     121     137                                     
+                   87-        CFLUID4 9002    146     130     129     145                                     
+                   88-        CFLUID4 9003    147     131     130     146                                     
+                   89-        CFLUID4 9004    148     132     131     147                                     
+                   90-        CFLUID4 9005    149     133     132     148                                     
+                   91-        CFLUID4 9006    150     134     133     149                                     
+                   92-        CFLUID4 9007    151     135     134     150                                     
+                   93-        CFLUID4 9008    152     136     135     151                                     
+                   94-        CFLUID4 9009    153     137     136     152                                     
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+
+      THIRD HARMONIC ANALYSIS.                                                                                                      
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CFLUID4 9010    154     138     137     153                                     
+                   96-        CFLUID4 10002   162     146     145     161                                     
+                   97-        CFLUID4 10003   163     147     146     162                                     
+                   98-        CFLUID4 10004   164     148     147     163                                     
+                   99-        CFLUID4 10005   165     149     148     164                                     
+                  100-        CFLUID4 10006   166     150     149     165                                     
+                  101-        CFLUID4 10007   167     151     150     166                                     
+                  102-        CFLUID4 10008   168     152     151     167                                     
+                  103-        CFLUID4 10009   169     153     152     168                                     
+                  104-        CFLUID4 10010   170     154     153     169                                     
+                  105-        CORD2C  1               .0      .0      .0      .0      .0      1.0     +CORD2C 
+                  106-        +CORD2C 1.0     .0      .0                                                      
+                  107-        CQUAD1  1011    1       27      28      12      11                              
+                  108-        CQUAD1  1012    1       28      29      13      12                              
+                  109-        CQUAD1  1013    1       29      30      14      13                              
+                  110-        CQUAD1  1014    1       30      31      15      14                              
+                  111-        CQUAD1  1015    1       31      32      16      15                              
+                  112-        CQUAD1  2011    1       43      44      28      27                              
+                  113-        CQUAD1  2012    1       44      45      29      28                              
+                  114-        CQUAD1  2013    1       45      46      30      29                              
+                  115-        CQUAD1  2014    1       46      47      31      30                              
+                  116-        CQUAD1  2015    1       47      48      32      31                              
+                  117-        CQUAD1  3011    1       59      60      44      43                              
+                  118-        CQUAD1  3012    1       60      61      45      44                              
+                  119-        CQUAD1  3013    1       61      62      46      45                              
+                  120-        CQUAD1  3014    1       62      63      47      46                              
+                  121-        CQUAD1  3015    1       63      64      48      47                              
+                  122-        CQUAD1  4011    1       75      76      60      59                              
+                  123-        CQUAD1  4012    1       76      77      61      60                              
+                  124-        CQUAD1  4013    1       77      78      62      61                              
+                  125-        CQUAD1  4014    1       78      79      63      62                              
+                  126-        CQUAD1  4015    1       79      80      64      63                              
+                  127-        CQUAD1  5011    1       91      92      76      75                              
+                  128-        CQUAD1  5012    1       92      93      77      76                              
+                  129-        CQUAD1  5013    1       93      94      78      77                              
+                  130-        CQUAD1  5014    1       94      95      79      78                              
+                  131-        CQUAD1  5015    1       95      96      80      79                              
+                  132-        CQUAD1  6011    1       107     108     92      91                              
+                  133-        CQUAD1  6012    1       108     109     93      92                              
+                  134-        CQUAD1  6013    1       109     110     94      93                              
+                  135-        CQUAD1  6014    1       110     111     95      94                              
+                  136-        CQUAD1  6015    1       111     112     96      95                              
+                  137-        CQUAD1  7011    1       123     124     108     107                             
+                  138-        CQUAD1  7012    1       124     125     109     108                             
+                  139-        CQUAD1  7013    1       125     126     110     109                             
+                  140-        CQUAD1  7014    1       126     127     111     110                             
+                  141-        CQUAD1  7015    1       127     128     112     111                             
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+
+      THIRD HARMONIC ANALYSIS.                                                                                                      
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        CQUAD1  8011    1       139     140     124     123                             
+                  143-        CQUAD1  8012    1       140     141     125     124                             
+                  144-        CQUAD1  8013    1       141     142     126     125                             
+                  145-        CQUAD1  8014    1       142     143     127     126                             
+                  146-        CQUAD1  8015    1       143     144     128     127                             
+                  147-        CQUAD1  9011    1       155     156     140     139                             
+                  148-        CQUAD1  9012    1       156     157     141     140                             
+                  149-        CQUAD1  9013    1       157     158     142     141                             
+                  150-        CQUAD1  9014    1       158     159     143     142                             
+                  151-        CQUAD1  9015    1       159     160     144     143                             
+                  152-        CQUAD1  10011   1       171     172     156     155                             
+                  153-        CQUAD1  10012   1       172     173     157     156                             
+                  154-        CQUAD1  10013   1       173     174     158     157                             
+                  155-        CQUAD1  10014   1       174     175     159     158                             
+                  156-        CQUAD1  10015   1       175     176     160     159                             
+                  157-        DAREA   1       27      1       .32345  28      1       .61525                  
+                  158-        DAREA   1       29      1       .52336  30      1       .38024                  
+                  159-        DAREA   1       31      1       .19991  32      1       3.23-10                 
+                  160-        DAREA   1       43      1       .61525  44      1       1.17027                 
+                  161-        DAREA   1       45      1       .99549  46      1       .72327                  
+                  162-        DAREA   1       47      1       .38024  48      1       6.14-10                 
+                  163-        DAREA   1       59      1       .84681  60      1       1.61074                 
+                  164-        DAREA   1       61      1       1.37017 62      1       .99549                  
+                  165-        DAREA   1       63      1       .52336  64      1       8.44-10                 
+                  166-        DAREA   1       75      1       .99549  76      1       1.89353                 
+                  167-        DAREA   1       77      1       1.61074 78      1       1.17027                 
+                  168-        DAREA   1       79      1       .61525  80      1       9.93-10                 
+                  169-        DAREA   1       91      1       1.04672 92      1       1.99098                 
+                  170-        DAREA   1       93      1       1.69363 94      1       1.23049                 
+                  171-        DAREA   1       95      1       .64691  96      1       1.044-9                 
+                  172-        DAREA   1       107     1       .99549  108     1       1.89353                 
+                  173-        DAREA   1       109     1       1.61074 110     1       1.17027                 
+                  174-        DAREA   1       111     1       .61525  112     1       9.93-10                 
+                  175-        DAREA   1       123     1       .84681  124     1       1.61074                 
+                  176-        DAREA   1       125     1       1.37017 126     1       .99549                  
+                  177-        DAREA   1       127     1       .52336  128     1       8.44-10                 
+                  178-        DAREA   1       139     1       .61525  140     1       1.17027                 
+                  179-        DAREA   1       141     1       .99549  142     1       .72327                  
+                  180-        DAREA   1       143     1       .38024  144     1       6.14-10                 
+                  181-        DAREA   1       155     1       .32345  156     1       .61525                  
+                  182-        DAREA   1       157     1       .52336  158     1       .38024                  
+                  183-        DAREA   1       159     1       .19991  160     1       3.23-10                 
+                  184-        FLSYM   12      S       A                                                       
+                  185-        FSLIST          AXIS    1       2       3       4       5       6       +FSL-1  
+                  186-        +FSL-1  7       8       9       10                                              
+                  187-        FSLIST          170     169     168     167     166     165     164     +FSL-2  
+                  188-        +FSL-2  163     162     161     AXIS                                            
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+
+      THIRD HARMONIC ANALYSIS.                                                                                                      
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  189-        GRIDB   11                      0.0             1       4       10              
+                  190-        GRIDB   12                      6.00000         1       4       10              
+                  191-        GRIDB   13                      12.0000         1       4       10              
+                  192-        GRIDB   14                      18.0000         1       4       10              
+                  193-        GRIDB   15                      24.0000         1       4       10              
+                  194-        GRIDB   16                      30.0000         1       4       10              
+                  195-        GRIDB   27                      0.0             1       4       26              
+                  196-        GRIDB   28                      6.00000         1       4       26              
+                  197-        GRIDB   29                      12.0000         1       4       26              
+                  198-        GRIDB   30                      18.0000         1       4       26              
+                  199-        GRIDB   31                      24.0000         1       4       26              
+                  200-        GRIDB   32                      30.0000         1       4       26              
+                  201-        GRIDB   43                      0.0             1       4       42              
+                  202-        GRIDB   44                      6.00000         1       4       42              
+                  203-        GRIDB   45                      12.0000         1       4       42              
+                  204-        GRIDB   46                      18.0000         1       4       42              
+                  205-        GRIDB   47                      24.0000         1       4       42              
+                  206-        GRIDB   48                      30.0000         1       4       42              
+                  207-        GRIDB   59                      0.0             1       4       58              
+                  208-        GRIDB   60                      6.00000         1       4       58              
+                  209-        GRIDB   61                      12.0000         1       4       58              
+                  210-        GRIDB   62                      18.0000         1       4       58              
+                  211-        GRIDB   63                      24.0000         1       4       58              
+                  212-        GRIDB   64                      30.0000         1       4       58              
+                  213-        GRIDB   75                      0.0             1       4       74              
+                  214-        GRIDB   76                      6.00000         1       4       74              
+                  215-        GRIDB   77                      12.0000         1       4       74              
+                  216-        GRIDB   78                      18.0000         1       4       74              
+                  217-        GRIDB   79                      24.0000         1       4       74              
+                  218-        GRIDB   80                      30.0000         1       4       74              
+                  219-        GRIDB   91                      0.0             1       4       90              
+                  220-        GRIDB   92                      6.00000         1       4       90              
+                  221-        GRIDB   93                      12.0000         1       4       90              
+                  222-        GRIDB   94                      18.0000         1       4       90              
+                  223-        GRIDB   95                      24.0000         1       4       90              
+                  224-        GRIDB   96                      30.0000         1       4       90              
+                  225-        GRIDB   107                     0.0             1       4       106             
+                  226-        GRIDB   108                     6.00000         1       4       106             
+                  227-        GRIDB   109                     12.0000         1       4       106             
+                  228-        GRIDB   110                     18.0000         1       4       106             
+                  229-        GRIDB   111                     24.0000         1       4       106             
+                  230-        GRIDB   112                     30.0000         1       4       106             
+                  231-        GRIDB   123                     0.0             1       4       122             
+                  232-        GRIDB   124                     6.00000         1       4       122             
+                  233-        GRIDB   125                     12.0000         1       4       122             
+                  234-        GRIDB   126                     18.0000         1       4       122             
+                  235-        GRIDB   127                     24.0000         1       4       122             
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+
+      THIRD HARMONIC ANALYSIS.                                                                                                      
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  236-        GRIDB   128                     30.0000         1       4       122             
+                  237-        GRIDB   139                     0.0             1       4       138             
+                  238-        GRIDB   140                     6.00000         1       4       138             
+                  239-        GRIDB   141                     12.0000         1       4       138             
+                  240-        GRIDB   142                     18.0000         1       4       138             
+                  241-        GRIDB   143                     24.0000         1       4       138             
+                  242-        GRIDB   144                     30.0000         1       4       138             
+                  243-        GRIDB   155                     0.0             1       4       154             
+                  244-        GRIDB   156                     6.00000         1       4       154             
+                  245-        GRIDB   157                     12.0000         1       4       154             
+                  246-        GRIDB   158                     18.0000         1       4       154             
+                  247-        GRIDB   159                     24.0000         1       4       154             
+                  248-        GRIDB   160                     30.0000         1       4       154             
+                  249-        GRIDB   171                     0.0             1       4       170             
+                  250-        GRIDB   172                     6.00000         1       4       170             
+                  251-        GRIDB   173                     12.0000         1       4       170             
+                  252-        GRIDB   174                     18.0000         1       4       170             
+                  253-        GRIDB   175                     24.0000         1       4       170             
+                  254-        GRIDB   176                     30.0000         1       4       170             
+                  255-        MAT1    2       1.6+5   6.0+4           6.0-2                                   
+                  256-        PQUAD1  1       2       .01     2       8.3333-8                        +PQUAD1 
+                  257-        +PQUAD1 .0      .005                                                            
+                  258-        PRESPT  21              1501    +0.0                                            
+                  259-        PRESPT  53              3501    +0.0                                            
+                  260-        PRESPT  81              5101    +0.0                                            
+                  261-        PRESPT  82              5201    +0.0                                            
+                  262-        PRESPT  83              5301    +0.0                                            
+                  263-        PRESPT  84              5401    +0.0                                            
+                  264-        PRESPT  85              5501    +0.0    5502    30.0    5503    60.0            
+                  265-        PRESPT  86              5601    +0.0                                            
+                  266-        PRESPT  87              5701    +0.0                                            
+                  267-        PRESPT  88              5801    +0.0                                            
+                  268-        PRESPT  89              5901    +0.0                                            
+                  269-        PRESPT  117             7501    +0.0                                            
+                  270-        PRESPT  149             9501    +0.0                                            
+                  271-        RINGFL  1       1.00000         10.0000 2       2.00000         10.0000         
+                  272-        RINGFL  3       3.00000         10.0000 4       4.00000         10.0000         
+                  273-        RINGFL  5       5.00000         10.0000 6       6.00000         10.0000         
+                  274-        RINGFL  7       7.00000         10.0000 8       8.00000         10.0000         
+                  275-        RINGFL  9       9.00000         10.0000 10      10.0000         10.0000         
+                  276-        RINGFL  17      1.00000         9.00000 18      2.00000         9.00000         
+                  277-        RINGFL  19      3.00000         9.00000 20      4.00000         9.00000         
+                  278-        RINGFL  21      5.00000         9.00000 22      6.00000         9.00000         
+                  279-        RINGFL  23      7.00000         9.00000 24      8.00000         9.00000         
+                  280-        RINGFL  25      9.00000         9.00000 26      10.0000         9.00000         
+                  281-        RINGFL  33      1.00000         8.00000 34      2.00000         8.00000         
+                  282-        RINGFL  35      3.00000         8.00000 36      4.00000         8.00000         
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+
+      THIRD HARMONIC ANALYSIS.                                                                                                      
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  283-        RINGFL  37      5.00000         8.00000 38      6.00000         8.00000         
+                  284-        RINGFL  39      7.00000         8.00000 40      8.00000         8.00000         
+                  285-        RINGFL  41      9.00000         8.00000 42      10.0000         8.00000         
+                  286-        RINGFL  49      1.00000         7.00000 50      2.00000         7.00000         
+                  287-        RINGFL  51      3.00000         7.00000 52      4.00000         7.00000         
+                  288-        RINGFL  53      5.00000         7.00000 54      6.00000         7.00000         
+                  289-        RINGFL  55      7.00000         7.00000 56      8.00000         7.00000         
+                  290-        RINGFL  57      9.00000         7.00000 58      10.0000         7.00000         
+                  291-        RINGFL  65      1.00000         6.00000 66      2.00000         6.00000         
+                  292-        RINGFL  67      3.00000         6.00000 68      4.00000         6.00000         
+                  293-        RINGFL  69      5.00000         6.00000 70      6.00000         6.00000         
+                  294-        RINGFL  71      7.00000         6.00000 72      8.00000         6.00000         
+                  295-        RINGFL  73      9.00000         6.00000 74      10.0000         6.00000         
+                  296-        RINGFL  81      1.00000         5.00000 82      2.00000         5.00000         
+                  297-        RINGFL  83      3.00000         5.00000 84      4.00000         5.00000         
+                  298-        RINGFL  85      5.00000         5.00000 86      6.00000         5.00000         
+                  299-        RINGFL  87      7.00000         5.00000 88      8.00000         5.00000         
+                  300-        RINGFL  89      9.00000         5.00000 90      10.0000         5.00000         
+                  301-        RINGFL  97      1.00000         4.00000 98      2.00000         4.00000         
+                  302-        RINGFL  99      3.00000         4.00000 100     4.00000         4.00000         
+                  303-        RINGFL  101     5.00000         4.00000 102     6.00000         4.00000         
+                  304-        RINGFL  103     7.00000         4.00000 104     8.00000         4.00000         
+                  305-        RINGFL  105     9.00000         4.00000 106     10.0000         4.00000         
+                  306-        RINGFL  113     1.00000         3.00000 114     2.00000         3.00000         
+                  307-        RINGFL  115     3.00000         3.00000 116     4.00000         3.00000         
+                  308-        RINGFL  117     5.00000         3.00000 118     6.00000         3.00000         
+                  309-        RINGFL  119     7.00000         3.00000 120     8.00000         3.00000         
+                  310-        RINGFL  121     9.00000         3.00000 122     10.0000         3.00000         
+                  311-        RINGFL  129     1.00000         2.00000 130     2.00000         2.00000         
+                  312-        RINGFL  131     3.00000         2.00000 132     4.00000         2.00000         
+                  313-        RINGFL  133     5.00000         2.00000 134     6.00000         2.00000         
+                  314-        RINGFL  135     7.00000         2.00000 136     8.00000         2.00000         
+                  315-        RINGFL  137     9.00000         2.00000 138     10.0000         2.00000         
+                  316-        RINGFL  145     1.00000         1.00000 146     2.00000         1.00000         
+                  317-        RINGFL  147     3.00000         1.00000 148     4.00000         1.00000         
+                  318-        RINGFL  149     5.00000         1.00000 150     6.00000         1.00000         
+                  319-        RINGFL  151     7.00000         1.00000 152     8.00000         1.00000         
+                  320-        RINGFL  153     9.00000         1.00000 154     10.0000         1.00000         
+                  321-        RINGFL  161     1.00000         0.0     162     2.00000         0.0             
+                  322-        RINGFL  163     3.00000         0.0     164     4.00000         0.0             
+                  323-        RINGFL  165     5.00000         0.0     166     6.00000         0.0             
+                  324-        RINGFL  167     7.00000         0.0     168     8.00000         0.0             
+                  325-        RINGFL  169     9.00000         0.0     170     10.0000         0.0             
+                  326-        SPC1    3       126     11      12      13      14      15      16              
+                  327-        SPC1    3       126     171     172     173     174     175     176             
+                  328-        SPC1    3       135     16      32      48      64      80      96      H=3     
+                  329-        SPC1    3       135     112     128     144     160     176             H=3     
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+
+      THIRD HARMONIC ANALYSIS.                                                                                                      
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  330-        SPC1    3       246     11      27      43      59      75      91      H=3     
+                  331-        SPC1    3       246     107     123     139     155     171             H=3     
+                  332-        TLOAD2  10      1                       .0      1.0     .0      .0              
+                  333-        TSTEP   10      50      .02     2                                               
+                              ENDDATA
+0*** USER INFORMATION MESSAGE - GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     THE PRESENCE OF AXISYMMETRIC FLUID DATA
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+
+      THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT     1501
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT     3501
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT     5101
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     5201 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     5301 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     5401 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     5501 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     5502 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     5503 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     5601 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     5701 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     5801 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     5901 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     7501 NOT CONNECTED
+0*** USER WARNING MESSAGE 2015, EXTERNAL GRID PT.     9501 NOT CONNECTED
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+
+      THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION FLUID2   ELEMENTS (ELEMENT TYPE  43) STARTING WITH ID  1001008
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION FLUID4   ELEMENTS (ELEMENT TYPE  45) STARTING WITH ID  1002008
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION FLMASS   ELEMENTS (ELEMENT TYPE  46) STARTING WITH ID  1000008
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD1    ELEMENTS (ELEMENT TYPE  19) STARTING WITH ID     1011
+0*** USER INFORMATION MESSAGE 3028      B =   23     BBAR =   34
+                                        C =   21     CBAR =    9
+                                        R =   56
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC  REAL    DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =   335)
+     TIME ESTIMATE =        0 SECONDS
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      11
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      0.0            0.0            1.172473E-03   0.0           -7.448046E-03   0.0                           
+   8.000000E-02     G      0.0            0.0            5.498284E-03   0.0           -3.420134E-02   0.0                           
+   1.200000E-01     G      0.0            0.0            1.256124E-02   0.0           -7.793691E-02   0.0                           
+   1.600000E-01     G      0.0            0.0            2.125505E-02   0.0           -1.317777E-01   0.0                           
+   2.000000E-01     G      0.0            0.0            3.022066E-02   0.0           -1.872522E-01   0.0                           
+   2.400000E-01     G      0.0            0.0            3.803502E-02   0.0           -2.356479E-01   0.0                           
+   2.800000E-01     G      0.0            0.0            4.347844E-02   0.0           -2.693559E-01   0.0                           
+   3.200000E-01     G      0.0            0.0            4.569780E-02   0.0           -2.830696E-01   0.0                           
+   3.600000E-01     G      0.0            0.0            4.433180E-02   0.0           -2.746364E-01   0.0                           
+   4.000000E-01     G      0.0            0.0            3.960761E-02   0.0           -2.453847E-01   0.0                           
+   4.400001E-01     G      0.0            0.0            3.226523E-02   0.0           -1.999104E-01   0.0                           
+   4.800001E-01     G      0.0            0.0            2.344991E-02   0.0           -1.453606E-01   0.0                           
+   5.200000E-01     G      0.0            0.0            1.456164E-02   0.0           -9.031925E-02   0.0                           
+   5.600000E-01     G      0.0            0.0            6.989846E-03   0.0           -4.343792E-02   0.0                           
+   6.000000E-01     G      0.0            0.0            1.920301E-03   0.0           -1.208147E-02   0.0                           
+   6.399999E-01     G      0.0            0.0            1.634114E-04   0.0           -1.177379E-03   0.0                           
+   6.799999E-01     G      0.0            0.0            1.983430E-03   0.0           -1.245040E-02   0.0                           
+   7.199998E-01     G      0.0            0.0            7.095142E-03   0.0           -4.411817E-02   0.0                           
+   7.599998E-01     G      0.0            0.0            1.470591E-02   0.0           -9.120239E-02   0.0                           
+   7.999998E-01     G      0.0            0.0            2.360501E-02   0.0           -1.463072E-01   0.0                           
+   8.399997E-01     G      0.0            0.0            3.239991E-02   0.0           -2.007700E-01   0.0                           
+   8.799997E-01     G      0.0            0.0            3.971460E-02   0.0           -2.460269E-01   0.0                           
+   9.199997E-01     G      0.0            0.0            4.438431E-02   0.0           -2.749573E-01   0.0                           
+   9.599996E-01     G      0.0            0.0            4.568599E-02   0.0           -2.830216E-01   0.0                           
+   9.999996E-01     G      0.0            0.0            4.341624E-02   0.0           -2.689449E-01   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      27
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      7.341438E-03   0.0            1.115102E-03   0.0           -7.087710E-03   0.0                           
+   8.000000E-02     G      3.370503E-02   0.0            5.229196E-03   0.0           -3.253101E-02   0.0                           
+   1.200000E-01     G      7.680206E-02   0.0            1.194647E-02   0.0           -7.412641E-02   0.0                           
+   1.600000E-01     G      1.298560E-01   0.0            2.021476E-02   0.0           -1.253303E-01   0.0                           
+   2.000000E-01     G      1.845229E-01   0.0            2.874157E-02   0.0           -1.780919E-01   0.0                           
+   2.400000E-01     G      2.322126E-01   0.0            3.617347E-02   0.0           -2.241184E-01   0.0                           
+   2.800000E-01     G      2.654277E-01   0.0            4.135047E-02   0.0           -2.561752E-01   0.0                           
+   3.200000E-01     G      2.789421E-01   0.0            4.346121E-02   0.0           -2.692189E-01   0.0                           
+   3.600000E-01     G      2.706322E-01   0.0            4.216207E-02   0.0           -2.611988E-01   0.0                           
+   4.000000E-01     G      2.418065E-01   0.0            3.766908E-02   0.0           -2.333782E-01   0.0                           
+   4.400001E-01     G      1.969951E-01   0.0            3.068607E-02   0.0           -1.901288E-01   0.0                           
+   4.800001E-01     G      1.432425E-01   0.0            2.230221E-02   0.0           -1.382504E-01   0.0                           
+   5.200000E-01     G      8.900399E-02   0.0            1.384896E-02   0.0           -8.590242E-02   0.0                           
+   5.600000E-01     G      4.280549E-02   0.0            6.647750E-03   0.0           -4.131532E-02   0.0                           
+   6.000000E-01     G      1.190678E-02   0.0            1.826322E-03   0.0           -1.149273E-02   0.0                           
+   6.399999E-01     G      1.163649E-03   0.0            1.554361E-04   0.0           -1.124853E-03   0.0                           
+   6.799999E-01     G      1.227042E-02   0.0            1.886363E-03   0.0           -1.184372E-02   0.0                           
+   7.199998E-01     G      4.347592E-02   0.0            6.747890E-03   0.0           -4.196222E-02   0.0                           
+   7.599998E-01     G      8.987405E-02   0.0            1.398617E-02   0.0           -8.674253E-02   0.0                           
+   7.999998E-01     G      1.441751E-01   0.0            2.244971E-02   0.0           -1.391499E-01   0.0                           
+   8.399997E-01     G      1.978428E-01   0.0            3.081416E-02   0.0           -1.909474E-01   0.0                           
+   8.799997E-01     G      2.424388E-01   0.0            3.777083E-02   0.0           -2.339878E-01   0.0                           
+   9.199997E-01     G      2.709489E-01   0.0            4.221201E-02   0.0           -2.615050E-01   0.0                           
+   9.599996E-01     G      2.788943E-01   0.0            4.344997E-02   0.0           -2.691725E-01   0.0                           
+   9.999996E-01     G      2.650228E-01   0.0            4.129131E-02   0.0           -2.557848E-01   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      43
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      1.396785E-02   0.0            9.485719E-04   0.0           -6.028959E-03   0.0                           
+   8.000000E-02     G      6.411415E-02   0.0            4.448249E-03   0.0           -2.767453E-02   0.0                           
+   1.200000E-01     G      1.460896E-01   0.0            1.016228E-02   0.0           -6.305572E-02   0.0                           
+   1.600000E-01     G      2.470027E-01   0.0            1.719570E-02   0.0           -1.066115E-01   0.0                           
+   2.000000E-01     G      3.509873E-01   0.0            2.444906E-02   0.0           -1.514951E-01   0.0                           
+   2.400000E-01     G      4.416984E-01   0.0            3.077102E-02   0.0           -1.906483E-01   0.0                           
+   2.800000E-01     G      5.048757E-01   0.0            3.517481E-02   0.0           -2.179144E-01   0.0                           
+   3.200000E-01     G      5.305825E-01   0.0            3.697032E-02   0.0           -2.290116E-01   0.0                           
+   3.600000E-01     G      5.147769E-01   0.0            3.586523E-02   0.0           -2.221906E-01   0.0                           
+   4.000000E-01     G      4.599464E-01   0.0            3.204325E-02   0.0           -1.985237E-01   0.0                           
+   4.400001E-01     G      3.747092E-01   0.0            2.610313E-02   0.0           -1.617323E-01   0.0                           
+   4.800001E-01     G      2.724672E-01   0.0            1.897141E-02   0.0           -1.176038E-01   0.0                           
+   5.200000E-01     G      1.692989E-01   0.0            1.178065E-02   0.0           -7.307459E-02   0.0                           
+   5.600000E-01     G      8.142390E-02   0.0            5.654919E-03   0.0           -3.514425E-02   0.0                           
+   6.000000E-01     G      2.265004E-02   0.0            1.553571E-03   0.0           -9.775708E-03   0.0                           
+   6.399999E-01     G      2.218145E-03   0.0            1.322520E-04   0.0           -9.593955E-04   0.0                           
+   6.799999E-01     G      2.334205E-02   0.0            1.604648E-03   0.0           -1.007460E-02   0.0                           
+   7.199998E-01     G      8.269887E-02   0.0            5.740099E-03   0.0           -3.569462E-02   0.0                           
+   7.599998E-01     G      1.709542E-01   0.0            1.189737E-02   0.0           -7.378878E-02   0.0                           
+   7.999998E-01     G      2.742404E-01   0.0            1.909689E-02   0.0           -1.183691E-01   0.0                           
+   8.399997E-01     G      3.763226E-01   0.0            2.621210E-02   0.0           -1.624293E-01   0.0                           
+   8.799997E-01     G      4.611480E-01   0.0            3.212980E-02   0.0           -1.990415E-01   0.0                           
+   9.199997E-01     G      5.153798E-01   0.0            3.590770E-02   0.0           -2.224513E-01   0.0                           
+   9.599996E-01     G      5.304914E-01   0.0            3.696077E-02   0.0           -2.289726E-01   0.0                           
+   9.999996E-01     G      5.041057E-01   0.0            3.512448E-02   0.0           -2.175818E-01   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      59
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      1.922378E-02   0.0            6.891849E-04   0.0           -4.380530E-03   0.0                           
+   8.000000E-02     G      8.824663E-02   0.0            3.231867E-03   0.0           -2.010901E-02   0.0                           
+   1.200000E-01     G      2.010739E-01   0.0            7.383340E-03   0.0           -4.581302E-02   0.0                           
+   1.600000E-01     G      3.399688E-01   0.0            1.249341E-02   0.0           -7.745740E-02   0.0                           
+   2.000000E-01     G      4.830924E-01   0.0            1.776330E-02   0.0           -1.100694E-01   0.0                           
+   2.400000E-01     G      6.079462E-01   0.0            2.235647E-02   0.0           -1.385152E-01   0.0                           
+   2.800000E-01     G      6.949001E-01   0.0            2.555600E-02   0.0           -1.583244E-01   0.0                           
+   3.200000E-01     G      7.302833E-01   0.0            2.686052E-02   0.0           -1.663864E-01   0.0                           
+   3.600000E-01     G      7.085304E-01   0.0            2.605764E-02   0.0           -1.614335E-01   0.0                           
+   4.000000E-01     G      6.330611E-01   0.0            2.328079E-02   0.0           -1.442359E-01   0.0                           
+   4.400001E-01     G      5.157415E-01   0.0            1.896503E-02   0.0           -1.175056E-01   0.0                           
+   4.800001E-01     G      3.750188E-01   0.0            1.378356E-02   0.0           -8.544514E-02   0.0                           
+   5.200000E-01     G      2.330206E-01   0.0            8.559164E-03   0.0           -5.309394E-02   0.0                           
+   5.600000E-01     G      1.120688E-01   0.0            4.108538E-03   0.0           -2.553283E-02   0.0                           
+   6.000000E-01     G      3.117407E-02   0.0            1.128746E-03   0.0           -7.103801E-03   0.0                           
+   6.399999E-01     G      3.053781E-03   0.0            9.610655E-05   0.0           -6.978477E-04   0.0                           
+   6.799999E-01     G      3.212697E-02   0.0            1.165859E-03   0.0           -7.321349E-03   0.0                           
+   7.199998E-01     G      1.138236E-01   0.0            4.170423E-03   0.0           -2.593260E-02   0.0                           
+   7.599998E-01     G      2.352985E-01   0.0            8.643961E-03   0.0           -5.361235E-02   0.0                           
+   7.999998E-01     G      3.774597E-01   0.0            1.387472E-02   0.0           -8.600190E-02   0.0                           
+   8.399997E-01     G      5.179623E-01   0.0            1.904420E-02   0.0           -1.180113E-01   0.0                           
+   8.799997E-01     G      6.347148E-01   0.0            2.334367E-02   0.0           -1.446127E-01   0.0                           
+   9.199997E-01     G      7.093598E-01   0.0            2.608850E-02   0.0           -1.616219E-01   0.0                           
+   9.599996E-01     G      7.301588E-01   0.0            2.685358E-02   0.0           -1.663593E-01   0.0                           
+   9.999996E-01     G      6.938396E-01   0.0            2.551943E-02   0.0           -1.580821E-01   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      75
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      2.260100E-02   0.0            3.623331E-04   0.0           -2.305232E-03   0.0                           
+   8.000000E-02     G      1.037433E-01   0.0            1.699105E-03   0.0           -1.057449E-02   0.0                           
+   1.200000E-01     G      2.363787E-01   0.0            3.881659E-03   0.0           -2.408732E-02   0.0                           
+   1.600000E-01     G      3.996579E-01   0.0            6.568177E-03   0.0           -4.072319E-02   0.0                           
+   2.000000E-01     G      5.679125E-01   0.0            9.338733E-03   0.0           -5.786930E-02   0.0                           
+   2.400000E-01     G      7.146861E-01   0.0            1.175350E-02   0.0           -7.282434E-02   0.0                           
+   2.800000E-01     G      8.169056E-01   0.0            1.343559E-02   0.0           -8.323748E-02   0.0                           
+   3.200000E-01     G      8.585010E-01   0.0            1.412142E-02   0.0           -8.747663E-02   0.0                           
+   3.600000E-01     G      8.329310E-01   0.0            1.369932E-02   0.0           -8.487279E-02   0.0                           
+   4.000000E-01     G      7.442097E-01   0.0            1.223945E-02   0.0           -7.583214E-02   0.0                           
+   4.400001E-01     G      6.062918E-01   0.0            9.970508E-03   0.0           -6.177668E-02   0.0                           
+   4.800001E-01     G      4.408637E-01   0.0            7.246459E-03   0.0           -4.492483E-02   0.0                           
+   5.200000E-01     G      2.739353E-01   0.0            4.499827E-03   0.0           -2.791455E-02   0.0                           
+   5.600000E-01     G      1.317456E-01   0.0            2.159992E-03   0.0           -1.342565E-02   0.0                           
+   6.000000E-01     G      3.664966E-02   0.0            5.934225E-04   0.0           -3.736118E-03   0.0                           
+   6.399999E-01     G      3.592473E-03   0.0            5.053749E-05   0.0           -3.698142E-04   0.0                           
+   6.799999E-01     G      3.777024E-02   0.0            6.129372E-04   0.0           -3.850891E-03   0.0                           
+   7.199998E-01     G      1.338083E-01   0.0            2.192524E-03   0.0           -1.363517E-02   0.0                           
+   7.599998E-01     G      2.766128E-01   0.0            4.544407E-03   0.0           -2.818779E-02   0.0                           
+   7.999998E-01     G      4.437335E-01   0.0            7.294387E-03   0.0           -4.521700E-02   0.0                           
+   8.399997E-01     G      6.089023E-01   0.0            1.001213E-02   0.0           -6.204293E-02   0.0                           
+   8.799997E-01     G      7.461537E-01   0.0            1.227250E-02   0.0           -7.602983E-02   0.0                           
+   9.199997E-01     G      8.339058E-01   0.0            1.371554E-02   0.0           -8.497231E-02   0.0                           
+   9.599996E-01     G      8.583551E-01   0.0            1.411777E-02   0.0           -8.746175E-02   0.0                           
+   9.999996E-01     G      8.156588E-01   0.0            1.341637E-02   0.0           -8.311109E-02   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      91
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      2.376437E-02   0.0            4.137240E-16   0.0            1.778554E-14   0.0                           
+   8.000000E-02     G      1.090833E-01   0.0            2.345418E-15   0.0            3.833046E-13   0.0                           
+   1.200000E-01     G      2.485435E-01   0.0           -1.369925E-15   0.0           -1.331300E-13   0.0                           
+   1.600000E-01     G      4.202253E-01   0.0            2.624836E-15   0.0            1.171753E-13   0.0                           
+   2.000000E-01     G      5.971391E-01   0.0            5.506101E-16   0.0            7.820407E-13   0.0                           
+   2.400000E-01     G      7.514666E-01   0.0           -3.218358E-15   0.0           -1.746122E-12   0.0                           
+   2.800000E-01     G      8.589451E-01   0.0            2.177896E-15   0.0           -2.102879E-12   0.0                           
+   3.200000E-01     G      9.026821E-01   0.0           -1.336678E-15   0.0           -2.061030E-13   0.0                           
+   3.600000E-01     G      8.757957E-01   0.0           -1.653532E-15   0.0           -1.545250E-12   0.0                           
+   4.000000E-01     G      7.825097E-01   0.0           -2.266910E-15   0.0           -1.639408E-12   0.0                           
+   4.400001E-01     G      6.374918E-01   0.0           -3.007987E-15   0.0            3.065390E-12   0.0                           
+   4.800001E-01     G      4.635533E-01   0.0            7.571615E-15   0.0           -3.220229E-12   0.0                           
+   5.200000E-01     G      2.880326E-01   0.0            1.464286E-15   0.0           -5.338278E-13   0.0                           
+   5.600000E-01     G      1.385262E-01   0.0           -5.139761E-15   0.0            3.354928E-12   0.0                           
+   6.000000E-01     G      3.853544E-02   0.0            5.337946E-15   0.0           -2.861772E-12   0.0                           
+   6.399999E-01     G      3.778856E-03   0.0           -6.308178E-15   0.0           -2.766403E-13   0.0                           
+   6.799999E-01     G      3.971393E-02   0.0            4.949448E-16   0.0            2.985028E-12   0.0                           
+   7.199998E-01     G      1.406947E-01   0.0            6.652085E-15   0.0           -2.586096E-12   0.0                           
+   7.599998E-01     G      2.908483E-01   0.0           -6.222164E-15   0.0           -4.001747E-13   0.0                           
+   7.999998E-01     G      4.665704E-01   0.0            2.862064E-15   0.0            2.026505E-12   0.0                           
+   8.399997E-01     G      6.402371E-01   0.0            2.871316E-15   0.0           -3.041327E-12   0.0                           
+   8.799997E-01     G      7.845532E-01   0.0           -8.102090E-15   0.0            2.253533E-12   0.0                           
+   9.199997E-01     G      8.768212E-01   0.0            2.310895E-15   0.0           -8.348742E-13   0.0                           
+   9.599996E-01     G      9.025282E-01   0.0           -1.076903E-15   0.0           -2.431388E-12   0.0                           
+   9.999996E-01     G      8.576347E-01   0.0           -1.886639E-15   0.0            1.332869E-12   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      92
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      2.260074E-02  -1.950406E-03   4.142405E-16   0.0           -6.859767E-14   1.993687E-03                  
+   8.000000E-02     G      1.037451E-01  -9.010918E-03   1.817518E-15   0.0            5.708360E-14   9.146721E-03                  
+   1.200000E-01     G      2.363869E-01  -2.054910E-02  -2.551433E-15   0.0            2.416523E-14   2.083841E-02                  
+   1.600000E-01     G      3.996707E-01  -3.475256E-02   1.451704E-15   0.0            1.226380E-13   3.523096E-02                  
+   2.000000E-01     G      5.679289E-01  -4.939157E-02   1.143681E-15   0.0            2.684894E-13   5.006296E-02                  
+   2.400000E-01     G      7.147114E-01  -6.215947E-02  -2.493521E-15   0.0            3.303385E-13   6.300066E-02                  
+   2.800000E-01     G      8.169399E-01  -7.105191E-02  -4.964634E-16   0.0            5.386227E-13   7.200997E-02                  
+   3.200000E-01     G      8.585345E-01  -7.467207E-02  -3.672564E-15   0.0            6.922026E-13   7.567722E-02                  
+   3.600000E-01     G      8.329593E-01  -7.244594E-02  -3.760177E-16   0.0           -4.171304E-13   7.342050E-02                  
+   4.000000E-01     G      7.442396E-01  -6.472787E-02   2.996483E-15   0.0           -5.478790E-13   6.559681E-02                  
+   4.400001E-01     G      6.063230E-01  -5.273090E-02  -1.640104E-15   0.0            1.300915E-12   5.343264E-02                  
+   4.800001E-01     G      4.408874E-01  -3.833777E-02  -2.402911E-16   0.0           -1.731633E-13   3.885135E-02                  
+   5.200000E-01     G      2.739478E-01  -2.381622E-02   1.730769E-16   0.0           -1.134351E-12   2.414030E-02                  
+   5.600000E-01     G      1.317484E-01  -1.144703E-02  -6.233334E-16   0.0            1.102557E-12   1.161612E-02                  
+   6.000000E-01     G      3.664268E-02  -3.172364E-03   5.516774E-15   0.0           -6.617106E-13   3.243315E-03                  
+   6.399999E-01     G      3.579726E-03  -2.976845E-04  -4.749169E-15   0.0           -5.007787E-13   3.365625E-04                  
+   6.799999E-01     G      3.775948E-02  -3.271090E-03  -4.596302E-17   0.0            1.094869E-12   3.347042E-03                  
+   7.199998E-01     G      1.338067E-01  -1.162477E-02   4.876774E-15   0.0           -8.206911E-13   1.180484E-02                  
+   7.599998E-01     G      2.766227E-01  -2.404971E-02  -5.530567E-15   0.0           -6.343191E-13   2.437980E-02                  
+   7.999998E-01     G      4.437579E-01  -3.858831E-02   4.354075E-15   0.0           -3.287037E-16   3.910298E-02                  
+   8.399997E-01     G      6.089382E-01  -5.295651E-02   1.211060E-15   0.0           -1.686664E-12   5.365820E-02                  
+   8.799997E-01     G      7.461882E-01  -6.489819E-02  -5.768907E-15   0.0           -7.535099E-13   6.576206E-02                  
+   9.199997E-01     G      8.339348E-01  -7.253103E-02   2.374284E-15   0.0           -1.319950E-12   7.350541E-02                  
+   9.599996E-01     G      8.583848E-01  -7.465774E-02  -3.456726E-15   0.0            1.040036E-12   7.566625E-02                  
+   9.999996E-01     G      8.156897E-01  -7.094487E-02  -7.998902E-16   0.0           -9.457382E-13   7.190454E-02                  
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      93
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      1.922783E-02  -3.710001E-03   1.460000E-16   0.0            1.063934E-14   3.796774E-03                  
+   8.000000E-02     G      8.825850E-02  -1.714023E-02   2.273778E-15   0.0           -1.316794E-14   1.741649E-02                  
+   1.200000E-01     G      2.010931E-01  -3.908768E-02  -4.465324E-16   0.0           -1.906415E-15   3.968520E-02                  
+   1.600000E-01     G      3.399968E-01  -6.610481E-02  -3.716432E-18   0.0            3.877797E-14   6.710280E-02                  
+   2.000000E-01     G      4.831298E-01  -9.395024E-02  -1.643237E-15   0.0           -2.409833E-14   9.536032E-02                  
+   2.400000E-01     G      6.079882E-01  -1.182365E-01  -3.316819E-15   0.0            3.572858E-14   1.200168E-01                  
+   2.800000E-01     G      6.949428E-01  -1.351511E-01   1.087655E-15   0.0            8.413874E-14   1.371926E-01                  
+   3.200000E-01     G      7.303283E-01  -1.420372E-01  -2.091808E-15   0.0           -2.694941E-13   1.441769E-01                  
+   3.600000E-01     G      7.085808E-01  -1.378030E-01  -1.831566E-15   0.0            2.950639E-13   1.398789E-01                  
+   4.000000E-01     G      6.331128E-01  -1.231225E-01   1.760028E-15   0.0           -1.591517E-14   1.249735E-01                  
+   4.400001E-01     G      5.157924E-01  -1.003030E-01  -3.009009E-15   0.0           -9.463132E-14   1.018113E-01                  
+   4.800001E-01     G      3.750656E-01  -7.292519E-02   1.822469E-15   0.0            2.934402E-14   7.402691E-02                  
+   5.200000E-01     G      2.330523E-01  -4.530274E-02  -1.354332E-16   0.0            1.837017E-13   4.599484E-02                  
+   5.600000E-01     G      1.120787E-01  -2.177403E-02  -7.917930E-16   0.0           -3.359068E-13   2.211858E-02                  
+   6.000000E-01     G      3.116599E-02  -6.033637E-03   3.861048E-15   0.0            3.942441E-13   6.151287E-03                  
+   6.399999E-01     G      3.037074E-03  -5.650976E-04   9.172278E-16   0.0           -3.584357E-13   5.987148E-04                  
+   6.799999E-01     G      3.211341E-02  -6.221084E-03  -1.293219E-16   0.0           -7.904801E-14   6.338299E-03                  
+   7.199998E-01     G      1.138248E-01  -2.211165E-02   1.058736E-15   0.0            3.646126E-13   2.246440E-02                  
+   7.599998E-01     G      2.353255E-01  -4.574660E-02  -3.231679E-15   0.0           -9.917000E-14   4.644595E-02                  
+   7.999998E-01     G      3.775073E-01  -7.340179E-02   4.017156E-15   0.0           -7.509640E-14   7.451054E-02                  
+   8.399997E-01     G      5.180188E-01  -1.007324E-01  -1.412110E-15   0.0            3.770839E-13   1.022518E-01                  
+   8.799997E-01     G      6.347737E-01  -1.234469E-01  -3.842253E-15   0.0           -6.199937E-13   1.252999E-01                  
+   9.199997E-01     G      7.094137E-01  -1.379650E-01   2.224600E-15   0.0            4.595726E-13   1.400380E-01                  
+   9.599996E-01     G      7.302033E-01  -1.420099E-01  -4.185986E-15   0.0           -3.550683E-13   1.441487E-01                  
+   9.999996E-01     G      6.938776E-01  -1.349472E-01  -2.260591E-15   0.0           -6.007595E-13   1.369810E-01                  
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      94
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      1.396763E-02  -5.106438E-03  -9.144112E-17   0.0           -1.343876E-14   5.224888E-03                  
+   8.000000E-02     G      6.411625E-02  -2.359167E-02   2.227106E-15   0.0           -6.795180E-14   2.396816E-02                  
+   1.200000E-01     G      1.460865E-01  -5.379961E-02   7.435336E-16   0.0           -6.106882E-15   5.460573E-02                  
+   1.600000E-01     G      2.469852E-01  -9.098493E-02   3.678179E-17   0.0            6.462172E-14   9.232518E-02                  
+   2.000000E-01     G      3.509501E-01  -1.293098E-01  -2.242628E-15   0.0            2.705183E-13   1.311956E-01                  
+   2.400000E-01     G      4.416390E-01  -1.627356E-01  -5.428473E-16   0.0           -5.122246E-13   1.651052E-01                  
+   2.800000E-01     G      5.047966E-01  -1.860153E-01   2.061974E-15   0.0           -1.656725E-13   1.887223E-01                  
+   3.200000E-01     G      5.304950E-01  -1.954927E-01  -2.172629E-15   0.0            7.786253E-13   1.983387E-01                  
+   3.600000E-01     G      5.146942E-01  -1.896654E-01  -1.606108E-15   0.0           -8.175106E-13   1.924384E-01                  
+   4.000000E-01     G      4.598830E-01  -1.694605E-01   1.157426E-15   0.0           -1.997496E-13   1.719438E-01                  
+   4.400001E-01     G      3.746706E-01  -1.380535E-01  -3.973975E-15   0.0            9.153396E-13   1.400771E-01                  
+   4.800001E-01     G      2.724513E-01  -1.003724E-01   2.792483E-15   0.0           -7.151128E-13   1.018569E-01                  
+   5.200000E-01     G      1.692957E-01  -6.235402E-02   4.092740E-15   0.0           -2.980604E-13   6.328568E-02                  
+   5.600000E-01     G      8.142289E-02  -2.996953E-02  -3.383589E-15   0.0            9.925747E-13   3.042981E-02                  
+   6.000000E-01     G      2.264945E-02  -8.304477E-03   1.534658E-15   0.0           -7.354076E-13   8.455335E-03                  
+   6.399999E-01     G      2.216264E-03  -7.774392E-04  -2.530147E-16   0.0           -2.191926E-13   8.174272E-04                  
+   6.799999E-01     G      2.333713E-02  -8.562172E-03  -4.829288E-16   0.0            8.675449E-13   8.714234E-03                  
+   7.199998E-01     G      8.269166E-02  -3.043381E-02   4.006451E-15   0.0           -8.002893E-13   3.090664E-02                  
+   7.599998E-01     G      1.709440E-01  -6.296454E-02  -5.904415E-16   0.0           -2.088134E-13   6.390407E-02                  
+   7.999998E-01     G      2.742238E-01  -1.010283E-01  -1.363897E-15   0.0            1.215115E-12   1.025188E-01                  
+   8.399997E-01     G      3.762882E-01  -1.386448E-01  -1.782955E-15   0.0           -6.472819E-13   1.406795E-01                  
+   8.799997E-01     G      4.610913E-01  -1.699074E-01   5.563361E-16   0.0           -5.503335E-13   1.723916E-01                  
+   9.199997E-01     G      5.153031E-01  -1.898888E-01   4.614276E-15   0.0            5.804627E-13   1.926647E-01                  
+   9.599996E-01     G      5.304046E-01  -1.954552E-01  -8.405404E-15   0.0           -1.542232E-13   1.983073E-01                  
+   9.999996E-01     G      5.040229E-01  -1.857345E-01  -6.377830E-16   0.0           -4.461275E-13   1.884357E-01                  
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      95
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      7.345352E-03  -6.003026E-03  -2.737600E-15   0.0            2.525338E-14   6.140167E-03                  
+   8.000000E-02     G      3.371520E-02  -2.773383E-02  -3.663040E-15   0.0           -3.255608E-15   2.816888E-02                  
+   1.200000E-01     G      7.681640E-02  -6.324533E-02  -1.204367E-15   0.0           -6.430021E-13   6.417675E-02                  
+   1.600000E-01     G      1.298733E-01  -1.069587E-01   1.866025E-15   0.0            3.742189E-13   1.084953E-01                  
+   2.000000E-01     G      1.845406E-01  -1.520110E-01   3.104093E-15   0.0           -1.066725E-12   1.541582E-01                  
+   2.400000E-01     G      2.322240E-01  -1.913038E-01   1.201134E-15   0.0           -1.997096E-12   1.939922E-01                  
+   2.800000E-01     G      2.654275E-01  -2.186694E-01   2.863734E-16   0.0            2.554954E-12   2.217345E-01                  
+   3.200000E-01     G      2.789347E-01  -2.298099E-01  -1.258461E-16   0.0            3.598613E-13   2.330213E-01                  
+   3.600000E-01     G      2.706252E-01  -2.229595E-01   1.054521E-15   0.0           -2.955892E-12   2.260797E-01                  
+   4.000000E-01     G      2.418020E-01  -1.992083E-01   4.463715E-15   0.0            2.225643E-12   2.020075E-01                  
+   4.400001E-01     G      1.970000E-01  -1.622888E-01  -1.070288E-15   0.0            4.078110E-13   1.645800E-01                  
+   4.800001E-01     G      1.432581E-01  -1.179936E-01  -9.198557E-16   0.0           -2.923794E-12   1.196801E-01                  
+   5.200000E-01     G      8.902417E-02  -7.330152E-02  -6.888051E-16   0.0            2.861442E-12   7.436754E-02                  
+   5.600000E-01     G      4.282192E-02  -3.523191E-02  -3.989075E-15   0.0           -1.532106E-13   3.576977E-02                  
+   6.000000E-01     G      1.191777E-02  -9.763284E-03  -1.257290E-15   0.0           -2.848684E-12   9.955195E-03                  
+   6.399999E-01     G      1.172122E-03  -9.146013E-04  -1.921621E-15   0.0            3.178790E-12   9.803830E-04                  
+   6.799999E-01     G      1.227654E-02  -1.006590E-02  -1.814904E-15   0.0           -4.063066E-13   1.025780E-02                  
+   7.199998E-01     G      4.348475E-02  -3.577727E-02  -4.279069E-15   0.0           -2.427200E-12   3.632909E-02                  
+   7.599998E-01     G      8.989043E-02  -7.401887E-02   2.750057E-15   0.0            2.757374E-12   7.509068E-02                  
+   7.999998E-01     G      1.441918E-01  -1.187647E-01   3.507373E-15   0.0           -9.698200E-13   1.204574E-01                  
+   8.399997E-01     G      1.978538E-01  -1.629843E-01  -7.430688E-16   0.0           -1.482400E-12   1.652901E-01                  
+   8.799997E-01     G      2.424405E-01  -1.997342E-01  -6.699185E-16   0.0            3.859241E-12   2.025376E-01                  
+   9.199997E-01     G      2.709443E-01  -2.232225E-01   4.657771E-15   0.0           -3.763128E-12   2.263484E-01                  
+   9.599996E-01     G      2.788853E-01  -2.297658E-01  -1.118109E-15   0.0            1.991172E-12   2.329826E-01                  
+   9.999996E-01     G      2.650165E-01  -2.183389E-01   8.402475E-15   0.0            1.204468E-12   2.213953E-01                  
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =      96
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      0.0           -6.312042E-03   0.0            0.0            0.0            6.461481E-03                  
+   8.000000E-02     G      0.0           -2.916137E-02   0.0            0.0            0.0            2.963767E-02                  
+   1.200000E-01     G      0.0           -6.650057E-02   0.0            0.0            0.0            6.751927E-02                  
+   1.600000E-01     G      0.0           -1.124637E-01   0.0            0.0            0.0            1.141548E-01                  
+   2.000000E-01     G      0.0           -1.598345E-01   0.0            0.0            0.0            1.622043E-01                  
+   2.400000E-01     G      0.0           -2.011492E-01   0.0            0.0            0.0            2.041130E-01                  
+   2.800000E-01     G      0.0           -2.299226E-01   0.0            0.0            0.0            2.332919E-01                  
+   3.200000E-01     G      0.0           -2.416361E-01   0.0            0.0            0.0            2.451597E-01                  
+   3.600000E-01     G      0.0           -2.344330E-01   0.0            0.0            0.0            2.378568E-01                  
+   4.000000E-01     G      0.0           -2.094597E-01   0.0            0.0            0.0            2.125204E-01                  
+   4.400001E-01     G      0.0           -1.706405E-01   0.0            0.0            0.0            1.731445E-01                  
+   4.800001E-01     G      0.0           -1.240662E-01   0.0            0.0            0.0            1.259154E-01                  
+   5.200000E-01     G      0.0           -7.707445E-02   0.0            0.0            0.0            7.825388E-02                  
+   5.600000E-01     G      0.0           -3.704573E-02   0.0            0.0            0.0            3.764699E-02                  
+   6.000000E-01     G      0.0           -1.026631E-02   0.0            0.0            0.0            1.048456E-02                  
+   6.399999E-01     G      0.0           -9.621077E-04   0.0            0.0            0.0            1.037711E-03                  
+   6.799999E-01     G      0.0           -1.058431E-02   0.0            0.0            0.0            1.079675E-02                  
+   7.199998E-01     G      0.0           -3.761889E-02   0.0            0.0            0.0            3.822631E-02                  
+   7.599998E-01     G      0.0           -7.782861E-02   0.0            0.0            0.0            7.901478E-02                  
+   7.999998E-01     G      0.0           -1.248770E-01   0.0            0.0            0.0            1.267377E-01                  
+   8.399997E-01     G      0.0           -1.713720E-01   0.0            0.0            0.0            1.738983E-01                  
+   8.799997E-01     G      0.0           -2.100128E-01   0.0            0.0            0.0            2.130836E-01                  
+   9.199997E-01     G      0.0           -2.347096E-01   0.0            0.0            0.0            2.381359E-01                  
+   9.599996E-01     G      0.0           -2.415896E-01   0.0            0.0            0.0            2.451151E-01                  
+   9.999996E-01     G      0.0           -2.295749E-01   0.0            0.0            0.0            2.329269E-01                  
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =     107
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      2.260100E-02   0.0           -3.623331E-04   0.0            2.305232E-03   0.0                           
+   8.000000E-02     G      1.037433E-01   0.0           -1.699105E-03   0.0            1.057449E-02   0.0                           
+   1.200000E-01     G      2.363787E-01   0.0           -3.881659E-03   0.0            2.408732E-02   0.0                           
+   1.600000E-01     G      3.996579E-01   0.0           -6.568177E-03   0.0            4.072319E-02   0.0                           
+   2.000000E-01     G      5.679125E-01   0.0           -9.338733E-03   0.0            5.786930E-02   0.0                           
+   2.400000E-01     G      7.146861E-01   0.0           -1.175350E-02   0.0            7.282434E-02   0.0                           
+   2.800000E-01     G      8.169056E-01   0.0           -1.343559E-02   0.0            8.323748E-02   0.0                           
+   3.200000E-01     G      8.585010E-01   0.0           -1.412142E-02   0.0            8.747663E-02   0.0                           
+   3.600000E-01     G      8.329310E-01   0.0           -1.369932E-02   0.0            8.487279E-02   0.0                           
+   4.000000E-01     G      7.442097E-01   0.0           -1.223945E-02   0.0            7.583214E-02   0.0                           
+   4.400001E-01     G      6.062918E-01   0.0           -9.970508E-03   0.0            6.177668E-02   0.0                           
+   4.800001E-01     G      4.408637E-01   0.0           -7.246459E-03   0.0            4.492483E-02   0.0                           
+   5.200000E-01     G      2.739353E-01   0.0           -4.499827E-03   0.0            2.791455E-02   0.0                           
+   5.600000E-01     G      1.317456E-01   0.0           -2.159992E-03   0.0            1.342565E-02   0.0                           
+   6.000000E-01     G      3.664966E-02   0.0           -5.934225E-04   0.0            3.736118E-03   0.0                           
+   6.399999E-01     G      3.592473E-03   0.0           -5.053749E-05   0.0            3.698142E-04   0.0                           
+   6.799999E-01     G      3.777024E-02   0.0           -6.129372E-04   0.0            3.850891E-03   0.0                           
+   7.199998E-01     G      1.338083E-01   0.0           -2.192524E-03   0.0            1.363517E-02   0.0                           
+   7.599998E-01     G      2.766128E-01   0.0           -4.544407E-03   0.0            2.818779E-02   0.0                           
+   7.999998E-01     G      4.437335E-01   0.0           -7.294387E-03   0.0            4.521700E-02   0.0                           
+   8.399997E-01     G      6.089023E-01   0.0           -1.001213E-02   0.0            6.204293E-02   0.0                           
+   8.799997E-01     G      7.461537E-01   0.0           -1.227250E-02   0.0            7.602983E-02   0.0                           
+   9.199997E-01     G      8.339058E-01   0.0           -1.371554E-02   0.0            8.497231E-02   0.0                           
+   9.599996E-01     G      8.583551E-01   0.0           -1.411777E-02   0.0            8.746175E-02   0.0                           
+   9.999996E-01     G      8.156588E-01   0.0           -1.341637E-02   0.0            8.311109E-02   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =     123
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      1.922378E-02   0.0           -6.891849E-04   0.0            4.380530E-03   0.0                           
+   8.000000E-02     G      8.824663E-02   0.0           -3.231867E-03   0.0            2.010901E-02   0.0                           
+   1.200000E-01     G      2.010739E-01   0.0           -7.383340E-03   0.0            4.581302E-02   0.0                           
+   1.600000E-01     G      3.399688E-01   0.0           -1.249341E-02   0.0            7.745740E-02   0.0                           
+   2.000000E-01     G      4.830924E-01   0.0           -1.776330E-02   0.0            1.100694E-01   0.0                           
+   2.400000E-01     G      6.079462E-01   0.0           -2.235647E-02   0.0            1.385152E-01   0.0                           
+   2.800000E-01     G      6.949001E-01   0.0           -2.555600E-02   0.0            1.583244E-01   0.0                           
+   3.200000E-01     G      7.302833E-01   0.0           -2.686052E-02   0.0            1.663864E-01   0.0                           
+   3.600000E-01     G      7.085304E-01   0.0           -2.605764E-02   0.0            1.614335E-01   0.0                           
+   4.000000E-01     G      6.330611E-01   0.0           -2.328079E-02   0.0            1.442359E-01   0.0                           
+   4.400001E-01     G      5.157415E-01   0.0           -1.896503E-02   0.0            1.175056E-01   0.0                           
+   4.800001E-01     G      3.750188E-01   0.0           -1.378356E-02   0.0            8.544514E-02   0.0                           
+   5.200000E-01     G      2.330206E-01   0.0           -8.559164E-03   0.0            5.309394E-02   0.0                           
+   5.600000E-01     G      1.120688E-01   0.0           -4.108538E-03   0.0            2.553283E-02   0.0                           
+   6.000000E-01     G      3.117407E-02   0.0           -1.128746E-03   0.0            7.103801E-03   0.0                           
+   6.399999E-01     G      3.053781E-03   0.0           -9.610655E-05   0.0            6.978477E-04   0.0                           
+   6.799999E-01     G      3.212697E-02   0.0           -1.165859E-03   0.0            7.321349E-03   0.0                           
+   7.199998E-01     G      1.138236E-01   0.0           -4.170423E-03   0.0            2.593260E-02   0.0                           
+   7.599998E-01     G      2.352985E-01   0.0           -8.643961E-03   0.0            5.361235E-02   0.0                           
+   7.999998E-01     G      3.774597E-01   0.0           -1.387472E-02   0.0            8.600190E-02   0.0                           
+   8.399997E-01     G      5.179623E-01   0.0           -1.904420E-02   0.0            1.180113E-01   0.0                           
+   8.799997E-01     G      6.347148E-01   0.0           -2.334367E-02   0.0            1.446127E-01   0.0                           
+   9.199997E-01     G      7.093598E-01   0.0           -2.608850E-02   0.0            1.616219E-01   0.0                           
+   9.599996E-01     G      7.301588E-01   0.0           -2.685358E-02   0.0            1.663593E-01   0.0                           
+   9.999996E-01     G      6.938396E-01   0.0           -2.551943E-02   0.0            1.580821E-01   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =     139
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      1.396785E-02   0.0           -9.485719E-04   0.0            6.028959E-03   0.0                           
+   8.000000E-02     G      6.411415E-02   0.0           -4.448249E-03   0.0            2.767453E-02   0.0                           
+   1.200000E-01     G      1.460896E-01   0.0           -1.016228E-02   0.0            6.305572E-02   0.0                           
+   1.600000E-01     G      2.470027E-01   0.0           -1.719570E-02   0.0            1.066115E-01   0.0                           
+   2.000000E-01     G      3.509873E-01   0.0           -2.444906E-02   0.0            1.514951E-01   0.0                           
+   2.400000E-01     G      4.416984E-01   0.0           -3.077102E-02   0.0            1.906483E-01   0.0                           
+   2.800000E-01     G      5.048757E-01   0.0           -3.517481E-02   0.0            2.179144E-01   0.0                           
+   3.200000E-01     G      5.305825E-01   0.0           -3.697032E-02   0.0            2.290116E-01   0.0                           
+   3.600000E-01     G      5.147769E-01   0.0           -3.586523E-02   0.0            2.221906E-01   0.0                           
+   4.000000E-01     G      4.599464E-01   0.0           -3.204325E-02   0.0            1.985237E-01   0.0                           
+   4.400001E-01     G      3.747092E-01   0.0           -2.610313E-02   0.0            1.617323E-01   0.0                           
+   4.800001E-01     G      2.724672E-01   0.0           -1.897141E-02   0.0            1.176038E-01   0.0                           
+   5.200000E-01     G      1.692989E-01   0.0           -1.178065E-02   0.0            7.307459E-02   0.0                           
+   5.600000E-01     G      8.142390E-02   0.0           -5.654919E-03   0.0            3.514425E-02   0.0                           
+   6.000000E-01     G      2.265004E-02   0.0           -1.553571E-03   0.0            9.775708E-03   0.0                           
+   6.399999E-01     G      2.218145E-03   0.0           -1.322520E-04   0.0            9.593955E-04   0.0                           
+   6.799999E-01     G      2.334205E-02   0.0           -1.604648E-03   0.0            1.007460E-02   0.0                           
+   7.199998E-01     G      8.269887E-02   0.0           -5.740099E-03   0.0            3.569462E-02   0.0                           
+   7.599998E-01     G      1.709542E-01   0.0           -1.189737E-02   0.0            7.378878E-02   0.0                           
+   7.999998E-01     G      2.742404E-01   0.0           -1.909689E-02   0.0            1.183691E-01   0.0                           
+   8.399997E-01     G      3.763226E-01   0.0           -2.621210E-02   0.0            1.624293E-01   0.0                           
+   8.799997E-01     G      4.611480E-01   0.0           -3.212980E-02   0.0            1.990415E-01   0.0                           
+   9.199997E-01     G      5.153798E-01   0.0           -3.590770E-02   0.0            2.224513E-01   0.0                           
+   9.599996E-01     G      5.304914E-01   0.0           -3.696077E-02   0.0            2.289726E-01   0.0                           
+   9.999996E-01     G      5.041057E-01   0.0           -3.512448E-02   0.0            2.175818E-01   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =     155
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      7.341438E-03   0.0           -1.115102E-03   0.0            7.087710E-03   0.0                           
+   8.000000E-02     G      3.370503E-02   0.0           -5.229196E-03   0.0            3.253101E-02   0.0                           
+   1.200000E-01     G      7.680206E-02   0.0           -1.194647E-02   0.0            7.412641E-02   0.0                           
+   1.600000E-01     G      1.298560E-01   0.0           -2.021476E-02   0.0            1.253303E-01   0.0                           
+   2.000000E-01     G      1.845229E-01   0.0           -2.874157E-02   0.0            1.780919E-01   0.0                           
+   2.400000E-01     G      2.322126E-01   0.0           -3.617347E-02   0.0            2.241184E-01   0.0                           
+   2.800000E-01     G      2.654277E-01   0.0           -4.135047E-02   0.0            2.561752E-01   0.0                           
+   3.200000E-01     G      2.789421E-01   0.0           -4.346121E-02   0.0            2.692189E-01   0.0                           
+   3.600000E-01     G      2.706322E-01   0.0           -4.216207E-02   0.0            2.611988E-01   0.0                           
+   4.000000E-01     G      2.418065E-01   0.0           -3.766908E-02   0.0            2.333782E-01   0.0                           
+   4.400001E-01     G      1.969951E-01   0.0           -3.068607E-02   0.0            1.901288E-01   0.0                           
+   4.800001E-01     G      1.432425E-01   0.0           -2.230221E-02   0.0            1.382504E-01   0.0                           
+   5.200000E-01     G      8.900399E-02   0.0           -1.384896E-02   0.0            8.590242E-02   0.0                           
+   5.600000E-01     G      4.280549E-02   0.0           -6.647750E-03   0.0            4.131532E-02   0.0                           
+   6.000000E-01     G      1.190678E-02   0.0           -1.826322E-03   0.0            1.149273E-02   0.0                           
+   6.399999E-01     G      1.163649E-03   0.0           -1.554361E-04   0.0            1.124854E-03   0.0                           
+   6.799999E-01     G      1.227042E-02   0.0           -1.886363E-03   0.0            1.184372E-02   0.0                           
+   7.199998E-01     G      4.347592E-02   0.0           -6.747890E-03   0.0            4.196222E-02   0.0                           
+   7.599998E-01     G      8.987405E-02   0.0           -1.398617E-02   0.0            8.674253E-02   0.0                           
+   7.999998E-01     G      1.441751E-01   0.0           -2.244971E-02   0.0            1.391499E-01   0.0                           
+   8.399997E-01     G      1.978428E-01   0.0           -3.081416E-02   0.0            1.909474E-01   0.0                           
+   8.799997E-01     G      2.424388E-01   0.0           -3.777083E-02   0.0            2.339878E-01   0.0                           
+   9.199997E-01     G      2.709489E-01   0.0           -4.221201E-02   0.0            2.615050E-01   0.0                           
+   9.599996E-01     G      2.788943E-01   0.0           -4.344997E-02   0.0            2.691725E-01   0.0                           
+   9.999996E-01     G      2.650228E-01   0.0           -4.129131E-02   0.0            2.557848E-01   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+      POINT-ID =     171
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            0.0            0.0            0.0                           
+   4.000000E-02     G      0.0            0.0           -1.172473E-03   0.0            7.448046E-03   0.0                           
+   8.000000E-02     G      0.0            0.0           -5.498284E-03   0.0            3.420134E-02   0.0                           
+   1.200000E-01     G      0.0            0.0           -1.256124E-02   0.0            7.793691E-02   0.0                           
+   1.600000E-01     G      0.0            0.0           -2.125505E-02   0.0            1.317777E-01   0.0                           
+   2.000000E-01     G      0.0            0.0           -3.022066E-02   0.0            1.872522E-01   0.0                           
+   2.400000E-01     G      0.0            0.0           -3.803502E-02   0.0            2.356479E-01   0.0                           
+   2.800000E-01     G      0.0            0.0           -4.347844E-02   0.0            2.693559E-01   0.0                           
+   3.200000E-01     G      0.0            0.0           -4.569780E-02   0.0            2.830696E-01   0.0                           
+   3.600000E-01     G      0.0            0.0           -4.433180E-02   0.0            2.746364E-01   0.0                           
+   4.000000E-01     G      0.0            0.0           -3.960761E-02   0.0            2.453847E-01   0.0                           
+   4.400001E-01     G      0.0            0.0           -3.226523E-02   0.0            1.999104E-01   0.0                           
+   4.800001E-01     G      0.0            0.0           -2.344991E-02   0.0            1.453606E-01   0.0                           
+   5.200000E-01     G      0.0            0.0           -1.456164E-02   0.0            9.031925E-02   0.0                           
+   5.600000E-01     G      0.0            0.0           -6.989846E-03   0.0            4.343792E-02   0.0                           
+   6.000000E-01     G      0.0            0.0           -1.920301E-03   0.0            1.208147E-02   0.0                           
+   6.399999E-01     G      0.0            0.0           -1.634114E-04   0.0            1.177379E-03   0.0                           
+   6.799999E-01     G      0.0            0.0           -1.983430E-03   0.0            1.245040E-02   0.0                           
+   7.199998E-01     G      0.0            0.0           -7.095142E-03   0.0            4.411817E-02   0.0                           
+   7.599998E-01     G      0.0            0.0           -1.470591E-02   0.0            9.120239E-02   0.0                           
+   7.999998E-01     G      0.0            0.0           -2.360501E-02   0.0            1.463072E-01   0.0                           
+   8.399997E-01     G      0.0            0.0           -3.239991E-02   0.0            2.007700E-01   0.0                           
+   8.799997E-01     G      0.0            0.0           -3.971460E-02   0.0            2.460269E-01   0.0                           
+   9.199997E-01     G      0.0            0.0           -4.438431E-02   0.0            2.749573E-01   0.0                           
+   9.599996E-01     G      0.0            0.0           -4.568599E-02   0.0            2.830216E-01   0.0                           
+   9.999996E-01     G      0.0            0.0           -4.341624E-02   0.0            2.689449E-01   0.0                           
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       91( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF UPPER FRAME    1
+
+
+     CURVE  TITLE = PLOTTED  *TOP GRID 91(Z=5,A=0), *BOTTOM GRID 110(Z=5,A=18)                                                     
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  R DISP      -INCHES-                                                                                          
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  9.026821E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  9.026821E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      110(--, 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF LOWER FRAME    1
+
+
+     CURVE  TITLE = PLOTTED  *TOP GRID 91(Z=5,A=0), *BOTTOM GRID 110(Z=5,A=18)                                                     
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  R DISP      -INCHES-                                                                                          
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  5.045310E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  5.045310E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       59( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF UPPER FRAME    2
+
+
+     CURVE  TITLE = PLOTTED GRID(A=0,18) *TOP - 59,62(Z=7) *BOTTOM 123,126(Z=3)                                                    
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  R DISP      -INCHES-                                                                                          
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  7.302833E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  7.302833E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    36
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       62( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   2 OF UPPER FRAME    2
+
+
+     CURVE  TITLE = PLOTTED GRID(A=0,18) *TOP - 59,62(Z=7) *BOTTOM 123,126(Z=3)                                                    
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  R DISP      -INCHES-                                                                                          
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  4.291801E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  4.291801E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    37
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      123(--, 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF LOWER FRAME    2
+
+
+     CURVE  TITLE = PLOTTED GRID(A=0,18) *TOP - 59,62(Z=7) *BOTTOM 123,126(Z=3)                                                    
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  R DISP      -INCHES-                                                                                          
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  7.302833E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  7.302833E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    38
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      126(--, 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   2 OF LOWER FRAME    2
+
+
+     CURVE  TITLE = PLOTTED GRID(A=0,18) *TOP - 59,62(Z=7) *BOTTOM 123,126(Z=3)                                                    
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  R DISP      -INCHES-                                                                                          
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  4.291801E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  4.291801E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    39
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE     5301( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF UPPER FRAME    3
+
+
+     CURVE  TITLE = PLOTTED PRESPT (Z=5,A=0)  *TOP 5301(R=3)  *BOTTOM 5801(R=8)                                                    
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  PRESSURE     *LB/INCH*                                                                                        
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -3.055301E-02 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  3.051542E-02 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -3.055301E-02 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  3.051542E-02 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    40
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE     5801(--, 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF LOWER FRAME    3
+
+
+     CURVE  TITLE = PLOTTED PRESPT (Z=5,A=0)  *TOP 5301(R=3)  *BOTTOM 5801(R=8)                                                    
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  PRESSURE     *LB/INCH*                                                                                        
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -8.240583E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  8.230442E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -8.240583E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  8.230442E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    41
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE     3501( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF UPPER FRAME    4
+
+
+     CURVE  TITLE = PLOTTED PRESPT (R=5,A=0,Z=3,5,7)*TOP 3501,5501  *BOT 7501,5501                                                 
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  PRESSURE     *LB/INCH*                                                                                        
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -1.296850E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.295254E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -1.296850E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.295254E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    42
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE     5501( 1,--)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   2 OF UPPER FRAME    4
+
+
+     CURVE  TITLE = PLOTTED PRESPT (R=5,A=0,Z=3,5,7)*TOP 3501,5501  *BOT 7501,5501                                                 
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  PRESSURE     *LB/INCH*                                                                                        
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -1.602994E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.601022E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -1.602994E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.601022E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    43
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE     5501(--, 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF LOWER FRAME    4
+
+
+     CURVE  TITLE = PLOTTED PRESPT (R=5,A=0,Z=3,5,7)*TOP 3501,5501  *BOT 7501,5501                                                 
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  PRESSURE     *LB/INCH*                                                                                        
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -1.602994E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.601022E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -1.602994E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.601022E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    44
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE     7501(--, 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   2 OF LOWER FRAME    4
+
+
+     CURVE  TITLE = PLOTTED PRESPT (R=5,A=0,Z=3,5,7)*TOP 3501,5501  *BOT 7501,5501                                                 
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE =  PRESSURE     *LB/INCH*                                                                                        
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -1.296850E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.295254E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -1.296850E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.295254E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    45
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       91( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF WHOLE FRAME    5
+
+
+     CURVE  TITLE = PLOTTED  DISP AT MIDPOINT(Z=5.), ANGLE = 0.0 AND 18.0 DEGREES.                                                 
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE = R DISP       -INCH-                                                                                            
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  9.026821E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  9.026821E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    46
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE      110( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   2 OF WHOLE FRAME    5
+
+
+     CURVE  TITLE = PLOTTED  DISP AT MIDPOINT(Z=5.), ANGLE = 0.0 AND 18.0 DEGREES.                                                 
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE = R DISP       -INCH-                                                                                            
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  5.045310E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE =  0.000000E+00 AT X =   0.000000E+00
+
+
+                              THE LARGEST  Y-VALUE =  5.045310E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    47
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-03-1A                                                                                   
+0     THIRD HARMONIC ANALYSIS.                                                                                                      
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE  4000085( 1)
+ 
+      XY-PAIRS WITHIN FRAME LIMITS WILL BE PLOTTED
+      PLOTTER SPECIFIED IS NASTPLT FILM  PLOTTER WITHOUT TYPING CAPABILITY.
+      CSCALE =  1.00
+      CAMERA 3 USED. (PAPER AND 35MM FILM)
+      DENSITY =  1
+
+
+     THIS IS CURVE   1 OF WHOLE FRAME    6
+
+
+     CURVE  TITLE = PLOTTED RINGFL (R=5,Z=5)  * 85                                                                                 
+      X-AXIS TITLE =                                     TIME (SECONDS)                                                             
+      Y-AXIS TITLE = HARMONIC PRESSURE                                                                                              
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -1.602994E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.601022E-01 AT X =   3.200000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  9.999996E-01)
+
+
+                              THE SMALLEST Y-VALUE = -1.602994E-01 AT X =   6.399999E-01
+
+
+                              THE LARGEST  Y-VALUE =  1.601022E-01 AT X =   3.200000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  TRANSIENT ANALYSIS OF A FLUID-FILLED ELASTIC CYLINDER.             
+ DATE:  5/17/95
+ END TIME: 16:10: 8
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

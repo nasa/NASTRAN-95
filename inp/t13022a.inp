@@ -1,0 +1,157 @@
+ID    T13022A,NASTRAN                                                           
+APP   DISP                                                                      
+DIAG  38                                                                        
+SOL   13                                                                        
+TIME  20                                                                         
+$                                                                               
+$   THIS PROBLEM DEMONSTRATES THE EFFECTS OF PRESSURE ON THE DYNAMICS OF        
+$   PRE-STIFFENED STRUCTURE USEING CPSE3 AND CPSE4 DIFFERNTIAL STIFFNESS        
+$   ELEMENTS                                                                    
+$                                                                               
+$   THIS FREE-FREE UNIT LENGTH CYLINDER PROBLEM GIVES THE FOLLOWING             
+$   NATURAL FREQUENCIES (HZ)                                                    
+$                                                                               
+$        WITHOUT THE PRESSURE        WITH  THE PRESSURE                         
+$        STIFFNESS ELEMENTS          STIFFNESS ELEMENTS                         
+$        --------------------        ------------------                         
+$               3.4432                     0.0053                               
+$               4.6821                     5.3927                               
+$              13.2614                    13.6570                               
+$              22.4341                    22.6865                               
+$              33.1777                    33.3529                               
+$              46.1936                    46.3210                               
+$              61.9870                    62.0752                               
+$              81.8336                    81.8986                               
+$                                                                               
+$   THE FOLLOWING DMAP ALTER ALLOWS SOL 13 TO USE DIFFERENT BOUNDARY            
+$   CONDITION SPC'S FOR THE STATIC SOLUTION (SUBCASE 1 AND 2) AND THE           
+$   NORMAL MODE SOLUTION (SUBCASE 3)                                            
+$                                                                               
+$   THIS DMAP ALTER WILL CAUSE A NUMBER OF WARNING MESSAGES OF POTENTIAL        
+$   ERRORS PRINTED, BUT IT WORKS OK                                             
+$                                                                               
+ALTER  117 $  AFTER OFP MODULE AND BEFORE DPD IN RIGID FORMAT 13                
+GP4    CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,ASET,OGPST/          
+       LUSET/S,N,MPCF1/S,N,MPCF2/,S,N,SINGLE/S,N,OMIT/S,N,REACT/                
+       S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/C,Y,ASETOUT/              
+       S,N,AUTOSPC $                                                            
+PARAM  //*AND*/NOSR/SINGLE/REACT $                                              
+PURGE  GM/MPCF1/GO,KOO,LOO,PO,UOOV,RUOV/OMIT/PS,KFS,KSS/SINGLE/QG/NOSR $        
+OFP    OGPST,,,,,//S,N,CARDNO $                                                 
+LABEL  LBL15D $                                                                 
+EQUIV  KGG,KNN/MPCF1 $                                                          
+COND   LBL16D,MPCF1 $                                                           
+MCE1   USET,RG/GM $                                                             
+MCE2   USET,GM,KGG,,,/KNN,,, $                                                  
+LABEL  LBL16D $                                                                 
+EQUIV  KNN,KFF/SINGLE $                                                         
+COND   LBL17D,SINGLE $                                                          
+SCE1   USET,KNN,,,/KFF,KFS,KSS,,, $                                             
+LABEL  LBL17D $                                                                 
+EQUIV  KFF,KAA/OMIT $                                                           
+COND   LBL18D,OMIT $                                                            
+SMP1   USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                                        
+LABEL  LBL18D $                                                                 
+EQUIV  KDGG,KDNN/MPCF2 /MGG,MNN/MPCF2 $                                         
+COND   LBL19D,MPCF2 $                                                           
+MCE2   USET,GM,KDGG,MGG,,/KDNN,MNN,, $                                          
+LABEL  LBL19D $                                                                 
+EQUIV  KDNN,KDFF/SINGLE /MNN,MFF/SINGLE $                                       
+COND   LBL20D,SINGLE $                                                          
+SCE1   USET,KDNN,MNN,,/KDFF,KDFS,KDSS,MFF,, $                                   
+LABEL  LBL20D $                                                                 
+EQUIV  KDFF,KDAA/OMIT /MFF,MAA/OMIT $                                           
+COND   LBL21D,OMIT $                                                            
+SMP2   USET,GO,KDFF/KDAA $                                                      
+SMP2   USET,GO,MFF/MAA $                                                        
+LABEL  LBL21D $                                                                 
+PARAM  //*ADD*/DSCOSET/-1/0 $                                                   
+PARAM  //*MPY*/NDSKIP/0/0 $                                                     
+DSMG2  MPT,KAA,KDAA,KFS,KDFS,KSS,KDSS,PL,PS,YS,UOOV/KBLL,KBFS,KBSS,             
+       PBL,PBS,YBS,UBOOV/S,N,NDSKIP/S,N,REPEATD/DSCOSET $                       
+ENDALTER $                                                                      
+$                                                                               
+CEND                                                                            
+TITLE    = FREE-FREE UNIT LENGTH PRESSURIZED CYLINDER, QUARTER MODEL            
+SUBTITLE = NASTRAN TEST PROBLEM NO. T13-02-2A                               
+LABEL  = NORMAL MODES WITH DIFFERENTIAL STIFFNESS USING CPSE3/4 ELEMENTS        
+ECHO   = BOTH                                                                   
+DISP   = ALL                                                                    
+$                                                                               
+SUBCASE  1                                                                      
+LABEL  = STATIC SOLUTION                                                        
+LOAD   = 1                                                                      
+SPC    = 1                                                                      
+OLOAD  = ALL                                                                    
+$                                                                               
+SUBCASE  2                                                                      
+LABEL  = SECOND ORDER STATICS SOLUTION                                          
+SPC    = 4                                                                      
+DSCOEFFICIENT = DEFAULT                                                         
+$                                                                               
+SUBCASE  3                                                                      
+LABEL  = NORMAL MODES WITH DIFFERENTIAL STIFFNESS                               
+SPC    = 4                                                                      
+METHOD = 1                                                                      
+$                                                                               
+BEGIN BULK                                                                      
+PARAM,COUPMASS,1                                                                
+CORD2C,1  0  0. 0. 0.  0. 0. 1.                                                 
+,      1. 0. 0.                                                                 
+GRID,  1  1  5.0   0.0  0.5,, 345                                               
+GRID,  2  1  5.0   0.0 -0.5,  ==                                                
+GRID,  3  1  5.0  11.0  0.5,  ==                                                
+GRID,  4  1  5.0  11.0 -0.5,  ==                                                
+GRID,  5  1  5.0  22.0  0.5,  ==                                                
+GRID,  6  1  5.0  22.0 -0.5,  ==                                                
+GRID,  7  1  5.0  33.0  0.5,  ==                                                
+GRID,  8  1  5.0  33.0 -0.5,  ==                                                
+GRID,  9  1  5.0  45.0  0.5,  ==                                                
+GRID, 10  1  5.0  45.0 -0.5,  ==                                                
+GRID, 11  1  5.0  56.0  0.5,  ==                                                
+GRID, 12  1  5.0  56.0 -0.5,  ==                                                
+GRID, 13  1  5.0  67.0  0.5,  ==                                                
+GRID, 14  1  5.0  67.0 -0.5,  ==                                                
+GRID, 15  1  5.0  78.0  0.5,  ==                                                
+GRID, 16  1  5.0  78.0 -0.5,  ==                                                
+GRID, 17  1  5.0  90.0  0.5,  ==                                                
+GRID, 18  1  5.0  90.0 -0.5,  ==                                                
+$                                                                               
+$ SPC=1 FOR SYMMETRY-SYMMETRY BC'S                                              
+$                                                                               
+SPC, 1  1 26,,  2 26                                                            
+SPC, 1 17 16,, 18 16                                                            
+$                                                                               
+$ SPC=2 FOR SYMMETRY-ANTISYMMETRY BC'S                                          
+$                                                                               
+SPC, 2  1  1,,  2  1                                                            
+SPC, 2 17 16,, 18 16                                                            
+$                                                                               
+$ SPC=3 FOR ANTISYMMETRY-SYMMETRY BC'S                                          
+$                                                                               
+SPC, 3  1 26,,  2 26                                                            
+SPC, 3 17  2,, 18  2                                                            
+$                                                                               
+$ SPC=4 FOR ANTISYMMETRY-ANTISYMMETRY BC'S                                      
+$                                                                               
+SPC, 4, 1, 1,,  2, 1                                                            
+SPC, 4,17, 2,, 18, 2                                                            
+$                                                                               
+CQUAD2, 1, 1, 1, 2, 4, 3                                                        
+=(7), *(1),=,*(2), ///                                                          
+PQUAD2, 1, 1, 0.1                                                               
+$                                                                               
+CPSE3, 10  2  1  2  4                                                           
+=(3), *(1),=,*(2), //                                                           
+CPSE3, 15  2  4  3  1                                                           
+=(3), *(1),=,*(2), //                                                           
+$                                                                               
+CPSE4, 20  2  9 10 12 11                                                        
+=(3), *(1),=,*(2), ///                                                          
+$                                                                               
+PPSE,  2  1000.                                                                 
+PLOAD2,1  1000. 1 THRU 8                                                        
+MAT1,  1  1.0E7,, 0.33   4.28                                                   
+EIGR,  1  FEER,,  1.0E-8,, 10                                                   
+, MAX                                                                           
+ENDDATA                                                                         

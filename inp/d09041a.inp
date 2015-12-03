@@ -1,0 +1,44 @@
+ID    D09041A,NASTRAN                                                           
+APP   HEAT                                                                      
+SOL   9,1                                                                       
+TIME  10                                                                        
+CEND                                                                            
+TITLE    = LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                           
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                          
+TEMP(MATERIAL) = 60                                                             
+SPC    = 21                                                                     
+IC     = 60                                                                     
+DLOAD  = 70                                                                     
+TSTEP  = 80                                                                     
+SET 21 = 21                                                                     
+OUTPUT                                                                          
+THERMAL= ALL                                                                    
+OLOAD  = ALL                                                                    
+SPCF   = 21                                                                     
+BEGIN BULK                                                                      
+CELAS2  28      3.0+8   20      1       21      1                               
+CHBDY   31      2       LINE    10      12                                      
+CHBDY   33      2       LINE    12      14                                      
+CHBDY   35      2       LINE    14      16                                      
+CHBDY   37      2       LINE    16      18                                      
+CHBDY   39      2       LINE    18      20                                      
+CROD    11      1       10      12      13      1       12      14              
+CROD    15      1       14      16      17      1       16      18              
+CROD    19      1       18      20                                              
+DAREA   70      20      0       1.5+8                                           
+GRID    10              .0      .0      .0                                      
+GRID    12              .2      .0      .0                                      
+GRID    14              .4      .0      .0                                      
+GRID    16              .6      .0      .0                                      
+GRID    18              .8      .0      .0                                      
+GRID    20              1.0     .0      .0                                      
+GRID    21              1.0                                                     
+MAT4    1       1.0     2.4674                                                  
+PHBDY   2               1.0                                                     
+PROD    1       1       1.0                                                     
+QBDY1   70      100.0   31      33      35      37      39                      
+SPC     21      21      1                                                       
+TEMPD   60      .0                                                              
+TLOAD2  70      70      0               .0      100.0                           
+TSTEP   80      100     .05     2                                               
+ENDDATA                                                                         

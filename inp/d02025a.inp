@@ -1,0 +1,45 @@
+ID    D02025A,NASTRAN                                                           
+APP   DISP,SUBS                                                                 
+SOL   1,0                                                                       
+TIME  5                                                                         
+DIAG  23                                                                        
+CEND                                                                            
+SUBSTRUCTURE PHASE3                                                             
+  PASSWORD = DEMO                                                               
+   SOF(1)  = FT18,950 $ DEC VAX                                                 
+   SOFPRINT TOC                                                                 
+RECOVER RVANE1                                                                  
+ENDSUBS                                                                         
+TITLE    = WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTURING     
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D02-02-5A                          
+LABEL    = RECOVER RVANE1, RUN 5, PHASE 3                                       
+    DISP = ALL                                                                  
+  STRESS = ALL                                                                  
+SUBCASE 1                                                                       
+LABEL = ROTATIOAL FORCES ABOUT CENTER OF OVERALL STRUCTURE                      
+SUBCASE 2                                                                       
+LABEL = EXTENSION OF RIGHT PANEL AND COMPRESSION OF BOTTOM PANEL                
+SUBCASE 3                                                                       
+LABEL = CHECK ON RELEASE FEATURE AT GRID POINT 5                                
+BEGIN BULK                                                                      
+CORD2R  1               5.0     22.5    .0      5.0     22.5    1.0     +A      
++A      .0      22.5    .0                                                      
+CQDMEM  1       10      3       4       2       1                               
+CQDMEM  2       10      5       6       4       3                               
+CQDMEM  3       10      7       8       6       5                               
+FORCE1  2       1       25.0    4       2                                       
+FORCE1  2       2       25.0    4       2                                       
+GRDSET                                          1       3456                    
+GRID    1               .0      22.5                                            
+GRID    2               5.0     22.5                                            
+GRID    3               .0      15.0                                            
+GRID    4               5.0     15.0                                            
+GRID    5               .0      7.5                                             
+GRID    6               5.0     7.5                                             
+GRID    7               .0      .0                                              
+GRID    8               5.0     .0                                              
+GRID    9               .0      -27.5                   123456                  
+MAT1    50      1.0+7           .25     2.5E-4  1.0E-6  70.0                    
+PQDMEM  10      50      .1                                                      
+RFORCE  1       9               .1591579.0      .0      1.0                     
+ENDDATA                                                                         

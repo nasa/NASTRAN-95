@@ -1,0 +1,958 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D10021A,NASTRAN                                                           
+     APP   AERO                                                                      
+     SOL   10,0                                                                      
+     TIME  10                                                                        
+     DIAG  14,18                                                                     
+     ALTER 66 $                                                                      
+     MATGPR   GPL,USET,SIL,PHIA//C,N,FE,/C,N,A $                                     
+     ENDALTER $                                                                      
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING          
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)              
+                  3      LABEL    = K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)        
+                  4          ECHO = BOTH                                                                 
+                  5          SPC  = 1                                                                    
+                  6       METHOD  = 10                                                                   
+                  7       CMETHOD = 20                                                                   
+                  8       FMETHOD = 30                                                                   
+                  9      OUTPUT(XYOUT)                                                                   
+                 10       XTITLE  = VELOCITY                                                             
+                 11       YTTITLE = DAMPING (G)                                                          
+                 12       YBTITLE = FREQUENCY (F)                                                        
+                 13       TCURVE  = V-G AND V-F DATA POINTS                                              
+                 14      CURVELINESYMBOL = -1                                                            
+                 15      XYPAPERPLOT VG / 1(G,F) 2(G,F) 3(G,F) 4(G,F) 5(G,F) 6(G,F)                      
+                 16      BEGIN BULK                                                                      
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+0                                             I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              AERO    0       1.3+4   2.0706  1.145-7                                                       
+                              CAERO1  101     1       1       6       4                       1       +CA101                
+                              +CA101  -1.     -.26795 0.0     2.0706  -1.     5.45205 0.0     2.0706                        
+                              CBAR    1       1       1       2       0.0     0.0     1.      1                             
+                              CBAR    2       1       2       3       0.0     0.0     1.      1                             
+                              CBAR    3       1       3       4       0.0     0.0     1.      1                             
+                              CBAR    4       1       4       5       0.0     0.0     1.      1                             
+                              CBAR    5       1       5       6       0.0     0.0     1.      1                             
+                              CBAR    6       1       6       7       0.0     0.0     1.      1                             
+                              CBAR    7       1       7       8       0.0     0.0     1.      1                             
+                              CBAR    8       1       8       9       0.0     0.0     1.      1                             
+                              CBAR    9       1       9       10      0.0     0.0     1.      1                             
+                              CBAR    10      1       10      11      0.0     0.0     1.      1                             
+                              CMASS2  12      2.8-6   2       5                                                             
+                              CMASS2  13      2.8-6   3       5                                                             
+                              CMASS2  14      2.8-6   4       5                                                             
+                              CMASS2  15      2.8-6   5       5                                                             
+                              CMASS2  16      2.8-6   6       5                                                             
+                              CMASS2  17      2.8-6   7       5                                                             
+                              CMASS2  18      2.8-6   8       5                                                             
+                              CMASS2  19      2.8-6   9       5                                                             
+                              CMASS2  20      2.8-6   10      5                                                             
+                              CMASS2  21      1.4-6   11      5                                                             
+                              CORD2R  1               0.0     0.0     0.0     0.0     0.0     1.      +C1                   
+                              +C1     .96593  -.25882 0.0                                                                   
+                              EIGC    20      HESS    MAX                                             +EC                   
+                              +EC                                                     3                                     
+                              EIGR    10      GIV     .3      .1              6                       +ER                   
+                              +ER     MAX                                                                                   
+                              FLFACT  1       .967                                                                          
+                              FLFACT  2       .45                                                                           
+                              FLFACT  3       .2      .16667  .14286  .125    .11111  .1                                    
+                              FLUTTER 30      KE      1       2       3       L       3                                     
+                              GRDSET          1                               1       126                                   
+                              GRID    1               0.0     .0      0.0                                                   
+                              GRID    2               0.0     .572    0.0                                                   
+                              GRID    3               0.0     1.144   0.0                                                   
+                              GRID    4               0.0     1.716   0.0                                                   
+                              GRID    5               0.0     2.288   0.0                                                   
+                              GRID    6               0.0     2.86    0.0                                                   
+                              GRID    7               0.0     3.432   0.0                                                   
+                              GRID    8               0.0     4.004   0.0                                                   
+                              GRID    9               0.0     4.576   0.0                                                   
+                              GRID    10              0.0     5.148   0.0                                                   
+                              GRID    11              0.0     5.72    0.0                                                   
+                              MAT1    1       10.4+6  3.9+6           2.61-4                                                
+                              MKAERO1 .45                                                             +MK                   
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+
+      K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+
+                                              I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              +MK     .0001   .1      .2                                                                    
+                              PAERO1  1                                                                                     
+                              PARAM   COUPMASS1                                                                             
+                              PARAM   LMODES  3                                                                             
+                              PBAR    1       1       7.175-2 9.83-6          36.8-6                                        
+                              SET1    100     1       THRU    11                                                            
+                              SPC1    1       345     1                                                                     
+                              SPLINE2 100     101     101     124     100     0.0     1.      1       +SP                   
+                              +SP     0.0     0.0                                                                           
+                              ENDDATA                                                                                       
+
+
+                        TOTAL COUNT=     56
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        AERO    0       1.3+4   2.0706  1.145-7                                         
+                    2-        CAERO1  101     1       1       6       4                       1       +CA101  
+                    3-        +CA101  -1.     -.26795 0.0     2.0706  -1.     5.45205 0.0     2.0706          
+                    4-        CBAR    1       1       1       2       0.0     0.0     1.      1               
+                    5-        CBAR    2       1       2       3       0.0     0.0     1.      1               
+                    6-        CBAR    3       1       3       4       0.0     0.0     1.      1               
+                    7-        CBAR    4       1       4       5       0.0     0.0     1.      1               
+                    8-        CBAR    5       1       5       6       0.0     0.0     1.      1               
+                    9-        CBAR    6       1       6       7       0.0     0.0     1.      1               
+                   10-        CBAR    7       1       7       8       0.0     0.0     1.      1               
+                   11-        CBAR    8       1       8       9       0.0     0.0     1.      1               
+                   12-        CBAR    9       1       9       10      0.0     0.0     1.      1               
+                   13-        CBAR    10      1       10      11      0.0     0.0     1.      1               
+                   14-        CMASS2  12      2.8-6   2       5                                               
+                   15-        CMASS2  13      2.8-6   3       5                                               
+                   16-        CMASS2  14      2.8-6   4       5                                               
+                   17-        CMASS2  15      2.8-6   5       5                                               
+                   18-        CMASS2  16      2.8-6   6       5                                               
+                   19-        CMASS2  17      2.8-6   7       5                                               
+                   20-        CMASS2  18      2.8-6   8       5                                               
+                   21-        CMASS2  19      2.8-6   9       5                                               
+                   22-        CMASS2  20      2.8-6   10      5                                               
+                   23-        CMASS2  21      1.4-6   11      5                                               
+                   24-        CORD2R  1               0.0     0.0     0.0     0.0     0.0     1.      +C1     
+                   25-        +C1     .96593  -.25882 0.0                                                     
+                   26-        EIGC    20      HESS    MAX                                             +EC     
+                   27-        +EC                                                     3                       
+                   28-        EIGR    10      GIV     .3      .1              6                       +ER     
+                   29-        +ER     MAX                                                                     
+                   30-        FLFACT  1       .967                                                            
+                   31-        FLFACT  2       .45                                                             
+                   32-        FLFACT  3       .2      .16667  .14286  .125    .11111  .1                      
+                   33-        FLUTTER 30      KE      1       2       3       L       3                       
+                   34-        GRDSET          1                               1       126                     
+                   35-        GRID    1               0.0     .0      0.0                                     
+                   36-        GRID    2               0.0     .572    0.0                                     
+                   37-        GRID    3               0.0     1.144   0.0                                     
+                   38-        GRID    4               0.0     1.716   0.0                                     
+                   39-        GRID    5               0.0     2.288   0.0                                     
+                   40-        GRID    6               0.0     2.86    0.0                                     
+                   41-        GRID    7               0.0     3.432   0.0                                     
+                   42-        GRID    8               0.0     4.004   0.0                                     
+                   43-        GRID    9               0.0     4.576   0.0                                     
+                   44-        GRID    10              0.0     5.148   0.0                                     
+                   45-        GRID    11              0.0     5.72    0.0                                     
+                   46-        MAT1    1       10.4+6  3.9+6           2.61-4                                  
+                   47-        MKAERO1 .45                                                             +MK     
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+
+      K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        +MK     .0001   .1      .2                                                      
+                   49-        PAERO1  1                                                                       
+                   50-        PARAM   COUPMASS1                                                               
+                   51-        PARAM   LMODES  3                                                               
+                   52-        PBAR    1       1       7.175-2 9.83-6          36.8-6                          
+                   53-        SET1    100     1       THRU    11                                              
+                   54-        SPC1    1       345     1                                                       
+                   55-        SPLINE2 100     101     101     124     100     0.0     1.      1       +SP     
+                   56-        +SP     0.0     0.0                                                             
+                              ENDDATA
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    AERO 10 - MODAL FLUTTER ANALYSIS - APR. 1995 $                 
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     PHIHL=APPEND/AJJL=APPEND/FSAVE=APPEND/CASEYY=APPEND/           
+                   CLAMAL=APPEND/OVG=APPEND/QHHL=APPEND/SKJ=APPEND/QHJL=APPEND/   
+                   QKHL=APPEND/ $                                                 
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   S,N,NOGPDT/MINUS1=-1 $                                         
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  COND     ERROR5,NOGPDT $                                                
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $                              
+
+      12  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      13  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      14  COND     ERROR1,NOSIMP $                                                
+
+      15  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      16  PARAM    //*ADD*/NOMGG /1/0 $                                           
+
+      17  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/C,Y,CPROD/                 
+                   C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/C,Y,CPTUBE/    
+                   C,Y,CPQDPLT/C,Y,CPTRPLT/C,Y,CPTRBSC/                           
+                   C,Y,VOLUME/C,Y,SURFACE $                                       
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+
+      K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      18  PURGE    KGGX/NOKGGX $                                                  
+
+      19  COND     JMPKGGX,NOKGGX $                                               
+
+      20  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      21  PURGE    KDICT,KELM/MINUS1 $                                            
+
+      22  LABEL    JMPKGGX $                                                      
+
+      23  COND     ERROR1,NOMGG $                                                 
+
+      24  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      25  PURGE    MDICT,MELM/MINUS1 $                                            
+
+      26  COND     LGPWG,GRDPNT $                                                 
+
+      27  GPWG     BGPDT,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/C,Y,WTMASS $         
+
+      28  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      29  LABEL    LGPWG $                                                        
+
+      30  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      31  COND     LBL11,NOGENL $                                                 
+
+      32  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      33  LABEL    LBL11 $                                                        
+
+      34  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      35  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,,USET,             
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/0/REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/                  
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      36  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      37  EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1 $                                  
+
+      38  PURGE    GM/MPCF1/DM,MR/REACT $                                         
+
+      39  COND     LBL2,MPCF1 $                                                   
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+
+      K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      40  MCE1     USET,RG/GM $                                                   
+
+      41  MCE2     USET,GM,KGG,MGG,,/KNN,MNN,, $                                  
+
+      42  LABEL    LBL2 $                                                         
+
+      43  EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE $                                
+
+      44  COND     LBL3,SINGLE $                                                  
+
+      45  SCE1     USET,KNN,MNN,,/KFF,KFS,,MFF,, $                                
+
+      46  LABEL    LBL3 $                                                         
+
+      47  EQUIV    KFF,KAA/OMIT/ MFF,MAA/OMIT $                                   
+
+      48  PURGE    GO/OMIT $                                                      
+
+      49  COND     LBL5,OMIT $                                                    
+
+      50  PARAM    //*PREC*/PREC $                                                
+
+      51  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      52  SMP2     USET,GO,MFF/MAA $                                              
+
+      53  LABEL    LBL5 $                                                         
+
+      54  COND     LBL6,REACT $                                                   
+
+      55  RBMG1    USET,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                         
+
+      56  RBMG2    KLL/LLL/ $                                                     
+
+      57  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      58  RBMG4    DM,MLL,MLR,MRR/MR $                                            
+
+      59  LABEL    LBL6 $                                                         
+
+      60  DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,TFPOOL,,,,,,EED,EQDYN/   
+                   LUSET/S,N,LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/                     
+                   NONLFT/NOTRL/S,N,NOEED/123/S,N,NOUE $                          
+
+      61  COND     ERROR2,NOEED $                                                 
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+
+      K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      62  EQUIV    GO,GOD/NOUE/GM,GMD/NOUE $                                      
+
+      63  READ     KAA,MAA,MR,DM,EED,USET,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/S,N,  
+                   NEIGV $                                                        
+
+      64  OFP      OEIGS,,,,,//S,N,CARDNO $                                       
+
+      65  COND     ERROR4,NEIGV $                                                 
+
+      66  OFP      LAMA,,,,,//S,N,CARDNO $                                        
+
+      66  MATGPR   GPL,USET,SIL,PHIA//C,N,FE,/C,N,A $                             
+
+      67  MTRXIN   CASECC,MATPOOL,EQDYN,,TFPOOL/K2PP,M2PP,B2PP/LUSETD/S,N,        
+                   NOK2PP/S,N,NOM2PP/S,N,NOB2PP $                                 
+
+      68  EQUIV    M2PP,M2DD/NOA/B2PP,B2DD/NOA/K2PP,K2DD/NOA $                    
+
+      69  GKAD     USETD,GM,GO,,,,,K2PP,M2PP,B2PP/,,,GMD,GOD,K2DD,M2DD,B2DD/      
+                   *CMPLEV*/*DISP*/*MODAL*/0.0/0.0/0.0/NOK2PP/                    
+                   NOM2PP/NOB2PP/MPCF1/SINGLE/OMIT/NOUE/                          
+                   -1/-1/   -1/-1 $                                               
+
+      70  GKAM     USETD,PHIA,,LAMA,DIT,M2DD,B2DD,K2DD,CASECC/MHH,BHH,KHH,        
+                   PHIDH/NOUE/C,Y,LMODES=0/C,Y,LFREQ=0./C,Y,HFREQ=-1.0/           
+                   NOM2PP/NOB2PP/NOK2PP/S,N,NONCUP/S,N,FMODE/C,Y,KDAMP $          
+
+      71  APD      EDT,EQDYN,ECT,BGPDT,SILD,USETD,CSTM,GPLD/EQAERO,ECTA,BGPA,SILA,
+                   USETA,SPLINE,AERO,ACPT,FLIST,CSTMA,GPLA,SILGA/S,N,NK/S,N,NJ/   
+                   S,N,LUSETA/S,N,BOV $                                           
+
+      72  PARAM    //*MPY*/PFILE/0/1 $                                            
+
+      73  PURGE    PLTSETA,PLTPARA,GPSETSA,ELSETSA/JUMPPLOT $                     
+
+      74  COND     SKPPLT,JUMPPLOT $                                              
+
+      75  PARAM    //*MPY*/PLTFLG/0/1 $                                           
+
+      76  PLTSET   PCDB,EQAERO,ECTA,/PLTSETA,PLTPARA,GPSETSA,ELSETSA/S,N,NSIL1/   
+                   S,N,JUMPPLOT $                                                 
+
+      77  PRTMSG   PLTSETA // $                                                   
+
+      78  COND     SKPPLT,JUMPPLOT $                                              
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+
+      K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      79  PLOT     PLTPARA,GPSETSA,ELSETSA,CASECC,BGPA,EQAERO,    ,,,,,,/PLOTX2/  
+                   NSIL1/LUSETA/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE $               
+
+      80  PRTMSG   PLOTX2 // $                                                    
+
+      81  LABEL    SKPPLT $                                                       
+
+      82  COND     ERROR2,NOEED $                                                 
+
+      83  GI       SPLINE,USET ,CSTMA,BGPA,SIL , ,GM,GO/GTKA/NK/LUSET $           
+
+      84  PARAM    //*ADD*/DESTRY/0/1/ $                                          
+
+      85  AMG      AERO,ACPT/AJJL,SKJ,D1JK,D2JK/NK/NJ/S,N,DESTRY $                
+
+      86  COND     NODJE,    NODJE $                                              
+
+      87  INPUTT2  /D1JE,D2JE,,,/C,Y,P1=0/C,Y,P2=11/C,Y,P3=XXXXXXXX $             
+
+      88  LABEL    NODJE $                                                        
+
+      89  PARAM    //*ADD*/XQHHL/1/0 $                                            
+
+      90  AMP      AJJL,SKJ,D1JK,D2JK,GTKA,PHIDH,D1JE,D2JE,USETD,AERO/QHHL,QKHL,  
+                   QHJL/NOUE/S,N,XQHHL/V,Y,GUSTAERO=-1 $                          
+
+      91  PARAM    //*MPY*/FLOOP/V,Y,NODJE=-1/0 $                                 
+
+      92  LABEL    LOOPTOP $                                                      
+
+      93  FA1      KHH,BHH,MHH,QHHL,CASECC,FLIST/FSAVE,KXHH,BXHH,MXHH/            
+                   S,N,FLOOP/S,N,TSTART/S,N,NOCEAD $                              
+
+      94  EQUIV    KXHH,PHIH/NOCEAD/BXHH,CLAMA/NOCEAD/KXHH,PHIHL/NOCEAD/BXHH,     
+                   CLAMAL/NOCEAD/CASECC,CASEYY/NOCEAD $                           
+
+      95  COND     VDR,NOCEAD $                                                   
+
+      96  CEAD     KXHH,BXHH,MXHH,EED,CASECC/PHIH,CLAMA,OCEIGS,/S,N,EIGVS $       
+
+      97  COND     LBLZAP,EIGVS $                                                 
+
+      98  LABEL    VDR $                                                          
+
+      99  VDR      CASECC,EQDYN ,USETD,PHIH,CLAMA,,/OPHIH,/*CEIGEN*/*MODAL*/      
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                   123/S,N,NOH/S,N,NOP/FMODE $                                    
+
+     100  COND     LBL16,NOH $                                                    
+
+     101  OFP      OPHIH,,,,,//S,N,CARDNO $                                       
+
+     102  LABEL    LBL16 $                                                        
+
+     103  FA2      PHIH,CLAMA,FSAVE/    PHIHL,CLAMAL,CASEYY,OVG/S,N,TSTART/       
+                   C,Y,VREF=1.0/C,Y,PRINT=YES $                                   
+
+     104  COND     CONTINUE,TSTART $                                              
+
+     105  LABEL    LBLZAP $                                                       
+
+     106  COND     CONTINUE,FLOOP $                                               
+
+     107  REPT     LOOPTOP,100 $                                                  
+
+     108  JUMP     ERROR3 $                                                       
+
+     109  LABEL    CONTINUE $                                                     
+
+     110  PARAML   XYCDB//*PRES*////NOXYCDB $                                     
+
+     111  COND     NOXYOUT,NOXYCDB $                                              
+
+     112  XYTRAN   XYCDB,OVG,,,,/XYPLTCE/*VG*/*PSET*/S,N,PFILE/S,N,CARDNO/        
+                   S,N,NOXYPL $                                                   
+
+     113  COND     NOXYOUT,NOXYPL $                                               
+
+     114  XYPLOT   XYPLTCE// $                                                    
+
+     115  LABEL    NOXYOUT $                                                      
+
+     116  PARAM    //*AND*/PJUMP/NOP=-1/JUMPPLOT $                                
+
+     117  COND     FINIS,PJUMP $                                                  
+
+     118  MODACC   CASEYY,CLAMAL,PHIHL,,,/CLAMAL1,CPHIH1,CASEZZ,,/*CEIGN* $       
+
+     119  ADR      CPHIH1,CASEZZ,QKHL,CLAMAL1,SPLINE,SILA,USETA/PKF/BOV/          
+                   C,Y,MACH = 0.0/*FLUTTER* $                                     
+
+     120  DDR1     CPHIH1,PHIDH/CPHID $                                           
+
+     121  EQUIV    CPHID ,CPHIP/NOA $                                             
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+
+      K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     122  PURGE    QPC/NOA $                                                      
+
+     123  COND     LBL14,NOA $                                                    
+
+     124  SDR1     USETD,,CPHID ,,,GOD,GMD,,KFS,,/CPHIP,,QPC/1 /*DYNAMICS* $      
+
+     125  LABEL    LBL14 $                                                        
+
+     126  EQUIV    CPHID ,CPHIA/NOUE $                                            
+
+     127  COND     LBLNOE,NOUE $                                                  
+
+     128  VEC      USETA/RP/*D*/*A*/*E* $                                         
+
+     129  PARTN    CPHID ,,RP/CPHIA,,,/1/3 $                                      
+
+     130  LABEL    LBLNOE $                                                       
+
+     131  MPYAD    GTKA,CPHIA,/CPHIK/1/1/0/PREC $                                 
+
+     132  UMERGE   USETA,CPHIP,/CPHIPS/*PS*/*P*/*SA* $                            
+
+     133  UMERGE   USETA,CPHIPS,CPHIK/CPHIPA/*PA*/*PS*/*K* $                      
+
+     134  UMERGE   USETA,QPC,/QPAC/*PA*/*P*/*K* $                                 
+
+     135  SDR2     CASEZZ,CSTMA,MPT,DIT,EQAERO,SILA,,,BGPA,CLAMAL1,QPAC,CPHIPA,   
+                   EST,,,/,OQPAC1,OCPHIPA,OESC1,OEFC1,PCPHIPA,,/*CEIGN* $         
+
+     136  OFP      OCPHIPA,OQPAC1,OESC1,OEFC1,,//S,N,CARDNO $                     
+
+     137  COND     FINIS,JUMPPLOT $                                               
+
+     138  PLOT     PLTPARA,GPSETSA,ELSETSA,CASEZZ,BGPA,EQAERO,SILGA,,PCPHIPA,,,,  
+                   /PLOTX3/NSIL1/LUSETA/JUMPPLOT/PLTFLG/S,N,                      
+                   PFILE $                                                        
+
+     139  PRTMSG   PLOTX3// $                                                     
+
+     140  JUMP     FINIS $                                                        
+
+     141  LABEL    ERROR3 $                                                       
+
+     142  PRTPARM  //-3/*FLUTTER* $                                               
+
+     143  LABEL    ERROR2 $                                                       
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+
+      K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     144  PRTPARM  //-2/*FLUTTER* $                                               
+
+     145  LABEL    ERROR1 $                                                       
+
+     146  PRTPARM  //-1/*FLUTTER* $                                               
+
+     147  LABEL    ERROR4 $                                                       
+
+     148  PRTPARM  //-4/*FLUTTER* $                                               
+
+     149  LABEL    ERROR5 $                                                       
+
+     150  PRTPARM  //-5/*FLUTTER* $                                               
+
+     151  LABEL    FINIS $                                                        
+
+     152  PURGE    DUMMY/MINUS1 $                                                 
+
+     153  END      $                                                              
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     SMALL PROBLEM SIZE
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+
+      K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION MASS2    ELEMENTS (ELEMENT TYPE  26) STARTING WITH ID       12
+0*** USER INFORMATION MESSAGE 2016, GIVENS TIME ESTIMATE IS        0 SECONDS.
+                                    PROBLEM SIZE IS      30, SPILL WILL OCCUR FOR THIS CORE AT A PROBLEM SIZE OF    1413 .
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y   (GIVENS METHOD)
+
+
+
+                                    NUMBER OF EIGENVALUES EXTRACTED . . . . . . .        30
+
+                                    NUMBER OF EIGENVECTORS COMPUTED . . . . . . .         6
+
+                                    NUMBER OF EIGENVALUE CONVERGENCE FAILURES . .         0
+
+                                    NUMBER OF EIGENVECTOR CONVERGENCE FAILURES. .         0
+
+
+                                    REASON FOR TERMINATION. . . . . . . . . . . .         1*
+
+
+                                    LARGEST OFF-DIAGONAL MODAL MASS TERM. . . . .  0.00E+00
+
+                                                                            . . .         0
+                                              MODE PAIR. . . . . . . . . . .
+                                                                            . . .         0
+
+                                    NUMBER OF OFF-DIAG0NAL MODAL MASS
+                                         TERMS FAILING CRITERION. . . . . . . . .         0
+
+
+                                    (* NORMAL TERMINATION)
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1        29        6.304402E+04        2.510857E+02        3.996152E+01        2.677916E-05        1.688266E+00             
+        2        30        2.206506E+06        1.485431E+03        2.364137E+02        1.400000E-05        3.089108E+01             
+        3        28        2.476139E+06        1.573575E+03        2.504423E+02        2.677572E-05        6.630042E+01             
+        4        26        1.942194E+07        4.407033E+03        7.014010E+02        1.420851E-05        2.759567E+02             
+        5        27        1.953390E+07        4.419717E+03        7.034197E+02        1.400000E-05        2.734746E+02             
+        6        25        5.249256E+07        7.245175E+03        1.153105E+03        1.399999E-05        7.348956E+02             
+        7        24        7.468510E+07        8.642055E+03        1.375426E+03        0.0                 0.0                      
+        8        23        9.785626E+07        9.892232E+03        1.574398E+03        0.0                 0.0                      
+        9        22        1.511845E+08        1.229571E+04        1.956923E+03        0.0                 0.0                      
+       10        20        2.047278E+08        1.430831E+04        2.277239E+03        0.0                 0.0                      
+       11        21        2.072571E+08        1.439643E+04        2.291262E+03        0.0                 0.0                      
+       12        19        2.605854E+08        1.614266E+04        2.569183E+03        0.0                 0.0                      
+       13        18        3.059491E+08        1.749140E+04        2.783843E+03        0.0                 0.0                      
+       14        17        3.389078E+08        1.840945E+04        2.929954E+03        0.0                 0.0                      
+       15        16        3.562351E+08        1.887419E+04        3.003921E+03        0.0                 0.0                      
+       16        15        4.594797E+08        2.143548E+04        3.411562E+03        0.0                 0.0                      
+       17        14        9.045066E+08        3.007502E+04        4.786587E+03        0.0                 0.0                      
+       18        13        1.623464E+09        4.029223E+04        6.412708E+03        0.0                 0.0                      
+       19        12        2.714134E+09        5.209736E+04        8.291552E+03        0.0                 0.0                      
+       20        11        4.194444E+09        6.476452E+04        1.030759E+04        0.0                 0.0                      
+       21        10        7.430217E+09        8.619871E+04        1.371895E+04        0.0                 0.0                      
+       22         9        1.084491E+10        1.041389E+05        1.657422E+04        0.0                 0.0                      
+       23         8        1.593668E+10        1.262406E+05        2.009181E+04        0.0                 0.0                      
+       24         7        2.321477E+10        1.523639E+05        2.424947E+04        0.0                 0.0                      
+       25         6        3.352112E+10        1.830877E+05        2.913932E+04        0.0                 0.0                      
+       26         5        4.794975E+10        2.189743E+05        3.485085E+04        0.0                 0.0                      
+       27         4        6.754208E+10        2.598886E+05        4.136255E+04        0.0                 0.0                      
+       28         3        9.205609E+10        3.034075E+05        4.828880E+04        0.0                 0.0                      
+       29         2        1.167387E+11        3.416705E+05        5.437855E+04        0.0                 0.0                      
+       30         1        1.828392E+11        4.275971E+05        6.805419E+04        0.0                 0.0                      
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+0                PHIA                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       1- H).
+             2 T3  1.67735E-02        2 R1  5.72388E-02        2 R2  3.01054E-09        3 T3  6.38710E-02        3 R1  1.06035E-01
+             3 R2  3.03284E-09        4 T3  1.36483E-01        4 R1  1.46474E-01        4 R2 -7.48494E-09        5 T3  2.29884E-01
+             5 R1  1.78774E-01        5 R2 -8.72457E-09        6 T3  3.39523E-01        6 R1  2.03331E-01        6 R2  3.99158E-09
+             7 T3  4.61135E-01        7 R1  2.20760E-01        7 R2  7.35782E-11        8 T3  5.90876E-01        8 R1  2.31925E-01
+             8 R2 -3.15805E-10        9 T3  7.25478E-01        9 R1  2.37964E-01        9 R2  2.17289E-10       10 T3  8.62400E-01
+            10 R1  2.40300E-01       10 R2  5.58286E-10       11 T3  1.00000E+00       11 R1  2.40648E-01       11 R2  4.86563E-10
+0COLUMN       2 (       2- H).
+             2 T3 -7.46044E-09        2 R1 -1.88336E-08        2 R2  1.56434E-01        3 T3 -2.28561E-08        3 R1 -2.59106E-08
+             3 R2  3.09017E-01        4 T3 -2.58240E-08        4 R1 -2.26935E-08        4 R2  4.53990E-01        5 T3 -5.68907E-08
+             5 R1 -2.57682E-08        5 R2  5.87785E-01        6 T3 -7.27691E-08        6 R1 -2.17948E-09        6 R2  7.07107E-01
+             7 T3 -2.14620E-08        7 R1  2.90025E-08        7 R2  8.09017E-01        8 T3 -5.17652E-08        8 R1  4.09725E-08
+             8 R2  8.91007E-01        9 T3 -2.56568E-08        9 R1  5.40314E-08        9 R2  9.51057E-01       10 T3  1.10070E-07
+            10 R1  6.21463E-08       10 R2  9.87688E-01       11 T3  2.13897E-08       11 R1  6.16105E-08       11 R2  1.00000E+00
+0COLUMN       3 (       3- H).
+             2 T3 -9.26293E-02        2 R1 -2.93280E-01        2 R2 -3.47704E-08        3 T3 -3.01055E-01        3 R1 -4.06302E-01
+             3 R2 -6.19249E-08        4 T3 -5.26133E-01        4 R1 -3.55778E-01        4 R2 -4.46378E-08        5 T3 -6.83470E-01
+             5 R1 -1.76822E-01        5 R2 -7.01620E-08        6 T3 -7.13666E-01        6 R1  7.92204E-02        6 R2 -1.22805E-07
+             7 T3 -5.89476E-01        7 R1  3.53042E-01        7 R2 -1.26697E-07        8 T3 -3.17052E-01        8 R1  5.89324E-01
+             8 R2 -1.45986E-07        9 T3  7.00358E-02        9 R1  7.49587E-01        9 R2 -1.52911E-07       10 T3  5.23752E-01
+            10 R1  8.23344E-01       10 R2 -1.56358E-07       11 T3  1.00000E+00       11 R1  8.35801E-01       11 R2 -1.61307E-07
+0COLUMN       4 (       4- H).
+             2 T3  1.66212E-01        2 R1  4.79761E-01        2 R2 -3.32192E-07        3 T3  4.40551E-01        3 R1  3.97278E-01
+             3 R2 -5.90702E-07        4 T3  5.51134E-01        4 R1 -4.52344E-02        4 R2 -7.67610E-07        5 T3  3.83288E-01
+             5 R1 -5.17263E-01        5 R2 -7.29061E-07        6 T3  1.43548E-02        6 R1 -7.07374E-01        6 R2 -5.46079E-07
+             7 T3 -3.45266E-01        7 R1 -4.83040E-01        7 R2 -2.34486E-07        8 T3 -4.79119E-01        8 R1  4.54486E-02
+             8 R2  1.04545E-07        9 T3 -2.87782E-01        9 R1  6.03327E-01        9 R2  4.31755E-07       10 T3  1.66523E-01
+            10 R1  9.34987E-01       10 R2  6.64389E-07       11 T3  7.28774E-01       11 R1  1.00000E+00       11 R2  7.29213E-07
+0COLUMN       5 (       5- H).
+             2 T3 -1.21821E-07        2 R1 -3.61570E-07        2 R2 -4.53991E-01        3 T3 -3.24342E-07        3 R1 -3.01407E-07
+             3 R2 -8.09017E-01        4 T3 -4.35062E-07        4 R1  3.05368E-08        4 R2 -9.87688E-01        5 T3 -2.76111E-07
+             5 R1  3.94483E-07        5 R2 -9.51057E-01        6 T3  8.62920E-09        6 R1  5.18704E-07        6 R2 -7.07107E-01
+             7 T3  2.43395E-07        7 R1  3.57616E-07        7 R2 -3.09017E-01        8 T3  3.43037E-07        8 R1 -4.78102E-08
+             8 R2  1.56435E-01        9 T3  1.93511E-07        9 R1 -4.58635E-07        9 R2  5.87786E-01       10 T3 -6.62254E-08
+            10 R1 -6.86214E-07       10 R2  8.91007E-01       11 T3 -6.01408E-07       11 R1 -7.47646E-07       11 R2  1.00000E+00
+0COLUMN       6 (       6- H).
+             2 T3  2.18324E-09        2 R1  1.29194E-08        2 R2  7.07107E-01        3 T3  3.18404E-09        3 R1  2.75766E-09
+             3 R2  1.00000E+00        4 T3  1.93508E-08        4 R1 -2.43256E-08        4 R2  7.07107E-01        5 T3 -3.49928E-09
+             5 R1 -7.19701E-09        5 R2 -4.07056E-07        6 T3  2.49600E-10        6 R1  7.66200E-09        6 R2 -7.07107E-01
+             7 T3 -4.19797E-08        7 R1  1.57023E-08        7 R2 -1.00000E+00        8 T3  1.80972E-08        8 R1  9.91273E-09
+             8 R2 -7.07106E-01        9 T3  1.56192E-08        9 R1 -2.44623E-08        9 R2  4.28747E-07       10 T3  4.15805E-08
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+0                PHIA                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+            10 R1 -1.38289E-08       10 R2  7.07106E-01       11 T3 -8.64965E-08       11 R1 -5.46747E-08       11 R2  9.99999E-01
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+
+      K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+
+
+
+
+0*** USER INFORMATION MESSAGE 3028      B =   12     BBAR =    3
+                                        C =   13     CBAR =   20
+                                        R =   14
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATC12 (N =    24)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =   12     BBAR =    3
+                                        C =   13     CBAR =   20
+                                        R =   14
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATC12 (N =    24)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =   12     BBAR =    3
+                                        C =   13     CBAR =   20
+                                        R =   14
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATC12 (N =    24)
+     TIME ESTIMATE =        0 SECONDS
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+0                                                       FLUTTER  SUMMARY
+
+       POINT =    1     MACH NUMBER =  0.4500     DENSITY RATIO =  9.6700E-01     METHOD = KE  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.2000       5.0000000E+00     1.2874204E+03     3.0572996E-02     3.9582600E+01     1.9680149E+01     1.2874204E+03
+        0.1667       5.9998803E+00     1.6037177E+03    -7.3209979E-02     4.1090294E+01    -5.8704067E+01     1.6037177E+03
+        0.1429       6.9998603E+00     1.8892721E+03    -8.6503170E-02     4.1491489E+01    -8.1714012E+01     1.8892721E+03
+        0.1250       8.0000000E+00     2.1841025E+03    -1.0020997E-01     4.1969803E+01    -1.0943443E+02     2.1841025E+03
+        0.1111       9.0000896E+00     1.9975132E+03    -1.0382280E+01     3.4119034E+01    -1.0369371E+04     1.9975132E+03
+        0.1000       1.0000000E+01     1.7181267E+03    -1.1323216E+01     2.6412474E+01    -9.7273604E+03     1.7181267E+03
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+0                                                       FLUTTER  SUMMARY
+
+       POINT =    2     MACH NUMBER =  0.4500     DENSITY RATIO =  9.6700E-01     METHOD = KE  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.2000       5.0000000E+00     6.9128677E+03     1.0722351E-01     2.1254073E+02     3.7061096E+02     6.9128677E+03
+        0.1667       5.9998803E+00     9.8083525E+03     5.8240853E-02     2.5130862E+02     2.8562341E+02     9.8083525E+03
+        0.1429       6.9998603E+00     4.1483218E+03    -6.3117208E+00     9.1103897E+01    -1.3091524E+04     4.1483218E+03
+        0.1250       8.0000000E+00     2.5764182E+03    -8.8236256E+00     4.9508556E+01    -1.1366675E+04     2.5764182E+03
+        0.1111       9.0000896E+00     2.4901931E+03    -1.1443459E-01     4.2534378E+01    -1.4248212E+02     2.4901931E+03
+        0.1000       1.0000000E+01     2.8099954E+03    -1.2936074E-01     4.3197590E+01    -1.8175154E+02     2.8099954E+03
+1     AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-02-1A (KE METHOD)                                                                       
+0     K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)                                                                 
+0                                                       FLUTTER  SUMMARY
+
+       POINT =    3     MACH NUMBER =  0.4500     DENSITY RATIO =  9.6700E-01     METHOD = KE  
+
+
+       KFREQ            1./KFREQ         VELOCITY            DAMPING         FREQUENCY            COMPLEX   EIGENVALUE
+        0.2000       5.0000000E+00     8.1558384E+03    -1.0921552E-02     2.5075668E+02    -4.4537205E+01     8.1558384E+03
+        0.1667       5.9998803E+00     1.0555138E+04    -2.7270651E+00     2.7044269E+02    -1.4392273E+04     1.0555138E+04
+        0.1429       6.9998603E+00     1.1285730E+04     8.4197670E-02     2.4785301E+02     4.7511609E+02     1.1285730E+04
+        0.1250       8.0000000E+00     1.2570811E+04     1.1620019E-01     2.4156120E+02     7.3036530E+02     1.2570811E+04
+        0.1111       9.0000896E+00     1.3588004E+04     1.5205432E-01     2.3209337E+02     1.0330574E+03     1.3588004E+04
+        0.1000       1.0000000E+01     1.4283637E+04     1.8880093E-01     2.1957996E+02     1.3483820E+03     1.4283637E+04
+0*** USER WARNING MESSAGE 979, AN XY-OUTPUT REQUEST FOR POINT OR ELEMENT ID         4
+     - VG - CURVE IS BEING PASSED OVER.  THE ID COULD NOT BE FOUND IN DATA BLOCK       102
+0*** USER WARNING MESSAGE 979, AN XY-OUTPUT REQUEST FOR POINT OR ELEMENT ID         5
+     - VG - CURVE IS BEING PASSED OVER.  THE ID COULD NOT BE FOUND IN DATA BLOCK       102
+0*** USER WARNING MESSAGE 979, AN XY-OUTPUT REQUEST FOR POINT OR ELEMENT ID         6
+     - VG - CURVE IS BEING PASSED OVER.  THE ID COULD NOT BE FOUND IN DATA BLOCK       102
+1         K VALUES .200(*)  .167(0)  .143(1)  .125(2)  .111(3)  .100(4)     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+                                                                                                                                    
+0                                                                                                                                   
+0                                                            F     R     A     M     E
+
+                                                           ****  ****  ****  ****   ** 
+                                                           *  *  *  *  *  *  *  *    * 
+                                                           *  *  *  *  *  *  *  *    * 
+                                                           *  *  *  *  *  *  *  *    * 
+                                                           ****  ****  ****  ****  ****
+
+0         V-G AND V-F DATA POINTS                                                                                                   
+0    X-AXIS TITLE =  VELOCITY                                                                                                       
+0
+             +---------------------------------------------------------+ +---------------------------------------------------------+
+             I                                                         I I                                                         I
+             I  FREQUENCY (F)                                          I I  DAMPING (G)                                            I
+             I                                                         I I                                                         I
+             I  0.000000E+00         1.500000E+02         3.000000E+02 I I -1.200000E+01        -5.000000E+00         2.000000E+00 I
+             +---------------------------------------------------------+ +---------------------------------------------------------+
+  0.0000E+00 I                            I                            I I                            I                            I
+  2.9630E+02 I                            I                            I I                            I                            I
+  5.9259E+02 I                            I                            I I                            I                            I
+  8.8889E+02 I                            I                            I I                            I                            I
+  1.1852E+03 I       *                    I                            I I                            I                    *       I
+  1.4815E+03 I       *                    I                            I I                            I                   *        I
+  1.7778E+03 I    *  *                    I                            I I  *                         I                   *        I
+  2.0741E+03 I      **                    I                            I I      *                     I                   *        I
+  2.3704E+03 I       0                    I                            I I                            I                   0        I
+  2.6667E+03 I       0 0                  I                            I I            0               I                   0        I
+  2.9630E+03 I                            I                            I I                            I                            I
+  3.2593E+03 I                            I                            I I                            I                            I
+  3.5556E+03 I                            I                            I I                            I                            I
+  3.8519E+03 I                            I                            I I                            I                            I
+  4.1481E+03 I                 0          I                            I I                       0    I                            I
+  4.4444E+03 I                            I                            I I                            I                            I
+  4.7407E+03 I                            I                            I I                            I                            I
+  5.0370E+03 I                            I                            I I                            I                            I
+  5.3333E+03 I                            I                            I I                            I                            I
+  5.6296E+03 I                            I                            I I                            I                            I
+  5.9259E+03 I                            I                            I I                            I                            I
+  6.2222E+03 I                            I                            I I                            I                            I
+  6.5185E+03 I                            I                            I I                            I                            I
+  6.8148E+03 I                            I           0                I I                            I                    0       I
+  7.1111E+03 I                            I                            I I                            I                            I
+  7.4074E+03 I                            I                            I I                            I                            I
+  7.7037E+03 I                            I                            I I                            I                            I
+  8.0000E+03 I                            I                            I I                            I                            I
+  8.2963E+03 I                            I                  A         I I                            I                    A       I
+  8.5926E+03 I                            I                            I I                            I                            I
+1 8.8889E+03 I                            I                            I I                            I                            I
+  9.1852E+03 I                            I                            I I                            I                            I
+  9.4815E+03 I                            I                            I I                            I                            I
+  9.7778E+03 I                            I                   0        I I                            I                    0       I
+  1.0074E+04 I                            I                            I I                            I                            I
+  1.0370E+04 I                            I                            I I                            I                            I
+  1.0667E+04 I                            I                      A     I I                            I        A                   I
+  1.0963E+04 I                            I                            I I                            I                            I
+  1.1259E+04 I                            I                  A         I I                            I                    A       I
+  1.1556E+04 I                            I                            I I                            I                            I
+  1.1852E+04 I                            I                            I I                            I                            I
+  1.2148E+04 I                            I                            I I                            I                            I
+  1.2444E+04 I                            I                 A          I I                            I                    A       I
+  1.2741E+04 I                            I                            I I                            I                            I
+  1.3037E+04 I                            I                            I I                            I                            I
+  1.3333E+04 I                            I                            I I                            I                            I
+  1.3630E+04 I                            I               A            I I                            I                    A       I
+  1.3926E+04 I                            I                            I I                            I                            I
+  1.4222E+04 I                            I            A               I I                            I                    A       I
+  1.4519E+04 I                            I                            I I                            I                            I
+  1.4815E+04 I                            I                            I I                            I                            I
+  1.5111E+04 I                            I                            I I                            I                            I
+  1.5407E+04 I                            I                            I I                            I                            I
+  1.5704E+04 I                            I                            I I                            I                            I
+  1.6000E+04 I                            I                            I I                            I                            I
+             +---------------------------------------------------------+ +---------------------------------------------------------+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK GOD      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK GMD      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK PLTPARA  MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK GPSETSA  MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ELSETSA  MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  AEROELASTIC FLUTTER ANALYSIS OF A FIFTEEN DEGREE SWEPT WING        
+ DATE:  5/17/95
+ END TIME: 16:12: 6
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

@@ -1,0 +1,345 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D04011A,NASTRAN                                                           
+     APP   DISP                                                                      
+     SOL   4,0                                                                       
+     TIME  10                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     INITIAL SHAPE IS A CIRCLE, FINAL SHAPE IS A CATENARY                                                                          
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                  
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                          
+                  3      LABEL    = INITIAL SHAPE IS A CIRCLE, FINAL SHAPE IS A CATENARY                 
+                  4      DISP = ALL                                                                      
+                  5      SPCF = ALL                                                                      
+                  6      LOAD = 32                                                                       
+                  7      SPC  = 2                                                                        
+                  8      STRESS = ALL                                                                    
+                  9      FORCE  = ALL                                                                    
+                 10      SUBCASE 1                                                                       
+                 11      OLOAD = ALL                                                                     
+                 12      LABEL = LINEAR SOLUTION                                                         
+                 13      SUBCASE 2                                                                       
+                 14      LABEL = NONLINEAR SOLUTION                                                      
+                 15      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    30, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     INITIAL SHAPE IS A CIRCLE, FINAL SHAPE IS A CATENARY                                                                          
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        BAROR                                   -1.2    1.0     0.0     1               
+                    2-        CBAR    10      10      10      11                                              
+                    3-        CBAR    11      10      11      12                                              
+                    4-        CBAR    12      10      12      13                                              
+                    5-        CBAR    13      10      13      14                                              
+                    6-        CBAR    14      10      14      15                                              
+                    7-        CBAR    15      10      15      16                                              
+                    8-        CBAR    16      10      16      17                                              
+                    9-        CBAR    17      10      17      18                                              
+                   10-        CBAR    18      10      18      19                                              
+                   11-        CORD2C  10      0       .0      .0      .0      .0      .0      1.0     +CS1    
+                   12-        +CS1    1.0     .0      .0                                                      
+                   13-        GRAV    32      0       32.2    0.0     1.0     .0                              
+                   14-        GRDSET          10                              0       345                     
+                   15-        GRID    10              10.0    .0                                              
+                   16-        GRID    11              10.0    10.0                                            
+                   17-        GRID    12              10.0    20.0                                            
+                   18-        GRID    13              10.0    30.0                                            
+                   19-        GRID    14              10.0    40.0                                            
+                   20-        GRID    15              10.0    50.0                                            
+                   21-        GRID    16              10.0    60.0                                            
+                   22-        GRID    17              10.0    70.0                                            
+                   23-        GRID    18              10.0    80.0                                            
+                   24-        GRID    19              10.0    90.0                                            
+                   25-        MAT1    1       5.5+5           .3      .4                                      
+                   26-        PARAM   BETAD   8                                                       DIFFSTIF
+                   27-        PARAM   EPSIO   1.0-5                                                   DIFFSTIF
+                   28-        PARAM   NT      18                                                      DIFFSTIF
+                   29-        PBAR    10      1       .1      1.0-6   1.0-6                                   
+                   30-        SPC     2       10      12      .0      19      1       .0                      
+                              ENDDATA
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     SMALL PROBLEM SIZE
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+
+      INITIAL SHAPE IS A CIRCLE, FINAL SHAPE IS A CATENARY                                                                          
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID       10
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   2.4963145E-10
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     LINEAR SOLUTION                                                                                        SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            0.0            1.089276E+02                  
+            11      G     -1.800632E+02  -1.575284E+01   0.0            0.0            0.0            9.322742E+01                  
+            12      G     -3.063097E+02  -4.957994E+01   0.0            0.0            0.0            5.418734E+01                  
+            13      G     -3.542910E+02  -7.195342E+01   0.0            0.0            0.0            6.080114E+00                  
+            14      G     -3.289772E+02  -5.422792E+01   0.0            0.0            0.0           -4.057841E+01                  
+            15      G     -2.541684E+02   2.058130E+01   0.0            0.0            0.0           -7.903272E+01                  
+            16      G     -1.606223E+02   1.541796E+02   0.0            0.0            0.0           -1.060638E+02                  
+            17      G     -7.611330E+01   3.354106E+02   0.0            0.0            0.0           -1.215579E+02                  
+            18      G     -1.956326E+01   5.464589E+02   0.0            0.0            0.0           -1.278975E+02                  
+            19      G      0.0            7.700712E+02   0.0            0.0            0.0           -1.292109E+02                  
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     LINEAR SOLUTION                                                                                        SUBCASE 1              
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            1.122566E+00   0.0            0.0            0.0            0.0                           
+            11      G      0.0            2.245132E+00   0.0            0.0            0.0            0.0                           
+            12      G      0.0            2.245132E+00   0.0            0.0            0.0            0.0                           
+            13      G      0.0            2.245132E+00   0.0            0.0            0.0            0.0                           
+            14      G      0.0            2.245131E+00   0.0            0.0            0.0            0.0                           
+            15      G      0.0            2.245133E+00   0.0            0.0            0.0            0.0                           
+            16      G      0.0            2.245132E+00   0.0            0.0            0.0            0.0                           
+            17      G      0.0            2.245131E+00   0.0            0.0            0.0            0.0                           
+            18      G      0.0            2.245132E+00   0.0            0.0            0.0            0.0                           
+            19      G      0.0            1.122567E+00   0.0            0.0            0.0            0.0                           
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     LINEAR SOLUTION                                                                                        SUBCASE 1              
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      7.375201E+00  -2.020619E+01   0.0            0.0            0.0            0.0                           
+            19      G     -7.375201E+00   0.0            0.0            0.0            0.0            0.0                           
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     LINEAR SOLUTION                                                                                        SUBCASE 1              
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+           10     1.525879E-05  0.0           -9.907660E+00  0.0            5.683891E+00  0.0            1.965850E+01   0.0         
+           11    -9.907684E+00  0.0           -1.472875E+01  0.0            2.765778E+00  0.0            1.818750E+01   0.0         
+           12    -1.472876E+01  0.0           -1.562957E+01  0.0            5.167847E-01  0.0            1.625000E+01   0.0         
+           13    -1.562955E+01  0.0           -1.381457E+01  0.0           -1.041229E+00  0.0            1.400000E+01   0.0         
+           14    -1.381456E+01  0.0           -1.045222E+01  0.0           -1.928925E+00  0.0            1.200000E+01   0.0         
+           15     1.045224E+01  0.0            6.605832E+00  0.0            2.206627E+00  0.0            1.100000E+01   0.0         
+           16     6.605835E+00  0.0            3.171765E+00  0.0            1.970078E+00  0.0            9.000000E+00   0.0         
+           17     3.171783E+00  0.0            8.288348E-01  0.0            1.344116E+00  0.0            7.500000E+00   0.0         
+           18     8.288574E-01  0.0           -3.755093E-05  0.0            4.755249E-01  0.0            7.250000E+00   0.0         
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     LINEAR SOLUTION                                                                                        SUBCASE 1              
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0     10     0.0            0.0            0.0            0.0            1.965850E+02   1.965850E+02   1.965850E+02                 
+             0.0            0.0            0.0            0.0                           1.965850E+02   1.965850E+02                 
+0     11     0.0            0.0            0.0            0.0            1.818750E+02   1.818750E+02   1.818750E+02                 
+             0.0            0.0            0.0            0.0                           1.818750E+02   1.818750E+02                 
+0     12     0.0            0.0            0.0            0.0            1.625000E+02   1.625000E+02   1.625000E+02                 
+             0.0            0.0            0.0            0.0                           1.625000E+02   1.625000E+02                 
+0     13     0.0            0.0            0.0            0.0            1.400000E+02   1.400000E+02   1.400000E+02                 
+             0.0            0.0            0.0            0.0                           1.400000E+02   1.400000E+02                 
+0     14     0.0            0.0            0.0            0.0            1.200000E+02   1.200000E+02   1.200000E+02                 
+             0.0            0.0            0.0            0.0                           1.200000E+02   1.200000E+02                 
+0     15     0.0            0.0            0.0            0.0            1.100000E+02   1.100000E+02   1.100000E+02                 
+             0.0            0.0            0.0            0.0                           1.100000E+02   1.100000E+02                 
+0     16     0.0            0.0            0.0            0.0            9.000000E+01   9.000000E+01   9.000000E+01                 
+             0.0            0.0            0.0            0.0                           9.000000E+01   9.000000E+01                 
+0     17     0.0            0.0            0.0            0.0            7.500000E+01   7.500000E+01   7.500000E+01                 
+             0.0            0.0            0.0            0.0                           7.500000E+01   7.500000E+01                 
+0     18     0.0            0.0            0.0            0.0            7.250000E+01   7.250000E+01   7.250000E+01                 
+             0.0            0.0            0.0            0.0                           7.250000E+01   7.250000E+01                 
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+
+      INITIAL SHAPE IS A CIRCLE, FINAL SHAPE IS A CATENARY                                                                          
+
+
+
+
+0*** USER INFORMATION MESSAGE FROM PARAMR MODULE - OP CODE = ADD     
+     (ALL PARAMR MESSAGES CAN BE SUPPRESED BY DIAG 37)
+                      3RD PARM =  0.000000E+00  (INPUT)
+                      4TH PARM =  0.000000E+00  (INPUT)
+                      DSEPSI   =  0.000000E+00  (OUTPUT)
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     INITIAL SHAPE IS A CIRCLE, FINAL SHAPE IS A CATENARY                                                                          
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    DET                 9.633987E+00
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     INITIAL SHAPE IS A CIRCLE, FINAL SHAPE IS A CATENARY                                                                          
+0                                                                                                                                   
+                                 C O N T E N T S   O F   P A R A M E T E R   T A B L E                                              
+                                                                                                                                    
+                    POWER                     56
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   2.4710022E-13
+0*** USER INFORMATION MESSAGE 7019, MODULE DSCHK IS EXITING FOR REASON   0
+     ON ITERATION NUMBER      1.
+     PARAMETER VALUES ARE AS FOLLOWS
+          DONE   =         1
+          SHIFT  =         1
+          DSEPSI = 8.1451759E-03
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -5.1778184E-13
+0*** USER INFORMATION MESSAGE 7019, MODULE DSCHK IS EXITING FOR REASON   1
+     ON ITERATION NUMBER      2.
+     PARAMETER VALUES ARE AS FOLLOWS
+          DONE   =        -1
+          SHIFT  =         1
+          DSEPSI = 3.1374153E-16
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     NONLINEAR SOLUTION                                                                                     SUBCASE 2              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      0.0            0.0            0.0            0.0            0.0            2.681644E-01                  
+            11      G     -4.753219E-01  -4.096023E-02   0.0            0.0            0.0            2.104201E-01                  
+            12      G     -7.246509E-01  -1.071724E-01   0.0            0.0            0.0            9.086203E-02                  
+            13      G     -7.689427E-01  -1.272561E-01   0.0            0.0            0.0           -1.988418E-02                  
+            14      G     -6.598762E-01  -5.033421E-02   0.0            0.0            0.0           -1.168238E-01                  
+            15      G     -4.565086E-01   1.535839E-01   0.0            0.0            0.0           -1.867011E-01                  
+            16      G     -2.463144E-01   4.543505E-01   0.0            0.0            0.0           -2.131993E-01                  
+            17      G     -8.790284E-02   7.947373E-01   0.0            0.0            0.0           -1.951161E-01                  
+            18      G     -1.141128E-02   1.081174E+00   0.0            0.0            0.0           -1.235671E-01                  
+            19      G      0.0            1.214275E+00   0.0            0.0            0.0           -7.343145E-02                  
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     NONLINEAR SOLUTION                                                                                     SUBCASE 2              
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            10      G      7.270632E+00  -2.020619E+01   0.0            0.0            0.0            0.0                           
+            19      G     -7.270632E+00   0.0            0.0            0.0            0.0            0.0                           
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     NONLINEAR SOLUTION                                                                                     SUBCASE 2              
+ 
+                                 F O R C E S   I N   B A R   E L E M E N T S         ( C B A R )
+0    ELEMENT         BEND-MOMENT END-A            BEND-MOMENT END-B                - SHEAR -               AXIAL
+       ID.         PLANE 1       PLANE 2        PLANE 1       PLANE 2        PLANE 1       PLANE 2         FORCE         TORQUE
+           10     4.691142E-02  0.0           -8.335111E-02  0.0            7.472974E-02  0.0            1.964468E+01   0.0         
+           11    -4.273540E-02  0.0           -3.271228E-02  0.0           -5.750120E-03  0.0            1.814648E+01   0.0         
+           12    -4.931396E-02  0.0           -2.057293E-02  0.0           -1.648831E-02  0.0            1.629834E+01   0.0         
+           13    -4.613298E-02  0.0           -1.504118E-02  0.0           -1.783693E-02  0.0            1.428516E+01   0.0         
+           14    -4.752234E-02  0.0            3.425945E-03  0.0           -2.922830E-02  0.0            1.228418E+01   0.0         
+           15     2.834442E-02  0.0           -1.162256E-02  0.0            2.292847E-02  0.0            1.046387E+01   0.0         
+           16     1.555175E-02  0.0           -2.696329E-02  0.0            2.439028E-02  0.0            8.961914E+00   0.0         
+           17    -2.240539E-03  0.0           -4.291068E-02  0.0            2.333188E-02  0.0            7.894531E+00   0.0         
+           18    -5.720568E-02  0.0            2.556762E-02  0.0           -4.748583E-02  0.0            7.340820E+00   0.0         
+1     DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                                                                                   
+0     NONLINEAR SOLUTION                                                                                     SUBCASE 2              
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0     10     0.0            0.0            0.0            0.0            1.964468E+02   1.964468E+02   1.964468E+02                 
+             0.0            0.0            0.0            0.0                           1.964468E+02   1.964468E+02                 
+0     11     0.0            0.0            0.0            0.0            1.814648E+02   1.814648E+02   1.814648E+02                 
+             0.0            0.0            0.0            0.0                           1.814648E+02   1.814648E+02                 
+0     12     0.0            0.0            0.0            0.0            1.629834E+02   1.629834E+02   1.629834E+02                 
+             0.0            0.0            0.0            0.0                           1.629834E+02   1.629834E+02                 
+0     13     0.0            0.0            0.0            0.0            1.428516E+02   1.428516E+02   1.428516E+02                 
+             0.0            0.0            0.0            0.0                           1.428516E+02   1.428516E+02                 
+0     14     0.0            0.0            0.0            0.0            1.228418E+02   1.228418E+02   1.228418E+02                 
+             0.0            0.0            0.0            0.0                           1.228418E+02   1.228418E+02                 
+0     15     0.0            0.0            0.0            0.0            1.046387E+02   1.046387E+02   1.046387E+02                 
+             0.0            0.0            0.0            0.0                           1.046387E+02   1.046387E+02                 
+0     16     0.0            0.0            0.0            0.0            8.961914E+01   8.961914E+01   8.961914E+01                 
+             0.0            0.0            0.0            0.0                           8.961914E+01   8.961914E+01                 
+0     17     0.0            0.0            0.0            0.0            7.894531E+01   7.894531E+01   7.894531E+01                 
+             0.0            0.0            0.0            0.0                           7.894531E+01   7.894531E+01                 
+0     18     0.0            0.0            0.0            0.0            7.340820E+01   7.340820E+01   7.340820E+01                 
+             0.0            0.0            0.0            0.0                           7.340820E+01   7.340820E+01                 
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                
+ DATE:  5/17/95
+ END TIME: 15:46:56
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

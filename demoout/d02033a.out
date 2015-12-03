@@ -1,0 +1,1678 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D02033A,NASTRAN                                                           
+     APP   DISP,SUBS                                                                 
+     SOL   3,0                                                                       
+     TIME  25                                                                        
+     DIAG  23                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+                                                                                                                                    
+0                            N A S T R A N  S U B S T R U C T U R E  D E C K  E C H O                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SUBSTRUCTURE PHASE2                                                             
+     PASSWORD = MDLSYN                                                               
+     SOF(1)   = FT19,500 $ DEC VAX                                                   
+     OPTIONS K,M,P                                                                   
+     SOFPRINT TOC                                                                    
+     MREDUCE ABASIC                                                                  
+      NAME MA                                                                        
+      BOUNDARY 5                                                                     
+      FIXED 5                                                                        
+      METHOD 9                                                                       
+      OUTPUT 1,5,6,9,10                                                              
+     SOFPRINT TOC                                                                    
+     MREDUCE BBASIC                                                                  
+      NAME MB                                                                        
+      BOUNDARY 4                                                                     
+      FIXED 4                                                                        
+      METHOD 9                                                                       
+      OUTPUT 1,5,6,9,10                                                              
+     SOFPRINT TOC                                                                    
+     COMBINE MA,MB                                                                   
+      NAME MCOMB                                                                     
+      TOLERANCE 0.001                                                                
+      OUTPUT 2,7,12                                                                  
+      COMPONENT MB                                                                   
+      TRANSFORM 40                                                                   
+     SOFPRINT TOC                                                                    
+     MREDUCE MCOMB                                                                   
+      NAME RTRUSS                                                                    
+      BOUNDARY 42                                                                    
+      FIXED 9                                                                        
+      METHOD 90                                                                      
+      NMAX 18                                                                        
+      OUTPUT 1,5,6,9,10                                                              
+     SOFPRINT TOC                                                                    
+       ENDSUBS
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+                                                                                                                                    
+0                            N A S T R A N  S U B S T R U C T U R E  D E C K  E C H O                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ALTER DECK ECHO
+        1    ALTER          4
+        2    PARAM     //*ADD*/DRY/1  /0 $                                           
+        3    LABEL     LBSBEG $                                                      
+        4    SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+        5              *    */*    */*    * $                                        
+        6    MRED1     CASECC,GEOM4,DYNAMICS,CSTM/USETR,EEDR,EQST,DMR/*ABASIC  */    
+        7              S,N,DRY/3  /S,N,NOFIX/S,N,SKIPM/*REAL* $                      
+        8    COND      LBM33  ,DRY $                                                 
+        9    SOFI      /K2  ,M2  ,P2  ,    ,     /S,N,DRY/*ABASIC  */*KMTX*/*MMTX*/  
+       10              *PVEC*/*BMTX*/*K4MX* $                                        
+       11    COND      LBM23  ,SKIPM $                                               
+       12    EQUIV     K2  ,KFFX/NOFIX $                                             
+       13    EQUIV     M2  ,MFFX/NOFIX $                                             
+       14    COND      LBM13  ,NOFIX $                                               
+       15    SCE1      USETR,K2  ,M2  ,    ,     /KFFX,KFSX,KSSX,MFFX,    ,      $   
+       16    LABEL     LBM13   $                                                     
+       17    READ      KFFX,MFFX,    ,     ,EEDR,USETR,/LAMAR,PHIR,MIR,OEIGR/*MODES*/
+       18              NEIGVS $                                                      
+       19    OFP       LAMAR,OEIGR,,,,// $                                           
+       20    EQUIV     PHIR,PHIS/NOFIX $                                             
+       21    COND      LBM23  ,NOFIX $                                               
+       22    UMERGE    USETR,PHIR,/PHIS/*N*/*F*/*S* $                                
+       23    LABEL     LBM23   $                                                     
+       24    MRED2     CASECC,LAMAR,PHIS,EQST,USETR,K2  ,M2  ,    ,     ,P2  ,DMR,   
+       25              QSM/K1  ,M1  ,    ,     ,P1  ,PO1  /3  /S,N,DRY/*PVEC* $      
+       26    LABEL     LBM33   $                                                     
+       27    COND      FINIS,DRY $                                                   
+       28    SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+       29              *    */*    */*    * $                                        
+       30    MRED1     CASECC,GEOM4,DYNAMICS,CSTM/USETR,EEDR,EQST,DMR/*BBASIC  */    
+       31              S,N,DRY/5  /S,N,NOFIX/S,N,SKIPM/*REAL* $                      
+       32    COND      LBM35  ,DRY $                                                 
+       33    SOFI      /K4  ,M4  ,P4  ,    ,     /S,N,DRY/*BBASIC  */*KMTX*/*MMTX*/  
+       34              *PVEC*/*BMTX*/*K4MX* $                                        
+       35    COND      LBM25  ,SKIPM $                                               
+       36    EQUIV     K4  ,KFFX/NOFIX $                                             
+       37    EQUIV     M4  ,MFFX/NOFIX $                                             
+       38    COND      LBM15  ,NOFIX $                                               
+       39    SCE1      USETR,K4  ,M4  ,    ,     /KFFX,KFSX,KSSX,MFFX,    ,      $   
+       40    LABEL     LBM15   $                                                     
+       41    READ      KFFX,MFFX,    ,     ,EEDR,USETR,/LAMAR,PHIR,MIR,OEIGR/*MODES*/
+       42              NEIGVS $                                                      
+       43    OFP       LAMAR,OEIGR,,,,// $                                           
+       44    EQUIV     PHIR,PHIS/NOFIX $                                             
+       45    COND      LBM25  ,NOFIX $                                               
+       46    UMERGE    USETR,PHIR,/PHIS/*N*/*F*/*S* $                                
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+                                                                                                                                    
+0                            N A S T R A N  S U B S T R U C T U R E  D E C K  E C H O                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ALTER DECK ECHO
+       47    LABEL     LBM25   $                                                     
+       48    MRED2     CASECC,LAMAR,PHIS,EQST,USETR,K4  ,M4  ,    ,     ,P4  ,DMR,   
+       49              QSM/K3  ,M3  ,    ,     ,P3  ,PO3  /5  /S,N,DRY/*PVEC* $      
+       50    LABEL     LBM35   $                                                     
+       51    COND      FINIS,DRY $                                                   
+       52    SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+       53              *    */*    */*    * $                                        
+       54    COMB1     CASECC,GEOM4//7  /S,N,DRY/*PVEC* $                            
+       55    COND      LB7  ,DRY $                                                   
+       56    COMB2     ,K1  ,K3  ,    ,    ,    ,    ,    /K5  /S,N,DRY/*K*/*    */  
+       57              *MA      */*MB      */*        */*        */*        */       
+       58              *        */*        * $                                       
+       59    SOFO      ,K5  ,,,,//S,N,DRY/*MCOMB   */*KMTX* $                        
+       60    COMB2     ,M1  ,M3  ,    ,    ,    ,    ,    /M5  /S,N,DRY/*M*/*    */  
+       61              *MA      */*MB      */*        */*        */*        */       
+       62              *        */*        * $                                       
+       63    SOFO      ,M5  ,,,,//S,N,DRY/*MCOMB   */*MMTX* $                        
+       64    COMB2     ,P1  ,P3  ,    ,    ,    ,    ,    /P5  /S,N,DRY/*P*/*PVEC*/  
+       65              *MA      */*MB      */*        */*        */*        */       
+       66              *        */*        * $                                       
+       67    SOFO      ,P5  ,,,,//S,N,DRY/*MCOMB   */*PVEC* $                        
+       68    LABEL     LB7   $                                                       
+       69    SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+       70              *    */*    */*    * $                                        
+       71    MRED1     CASECC,GEOM4,DYNAMICS,CSTM/USETR,EEDR,EQST,DMR/*MCOMB   */    
+       72              S,N,DRY/9  /S,N,NOFIX/S,N,SKIPM/*REAL* $                      
+       73    COND      LBM39  ,DRY $                                                 
+       74    SOFI      /    ,    ,    ,    ,     /S,N,DRY/*MCOMB   */*KMTX*/*MMTX*/  
+       75              *PVEC*/*BMTX*/*K4MX* $                                        
+       76    COND      LBM29  ,SKIPM $                                               
+       77    EQUIV     K5  ,KFFX/NOFIX $                                             
+       78    EQUIV     M5  ,MFFX/NOFIX $                                             
+       79    COND      LBM19  ,NOFIX $                                               
+       80    SCE1      USETR,K5  ,M5  ,    ,     /KFFX,KFSX,KSSX,MFFX,    ,      $   
+       81    LABEL     LBM19   $                                                     
+       82    READ      KFFX,MFFX,    ,     ,EEDR,USETR,/LAMAR,PHIR,MIR,OEIGR/*MODES*/
+       83              NEIGVS $                                                      
+       84    OFP       LAMAR,OEIGR,,,,// $                                           
+       85    EQUIV     PHIR,PHIS/NOFIX $                                             
+       86    COND      LBM29  ,NOFIX $                                               
+       87    UMERGE    USETR,PHIR,/PHIS/*N*/*F*/*S* $                                
+       88    LABEL     LBM29   $                                                     
+       89    MRED2     CASECC,LAMAR,PHIS,EQST,USETR,K5  ,M5  ,    ,     ,P5  ,DMR,   
+       90              QSM/K6  ,M6  ,    ,     ,P6  ,PO6  /9  /S,N,DRY/*PVEC* $      
+       91    LABEL     LBM39   $                                                     
+       92    COND      FINIS,DRY $                                                   
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+                                                                                                                                    
+0                            N A S T R A N  S U B S T R U C T U R E  D E C K  E C H O                                               
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ALTER DECK ECHO
+       93    SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+       94              *    */*    */*    * $                                        
+       95    LABEL     LBSEND $                                                      
+       96    JUMP      FINIS $                                                       
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS               
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                          
+                  3      LABEL    = MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3          
+                  4      $ USE 7 MODES PER COMPONENT AND 18 MODES OF COMBINATION                         
+                  5      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    13, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        BDYC    4       BBASIC  2                                                       
+                    2-        BDYC    5       ABASIC  1                                                       
+                    3-        BDYC    9       ABASIC  2                                                       
+                    4-        BDYC    42      ABASIC  2       BBASIC  42                                      
+                    5-        BDYS1   1       12      1       2       3       51      52      53              
+                    6-        BDYS1   2       12      1       2       3                                       
+                    7-        BDYS1   42      2       2                                                       
+                    8-        EIGR    9       GIV     .0      10000.0         7                       +E1     
+                    9-        +E1     MAX                                                                     
+                   10-        EIGR    90      GIV     .0      10000.0         20                      +E2     
+                   11-        +E2     MAX                                                                     
+                   12-        TRANS   40              200.0   .0      .0      200.0   .0      1.0     +T1     
+                   13-        +T1     200.0   -100.0  .0                                                      
+                              ENDDATA
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 03 - NORMAL MODES ANALYSIS - APR. 1995 $                  
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     LAMA=APPEND/PHIA=APPEND $                                      
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       4  PARAM     //*ADD*/DRY/1  /0 $                                           
+
+       4  LABEL     LBSBEG $                                                      
+
+       4  SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+                    *    */*    */*    * $                                        
+
+       4  MRED1     CASECC,GEOM4,DYNAMICS,CSTM/USETR,EEDR,EQST,DMR/*ABASIC  */    
+                    S,N,DRY/3  /S,N,NOFIX/S,N,SKIPM/*REAL* $                      
+
+       4  COND      LBM33  ,DRY $                                                 
+
+       4  SOFI      /K2  ,M2  ,P2  ,    ,     /S,N,DRY/*ABASIC  */*KMTX*/*MMTX*/  
+                    *PVEC*/*BMTX*/*K4MX* $                                        
+
+       4  COND      LBM23  ,SKIPM $                                               
+
+       4  EQUIV     K2  ,KFFX/NOFIX $                                             
+
+       4  EQUIV     M2  ,MFFX/NOFIX $                                             
+
+       4  COND      LBM13  ,NOFIX $                                               
+
+       4  SCE1      USETR,K2  ,M2  ,    ,     /KFFX,KFSX,KSSX,MFFX,    ,      $   
+
+       4  LABEL     LBM13   $                                                     
+
+       4  READ      KFFX,MFFX,    ,     ,EEDR,USETR,/LAMAR,PHIR,MIR,OEIGR/*MODES*/
+                    NEIGVS $                                                      
+
+       4  OFP       LAMAR,OEIGR,,,,// $                                           
+
+       4  EQUIV     PHIR,PHIS/NOFIX $                                             
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+
+      MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+       4  COND      LBM23  ,NOFIX $                                               
+
+       4  UMERGE    USETR,PHIR,/PHIS/*N*/*F*/*S* $                                
+
+       4  LABEL     LBM23   $                                                     
+
+       4  MRED2     CASECC,LAMAR,PHIS,EQST,USETR,K2  ,M2  ,    ,     ,P2  ,DMR,   
+                    QSM/K1  ,M1  ,    ,     ,P1  ,PO1  /3  /S,N,DRY/*PVEC* $      
+
+       4  LABEL     LBM33   $                                                     
+
+       4  COND      FINIS,DRY $                                                   
+
+       4  SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+                    *    */*    */*    * $                                        
+
+       4  MRED1     CASECC,GEOM4,DYNAMICS,CSTM/USETR,EEDR,EQST,DMR/*BBASIC  */    
+                    S,N,DRY/5  /S,N,NOFIX/S,N,SKIPM/*REAL* $                      
+
+       4  COND      LBM35  ,DRY $                                                 
+
+       4  SOFI      /K4  ,M4  ,P4  ,    ,     /S,N,DRY/*BBASIC  */*KMTX*/*MMTX*/  
+                    *PVEC*/*BMTX*/*K4MX* $                                        
+
+       4  COND      LBM25  ,SKIPM $                                               
+
+       4  EQUIV     K4  ,KFFX/NOFIX $                                             
+
+       4  EQUIV     M4  ,MFFX/NOFIX $                                             
+
+       4  COND      LBM15  ,NOFIX $                                               
+
+       4  SCE1      USETR,K4  ,M4  ,    ,     /KFFX,KFSX,KSSX,MFFX,    ,      $   
+
+       4  LABEL     LBM15   $                                                     
+
+       4  READ      KFFX,MFFX,    ,     ,EEDR,USETR,/LAMAR,PHIR,MIR,OEIGR/*MODES*/
+                    NEIGVS $                                                      
+
+       4  OFP       LAMAR,OEIGR,,,,// $                                           
+
+       4  EQUIV     PHIR,PHIS/NOFIX $                                             
+
+       4  COND      LBM25  ,NOFIX $                                               
+
+       4  UMERGE    USETR,PHIR,/PHIS/*N*/*F*/*S* $                                
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+
+      MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+       4  LABEL     LBM25   $                                                     
+
+       4  MRED2     CASECC,LAMAR,PHIS,EQST,USETR,K4  ,M4  ,    ,     ,P4  ,DMR,   
+                    QSM/K3  ,M3  ,    ,     ,P3  ,PO3  /5  /S,N,DRY/*PVEC* $      
+
+       4  LABEL     LBM35   $                                                     
+
+       4  COND      FINIS,DRY $                                                   
+
+       4  SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+                    *    */*    */*    * $                                        
+
+       4  COMB1     CASECC,GEOM4//7  /S,N,DRY/*PVEC* $                            
+
+       4  COND      LB7  ,DRY $                                                   
+
+       4  COMB2     ,K1  ,K3  ,    ,    ,    ,    ,    /K5  /S,N,DRY/*K*/*    */  
+                    *MA      */*MB      */*        */*        */*        */       
+                    *        */*        * $                                       
+
+       4  SOFO      ,K5  ,,,,//S,N,DRY/*MCOMB   */*KMTX* $                        
+
+       4  COMB2     ,M1  ,M3  ,    ,    ,    ,    ,    /M5  /S,N,DRY/*M*/*    */  
+                    *MA      */*MB      */*        */*        */*        */       
+                    *        */*        * $                                       
+
+       4  SOFO      ,M5  ,,,,//S,N,DRY/*MCOMB   */*MMTX* $                        
+
+       4  COMB2     ,P1  ,P3  ,    ,    ,    ,    ,    /P5  /S,N,DRY/*P*/*PVEC*/  
+                    *MA      */*MB      */*        */*        */*        */       
+                    *        */*        * $                                       
+
+       4  SOFO      ,P5  ,,,,//S,N,DRY/*MCOMB   */*PVEC* $                        
+
+       4  LABEL     LB7   $                                                       
+
+       4  SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+                    *    */*    */*    * $                                        
+
+       4  MRED1     CASECC,GEOM4,DYNAMICS,CSTM/USETR,EEDR,EQST,DMR/*MCOMB   */    
+                    S,N,DRY/9  /S,N,NOFIX/S,N,SKIPM/*REAL* $                      
+
+       4  COND      LBM39  ,DRY $                                                 
+
+       4  SOFI      /    ,    ,    ,    ,     /S,N,DRY/*MCOMB   */*KMTX*/*MMTX*/  
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                    *PVEC*/*BMTX*/*K4MX* $                                        
+
+       4  COND      LBM29  ,SKIPM $                                               
+
+       4  EQUIV     K5  ,KFFX/NOFIX $                                             
+
+       4  EQUIV     M5  ,MFFX/NOFIX $                                             
+
+       4  COND      LBM19  ,NOFIX $                                               
+
+       4  SCE1      USETR,K5  ,M5  ,    ,     /KFFX,KFSX,KSSX,MFFX,    ,      $   
+
+       4  LABEL     LBM19   $                                                     
+
+       4  READ      KFFX,MFFX,    ,     ,EEDR,USETR,/LAMAR,PHIR,MIR,OEIGR/*MODES*/
+                    NEIGVS $                                                      
+
+       4  OFP       LAMAR,OEIGR,,,,// $                                           
+
+       4  EQUIV     PHIR,PHIS/NOFIX $                                             
+
+       4  COND      LBM29  ,NOFIX $                                               
+
+       4  UMERGE    USETR,PHIR,/PHIS/*N*/*F*/*S* $                                
+
+       4  LABEL     LBM29   $                                                     
+
+       4  MRED2     CASECC,LAMAR,PHIS,EQST,USETR,K5  ,M5  ,    ,     ,P5  ,DMR,   
+                    QSM/K6  ,M6  ,    ,     ,P6  ,PO6  /9  /S,N,DRY/*PVEC* $      
+
+       4  LABEL     LBM39   $                                                     
+
+       4  COND      FINIS,DRY $                                                   
+
+       4  SOFUT     //DRY/*TOC     */*SOFP*/0  /*        */*    */*    */*    */  
+                    *    */*    */*    * $                                        
+
+       4  LABEL     LBSEND $                                                      
+
+       4  JUMP      FINIS $                                                       
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/ALWAYS=-1 $                                             
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+
+      MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      12  COND     P1,JUMPPLOT $                                                  
+
+      13  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      14  PRTMSG   PLTSETX// $                                                    
+
+      15  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      16  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      17  COND     P1,JUMPPLOT $                                                  
+
+      18  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE  $                
+
+      19  PRTMSG   PLOTX1//$                                                      
+
+      20  LABEL    P1 $                                                           
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $                              
+
+      22  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      23  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      24  COND     ERROR4,NOSIMP $                                                
+
+      25  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      26  PARAM    //*ADD*/NOMGG/1/0 $                                            
+
+      27  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/C,Y,CPROD/C,Y,CPQUAD1/     
+                   C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/C,Y,CPTUBE/C,Y,CPQDPLT/    
+                   C,Y,CPTRPLT/C,Y,CPTRBSC/C,Y,VOLUME/C,Y,SURFACE $               
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+
+      MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      28  PURGE    KGGX/NOKGGX $                                                  
+
+      29  COND     JMPKGG,NOKGGX $                                                
+
+      30  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      31  LABEL    JMPKGG $                                                       
+
+      32  COND     ERROR1,NOMGG $                                                 
+
+      33  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      34  PURGE    MDICT,MELM/ALWAYS $                                            
+
+      35  COND     LGPWG,GRDPNT $                                                 
+
+      36  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/C,Y,WTMASS $         
+
+      37  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      38  LABEL    LGPWG $                                                        
+
+      39  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      40  COND     LBL11,NOGENL $                                                 
+
+      41  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      42  LABEL    LBL11 $                                                        
+
+      43  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      44  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      45  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      46  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      47  COND     ERROR3,NOL $                                                   
+
+      48  PURGE    KRR,KLR,DM,MLR,MR/REACT/GM/MPCF1/GO/OMIT/KFS/SINGLE/QG/NOSET $ 
+
+      49  EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1 $                                  
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+
+      MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      50  COND     LBL2,MPCF1 $                                                   
+
+      51  MCE1     USET,RG/GM $                                                   
+
+      52  MCE2     USET,GM,KGG,MGG,,/KNN,MNN,, $                                  
+
+      53  LABEL    LBL2 $                                                         
+
+      54  EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE $                                
+
+      55  COND     LBL3,SINGLE $                                                  
+
+      56  SCE1     USET,KNN,MNN,,/KFF,KFS,,MFF,, $                                
+
+      57  LABEL    LBL3  $                                                        
+
+      58  EQUIV    KFF,KAA/OMIT $                                                 
+
+      59  EQUIV    MFF,MAA/OMIT $                                                 
+
+      60  COND     LBL5,OMIT $                                                    
+
+      61  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      62  SMP2     USET,GO,MFF/MAA $                                              
+
+      63  LABEL    LBL5 $                                                         
+
+      64  COND     LBL6,REACT $                                                   
+
+      65  RBMG1    USET,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                         
+
+      66  RBMG2    KLL/LLL $                                                      
+
+      67  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      68  RBMG4    DM,MLL,MLR,MRR/MR $                                            
+
+      69  LABEL    LBL6 $                                                         
+
+      70  DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,,,,,,,EED,EQDYN/         
+                   LUSET/LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/                         
+                   NONLFT/NOTRL/S,N,NOEED//NOUE $                                 
+
+      71  COND     ERROR2,NOEED $                                                 
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+
+      MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      72  PARAM    //*MPY*/NEIGV/1/-1 $                                           
+
+      73  READ     KAA,MAA,MR,DM,EED,USET,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/      
+                   S,N,NEIGV $                                                    
+
+      74  OFP      OEIGS,,,,,//S,N,CARDNO $                                       
+
+      75  COND     FINIS,NEIGV $                                                  
+
+      76  OFP      LAMA,,,,,//S,N,CARDNO $                                        
+
+      77  SDR1     USET,,PHIA,,,GO,GM,,KFS,,/PHIG,,QG/1/*REIG* $                  
+
+      78  COND     NOMPCF,GRDEQ $                                                 
+
+      79  EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USET,KGG,GM,PHIG,LAMA,QG,CSTM/     
+                   OQM1/V,Y,OPT=0/V,Y,GRDEQ/-1 $                                  
+
+      80  OFP      OQM1,,,,,//S,N,CARDNO $                                        
+
+      81  LABEL    NOMPCF $                                                       
+
+      82  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDP,LAMA,QG,PHIG,EST,,,     
+                   PCOMPS/,OQG1,OPHIG,OES1,OEF1,PPHIG,OES1L,OEF1L/                
+                   *REIG*////COMPS $                                              
+
+      83  OFP      OPHIG,OQG1,OEF1,OES1,OEF1L,OES1L//S,N,CARDNO $                 
+
+      84  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
+
+      85  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
+
+      86  GPFDR    CASECC,PHIG,KELM,KDICT,ECT,EQEXIN,GPECT,LAMA,/ONRGY1,/*REIG* $ 
+
+      87  OFP      ONRGY1,,,,,//S,N,CARDNO $                                      
+
+      88  PURGE    KDICT,KELM/ALWAYS $                                            
+
+      89  COND     P2,JUMPPLOT $                                                  
+
+      90  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,,PPHIG,GPECT,OES1,
+                   OES1L,/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $           
+
+      91  PRTMSG   PLOTX2// $                                                     
+
+      92  LABEL    P2 $                                                           
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+
+      MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      93  JUMP     FINIS $                                                        
+
+      94  LABEL    ERROR1 $                                                       
+
+      95  PRTPARM  //-1/*MODES* $                                                 
+
+      96  LABEL    ERROR2 $                                                       
+
+      97  PRTPARM  //-2/*MODES* $                                                 
+
+      98  LABEL    ERROR3 $                                                       
+
+      99  PRTPARM  //-3/*MODES* $                                                 
+
+     100  LABEL    ERROR4 $                                                       
+
+     101  PRTPARM  //-4/*MODES* $                                                 
+
+     102  LABEL    FINIS $                                                        
+
+     103  PURGE    DUMMY/ALWAYS $                                                 
+
+     104  END      $                                                              
+0*** USER WARNING MESSAGE   27,
+     LABEL NAMED LBSEND   NOT REFERENCED
+0*** USER WARNING MESSAGE   27,
+     LABEL NAMED LBSBEG   NOT REFERENCED
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MRED1      INSTRUCTION NO.   4
+     DATA BLOCK NAMED USETR    ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MRED1      INSTRUCTION NO.   4
+     DATA BLOCK NAMED EEDR     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MRED1      INSTRUCTION NO.   4
+     DATA BLOCK NAMED EQST     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MRED1      INSTRUCTION NO.   4
+     DATA BLOCK NAMED DMR      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO.   4
+     DATA BLOCK NAMED KFFX     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO.   4
+     DATA BLOCK NAMED KFSX     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO.   4
+     DATA BLOCK NAMED KSSX     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO.   4
+     DATA BLOCK NAMED MFFX     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION READ       INSTRUCTION NO.   4
+     DATA BLOCK NAMED LAMAR    ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION READ       INSTRUCTION NO.   4
+     DATA BLOCK NAMED PHIR     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION READ       INSTRUCTION NO.   4
+     DATA BLOCK NAMED MIR      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION READ       INSTRUCTION NO.   4
+     DATA BLOCK NAMED OEIGR    ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION UMERGE     INSTRUCTION NO.   4
+     DATA BLOCK NAMED PHIS     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MRED1      INSTRUCTION NO.   4
+     DATA BLOCK NAMED USETR    ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MRED1      INSTRUCTION NO.   4
+     DATA BLOCK NAMED EEDR     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MRED1      INSTRUCTION NO.   4
+     DATA BLOCK NAMED EQST     ALREADY APPEARED AS OUTPUT
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MRED1      INSTRUCTION NO.   4
+     DATA BLOCK NAMED DMR      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO.   4
+     DATA BLOCK NAMED KFFX     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO.   4
+     DATA BLOCK NAMED KFSX     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO.   4
+     DATA BLOCK NAMED KSSX     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION SCE1       INSTRUCTION NO.   4
+     DATA BLOCK NAMED MFFX     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION READ       INSTRUCTION NO.   4
+     DATA BLOCK NAMED LAMAR    ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION READ       INSTRUCTION NO.   4
+     DATA BLOCK NAMED PHIR     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION READ       INSTRUCTION NO.   4
+     DATA BLOCK NAMED MIR      ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION READ       INSTRUCTION NO.   4
+     DATA BLOCK NAMED OEIGR    ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  45,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION UMERGE     INSTRUCTION NO.   4
+     DATA BLOCK NAMED PHIS     ALREADY APPEARED AS OUTPUT
+
+ *** USER POTENTIALLY FATAL MESSAGE  22,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MRED1      INSTRUCTION NO.   4
+     DATA BLOCK NAMED CSTM     APPEARS AS INPUT BEFORE BEING DEFINED
+
+ *** USER POTENTIALLY FATAL MESSAGE  22,
+                              POSSIBLE ERROR IN DMAP INSTRUCTION MRED2      INSTRUCTION NO.   4
+     DATA BLOCK NAMED QSM      APPEARS AS INPUT BEFORE BEING DEFINED
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** SYSTEM INFORMATION MESSAGE 6201,  1 FILES HAVE BEEN ALLOCATED TO THE SOF WHERE --
+     SIZE OF FILE  1 =        488 BLOCKS
+     AND WHERE A BLOCK CONTAINS 1024 WORDS
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+
+                          S U B S T R U C T U R E   O P E R A T I N G   F I L E   T A B L E   O F   C O N T E N T S 
+
+                                                    E  B  C  L  P  K  M  P  P  U  H  U  Q  S  P  P  L  L  G  P  L  K  B  P  H      
+                                                    Q  G  S  O  L  M  M  V  O  P  O  V  V  O  A  O  O  M  I  H  A  4  M  H  L      
+                                                    S  S  T  D  T  T  T  E  V  R  R  E  E  L  P  A  A  T  M  I  M  M  T  I  F      
+     SUBSTRUCTURE                                   S  S  M  S  S  X  X  C  E  T  G  C  C  N  P  P  P  X  S  S  S  X  X  L  T      
+     NO.   NAME    TYPE   SS   PS   LL   CS   HL    --------------------------------------------------------------------------------
+
+       1  ABASIC     B     0    0    0    0    0    3  3     3     3  3  3                                                   
+       2  BBASIC     B     0    0    0    0    0    3  3     3     3  3  3                                                   
+
+
+                                                   SIZE OF ITEM IS GIVEN IN POWERS OF TEN   (0 INDICATES DATA IS STORED IN PRIMARY)
+0*** UNUSED SPACE ON SOF =   483328 WORDS.
+                      OR =      472 BLOCKS.
+                      OR =       96 PERCENT.
+0*** HIGHEST BLOCK USED  =       16
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+
+      MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+
+
+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK QSM      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK QSM      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK CSTM     MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK QSM      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+
+                                      S U M M A R Y    O F    C U R R E N T    P R O B L E M
+
+             NAME OF PSEUDOSTRUCTURE TO BE REDUCED . . . . ABASIC        NAME GIVEN TO RESULTANT PSEUDOSTRUCTURE MA      
+             BOUNDARY SET IDENTIFICATION NUMBER  . . . . .        5      FIXED SET IDENTIFICATION NUMBER . . . .        5
+             RIGID BODY GRID POINT IDENTIFICATION NUMBER .              RIGID BODY SUBSTRUCTURE NAME . . . . .         
+             OLDBOUND FLAG SET . . . . . . . . . . . . . . NO            OLDMODES FLAG SET . . . . . . . . . . . NO  
+             FREE BODY MODES TO BE CALCULATED  . . . . . . NO            USER MODES FLAG SET . . . . . . . . . . NO  
+             SAVE REDUCTION PRODUCTS . . . . . . . . . . . NO            EIGENVALUE EXTRACTION METHOD  . . . . .        9
+             MAXIMUM NUMBER OF FREQUENCIES TO BE USED  . . ALL           GPARAM VALUE  . . . . . . . . . . . . . 0.000000E+00
+             NAMES OF COMPONENT SUBSTRUCTURES CONTAINED IN ABASIC        RANGE OF FREQUENCIES TO BE USED . . . . ALL 
+                ABASIC  
+0*** USER INFORMATION MESSAGE 2016, GIVENS TIME ESTIMATE IS        0 SECONDS.
+                                    PROBLEM SIZE IS      24, SPILL WILL OCCUR FOR THIS CORE AT A PROBLEM SIZE OF    1413 .
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1        24        5.601143E+04        2.366673E+02        3.766677E+01        5.284617E-01        2.959989E+04             
+        2        23        2.024636E+05        4.499596E+02        7.161329E+01        5.549427E-01        1.123557E+05             
+        3        22        4.303660E+05        6.560228E+02        1.044093E+02        5.309593E-01        2.285068E+05             
+        4        21        4.775556E+05        6.910540E+02        1.099846E+02        4.262653E-01        2.035654E+05             
+        5        20        6.303828E+05        7.939665E+02        1.263637E+02        5.512223E-01        3.474810E+05             
+        6        19        1.015982E+06        1.007959E+03        1.604217E+02        3.549629E-01        3.606358E+05             
+        7        18        1.160696E+06        1.077356E+03        1.714665E+02        4.927448E-01        5.719267E+05             
+        8        17        1.535740E+06        1.239250E+03        1.972327E+02        0.0                 0.0                      
+        9        16        1.688206E+06        1.299310E+03        2.067916E+02        0.0                 0.0                      
+       10        15        1.835441E+06        1.354784E+03        2.156206E+02        0.0                 0.0                      
+       11        14        1.993628E+06        1.411959E+03        2.247202E+02        0.0                 0.0                      
+       12        13        2.272924E+06        1.507622E+03        2.399455E+02        0.0                 0.0                      
+       13        12        2.490456E+06        1.578118E+03        2.511653E+02        0.0                 0.0                      
+       14        11        2.689588E+06        1.639996E+03        2.610135E+02        0.0                 0.0                      
+       15        10        3.382310E+06        1.839106E+03        2.927027E+02        0.0                 0.0                      
+       16         9        3.528508E+06        1.878432E+03        2.989618E+02        0.0                 0.0                      
+       17         8        3.680405E+06        1.918438E+03        3.053289E+02        0.0                 0.0                      
+       18         7        4.072884E+06        2.018139E+03        3.211967E+02        0.0                 0.0                      
+       19         6        4.314360E+06        2.077104E+03        3.305813E+02        0.0                 0.0                      
+       20         5        4.401530E+06        2.097982E+03        3.339043E+02        0.0                 0.0                      
+       21         4        4.693424E+06        2.166431E+03        3.447982E+02        0.0                 0.0                      
+       22         3        4.794578E+06        2.189652E+03        3.484940E+02        0.0                 0.0                      
+       23         2        5.311776E+06        2.304729E+03        3.668090E+02        0.0                 0.0                      
+       24         1        5.563008E+06        2.358603E+03        3.753833E+02        0.0                 0.0                      
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y   (GIVENS METHOD)
+
+
+
+                                    NUMBER OF EIGENVALUES EXTRACTED . . . . . . .        24
+
+                                    NUMBER OF EIGENVECTORS COMPUTED . . . . . . .         7
+
+                                    NUMBER OF EIGENVALUE CONVERGENCE FAILURES . .         0
+
+                                    NUMBER OF EIGENVECTOR CONVERGENCE FAILURES. .         0
+
+
+                                    REASON FOR TERMINATION. . . . . . . . . . . .         1*
+
+
+                                    LARGEST OFF-DIAGONAL MODAL MASS TERM. . . . .  0.00E+00
+
+                                                                            . . .         0
+                                              MODE PAIR. . . . . . . . . . .
+                                                                            . . .         0
+
+                                    NUMBER OF OFF-DIAG0NAL MODAL MASS
+                                         TERMS FAILING CRITERION. . . . . . . . .         0
+
+
+                                    (* NORMAL TERMINATION)
+                        0 ROOTS BELOW   1.000000E-10
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                         EQSS ITEM FOR SUBSTRUCTURE MA       COMPONENT  ABASIC                                     
+     GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT  
+         ID       POINT ID        DOF                 ID       POINT ID        DOF                 ID       POINT ID        DOF     
+             1           1      12                        2           3      12                        3           2      12    
+            51           4      12                       52           6      12                       53           5      12    
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                         EQSS ITEM FOR SUBSTRUCTURE MA       COMPONENT  MA                                         
+     GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT  
+         ID       POINT ID        DOF                 ID       POINT ID        DOF                 ID       POINT ID        DOF     
+           101           7      1                       102           8      1                       103           9      1     
+           104          10      1                       105          11      1                       106          12      1     
+           107          13      1     
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                        EQSS ITEM - SCALAR INDEX LIST FOR SUBSTRUCTURE  MA                                         
+      INTERNAL    INTERNAL     COMPONENT           INTERNAL    INTERNAL     COMPONENT           INTERNAL    INTERNAL     COMPONENT  
+      POINT ID     SIL ID         DOF              POINT ID     SIL ID         DOF              POINT ID     SIL ID         DOF     
+             1           1      12                        2           3      12                        3           5      12    
+             4           7      12                        5           9      12                        6          11      12    
+             7          13      1                         8          14      1                         9          15      1     
+            10          16      1                        11          17      1                        12          18      1     
+            13          19      1     
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                BGSS ITEM FOR SUBSTRUCTURE      MA                                                 
+                                 INTERNAL     CSTM ID                  C O O R D I N A T E S                                        
+                                 POINT ID       NO.              X1              X2              X3                                 
+                                        1           0       0.000000E+00   -0.300000E+02    0.000000E+00
+                                        2           0       0.000000E+00    0.300000E+02    0.000000E+00
+                                        3           0       0.000000E+00    0.000000E+00    0.000000E+00
+                                        4           0       0.200000E+03   -0.300000E+02    0.000000E+00
+                                        5           0       0.200000E+03    0.300000E+02    0.000000E+00
+                                        6           0       0.200000E+03    0.000000E+00    0.000000E+00
+                                        7          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        8          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        9          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       10          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       11          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       12          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       13          -1       0.000000E+00    0.000000E+00    0.000000E+00
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                    LODS ITEM FOR SUBSTRUCTURE  MA                                                 
+                          COMPONENT    NUMBER OF                                                                                    
+                            NAME       LOAD SETS   L O A D   S E T   I D E N T I F I C A T I O N   N U M B E R S                    
+
+                          ABASIC            1            980
+
+                          MA                       NO LOAD SETS FOR THIS COMPONENT.
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                    MODAL DOF SUMMARY FOR REDUCED SUBSTRUCTURE MA      
+
+                              USAGE CODES ARE 0 - RIGID BODY POINT
+                                              1 - INCLUDED IN MODAL SET
+                                              2 - EXCLUDED FROM MODAL SET BECAUSE OF NON-PARTICIPATION
+                                              3 - EXCLUDED FROM MODAL SET BECAUSE OF RANGE OR NMAX
+
+                                        MODE                      USAGE      GRID
+                                       NUMBER        CYCLES        CODE    POINT ID       SIL
+
+                                           1      3.766677E+01      1           101        13
+                                           2      7.161329E+01      1           102        14
+                                           3      1.044093E+02      1           103        15
+                                           4      1.099846E+02      1           104        16
+                                           5      1.263637E+02      1           105        17
+                                           6      1.604217E+02      1           106        18
+                                           7      1.714665E+02      1           107        19
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+
+                          S U B S T R U C T U R E   O P E R A T I N G   F I L E   T A B L E   O F   C O N T E N T S 
+
+                                                    E  B  C  L  P  K  M  P  P  U  H  U  Q  S  P  P  L  L  G  P  L  K  B  P  H      
+                                                    Q  G  S  O  L  M  M  V  O  P  O  V  V  O  A  O  O  M  I  H  A  4  M  H  L      
+                                                    S  S  T  D  T  T  T  E  V  R  R  E  E  L  P  A  A  T  M  I  M  M  T  I  F      
+     SUBSTRUCTURE                                   S  S  M  S  S  X  X  C  E  T  G  C  C  N  P  P  P  X  S  S  S  X  X  L  T      
+     NO.   NAME    TYPE   SS   PS   LL   CS   HL    --------------------------------------------------------------------------------
+
+       1  ABASIC     B     0    0    0    0    3    3  3     3     3  3  3  3  3  3                       3  3  3            
+       2  BBASIC     B     0    0    0    0    0    3  3     3     3  3  3                                                   
+       3  MA         M     0    0    1    0    0    3  3     3     3  3  3                                                   
+
+
+                                                   SIZE OF ITEM IS GIVEN IN POWERS OF TEN   (0 INDICATES DATA IS STORED IN PRIMARY)
+0*** UNUSED SPACE ON SOF =   470016 WORDS.
+                      OR =      459 BLOCKS.
+                      OR =       94 PERCENT.
+0*** HIGHEST BLOCK USED  =       29
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+
+                                      S U M M A R Y    O F    C U R R E N T    P R O B L E M
+
+             NAME OF PSEUDOSTRUCTURE TO BE REDUCED . . . . BBASIC        NAME GIVEN TO RESULTANT PSEUDOSTRUCTURE MB      
+             BOUNDARY SET IDENTIFICATION NUMBER  . . . . .        4      FIXED SET IDENTIFICATION NUMBER . . . .        4
+             RIGID BODY GRID POINT IDENTIFICATION NUMBER .              RIGID BODY SUBSTRUCTURE NAME . . . . .         
+             OLDBOUND FLAG SET . . . . . . . . . . . . . . NO            OLDMODES FLAG SET . . . . . . . . . . . NO  
+             FREE BODY MODES TO BE CALCULATED  . . . . . . NO            USER MODES FLAG SET . . . . . . . . . . NO  
+             SAVE REDUCTION PRODUCTS . . . . . . . . . . . NO            EIGENVALUE EXTRACTION METHOD  . . . . .        9
+             MAXIMUM NUMBER OF FREQUENCIES TO BE USED  . . ALL           GPARAM VALUE  . . . . . . . . . . . . . 0.000000E+00
+             NAMES OF COMPONENT SUBSTRUCTURES CONTAINED IN BBASIC        RANGE OF FREQUENCIES TO BE USED . . . . ALL 
+                BBASIC  
+0*** USER INFORMATION MESSAGE 2016, GIVENS TIME ESTIMATE IS        0 SECONDS.
+                                    PROBLEM SIZE IS      24, SPILL WILL OCCUR FOR THIS CORE AT A PROBLEM SIZE OF    1413 .
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1        24        7.501747E+03        8.661263E+01        1.378483E+01        3.013400E-01        2.260576E+03             
+        2        23        1.074225E+05        3.277537E+02        5.216362E+01        5.153695E-01        5.536227E+04             
+        3        22        1.643713E+05        4.054273E+02        6.452576E+01        3.315326E-01        5.449444E+04             
+        4        21        3.705308E+05        6.087123E+02        9.687958E+01        4.161166E-01        1.541840E+05             
+        5        20        6.012425E+05        7.753983E+02        1.234085E+02        4.258454E-01        2.560364E+05             
+        6        19        8.654981E+05        9.303215E+02        1.480653E+02        3.684948E-01        3.189315E+05             
+        7        18        9.059270E+05        9.518020E+02        1.514840E+02        1.382124E-01        1.252103E+05             
+        8        17        1.353059E+06        1.163210E+03        1.851307E+02        0.0                 0.0                      
+        9        16        1.612736E+06        1.269935E+03        2.021165E+02        0.0                 0.0                      
+       10        15        1.836006E+06        1.354993E+03        2.156538E+02        0.0                 0.0                      
+       11        14        2.027653E+06        1.423957E+03        2.266298E+02        0.0                 0.0                      
+       12        13        2.029488E+06        1.424601E+03        2.267323E+02        0.0                 0.0                      
+       13        12        2.484966E+06        1.576378E+03        2.508883E+02        0.0                 0.0                      
+       14        11        2.751798E+06        1.658855E+03        2.640149E+02        0.0                 0.0                      
+       15        10        3.458823E+06        1.859791E+03        2.959949E+02        0.0                 0.0                      
+       16         9        3.562177E+06        1.887373E+03        3.003848E+02        0.0                 0.0                      
+       17         8        3.621002E+06        1.902893E+03        3.028548E+02        0.0                 0.0                      
+       18         7        4.262820E+06        2.064660E+03        3.286008E+02        0.0                 0.0                      
+       19         6        4.466222E+06        2.113344E+03        3.363491E+02        0.0                 0.0                      
+       20         5        4.511780E+06        2.124095E+03        3.380602E+02        0.0                 0.0                      
+       21         4        4.771722E+06        2.184427E+03        3.476624E+02        0.0                 0.0                      
+       22         3        5.303790E+06        2.302996E+03        3.665332E+02        0.0                 0.0                      
+       23         2        5.612925E+06        2.369161E+03        3.770637E+02        0.0                 0.0                      
+       24         1        7.754982E+06        2.784777E+03        4.432110E+02        0.0                 0.0                      
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    36
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y   (GIVENS METHOD)
+
+
+
+                                    NUMBER OF EIGENVALUES EXTRACTED . . . . . . .        24
+
+                                    NUMBER OF EIGENVECTORS COMPUTED . . . . . . .         7
+
+                                    NUMBER OF EIGENVALUE CONVERGENCE FAILURES . .         0
+
+                                    NUMBER OF EIGENVECTOR CONVERGENCE FAILURES. .         0
+
+
+                                    REASON FOR TERMINATION. . . . . . . . . . . .         1*
+
+
+                                    LARGEST OFF-DIAGONAL MODAL MASS TERM. . . . .  0.00E+00
+
+                                                                            . . .         0
+                                              MODE PAIR. . . . . . . . . . .
+                                                                            . . .         0
+
+                                    NUMBER OF OFF-DIAG0NAL MODAL MASS
+                                         TERMS FAILING CRITERION. . . . . . . . .         0
+
+
+                                    (* NORMAL TERMINATION)
+                        0 ROOTS BELOW   1.000000E-10
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    37
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                         EQSS ITEM FOR SUBSTRUCTURE MB       COMPONENT  BBASIC                                     
+     GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT  
+         ID       POINT ID        DOF                 ID       POINT ID        DOF                 ID       POINT ID        DOF     
+             1           1      12                        2           3      12                        3           2      12    
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    38
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                         EQSS ITEM FOR SUBSTRUCTURE MB       COMPONENT  MB                                         
+     GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT  
+         ID       POINT ID        DOF                 ID       POINT ID        DOF                 ID       POINT ID        DOF     
+           101           4      1                       102           5      1                       103           6      1     
+           104           7      1                       105           8      1                       106           9      1     
+           107          10      1     
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    39
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                        EQSS ITEM - SCALAR INDEX LIST FOR SUBSTRUCTURE  MB                                         
+      INTERNAL    INTERNAL     COMPONENT           INTERNAL    INTERNAL     COMPONENT           INTERNAL    INTERNAL     COMPONENT  
+      POINT ID     SIL ID         DOF              POINT ID     SIL ID         DOF              POINT ID     SIL ID         DOF     
+             1           1      12                        2           3      12                        3           5      12    
+             4           7      1                         5           8      1                         6           9      1     
+             7          10      1                         8          11      1                         9          12      1     
+            10          13      1     
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    40
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                BGSS ITEM FOR SUBSTRUCTURE      MB                                                 
+                                 INTERNAL     CSTM ID                  C O O R D I N A T E S                                        
+                                 POINT ID       NO.              X1              X2              X3                                 
+                                        1           0       0.300000E+02    0.000000E+00    0.000000E+00
+                                        2           0      -0.300000E+02    0.000000E+00    0.000000E+00
+                                        3           0       0.000000E+00    0.000000E+00    0.000000E+00
+                                        4          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        5          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        6          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        7          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        8          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        9          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       10          -1       0.000000E+00    0.000000E+00    0.000000E+00
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    41
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                    LODS ITEM FOR SUBSTRUCTURE  MB                                                 
+                          COMPONENT    NUMBER OF                                                                                    
+                            NAME       LOAD SETS   L O A D   S E T   I D E N T I F I C A T I O N   N U M B E R S                    
+
+                          BBASIC            1            980
+
+                          MB                       NO LOAD SETS FOR THIS COMPONENT.
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    42
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                    MODAL DOF SUMMARY FOR REDUCED SUBSTRUCTURE MB      
+
+                              USAGE CODES ARE 0 - RIGID BODY POINT
+                                              1 - INCLUDED IN MODAL SET
+                                              2 - EXCLUDED FROM MODAL SET BECAUSE OF NON-PARTICIPATION
+                                              3 - EXCLUDED FROM MODAL SET BECAUSE OF RANGE OR NMAX
+
+                                        MODE                      USAGE      GRID
+                                       NUMBER        CYCLES        CODE    POINT ID       SIL
+
+                                           1      1.378483E+01      1           101         7
+                                           2      5.216362E+01      1           102         8
+                                           3      6.452576E+01      1           103         9
+                                           4      9.687958E+01      1           104        10
+                                           5      1.234085E+02      1           105        11
+                                           6      1.480653E+02      1           106        12
+                                           7      1.514840E+02      1           107        13
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    43
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+
+                          S U B S T R U C T U R E   O P E R A T I N G   F I L E   T A B L E   O F   C O N T E N T S 
+
+                                                    E  B  C  L  P  K  M  P  P  U  H  U  Q  S  P  P  L  L  G  P  L  K  B  P  H      
+                                                    Q  G  S  O  L  M  M  V  O  P  O  V  V  O  A  O  O  M  I  H  A  4  M  H  L      
+                                                    S  S  T  D  T  T  T  E  V  R  R  E  E  L  P  A  A  T  M  I  M  M  T  I  F      
+     SUBSTRUCTURE                                   S  S  M  S  S  X  X  C  E  T  G  C  C  N  P  P  P  X  S  S  S  X  X  L  T      
+     NO.   NAME    TYPE   SS   PS   LL   CS   HL    --------------------------------------------------------------------------------
+
+       1  ABASIC     B     0    0    0    0    3    3  3     3     3  3  3  3  3  3                       3  3  3            
+       2  BBASIC     B     0    0    0    0    4    3  3     3     3  3  3  3  3  3                       3  3  3            
+       3  MA         M     0    0    1    0    0    3  3     3     3  3  3                                                   
+       4  MB         M     0    0    2    0    0    3  3     3     3  3  3                                                   
+
+
+                                                   SIZE OF ITEM IS GIVEN IN POWERS OF TEN   (0 INDICATES DATA IS STORED IN PRIMARY)
+0*** UNUSED SPACE ON SOF =   457728 WORDS.
+                      OR =      447 BLOCKS.
+                      OR =       91 PERCENT.
+0*** HIGHEST BLOCK USED  =       41
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    44
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                                                                                                   
+                                                                                                                                    
+                                              SUMMARY OF CASE CONTROL FOR COMBINE OPERATION                                         
+
+          THIS JOB STEP WILL COMBINE 2 PSEUDOSTRUCTURES
+
+          CONNECTIONS ARE GENERATED AUTOMATICALLY.
+
+          THE RESULTANT PSEUDOSTRUCTURE NAME IS MCOMB   
+
+          THE TOLERANCE ON CONNECTIONS IS    0.100000E-02
+
+          THE PRINT CONTROL OPTIONS ARE   2  7 12
+
+          COMPONENT SUBSTRUCTURE NO. 1 NAME = MA      
+
+          COMPONENT SUBSTRUCTURE NO. 2 NAME = MB      
+
+               TRANS SET ID =       40
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    45
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                P S E U D O S T R U C T U R E   T A B L E   O F   C O N T E N T S                                  
+                                  PSEUDO-       NO. OF                                                                              
+                                 STRUCTURE    COMPONENTS    ---------- COMPONENT NAMES -----------                                  
+                                  MA               2
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    46
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+
+      MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+
+
+
++                                                           ABASIC    MA      
+                                  MB               2
++                                                           BBASIC    MB      
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    47
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                                                                                                   
+                                                                                                                                    
+                                                   SUMMARY OF PROCESSED TRANS BULK DATA                                             
+
+
+                                                TRANS SET IDENTIFICATION NUMBER =       40
+
+                                                  COORDINATES OF ORIGIN IN BASIC SYSTEM
+                                                0.200000E+03   0.000000E+00   0.000000E+00
+
+                                                          TRANSFORMATION MATRIX
+
+                                           *****                                          *****
+                                           *                                                  *
+                                           *    0.000000E+00   0.100000E+01   0.000000E+00    *
+                                           *                                                  *
+                                           *   -0.100000E+01   0.000000E+00   0.000000E+00    *
+                                           *                                                  *
+                                           *    0.000000E+00   0.000000E+00   0.100000E+01    *
+                                           *                                                  *
+                                           *****                                          *****
+
+
+                                        NOTE - GRID POINTS IN PSEUDOSTRUCTURE INTERNAL GRID NUMBERS
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    48
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                               SUMMARY OF PSEUDOSTRUCTURE CONNECTIVITIES                                           
+         INTERNAL   INTERNAL   DEGREES OF  ********************** P S E U D O S T R U C T U R E   N A M E S *************           
+         POINT NO    DOF NO      FREEDOM   MA         MB                                                                            
+             1           1        12       ABASIC             
+                                           1                                                                         
+         ---------------------------------------------------------------------------------------------------------------   
+             2           3        12       ABASIC             
+                                           3                                                                         
+         ---------------------------------------------------------------------------------------------------------------   
+             3           5        12       ABASIC             
+                                           2                                                                         
+         ---------------------------------------------------------------------------------------------------------------   
+             4           7        1        MA                 
+                                           101                                                                       
+         ---------------------------------------------------------------------------------------------------------------   
+             5           8        1        MA                 
+                                           102                                                                       
+         ---------------------------------------------------------------------------------------------------------------   
+             6           9        1        MA                 
+                                           103                                                                       
+         ---------------------------------------------------------------------------------------------------------------   
+             7          10        1        MA                 
+                                           104                                                                       
+         ---------------------------------------------------------------------------------------------------------------   
+             8          11        1        MA                 
+                                           105                                                                       
+         ---------------------------------------------------------------------------------------------------------------   
+             9          12        1        MA                 
+                                           106                                                                       
+         ---------------------------------------------------------------------------------------------------------------   
+            10          13        1        MA                 
+                                           107                                                                       
+         ---------------------------------------------------------------------------------------------------------------   
+            11          14        12       ABASIC     BBASIC  
+                                           53         3                                                              
+         ---------------------------------------------------------------------------------------------------------------   
+            12          16        12       ABASIC     BBASIC  
+                                           52         2                                                              
+         ---------------------------------------------------------------------------------------------------------------   
+            13          18        12       ABASIC     BBASIC  
+                                           51         1                                                              
+         ---------------------------------------------------------------------------------------------------------------   
+            14          20        1                   MB      
+                                                      102                                                            
+         ---------------------------------------------------------------------------------------------------------------   
+            15          21        1                   MB      
+                                                      101                                                            
+         ---------------------------------------------------------------------------------------------------------------   
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    49
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                               SUMMARY OF PSEUDOSTRUCTURE CONNECTIVITIES                                           
+         INTERNAL   INTERNAL   DEGREES OF  ********************** P S E U D O S T R U C T U R E   N A M E S *************           
+         POINT NO    DOF NO      FREEDOM   MA         MB                                                                            
+            16          22        1                   MB      
+                                                      106                                                            
+         ---------------------------------------------------------------------------------------------------------------   
+            17          23        1                   MB      
+                                                      107                                                            
+         ---------------------------------------------------------------------------------------------------------------   
+            18          24        1                   MB      
+                                                      103                                                            
+         ---------------------------------------------------------------------------------------------------------------   
+            19          25        1                   MB      
+                                                      104                                                            
+         ---------------------------------------------------------------------------------------------------------------   
+            20          26        1                   MB      
+                                                      105                                                            
+         ---------------------------------------------------------------------------------------------------------------   
+0*** USER INFORMATION MESSAGE 6521, MODULE COMB1 SUCCESSFULLY COMPLETED.
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    50
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+
+                          S U B S T R U C T U R E   O P E R A T I N G   F I L E   T A B L E   O F   C O N T E N T S 
+
+                                                    E  B  C  L  P  K  M  P  P  U  H  U  Q  S  P  P  L  L  G  P  L  K  B  P  H      
+                                                    Q  G  S  O  L  M  M  V  O  P  O  V  V  O  A  O  O  M  I  H  A  4  M  H  L      
+                                                    S  S  T  D  T  T  T  E  V  R  R  E  E  L  P  A  A  T  M  I  M  M  T  I  F      
+     SUBSTRUCTURE                                   S  S  M  S  S  X  X  C  E  T  G  C  C  N  P  P  P  X  S  S  S  X  X  L  T      
+     NO.   NAME    TYPE   SS   PS   LL   CS   HL    --------------------------------------------------------------------------------
+
+       1  ABASIC     B     0    0    0    0    3    3  3     3     3  3  3  3  3  3                       3  3  3            
+       2  BBASIC     B     0    0    0    0    4    3  3     3     3  3  3  3  3  3                       3  3  3            
+       3  MA         M     0    0    1    4    5    3  3     3     3  3  3        3                                          
+       4  MB         M     0    0    2    3    5    3  3     3     3  3  3        3                                          
+       5  MCOMB      C     0    0    3    0    0    3  3     3  3  3  3  3                                                   
+
+
+                                                   SIZE OF ITEM IS GIVEN IN POWERS OF TEN   (0 INDICATES DATA IS STORED IN PRIMARY)
+0*** UNUSED SPACE ON SOF =   447488 WORDS.
+                      OR =      437 BLOCKS.
+                      OR =       89 PERCENT.
+0*** HIGHEST BLOCK USED  =       51
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    51
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+
+                                      S U M M A R Y    O F    C U R R E N T    P R O B L E M
+
+             NAME OF PSEUDOSTRUCTURE TO BE REDUCED . . . . MCOMB         NAME GIVEN TO RESULTANT PSEUDOSTRUCTURE RTRUSS  
+             BOUNDARY SET IDENTIFICATION NUMBER  . . . . .       42      FIXED SET IDENTIFICATION NUMBER . . . .        9
+             RIGID BODY GRID POINT IDENTIFICATION NUMBER .              RIGID BODY SUBSTRUCTURE NAME . . . . .         
+             OLDBOUND FLAG SET . . . . . . . . . . . . . . NO            OLDMODES FLAG SET . . . . . . . . . . . NO  
+             FREE BODY MODES TO BE CALCULATED  . . . . . . NO            USER MODES FLAG SET . . . . . . . . . . NO  
+             SAVE REDUCTION PRODUCTS . . . . . . . . . . . NO            EIGENVALUE EXTRACTION METHOD  . . . . .       90
+             MAXIMUM NUMBER OF FREQUENCIES TO BE USED  . .       18      GPARAM VALUE  . . . . . . . . . . . . . 0.000000E+00
+             NAMES OF COMPONENT SUBSTRUCTURES CONTAINED IN MCOMB         RANGE OF FREQUENCIES TO BE USED . . . . ALL 
+                ABASIC    MA        BBASIC    MB      
+0*** USER INFORMATION MESSAGE 2016, GIVENS TIME ESTIMATE IS        0 SECONDS.
+                                    PROBLEM SIZE IS      20, SPILL WILL OCCUR FOR THIS CORE AT A PROBLEM SIZE OF    1413 .
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    52
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1        19        5.104395E+02        2.259291E+01        3.595773E+00        2.719603E+00        1.388193E+03             
+        2        18        1.217818E+04        1.103548E+02        1.756351E+01        5.551619E-01        6.760863E+03             
+        3        20        3.204877E+04        1.790217E+02        2.849219E+01        1.430428E+00        4.584346E+04             
+        4        17        6.161780E+04        2.482293E+02        3.950692E+01        1.785353E-01        1.100095E+04             
+        5        15        1.473744E+05        3.838937E+02        6.109858E+01        6.981911E-01        1.028955E+05             
+        6        14        2.544345E+05        5.044150E+02        8.028014E+01        1.349923E-01        3.434668E+04             
+        7        16        2.815767E+05        5.306380E+02        8.445366E+01        3.569186E-01        1.005000E+05             
+        8        13        3.861274E+05        6.213915E+02        9.889752E+01        7.388127E-01        2.852758E+05             
+        9        12        4.931355E+05        7.022361E+02        1.117643E+02        4.163700E-01        2.053268E+05             
+       10        11        6.006571E+05        7.750208E+02        1.233484E+02        5.564590E-02        3.342411E+04             
+       11        10        6.423382E+05        8.014600E+02        1.275563E+02        3.634932E-02        2.334855E+04             
+       12         9        6.708717E+05        8.190676E+02        1.303586E+02        1.083267E+00        7.267331E+05             
+       13         8        7.186602E+05        8.477383E+02        1.349217E+02        4.451531E-01        3.199138E+05             
+       14         7        9.314798E+05        9.651320E+02        1.536055E+02        3.435716E-01        3.200300E+05             
+       15         6        1.036319E+06        1.017997E+03        1.620193E+02        3.128464E-01        3.242086E+05             
+       16         5        1.283678E+06        1.132995E+03        1.803218E+02        4.245862E-01        5.450322E+05             
+       17         4        1.590236E+06        1.261046E+03        2.007017E+02        3.175385E-01        5.049613E+05             
+       18         3        1.717214E+06        1.310425E+03        2.085606E+02        9.566334E-03        1.642744E+04             
+       19         2        2.963560E+06        1.721500E+03        2.739851E+02        1.537367E-01        4.556081E+05             
+       20         1        6.596654E+06        2.568395E+03        4.087728E+02        5.232833E-02        3.451919E+05             
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    53
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y   (GIVENS METHOD)
+
+
+
+                                    NUMBER OF EIGENVALUES EXTRACTED . . . . . . .        20
+
+                                    NUMBER OF EIGENVECTORS COMPUTED . . . . . . .        20
+
+                                    NUMBER OF EIGENVALUE CONVERGENCE FAILURES . .         0
+
+                                    NUMBER OF EIGENVECTOR CONVERGENCE FAILURES. .         0
+
+
+                                    REASON FOR TERMINATION. . . . . . . . . . . .         1*
+
+
+                                    LARGEST OFF-DIAGONAL MODAL MASS TERM. . . . .  0.00E+00
+
+                                                                            . . .         0
+                                              MODE PAIR. . . . . . . . . . .
+                                                                            . . .         0
+
+                                    NUMBER OF OFF-DIAG0NAL MODAL MASS
+                                         TERMS FAILING CRITERION. . . . . . . . .         0
+
+
+                                    (* NORMAL TERMINATION)
+                        0 ROOTS BELOW   1.000000E-10
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    54
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                         EQSS ITEM FOR SUBSTRUCTURE RTRUSS   COMPONENT  ABASIC                                     
+     GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT  
+         ID       POINT ID        DOF                 ID       POINT ID        DOF                 ID       POINT ID        DOF     
+             1           1      12                        2           3      12                        3           2      12    
+            52           4      2     
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    55
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                         EQSS ITEM FOR SUBSTRUCTURE RTRUSS   COMPONENT  MA                                         
+     GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT  
+         ID       POINT ID        DOF                 ID       POINT ID        DOF                 ID       POINT ID        DOF     
+
+                              ALL DEGREES OF FREEDOM FOR THIS COMPONENT HAVE BEEN REDUCED OUT.
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    56
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                         EQSS ITEM FOR SUBSTRUCTURE RTRUSS   COMPONENT  BBASIC                                     
+     GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT  
+         ID       POINT ID        DOF                 ID       POINT ID        DOF                 ID       POINT ID        DOF     
+             2           4      2     
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    57
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                         EQSS ITEM FOR SUBSTRUCTURE RTRUSS   COMPONENT  MB                                         
+     GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT  
+         ID       POINT ID        DOF                 ID       POINT ID        DOF                 ID       POINT ID        DOF     
+
+                              ALL DEGREES OF FREEDOM FOR THIS COMPONENT HAVE BEEN REDUCED OUT.
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    58
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                         EQSS ITEM FOR SUBSTRUCTURE RTRUSS   COMPONENT  RTRUSS                                     
+     GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT          GRID POINT   INTERNAL     COMPONENT  
+         ID       POINT ID        DOF                 ID       POINT ID        DOF                 ID       POINT ID        DOF     
+           101           5      1                       102           6      1                       103           7      1     
+           104           8      1                       105           9      1                       106          10      1     
+           107          11      1                       108          12      1                       109          13      1     
+           110          14      1                       111          15      1                       112          16      1     
+           113          17      1                       114          18      1                       115          19      1     
+           116          20      1                       117          21      1                       118          22      1     
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    59
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                        EQSS ITEM - SCALAR INDEX LIST FOR SUBSTRUCTURE  RTRUSS                                     
+      INTERNAL    INTERNAL     COMPONENT           INTERNAL    INTERNAL     COMPONENT           INTERNAL    INTERNAL     COMPONENT  
+      POINT ID     SIL ID         DOF              POINT ID     SIL ID         DOF              POINT ID     SIL ID         DOF     
+             1           1      12                        2           3      12                        3           5      12    
+             4           7      2                         5           8      1                         6           9      1     
+             7          10      1                         8          11      1                         9          12      1     
+            10          13      1                        11          14      1                        12          15      1     
+            13          16      1                        14          17      1                        15          18      1     
+            16          19      1                        17          20      1                        18          21      1     
+            19          22      1                        20          23      1                        21          24      1     
+            22          25      1     
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    60
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                BGSS ITEM FOR SUBSTRUCTURE      RTRUSS                                             
+                                 INTERNAL     CSTM ID                  C O O R D I N A T E S                                        
+                                 POINT ID       NO.              X1              X2              X3                                 
+                                        1           0       0.000000E+00   -0.300000E+02    0.000000E+00
+                                        2           0       0.000000E+00    0.300000E+02    0.000000E+00
+                                        3           0       0.000000E+00    0.000000E+00    0.000000E+00
+                                        4           0       0.200000E+03    0.000000E+00    0.000000E+00
+                                        5          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        6          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        7          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        8          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                        9          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       10          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       11          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       12          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       13          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       14          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       15          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       16          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       17          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       18          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       19          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       20          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       21          -1       0.000000E+00    0.000000E+00    0.000000E+00
+                                       22          -1       0.000000E+00    0.000000E+00    0.000000E+00
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    61
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                                    LODS ITEM FOR SUBSTRUCTURE  RTRUSS                                             
+                          COMPONENT    NUMBER OF                                                                                    
+                            NAME       LOAD SETS   L O A D   S E T   I D E N T I F I C A T I O N   N U M B E R S                    
+
+                          ABASIC            1            980
+
+                          MA                       NO LOAD SETS FOR THIS COMPONENT.
+
+                          BBASIC            1            980
+
+                          MB                       NO LOAD SETS FOR THIS COMPONENT.
+
+                          RTRUSS                   NO LOAD SETS FOR THIS COMPONENT.
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    62
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+0                                    MODAL DOF SUMMARY FOR REDUCED SUBSTRUCTURE RTRUSS  
+
+                              USAGE CODES ARE 0 - RIGID BODY POINT
+                                              1 - INCLUDED IN MODAL SET
+                                              2 - EXCLUDED FROM MODAL SET BECAUSE OF NON-PARTICIPATION
+                                              3 - EXCLUDED FROM MODAL SET BECAUSE OF RANGE OR NMAX
+
+                                        MODE                      USAGE      GRID
+                                       NUMBER        CYCLES        CODE    POINT ID       SIL
+
+                                           1      3.595773E+00      1           101         8
+                                           2      1.756351E+01      1           102         9
+                                           3      2.849219E+01      1           103        10
+                                           4      3.950692E+01      1           104        11
+                                           5      6.109858E+01      1           105        12
+                                           6      8.028014E+01      1           106        13
+                                           7      8.445366E+01      1           107        14
+                                           8      9.889752E+01      1           108        15
+                                           9      1.117643E+02      1           109        16
+                                          10      1.233484E+02      1           110        17
+                                          11      1.275563E+02      1           111        18
+                                          12      1.303586E+02      1           112        19
+                                          13      1.349217E+02      1           113        20
+                                          14      1.536055E+02      1           114        21
+                                          15      1.620193E+02      1           115        22
+                                          16      1.803218E+02      1           116        23
+                                          17      2.007017E+02      1           117        24
+                                          18      2.085606E+02      1           118        25
+                                          19      2.739851E+02      3
+                                          20      4.087728E+02      3
+1     TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    63
+      NASTRAN DEMONSTRATION PROBLEM NO. D02-03-3A                                                                                   
+0     MODAL REDUCE, COMBINE, MODAL RECOVERY, RUN 3, PHASE 2, RF 3                                                                   
+
+
+                          S U B S T R U C T U R E   O P E R A T I N G   F I L E   T A B L E   O F   C O N T E N T S 
+
+                                                    E  B  C  L  P  K  M  P  P  U  H  U  Q  S  P  P  L  L  G  P  L  K  B  P  H      
+                                                    Q  G  S  O  L  M  M  V  O  P  O  V  V  O  A  O  O  M  I  H  A  4  M  H  L      
+                                                    S  S  T  D  T  T  T  E  V  R  R  E  E  L  P  A  A  T  M  I  M  M  T  I  F      
+     SUBSTRUCTURE                                   S  S  M  S  S  X  X  C  E  T  G  C  C  N  P  P  P  X  S  S  S  X  X  L  T      
+     NO.   NAME    TYPE   SS   PS   LL   CS   HL    --------------------------------------------------------------------------------
+
+       1  ABASIC     B     0    0    0    0    3    3  3     3     3  3  3  3  3  3                       3  3  3            
+       2  BBASIC     B     0    0    0    0    4    3  3     3     3  3  3  3  3  3                       3  3  3            
+       3  MA         M     0    0    1    4    5    3  3     3     3  3  3        3                                          
+       4  MB         M     0    0    2    3    5    3  3     3     3  3  3        3                                          
+       5  MCOMB      C     0    0    3    0    6    3  3     3  3  3  3  3  3  3  3                       3  3  3            
+       6  RTRUSS     M     0    0    5    0    0    3  3     3  3  3  3  3                                                   
+
+
+                                                   SIZE OF ITEM IS GIVEN IN POWERS OF TEN   (0 INDICATES DATA IS STORED IN PRIMARY)
+0*** UNUSED SPACE ON SOF =   433152 WORDS.
+                      OR =      423 BLOCKS.
+                      OR =       86 PERCENT.
+0*** HIGHEST BLOCK USED  =       65
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  TRUSS DYNAMIC ANALYSIS USING AUTOMATED MODAL SYNTHESIS             
+ DATE:  5/17/95
+ END TIME: 15:25:35
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

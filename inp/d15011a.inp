@@ -1,0 +1,105 @@
+ID    D15011A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   15,3                                                                      
+TIME  30                                                                        
+CEND                                                                            
+TITLE    = NORMAL MODES ANALYSIS OF A CIRCULAR PLATE                            
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D15-01-1A                          
+LABEL    = ROTATIONAL CYCLIC SYMMETRY                                           
+SPC      = 101                                                                  
+METHOD   = 1                                                                    
+VECTOR   = ALL                                                                  
+BEGIN BULK                                                                      
+CBAR    1       1       10      20      .0      .0      1.      1               
+CBAR    2       1       20      30      .0      .0      1.      1               
+CBAR    3       1       30      40      .0      .0      1.      1               
+CBAR    4       1       40      50      .0      .0      1.      1               
+CBAR    5       1       50      60      .0      .0      1.      1               
+CBAR    110     1       14      24      .0      .0      1.0     1               
+CBAR    120     1       24      34      .0      .0      1.0     1               
+CBAR    130     1       34      44      .0      .0      1.0     1               
+CBAR    140     1       44      54      .0      .0      1.0     1               
+CBAR    150     1       54      64      .0      .0      1.0     1               
+CNGRNT  1       110                                                             
+CNGRNT  2       120                                                             
+CNGRNT  3       130                                                             
+CNGRNT  4       140                                                             
+CNGRNT  5       150                                                             
+CNGRNT  10      11      12      13                                              
+CNGRNT  20      21      22      23                                              
+CNGRNT  30      31      32      33                                              
+CNGRNT  40      41      42      43                                              
+CNGRNT  50      51      52      53                                              
+CORD2C  1       0       .0      .0      .0      .0      .0      1.      +C1     
++C1     1.      .0      .0                                                      
+CQUAD2  10      1       10      11      21      20                              
+CQUAD2  11      1       11      12      22      21                              
+CQUAD2  12      1       12      13      23      22                              
+CQUAD2  13      1       13      14      24      23                              
+CQUAD2  20      1       20      21      31      30                              
+CQUAD2  21      1       21      22      32      31                              
+CQUAD2  22      1       22      23      33      32                              
+CQUAD2  23      1       23      24      34      33                              
+CQUAD2  30      1       30      31      41      40                              
+CQUAD2  31      1       31      32      42      41                              
+CQUAD2  32      1       32      33      43      42                              
+CQUAD2  33      1       33      34      44      43                              
+CQUAD2  40      1       40      41      51      50                              
+CQUAD2  41      1       41      42      52      51                              
+CQUAD2  42      1       42      43      53      52                              
+CQUAD2  43      1       43      44      54      53                              
+CQUAD2  50      1       50      51      61      60                              
+CQUAD2  51      1       51      52      62      61                              
+CQUAD2  52      1       52      53      63      62                              
+CQUAD2  53      1       53      54      64      63                              
+CYJOIN  1       C       10      20      30      40      50      60      CYC SYM 
+CYJOIN  2       C       14      24      34      44      54      64      CYC SYM 
+EIGR    1       INV     .0      12000.0 6       6                       +EIG1   
++EIG1   MAX                                                                     
+GRDSET          1                               1                               
+GRID    10              1.0     .0      .0                                      
+GRID    11              1.0     15.0    .0                                      
+GRID    12              1.0     30.0    .0                                      
+GRID    13              1.0     45.0    .0                                      
+GRID    14              1.0     60.0    .0                                      
+GRID    20              .68     .0      .0                                      
+GRID    21              .68     15.0    .0                                      
+GRID    22              .68     30.0    .0                                      
+GRID    23              .68     45.0    .0                                      
+GRID    24              .68     60.0    .0                                      
+GRID    30              .46     .0      .0                                      
+GRID    31              .46     15.0    .0                                      
+GRID    32              .46     30.0    .0                                      
+GRID    33              .46     45.0    .0                                      
+GRID    34              .46     60.0    .0                                      
+GRID    40              .31     .0      .0                                      
+GRID    41              .31     15.0    .0                                      
+GRID    42              .31     30.0    .0                                      
+GRID    43              .31     45.0    .0                                      
+GRID    44              .31     60.0    .0                                      
+GRID    50              .21     .0      .0                                      
+GRID    51              .21     15.0    .0                                      
+GRID    52              .21     30.0    .0                                      
+GRID    53              .21     45.0    .0                                      
+GRID    54              .21     60.0    .0                                      
+GRID    60              .14     .0      .0                                      
+GRID    61              .14     15.0    .0                                      
+GRID    62              .14     30.0    .0                                      
+GRID    63              .14     45.0    .0                                      
+GRID    64              .14     60.0    .0                                      
+MAT1    1       10.6 +6         .325    2.59-4  12.9-6                          
+PARAM   CTYPE   ROT                                                     CYC SYM 
+PARAM   KINDEX  2                                                       CYC SYM 
+PARAM   NSEGS   6                                                       CYC SYM 
+PBAR    1       1       1.8  -3 5.4  -7 5.4 -7  1.0 -6                  +PB1    
++PB1    .0      .03     .03     .0      .03     .03     .03     -.03            
+PQUAD2  1       1       .01                                                     
+SPC1    110     12346   10      THRU    14                                      
+SPC1    112     126     10      THRU    14                                      
+SPC1    112     126     20      THRU    24                                      
+SPC1    112     126     30      THRU    34                                      
+SPC1    112     126     40      THRU    44                                      
+SPC1    112     126     50      THRU    54                                      
+SPC1    112     126     60      THRU    64                                      
+SPCADD  101     110     112                                                     
+ENDDATA                                                                         

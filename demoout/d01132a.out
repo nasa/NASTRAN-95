@@ -1,0 +1,612 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01132A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   1,0                                                                       
+     TIME  5                                                                         
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS          
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                          
+                  3      DISP   = ALL                                                                    
+                  4      STRESS = ALL                                                                    
+                  5      SPC    = 200                                                                    
+                  6      SUBCASE   1                                                                     
+                  7      LABEL =  PRESSURE  LOAD                                                         
+                  8      LOAD  =  400                                                                    
+                  9      SUBCASE   2                                                                     
+                 10      LABEL =  THERMAL LOAD                                                           
+                 11      TEMP(LOAD) = 500                                                                
+                 12      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    59, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CIHEX2  1       200     1       2       3       10      15      14      +HEX-1  
+                    2-        +HEX-1  13      9       4       5       17      16      6       7       +HEX-11 
+                    3-        +HEX-11 8       12      20      19      18      11                              
+                    4-        CIHEX2  2       200     13      14      15      22      27      26      +HEX-21 
+                    5-        +HEX-21 25      21      16      17      29      28      18      19      +HEX-22 
+                    6-        +HEX-22 20      24      32      31      30      23                              
+                    7-        CNGRNT  1       2                                                               
+                    8-        CORD2C  10      0       .0      .0      .0      .0      .0      100.0   +CRD-1  
+                    9-        +CRD-1  100.0   .0      .0                                                      
+                   10-        GRDSET          10                              10      456                     
+                   11-        GRID    1               4.0     -14.0   .0                                      
+                   12-        GRID    2               4.5     -14.0   .0                                      
+                   13-        GRID    3               5.0     -14.0   .0                                      
+                   14-        GRID    4               4.0     -14.0   .5                                      
+                   15-        GRID    5               5.0     -14.0   .5                                      
+                   16-        GRID    6               4.0     -14.0   1.0                                     
+                   17-        GRID    7               4.5     -14.0   1.0                                     
+                   18-        GRID    8               5.0     -14.0   1.0                                     
+                   19-        GRID    9               4.0     -7.0    .0                                      
+                   20-        GRID    10              5.0     -7.0    .0                                      
+                   21-        GRID    11              4.0     -7.0    1.0                                     
+                   22-        GRID    12              5.0     -7.0    1.0                                     
+                   23-        GRID    13              4.0     .0      .0                                      
+                   24-        GRID    14              4.5     .0      .0                                      
+                   25-        GRID    15              5.0     .0      .0                                      
+                   26-        GRID    16              4.0     .0      .5                                      
+                   27-        GRID    17              5.0     .0      .5                                      
+                   28-        GRID    18              4.0     .0      1.0                                     
+                   29-        GRID    19              4.5     .0      1.0                                     
+                   30-        GRID    20              5.0     .0      1.0                                     
+                   31-        GRID    21              4.0     7.0     .0                                      
+                   32-        GRID    22              5.0     7.0     .0                                      
+                   33-        GRID    23              4.0     7.0     1.0                                     
+                   34-        GRID    24              5.0     7.0     1.0                                     
+                   35-        GRID    25              4.0     14.0    .0                                      
+                   36-        GRID    26              4.5     14.0    .0                                      
+                   37-        GRID    27              5.0     14.0    .0                                      
+                   38-        GRID    28              4.0     14.0    .5                                      
+                   39-        GRID    29              5.0     14.0    .5                                      
+                   40-        GRID    30              4.0     14.0    1.0                                     
+                   41-        GRID    31              4.5     14.0    1.0                                     
+                   42-        GRID    32              5.0     14.0    1.0                                     
+                   43-        MAT1    300     3.+7            .3      7.535-4 1.428-5 .0                      
+                   44-        PIHEX   200     300             4                                               
+                   45-        PLOAD3  400     -10.0   1       13      6       2       25      18              
+                   46-        SPC1    200     2       1       THRU    8                                       
+                   47-        SPC1    200     2       25      THRU    32                                      
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        SPC1    200     3       1       2       3       9       10      13      +SPC-A3 
+                   49-        +SPC-A3 14      15      21      22      25      26      27                      
+                   50-        SPC1    200     3       6       7       8       11      12      18      +SPC-A4 
+                   51-        +SPC-A4 19      20      23      24      30      31      32                      
+                   52-        TEMP    500     1       100.0   4       100.0   6       100.0                   
+                   53-        TEMP    500     9       100.0   11      100.0   13      100.0                   
+                   54-        TEMP    500     14      47.22   19      47.22   26      47.22                   
+                   55-        TEMP    500     16      100.0   18      100.0   21      100.0                   
+                   56-        TEMP    500     23      100.0   25      100.0   28      100.0                   
+                   57-        TEMP    500     30      100.0   2       47.22   7       47.22                   
+                   58-        TEMP    500     31      47.22                                                   
+                   59-        TEMPD   500     .0                                                              
+                              ENDDATA
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           20
+                                        PROFILE            384
+                                        MAX WAVEFRONT       20
+                                        AVG WAVEFRONT   12.000
+                                        RMS WAVEFRONT   13.153
+                                        RMS BANDWIDTH   13.153
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH           20
+                                        PROFILE            384
+                                        MAX WAVEFRONT       20
+                                        AVG WAVEFRONT   12.000
+                                        RMS WAVEFRONT   13.153
+                                        RMS BANDWIDTH   13.153
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       20        20
+                                        PROFILE (P)                        384       384
+                                        MAXIMUM WAVEFRONT (C-MAX)           20        20
+                                        AVERAGE WAVEFRONT (C-AVG)       12.000    12.000
+                                        RMS WAVEFRONT (C-RMS)           13.153    13.153
+                                        RMS BANDWITCH (B-RMS)           13.153    13.153
+                                        NUMBER OF GRID POINTS (N)                     32
+                                        NUMBER OF ELEMENTS (NON-RIGID)                 2
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                          31
+                                        MINIMUM NODAL DEGREE                          19
+                                        NUMBER OF UNIQUE EDGES                       352
+                                        MATRIX DENSITY, PERCENT                   71.875
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION IHEX2    ELEMENTS (ELEMENT TYPE  66) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -3.6603334E-15
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     2, EPSILON SUB E =   4.7536495E-16
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0      PRESSURE  LOAD                                                                                        SUBCASE   1            
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      6.047039E-06   0.0            0.0            0.0            0.0            0.0                           
+             2      G      5.666053E-06   0.0            0.0            0.0            0.0            0.0                           
+             3      G      5.392320E-06   0.0            0.0            0.0            0.0            0.0                           
+             4      G      6.047039E-06   0.0            2.870110E-21   0.0            0.0            0.0                           
+             5      G      5.392320E-06   0.0           -1.500092E-21   0.0            0.0            0.0                           
+             6      G      6.047039E-06   0.0            0.0            0.0            0.0            0.0                           
+             7      G      5.666053E-06   0.0            0.0            0.0            0.0            0.0                           
+             8      G      5.392320E-06   0.0            0.0            0.0            0.0            0.0                           
+             9      G      6.046814E-06  -2.117252E-13   0.0            0.0            0.0            0.0                           
+            10      G      5.392107E-06   1.717601E-13   0.0            0.0            0.0            0.0                           
+            11      G      6.046814E-06  -2.117252E-13   0.0            0.0            0.0            0.0                           
+            12      G      5.392107E-06   1.717601E-13   0.0            0.0            0.0            0.0                           
+            13      G      6.047038E-06  -4.240684E-13   0.0            0.0            0.0            0.0                           
+            14      G      5.666052E-06  -6.380181E-14   0.0            0.0            0.0            0.0                           
+            15      G      5.392320E-06   3.170519E-13   0.0            0.0            0.0            0.0                           
+            16      G      6.047038E-06  -4.230127E-13   1.763549E-21   0.0            0.0            0.0                           
+            17      G      5.392320E-06   3.170770E-13   9.926167E-23   0.0            0.0            0.0                           
+            18      G      6.047038E-06  -4.240684E-13   0.0            0.0            0.0            0.0                           
+            19      G      5.666052E-06  -6.380182E-14   0.0            0.0            0.0            0.0                           
+            20      G      5.392320E-06   3.170519E-13   0.0            0.0            0.0            0.0                           
+            21      G      6.046813E-06  -2.163572E-13   0.0            0.0            0.0            0.0                           
+            22      G      5.392106E-06   1.773487E-13   0.0            0.0            0.0            0.0                           
+            23      G      6.046813E-06  -2.163572E-13   0.0            0.0            0.0            0.0                           
+            24      G      5.392106E-06   1.773487E-13   0.0            0.0            0.0            0.0                           
+            25      G      6.047038E-06   0.0            0.0            0.0            0.0            0.0                           
+            26      G      5.666052E-06   0.0            0.0            0.0            0.0            0.0                           
+            27      G      5.392319E-06   0.0            0.0            0.0            0.0            0.0                           
+            28      G      6.047038E-06   0.0            1.131583E-21   0.0            0.0            0.0                           
+            29      G      5.392319E-06   0.0           -1.588187E-22   0.0            0.0            0.0                           
+            30      G      6.047038E-06   0.0            0.0            0.0            0.0            0.0                           
+            31      G      5.666052E-06   0.0            0.0            0.0            0.0            0.0                           
+            32      G      5.392319E-06   0.0            0.0            0.0            0.0            0.0                           
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0      THERMAL LOAD                                                                                          SUBCASE   2            
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      3.438675E-03   0.0            0.0            0.0            0.0            0.0                           
+             2      G      4.198856E-03   0.0            0.0            0.0            0.0            0.0                           
+             3      G      4.297704E-03   0.0            0.0            0.0            0.0            0.0                           
+             4      G      3.438675E-03   0.0            2.527546E-18   0.0            0.0            0.0                           
+             5      G      4.297704E-03   0.0           -1.626303E-18   0.0            0.0            0.0                           
+             6      G      3.438675E-03   0.0            0.0            0.0            0.0            0.0                           
+             7      G      4.198856E-03   0.0            0.0            0.0            0.0            0.0                           
+             8      G      4.297704E-03   0.0            0.0            0.0            0.0            0.0                           
+             9      G      3.440342E-03  -3.102146E-10   0.0            0.0            0.0            0.0                           
+            10      G      4.299318E-03   1.377486E-10   0.0            0.0            0.0            0.0                           
+            11      G      3.440342E-03  -3.102146E-10   0.0            0.0            0.0            0.0                           
+            12      G      4.299318E-03   1.377486E-10   0.0            0.0            0.0            0.0                           
+            13      G      3.438675E-03  -5.368165E-10   0.0            0.0            0.0            0.0                           
+            14      G      4.198856E-03  -4.622748E-11   0.0            0.0            0.0            0.0                           
+            15      G      4.297704E-03   3.938078E-10   0.0            0.0            0.0            0.0                           
+            16      G      3.438675E-03  -5.344766E-10   5.692061E-19   0.0            0.0            0.0                           
+            17      G      4.297704E-03   3.951975E-10   4.065758E-19   0.0            0.0            0.0                           
+            18      G      3.438675E-03  -5.368165E-10   0.0            0.0            0.0            0.0                           
+            19      G      4.198856E-03  -4.622748E-11   0.0            0.0            0.0            0.0                           
+            20      G      4.297704E-03   3.938077E-10   0.0            0.0            0.0            0.0                           
+            21      G      3.440341E-03  -3.285747E-10   0.0            0.0            0.0            0.0                           
+            22      G      4.299317E-03   3.878982E-10   0.0            0.0            0.0            0.0                           
+            23      G      3.440341E-03  -3.285747E-10   0.0            0.0            0.0            0.0                           
+            24      G      4.299317E-03   3.878982E-10   0.0            0.0            0.0            0.0                           
+            25      G      3.438674E-03   0.0            0.0            0.0            0.0            0.0                           
+            26      G      4.198855E-03   0.0            0.0            0.0            0.0            0.0                           
+            27      G      4.297703E-03   0.0            0.0            0.0            0.0            0.0                           
+            28      G      3.438674E-03   0.0           -2.710505E-20   0.0            0.0            0.0                           
+            29      G      4.297703E-03   0.0            3.794708E-19   0.0            0.0            0.0                           
+            30      G      3.438674E-03   0.0            0.0            0.0            0.0            0.0                           
+            31      G      4.198855E-03   0.0            0.0            0.0            0.0            0.0                           
+            32      G      4.297703E-03   0.0            0.0            0.0            0.0            0.0                           
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0      PRESSURE  LOAD                                                                                        SUBCASE   1            
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0       1        1  X -6.691342E+00  XY  1.291605E+01  A  4.547615E+01  LX  0.24 0.97 0.0   -1.542102E+01   2.285047E+01            
+                    Y  4.227829E+01  YZ  0.0           B -9.889205E+00  LY  0.97-0.24 0.0                                           
+                    Z  1.067611E+01  ZX  0.0           C  1.067611E+01  LZ  0.0  0.0  1.00                                          
+0       1        2  X -2.259551E+00  XY  1.056923E+01  A  4.043281E+01  LX  0.24 0.97 0.0   -1.540789E+01   1.879863E+01            
+                    Y  3.781621E+01  YZ  0.0           B -4.876149E+00  LY  0.97-0.24 0.0                                           
+                    Z  1.066700E+01  ZX  0.0           C  1.066700E+01  LZ  0.0  0.0  1.00                                          
+0       1        3  X  2.172241E+00  XY  8.222413E+00  A  3.538945E+01  LX  0.24 0.97 0.0   -1.539474E+01   1.477642E+01            
+                    Y  3.335412E+01  YZ  0.0           B  1.369058E-01  LY  0.97-0.24 0.0                                           
+                    Z  1.065788E+01  ZX  0.0           C  1.065788E+01  LZ  0.0  0.0  1.00                                          
+0       1       10  X  1.154503E+00  XY  4.140992E+00  A  3.488017E+01  LX  0.12 0.99 0.0   -1.539470E+01   1.437178E+01            
+                    Y  3.437172E+01  YZ  0.0           B  6.460528E-01  LY  0.99-0.12 0.0                                           
+                    Z  1.065786E+01  ZX  0.0           C  1.065786E+01  LZ  0.0  0.0  1.00                                          
+0       1       15  X  1.367655E-01  XY  5.957030E-02  A  3.538942E+01  LX  0.00 1.00 0.0   -1.539464E+01   1.477649E+01            
+                    Y  3.538931E+01  YZ  0.0           B  1.366617E-01  LY  1.00 0.00 0.0                                           
+                    Z  1.065784E+01  ZX  0.0           C  1.065784E+01  LZ  0.0  0.0  1.00                                          
+0       1       14  X -4.875983E+00  XY  7.516288E-02  A  4.043284E+01  LX  0.00 1.00 0.0   -1.540792E+01   1.879862E+01            
+                    Y  4.043271E+01  YZ  0.0           B -4.876106E+00  LY  1.00 0.00 0.0                                           
+                    Z  1.066702E+01  ZX  0.0           C  1.066702E+01  LZ  0.0  0.0  1.00                                          
+0       1       13  X -9.888731E+00  XY  9.075449E-02  A  4.547625E+01  LX  0.00 1.00 0.0   -1.542120E+01   2.285039E+01            
+                    Y  4.547610E+01  YZ  0.0           B -9.888878E+00  LY  1.00 0.00 0.0                                           
+                    Z  1.067620E+01  ZX  0.0           C  1.067621E+01  LZ  0.0  0.0  1.00                                          
+0       1        9  X -8.290037E+00  XY  6.503403E+00  A  4.467573E+01  LX  0.12 0.99 0.0   -1.542111E+01   2.220414E+01            
+                    Y  4.387720E+01  YZ  0.0           B -9.088559E+00  LY  0.99-0.12 0.0                                           
+                    Z  1.067616E+01  ZX  0.0           C  1.067617E+01  LZ  0.0  0.0  1.00                                          
+0       1        4  X -6.691255E+00  XY  1.291605E+01  A  4.547618E+01  LX  0.24 0.97 0.0   -1.542107E+01   2.285045E+01            
+                    Y  4.227831E+01  YZ  0.0           B -9.889115E+00  LY  0.97-0.24 0.0                                           
+                    Z  1.067613E+01  ZX  0.0           C  1.067613E+01  LZ  0.0  0.0  1.00                                          
+0       1        5  X  2.172129E+00  XY  8.222420E+00  A  3.538943E+01  LX  0.24 0.97 0.0   -1.539470E+01   1.477645E+01            
+                    Y  3.335411E+01  YZ  0.0           B  1.367964E-01  LY  0.97-0.24 0.0                                           
+                    Z  1.065786E+01  ZX  0.0           C  1.065787E+01  LZ  0.0  0.0  1.00                                          
+0       1       17  X  1.368871E-01  XY  5.955793E-02  A  3.538943E+01  LX  0.00 1.00 0.0   -1.539470E+01   1.477645E+01            
+                    Y  3.538934E+01  YZ  0.0           B  1.367873E-01  LY  1.00 0.00 0.0                                           
+                    Z  1.065787E+01  ZX  0.0           C  1.065788E+01  LZ  0.0  0.0  1.00                                          
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0      PRESSURE  LOAD                                                                                        SUBCASE   1            
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0       1       16  X -9.888877E+00  XY  9.075666E-02  A  4.547623E+01  LX  0.00 1.00 0.0   -1.542112E+01   2.285044E+01            
+                    Y  4.547608E+01  YZ  0.0           B -9.889028E+00  LY  1.00 0.00 0.0                                           
+                    Z  1.067615E+01  ZX  0.0           C  1.067616E+01  LZ  0.0  0.0  1.00                                          
+0       1        6  X -6.691167E+00  XY  1.291605E+01  A  4.547618E+01  LX  0.24 0.97 0.0   -1.542110E+01   2.285043E+01            
+                    Y  4.227832E+01  YZ  0.0           B -9.889039E+00  LY  0.97-0.24 0.0                                           
+                    Z  1.067615E+01  ZX  0.0           C  1.067616E+01  LZ  0.0  0.0  1.00                                          
+0       1        7  X -2.259575E+00  XY  1.056924E+01  A  4.043280E+01  LX  0.24 0.97 0.0   -1.540788E+01   1.879863E+01            
+                    Y  3.781621E+01  YZ  0.0           B -4.876173E+00  LY  0.97-0.24 0.0                                           
+                    Z  1.066700E+01  ZX  0.0           C  1.066700E+01  LZ  0.0  0.0  1.00                                          
+0       1        8  X  2.172018E+00  XY  8.222425E+00  A  3.538941E+01  LX  0.24 0.97 0.0   -1.539465E+01   1.477648E+01            
+                    Y  3.335409E+01  YZ  0.0           B  1.366919E-01  LY  0.97-0.24 0.0                                           
+                    Z  1.065784E+01  ZX  0.0           C  1.065785E+01  LZ  0.0  0.0  1.00                                          
+0       1       12  X  1.154513E+00  XY  4.140985E+00  A  3.488017E+01  LX  0.12 0.99 0.0   -1.539470E+01   1.437177E+01            
+                    Y  3.437172E+01  YZ  0.0           B  6.460651E-01  LY  0.99-0.12 0.0                                           
+                    Z  1.065787E+01  ZX  0.0           C  1.065788E+01  LZ  0.0  0.0  1.00                                          
+0       1       20  X  1.370092E-01  XY  5.954466E-02  A  3.538944E+01  LX  0.00 1.00 0.0   -1.539475E+01   1.477641E+01            
+                    Y  3.538935E+01  YZ  0.0           B  1.369065E-01  LY  1.00 0.00 0.0                                           
+                    Z  1.065790E+01  ZX  0.0           C  1.065790E+01  LZ  0.0  0.0  1.00                                          
+0       1       19  X -4.876007E+00  XY  7.515171E-02  A  4.043282E+01  LX  0.00 1.00 0.0   -1.540790E+01   1.879863E+01            
+                    Y  4.043270E+01  YZ  0.0           B -4.876133E+00  LY  1.00 0.00 0.0                                           
+                    Z  1.066700E+01  ZX  0.0           C  1.066700E+01  LZ  0.0  0.0  1.00                                          
+0       1       18  X -9.889022E+00  XY  9.075779E-02  A  4.547618E+01  LX  0.00 1.00 0.0   -1.542104E+01   2.285048E+01            
+                    Y  4.547604E+01  YZ  0.0           B -9.889173E+00  LY  1.00 0.00 0.0                                           
+                    Z  1.067611E+01  ZX  0.0           C  1.067610E+01  LZ  0.0  0.0  1.00                                          
+0       1       11  X -8.290095E+00  XY  6.503403E+00  A  4.467570E+01  LX  0.12 0.99 0.0   -1.542107E+01   2.220415E+01            
+                    Y  4.387718E+01  YZ  0.0           B -9.088618E+00  LY  0.99-0.12 0.0                                           
+                    Z  1.067613E+01  ZX  0.0           C  1.067613E+01  LZ  0.0  0.0  1.00                                          
+0       1        0  X -3.567779E+00  XY  5.322196E+00  A  3.977794E+01  LX  0.12 0.99 0.0   -1.540789E+01   1.827274E+01            
+                    Y  3.912445E+01  YZ  0.0           B -4.221265E+00  LY  0.99-0.12 0.0                                           
+                    Z  1.066700E+01  ZX  0.0           C  1.066700E+01  LZ  0.0  0.0  1.00                                          
+0       2       13  X -9.888847E+00  XY -9.075878E-02  A  4.547621E+01  LX  0.00 1.00 0.0   -1.542113E+01   2.285042E+01            
+                    Y  4.547607E+01  YZ  0.0           B -9.888995E+00  LY -1.00 0.00 0.0                                           
+                    Z  1.067617E+01  ZX  0.0           C  1.067617E+01  LZ  0.0  0.0  1.00                                          
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0      PRESSURE  LOAD                                                                                        SUBCASE   1            
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0       2       14  X -4.876045E+00  XY -7.515997E-02  A  4.043282E+01  LX  0.00 1.00 0.0   -1.540789E+01   1.879864E+01            
+                    Y  4.043269E+01  YZ  0.0           B -4.876172E+00  LY -1.00 0.00 0.0                                           
+                    Z  1.066701E+01  ZX  0.0           C  1.066701E+01  LZ  0.0  0.0  1.00                                          
+0       2       15  X  1.367583E-01  XY -5.956020E-02  A  3.538940E+01  LX  0.00 1.00 0.0   -1.539464E+01   1.477649E+01            
+                    Y  3.538931E+01  YZ  0.0           B  1.366543E-01  LY -1.00 0.00 0.0                                           
+                    Z  1.065785E+01  ZX  0.0           C  1.065785E+01  LZ  0.0  0.0  1.00                                          
+0       2       22  X  1.154518E+00  XY -4.140984E+00  A  3.488018E+01  LX  0.12 0.99 0.0   -1.539470E+01   1.437178E+01            
+                    Y  3.437173E+01  YZ  0.0           B  6.460685E-01  LY -0.99 0.12 0.0                                           
+                    Z  1.065786E+01  ZX  0.0           C  1.065786E+01  LZ  0.0  0.0  1.00                                          
+0       2       27  X  2.172278E+00  XY -8.222406E+00  A  3.538948E+01  LX  0.24 0.97 0.0   -1.539477E+01   1.477642E+01            
+                    Y  3.335415E+01  YZ  0.0           B  1.369467E-01  LY -0.97 0.24 0.0                                           
+                    Z  1.065788E+01  ZX  0.0           C  1.065788E+01  LZ  0.0  0.0  1.00                                          
+0       2       26  X -2.259534E+00  XY -1.056924E+01  A  4.043285E+01  LX  0.24 0.97 0.0   -1.540791E+01   1.879864E+01            
+                    Y  3.781625E+01  YZ  0.0           B -4.876134E+00  LY -0.97 0.24 0.0                                           
+                    Z  1.066699E+01  ZX  0.0           C  1.066700E+01  LZ  0.0  0.0  1.00                                          
+0       2       25  X -6.691346E+00  XY -1.291607E+01  A  4.547621E+01  LX  0.24 0.97 0.0   -1.542104E+01   2.285050E+01            
+                    Y  4.227834E+01  YZ  0.0           B -9.889211E+00  LY -0.97 0.24 0.0                                           
+                    Z  1.067611E+01  ZX  0.0           C  1.067611E+01  LZ  0.0  0.0  1.00                                          
+0       2       21  X -8.290097E+00  XY -6.503413E+00  A  4.467573E+01  LX  0.12 0.99 0.0   -1.542109E+01   2.220416E+01            
+                    Y  4.387721E+01  YZ  0.0           B -9.088620E+00  LY -0.99 0.12 0.0                                           
+                    Z  1.067614E+01  ZX  0.0           C  1.067615E+01  LZ  0.0  0.0  1.00                                          
+0       2       16  X -9.888850E+00  XY -9.076250E-02  A  4.547624E+01  LX  0.00 1.00 0.0   -1.542113E+01   2.285044E+01            
+                    Y  4.547610E+01  YZ  0.0           B -9.889002E+00  LY -1.00 0.00 0.0                                           
+                    Z  1.067616E+01  ZX  0.0           C  1.067616E+01  LZ  0.0  0.0  1.00                                          
+0       2       17  X  1.368011E-01  XY -5.956426E-02  A  3.538943E+01  LX  0.00 1.00 0.0   -1.539467E+01   1.477649E+01            
+                    Y  3.538933E+01  YZ  0.0           B  1.366997E-01  LY -1.00 0.00 0.0                                           
+                    Z  1.065786E+01  ZX  0.0           C  1.065786E+01  LZ  0.0  0.0  1.00                                          
+0       2       29  X  2.172181E+00  XY -8.222425E+00  A  3.538944E+01  LX  0.24 0.97 0.0   -1.539471E+01   1.477644E+01            
+                    Y  3.335410E+01  YZ  0.0           B  1.368441E-01  LY -0.97 0.24 0.0                                           
+                    Z  1.065786E+01  ZX  0.0           C  1.065786E+01  LZ  0.0  0.0  1.00                                          
+0       2       28  X -6.691268E+00  XY -1.291603E+01  A  4.547620E+01  LX  0.24 0.97 0.0   -1.542106E+01   2.285046E+01            
+                    Y  4.227834E+01  YZ  0.0           B -9.889123E+00  LY -0.97 0.24 0.0                                           
+                    Z  1.067612E+01  ZX  0.0           C  1.067611E+01  LZ  0.0  0.0  1.00                                          
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0      PRESSURE  LOAD                                                                                        SUBCASE   1            
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0       2       18  X -9.888851E+00  XY -9.076518E-02  A  4.547626E+01  LX  0.00 1.00 0.0   -1.542114E+01   2.285045E+01            
+                    Y  4.547611E+01  YZ  0.0           B -9.889000E+00  LY -1.00 0.00 0.0                                           
+                    Z  1.067615E+01  ZX  0.0           C  1.067616E+01  LZ  0.0  0.0  1.00                                          
+0       2       19  X -4.876004E+00  XY -7.516678E-02  A  4.043286E+01  LX  0.00 1.00 0.0   -1.540792E+01   1.879864E+01            
+                    Y  4.043274E+01  YZ  0.0           B -4.876126E+00  LY -1.00 0.00 0.0                                           
+                    Z  1.066702E+01  ZX  0.0           C  1.066701E+01  LZ  0.0  0.0  1.00                                          
+0       2       20  X  1.368446E-01  XY -5.956743E-02  A  3.538944E+01  LX  0.00 1.00 0.0   -1.539469E+01   1.477647E+01            
+                    Y  3.538935E+01  YZ  0.0           B  1.367452E-01  LY -1.00 0.00 0.0                                           
+                    Z  1.065788E+01  ZX  0.0           C  1.065788E+01  LZ  0.0  0.0  1.00                                          
+0       2       24  X  1.154464E+00  XY -4.141006E+00  A  3.488016E+01  LX  0.12 0.99 0.0   -1.539468E+01   1.437178E+01            
+                    Y  3.437170E+01  YZ  0.0           B  6.460094E-01  LY -0.99 0.12 0.0                                           
+                    Z  1.065786E+01  ZX  0.0           C  1.065787E+01  LZ  0.0  0.0  1.00                                          
+0       2       32  X  2.172085E+00  XY -8.222443E+00  A  3.538939E+01  LX  0.24 0.97 0.0   -1.539466E+01   1.477645E+01            
+                    Y  3.335404E+01  YZ  0.0           B  1.367415E-01  LY -0.97 0.24 0.0                                           
+                    Z  1.065784E+01  ZX  0.0           C  1.065784E+01  LZ  0.0  0.0  1.00                                          
+0       2       31  X -2.259552E+00  XY -1.056922E+01  A  4.043279E+01  LX  0.24 0.97 0.0   -1.540788E+01   1.879861E+01            
+                    Y  3.781619E+01  YZ  0.0           B -4.876147E+00  LY -0.97 0.24 0.0                                           
+                    Z  1.066698E+01  ZX  0.0           C  1.066699E+01  LZ  0.0  0.0  1.00                                          
+0       2       30  X -6.691189E+00  XY -1.291599E+01  A  4.547617E+01  LX  0.24 0.97 0.0   -1.542109E+01   2.285042E+01            
+                    Y  4.227834E+01  YZ  0.0           B -9.889026E+00  LY -0.97 0.24 0.0                                           
+                    Z  1.067613E+01  ZX  0.0           C  1.067614E+01  LZ  0.0  0.0  1.00                                          
+0       2       23  X -8.290021E+00  XY -6.503379E+00  A  4.467574E+01  LX  0.12 0.99 0.0   -1.542112E+01   2.220414E+01            
+                    Y  4.387723E+01  YZ  0.0           B -9.088536E+00  LY -0.99 0.12 0.0                                           
+                    Z  1.067614E+01  ZX  0.0           C  1.067614E+01  LZ  0.0  0.0  1.00                                          
+0       2        0  X -3.567784E+00  XY -5.322195E+00  A  3.977795E+01  LX  0.12 0.99 0.0   -1.540790E+01   1.827275E+01            
+                    Y  3.912447E+01  YZ  0.0           B -4.221269E+00  LY -0.99 0.12 0.0                                           
+                    Z  1.066700E+01  ZX  0.0           C  1.066700E+01  LZ  0.0  0.0  1.00                                          
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0      THERMAL LOAD                                                                                          SUBCASE   2            
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0       1        1  X -2.880421E+03  XY -6.926184E+03  A -1.163994E+03  LX  0.97 0.0  0.24   2.787886E+04   2.071345E+04            
+                    Y -2.911279E+04  YZ  0.0           B -5.164338E+04  LY -0.24 0.0  0.97                                          
+                    Z -5.164338E+04  ZX  0.0           C -3.082921E+04  LZ  0.0  1.00 0.0                                           
+0       1        2  X -1.089508E+03  XY  2.731567E+02  A  1.442129E+01  LX  0.24 0.0  0.97   7.370508E+03   9.627364E+03            
+                    Y -5.317122E+01  YZ  0.0           B -2.096885E+04  LY  0.97 0.0 -0.24                                          
+                    Z -2.096885E+04  ZX  0.0           C -1.157102E+03  LZ  0.0  1.00 0.0                                           
+0       1        3  X  7.014052E+02  XY  7.472497E+03  A  3.085805E+04  LX  0.24 0.97 0.0   -1.313784E+04   1.329077E+04            
+                    Y  2.900644E+04  YZ  0.0           B -1.150202E+03  LY  0.97-0.24 0.0                                           
+                    Z  9.705687E+03  ZX  0.0           C  9.705686E+03  LZ  0.0  0.0  1.00                                          
+0       1       10  X -2.244097E+02  XY  3.759441E+03  A  3.039381E+04  LX  0.12 0.99 0.0   -1.313783E+04   1.291830E+04            
+                    Y  2.993221E+04  YZ  0.0           B -6.860110E+02  LY  0.99-0.12 0.0                                           
+                    Z  9.705675E+03  ZX  0.0           C  9.705672E+03  LZ  0.0  0.0  1.00                                          
+0       1       15  X -1.150224E+03  XY  4.638407E+01  A  3.085804E+04  LX  0.00 1.00 0.0   -1.313780E+04   1.329080E+04            
+                    Y  3.085797E+04  YZ  0.0           B -1.150292E+03  LY  1.00 0.00 0.0                                           
+                    Z  9.705666E+03  ZX  0.0           C  9.705664E+03  LZ  0.0  0.0  1.00                                          
+0       1       14  X -1.157072E+03  XY  2.096515E+00  A  1.446751E+01  LX  0.00 0.0  1.00   7.370476E+03   9.627366E+03            
+                    Y  1.446161E+01  YZ  0.0           B -2.096882E+04  LY  1.00 0.0  0.00                                          
+                    Z -2.096882E+04  ZX  0.0           C -1.157078E+03  LZ  0.0  1.00 0.0                                           
+0       1       13  X -1.163920E+03  XY -4.219107E+01  A -1.163863E+03  LX  1.00 0.0  0.00   2.787876E+04   2.071347E+04            
+                    Y -3.082905E+04  YZ  0.0           B -5.164329E+04  LY  0.00 0.0  1.00                                          
+                    Z -5.164330E+04  ZX  0.0           C -3.082912E+04  LZ  0.0  1.00 0.0                                           
+0       1        9  X -2.022171E+03  XY -3.484188E+03  A -1.594363E+03  LX  0.99 0.0  0.12   2.787881E+04   2.050996E+04            
+                    Y -2.997092E+04  YZ  0.0           B -5.164336E+04  LY -0.12 0.0  0.99                                          
+                    Z -5.164334E+04  ZX  0.0           C -3.039871E+04  LZ  0.0  1.00 0.0                                           
+0       1        4  X -2.880374E+03  XY -6.926183E+03  A -1.163953E+03  LX  0.97 0.0  0.24   2.787882E+04   2.071345E+04            
+                    Y -2.911275E+04  YZ  0.0           B -5.164334E+04  LY -0.24 0.0  0.97                                          
+                    Z -5.164334E+04  ZX  0.0           C -3.082917E+04  LZ  0.0  1.00 0.0                                           
+0       1        5  X  7.013417E+02  XY  7.472495E+03  A  3.085805E+04  LX  0.24 0.97 0.0   -1.313782E+04   1.329079E+04            
+                    Y  2.900644E+04  YZ  0.0           B -1.150260E+03  LY  0.97-0.24 0.0                                           
+                    Z  9.705660E+03  ZX  0.0           C  9.705659E+03  LZ  0.0  0.0  1.00                                          
+0       1       17  X -1.150141E+03  XY  4.638845E+01  A  3.085806E+04  LX  0.00 1.00 0.0   -1.313785E+04   1.329078E+04            
+                    Y  3.085800E+04  YZ  0.0           B -1.150212E+03  LY  1.00 0.00 0.0                                           
+                    Z  9.705690E+03  ZX  0.0           C  9.705695E+03  LZ  0.0  0.0  1.00                                          
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0      THERMAL LOAD                                                                                          SUBCASE   2            
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0       1       16  X -1.164045E+03  XY -4.220688E+01  A -1.163984E+03  LX  1.00 0.0  0.00   2.787884E+04   2.071345E+04            
+                    Y -3.082911E+04  YZ  0.0           B -5.164336E+04  LY  0.00 0.0  1.00                                          
+                    Z -5.164335E+04  ZX  0.0           C -3.082917E+04  LZ  0.0  1.00 0.0                                           
+0       1        6  X -2.880326E+03  XY -6.926183E+03  A -1.163900E+03  LX  0.97 0.0  0.24   2.787878E+04   2.071346E+04            
+                    Y -2.911271E+04  YZ  0.0           B -5.164331E+04  LY -0.24 0.0  0.97                                          
+                    Z -5.164330E+04  ZX  0.0           C -3.082913E+04  LZ  0.0  1.00 0.0                                           
+0       1        7  X -1.089524E+03  XY  2.731552E+02  A  1.445565E+01  LX  0.24 0.0  0.97   7.370499E+03   9.627365E+03            
+                    Y -5.313544E+01  YZ  0.0           B -2.096884E+04  LY  0.97 0.0 -0.24                                          
+                    Z -2.096884E+04  ZX  0.0           C -1.157114E+03  LZ  0.0  1.00 0.0                                           
+0       1        8  X  7.012785E+02  XY  7.472493E+03  A  3.085803E+04  LX  0.24 0.97 0.0   -1.313778E+04   1.329081E+04            
+                    Y  2.900644E+04  YZ  0.0           B -1.150320E+03  LY  0.97-0.24 0.0                                           
+                    Z  9.705636E+03  ZX  0.0           C  9.705641E+03  LZ  0.0  0.0  1.00                                          
+0       1       12  X -2.243900E+02  XY  3.759443E+03  A  3.039383E+04  LX  0.12 0.99 0.0   -1.313784E+04   1.291830E+04            
+                    Y  2.993223E+04  YZ  0.0           B -6.859918E+02  LY  0.99-0.12 0.0                                           
+                    Z  9.705676E+03  ZX  0.0           C  9.705676E+03  LZ  0.0  0.0  1.00                                          
+0       1       20  X -1.150058E+03  XY  4.639257E+01  A  3.085809E+04  LX  0.00 1.00 0.0   -1.313789E+04   1.329075E+04            
+                    Y  3.085802E+04  YZ  0.0           B -1.150126E+03  LY  1.00 0.00 0.0                                           
+                    Z  9.705719E+03  ZX  0.0           C  9.705720E+03  LZ  0.0  0.0  1.00                                          
+0       1       19  X -1.157115E+03  XY  2.085050E+00  A  1.443191E+01  LX  0.00 0.0  1.00   7.370510E+03   9.627362E+03            
+                    Y  1.442414E+01  YZ  0.0           B -2.096884E+04  LY  1.00 0.0  0.00                                          
+                    Z -2.096884E+04  ZX  0.0           C -1.157119E+03  LZ  0.0  1.00 0.0                                           
+0       1       18  X -1.164171E+03  XY -4.222250E+01  A -1.164115E+03  LX  1.00 0.0  0.00   2.787892E+04   2.071341E+04            
+                    Y -3.082917E+04  YZ  0.0           B -5.164341E+04  LY  0.00 0.0  1.00                                          
+                    Z -5.164340E+04  ZX  0.0           C -3.082923E+04  LZ  0.0  1.00 0.0                                           
+0       1       11  X -2.022249E+03  XY -3.484203E+03  A -1.594444E+03  LX  0.99 0.0  0.12   2.787885E+04   2.050993E+04            
+                    Y -2.997094E+04  YZ  0.0           B -5.164336E+04  LY -0.12 0.0  0.99                                          
+                    Z -5.164336E+04  ZX  0.0           C -3.039875E+04  LZ  0.0  1.00 0.0                                           
+0       1        0  X -1.123305E+03  XY  1.376234E+02  A -2.454061E+00  LX  0.12 0.0  0.99   7.370498E+03   9.626688E+03            
+                    Y -1.935522E+01  YZ  0.0           B -2.096883E+04  LY  0.99 0.0 -0.12                                          
+                    Z -2.096883E+04  ZX  0.0           C -1.140205E+03  LZ  0.0  1.00 0.0                                           
+0       2       13  X -1.164112E+03  XY  4.221630E+01  A -1.164050E+03  LX  1.00 0.0  0.00   2.787888E+04   2.071344E+04            
+                    Y -3.082914E+04  YZ  0.0           B -5.164341E+04  LY  0.00 0.0 -1.00                                          
+                    Z -5.164340E+04  ZX  0.0           C -3.082920E+04  LZ  0.0  1.00 0.0                                           
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0      THERMAL LOAD                                                                                          SUBCASE   2            
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0       2       14  X -1.157136E+03  XY -2.089234E+00  A  1.442692E+01  LX  0.00 0.0  1.00   7.370523E+03   9.627361E+03            
+                    Y  1.442376E+01  YZ  0.0           B -2.096886E+04  LY -1.00 0.0  0.00                                          
+                    Z -2.096886E+04  ZX  0.0           C -1.157141E+03  LZ  0.0  1.00 0.0                                           
+0       2       15  X -1.150159E+03  XY -4.639474E+01  A  3.085805E+04  LX  0.00 1.00 0.0   -1.313784E+04   1.329078E+04            
+                    Y  3.085799E+04  YZ  0.0           B -1.150226E+03  LY -1.00 0.00 0.0                                           
+                    Z  9.705694E+03  ZX  0.0           C  9.705695E+03  LZ  0.0  0.0  1.00                                          
+0       2       22  X -2.243690E+02  XY -3.759435E+03  A  3.039380E+04  LX  0.12 0.99 0.0   -1.313784E+04   1.291828E+04            
+                    Y  2.993220E+04  YZ  0.0           B -6.859714E+02  LY -0.99 0.12 0.0                                           
+                    Z  9.705682E+03  ZX  0.0           C  9.705682E+03  LZ  0.0  0.0  1.00                                          
+0       2       27  X  7.014216E+02  XY -7.472475E+03  A  3.085801E+04  LX  0.24 0.97 0.0   -1.313783E+04   1.329074E+04            
+                    Y  2.900641E+04  YZ  0.0           B -1.150177E+03  LY -0.97 0.24 0.0                                           
+                    Z  9.705671E+03  ZX  0.0           C  9.705672E+03  LZ  0.0  0.0  1.00                                          
+0       2       26  X -1.089461E+03  XY -2.731642E+02  A  1.446064E+01  LX  0.24 0.0  0.97   7.370471E+03   9.627372E+03            
+                    Y -5.313277E+01  YZ  0.0           B -2.096882E+04  LY -0.97 0.0  0.24                                          
+                    Z -2.096882E+04  ZX  0.0           C -1.157053E+03  LZ  0.0  1.00 0.0                                           
+0       2       25  X -2.880344E+03  XY  6.926146E+03  A -1.163931E+03  LX  0.97 0.0  0.24   2.787877E+04   2.071344E+04            
+                    Y -2.911267E+04  YZ  0.0           B -5.164331E+04  LY  0.24 0.0 -0.97                                          
+                    Z -5.164330E+04  ZX  0.0           C -3.082908E+04  LZ  0.0  1.00 0.0                                           
+0       2       21  X -2.022228E+03  XY  3.484181E+03  A -1.594432E+03  LX  0.99 0.0  0.12   2.787883E+04   2.050994E+04            
+                    Y -2.997091E+04  YZ  0.0           B -5.164336E+04  LY  0.12 0.0 -0.99                                          
+                    Z -5.164336E+04  ZX  0.0           C -3.039870E+04  LZ  0.0  1.00 0.0                                           
+0       2       16  X -1.164081E+03  XY  4.220443E+01  A -1.164019E+03  LX  1.00 0.0  0.00   2.787886E+04   2.071344E+04            
+                    Y -3.082911E+04  YZ  0.0           B -5.164338E+04  LY  0.00 0.0 -1.00                                          
+                    Z -5.164338E+04  ZX  0.0           C -3.082918E+04  LZ  0.0  1.00 0.0                                           
+0       2       17  X -1.150166E+03  XY -4.639832E+01  A  3.085806E+04  LX  0.00 1.00 0.0   -1.313784E+04   1.329079E+04            
+                    Y  3.085800E+04  YZ  0.0           B -1.150234E+03  LY -1.00 0.00 0.0                                           
+                    Z  9.705699E+03  ZX  0.0           C  9.705697E+03  LZ  0.0  0.0  1.00                                          
+0       2       29  X  7.014169E+02  XY -7.472489E+03  A  3.085801E+04  LX  0.24 0.97 0.0   -1.313783E+04   1.329075E+04            
+                    Y  2.900641E+04  YZ  0.0           B -1.150187E+03  LY -0.97 0.24 0.0                                           
+                    Z  9.705680E+03  ZX  0.0           C  9.705681E+03  LZ  0.0  0.0  1.00                                          
+0       2       28  X -2.880376E+03  XY  6.926182E+03  A -1.163950E+03  LX  0.97 0.0  0.24   2.787880E+04   2.071345E+04            
+                    Y -2.911269E+04  YZ  0.0           B -5.164333E+04  LY  0.24 0.0 -0.97                                          
+                    Z -5.164334E+04  ZX  0.0           C -3.082912E+04  LZ  0.0  1.00 0.0                                           
+1     LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-13-2A                                                                                   
+0      THERMAL LOAD                                                                                          SUBCASE   2            
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0       2       18  X -1.164049E+03  XY  4.219235E+01  A -1.163991E+03  LX  1.00 0.0  0.00   2.787883E+04   2.071344E+04            
+                    Y -3.082909E+04  YZ  0.0           B -5.164336E+04  LY  0.00 0.0 -1.00                                          
+                    Z -5.164336E+04  ZX  0.0           C -3.082914E+04  LZ  0.0  1.00 0.0                                           
+0       2       19  X -1.157111E+03  XY -2.104656E+00  A  1.446377E+01  LX  0.00 0.0  1.00   7.370494E+03   9.627364E+03            
+                    Y  1.446090E+01  YZ  0.0           B -2.096883E+04  LY -1.00 0.0  0.00                                          
+                    Z -2.096883E+04  ZX  0.0           C -1.157116E+03  LZ  0.0  1.00 0.0                                           
+0       2       20  X -1.150173E+03  XY -4.640164E+01  A  3.085808E+04  LX  0.00 1.00 0.0   -1.313785E+04   1.329079E+04            
+                    Y  3.085801E+04  YZ  0.0           B -1.150241E+03  LY -1.00 0.00 0.0                                           
+                    Z  9.705708E+03  ZX  0.0           C  9.705709E+03  LZ  0.0  0.0  1.00                                          
+0       2       24  X -2.243805E+02  XY -3.759452E+03  A  3.039381E+04  LX  0.12 0.99 0.0   -1.313784E+04   1.291829E+04            
+                    Y  2.993221E+04  YZ  0.0           B -6.859860E+02  LY -0.99 0.12 0.0                                           
+                    Z  9.705697E+03  ZX  0.0           C  9.705701E+03  LZ  0.0  0.0  1.00                                          
+0       2       32  X  7.014125E+02  XY -7.472502E+03  A  3.085802E+04  LX  0.24 0.97 0.0   -1.313784E+04   1.329075E+04            
+                    Y  2.900641E+04  YZ  0.0           B -1.150197E+03  LY -0.97 0.24 0.0                                           
+                    Z  9.705690E+03  ZX  0.0           C  9.705690E+03  LZ  0.0  0.0  1.00                                          
+0       2       31  X -1.089498E+03  XY -2.731430E+02  A  1.443066E+01  LX  0.24 0.0  0.97   7.370497E+03   9.627371E+03            
+                    Y -5.315130E+01  YZ  0.0           B -2.096884E+04  LY -0.97 0.0  0.24                                          
+                    Z -2.096884E+04  ZX  0.0           C -1.157075E+03  LZ  0.0  1.00 0.0                                           
+0       2       30  X -2.880408E+03  XY  6.926216E+03  A -1.163966E+03  LX  0.97 0.0  0.24   2.787883E+04   2.071346E+04            
+                    Y -2.911271E+04  YZ  0.0           B -5.164338E+04  LY  0.24 0.0 -0.97                                          
+                    Z -5.164337E+04  ZX  0.0           C -3.082915E+04  LZ  0.0  1.00 0.0                                           
+0       2       23  X -2.022229E+03  XY  3.484205E+03  A -1.594423E+03  LX  0.99 0.0  0.12   2.787883E+04   2.050994E+04            
+                    Y -2.997090E+04  YZ  0.0           B -5.164337E+04  LY  0.12 0.0 -0.99                                          
+                    Z -5.164337E+04  ZX  0.0           C -3.039871E+04  LZ  0.0  1.00 0.0                                           
+0       2        0  X -1.123302E+03  XY -1.376253E+02  A -2.447187E+00  LX  0.12 0.0  0.99   7.370495E+03   9.626691E+03            
+                    Y -1.934985E+01  YZ  0.0           B -2.096884E+04  LY -0.99 0.0  0.12                                          
+                    Z -2.096884E+04  ZX  0.0           C -1.140201E+03  LZ  0.0  1.00 0.0                                           
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  LOADS ON A LONG PIPE USING QUADRATIC ISOPARAMETRIC ELEMENTS        
+ DATE:  5/17/95
+ END TIME: 15: 6: 9
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

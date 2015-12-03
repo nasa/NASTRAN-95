@@ -1,0 +1,1047 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01041A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     TIME  30                                                                        
+     SOL   1,1                                                                       
+     DIAG  14                                                                        
+     ALTER 1 $                                                                       
+     PARAM  //C,N,NOP/V,N,TRUE=-1 $                                                  
+     INPUT, GEOM1,,,,/G1,G2,,G4,/C,N,3/C,N,1  $                                      
+     EQUIV  G1,GEOM1/TRUE /G2,GEOM2/TRUE /G4,GEOM4/TRUE $                            
+     ENDALTER $                                                                      
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = 5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                              
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                          
+                  3      LABEL    = SPILL CHECK                                                          
+                  4          SPC  = 5100                                                                 
+                  5          LOAD = 17                                                                   
+                  6      OUTPUT                                                                          
+                  7         SET 1 = 1 THRU 5,7,13,19,25,31,37,43                                         
+                  8         DISP  = 1                                                                    
+                  9        STRESS = 1                                                                    
+                 10         OLOAD = ALL                                                                  
+                 11      SPCFORCE = ALL                                                                  
+                 12      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   162, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        FORCE   17      1               1.0                     .9958928                
+                    2-        FORCE   17      2               1.0                     1.894301                
+                    3-        FORCE   17      3               1.0                     1.610752                
+                    4-        FORCE   17      4               1.0                     1.170742                
+                    5-        FORCE   17      5               1.0-2                   61.54956                
+                    6-        FORCE   17      6               1.0-2                   7.837847                
+                    7-        MAT2    1234    4.0+6   2.0+6           6.0+6           3.0+6   1.0     +MATL   
+                    8-        +MATL   .5      1.0     .05     10.0    .004    1.+12   2.+12   3.+12           
+                    9-        PQUAD1  101                     1234    .0833333                        +PQD    
+                   10-        +PQD    .5      -.5                                                             
+                   11-        SEQGP   1       1       2       102     3       203     4       304             
+                   12-        SEQGP   5       405     6       506     7       2       8       103             
+                   13-        SEQGP   9       204     10      305     11      406     12      507             
+                   14-        SEQGP   13      3       14      104     15      205     16      306             
+                   15-        SEQGP   17      407     18      508     19      4       20      105             
+                   16-        SEQGP   21      206     22      307     23      408     24      509             
+                   17-        SEQGP   25      5       26      106     27      207     28      308             
+                   18-        SEQGP   29      409     30      510     31      6       32      107             
+                   19-        SEQGP   33      208     34      309     35      410     36      511             
+                   20-        SEQGP   37      7       38      108     39      209     40      310             
+                   21-        SEQGP   41      411     42      512     43      8       44      109             
+                   22-        SEQGP   45      210     46      311     47      412     48      513             
+                   23-        SEQGP   49      9       50      110     51      211     52      312             
+                   24-        SEQGP   53      413     54      514     55      10      56      111             
+                   25-        SEQGP   57      212     58      313     59      414     60      515             
+                   26-        SEQGP   61      11      62      112     63      213     64      314             
+                   27-        SEQGP   65      415     66      516     67      12      68      113             
+                   28-        SEQGP   69      214     70      315     71      416     72      517             
+                   29-        SEQGP   73      13      74      114     75      215     76      316             
+                   30-        SEQGP   77      417     78      518     79      14      80      115             
+                   31-        SEQGP   81      216     82      317     83      418     84      519             
+                   32-        SEQGP   85      15      86      116     87      217     88      318             
+                   33-        SEQGP   89      419     90      520     91      16      92      117             
+                   34-        SEQGP   93      218     94      319     95      420     96      521             
+                   35-        SEQGP   97      17      98      118     99      219     100     320             
+                   36-        SEQGP   101     421     102     522     103     18      104     119             
+                   37-        SEQGP   105     220     106     321     107     422     108     523             
+                   38-        SEQGP   109     19      110     120     111     221     112     322             
+                   39-        SEQGP   113     423     114     524     115     20      116     121             
+                   40-        SEQGP   117     222     118     323     119     424     120     525             
+                   41-        SEQGP   121     21      122     122     123     223     124     324             
+                   42-        SEQGP   125     425     126     526     127     22      128     123             
+                   43-        SEQGP   129     224     130     325     131     426     132     527             
+                   44-        SEQGP   133     23      134     124     135     225     136     326             
+                   45-        SEQGP   137     427     138     528     139     24      140     125             
+                   46-        SEQGP   141     226     142     327     143     428     144     529             
+                   47-        SEQGP   145     25      146     126     147     227     148     328             
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+
+      SPILL CHECK                                                                                                                   
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        SEQGP   149     429     150     530     151     26      152     127             
+                   49-        SEQGP   153     228     154     329     155     430     156     531             
+                   50-        SEQGP   157     27      158     128     159     229     160     330             
+                   51-        SEQGP   161     431     162     532     163     28      164     129             
+                   52-        SEQGP   165     230     166     331     167     432     168     533             
+                   53-        SEQGP   169     29      170     130     171     231     172     332             
+                   54-        SEQGP   173     433     174     534     175     30      176     131             
+                   55-        SEQGP   177     232     178     333     179     434     180     535             
+                   56-        SEQGP   181     31      182     132     183     233     184     334             
+                   57-        SEQGP   185     435     186     536     187     32      188     133             
+                   58-        SEQGP   189     234     190     335     191     436     192     537             
+                   59-        SEQGP   193     33      194     134     195     235     196     336             
+                   60-        SEQGP   197     437     198     538     199     34      200     135             
+                   61-        SEQGP   201     236     202     337     203     438     204     539             
+                   62-        SEQGP   205     35      206     136     207     237     208     338             
+                   63-        SEQGP   209     439     210     540     211     36      212     137             
+                   64-        SEQGP   213     238     214     339     215     440     216     541             
+                   65-        SEQGP   217     37      218     138     219     239     220     340             
+                   66-        SEQGP   221     441     222     542     223     38      224     139             
+                   67-        SEQGP   225     240     226     341     227     442     228     543             
+                   68-        SEQGP   229     39      230     140     231     241     232     342             
+                   69-        SEQGP   233     443     234     544     235     40      236     141             
+                   70-        SEQGP   237     242     238     343     239     444     240     545             
+                   71-        SEQGP   241     41      242     142     243     243     244     344             
+                   72-        SEQGP   245     445     246     546     247     42      248     143             
+                   73-        SEQGP   249     244     250     345     251     446     252     547             
+                   74-        SEQGP   253     43      254     144     255     245     256     346             
+                   75-        SEQGP   257     447     258     548     259     44      260     145             
+                   76-        SEQGP   261     246     262     347     263     448     264     549             
+                   77-        SEQGP   265     45      266     146     267     247     268     348             
+                   78-        SEQGP   269     449     270     550     271     46      272     147             
+                   79-        SEQGP   273     248     274     349     275     450     276     551             
+                   80-        SEQGP   277     47      278     148     279     249     280     350             
+                   81-        SEQGP   281     451     282     552     283     48      284     149             
+                   82-        SEQGP   285     250     286     351     287     452     288     553             
+                   83-        SEQGP   289     49      290     150     291     251     292     352             
+                   84-        SEQGP   293     453     294     554     295     50      296     151             
+                   85-        SEQGP   297     252     298     353     299     454     300     555             
+                   86-        SEQGP   301     51      302     152     303     253     304     354             
+                   87-        SEQGP   305     455     306     556     307     52      308     153             
+                   88-        SEQGP   309     254     310     355     311     456     312     557             
+                   89-        SEQGP   313     53      314     154     315     255     316     356             
+                   90-        SEQGP   317     457     318     558     319     54      320     155             
+                   91-        SEQGP   321     256     322     357     323     458     324     559             
+                   92-        SEQGP   325     55      326     156     327     257     328     358             
+                   93-        SEQGP   329     459     330     560     331     56      332     157             
+                   94-        SEQGP   333     258     334     359     335     460     336     561             
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+
+      SPILL CHECK                                                                                                                   
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        SEQGP   337     57      338     158     339     259     340     360             
+                   96-        SEQGP   341     461     342     562     343     58      344     159             
+                   97-        SEQGP   345     260     346     361     347     462     348     563             
+                   98-        SEQGP   349     59      350     160     351     261     352     362             
+                   99-        SEQGP   353     463     354     564     355     60      356     161             
+                  100-        SEQGP   357     262     358     363     359     464     360     565             
+                  101-        SEQGP   361     61      362     162     363     263     364     364             
+                  102-        SEQGP   365     465     366     566     367     62      368     163             
+                  103-        SEQGP   369     264     370     365     371     466     372     567             
+                  104-        SEQGP   373     63      374     164     375     265     376     366             
+                  105-        SEQGP   377     467     378     568     379     64      380     165             
+                  106-        SEQGP   381     266     382     367     383     468     384     569             
+                  107-        SEQGP   385     65      386     166     387     267     388     368             
+                  108-        SEQGP   389     469     390     570     391     66      392     167             
+                  109-        SEQGP   393     268     394     369     395     470     396     571             
+                  110-        SEQGP   397     67      398     168     399     269     400     370             
+                  111-        SEQGP   401     471     402     572     403     68      404     169             
+                  112-        SEQGP   405     270     406     371     407     472     408     573             
+                  113-        SEQGP   409     69      410     170     411     271     412     372             
+                  114-        SEQGP   413     473     414     574     415     70      416     171             
+                  115-        SEQGP   417     272     418     373     419     474     420     575             
+                  116-        SEQGP   421     71      422     172     423     273     424     374             
+                  117-        SEQGP   425     475     426     576     427     72      428     173             
+                  118-        SEQGP   429     274     430     375     431     476     432     577             
+                  119-        SEQGP   433     73      434     174     435     275     436     376             
+                  120-        SEQGP   437     477     438     578     439     74      440     175             
+                  121-        SEQGP   441     276     442     377     443     478     444     579             
+                  122-        SEQGP   445     75      446     176     447     277     448     378             
+                  123-        SEQGP   449     479     450     580     451     76      452     177             
+                  124-        SEQGP   453     278     454     379     455     480     456     581             
+                  125-        SEQGP   457     77      458     178     459     279     460     380             
+                  126-        SEQGP   461     481     462     582     463     78      464     179             
+                  127-        SEQGP   465     280     466     381     467     482     468     583             
+                  128-        SEQGP   469     79      470     180     471     281     472     382             
+                  129-        SEQGP   473     483     474     584     475     80      476     181             
+                  130-        SEQGP   477     282     478     383     479     484     480     585             
+                  131-        SEQGP   481     81      482     182     483     283     484     384             
+                  132-        SEQGP   485     485     486     586     487     82      488     183             
+                  133-        SEQGP   489     284     490     385     491     486     492     587             
+                  134-        SEQGP   493     83      494     184     495     285     496     386             
+                  135-        SEQGP   497     487     498     588     499     84      500     185             
+                  136-        SEQGP   501     286     502     387     503     488     504     589             
+                  137-        SEQGP   505     85      506     186     507     287     508     388             
+                  138-        SEQGP   509     489     510     590     511     86      512     187             
+                  139-        SEQGP   513     288     514     389     515     490     516     591             
+                  140-        SEQGP   517     87      518     188     519     289     520     390             
+                  141-        SEQGP   521     491     522     592     523     88      524     189             
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+
+      SPILL CHECK                                                                                                                   
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        SEQGP   525     290     526     391     527     492     528     593             
+                  143-        SEQGP   529     89      530     190     531     291     532     392             
+                  144-        SEQGP   533     493     534     594     535     90      536     191             
+                  145-        SEQGP   537     292     538     393     539     494     540     595             
+                  146-        SEQGP   541     91      542     192     543     293     544     394             
+                  147-        SEQGP   545     495     546     596     547     92      548     193             
+                  148-        SEQGP   549     294     550     395     551     496     552     597             
+                  149-        SEQGP   553     93      554     194     555     295     556     396             
+                  150-        SEQGP   557     497     558     598     559     94      560     195             
+                  151-        SEQGP   561     296     562     397     563     498     564     599             
+                  152-        SEQGP   565     95      566     196     567     297     568     398             
+                  153-        SEQGP   569     499     570     600     571     96      572     197             
+                  154-        SEQGP   573     298     574     399     575     500     576     601             
+                  155-        SEQGP   577     97      578     198     579     299     580     400             
+                  156-        SEQGP   581     501     582     602     583     98      584     199             
+                  157-        SEQGP   585     300     586     401     587     502     588     603             
+                  158-        SEQGP   589     99      590     200     591     301     592     402             
+                  159-        SEQGP   593     503     594     604     595     100     596     201             
+                  160-        SEQGP   597     302     598     403     599     504     600     605             
+                  161-        SEQGP   601     101     602     202     603     303     604     404             
+                  162-        SEQGP   605     505     606     606                                             
+                              ENDDATA
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 01 - STATIC ANALYSIS - APR. 1995 $                        
+
+       1  PARAM  //C,N,NOP/V,N,TRUE=-1 $                                          
+
+       1  INPUT, GEOM1,,,,/G1,G2,,G4,/C,N,3/C,N,1  $                              
+
+       1  EQUIV  G1,GEOM1/TRUE /G2,GEOM2/TRUE /G4,GEOM4/TRUE $                    
+
+       2  FILE     OPTP2=SAVE/EST1=SAVE $                                         
+
+       4  SETVAL   //V,Y,INTERACT/0/V,Y,SYS21/0 $                                 
+
+       5  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       6  COMPOFF  1,INTERACT $                                                   
+
+       7  PRECHK   ALL $                                                          
+
+       8  COMPON   1,INTERACT $                                                   
+
+      10  COMPOFF  LBLINT02,SYS21 $                                               
+
+      11  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/ALWAYS=-1 $                                             
+
+      12  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+      13  EQUIV    MPTA,MPT/ISOP $                                                
+
+      14  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+      15  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      16  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      17  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      18  COND     P1,JUMPPLOT $                                                  
+
+      19  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+
+      SPILL CHECK                                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      20  PRTMSG   PLTSETX// $                                                    
+
+      21  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      22  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      23  COND     P1,JUMPPLOT $                                                  
+
+      24  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE  $                
+
+      25  PRTMSG   PLOTX1// $                                                     
+
+      26  LABEL    P1 $                                                           
+
+      27  GP3      GEOM3,EQEXIN,GEOM2/SLT,GPTT/S,N,NOGRAV/NEVER=1 $               
+
+      28  PARAM    //*AND*/NOMGG/NOGRAV/V,Y,GRDPNT=-1 $                           
+
+      29  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      30  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      31  PARAM    //*AND*/NOELMT/NOGENL/NOSIMP $                                 
+
+      32  COND     ERROR4,NOELMT $                                                
+
+      33  PURGE    KGGX/NOSIMP $                                                  
+
+      34  OPTPR1   MPT,EPT,ECT,DIT,EST/OPTP1/S,N,PRINT/S,N,TSTART/S,N,COUNT $     
+
+      35  LABEL    LOOPTOP $                                                      
+
+      36  COND     LBL1,NOSIMP $                                                  
+
+      37  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      38  EQUIV    OPTP1,OPTP2/NEVER/EST,EST1/NEVER $                             
+
+      39  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/                           
+                   C,Y,CPROD/C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/     
+                   C,Y,CPTUBE/C,Y,CPQDPLT/C,Y,CPTRPLT/C,Y,CPTRBSC/                
+                   C,Y,VOLUME/C,Y,SURFACE $                                       
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+
+      SPILL CHECK                                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      40  COND     JMPKGG,NOKGGX $                                                
+
+      41  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      42  LABEL    JMPKGG $                                                       
+
+      43  PURGE    MGG/NOMGG $                                                    
+
+      44  COND     JMPMGG,NOMGG $                                                 
+
+      45  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      46  PURGE    MDICT,MELM/ALWAYS $                                            
+
+      47  LABEL    JMPMGG $                                                       
+
+      48  COND     LBL1,GRDPNT $                                                  
+
+      49  COND     ERROR2,NOMGG $                                                 
+
+      50  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT/C,Y,WTMASS $            
+
+      51  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      52  LABEL    LBL1 $                                                         
+
+      53  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      54  COND     LBL11A,NOGENL $                                                
+
+      55  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      56  LABEL    LBL11A $                                                       
+
+      57  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      58  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      60  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      61  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      62  COND     ERROR3,NOL $                                                   
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+
+      SPILL CHECK                                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      63  PARAM    //*AND*/NOSR/SINGLE/REACT $                                    
+
+      64  PURGE    KRR,KLR,QR,DM/REACT/GM/MPCF1/GO,KOO,LOO,PO,UOOV,RUOV/OMIT/PS,  
+                   KFS,KSS/SINGLE/QG/NOSR $                                       
+
+      65  EQUIV    KGG,KNN/MPCF1 $                                                
+
+      66  COND     LBL2,MPCF2 $                                                   
+
+      67  MCE1     USET,RG/GM $                                                   
+
+      68  MCE2     USET,GM,KGG,,,/KNN,,, $                                        
+
+      69  LABEL    LBL2 $                                                         
+
+      70  EQUIV    KNN,KFF/SINGLE $                                               
+
+      71  COND     LBL3,SINGLE $                                                  
+
+      72  SCE1     USET,KNN,,,/KFF,KFS,KSS,,, $                                   
+
+      73  LABEL    LBL3 $                                                         
+
+      74  EQUIV    KFF,KAA/OMIT $                                                 
+
+      75  COND     LBL5,OMIT $                                                    
+
+      76  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      77  LABEL    LBL5 $                                                         
+
+      78  EQUIV    KAA,KLL/REACT $                                                
+
+      79  COND     LBL6,REACT $                                                   
+
+      80  RBMG1    USET,KAA,/KLL,KLR,KRR,,, $                                     
+
+      81  LABEL    LBL6 $                                                         
+
+      82  RBMG2    KLL/LLL $                                                      
+
+      83  COND     LBL7,REACT $                                                   
+
+      84  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      85  LABEL    LBL7 $                                                         
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+
+      SPILL CHECK                                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      86  SSG1     SLT,BGPDT,CSTM,SIL,EST,MPT,GPTT,EDT,MGG,CASECC,DIT,PCOMPS/     
+                   PG,,,,/LUSET/NSKIP/COMPS $                                     
+
+      87  EQUIV    PG,PL/NOSET $                                                  
+
+      88  COND     LBL10,NOSET $                                                  
+
+      89  SSG2     USET,GM,YS,KFS,GO,DM,PG/QR,PO,PS,PL $                          
+
+      90  LABEL    LBL10 $                                                        
+
+      91  SSG3     LLL,KLL,PL,LOO,KOO,PO/ULV,UOOV,RULV,RUOV/OMIT/V,Y,IRES=-1/     
+                   NSKIP/S,N,EPSI $                                               
+
+      92  COND     LBL9,IRES $                                                    
+
+      93  MATGPR   GPL,USET,SIL,RULV//*L* $                                       
+
+      94  MATGPR   GPL,USET,SIL,RUOV//*O* $                                       
+
+      95  LABEL    LBL9 $                                                         
+
+      96  SDR1     USET,PG,ULV,UOOV,YS,GO,GM,PS,KFS,KSS,QR/UGV,PGG,QG/NSKIP/      
+                   *STATICS* $                                                    
+
+     100  PARAM    //*NOT*/TEST/REPEAT $                                          
+
+     101  COND     ERROR5,TEST $                                                  
+
+     103  GPFDR    CASECC,UGV,KELM,KDICT,ECT,EQEXIN,GPECT,PGG,QG/ONRGY1,OGPFB1/   
+                   *STATICS* $                                                    
+
+     104  PURGE    KDICT,KELM/REPEAT $                                            
+
+     105  OFP      ONRGY1,OGPFB1,,,,//S,N,CARDNO $                                
+
+     106  COND     NOMPCF,GRDEQ $                                                 
+
+     107  EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USET,KGG,GM,UGV,PGG,QG,CSTM/       
+                   OQM1/V,Y,OPT=0/V,Y,GRDEQ/NSKIP $                               
+
+     108  OFP      OQM1,,,,,//S,N,CARDNO $                                        
+
+     109  LABEL    NOMPCF $                                                       
+
+     110  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDP,,QG,UGV,EST,     
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                   XYCDB,PGG,PCOMPS/OPG1,OQG1,OUGV1,OES1,OEF1,PUGV1,OES1L,        
+                   OEF1L/*STATICS*/S,N,NOSORT2/-1/S,N,STRNFLG/COMPS $             
+
+     111  COND     LBLSTRS,STRESS $                                               
+
+     112  CURV     OES1,MPT,CSTM,EST,SIL,GPL/OES1M,OES1G/V,Y,STRESS/              
+                   V,Y,NINTPTS $                                                  
+
+     113  LABEL    LBLSTRS $                                                      
+
+     114  PURGE    OES1M/STRESS $                                                 
+
+     115  COND     LBLSTRN,STRNFLG $                                              
+
+     116  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDT,,,UGV,EST,,,/    
+                   ,,,OES1A,,,,/*STATICS*//1 $                                    
+
+     117  COND     LBLSTRN,STRAIN $                                               
+
+     118  CURV     OES1A,MPT,CSTM,EST,SIL,GPL/OES1AM,OES1AG/V,Y,STRAIN/           
+                   V,Y,NINTPTS $                                                  
+
+     119  LABEL    LBLSTRN $                                                      
+
+     120  PURGE    OES1A/STRNFLG $                                                
+
+     121  COND     LBL17,NOSORT2 $                                                
+
+     122  SDR3     OUGV1,OPG1,OQG1,OEF1,OES1,/OUGV2,OPG2,OQG2,OEF2,OES2, $        
+
+     123  PARAM    //*SUB*/PRTSORT2/NOSORT2/1 $                                   
+
+     124  COND     LBLSORT1,PRTSORT2 $                                            
+
+     125  OFP      OUGV2,OPG2,OQG2,OEF2,OES2,//S,N,CARDNO $                       
+
+     126  SCAN     CASECC,OES2,OEF2,,/OESF2,/*RF* $                               
+
+     127  OFP      OESF2,,,,,//S,N,CARDNO $                                       
+
+     128  JUMP     LBLXYPLT $                                                     
+
+     129  LABEL    LBLSORT1 $                                                     
+
+     130  OFP      OUGV1,OPG1,OQG1,OEF1,OES1,//S,N,CARDNO $                       
+
+     131  OFP      OEF1L,OES1L,,,,//S,N,CARDNO $                                  
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+
+      SPILL CHECK                                                                                                                   
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     132  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
+
+     133  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
+
+     134  LABEL    LBLXYPLT $                                                     
+
+     135  OFP      OES1M,OES1G,OES1A,OES1AM,OES1AG,//S,N,CARDNO $                 
+
+     136  XYTRAN   XYCDB,OPG2,OQG2,OUGV2,OES2,OEF2/XYPLTT/*TRAN*/*PSET*/S,N,      
+                   PFILE/S,N,CARDNO $                                             
+
+     137  XYPLOT   XYPLTT// $                                                     
+
+     138  JUMP     DPLOT $                                                        
+
+     139  LABEL    LBL17 $                                                        
+
+     140  PURGE    OUGV2/NOSORT2 $                                                
+
+     141  COND     LBLOFP,COUNT $                                                 
+
+     142  OPTPR2   OPTP1,OES1,EST/OPTP2,EST1/S,N,PRINT/TSTART/S,N,COUNT/S,N,      
+                   CARDNO $                                                       
+
+     143  EQUIV    EST1,EST/ALWAYS/OPTP2,OPTP1/ALWAYS $                           
+
+     144  COND     LOOPEND,PRINT $                                                
+
+     145  LABEL    LBLOFP $                                                       
+
+     146  OFP      OUGV1,OPG1,OQG1,OEF1,OES1,//S,N,CARDNO $                       
+
+     147  OFP      OEF1L,OES1L,,,,//S,N,CARDNO $                                  
+
+     148  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1X,OESF1Y/*RF* $              
+
+     149  OFP      OESF1X,OESF1Y,,,,//S,N,CARDNO $                                
+
+     150  OFP      OES1M,OES1G,OES1A,OES1AM,OES1AG,//S,N,CARDNO $                 
+
+     151  LABEL    DPLOT $                                                        
+
+     152  COND     P2,JUMPPLOT $                                                  
+
+     153  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,PUGV1,,GPECT,OES1,
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                   OES1L,ONRGY1/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $     
+
+     154  PRTMSG   PLOTX2// $                                                     
+
+     155  LABEL    P2 $                                                           
+
+     156  LABEL    LOOPEND $                                                      
+
+     157  COND     FINIS,COUNT $                                                  
+
+     158  REPT     LOOPTOP,360 $                                                  
+
+     159  JUMP     FINIS $                                                        
+
+     162  LABEL    ERROR2 $                                                       
+
+     163  PRTPARM  //-2/*STATICS* $                                               
+
+     164  LABEL    ERROR3 $                                                       
+
+     165  PRTPARM  //-3/*STATICS* $                                               
+
+     166  LABEL    ERROR4 $                                                       
+
+     167  PRTPARM  //-4/*STATICS* $                                               
+
+     168  LABEL    ERROR5 $                                                       
+
+     169  PRTPARM  //-5/*STATICS* $                                               
+
+     170  LABEL    FINIS $                                                        
+
+     171  PURGE    DUMMY/ALWAYS $                                                 
+
+     172  LABEL    LBLINT02 $                                                     
+
+     173  COMPON   LBLINT01,SYS21 $                                               
+
+     228  END      $                                                              
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     THE PRESENCE OF SEQGP CARDS
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+
+
+                    * U T I L I T Y   M O D U L E   I N P U T *
+
+
+                    INPUT DATA ECHO (DATA READ VIA FORTRAN, REMEMBER TO RIGHT ADJUST)
+
+
+                    *   1  **   2  **   3  **   4  **   5  **   6  **   7  **   8  **   9  **  10  *
+
+
+
+                            5     100 2.0E+00 2.0E+00     126 0.0E+00 0.0E+00
+                            4       5       0      34       0       0
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD1    ELEMENTS (ELEMENT TYPE  19) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -4.3674068E-13
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            3.037262E-04   0.0            0.0            0.0                           
+             2      G      0.0            0.0            2.888604E-04   0.0            1.475484E-05   0.0                           
+             3      G      0.0            0.0            2.457186E-04   0.0            2.806470E-05   0.0                           
+             4      G      0.0            0.0            1.785250E-04   0.0            3.862729E-05   0.0                           
+             5      G      0.0            0.0            9.385625E-05   0.0            4.540926E-05   0.0                           
+             7      G      0.0            0.0            2.939934E-04  -8.977599E-06   0.0            0.0                           
+            13      G      0.0            0.0            2.713889E-04  -1.309458E-05   0.0            0.0                           
+            19      G      0.0            0.0            2.434646E-04  -1.443695E-05   0.0            0.0                           
+            25      G      0.0            0.0            2.144644E-04  -1.426641E-05   0.0            0.0                           
+            31      G      0.0            0.0            1.866442E-04  -1.332437E-05   0.0            0.0                           
+            37      G      0.0            0.0            1.610988E-04  -1.204011E-05   0.0            0.0                           
+            43      G      0.0            0.0            1.382578E-04  -1.065591E-05   0.0            0.0                           
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            9.958928E-01   0.0            0.0            0.0                           
+             2      G      0.0            0.0            1.894301E+00   0.0            0.0            0.0                           
+             3      G      0.0            0.0            1.610752E+00   0.0            0.0            0.0                           
+             4      G      0.0            0.0            1.170742E+00   0.0            0.0            0.0                           
+             5      G      0.0            0.0            6.154956E-01   0.0            0.0            0.0                           
+             6      G      0.0            0.0            7.837847E-02   0.0            0.0            0.0                           
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            4.260429E+00  -3.161795E+00   0.0                           
+             2      G      0.0            0.0            0.0            8.103666E+00   0.0            0.0                           
+             3      G      0.0            0.0            0.0            6.893106E+00   0.0            0.0                           
+             4      G      0.0            0.0            0.0            5.008235E+00   0.0            0.0                           
+             5      G      0.0            0.0            0.0            2.633057E+00   0.0            0.0                           
+             6      G      0.0            0.0           -1.318083E+00   1.503710E-01   0.0            0.0                           
+             7      G      0.0            0.0            0.0            0.0           -6.083074E+00   0.0                           
+            12      G      0.0            0.0           -1.988982E+00   1.847761E-02   0.0            0.0                           
+            13      G      0.0            0.0            0.0            0.0           -5.028289E+00   0.0                           
+            18      G      0.0            0.0           -1.175889E+00  -9.037440E-02   0.0            0.0                           
+            19      G      0.0            0.0            0.0            0.0           -4.179047E+00   0.0                           
+            24      G      0.0            0.0           -7.222049E-01  -8.707463E-02   0.0            0.0                           
+            25      G      0.0            0.0            0.0            0.0           -3.490331E+00   0.0                           
+            30      G      0.0            0.0           -4.424800E-01  -8.324321E-02   0.0            0.0                           
+            31      G      0.0            0.0            0.0            0.0           -2.925571E+00   0.0                           
+            36      G      0.0            0.0           -2.715906E-01  -7.610597E-02   0.0            0.0                           
+            37      G      0.0            0.0            0.0            0.0           -2.458671E+00   0.0                           
+            42      G      0.0            0.0           -1.670355E-01  -6.787330E-02   0.0            0.0                           
+            43      G      0.0            0.0            0.0            0.0           -2.070276E+00   0.0                           
+            48      G      0.0            0.0           -1.030183E-01  -5.955674E-02   0.0            0.0                           
+            49      G      0.0            0.0            0.0            0.0           -1.745689E+00   0.0                           
+            54      G      0.0            0.0           -6.377681E-02  -5.169515E-02   0.0            0.0                           
+            55      G      0.0            0.0            0.0            0.0           -1.473497E+00   0.0                           
+            60      G      0.0            0.0           -3.968485E-02  -4.453912E-02   0.0            0.0                           
+            61      G      0.0            0.0            0.0            0.0           -1.244669E+00   0.0                           
+            66      G      0.0            0.0           -2.486212E-02  -3.817596E-02   0.0            0.0                           
+            67      G      0.0            0.0            0.0            0.0           -1.051942E+00   0.0                           
+            72      G      0.0            0.0           -1.571565E-02  -3.260330E-02   0.0            0.0                           
+            73      G      0.0            0.0            0.0            0.0           -8.894022E-01   0.0                           
+            78      G      0.0            0.0           -1.004935E-02  -2.777263E-02   0.0            0.0                           
+            79      G      0.0            0.0            0.0            0.0           -7.521883E-01   0.0                           
+            84      G      0.0            0.0           -6.520282E-03  -2.361445E-02   0.0            0.0                           
+            85      G      0.0            0.0            0.0            0.0           -6.362723E-01   0.0                           
+            90      G      0.0            0.0           -4.306674E-03  -2.005262E-02   0.0            0.0                           
+            91      G      0.0            0.0            0.0            0.0           -5.382983E-01   0.0                           
+            96      G      0.0            0.0           -2.905211E-03  -1.701209E-02   0.0            0.0                           
+            97      G      0.0            0.0            0.0            0.0           -4.554586E-01   0.0                           
+           102      G      0.0            0.0           -2.007236E-03  -1.442289E-02   0.0            0.0                           
+           103      G      0.0            0.0            0.0            0.0           -3.853967E-01   0.0                           
+           108      G      0.0            0.0           -1.423142E-03  -1.222186E-02   0.0            0.0                           
+           109      G      0.0            0.0            0.0            0.0           -3.261302E-01   0.0                           
+           114      G      0.0            0.0           -1.036180E-03  -1.035312E-02   0.0            0.0                           
+           115      G      0.0            0.0            0.0            0.0           -2.759886E-01   0.0                           
+           120      G      0.0            0.0           -7.742308E-04  -8.767921E-03   0.0            0.0                           
+           121      G      0.0            0.0            0.0            0.0           -2.335629E-01   0.0                           
+           126      G      0.0            0.0           -5.925495E-04  -7.424098E-03   0.0            0.0                           
+           127      G      0.0            0.0            0.0            0.0           -1.976630E-01   0.0                           
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           132      G      0.0            0.0           -4.632143E-04  -6.285420E-03   0.0            0.0                           
+           133      G      0.0            0.0            0.0            0.0           -1.672837E-01   0.0                           
+           138      G      0.0            0.0           -3.686657E-04  -5.320890E-03   0.0            0.0                           
+           139      G      0.0            0.0            0.0            0.0           -1.415749E-01   0.0                           
+           144      G      0.0            0.0           -2.977494E-04  -4.504069E-03   0.0            0.0                           
+           145      G      0.0            0.0            0.0            0.0           -1.198181E-01   0.0                           
+           150      G      0.0            0.0           -2.432876E-04  -3.812453E-03   0.0            0.0                           
+           151      G      0.0            0.0            0.0            0.0           -1.014054E-01   0.0                           
+           156      G      0.0            0.0           -2.005871E-04  -3.226925E-03   0.0            0.0                           
+           157      G      0.0            0.0            0.0            0.0           -8.582255E-02   0.0                           
+           162      G      0.0            0.0           -1.665191E-04  -2.731254E-03   0.0            0.0                           
+           163      G      0.0            0.0            0.0            0.0           -7.263451E-02   0.0                           
+           168      G      0.0            0.0           -1.389503E-04  -2.311679E-03   0.0            0.0                           
+           169      G      0.0            0.0            0.0            0.0           -6.147316E-02   0.0                           
+           174      G      0.0            0.0           -1.163896E-04  -1.956533E-03   0.0            0.0                           
+           175      G      0.0            0.0            0.0            0.0           -5.202699E-02   0.0                           
+           180      G      0.0            0.0           -9.776679E-05  -1.655933E-03   0.0            0.0                           
+           181      G      0.0            0.0            0.0            0.0           -4.403240E-02   0.0                           
+           186      G      0.0            0.0           -8.229317E-05  -1.401507E-03   0.0            0.0                           
+           187      G      0.0            0.0            0.0            0.0           -3.726630E-02   0.0                           
+           192      G      0.0            0.0           -6.937282E-05  -1.186167E-03   0.0            0.0                           
+           193      G      0.0            0.0            0.0            0.0           -3.153992E-02   0.0                           
+           198      G      0.0            0.0           -5.854500E-05  -1.003910E-03   0.0            0.0                           
+           199      G      0.0            0.0            0.0            0.0           -2.669347E-02   0.0                           
+           204      G      0.0            0.0           -4.944643E-05  -8.496544E-04   0.0            0.0                           
+           205      G      0.0            0.0            0.0            0.0           -2.259173E-02   0.0                           
+           210      G      0.0            0.0           -4.178589E-05  -7.191000E-04   0.0            0.0                           
+           211      G      0.0            0.0            0.0            0.0           -1.912027E-02   0.0                           
+           216      G      0.0            0.0           -3.532685E-05  -6.086052E-04   0.0            0.0                           
+           217      G      0.0            0.0            0.0            0.0           -1.618225E-02   0.0                           
+           222      G      0.0            0.0           -2.987519E-05  -5.150882E-04   0.0            0.0                           
+           223      G      0.0            0.0            0.0            0.0           -1.369568E-02   0.0                           
+           228      G      0.0            0.0           -2.527033E-05  -4.359405E-04   0.0            0.0                           
+           229      G      0.0            0.0            0.0            0.0           -1.159120E-02   0.0                           
+           234      G      0.0            0.0           -2.137860E-05  -3.689544E-04   0.0            0.0                           
+           235      G      0.0            0.0            0.0            0.0           -9.810094E-03   0.0                           
+           240      G      0.0            0.0           -1.808825E-05  -3.122612E-04   0.0            0.0                           
+           241      G      0.0            0.0            0.0            0.0           -8.302674E-03   0.0                           
+           246      G      0.0            0.0           -1.530557E-05  -2.642793E-04   0.0            0.0                           
+           247      G      0.0            0.0            0.0            0.0           -7.026884E-03   0.0                           
+           252      G      0.0            0.0           -1.295174E-05  -2.236703E-04   0.0            0.0                           
+           253      G      0.0            0.0            0.0            0.0           -5.947133E-03   0.0                           
+           258      G      0.0            0.0           -1.096037E-05  -1.893012E-04   0.0            0.0                           
+           259      G      0.0            0.0            0.0            0.0           -5.033297E-03   0.0                           
+           264      G      0.0            0.0           -9.275462E-06  -1.602132E-04   0.0            0.0                           
+           265      G      0.0            0.0            0.0            0.0           -4.259880E-03   0.0                           
+           270      G      0.0            0.0           -7.849744E-06  -1.355948E-04   0.0            0.0                           
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           271      G      0.0            0.0            0.0            0.0           -3.605307E-03   0.0                           
+           276      G      0.0            0.0           -6.643278E-06  -1.147594E-04   0.0            0.0                           
+           277      G      0.0            0.0            0.0            0.0           -3.051315E-03   0.0                           
+           282      G      0.0            0.0           -5.622304E-06  -9.712544E-05   0.0            0.0                           
+           283      G      0.0            0.0            0.0            0.0           -2.582450E-03   0.0                           
+           288      G      0.0            0.0           -4.758278E-06  -8.220116E-05   0.0            0.0                           
+           289      G      0.0            0.0            0.0            0.0           -2.185631E-03   0.0                           
+           294      G      0.0            0.0           -4.027059E-06  -6.957013E-05   0.0            0.0                           
+           295      G      0.0            0.0            0.0            0.0           -1.849787E-03   0.0                           
+           300      G      0.0            0.0           -3.408223E-06  -5.887998E-05   0.0            0.0                           
+           301      G      0.0            0.0            0.0            0.0           -1.565549E-03   0.0                           
+           306      G      0.0            0.0           -2.884492E-06  -4.983249E-05   0.0            0.0                           
+           307      G      0.0            0.0            0.0            0.0           -1.324987E-03   0.0                           
+           312      G      0.0            0.0           -2.441247E-06  -4.217523E-05   0.0            0.0                           
+           313      G      0.0            0.0            0.0            0.0           -1.121389E-03   0.0                           
+           318      G      0.0            0.0           -2.066116E-06  -3.569458E-05   0.0            0.0                           
+           319      G      0.0            0.0            0.0            0.0           -9.490766E-04   0.0                           
+           324      G      0.0            0.0           -1.748632E-06  -3.020975E-05   0.0            0.0                           
+           325      G      0.0            0.0            0.0            0.0           -8.032415E-04   0.0                           
+           330      G      0.0            0.0           -1.479934E-06  -2.556772E-05   0.0            0.0                           
+           331      G      0.0            0.0            0.0            0.0           -6.798155E-04   0.0                           
+           336      G      0.0            0.0           -1.252525E-06  -2.163898E-05   0.0            0.0                           
+           337      G      0.0            0.0            0.0            0.0           -5.753551E-04   0.0                           
+           342      G      0.0            0.0           -1.060061E-06  -1.831393E-05   0.0            0.0                           
+           343      G      0.0            0.0            0.0            0.0           -4.869461E-04   0.0                           
+           348      G      0.0            0.0           -8.971717E-07  -1.549981E-05   0.0            0.0                           
+           349      G      0.0            0.0            0.0            0.0           -4.121221E-04   0.0                           
+           354      G      0.0            0.0           -7.593120E-07  -1.311811E-05   0.0            0.0                           
+           355      G      0.0            0.0            0.0            0.0           -3.487955E-04   0.0                           
+           360      G      0.0            0.0           -6.426361E-07  -1.110238E-05   0.0            0.0                           
+           361      G      0.0            0.0            0.0            0.0           -2.951997E-04   0.0                           
+           366      G      0.0            0.0           -5.438887E-07  -9.396381E-06   0.0            0.0                           
+           367      G      0.0            0.0            0.0            0.0           -2.498395E-04   0.0                           
+           372      G      0.0            0.0           -4.603149E-07  -7.952528E-06   0.0            0.0                           
+           373      G      0.0            0.0            0.0            0.0           -2.114494E-04   0.0                           
+           378      G      0.0            0.0           -3.895832E-07  -6.730537E-06   0.0            0.0                           
+           379      G      0.0            0.0            0.0            0.0           -1.789583E-04   0.0                           
+           384      G      0.0            0.0           -3.297203E-07  -5.696315E-06   0.0            0.0                           
+           385      G      0.0            0.0            0.0            0.0           -1.514598E-04   0.0                           
+           390      G      0.0            0.0           -2.790559E-07  -4.821011E-06   0.0            0.0                           
+           391      G      0.0            0.0            0.0            0.0           -1.281868E-04   0.0                           
+           396      G      0.0            0.0           -2.361767E-07  -4.080205E-06   0.0            0.0                           
+           397      G      0.0            0.0            0.0            0.0           -1.084900E-04   0.0                           
+           402      G      0.0            0.0           -1.998865E-07  -3.453229E-06   0.0            0.0                           
+           403      G      0.0            0.0            0.0            0.0           -9.181984E-05   0.0                           
+           408      G      0.0            0.0           -1.691727E-07  -2.922592E-06   0.0            0.0                           
+           409      G      0.0            0.0            0.0            0.0           -7.771132E-05   0.0                           
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           414      G      0.0            0.0           -1.431786E-07  -2.473490E-06   0.0            0.0                           
+           415      G      0.0            0.0            0.0            0.0           -6.577080E-05   0.0                           
+           420      G      0.0            0.0           -1.211789E-07  -2.093395E-06   0.0            0.0                           
+           421      G      0.0            0.0            0.0            0.0           -5.566517E-05   0.0                           
+           426      G      0.0            0.0           -1.025598E-07  -1.771701E-06   0.0            0.0                           
+           427      G      0.0            0.0            0.0            0.0           -4.711250E-05   0.0                           
+           432      G      0.0            0.0           -8.680202E-08  -1.499435E-06   0.0            0.0                           
+           433      G      0.0            0.0            0.0            0.0           -3.987419E-05   0.0                           
+           438      G      0.0            0.0           -7.346584E-08  -1.269000E-06   0.0            0.0                           
+           439      G      0.0            0.0            0.0            0.0           -3.374829E-05   0.0                           
+           444      G      0.0            0.0           -6.217923E-08  -1.073968E-06   0.0            0.0                           
+           445      G      0.0            0.0            0.0            0.0           -2.856392E-05   0.0                           
+           450      G      0.0            0.0           -5.262729E-08  -9.088980E-07   0.0            0.0                           
+           451      G      0.0            0.0            0.0            0.0           -2.417643E-05   0.0                           
+           456      G      0.0            0.0           -4.454355E-08  -7.691845E-07   0.0            0.0                           
+           457      G      0.0            0.0            0.0            0.0           -2.046341E-05   0.0                           
+           462      G      0.0            0.0           -3.770248E-08  -6.509300E-07   0.0            0.0                           
+           463      G      0.0            0.0            0.0            0.0           -1.732129E-05   0.0                           
+           468      G      0.0            0.0           -3.191320E-08  -5.508352E-07   0.0            0.0                           
+           469      G      0.0            0.0            0.0            0.0           -1.466241E-05   0.0                           
+           474      G      0.0            0.0           -2.701419E-08  -4.661078E-07   0.0            0.0                           
+           475      G      0.0            0.0            0.0            0.0           -1.241258E-05   0.0                           
+           480      G      0.0            0.0           -2.286873E-08  -3.943840E-07   0.0            0.0                           
+           481      G      0.0            0.0            0.0            0.0           -1.050903E-05   0.0                           
+           486      G      0.0            0.0           -1.936111E-08  -3.336628E-07   0.0            0.0                           
+           487      G      0.0            0.0            0.0            0.0           -8.898676E-06   0.0                           
+           492      G      0.0            0.0           -1.639337E-08  -2.822501E-07   0.0            0.0                           
+           493      G      0.0            0.0            0.0            0.0           -7.536575E-06   0.0                           
+           498      G      0.0            0.0           -1.388255E-08  -2.387117E-07   0.0            0.0                           
+           499      G      0.0            0.0            0.0            0.0           -6.384731E-06   0.0                           
+           504      G      0.0            0.0           -1.175833E-08  -2.018330E-07   0.0            0.0                           
+           505      G      0.0            0.0            0.0            0.0           -5.411009E-06   0.0                           
+           510      G      0.0            0.0           -9.961006E-09  -1.705849E-07   0.0            0.0                           
+           511      G      0.0            0.0            0.0            0.0           -4.588244E-06   0.0                           
+           516      G      0.0            0.0           -8.439711E-09  -1.440958E-07   0.0            0.0                           
+           517      G      0.0            0.0            0.0            0.0           -3.893482E-06   0.0                           
+           522      G      0.0            0.0           -7.150808E-09  -1.216265E-07   0.0            0.0                           
+           523      G      0.0            0.0            0.0            0.0           -3.307341E-06   0.0                           
+           528      G      0.0            0.0           -6.056388E-09  -1.025501E-07   0.0            0.0                           
+           529      G      0.0            0.0            0.0            0.0           -2.813465E-06   0.0                           
+           534      G      0.0            0.0           -5.122720E-09  -8.633420E-08   0.0            0.0                           
+           535      G      0.0            0.0            0.0            0.0           -2.398077E-06   0.0                           
+           540      G      0.0            0.0           -4.318514E-09  -7.252614E-08   0.0            0.0                           
+           541      G      0.0            0.0            0.0            0.0           -2.049585E-06   0.0                           
+           546      G      0.0            0.0           -3.612754E-09  -6.074022E-08   0.0            0.0                           
+           547      G      0.0            0.0            0.0            0.0           -1.758263E-06   0.0                           
+           552      G      0.0            0.0           -2.971689E-09  -5.064685E-08   0.0            0.0                           
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           553      G      0.0            0.0            0.0            0.0           -1.515977E-06   0.0                           
+           558      G      0.0            0.0           -2.354404E-09  -4.196319E-08   0.0            0.0                           
+           559      G      0.0            0.0            0.0            0.0           -1.315957E-06   0.0                           
+           564      G      0.0            0.0           -1.705949E-09  -3.444489E-08   0.0            0.0                           
+           565      G      0.0            0.0            0.0            0.0           -1.152607E-06   0.0                           
+           570      G      0.0            0.0           -9.464320E-10  -2.787880E-08   0.0            0.0                           
+           571      G      0.0            0.0            0.0            0.0           -1.021340E-06   0.0                           
+           576      G      0.0            0.0            4.657980E-11  -2.207615E-08   0.0            0.0                           
+           577      G      0.0            0.0            0.0            0.0           -9.184492E-07   0.0                           
+           582      G      0.0            0.0            1.466508E-09  -1.686610E-08   0.0            0.0                           
+           583      G      0.0            0.0            0.0            0.0           -8.409891E-07   0.0                           
+           588      G      0.0            0.0            3.626697E-09  -1.208528E-08   0.0            0.0                           
+           589      G      0.0            0.0            0.0            0.0           -7.866723E-07   0.0                           
+           594      G      0.0            0.0            6.996022E-09  -7.629329E-09   0.0            0.0                           
+           595      G      0.0            0.0            0.0            0.0           -7.538399E-07   0.0                           
+           600      G      0.0            0.0            1.303603E-08  -2.394109E-09   0.0            0.0                           
+           601      G      0.0            0.0            0.0            0.0           -3.773022E-07   0.0                           
+           606      G      0.0            0.0           -3.685073E-08  -6.026966E-08   0.0            0.0                           
+1     5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                               /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-04-1A                                                                                   
+0     SPILL CHECK                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0       1    5.000000E-01      1.889895E+01   2.039686E+01  -3.900606E-01   -76.2446    2.049234E+01    1.880346E+01   8.444400E-01 
+            -5.000000E-01     -1.889895E+01  -2.039686E+01   3.900606E-01    13.7554   -1.880346E+01   -2.049234E+01   8.444400E-01 
+0       2    5.000000E-01      1.704840E+01   1.839983E+01  -1.132050E+00   -60.4164    1.904250E+01    1.640573E+01   1.318382E+00 
+            -5.000000E-01     -1.704840E+01  -1.839983E+01   1.132050E+00    29.5836   -1.640573E+01   -1.904250E+01   1.318382E+00 
+0       3    5.000000E-01      1.352950E+01   1.460203E+01  -1.762666E+00   -53.4608    1.590820E+01    1.222333E+01   1.842436E+00 
+            -5.000000E-01     -1.352950E+01  -1.460203E+01   1.762666E+00    36.5392   -1.222333E+01   -1.590820E+01   1.842436E+00 
+0       4    5.000000E-01      8.686762E+00   9.375266E+00  -2.221185E+00   -49.4050    1.127872E+01    6.783310E+00   2.247704E+00 
+            -5.000000E-01     -8.686762E+00  -9.375266E+00   2.221185E+00    40.5950   -6.783310E+00   -1.127872E+01   2.247704E+00 
+0       5    5.000000E-01      2.993285E+00   3.230521E+00  -2.462346E+00   -46.3790    5.577105E+00    6.467016E-01   2.465201E+00 
+            -5.000000E-01     -2.993285E+00  -3.230521E+00   2.462346E+00    43.6210   -6.467016E-01   -5.577105E+00   2.465201E+00 
+0       7    5.000000E-01      1.575741E+01   1.289906E+01  -8.756107E-01   -15.7472    1.600432E+01    1.265215E+01   1.676080E+00 
+            -5.000000E-01     -1.575741E+01  -1.289906E+01   8.756107E-01    74.2528   -1.265215E+01   -1.600432E+01   1.676080E+00 
+0      13    5.000000E-01      1.319522E+01   8.234562E+00  -1.055054E+00   -11.5217    1.341029E+01    8.019493E+00   2.695398E+00 
+            -5.000000E-01     -1.319522E+01  -8.234562E+00   1.055054E+00    78.4783   -8.019493E+00   -1.341029E+01   2.695398E+00 
+0      19    5.000000E-01      1.108139E+01   5.332791E+00  -1.085724E+00   -10.3467    1.127962E+01    5.134568E+00   3.072525E+00 
+            -5.000000E-01     -1.108139E+01  -5.332791E+00   1.085724E+00    79.6533   -5.134568E+00   -1.127962E+01   3.072525E+00 
+0      25    5.000000E-01      9.325995E+00   3.514302E+00  -1.036469E+00    -9.8153    9.505309E+00    3.334989E+00   3.085160E+00 
+            -5.000000E-01     -9.325995E+00  -3.514302E+00   1.036469E+00    80.1847   -3.334989E+00   -9.505309E+00   3.085160E+00 
+0      31    5.000000E-01      7.860834E+00   2.364410E+00  -9.491504E-01    -9.5267    8.020123E+00    2.205122E+00   2.907500E+00 
+            -5.000000E-01     -7.860834E+00  -2.364410E+00   9.491504E-01    80.4733   -2.205122E+00   -8.020123E+00   2.907500E+00 
+0      37    5.000000E-01      6.633325E+00   1.628785E+00  -8.470691E-01    -9.3510    6.772812E+00    1.489297E+00   2.641757E+00 
+            -5.000000E-01     -6.633325E+00  -1.628785E+00   8.470691E-01    80.6490   -1.489297E+00   -6.772812E+00   2.641757E+00 
+0      43    5.000000E-01      5.602075E+00   1.151222E+00  -7.437060E-01    -9.2395    5.723054E+00    1.030242E+00   2.346406E+00 
+            -5.000000E-01     -5.602075E+00  -1.151222E+00   7.437060E-01    80.7606   -1.030242E+00   -5.723054E+00   2.346406E+00 
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  5 X 100 LONG, NARROW, ORTHOTROPIC PLATE                            
+ DATE:  5/17/95
+ END TIME: 14:35:19
+ TOTAL WALL CLOCK TIME      4 SEC.
+ 

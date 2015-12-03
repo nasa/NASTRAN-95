@@ -1,0 +1,1056 @@
+     NASTRAN BANDIT = -1, FILES = OPTP                                               
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T03111B,NASTRAN                                                           
+     $                                                                               
+     $ NOTES - FOLLOWING STEPS MUST BE DONE FIRST BEFORE RUNNING THIS DEMO.          
+     $     (1) REFER TO COSMIC/NASTRAN DMAP COMPILER SOURCE LISTING IN T03111A       
+     $         AND LOCATE THE DMAP NUMBER OF 'LABEL NEWM' (ASSUME IT IS NO. M)       
+     $     (2) LOOK FOR THE 'REENTER AT DMAP SEQUENCE NUMBER  N' IN THE T03111A      
+     $         CHECKPOINT DICTIONARY DECK (T03111A.PCH OR .DIC), WHERE N IS          
+     $         GREATER THAN THE LOCATION M OF (1)                                    
+     $     (3) REMOVE ALL THE CARDS FROM THIS 'REENTER AT DMAP SEQ. NO. N' TO        
+     $         THE END OF THE T03111A CHECKPOINT DICTIONARY DECK.                    
+     $         THE LAST '$ END OF CHECKPOINT DICTIONARY' IS OPTIONAL.                
+     $     (4) FATAL ERROR IN QOPEN IF THESE CARDS WERE NOT REMOVED.                 
+     $     (5) IN 1993 VERSION, M IN (1) IS 67, AND N IN (2) IS 69                   
+     $                                                                               
+0*** $   ... READFILE FROM-  RSCARDS                                                 
+     RESTART  T03111A ,NASTRAN , 5/17/95,   60361,                                   
+              1,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =      6               
+              2,   REENTER AT DMAP SEQUENCE NUMBER     6                             
+              3,   GPL     ,   FLAGS = 0,   REEL =  1,   FILE =      7               
+              4,   EQEXIN  ,   FLAGS = 0,   REEL =  1,   FILE =      8               
+              5,   GPDT    ,   FLAGS = 0,   REEL =  1,   FILE =      9               
+              6,   BGPDT   ,   FLAGS = 0,   REEL =  1,   FILE =     10               
+              7,   SIL     ,   FLAGS = 0,   REEL =  1,   FILE =     11               
+              8,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     12               
+              9,   CSTM    ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             10,   REENTER AT DMAP SEQUENCE NUMBER     7                             
+             11,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     13               
+             12,   MPTA    ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             13,   REENTER AT DMAP SEQUENCE NUMBER     8                             
+             14,   MPT     ,   FLAGS = 0,   REEL =  1,   FILE =     14               
+             15,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     15               
+             16,   REENTER AT DMAP SEQUENCE NUMBER     9                             
+             17,   BGPDP   ,   FLAGS = 0,   REEL =  1,   FILE =     16               
+             18,   SIP     ,   FLAGS = 0,   REEL =  1,   FILE =     17               
+             19,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     18               
+             20,   REENTER AT DMAP SEQUENCE NUMBER    10                             
+             21,   ECT     ,   FLAGS = 0,   REEL =  1,   FILE =     19               
+             22,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     20               
+             23,   REENTER AT DMAP SEQUENCE NUMBER    12                             
+             24,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     21               
+             25,   PLTSETX ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             26,   PLTPAR  ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             27,   GPSETS  ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             28,   ELSETS  ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             29,   REENTER AT DMAP SEQUENCE NUMBER    22                             
+             30,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     22               
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     5
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+             31,   GPTT    ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             32,   REENTER AT DMAP SEQUENCE NUMBER    23                             
+             33,   EST     ,   FLAGS = 0,   REEL =  1,   FILE =     23               
+             34,   GPECT   ,   FLAGS = 0,   REEL =  1,   FILE =     24               
+             35,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     25               
+             36,   GEI     ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             37,   MPTX    ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             38,   PCOMPS  ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             39,   EPTX    ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             40,   REENTER AT DMAP SEQUENCE NUMBER    24                             
+             41,   MPT     ,   FLAGS = 0,   REEL =  1,   FILE =     26               
+             42,   EPT     ,   FLAGS = 0,   REEL =  1,   FILE =     27               
+             43,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     28               
+             44,   REENTER AT DMAP SEQUENCE NUMBER    28                             
+             45,   KELM    ,   FLAGS = 0,   REEL =  1,   FILE =     29               
+             46,   KDICT   ,   FLAGS = 0,   REEL =  1,   FILE =     30               
+             47,   MELM    ,   FLAGS = 0,   REEL =  1,   FILE =     31               
+             48,   MDICT   ,   FLAGS = 0,   REEL =  1,   FILE =     32               
+             49,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     33               
+             50,   REENTER AT DMAP SEQUENCE NUMBER    29                             
+             51,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     34               
+             52,   KGGX    ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             53,   REENTER AT DMAP SEQUENCE NUMBER    31                             
+             54,   KGGX    ,   FLAGS = 0,   REEL =  1,   FILE =     35               
+             55,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     36               
+             56,   REENTER AT DMAP SEQUENCE NUMBER    34                             
+             57,   MGG     ,   FLAGS = 0,   REEL =  1,   FILE =     37               
+             58,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     38               
+             59,   REENTER AT DMAP SEQUENCE NUMBER    35                             
+             60,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     39               
+             61,   MDICT   ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             62,   MELM    ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             63,   REENTER AT DMAP SEQUENCE NUMBER    40                             
+             64,   KGGX    ,   FLAGS = 4,   REEL =  1,   FILE =     35               
+             65,   KGG     ,   FLAGS = 4,   REEL =  1,   FILE =     35               
+             66,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     40               
+             67,   REENTER AT DMAP SEQUENCE NUMBER    44                             
+             68,   GPST    ,   FLAGS = 0,   REEL =  1,   FILE =     41               
+             69,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     42               
+             70,   REENTER AT DMAP SEQUENCE NUMBER    46                             
+             71,   YS      ,   FLAGS = 0,   REEL =  1,   FILE =     43               
+             72,   USET    ,   FLAGS = 0,   REEL =  1,   FILE =     44               
+             73,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     45               
+             74,   RG      ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             75,   ASET    ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             76,   OGPST   ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             77,   REENTER AT DMAP SEQUENCE NUMBER    48                             
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     6
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+             78,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     46               
+             79,   KRR     ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             80,   KLR     ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             81,   DM      ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             82,   MLR     ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             83,   MR      ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             84,   GM      ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             85,   GO      ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             86,   KFS     ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             87,   QG      ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+             88,   REENTER AT DMAP SEQUENCE NUMBER    49                             
+             89,   USETF   ,   FLAGS = 0,   REEL =  1,   FILE =     47               
+             90,   USETS   ,   FLAGS = 0,   REEL =  1,   FILE =     48               
+             91,   AF      ,   FLAGS = 0,   REEL =  1,   FILE =     49               
+             92,   DKGG    ,   FLAGS = 0,   REEL =  1,   FILE =     50               
+             93,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     51               
+             94,   REENTER AT DMAP SEQUENCE NUMBER    49                             
+             95,   PV1     ,   FLAGS = 0,   REEL =  1,   FILE =     52               
+             96,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     53               
+             97,   REENTER AT DMAP SEQUENCE NUMBER    49                             
+             98,   KXX     ,   FLAGS = 0,   REEL =  1,   FILE =     54               
+             99,   KYY     ,   FLAGS = 0,   REEL =  1,   FILE =     55               
+            100,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     56               
+            101,   REENTER AT DMAP SEQUENCE NUMBER    49                             
+            102,   MXX     ,   FLAGS = 0,   REEL =  1,   FILE =     57               
+            103,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     58               
+            104,   REENTER AT DMAP SEQUENCE NUMBER    49                             
+            105,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     59               
+            106,   RX      ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+            107,   REENTER AT DMAP SEQUENCE NUMBER    48                             
+            108,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     60               
+            109,   REENTER AT DMAP SEQUENCE NUMBER    49                             
+            110,   AXY     ,   FLAGS = 0,   REEL =  1,   FILE =     61               
+            111,   AYY     ,   FLAGS = 0,   REEL =  1,   FILE =     62               
+            112,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     63               
+            113,   REENTER AT DMAP SEQUENCE NUMBER    49                             
+            114,   DKXX    ,   FLAGS = 0,   REEL =  1,   FILE =     64               
+            115,   DKYY    ,   FLAGS = 0,   REEL =  1,   FILE =     65               
+            116,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     66               
+            117,   REENTER AT DMAP SEQUENCE NUMBER    49                             
+            118,   PV2     ,   FLAGS = 0,   REEL =  1,   FILE =     67               
+            119,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     68               
+            120,   REENTER AT DMAP SEQUENCE NUMBER    49                             
+            121,   AFRY    ,   FLAGS = 0,   REEL =  1,   FILE =     69               
+            122,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     70               
+            123,   REENTER AT DMAP SEQUENCE NUMBER    49                             
+            124,   DKFRFR  ,   FLAGS = 0,   REEL =  1,   FILE =     71               
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     7
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+            125,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     72               
+            126,   REENTER AT DMAP SEQUENCE NUMBER    48                             
+            127,   KXX     ,   FLAGS = 4,   REEL =  1,   FILE =     35               
+            128,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     73               
+            129,   REENTER AT DMAP SEQUENCE NUMBER    48                             
+            130,   MXX     ,   FLAGS = 4,   REEL =  1,   FILE =     57               
+            131,   MGG     ,   FLAGS = 4,   REEL =  1,   FILE =     57               
+            132,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     74               
+            133,   REENTER AT DMAP SEQUENCE NUMBER    50                             
+            134,   KNN     ,   FLAGS = 4,   REEL =  1,   FILE =     35               
+            135,   MNN     ,   FLAGS = 4,   REEL =  1,   FILE =     57               
+            136,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     75               
+            137,   REENTER AT DMAP SEQUENCE NUMBER    55                             
+            138,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     76               
+            139,   KFF     ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+            140,   MFF     ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+            141,   REENTER AT DMAP SEQUENCE NUMBER    57                             
+            142,   KFF     ,   FLAGS = 0,   REEL =  1,   FILE =     77               
+            143,   KFS     ,   FLAGS = 0,   REEL =  1,   FILE =     78               
+            144,   MFF     ,   FLAGS = 0,   REEL =  1,   FILE =     79               
+            145,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     80               
+            146,   REENTER AT DMAP SEQUENCE NUMBER    59                             
+            147,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     81               
+            148,   KAA     ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+            149,   REENTER AT DMAP SEQUENCE NUMBER    60                             
+            150,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     82               
+            151,   MAA     ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+            152,   REENTER AT DMAP SEQUENCE NUMBER    63                             
+            153,   GO      ,   FLAGS = 0,   REEL =  1,   FILE =     83               
+            154,   KAA     ,   FLAGS = 0,   REEL =  1,   FILE =     84               
+            155,   KOO     ,   FLAGS = 0,   REEL =  1,   FILE =     85               
+            156,   LOO     ,   FLAGS = 0,   REEL =  1,   FILE =     86               
+            157,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     87               
+            158,   REENTER AT DMAP SEQUENCE NUMBER    63                             
+            159,   MAA     ,   FLAGS = 0,   REEL =  1,   FILE =     88               
+            160,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     89               
+            161,   REENTER AT DMAP SEQUENCE NUMBER    63                             
+            162,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     90               
+            163,   DKAA    ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+            164,   REENTER AT DMAP SEQUENCE NUMBER    63                             
+            165,   DKXX    ,   FLAGS = 4,   REEL =  1,   FILE =     64               
+            166,   DKNN    ,   FLAGS = 4,   REEL =  1,   FILE =     64               
+            167,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     91               
+            168,   REENTER AT DMAP SEQUENCE NUMBER    63                             
+            169,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     92               
+            170,   DKFF    ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+            171,   REENTER AT DMAP SEQUENCE NUMBER    64                             
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     8
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+            172,   DKFF    ,   FLAGS = 0,   REEL =  1,   FILE =     93               
+            173,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     94               
+            174,   REENTER AT DMAP SEQUENCE NUMBER    63                             
+            175,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     95               
+            176,   REENTER AT DMAP SEQUENCE NUMBER    64                             
+            177,   DKAA    ,   FLAGS = 0,   REEL =  1,   FILE =     96               
+            178,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     97               
+            179,   REENTER AT DMAP SEQUENCE NUMBER    64                             
+            180,   KMAT    ,   FLAGS = 0,   REEL =  1,   FILE =     98               
+            181,   MMAT    ,   FLAGS = 0,   REEL =  1,   FILE =     99               
+            182,   GIA     ,   FLAGS = 0,   REEL =  1,   FILE =    100               
+            183,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    101               
+            184,   HC      ,   FLAGS = 0,   REEL =  0,   FILE =      0               
+            185,   REENTER AT DMAP SEQUENCE NUMBER    63                             
+            186,   KMAT    ,   FLAGS = 4,   REEL =  1,   FILE =     98               
+            187,   KAA     ,   FLAGS = 4,   REEL =  1,   FILE =     98               
+            188,   MMAT    ,   FLAGS = 4,   REEL =  1,   FILE =     99               
+            189,   MAA     ,   FLAGS = 4,   REEL =  1,   FILE =     99               
+            190,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =    102               
+     $ END OF CHECKPOINT DICTIONARY                                                  
+0*** $   END READFILE                                                                
+     TIME  20                                                                        
+     SOL   3,0                                                                       
+     APP   DISP                                                                      
+     $ INSERT HYDRO DIRECT DMAP ALTERS (COSHYD1) AFTER THIS CARD                     
+0*** $   ... READFILE FROM-  COSHYD1                                                 
+     $ COSMIC ALTERS FOR HYDROELASTIC ANALYSIS - DIRECT FORMULATION (COSHYD1)        
+     $ ALTER    1,1 $  COSMIC/NASTRAN RF 3.  REPLACING BEGIN                         
+     DELETE BEGIN $                                                                  
+     XDMAP    GO,ERR=2 $                                                             
+     BEGIN    HYDROELASTIC ANALYSIS - DIRECT FORMULATION $                           
+     $ ALTER    3 $  AFTER PRECHK/FILE                                               
+     INSERT FILE $                                                                   
+     COMPOFF  NEWM,NEWMODE $                                                         
+     $ ALTER    46 $  AFTER OFP/COND/PURGE                                           
+     INSERT GP4,3 $                                                                  
+     FLBMG    GEOM2,ECT,BGPDT,SIL,MPT,GEOM3,CSTM,USET,EQEXIN/USETF,USETS,AF,         
+              DKGG/S,N,NOGRAV/S,N,NOFREE/S,N,TILT $                                  
+     VEC      USETF/PV1/*G*/*X*/*Y* $                                                
+     PARTN    KGG,PV1,/KXX,,,KYY $                                                   
+     PARTN    MGG,PV1,/MXX,,, $                                                      
+     PARTN    RG,PV1,/RX,,,/1 $                                                      
+     EQUIV    RX,RG $                                                                
+     PARTN    AF,PV1,/,,AXY,AYY $                                                    
+     COND     DIRECT1,NOGRAV $                                                       
+     PARTN    DKGG,PV1,/DKXX,,,DKYY $                                                
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE     9
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     COND     DIRECT1,NOFREE $                                                       
+     VEC      USETF/PV2/*Y*/*FR*/*COMP* $                                            
+     PARTN    AYY,,PV2/AFRY,,,/0 $                                                   
+     PARTN    DKYY,PV2,/DKFRFR,,, $                                                  
+     LABEL    DIRECT1 $                                                              
+     COMPOFF  NOSTRUC,OLDSTR $                                                       
+     COMPON   2,DIFSTIF $                                                            
+     PARAMR   //*COMPLEX*//V,Y,DIFSCALE=1.0/0.0/DIFSCAL/// $                         
+     ADD      KXX,KDGG/KGG/(1.0,0.0)/DIFSCAL $                                       
+     COMPOFF  1,DIFSTIF $                                                            
+     EQUIV    KXX,KGG $                                                              
+     EQUIV    MXX,MGG $                                                              
+     $ ALTER    49,50 $  REPLACING MCE1, MCE2                                        
+     DELETE MCE1,MCE2 $                                                              
+     MCE1     USETS,RG/GM $                                                          
+     MCE2     USETS,GM,KGG,MGG,,/KNN,MNN,, $                                         
+     $ ALTER    54,54 $  REPLACING SCE1                                              
+     DELETE SCE1 $                                                                   
+     SCE1     USETS,KNN,MNN,,/KFF,KFS,,MFF,, $                                       
+     $ ALTER    59,60 $  REPLACING SMP1, SMP2                                        
+     DELETE SMP1,SMP2 $                                                              
+     SMP1     USETS,KFF,,,/GO,KAA,KOO,LOO,,,,, $                                     
+     SMP2     USETS,GO,MFF/MAA $                                                     
+     $ ALTER    61 $  ALTER LABEL LBL5                                               
+     INSERT SMP2,1 $                                                                 
+     LABEL    NOSTRUC $                                                              
+     PURGE    DKAA/NOGRAV $                                                          
+     COND     DIRECT4,NOGRAV $                                                       
+     EQUIV    DKXX,DKNN/MPCF1 $                                                      
+     COND     DIRECT2,MPCF2 $                                                        
+     MCE2     USETS,GM,DKXX,,,/DKNN,,, $                                             
+     LABEL    DIRECT2 $                                                              
+     EQUIV    DKNN,DKFF/SINGLE $                                                     
+     COND     DIRECT3,SINGLE $                                                       
+     SCE1     USETS,DKNN,,,/DKFF,,,,, $                                              
+     LABEL    DIRECT3 $                                                              
+     EQUIV    DKFF,DKAA/OMIT $                                                       
+     COND     DIRECT4,OMIT $                                                         
+     SMP2     USETS,GO,DKFF/DKAA $                                                   
+     LABEL    DIRECT4 $                                                              
+     GFSMA    AXY,AFRY,KYY,DKAA,DKFRFR,KAA,MAA,GM,GO,USETS,USETF,,,/KMAT,            
+              MMAT,GIA,,HC/NOGRAV/NOFREE/V,Y,KCOMP/V,Y,COMPTYP/FORM=-1 $             
+     EQUIV    KMAT,KAA//MMAT,MAA $                                                   
+     $ ALTER    63,63 $  REPLACING RBMG1                                             
+     DELETE RBMG1 $                                                                  
+     RBMG1    USETF,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                                
+     $ ALTER    67 $  AFTER LABEL LBL6                                               
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    10
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     INSERT DPD,-1 $                                                                 
+     LABEL    NEWM $                                                                 
+     $ ALTER    68,68 $  REPLACING DPD                                               
+     DELETE DPD $                                                                    
+     DPD      DYNAMICS,GPL,SIL,USETF/GPLD,SILD,USETD,,,,,,,EED,EQDYN/LUSET/          
+              LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/NONLFT/NOTRL/S,N,NOEED//NOUE $         
+     $ ALTER    71,71 $  REPLACING READ                                              
+     DELETE READ $                                                                   
+     READ     KAA,MAA,MR,DM,EED,USETF,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/             
+              S,N,NEIGV $                                                            
+     $ ALTER    75,75 $  REPLACING SDR1                                              
+     DELETE SDR1 $                                                                   
+     COND     NOCOMP,COMPTYP $                                                       
+     MPYAD    HC,PHIA,/PHIAC/0/1/0 $                                                 
+     EQUIV    PHIAC,PHIA $                                                           
+     LABEL    NOCOMP $                                                               
+     MPYAD    GIA,PHIA,/PHII/0/1/0 $                                                 
+     EQUIV    PHII,PHIY/NOFREE $                                                     
+     COND     DIRECT5,NOFREE $                                                       
+     VEC      USETF/PV3/*A*/*COMP*/*FR* $                                            
+     PARTN    PHIA,,PV3/PHIAB,PHIFR,,/0 $                                            
+     EQUIV    PHIAB,PHIA $                                                           
+     MERGE    PHIFR,PHII,,,,PV2/PHIY/0 $                                             
+     LABEL    DIRECT5 $                                                              
+     SDR1     USETS,,PHIA,,,GO,GM,,KFS,,/PHIX,,QX/1/*REIG* $                         
+     MERGE    PHIX,PHIY,,,,PV1/PHIG/0 $                                              
+     MERGE    QX,,,,,PV1/QG/0 $                                                      
+     $ ALTER    77,77 $  REPLACING EQMCK                                             
+     DELETE EQMCK $                                                                  
+     EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USETS,KGG,GM,PHIG,LAMA,QG,CSTM/            
+              OQM1/V,Y,OPT=0/V,Y,GRDEQ/-1 $                                          
+     ENDALTER $                                                                      
+0*** $   END READFILE                                                                
+     $ INSERT HYDRO DIRECT DMAP ALTERS (COSHYD1) BEFORE THIS CARD                    
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES         
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T03-11-1B                                   
+                  3      $ REFERENCE PROBLEM I.2                                                         
+                  4      DISP = ALL                                                                      
+                  5      SPCF = ALL                                                                      
+                  6      METHOD = 50                                                                     
+                  7      SPC  = 10                                                                       
+                  8      BEGIN BULK                                                                      
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+0                                             I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              $                                                                                             
+                              $ NEW EIGR CARD FOR DIFFERENT MODES                                                           
+                              $                                                                                             
+                              /       9       10                                                                            
+                              EIGR    50      GIV     100.0   2500.0                  0               +E1                   
+                              +E1     MAX                                                                                   
+                              $                                                                                             
+                              $ PARAMETER TO SKIP UNNEEDED DMAP                                                             
+                              $                                                                                             
+                              PARAM   NEWMODE -1                                                                            
+                              ENDDATA                                                                                       
+
+
+                        TOTAL COUNT=     10
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CFFREE  1       100     6                                                       
+                    2-        CFHEX2  1       200     1       2       4       3       5       6       +CFH1   
+                    3-        +CFH1   8       7                                                               
+                    4-        CFLSTR  1       100     101     THRU    104                                     
+                    5-        CQUAD2  101     100     101     102     106     105                             
+                    6-        CQUAD2  102     100     102     104     108     106                             
+                    7-        CQUAD2  103     100     104     103     107     108                             
+                    8-        CQUAD2  104     100     101     103     104     102                             
+                    9-        EIGR    50      GIV     100.0   2500.0                  0               +E1     
+                   10-        +E1     MAX                                                                     
+                   11-        GRAV    100             386.0   0.0     0.0     -1.0                            
+                   12-        GRID    1               0.0     0.0     0.0                                     
+                   13-        GRID    2               6.0     0.0     0.0                                     
+                   14-        GRID    3               0.0     12.0    0.0                                     
+                   15-        GRID    4               6.0     12.0    0.0                                     
+                   16-        GRID    5               0.0     0.0     12.0                                    
+                   17-        GRID    6               6.0     0.0     12.0                                    
+                   18-        GRID    7               0.0     12.0    12.0                                    
+                   19-        GRID    8               6.0     12.0    12.0                                    
+                   20-        GRID    101             0.0     0.0     0.0                                     
+                   21-        GRID    102             6.0     0.0     0.0                                     
+                   22-        GRID    103             0.0     12.0    0.0                                     
+                   23-        GRID    104             6.0     12.0    0.0                                     
+                   24-        GRID    105             0.0     0.0     12.0                                    
+                   25-        GRID    106             6.0     0.0     12.0                                    
+                   26-        GRID    107             0.0     12.0    12.0                                    
+                   27-        GRID    108             6.0     12.0    12.0                                    
+                   28-        MAT1    100     10.6+6          .3      .92-3                                   
+                   29-        MATF    200     9.355-4                                                         
+                   30-        OMIT1   4       101     103     105     107                                     
+                   31-        OMIT1   456     102     104     106     108                                     
+                   32-        PARAM   NEWMODE -1                                                              
+                   33-        PQUAD2  100     100     .06                                                     
+                   34-        SPC1    10      1256    101     103     105     107                             
+                              ENDDATA
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 4144, THIS IS A MODIFIED RESTART.
+0*** USER INFORMATION MESSAGE. CASE CONTROL AND BULK DATA DECK CHANGES AFFECTING THIS RESTART ARE INDICATED BELOW.
+
+0*** USER INFORMATION MESSAGE. EFFECTIVE CASE CONTROL DECK CHANGES
+ -----------------------------------
+
+
+ MASK WORD - BIT POSITION ---- FLAG NAME ---- PACKED BIT POSITION
+
+    17
+                  17           POUT$                  19
+0*** USER INFORMATION MESSAGE. EFFECTIVE BULK DATA DECK CHANGES
+ --------------------------------
+
+
+ MASK WORD - BIT POSITION - CARD/PARAM NAME - PACKED BIT POSITION
+
+     3
+                  23           EIGR                   61
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  XDMAP    GO,ERR=2 $                                                     
++  +
+
+       1  BEGIN    HYDROELASTIC ANALYSIS - DIRECT FORMULATION $                   
++  +
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     LAMA=APPEND/PHIA=APPEND $                                      
++  +
+
+       3  COMPOFF  NEWM,NEWMODE $                                                 
+
+      70  DPD      DYNAMICS,GPL,SIL,USETF/GPLD,SILD,USETD,,,,,,,EED,EQDYN/LUSET/  
++  *
+                   LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/NONLFT/NOTRL/S,N,NOEED//NOUE $ 
++  *
+
+      71  COND     ERROR2,NOEED $                                                 
++  *
+
+      72  PARAM    //*MPY*/NEIGV/1/-1 $                                           
++  *
+
+      73  READ     KAA,MAA,MR,DM,EED,USETF,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/     
++  *
+                   S,N,NEIGV $                                                    
++  *
+
+      74  OFP      OEIGS,,,,,//S,N,CARDNO $                                       
++  *
+
+      75  COND     FINIS,NEIGV $                                                  
++  *
+
+      76  OFP      LAMA,,,,,//S,N,CARDNO $                                        
++  *
+
+      77  COND     NOCOMP,COMPTYP $                                               
++  *
+
+      77  MPYAD    HC,PHIA,/PHIAC/0/1/0 $                                         
++  *
+
+      77  EQUIV    PHIAC,PHIA $                                                   
++  *
+
+      77  LABEL    NOCOMP $                                                       
++  +
+
+      77  MPYAD    GIA,PHIA,/PHII/0/1/0 $                                         
++  *
+
+      77  EQUIV    PHII,PHIY/NOFREE $                                             
++  *
+
+      77  COND     DIRECT5,NOFREE $                                               
++  *
+
+      77  VEC      USETF/PV3/*A*/*COMP*/*FR* $                                    
++  *
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      77  PARTN    PHIA,,PV3/PHIAB,PHIFR,,/0 $                                    
++  *
+
+      77  EQUIV    PHIAB,PHIA $                                                   
++  *
+
+      77  MERGE    PHIFR,PHII,,,,PV2/PHIY/0 $                                     
++  *
+
+      77  LABEL    DIRECT5 $                                                      
++  +
+
+      77  SDR1     USETS,,PHIA,,,GO,GM,,KFS,,/PHIX,,QX/1/*REIG* $                 
++  *
+
+      77  MERGE    PHIX,PHIY,,,,PV1/PHIG/0 $                                      
++  *
+
+      77  MERGE    QX,,,,,PV1/QG/0 $                                              
++  *
+
+      78  COND     NOMPCF,GRDEQ $                                                 
++  *
+
+      79  EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USETS,KGG,GM,PHIG,LAMA,QG,CSTM/    
++  *
+                   OQM1/V,Y,OPT=0/V,Y,GRDEQ/-1 $                                  
+
+      80  OFP      OQM1,,,,,//S,N,CARDNO $                                        
++  *
+
+      81  LABEL    NOMPCF $                                                       
++  +
+
+      82  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDP,LAMA,QG,PHIG,EST,,,     
++  *
+                   PCOMPS/,OQG1,OPHIG,OES1,OEF1,PPHIG,OES1L,OEF1L/                
+                   *REIG*////COMPS $                                              
+
+      83  OFP      OPHIG,OQG1,OEF1,OES1,OEF1L,OES1L//S,N,CARDNO $                 
++  *
+
+      84  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
++  *
+
+      85  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
++  *
+
+      86  GPFDR    CASECC,PHIG,KELM,KDICT,ECT,EQEXIN,GPECT,LAMA,/ONRGY1,/*REIG* $ 
++  *
+
+      87  OFP      ONRGY1,,,,,//S,N,CARDNO $                                      
++  *
+
+      88  PURGE    KDICT,KELM/ALWAYS $                                            
++  *
+
+      89  COND     P2,JUMPPLOT $                                                  
++  *
+
+      90  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,,PPHIG,GPECT,OES1,
++  *
+                   OES1L,/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $           
+
+      91  PRTMSG   PLOTX2// $                                                     
++  *
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      92  LABEL    P2 $                                                           
++  +
+
+      93  JUMP     FINIS $                                                        
++  *
+
+      94  LABEL    ERROR1 $                                                       
++  +
+
+      95  PRTPARM  //-1/*MODES* $                                                 
++  *
+
+      96  LABEL    ERROR2 $                                                       
++  +
+
+      97  PRTPARM  //-2/*MODES* $                                                 
++  *
+
+      98  LABEL    ERROR3 $                                                       
++  +
+
+      99  PRTPARM  //-3/*MODES* $                                                 
++  *
+
+     100  LABEL    ERROR4 $                                                       
++  +
+
+     101  PRTPARM  //-4/*MODES* $                                                 
++  *
+
+     102  LABEL    FINIS $                                                        
++  +
+
+     103  PURGE    DUMMY/ALWAYS $                                                 
++  *
+
+     104  END      $                                                              
++  *
+0*** USER WARNING MESSAGE   27,
+     LABEL NAMED ERROR4   NOT REFERENCED
+0*** USER WARNING MESSAGE   27,
+     LABEL NAMED ERROR3   NOT REFERENCED
+0*** USER WARNING MESSAGE   27,
+     LABEL NAMED ERROR1   NOT REFERENCED
+0
+0  + INDICATES DMAP INSTRUCTIONS THAT ARE PROCESSED ONLY AT DMAP COMPILATION TIME.
+0  * INDICATES DMAP INSTRUCTIONS THAT ARE FLAGGED FOR EXECUTION IN THIS MODIFIED RESTART.
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+0THE FOLLOWING FILES FROM THE OLD PROBLEM TAPE WERE USED TO INITIATE RESTART
+
+    FILE NAME  REEL NO.  FILE NO.
+
+     CSTM      (PURGED)
+     PLTPAR    (PURGED)
+     GPSETS    (PURGED)
+     ELSETS    (PURGED)
+     PCOMPS    (PURGED)
+     DM        (PURGED)
+     MR        (PURGED)
+     GM        (PURGED)
+     HC        (PURGED)
+     GPL              1         7
+     EQEXIN           1         8
+     BGPDT            1        10
+     SIL              1        11
+     BGPDP            1        16
+     SIP              1        17
+     ECT              1        19
+     EST              1        23
+     GPECT            1        24
+     KELM             1        29
+     KDICT            1        30
+     KGGX             1        35
+     KGG              1        35
+     KXX              1        35
+     KNN              1        35
+     USETF            1        47
+     USETS            1        48
+     PV1              1        52
+     PV2              1        67
+     KFS              1        78
+     GO               1        83
+     KAA              1        98
+     KMAT             1        98
+     MAA              1        99
+     MMAT             1        99
+     GIA              1       100
+     XVPS             1       102
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 2016, GIVENS TIME ESTIMATE IS        0 SECONDS.
+                                    PROBLEM SIZE IS      20, SPILL WILL OCCUR FOR THIS CORE AT A PROBLEM SIZE OF    1413 .
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    19
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y   (GIVENS METHOD)
+
+
+
+                                    NUMBER OF EIGENVALUES EXTRACTED . . . . . . .        20
+
+                                    NUMBER OF EIGENVECTORS COMPUTED . . . . . . .         8
+
+                                    NUMBER OF EIGENVALUE CONVERGENCE FAILURES . .         0
+
+                                    NUMBER OF EIGENVECTOR CONVERGENCE FAILURES. .         0
+
+
+                                    REASON FOR TERMINATION. . . . . . . . . . . .         1*
+
+
+                                    LARGEST OFF-DIAGONAL MODAL MASS TERM. . . . .  0.00E+00
+
+                                                                            . . .         0
+                                              MODE PAIR. . . . . . . . . . .
+                                                                            . . .         0
+
+                                    NUMBER OF OFF-DIAG0NAL MODAL MASS
+                                         TERMS FAILING CRITERION. . . . . . . . .         0
+
+
+                                    (* NORMAL TERMINATION)
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    20
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1        15        1.056520E+06        1.027872E+03        1.635909E+02        1.882236E-02        1.988621E+04             
+        2        14        7.977794E+06        2.824499E+03        4.495329E+02        3.851429E-02        3.072590E+05             
+        3        13        1.206828E+07        3.473943E+03        5.528952E+02        2.152778E-01        2.598033E+06             
+        4        12        2.273032E+07        4.767633E+03        7.587923E+02        7.798322E-04        1.772584E+04             
+        5        11        6.313189E+07        7.945558E+03        1.264575E+03        1.627105E-02        1.027222E+06             
+        6        10        2.075611E+08        1.440698E+04        2.292942E+03        2.875304E-02        5.968012E+06             
+        7         9        2.086266E+08        1.444391E+04        2.298820E+03        4.330550E-04        9.034680E+04             
+        8         8        2.269621E+08        1.506526E+04        2.397710E+03        8.508445E-03        1.931094E+06             
+0*** SYSTEM WARNING MESSAGE 2173, PARTITIONING VECTOR FILE  103 CONTAINS         1 COLUMNS.
+      THE FIRST COLUMN WILL BE USED, NOT THE REQUESTED COLUMN        -1
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    21
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.105652E+07    (CYCLIC FREQUENCY =  1.635909E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -1.262931E-04  -1.397051E-04  -1.262931E-04  -1.397051E-04   1.000000E+00   9.916126E-01                  
+             7      S      1.000000E+00   9.916126E-01                                                                              
+           101      G      0.0            0.0           -9.541942E-01  -4.393421E-04   0.0            0.0                           
+           102      G     -6.968258E-03   2.873408E-03  -9.618446E-01   2.111695E-04   1.517261E-03   4.400942E-04                  
+           103      G      0.0            0.0           -9.541942E-01   4.393421E-04   0.0            0.0                           
+           104      G     -6.968258E-03  -2.873408E-03  -9.618446E-01  -2.111695E-04   1.517261E-03  -4.400942E-04                  
+           105      G      0.0            0.0           -9.612760E-01   3.634843E-04   0.0            0.0                           
+           106      G      1.171517E-03  -5.257216E-05  -9.654862E-01   4.480084E-04   6.802016E-05   1.557085E-04                  
+           107      G      0.0            0.0           -9.612760E-01  -3.634843E-04   0.0            0.0                           
+           108      G      1.171517E-03   5.257216E-05  -9.654862E-01  -4.480084E-04   6.802016E-05  -1.557085E-04                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    22
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.797779E+07    (CYCLIC FREQUENCY =  4.495329E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      7.798204E-04  -8.775610E-04  -7.798204E-04   8.775610E-04  -5.208009E-02   1.000000E+00                  
+             7      S      5.208009E-02  -1.000000E+00                                                                              
+           101      G      0.0            0.0           -5.499801E-01   4.569924E-02   0.0            0.0                           
+           102      G     -1.087894E-01   5.490711E-01  -1.847391E-01   1.961771E-02  -6.436625E-02   6.715935E-02                  
+           103      G      0.0            0.0            5.499801E-01   4.569924E-02   0.0            0.0                           
+           104      G      1.087894E-01   5.490711E-01   1.847391E-01   1.961771E-02   6.436625E-02   6.715935E-02                  
+           105      G      0.0            0.0           -3.360298E-01  -1.285288E-02   0.0            0.0                           
+           106      G     -6.161015E-02   1.782280E-01  -2.206313E-01   4.800030E-02   7.010625E-02   2.968626E-02                  
+           107      G      0.0            0.0            3.360298E-01  -1.285288E-02   0.0            0.0                           
+           108      G      6.161015E-02   1.782280E-01   2.206313E-01   4.800030E-02  -7.010625E-02   2.968626E-02                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    23
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.120683E+08    (CYCLIC FREQUENCY =  5.528952E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -2.051389E-03   2.041870E-03  -2.051389E-03   2.041870E-03   7.735256E-01  -5.310717E-01                  
+             7      S      7.735256E-01  -5.310717E-01                                                                              
+           101      G      0.0            0.0            1.000000E+00  -5.720126E-02   0.0            0.0                           
+           102      G      5.729443E-01  -2.786579E-01  -3.708959E-01  -1.044135E-02   2.383807E-01  -6.028431E-02                  
+           103      G      0.0            0.0            1.000000E+00   5.720126E-02   0.0            0.0                           
+           104      G      5.729443E-01   2.786579E-01  -3.708959E-01   1.044135E-02   2.383807E-01   6.028431E-02                  
+           105      G      0.0            0.0            8.543754E-02   1.551558E-02   0.0            0.0                           
+           106      G      2.602040E-01  -3.597216E-02  -3.152912E-01  -4.246248E-02  -1.814825E-01   2.467482E-03                  
+           107      G      0.0            0.0            8.543754E-02  -1.551558E-02   0.0            0.0                           
+           108      G      2.602040E-01   3.597216E-02  -3.152912E-01   4.246248E-02  -1.814825E-01  -2.467482E-03                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    24
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.227303E+08    (CYCLIC FREQUENCY =  7.587923E+02 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      6.512394E-05   6.606107E-05  -6.512394E-05  -6.606107E-05  -2.918201E-02   1.000000E+00                  
+             7      S      2.918201E-02  -1.000000E+00                                                                              
+           101      G      0.0            0.0           -2.110310E-02  -5.605899E-03   0.0            0.0                           
+           102      G      3.786853E-02  -7.432835E-03   6.142727E-02  -1.960382E-02  -1.921571E-02   5.848540E-03                  
+           103      G      0.0            0.0            2.110310E-02  -5.605899E-03   0.0            0.0                           
+           104      G     -3.786853E-02  -7.432835E-03  -6.142727E-02  -1.960382E-02   1.921571E-02   5.848540E-03                  
+           105      G      0.0            0.0            3.266894E-02   1.206293E-02   0.0            0.0                           
+           106      G     -1.459026E-02   3.138968E-01   8.616281E-02  -5.181981E-02  -2.994516E-03   3.014824E-02                  
+           107      G      0.0            0.0           -3.266894E-02   1.206293E-02   0.0            0.0                           
+           108      G      1.459026E-02   3.138968E-01  -8.616281E-02  -5.181981E-02   2.994516E-03   3.014824E-02                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    25
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.631319E+08    (CYCLIC FREQUENCY =  1.264575E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -2.110609E-04   9.668401E-05   2.110609E-04  -9.668401E-05   3.917816E-02   1.253864E-01                  
+             7      S     -3.917816E-02  -1.253864E-01                                                                              
+           101      G      0.0            0.0            1.237645E-01  -3.565630E-02   0.0            0.0                           
+           102      G      2.471465E-01   1.000000E+00  -5.921133E-01   1.380232E-01   6.405141E-02   1.300641E-01                  
+           103      G      0.0            0.0           -1.237645E-01  -3.565630E-02   0.0            0.0                           
+           104      G     -2.471465E-01   1.000000E+00   5.921133E-01   1.380232E-01  -6.405141E-02   1.300641E-01                  
+           105      G      0.0            0.0           -4.375401E-01   6.065601E-02   0.0            0.0                           
+           106      G      1.760922E-01   3.900580E-01  -6.178202E-01   1.423540E-02   3.340407E-03   4.871300E-02                  
+           107      G      0.0            0.0            4.375401E-01   6.065601E-02   0.0            0.0                           
+           108      G     -1.760922E-01   3.900580E-01   6.178202E-01   1.423540E-02  -3.340407E-03   4.871300E-02                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    26
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.207561E+09    (CYCLIC FREQUENCY =  2.292942E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          6
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      6.203137E-05   7.330507E-05  -6.203137E-05  -7.330507E-05  -2.963759E-02   5.590620E-01                  
+             7      S      2.963759E-02  -5.590620E-01                                                                              
+           101      G      0.0            0.0           -1.825231E-02  -3.019707E-02   0.0            0.0                           
+           102      G      8.772508E-01   1.000000E+00   7.285501E-01  -9.777997E-02  -1.312809E-01   2.000160E-01                  
+           103      G      0.0            0.0            1.825231E-02  -3.019707E-02   0.0            0.0                           
+           104      G     -8.772508E-01   1.000000E+00  -7.285501E-01  -9.777997E-02   1.312809E-01   2.000160E-01                  
+           105      G      0.0            0.0            6.305740E-01   8.476939E-02   0.0            0.0                           
+           106      G     -4.326307E-01  -6.686941E-01   9.851358E-01   4.210712E-01  -7.437518E-02  -6.246860E-02                  
+           107      G      0.0            0.0           -6.305740E-01   8.476939E-02   0.0            0.0                           
+           108      G      4.326307E-01  -6.686941E-01  -9.851358E-01   4.210712E-01   7.437518E-02  -6.246860E-02                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    27
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.208627E+09    (CYCLIC FREQUENCY =  2.298820E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          7
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S     -7.421128E-06   7.210541E-06  -7.421128E-06   7.210541E-06  -2.729003E-01   1.000000E+00                  
+             7      S     -2.729003E-01   1.000000E+00                                                                              
+           101      G      0.0            0.0           -1.465840E-01   3.732539E-03   0.0            0.0                           
+           102      G      7.775377E-02   2.036907E-03  -3.105943E-03  -3.785352E-03  -3.055131E-02   3.046266E-03                  
+           103      G      0.0            0.0           -1.465840E-01  -3.732539E-03   0.0            0.0                           
+           104      G      7.775377E-02  -2.036907E-03  -3.105943E-03   3.785352E-03  -3.055131E-02  -3.046266E-03                  
+           105      G      0.0            0.0           -3.993943E-02  -1.580052E-03   0.0            0.0                           
+           106      G     -1.808910E-01   6.208205E-02   1.126407E-01  -9.698000E-03  -1.557696E-02   8.884328E-03                  
+           107      G      0.0            0.0           -3.993943E-02   1.580052E-03   0.0            0.0                           
+           108      G     -1.808910E-01  -6.208205E-02   1.126407E-01   9.698000E-03  -1.557696E-02  -8.884328E-03                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    28
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.226962E+09    (CYCLIC FREQUENCY =  2.397710E+03 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          8
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      S      5.067618E-06  -4.674025E-06   5.067618E-06  -4.674025E-06  -9.651024E-01   1.000000E+00                  
+             7      S     -9.651024E-01   1.000000E+00                                                                              
+           101      G      0.0            0.0            3.068153E-01  -8.116069E-02   0.0            0.0                           
+           102      G     -2.428907E-01   3.179671E-01  -4.902803E-01  -3.387842E-02   1.598565E-01   7.044607E-02                  
+           103      G      0.0            0.0            3.068153E-01   8.116069E-02   0.0            0.0                           
+           104      G     -2.428907E-01  -3.179671E-01  -4.902803E-01   3.387842E-02   1.598565E-01  -7.044607E-02                  
+           105      G      0.0            0.0            7.001053E-01   6.470875E-02   0.0            0.0                           
+           106      G      6.417889E-02   7.836791E-01   2.205361E-01  -7.245569E-02  -6.055538E-02   1.402496E-01                  
+           107      G      0.0            0.0            7.001053E-01  -6.470875E-02   0.0            0.0                           
+           108      G      6.417889E-02  -7.836791E-01   2.205361E-01   7.245569E-02  -6.055538E-02  -1.402496E-01                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    29
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.105652E+07    (CYCLIC FREQUENCY =  1.635909E+02 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      1.132890E+04   2.757443E+01   0.0            0.0           -8.882828E-01  -2.809140E-01                  
+           103      G      1.132890E+04  -2.757443E+01   0.0            0.0           -8.882828E-01   2.809140E-01                  
+           105      G     -9.819964E+02   2.222601E-02   0.0            0.0            0.0            6.270250E-02                  
+           107      G     -9.819964E+02  -2.222601E-02   0.0            0.0            0.0           -6.270250E-02                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    30
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.797779E+07    (CYCLIC FREQUENCY =  4.495329E+02 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      4.618405E+04  -1.476493E+05   0.0            0.0            4.933029E+01  -9.417827E+01                  
+           103      G     -4.618405E+04  -1.476493E+05   0.0            0.0           -4.933029E+01  -9.417827E+01                  
+           105      G      6.311898E+04  -6.197023E+00   0.0            0.0            0.0           -4.252594E+01                  
+           107      G     -6.311898E+04  -6.197023E+00   0.0            0.0            0.0           -4.252594E+01                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    31
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.120683E+08    (CYCLIC FREQUENCY =  5.528952E+02 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -6.767098E+05   8.114415E+03   0.0            0.0           -1.873775E+02   4.823378E+01                  
+           103      G     -6.767098E+05  -8.114415E+03   0.0            0.0           -1.873775E+02  -4.823378E+01                  
+           105      G     -2.451740E+05   2.194183E+00   0.0            0.0            0.0            1.710330E+01                  
+           107      G     -2.451740E+05  -2.194183E+00   0.0            0.0            0.0           -1.710330E+01                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    32
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.227303E+08    (CYCLIC FREQUENCY =  7.587923E+02 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -6.445720E+04   6.449788E+03   0.0            0.0            7.938684E+00  -2.739268E+00                  
+           103      G      6.445720E+04   6.449788E+03   0.0            0.0           -7.938684E+00  -2.739268E+00                  
+           105      G      1.440038E+04  -1.179450E+01   0.0            0.0            0.0           -4.067957E+01                  
+           107      G     -1.440038E+04  -1.179450E+01   0.0            0.0            0.0           -4.067957E+01                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    33
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.631319E+08    (CYCLIC FREQUENCY =  1.264575E+03 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -3.821964E+05  -2.144240E+05   0.0            0.0           -8.515988E+01  -1.274626E+02                  
+           103      G      3.821964E+05  -2.144240E+05   0.0            0.0            8.515988E+01  -1.274626E+02                  
+           105      G     -1.471048E+05  -1.394239E+01   0.0            0.0            0.0           -6.216388E+01                  
+           107      G      1.471048E+05  -1.394239E+01   0.0            0.0            0.0           -6.216388E+01                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    34
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.207561E+09    (CYCLIC FREQUENCY =  2.292942E+03 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -1.463343E+06  -1.373632E+05   0.0            0.0            1.237049E+02  -1.470019E+02                  
+           103      G      1.463343E+06  -1.373632E+05   0.0            0.0           -1.237049E+02  -1.470019E+02                  
+           105      G      3.222592E+05   2.280312E+01   0.0            0.0            0.0            7.947728E+01                  
+           107      G     -3.222592E+05   2.280312E+01   0.0            0.0            0.0            7.947728E+01                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    35
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.208627E+09    (CYCLIC FREQUENCY =  2.298820E+03 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G     -1.382332E+05  -8.649836E+03   0.0            0.0            1.670485E+01  -1.040570E+00                  
+           103      G     -1.382332E+05   8.649836E+03   0.0            0.0            1.670485E+01   1.040570E+00                  
+           105      G      1.328728E+05  -1.851777E+00   0.0            0.0            0.0           -8.111888E+00                  
+           107      G      1.328728E+05   1.851777E+00   0.0            0.0            0.0            8.111888E+00                  
+1     HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES          /    95 SUN SOLARIS NASTRAN    / MAY 18, 95 / PAGE    36
+      NASTRAN TEST PROBLEM NO. T03-11-1B                                                                                            
+0                                                                                                                                   
+      EIGENVALUE =  0.226962E+09    (CYCLIC FREQUENCY =  2.397710E+03 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      3.930456E+05  -5.231978E+04   0.0            0.0           -9.275906E+01  -2.841751E+01                  
+           103      G      3.930456E+05   5.231978E+04   0.0            0.0           -9.275906E+01   2.841751E+01                  
+           105      G     -1.808022E+05  -2.008177E+01   0.0            0.0            0.0           -8.349944E+01                  
+           107      G     -1.808022E+05   2.008177E+01   0.0            0.0            0.0            8.349944E+01                  
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES       
+ DATE:  5/18/95
+ END TIME: 10: 9:19
+ TOTAL WALL CLOCK TIME      1 SEC.
+ 

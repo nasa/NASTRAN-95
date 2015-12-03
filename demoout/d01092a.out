@@ -1,0 +1,618 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01092A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   1,0                                                                       
+     TIME  10                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = 2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                     
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                          
+                  3      SPC  = 1                                                                        
+                  4      OUTPUT                                                                          
+                  5      DISP =  ALL                                                                     
+                  6      SPCFORCE = ALL                                                                  
+                  7        STRESS = ALL                                                                  
+                  8      SUBCASE 1                                                                       
+                  9      LABEL = CONSISTENT LOADING (FORCE RATIO 1 TO 4 TO 1)                            
+                 10      LOAD  = 20                                                                      
+                 11      OLOAD = ALL                                                                     
+                 12      SUBCASE 2                                                                       
+                 13      LABEL = UNIFORM TEMPERATURE LOAD                                                
+                 14      TEMPERATURE(LOAD) = 30                                                          
+                 15      SUBCASE  3                                                                      
+                 16      LABEL = LUMPED STRESS LOADING (FORCE RATIO 1 TO 2 TO 1)                         
+                 17      LOAD  = 40                                                                      
+                 18      OLOAD = ALL                                                                     
+                 19      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    66, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CTRIM6  1       80      9       6       3       2       1       5       +TE1    
+                    2-        +TE1                                                                            
+                    3-        CTRIM6  2       80      1       4       7       8       9       5       +TE2    
+                    4-        +TE2                                                                            
+                    5-        CTRIM6  3       80      15      12      9       8       7       11      +TE3    
+                    6-        +TE3                                                                            
+                    7-        CTRIM6  4       80      7       10      13      14      15      11      +TE4    
+                    8-        +TE4                                                                            
+                    9-        CTRIM6  5       80      21      18      15      14      13      17      +TE5    
+                   10-        +TE5                                                                            
+                   11-        CTRIM6  6       80      13      16      19      20      21      17      +TE6    
+                   12-        +TE6                                                                            
+                   13-        CTRIM6  7       80      27      24      21      20      19      23      +TE7    
+                   14-        +TE7                                                                            
+                   15-        CTRIM6  8       80      19      22      25      26      27      23      +TE8    
+                   16-        +TE8                                                                            
+                   17-        CTRIM6  9       80      33      30      27      26      25      29      +TE9    
+                   18-        +TE9                                                                            
+                   19-        CTRIM6  10      80      25      28      31      32      33      29      +TE10   
+                   20-        +TE10                                                                           
+                   21-        FORCE1  20      31      2.0+3   28      31                                      
+                   22-        FORCE1  20      32      8.0+3   29      32                                      
+                   23-        FORCE1  20      33      2.0+3   30      33                                      
+                   24-        FORCE1  40      31      3.0+3   28      31                                      
+                   25-        FORCE1  40      32      6.0+3   29      32                                      
+                   26-        FORCE1  40      33      3.0+3   30      33                                      
+                   27-        GRDSET                                                  3456                    
+                   28-        GRID    1               .0      .0      .0                                      
+                   29-        GRID    2               .0      1.      .0                                      
+                   30-        GRID    3               .0      2.      .0                                      
+                   31-        GRID    4               2.      .0      .0                                      
+                   32-        GRID    5               2.      1.      .0                                      
+                   33-        GRID    6               2.      2.      .0                                      
+                   34-        GRID    7               4.      .0      .0                                      
+                   35-        GRID    8               4.      1.      .0                                      
+                   36-        GRID    9               4.      2.      .0                                      
+                   37-        GRID    10              6.      .0      .0                                      
+                   38-        GRID    11              6.      1.      .0                                      
+                   39-        GRID    12              6.      2.      .0                                      
+                   40-        GRID    13              8.      .0      .0                                      
+                   41-        GRID    14              8.      1.      .0                                      
+                   42-        GRID    15              8.      2.      .0                                      
+                   43-        GRID    16              10.     .0      .0                                      
+                   44-        GRID    17              10.     1.      .0                                      
+                   45-        GRID    18              10.     2.      .0                                      
+                   46-        GRID    19              12.     .0      .0                                      
+                   47-        GRID    20              12.     1.      .0                                      
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        GRID    21              12.     2.      .0                                      
+                   49-        GRID    22              14.     .0      .0                                      
+                   50-        GRID    23              14.     1.      .0                                      
+                   51-        GRID    24              14.     2.      .0                                      
+                   52-        GRID    25              16.     .0      .0                                      
+                   53-        GRID    26              16.     1.      .0                                      
+                   54-        GRID    27              16.     2.      .0                                      
+                   55-        GRID    28              18.     .0      .0                                      
+                   56-        GRID    29              18.     1.      .0                                      
+                   57-        GRID    30              18.     2.      .0                                      
+                   58-        GRID    31              20.     .0      .0                                      
+                   59-        GRID    32              20.     1.      .0                                      
+                   60-        GRID    33              20.     2.      .0                                      
+                   61-        MAT1    90      3.0+6           .2      1.      .001    10.                     
+                   62-        PTRIM6  80      90      4.      .0      .0                                      
+                   63-        SPC1    1       2       4       7       10      13      16      19      +GJD    
+                   64-        +GJD    22      25      28      31                                              
+                   65-        SPC1    1       12      1       2       3                                       
+                   66-        TEMPD   30      60.                                                             
+                              ENDDATA
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            9
+                                        PROFILE            201
+                                        MAX WAVEFRONT        9
+                                        AVG WAVEFRONT    6.091
+                                        RMS WAVEFRONT    6.441
+                                        RMS BANDWIDTH    6.441
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            7
+                                        PROFILE            168
+                                        MAX WAVEFRONT        7
+                                        AVG WAVEFRONT    5.091
+                                        RMS WAVEFRONT    5.269
+                                        RMS BANDWIDTH    5.314
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        9         7
+                                        PROFILE (P)                        201       168
+                                        MAXIMUM WAVEFRONT (C-MAX)            9         7
+                                        AVERAGE WAVEFRONT (C-AVG)        6.091     5.091
+                                        RMS WAVEFRONT (C-RMS)            6.441     5.269
+                                        RMS BANDWITCH (B-RMS)            6.441     5.314
+                                        NUMBER OF GRID POINTS (N)                     33
+                                        NUMBER OF ELEMENTS (NON-RIGID)                10
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                          11
+                                        MINIMUM NODAL DEGREE                           5
+                                        NUMBER OF UNIQUE EDGES                       123
+                                        MATRIX DENSITY, PERCENT                   25.620
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF SEQGP CARDS GENERATED                   9
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0                                                                                                                                   
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       4       2       3       3       2       4       7
+                         SEQGP          5       5       6       1       7      10       8       8
+                         SEQGP          9       6      10      13      11      11      12       9
+                         SEQGP         13      16      14      14      15      12      16      19
+                         SEQGP         17      17      18      15      19      22      20      20
+                         SEQGP         21      18      22      25      23      23      24      21
+                         SEQGP         25      28      26      26      27      24      28      31
+                         SEQGP         29      30      30      27      31      32      32      33
+                         SEQGP         33      29
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TRIM6    ELEMENTS (ELEMENT TYPE  73) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   4.2381171E-15
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     2, EPSILON SUB E =   5.3632856E-18
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     3, EPSILON SUB E =   6.1083637E-15
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     CONSISTENT LOADING (FORCE RATIO 1 TO 4 TO 1)                                                           SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             3      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             4      G      9.755653E-04   0.0            0.0            0.0            0.0            0.0                           
+             5      G      9.752495E-04  -8.421802E-05   0.0            0.0            0.0            0.0                           
+             6      G      9.940324E-04  -1.738671E-04   0.0            0.0            0.0            0.0                           
+             7      G      1.974339E-03   0.0            0.0            0.0            0.0            0.0                           
+             8      G      1.978997E-03  -1.027162E-04   0.0            0.0            0.0            0.0                           
+             9      G      1.990489E-03  -2.065741E-04   0.0            0.0            0.0            0.0                           
+            10      G      2.980463E-03   0.0            0.0            0.0            0.0            0.0                           
+            11      G      2.981231E-03  -1.018568E-04   0.0            0.0            0.0            0.0                           
+            12      G      2.982456E-03  -2.029182E-04   0.0            0.0            0.0            0.0                           
+            13      G      3.981847E-03   0.0            0.0            0.0            0.0            0.0                           
+            14      G      3.981403E-03  -9.995454E-05   0.0            0.0            0.0            0.0                           
+            15      G      3.980520E-03  -1.996578E-04   0.0            0.0            0.0            0.0                           
+            16      G      4.981343E-03   0.0            0.0            0.0            0.0            0.0                           
+            17      G      4.981273E-03  -9.986824E-05   0.0            0.0            0.0            0.0                           
+            18      G      4.981138E-03  -1.997993E-04   0.0            0.0            0.0            0.0                           
+            19      G      5.981221E-03   0.0            0.0            0.0            0.0            0.0                           
+            20      G      5.981251E-03  -9.999946E-05   0.0            0.0            0.0            0.0                           
+            21      G      5.981305E-03  -2.000194E-04   0.0            0.0            0.0            0.0                           
+            22      G      6.981253E-03   0.0            0.0            0.0            0.0            0.0                           
+            23      G      6.981258E-03  -1.000080E-04   0.0            0.0            0.0            0.0                           
+            24      G      6.981267E-03  -2.000121E-04   0.0            0.0            0.0            0.0                           
+            25      G      7.981261E-03   0.0            0.0            0.0            0.0            0.0                           
+            26      G      7.981259E-03  -1.000001E-04   0.0            0.0            0.0            0.0                           
+            27      G      7.981257E-03  -1.999989E-04   0.0            0.0            0.0            0.0                           
+            28      G      8.981260E-03   0.0            0.0            0.0            0.0            0.0                           
+            29      G      8.981259E-03  -9.999952E-05   0.0            0.0            0.0            0.0                           
+            30      G      8.981259E-03  -1.999993E-04   0.0            0.0            0.0            0.0                           
+            31      G      9.981259E-03   0.0            0.0            0.0            0.0            0.0                           
+            32      G      9.981259E-03  -1.000001E-04   0.0            0.0            0.0            0.0                           
+            33      G      9.981260E-03  -2.000004E-04   0.0            0.0            0.0            0.0                           
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     UNIFORM TEMPERATURE LOAD                                                                               SUBCASE 2              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             3      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             4      G     -1.648835E-03   0.0            0.0            0.0            0.0            0.0                           
+             5      G      4.177203E-03  -8.648645E-03   0.0            0.0            0.0            0.0                           
+             6      G      5.917963E-03  -1.965214E-02   0.0            0.0            0.0            0.0                           
+             7      G      1.235595E-02   0.0            0.0            0.0            0.0            0.0                           
+             8      G      3.098183E-03   1.277058E-02   0.0            0.0            0.0            0.0                           
+             9      G     -5.333313E-03   3.007017E-02   0.0            0.0            0.0            0.0                           
+            10      G     -8.002131E-04   0.0            0.0            0.0            0.0            0.0                           
+            11      G      3.687791E-03  -4.867714E-03   0.0            0.0            0.0            0.0                           
+            12      G      6.185023E-03  -1.397179E-02   0.0            0.0            0.0            0.0                           
+            13      G      1.094665E-02   0.0            0.0            0.0            0.0            0.0                           
+            14      G      2.706160E-03   1.241176E-02   0.0            0.0            0.0            0.0                           
+            15      G     -3.578494E-03   2.887344E-02   0.0            0.0            0.0            0.0                           
+            16      G     -9.163942E-04   0.0            0.0            0.0            0.0            0.0                           
+            17      G      3.676186E-03  -5.209250E-03   0.0            0.0            0.0            0.0                           
+            18      G      6.387613E-03  -1.449538E-02   0.0            0.0            0.0            0.0                           
+            19      G      1.117302E-02   0.0            0.0            0.0            0.0            0.0                           
+            20      G      2.709978E-03   1.258350E-02   0.0            0.0            0.0            0.0                           
+            21      G     -3.841633E-03   2.916184E-02   0.0            0.0            0.0            0.0                           
+            22      G     -1.830325E-03   0.0            0.0            0.0            0.0            0.0                           
+            23      G      3.576760E-03  -5.147792E-03   0.0            0.0            0.0            0.0                           
+            24      G      7.131107E-03  -1.451433E-02   0.0            0.0            0.0            0.0                           
+            25      G      8.924786E-03   0.0            0.0            0.0            0.0            0.0                           
+            26      G      2.953756E-03   1.063461E-02   0.0            0.0            0.0            0.0                           
+            27      G     -1.579488E-03   2.642297E-02   0.0            0.0            0.0            0.0                           
+            28      G     -6.771333E-04   0.0            0.0            0.0            0.0            0.0                           
+            29      G      5.124210E-03  -8.241136E-03   0.0            0.0            0.0            0.0                           
+            30      G      7.161502E-04  -1.672504E-02   0.0            0.0            0.0            0.0                           
+            31      G      1.225421E-02   0.0            0.0            0.0            0.0            0.0                           
+            32      G      8.729980E-03   7.510907E-03   0.0            0.0            0.0            0.0                           
+            33      G     -2.891717E-02   4.273563E-02   0.0            0.0            0.0            0.0                           
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     LUMPED STRESS LOADING (FORCE RATIO 1 TO 2 TO 1)                                                        SUBCASE  3             
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             3      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             4      G      9.755648E-04   0.0            0.0            0.0            0.0            0.0                           
+             5      G      9.752495E-04  -8.421810E-05   0.0            0.0            0.0            0.0                           
+             6      G      9.940327E-04  -1.738672E-04   0.0            0.0            0.0            0.0                           
+             7      G      1.974338E-03   0.0            0.0            0.0            0.0            0.0                           
+             8      G      1.978997E-03  -1.027175E-04   0.0            0.0            0.0            0.0                           
+             9      G      1.990490E-03  -2.065759E-04   0.0            0.0            0.0            0.0                           
+            10      G      2.980471E-03   0.0            0.0            0.0            0.0            0.0                           
+            11      G      2.981232E-03  -1.018557E-04   0.0            0.0            0.0            0.0                           
+            12      G      2.982449E-03  -2.029163E-04   0.0            0.0            0.0            0.0                           
+            13      G      3.981861E-03   0.0            0.0            0.0            0.0            0.0                           
+            14      G      3.981400E-03  -9.993056E-05   0.0            0.0            0.0            0.0                           
+            15      G      3.980505E-03  -1.996252E-04   0.0            0.0            0.0            0.0                           
+            16      G      4.981197E-03   0.0            0.0            0.0            0.0            0.0                           
+            17      G      4.981257E-03  -9.988573E-05   0.0            0.0            0.0            0.0                           
+            18      G      4.981264E-03  -1.998316E-04   0.0            0.0            0.0            0.0                           
+            19      G      5.980983E-03   0.0            0.0            0.0            0.0            0.0                           
+            20      G      5.981305E-03  -1.004177E-04   0.0            0.0            0.0            0.0                           
+            21      G      5.981578E-03  -2.005890E-04   0.0            0.0            0.0            0.0                           
+            22      G      6.983388E-03   0.0            0.0            0.0            0.0            0.0                           
+            23      G      6.981500E-03  -9.985557E-05   0.0            0.0            0.0            0.0                           
+            24      G      6.979138E-03  -1.996077E-04   0.0            0.0            0.0            0.0                           
+            25      G      7.984206E-03   0.0            0.0            0.0            0.0            0.0                           
+            26      G      7.980872E-03  -9.349850E-05   0.0            0.0            0.0            0.0                           
+            27      G      7.976167E-03  -1.911762E-04   0.0            0.0            0.0            0.0                           
+            28      G      8.984848E-03   0.0            0.0            0.0            0.0            0.0                           
+            29      G      8.982096E-03  -8.974470E-05   0.0            0.0            0.0            0.0                           
+            30      G      9.008435E-03  -1.932132E-04   0.0            0.0            0.0            0.0                           
+            31      G      1.005263E-02   0.0            0.0            0.0            0.0            0.0                           
+            32      G      9.936554E-03  -1.383498E-04   0.0            0.0            0.0            0.0                           
+            33      G      1.008871E-02  -2.452084E-04   0.0            0.0            0.0            0.0                           
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     CONSISTENT LOADING (FORCE RATIO 1 TO 4 TO 1)                                                           SUBCASE 1              
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            31      G      2.000000E+03   0.0            0.0            0.0            0.0            0.0                           
+            32      G      8.000000E+03   0.0            0.0            0.0            0.0            0.0                           
+            33      G      2.000000E+03   0.0            0.0            0.0            0.0            0.0                           
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     LUMPED STRESS LOADING (FORCE RATIO 1 TO 2 TO 1)                                                        SUBCASE  3             
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            31      G      3.000000E+03   0.0            0.0            0.0            0.0            0.0                           
+            32      G      6.000000E+03   0.0            0.0            0.0            0.0            0.0                           
+            33      G      3.000000E+03   0.0            0.0            0.0            0.0            0.0                           
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     CONSISTENT LOADING (FORCE RATIO 1 TO 4 TO 1)                                                           SUBCASE 1              
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -1.845380E+03  -7.815339E+02   0.0            0.0            0.0            0.0                           
+             2      G     -7.678834E+03   1.868125E+02   0.0            0.0            0.0            0.0                           
+             3      G     -2.475786E+03   1.031056E+03   0.0            0.0            0.0            0.0                           
+             4      G      0.0           -5.081673E+02   0.0            0.0            0.0            0.0                           
+             7      G      0.0            1.763216E+01   0.0            0.0            0.0            0.0                           
+            10      G      0.0            5.543964E+01   0.0            0.0            0.0            0.0                           
+            13      G      0.0            2.630944E+00   0.0            0.0            0.0            0.0                           
+            16      G      0.0           -3.847355E+00   0.0            0.0            0.0            0.0                           
+            19      G      0.0           -2.588916E-01   0.0            0.0            0.0            0.0                           
+            22      G      0.0            2.330291E-01   0.0            0.0            0.0            0.0                           
+            25      G      0.0            1.702238E-02   0.0            0.0            0.0            0.0                           
+            28      G      0.0           -1.374118E-02   0.0            0.0            0.0            0.0                           
+            31      G      0.0            3.539163E-04   0.0            0.0            0.0            0.0                           
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     UNIFORM TEMPERATURE LOAD                                                                               SUBCASE 2              
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -1.494282E+05   4.566547E+05   0.0            0.0            0.0            0.0                           
+             2      G      2.702075E+05  -4.798750E+05   0.0            0.0            0.0            0.0                           
+             3      G     -1.207793E+05   5.736829E+04   0.0            0.0            0.0            0.0                           
+             4      G      0.0           -1.568861E+05   0.0            0.0            0.0            0.0                           
+             7      G      0.0            2.632719E+05   0.0            0.0            0.0            0.0                           
+            10      G      0.0           -2.717516E+05   0.0            0.0            0.0            0.0                           
+            13      G      0.0            2.618101E+05   0.0            0.0            0.0            0.0                           
+            16      G      0.0           -2.614575E+05   0.0            0.0            0.0            0.0                           
+            19      G      0.0            2.605337E+05   0.0            0.0            0.0            0.0                           
+            22      G      0.0           -2.677693E+05   0.0            0.0            0.0            0.0                           
+            25      G      0.0            2.670373E+05   0.0            0.0            0.0            0.0                           
+            28      G      0.0           -1.842167E+05   0.0            0.0            0.0            0.0                           
+            31      G      0.0            5.528037E+04   0.0            0.0            0.0            0.0                           
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     LUMPED STRESS LOADING (FORCE RATIO 1 TO 2 TO 1)                                                        SUBCASE  3             
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G     -1.845381E+03  -7.815336E+02   0.0            0.0            0.0            0.0                           
+             2      G     -7.678833E+03   1.868106E+02   0.0            0.0            0.0            0.0                           
+             3      G     -2.475786E+03   1.031055E+03   0.0            0.0            0.0            0.0                           
+             4      G      0.0           -5.081661E+02   0.0            0.0            0.0            0.0                           
+             7      G      0.0            1.765652E+01   0.0            0.0            0.0            0.0                           
+            10      G      0.0            5.542770E+01   0.0            0.0            0.0            0.0                           
+            13      G      0.0            2.204099E+00   0.0            0.0            0.0            0.0                           
+            16      G      0.0           -3.660007E+00   0.0            0.0            0.0            0.0                           
+            19      G      0.0            6.598501E+00   0.0            0.0            0.0            0.0                           
+            22      G      0.0           -2.953044E+00   0.0            0.0            0.0            0.0                           
+            25      G      0.0           -6.352297E+01   0.0            0.0            0.0            0.0                           
+            28      G      0.0            1.107143E+02   0.0            0.0            0.0            0.0                           
+            31      G      0.0           -5.063141E+01   0.0            0.0            0.0            0.0                           
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     CONSISTENT LOADING (FORCE RATIO 1 TO 4 TO 1)                                                           SUBCASE 1              
+ 
+                  S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E   E L E M E N T S   ( C T R I M 6 )
+0 ELEMENT     POINT       STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)             MAX
+    ID.        NO.     NORMAL-X       NORMAL-Y       SHEAR-XY        ANGLE          MAJOR          MINOR          SHEAR
+0       1       1    1.446797E+03  -2.485347E+02   7.062793E+01   2.381455E+00   1.449734E+03  -2.514719E+02   8.506031E+02         
+                3    1.551281E+03   3.102562E+02  -1.527794E+02  -6.915974E+00   1.569813E+03   2.917247E+02   6.390441E+02         
+                5    1.492585E+03   2.985169E+02  -4.071812E+01  -1.950785E+00   1.493972E+03   2.971299E+02   5.984208E+02         
+                C    1.496888E+03   1.200795E+02  -4.095654E+01  -1.702397E+00   1.498105E+03   1.188622E+02   6.896214E+02         
+0       2       1    1.465471E+03   9.764728E+01  -1.088379E+01  -4.558646E-01   1.465558E+03   9.756061E+01   6.839986E+02         
+                3    1.514875E+03  -3.460907E+00   1.550781E+00   5.852005E-02   1.514877E+03  -3.462524E+00   7.591696E+02         
+                5    1.528991E+03  -7.488159E+00  -4.485535E+00  -1.672651E-01   1.529004E+03  -7.501221E+00   7.682526E+02         
+                C    1.503112E+03   2.889938E+01  -4.606323E+00  -1.790240E-01   1.503126E+03   2.888507E+01   7.371207E+02         
+0       3       1    1.502467E+03   3.986023E+00  -5.117188E+00  -1.956573E-01   1.502484E+03   3.968628E+00   7.492578E+02         
+                3    1.479916E+03  -1.730310E+01   2.104565E+01   8.051657E-01   1.480212E+03  -1.759888E+01   7.489055E+02         
+                5    1.513428E+03  -3.750122E+00   4.633942E-01   1.749994E-02   1.513428E+03  -3.750244E+00   7.585893E+02         
+                C    1.498604E+03  -5.689026E+00   5.463867E+00   2.081051E-01   1.498624E+03  -5.708923E+00   7.521664E+02         
+0       4       1    1.510844E+03  -9.485535E+00   2.749512E+00   1.036188E-01   1.510849E+03  -9.490540E+00   7.601697E+02         
+                3    1.498408E+03  -5.586243E-01  -2.802734E-01  -1.071304E-02   1.498408E+03  -5.585938E-01   7.494832E+02         
+                5    1.494937E+03   2.541504E-01   9.992523E-01   3.830440E-02   1.494937E+03   2.534790E-01   7.473419E+02         
+                C    1.501396E+03  -3.263245E+00   1.156006E+00   4.401941E-02   1.501397E+03  -3.264038E+00   7.523304E+02         
+0       5       1    1.499889E+03  -1.221313E-01   3.281250E-01   1.253336E-02   1.499889E+03  -1.222534E-01   7.500056E+02         
+                3    1.501581E+03   1.583313E+00  -1.442383E+00  -5.509499E-02   1.501582E+03   1.581970E+00   7.500002E+02         
+                5    1.498932E+03  -4.541016E-01  -5.892944E-02  -2.251861E-03   1.498932E+03  -4.541016E-01   7.496929E+02         
+                C    1.500134E+03   3.356934E-01  -3.911133E-01  -1.494144E-02   1.500134E+03   3.356323E-01   7.498991E+02         
+0       6       1    1.499086E+03   6.369019E-01  -2.275391E-01  -8.700346E-03   1.499086E+03   6.367798E-01   7.492248E+02         
+                3    1.500114E+03   5.484009E-02   2.221680E-02   8.485855E-04   1.500114E+03   5.480957E-02   7.500297E+02         
+                5    1.500401E+03  -1.049805E-02  -8.071899E-02  -3.082392E-03   1.500401E+03  -1.049805E-02   7.502059E+02         
+                C    1.499866E+03   2.270508E-01  -9.570312E-02  -3.656470E-03   1.499866E+03   2.270508E-01   7.498196E+02         
+0       7       1    1.500006E+03   6.286621E-03  -1.757812E-02  -6.714350E-04   1.500006E+03   6.347656E-03   7.499999E+02         
+                3    1.499899E+03  -1.102905E-01   8.618164E-02   3.291877E-03   1.499899E+03  -1.103516E-01   7.500045E+02         
+                5    1.500066E+03   4.589844E-02   4.600525E-03   1.757247E-04   1.500066E+03   4.589844E-02   7.500103E+02         
+                C    1.499991E+03  -1.953125E-02   2.441406E-02   9.325421E-04   1.499991E+03  -1.953125E-02   7.500051E+02         
+0       8       1    1.500059E+03  -3.802490E-02   1.562500E-02   5.967925E-04   1.500059E+03  -3.796387E-02   7.500485E+02         
+                3    1.499992E+03  -3.540039E-03  -1.953125E-03  -7.460411E-05   1.499992E+03  -3.540039E-03   7.499976E+02         
+                5    1.499975E+03   0.0            6.141663E-03   2.345982E-04   1.499975E+03   0.0            7.499873E+02         
+                C    1.500010E+03  -1.391602E-02   5.371094E-03   2.051574E-04   1.500010E+03  -1.391602E-02   7.500118E+02         
+0       9       1    1.500000E+03  -3.051758E-04   1.953125E-03   7.460385E-05   1.500000E+03  -3.662109E-04   7.500004E+02         
+                3    1.500006E+03   6.469727E-03  -3.906250E-03  -1.492078E-04   1.500006E+03   6.469727E-03   7.499998E+02         
+                5    1.499996E+03  -3.417969E-03  -1.350403E-03  -5.158161E-05   1.499996E+03  -3.417969E-03   7.499998E+02         
+                C    1.499999E+03   1.220703E-03   0.0            0.0            1.499999E+03   1.220703E-03   7.499989E+02         
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     CONSISTENT LOADING (FORCE RATIO 1 TO 4 TO 1)                                                           SUBCASE 1              
+ 
+                  S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E   E L E M E N T S   ( C T R I M 6 )
+0 ELEMENT     POINT       STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)             MAX
+    ID.        NO.     NORMAL-X       NORMAL-Y       SHEAR-XY        ANGLE          MAJOR          MINOR          SHEAR
+0      10       1    1.499998E+03   2.685547E-03  -1.953125E-03  -7.460412E-05   1.499998E+03   2.685547E-03   7.499976E+02         
+                3    1.500002E+03  -1.831055E-04   0.0            0.0            1.500002E+03  -2.441406E-04   7.500011E+02         
+                5    1.500002E+03  -4.882812E-04   1.350403E-03   5.158150E-05   1.500002E+03  -4.882812E-04   7.500012E+02         
+                C    1.500000E+03   7.324219E-04  -9.765625E-04  -3.730196E-05   1.500000E+03   7.324219E-04   7.499996E+02         
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     UNIFORM TEMPERATURE LOAD                                                                               SUBCASE 2              
+ 
+                  S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E   E L E M E N T S   ( C T R I M 6 )
+0 ELEMENT     POINT       STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)             MAX
+    ID.        NO.     NORMAL-X       NORMAL-Y       SHEAR-XY        ANGLE          MAJOR          MINOR          SHEAR
+0       1       1   -2.322480E+05  -2.624706E+05   5.710787E+04   3.758932E+01  -1.882859E+05  -3.064327E+05   5.907335E+04         
+                3   -1.648397E+05  -1.829680E+05  -3.396211E+04  -3.752835E+01  -1.387530E+05  -2.090547E+05   3.515086E+04         
+                5   -1.702796E+05  -1.840559E+05  -2.020774E+04  -3.558871E+01  -1.558183E+05  -1.985172E+05   2.134946E+04         
+                C   -1.891224E+05  -2.098315E+05   9.793418E+02   2.701509E+00  -1.890762E+05  -2.098777E+05   1.040074E+04         
+0       2       1   -2.225134E+05  -2.914998E+05   2.562089E+04   1.830213E+01  -2.140391E+05  -2.999742E+05   4.296756E+04         
+                3   -1.468218E+05  -1.478462E+05  -1.208863E+04  -4.378701E+01  -1.352345E+05  -1.594335E+05   1.209947E+04         
+                5   -1.882975E+05  -1.289672E+05   1.675108E+04   7.527389E+01  -1.245645E+05  -1.927002E+05   3.406786E+04         
+                C   -1.858776E+05  -1.894377E+05   1.009445E+04   3.999960E+01  -1.774075E+05  -1.979078E+05   1.025020E+04         
+0       3       1   -2.401590E+05  -2.977615E+05   7.122938E+04   3.399215E+01  -1.921284E+05  -3.457921E+05   7.683188E+04         
+                3   -1.406486E+05  -1.194374E+05  -6.470143E+04  -4.965445E+01  -6.447814E+04  -1.956079E+05   6.556488E+04         
+                5   -1.804621E+05  -1.545742E+05  -3.376252E+04  -5.548798E+01  -1.313595E+05  -2.036769E+05   3.615873E+04         
+                C   -1.870899E+05  -1.905911E+05  -9.078185E+03  -3.954271E+01  -1.795951E+05  -1.980859E+05   9.245429E+03         
+0       4       1   -2.426196E+05  -2.710404E+05   2.029822E+04   2.750244E+01  -2.320519E+05  -2.816081E+05   2.477808E+04         
+                3   -1.431983E+05  -1.474792E+05  -1.152301E+04  -3.973843E+01  -1.336187E+05  -1.570589E+05   1.172012E+04         
+                5   -1.779125E+05  -1.301226E+05   1.496593E+04   7.397009E+01  -1.258227E+05  -1.822123E+05   2.819479E+04         
+                C   -1.879101E+05  -1.828808E+05   7.913716E+03   5.381417E+01  -1.770918E+05  -1.936991E+05   8.303646E+03         
+0       5       1   -2.398914E+05  -2.970052E+05   7.033819E+04   3.395156E+01  -1.925342E+05  -3.443625E+05   7.591414E+04         
+                3   -1.445962E+05  -1.234594E+05  -6.093457E+04  -4.991972E+01  -7.218352E+04  -1.958720E+05   6.184427E+04         
+                5   -1.777714E+05  -1.543939E+05  -3.363940E+04  -5.458046E+01  -1.304703E+05  -2.016949E+05   3.561230E+04         
+                C   -1.874197E+05  -1.916195E+05  -8.078594E+03  -3.771465E+01  -1.811725E+05  -1.978666E+05   8.347052E+03         
+0       6       1   -2.403735E+05  -2.730730E+05   2.086561E+04   2.595934E+01  -2.302150E+05  -2.832315E+05   2.650826E+04         
+                3   -1.432812E+05  -1.468980E+05  -1.177345E+04  -4.063372E+01  -1.331781E+05  -1.570011E+05   1.191153E+04         
+                5   -1.790864E+05  -1.300900E+05   1.524606E+04   7.405231E+01  -1.257333E+05  -1.834431E+05   2.885490E+04         
+                C   -1.875804E+05  -1.833537E+05   8.112741E+03   5.230044E+01  -1.770835E+05  -1.938505E+05   8.383483E+03         
+0       7       1   -2.373092E+05  -2.974039E+05   7.029755E+04   3.342832E+01  -1.909066E+05  -3.438064E+05   7.644991E+04         
+                3   -1.433677E+05  -1.229462E+05  -6.073419E+04  -4.977170E+01  -7.157041E+04  -1.947435E+05   6.158653E+04         
+                5   -1.799423E+05  -1.542303E+05  -3.308166E+04  -5.561843E+01  -1.315944E+05  -2.025782E+05   3.549189E+04         
+                C   -1.868730E+05  -1.915268E+05  -7.839432E+03  -3.673414E+01  -1.810224E+05  -1.973774E+05   8.177469E+03         
+0       8       1   -2.410710E+05  -2.687354E+05   2.008289E+04   2.772131E+01  -2.305177E+05  -2.792887E+05   2.438550E+04         
+                3   -1.470978E+05  -1.552464E+05  -8.362404E+03  -3.201196E+01  -1.418699E+05  -1.604742E+05   9.302135E+03         
+                5   -1.762122E+05  -1.301467E+05   1.496006E+04   7.349788E+01  -1.257148E+05  -1.806442E+05   2.746471E+04         
+                C   -1.881270E+05  -1.847095E+05   8.893514E+03   5.043793E+01  -1.773621E+05  -1.954744E+05   9.056178E+03         
+0       9       1   -2.776086E+05  -2.960596E+05   6.477316E+04   4.094700E+01  -2.214073E+05  -3.522610E+05   6.542684E+04         
+                3   -1.474903E+05  -1.244024E+05  -6.380066E+04  -5.012802E+01  -7.110973E+04  -2.007830E+05   6.483662E+04         
+                5   -1.543237E+05  -1.566916E+05  -3.705479E+04  -4.408499E+01  -1.184339E+05  -1.925813E+05   3.707370E+04         
+                C   -1.931409E+05  -1.923845E+05  -1.202743E+04  -4.590048E+01  -1.807293E+05  -2.047961E+05   1.203337E+04         
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     UNIFORM TEMPERATURE LOAD                                                                               SUBCASE 2              
+ 
+                  S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E   E L E M E N T S   ( C T R I M 6 )
+0 ELEMENT     POINT       STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)             MAX
+    ID.        NO.     NORMAL-X       NORMAL-Y       SHEAR-XY        ANGLE          MAJOR          MINOR          SHEAR
+0      10       1   -2.437634E+05  -3.123029E+05   4.023547E+04   2.478899E+01  -2.251814E+05  -3.308849E+05   5.285176E+04         
+                3   -1.536569E+05  -1.997694E+05   1.692154E+04   1.813794E+01  -1.481137E+05  -2.053126E+05   2.859944E+04         
+                5   -1.481571E+05  -3.238655E+04  -4.869570E+04  -6.996397E+01  -1.462807E+04  -1.659156E+05   7.564374E+04         
+                C   -1.818592E+05  -1.814863E+05   2.820434E+03   4.689087E+01  -1.788461E+05  -1.844993E+05   2.826588E+03         
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     LUMPED STRESS LOADING (FORCE RATIO 1 TO 2 TO 1)                                                        SUBCASE  3             
+ 
+                  S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E   E L E M E N T S   ( C T R I M 6 )
+0 ELEMENT     POINT       STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)             MAX
+    ID.        NO.     NORMAL-X       NORMAL-Y       SHEAR-XY        ANGLE          MAJOR          MINOR          SHEAR
+0       1       1    1.446798E+03  -2.485351E+02   7.062744E+01   2.381438E+00   1.449735E+03  -2.514723E+02   8.506036E+02         
+                3    1.551282E+03   3.102564E+02  -1.527790E+02  -6.915954E+00   1.569813E+03   2.917249E+02   6.390443E+02         
+                5    1.492584E+03   2.985168E+02  -4.071765E+01  -1.950763E+00   1.493971E+03   2.971300E+02   5.984205E+02         
+                C    1.496888E+03   1.200794E+02  -4.095648E+01  -1.702394E+00   1.498105E+03   1.188622E+02   6.896215E+02         
+0       2       1    1.465471E+03   9.764941E+01  -1.088330E+01  -4.558450E-01   1.465557E+03   9.756287E+01   6.839973E+02         
+                3    1.514873E+03  -3.466553E+00   1.553345E+00   5.861665E-02   1.514875E+03  -3.468140E+00   7.591713E+02         
+                5    1.528992E+03  -7.487976E+00  -4.487633E+00  -1.673432E-01   1.529006E+03  -7.501160E+00   7.682534E+02         
+                C    1.503112E+03   2.889832E+01  -4.606018E+00  -1.790120E-01   1.503126E+03   2.888397E+01   7.371212E+02         
+0       3       1    1.502456E+03   3.991638E+00  -5.110352E+00  -1.953981E-01   1.502473E+03   3.974243E+00   7.492495E+02         
+                3    1.479904E+03  -1.730566E+01   2.103931E+01   8.049281E-01   1.480200E+03  -1.760126E+01   7.489005E+02         
+                5    1.513441E+03  -3.752808E+00   4.584351E-01   1.731248E-02   1.513442E+03  -3.752930E+00   7.585972E+02         
+                C    1.498601E+03  -5.688965E+00   5.462402E+00   2.080497E-01   1.498621E+03  -5.708801E+00   7.521648E+02         
+0       4       1    1.510852E+03  -9.526062E+00   2.749023E+00   1.035971E-01   1.510857E+03  -9.531067E+00   7.601940E+02         
+                3    1.498435E+03  -4.585876E-01  -3.051758E-01  -1.166546E-02   1.498435E+03  -4.586792E-01   7.494468E+02         
+                5    1.494912E+03   2.525635E-01   1.016907E+00   3.898174E-02   1.494913E+03   2.518311E-01   7.473305E+02         
+                C    1.501399E+03  -3.244019E+00   1.153076E+00   4.390831E-02   1.501400E+03  -3.244873E+00   7.523226E+02         
+0       5       1    1.500093E+03  -2.186890E-01   2.207031E-01   8.428488E-03   1.500093E+03  -2.188110E-01   7.501558E+02         
+                3    1.501798E+03   1.629517E+00  -1.346680E+00  -5.143354E-02   1.501799E+03   1.628296E+00   7.500854E+02         
+                5    1.498685E+03  -4.086914E-01   5.201721E-02   1.988113E-03   1.498685E+03  -4.086914E-01   7.495466E+02         
+                C    1.500192E+03   3.339844E-01  -3.579102E-01  -1.367246E-02   1.500192E+03   3.339233E-01   7.499290E+02         
+0       6       1    1.498940E+03   1.356873E+00  -2.236328E-01  -8.555932E-03   1.498940E+03   1.356873E+00   7.487914E+02         
+                3    1.499678E+03  -1.687103E+00   4.338379E-01   1.655632E-02   1.499678E+03  -1.687256E+00   7.506825E+02         
+                5    1.500806E+03   1.733398E-02  -3.557281E-01  -1.358068E-02   1.500806E+03   1.727295E-02   7.503942E+02         
+                C    1.499808E+03  -1.042480E-01  -4.931641E-02  -1.883858E-03   1.499808E+03  -1.042480E-01   7.499562E+02         
+0       7       1    1.495435E+03   1.457397E+00   1.320312E+00   5.063546E-02   1.495436E+03   1.456238E+00   7.469901E+02         
+                3    1.496574E+03  -8.294067E-01  -1.405273E+00  -5.377051E-02   1.496575E+03  -8.308105E-01   7.487030E+02         
+                5    1.504500E+03  -7.231445E-01  -1.804817E+00  -6.869958E-02   1.504502E+03  -7.252808E-01   7.526137E+02         
+                C    1.498836E+03  -3.149414E-02  -6.289062E-01  -2.404060E-02   1.498836E+03  -3.173828E-02   7.494340E+02         
+0       8       1    1.502419E+03  -1.188513E+01   3.046875E-01   1.152827E-02   1.502419E+03  -1.188513E+01   7.571522E+02         
+                3    1.505408E+03   2.685532E+01  -3.311523E+00  -1.283248E-01   1.505416E+03   2.684796E+01   7.392839E+02         
+                5    1.495664E+03  -1.689453E-01   1.208138E+00   4.627597E-02   1.495665E+03  -1.699219E-01   7.479175E+02         
+                C    1.501165E+03   4.933716E+00  -6.000977E-01  -2.297978E-02   1.501165E+03   4.933472E+00   7.481157E+02         
+0       9       1    1.655845E+03  -2.877625E+00   2.275977E+01   7.859730E-01   1.656157E+03  -3.189880E+00   8.296735E+02         
+                3    1.513057E+03   3.309448E+00   7.600586E+00   2.884369E-01   1.513095E+03   3.271179E+00   7.549119E+02         
+                5    1.421270E+03   1.002734E+01   1.826542E+01   7.414020E-01   1.421506E+03   9.790955E+00   7.058575E+02         
+                C    1.530057E+03   3.486084E+00   1.621045E+01   6.083248E-01   1.530229E+03   3.313965E+00   7.634574E+02         
+1     2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-09-2A                                                                                   
+0     LUMPED STRESS LOADING (FORCE RATIO 1 TO 2 TO 1)                                                        SUBCASE  3             
+ 
+                  S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E   E L E M E N T S   ( C T R I M 6 )
+0 ELEMENT     POINT       STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)             MAX
+    ID.        NO.     NORMAL-X       NORMAL-Y       SHEAR-XY        ANGLE          MAJOR          MINOR          SHEAR
+0      10       1    1.475501E+03   1.244442E+02  -2.943164E+01  -1.247351E+00   1.476142E+03   1.238033E+02   6.761694E+02         
+                3    1.624542E+03  -1.373778E+02  -3.127290E+02  -9.772092E+00   1.678403E+03  -1.912386E+02   9.348207E+02         
+                5    1.309787E+03  -1.138135E+01   2.970793E+02   1.210725E+01   1.373515E+03  -7.510895E+01   7.243118E+02         
+                C    1.469942E+03  -8.104980E+00  -1.502881E+01  -5.825041E-01   1.470095E+03  -8.257812E+00   7.391765E+02         
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  2 X 1 X 10 FIXED-FREE BEAM USING CTRIM6 ELEMENTS                   
+ DATE:  5/17/95
+ END TIME: 14:59:55
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

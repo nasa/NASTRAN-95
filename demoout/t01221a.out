@@ -1,0 +1,1228 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T01221A,NASTRAN                                                           
+     DIAG   14                                                                       
+     APP    DISP                                                                     
+     SOL    1,0                                                                      
+     TIME   20                                                                       
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = ANISOTROPIC IHEX2 ELEMENT PROBLEM                                    
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T01-22-1A                                   
+                  3      SPCF  = ALL                                                                     
+                  4      SPC   = 11                                                                      
+                  5      OLOAD = ALL                                                                     
+                  6      DISP  = ALL                                                                     
+                  7      STRESS= ALL                                                                     
+                  8      SUBCASE 1                                                                       
+                  9      LOAD  = 29                                                                      
+                 10      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    95, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CIHEX2  10101   1       1       2       3       5       8       7       CIH    1
+                    2-        +IH    16       4       29      30      32      31      41      42      CIH    2
+                    3-        +IH    243      45      48      47      46      44                              
+                    4-        CIHEX2  10201   1       6       7       8       10      13      12      CIH    3
+                    5-        +IH    311      9       31      32      34      33      46      47      CIH    4
+                    6-        +IH    448      50      53      52      51      49                              
+                    7-        CIHEX2  10301   1       11      12      13      15      18      17      CIH    5
+                    8-        +IH    516      14      33      34      36      35      51      52      CIH    6
+                    9-        +IH    653      55      58      57      56      54                              
+                   10-        CIHEX2  10401   1       16      17      18      20      23      22      CIH    7
+                   11-        +IH    721      19      35      36      38      37      56      57      CIH    8
+                   12-        +IH    858      60      63      62      61      59                              
+                   13-        CIHEX2  10501   1       21      22      23      25      28      27      CIH    9
+                   14-        +IH    926      24      37      38      40      39      61      62      CIH   10
+                   15-        +IH   1063      65      68      67      66      64                              
+                   16-        CORD2R  30              0.      0.      0.      0.      0.      1.      +C1     
+                   17-        +C1     1.      0.      1.                                                      
+                   18-        GRDSET                                                  456                     
+                   19-        GRID    1               .000    0.000   0.000                                   
+                   20-        GRID    2               .500    0.000   0.000                                   
+                   21-        GRID    3               1.000   0.000   0.000                                   
+                   22-        GRID    4               .000    1.000   0.000                                   
+                   23-        GRID    5               1.000   1.000   0.000                                   
+                   24-        GRID    6               .000    2.000   0.000                                   
+                   25-        GRID    7               .500    2.000   0.000                                   
+                   26-        GRID    8               1.000   2.000   0.000                                   
+                   27-        GRID    9               .000    3.000   0.000                                   
+                   28-        GRID    10              1.000   3.000   0.000                                   
+                   29-        GRID    11              .000    4.000   0.000                                   
+                   30-        GRID    12              .500    4.000   0.000                                   
+                   31-        GRID    13              1.000   4.000   0.000                                   
+                   32-        GRID    14              -.000   5.000   0.000                                   
+                   33-        GRID    15              1.000   5.000   0.000                                   
+                   34-        GRID    16              -.000   6.000   0.000                                   
+                   35-        GRID    17              .500    6.000   0.000                                   
+                   36-        GRID    18              1.000   6.000   0.000                                   
+                   37-        GRID    19              .000    7.000   0.000                                   
+                   38-        GRID    20              1.000   7.000   0.000                                   
+                   39-        GRID    21              .000    8.000   0.000                                   
+                   40-        GRID    22              .500    8.000   0.000                                   
+                   41-        GRID    23              1.000   8.000   0.000                                   
+                   42-        GRID    24              .000    9.000   0.000                                   
+                   43-        GRID    25              1.000   9.000   0.000                                   
+                   44-        GRID    26              .000    10.000  0.000                                   
+                   45-        GRID    27              .500    10.000  0.000                                   
+                   46-        GRID    28              1.000   10.000  0.000                                   
+                   47-        GRID    29              -.000   0.000   .500                                    
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        GRID    30              1.000   0.000   .500                                    
+                   49-        GRID    31              -.000   2.000   .500                                    
+                   50-        GRID    32              1.000   2.000   .500                                    
+                   51-        GRID    33              -.000   4.000   .500                                    
+                   52-        GRID    34              1.000   4.000   .500                                    
+                   53-        GRID    35              -.000   6.000   .500                                    
+                   54-        GRID    36              1.000   6.000   .500                                    
+                   55-        GRID    37              -.000   8.000   .500                                    
+                   56-        GRID    38              1.000   8.000   .500                                    
+                   57-        GRID    39              -.000   10.000  .500                                    
+                   58-        GRID    40              1.000   10.000  .500                                    
+                   59-        GRID    41              .000    0.000   1.000                                   
+                   60-        GRID    42              .500    0.000   1.000                                   
+                   61-        GRID    43              1.000   0.000   1.000                                   
+                   62-        GRID    44              .000    1.000   1.000                                   
+                   63-        GRID    45              1.000   1.000   1.000                                   
+                   64-        GRID    46              .000    2.000   1.000                                   
+                   65-        GRID    47              .500    2.000   1.000                                   
+                   66-        GRID    48              1.000   2.000   1.000                                   
+                   67-        GRID    49              .000    3.000   1.000                                   
+                   68-        GRID    50              1.000   3.000   1.000                                   
+                   69-        GRID    51              .000    4.000   1.000                                   
+                   70-        GRID    52              .500    4.000   1.000                                   
+                   71-        GRID    53              1.000   4.000   1.000                                   
+                   72-        GRID    54              -.000   5.000   1.000                                   
+                   73-        GRID    55              1.000   5.000   1.000                                   
+                   74-        GRID    56              -.000   6.000   1.000                                   
+                   75-        GRID    57              .500    6.000   1.000                                   
+                   76-        GRID    58              1.000   6.000   1.000                                   
+                   77-        GRID    59              .000    7.000   1.000                                   
+                   78-        GRID    60              1.000   7.000   1.000                                   
+                   79-        GRID    61              .000    8.000   1.000                                   
+                   80-        GRID    62              .500    8.000   1.000                                   
+                   81-        GRID    63              1.000   8.000   1.000                                   
+                   82-        GRID    64              .000    9.000   1.000                                   
+                   83-        GRID    65              1.000   9.000   1.000                                   
+                   84-        GRID    66              .000    10.000  1.000                                   
+                   85-        GRID    67              .500    10.000  1.000                                   
+                   86-        GRID    68              1.000   10.000  1.000                                   
+                   87-        MAT6    31      .232+7  -.211+7 .0316+7 .158+7  .105+7  .0526+7 .737+7  +M1     
+                   88-        +M1     -.211+7 -.553+7 -.368+7 -.184+7 .232+7  .158+7  .105+7  .0526+7 +M2     
+                   89-        +M2     .664+7  .276+7  .138+7  .434+7  .0921+7 .296+7  7.324-4                 
+                   90-        PIHEX   1       31      30      3                                               
+                   91-        PLOAD3  29      -10.    10501   26      68                                      
+                   92-        SPC1    11      1       1       29      41                                      
+                   93-        SPC1    11      2       1       2       3       29      30      41              
+                   94-        SPC1    11      2       42      43                                              
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        SPC1    11      123     1                                                       
+                              ENDDATA
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 01 - STATIC ANALYSIS - APR. 1995 $                        
+
+       2  FILE     OPTP2=SAVE/EST1=SAVE $                                         
+
+       3  FILE     QG=APPEND/PGG=APPEND/UGV=APPEND/GM=SAVE/KNN=SAVE $             
+
+       4  SETVAL   //V,Y,INTERACT/0/V,Y,SYS21/0 $                                 
+
+       5  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       6  COMPOFF  1,INTERACT $                                                   
+
+       7  PRECHK   ALL $                                                          
+
+       8  COMPON   1,INTERACT $                                                   
+
+      10  COMPOFF  LBLINT02,SYS21 $                                               
+
+      11  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/ALWAYS=-1 $                                             
+
+      12  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+      13  EQUIV    MPTA,MPT/ISOP $                                                
+
+      14  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+      15  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      16  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      17  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      18  COND     P1,JUMPPLOT $                                                  
+
+      19  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      20  PRTMSG   PLTSETX// $                                                    
+
+      21  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      22  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      23  COND     P1,JUMPPLOT $                                                  
+
+      24  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE  $                
+
+      25  PRTMSG   PLOTX1// $                                                     
+
+      26  LABEL    P1 $                                                           
+
+      27  GP3      GEOM3,EQEXIN,GEOM2/SLT,GPTT/S,N,NOGRAV/NEVER=1 $               
+
+      28  PARAM    //*AND*/NOMGG/NOGRAV/V,Y,GRDPNT=-1 $                           
+
+      29  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      30  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      31  PARAM    //*AND*/NOELMT/NOGENL/NOSIMP $                                 
+
+      32  COND     ERROR4,NOELMT $                                                
+
+      33  PURGE    KGGX/NOSIMP $                                                  
+
+      34  OPTPR1   MPT,EPT,ECT,DIT,EST/OPTP1/S,N,PRINT/S,N,TSTART/S,N,COUNT $     
+
+      35  LABEL    LOOPTOP $                                                      
+
+      36  COND     LBL1,NOSIMP $                                                  
+
+      37  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      38  EQUIV    OPTP1,OPTP2/NEVER/EST,EST1/NEVER $                             
+
+      39  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/                           
+                   C,Y,CPROD/C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/     
+                   C,Y,CPTUBE/C,Y,CPQDPLT/C,Y,CPTRPLT/C,Y,CPTRBSC/                
+                   C,Y,VOLUME/C,Y,SURFACE $                                       
+
+      40  COND     JMPKGG,NOKGGX $                                                
+
+      41  EMA      GPECT,KDICT,KELM/KGGX $                                        
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      42  LABEL    JMPKGG $                                                       
+
+      43  PURGE    MGG/NOMGG $                                                    
+
+      44  COND     JMPMGG,NOMGG $                                                 
+
+      45  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      46  PURGE    MDICT,MELM/ALWAYS $                                            
+
+      47  LABEL    JMPMGG $                                                       
+
+      48  COND     LBL1,GRDPNT $                                                  
+
+      49  COND     ERROR2,NOMGG $                                                 
+
+      50  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT/C,Y,WTMASS $            
+
+      51  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      52  LABEL    LBL1 $                                                         
+
+      53  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      54  COND     LBL11A,NOGENL $                                                
+
+      55  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      56  LABEL    LBL11A $                                                       
+
+      57  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      58  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      59  LABEL    LBL11 $                                                        
+
+      60  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      61  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      62  COND     ERROR3,NOL $                                                   
+
+      63  PARAM    //*AND*/NOSR/SINGLE/REACT $                                    
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      64  PURGE    KRR,KLR,QR,DM/REACT/GM/MPCF1/GO,KOO,LOO,PO,UOOV,RUOV/OMIT/PS,  
+                   KFS,KSS/SINGLE/QG/NOSR $                                       
+
+      65  EQUIV    KGG,KNN/MPCF1 $                                                
+
+      66  COND     LBL2,MPCF2 $                                                   
+
+      67  MCE1     USET,RG/GM $                                                   
+
+      68  MCE2     USET,GM,KGG,,,/KNN,,, $                                        
+
+      69  LABEL    LBL2 $                                                         
+
+      70  EQUIV    KNN,KFF/SINGLE $                                               
+
+      71  COND     LBL3,SINGLE $                                                  
+
+      72  SCE1     USET,KNN,,,/KFF,KFS,KSS,,, $                                   
+
+      73  LABEL    LBL3 $                                                         
+
+      74  EQUIV    KFF,KAA/OMIT $                                                 
+
+      75  COND     LBL5,OMIT $                                                    
+
+      76  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      77  LABEL    LBL5 $                                                         
+
+      78  EQUIV    KAA,KLL/REACT $                                                
+
+      79  COND     LBL6,REACT $                                                   
+
+      80  RBMG1    USET,KAA,/KLL,KLR,KRR,,, $                                     
+
+      81  LABEL    LBL6 $                                                         
+
+      82  RBMG2    KLL/LLL $                                                      
+
+      83  COND     LBL7,REACT $                                                   
+
+      84  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      85  LABEL    LBL7 $                                                         
+
+      86  SSG1     SLT,BGPDT,CSTM,SIL,EST,MPT,GPTT,EDT,MGG,CASECC,DIT,PCOMPS/     
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                   PG,,,,/LUSET/NSKIP/COMPS $                                     
+
+      87  EQUIV    PG,PL/NOSET $                                                  
+
+      88  COND     LBL10,NOSET $                                                  
+
+      89  SSG2     USET,GM,YS,KFS,GO,DM,PG/QR,PO,PS,PL $                          
+
+      90  LABEL    LBL10 $                                                        
+
+      91  SSG3     LLL,KLL,PL,LOO,KOO,PO/ULV,UOOV,RULV,RUOV/OMIT/V,Y,IRES=-1/     
+                   NSKIP/S,N,EPSI $                                               
+
+      92  COND     LBL9,IRES $                                                    
+
+      93  MATGPR   GPL,USET,SIL,RULV//*L* $                                       
+
+      94  MATGPR   GPL,USET,SIL,RUOV//*O* $                                       
+
+      95  LABEL    LBL9 $                                                         
+
+      96  SDR1     USET,PG,ULV,UOOV,YS,GO,GM,PS,KFS,KSS,QR/UGV,PGG,QG/NSKIP/      
+                   *STATICS* $                                                    
+
+      97  COND     LBL8,REPEAT $                                                  
+
+      98  REPT     LBL11,360 $                                                    
+
+      99  JUMP     ERROR1 $                                                       
+
+     100  PARAM    //*NOT*/TEST/REPEAT $                                          
+
+     101  COND     ERROR5,TEST $                                                  
+
+     102  LABEL    LBL8 $                                                         
+
+     103  GPFDR    CASECC,UGV,KELM,KDICT,ECT,EQEXIN,GPECT,PGG,QG/ONRGY1,OGPFB1/   
+                   *STATICS* $                                                    
+
+     104  PURGE    KDICT,KELM/REPEAT $                                            
+
+     105  OFP      ONRGY1,OGPFB1,,,,//S,N,CARDNO $                                
+
+     106  COND     NOMPCF,GRDEQ $                                                 
+
+     107  EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USET,KGG,GM,UGV,PGG,QG,CSTM/       
+                   OQM1/V,Y,OPT=0/V,Y,GRDEQ/NSKIP $                               
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     108  OFP      OQM1,,,,,//S,N,CARDNO $                                        
+
+     109  LABEL    NOMPCF $                                                       
+
+     110  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDP,,QG,UGV,EST,     
+                   XYCDB,PGG,PCOMPS/OPG1,OQG1,OUGV1,OES1,OEF1,PUGV1,OES1L,        
+                   OEF1L/*STATICS*/S,N,NOSORT2/-1/S,N,STRNFLG/COMPS $             
+
+     111  COND     LBLSTRS,STRESS $                                               
+
+     112  CURV     OES1,MPT,CSTM,EST,SIL,GPL/OES1M,OES1G/V,Y,STRESS/              
+                   V,Y,NINTPTS $                                                  
+
+     113  LABEL    LBLSTRS $                                                      
+
+     114  PURGE    OES1M/STRESS $                                                 
+
+     115  COND     LBLSTRN,STRNFLG $                                              
+
+     116  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,GPTT,EDT,BGPDT,,,UGV,EST,,,/    
+                   ,,,OES1A,,,,/*STATICS*//1 $                                    
+
+     117  COND     LBLSTRN,STRAIN $                                               
+
+     118  CURV     OES1A,MPT,CSTM,EST,SIL,GPL/OES1AM,OES1AG/V,Y,STRAIN/           
+                   V,Y,NINTPTS $                                                  
+
+     119  LABEL    LBLSTRN $                                                      
+
+     120  PURGE    OES1A/STRNFLG $                                                
+
+     121  COND     LBL17,NOSORT2 $                                                
+
+     122  SDR3     OUGV1,OPG1,OQG1,OEF1,OES1,/OUGV2,OPG2,OQG2,OEF2,OES2, $        
+
+     123  PARAM    //*SUB*/PRTSORT2/NOSORT2/1 $                                   
+
+     124  COND     LBLSORT1,PRTSORT2 $                                            
+
+     125  OFP      OUGV2,OPG2,OQG2,OEF2,OES2,//S,N,CARDNO $                       
+
+     126  SCAN     CASECC,OES2,OEF2,,/OESF2,/*RF* $                               
+
+     127  OFP      OESF2,,,,,//S,N,CARDNO $                                       
+
+     128  JUMP     LBLXYPLT $                                                     
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     129  LABEL    LBLSORT1 $                                                     
+
+     130  OFP      OUGV1,OPG1,OQG1,OEF1,OES1,//S,N,CARDNO $                       
+
+     131  OFP      OEF1L,OES1L,,,,//S,N,CARDNO $                                  
+
+     132  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
+
+     133  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
+
+     134  LABEL    LBLXYPLT $                                                     
+
+     135  OFP      OES1M,OES1G,OES1A,OES1AM,OES1AG,//S,N,CARDNO $                 
+
+     136  XYTRAN   XYCDB,OPG2,OQG2,OUGV2,OES2,OEF2/XYPLTT/*TRAN*/*PSET*/S,N,      
+                   PFILE/S,N,CARDNO $                                             
+
+     137  XYPLOT   XYPLTT// $                                                     
+
+     138  JUMP     DPLOT $                                                        
+
+     139  LABEL    LBL17 $                                                        
+
+     140  PURGE    OUGV2/NOSORT2 $                                                
+
+     141  COND     LBLOFP,COUNT $                                                 
+
+     142  OPTPR2   OPTP1,OES1,EST/OPTP2,EST1/S,N,PRINT/TSTART/S,N,COUNT/S,N,      
+                   CARDNO $                                                       
+
+     143  EQUIV    EST1,EST/ALWAYS/OPTP2,OPTP1/ALWAYS $                           
+
+     144  COND     LOOPEND,PRINT $                                                
+
+     145  LABEL    LBLOFP $                                                       
+
+     146  OFP      OUGV1,OPG1,OQG1,OEF1,OES1,//S,N,CARDNO $                       
+
+     147  OFP      OEF1L,OES1L,,,,//S,N,CARDNO $                                  
+
+     148  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1X,OESF1Y/*RF* $              
+
+     149  OFP      OESF1X,OESF1Y,,,,//S,N,CARDNO $                                
+
+     150  OFP      OES1M,OES1G,OES1A,OES1AM,OES1AG,//S,N,CARDNO $                 
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     151  LABEL    DPLOT $                                                        
+
+     152  COND     P2,JUMPPLOT $                                                  
+
+     153  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,PUGV1,,GPECT,OES1,
+                   OES1L,ONRGY1/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $     
+
+     154  PRTMSG   PLOTX2// $                                                     
+
+     155  LABEL    P2 $                                                           
+
+     156  LABEL    LOOPEND $                                                      
+
+     157  COND     FINIS,COUNT $                                                  
+
+     158  REPT     LOOPTOP,360 $                                                  
+
+     159  JUMP     FINIS $                                                        
+
+     160  LABEL    ERROR1 $                                                       
+
+     161  PRTPARM  //-1/*STATICS* $                                               
+
+     162  LABEL    ERROR2 $                                                       
+
+     163  PRTPARM  //-2/*STATICS* $                                               
+
+     164  LABEL    ERROR3 $                                                       
+
+     165  PRTPARM  //-3/*STATICS* $                                               
+
+     166  LABEL    ERROR4 $                                                       
+
+     167  PRTPARM  //-4/*STATICS* $                                               
+
+     168  LABEL    ERROR5 $                                                       
+
+     169  PRTPARM  //-5/*STATICS* $                                               
+
+     170  LABEL    FINIS $                                                        
+
+     171  PURGE    DUMMY/ALWAYS $                                                 
+
+     172  LABEL    LBLINT02 $                                                     
+
+     173  COMPON   LBLINT01,SYS21 $                                               
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     228  END      $                                                              
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           48
+                                        PROFILE           1746
+                                        MAX WAVEFRONT       48
+                                        AVG WAVEFRONT   25.676
+                                        RMS WAVEFRONT   28.578
+                                        RMS BANDWIDTH   31.538
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH           20
+                                        PROFILE            906
+                                        MAX WAVEFRONT       20
+                                        AVG WAVEFRONT   13.324
+                                        RMS WAVEFRONT   14.108
+                                        RMS BANDWIDTH   14.108
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       48        20
+                                        PROFILE (P)                       1746       906
+                                        MAXIMUM WAVEFRONT (C-MAX)           48        20
+                                        AVERAGE WAVEFRONT (C-AVG)       25.676    13.324
+                                        RMS WAVEFRONT (C-RMS)           28.578    14.108
+                                        RMS BANDWITCH (B-RMS)           31.538    14.108
+                                        NUMBER OF GRID POINTS (N)                     68
+                                        NUMBER OF ELEMENTS (NON-RIGID)                 5
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                          31
+                                        MINIMUM NODAL DEGREE                          19
+                                        NUMBER OF UNIQUE EDGES                       838
+                                        MATRIX DENSITY, PERCENT                   37.716
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF SEQGP CARDS GENERATED                  17
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                                                   
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       1       2       2       3       3       4       5
+                         SEQGP          5       4       6      15       7      14       8      13
+                         SEQGP          9      22      10      21      11      27      12      26
+                         SEQGP         13      25      14      34      15      33      16      39
+                         SEQGP         17      38      18      37      19      46      20      45
+                         SEQGP         21      51      22      50      23      49      24      61
+                         SEQGP         25      57      26      60      27      59      28      58
+                         SEQGP         29       6      30       7      31      17      32      16
+                         SEQGP         33      29      34      28      35      41      36      40
+                         SEQGP         37      53      38      52      39      63      40      62
+                         SEQGP         41       8      42       9      43      10      44      12
+                         SEQGP         45      11      46      20      47      19      48      18
+                         SEQGP         49      24      50      23      51      32      52      31
+                         SEQGP         53      30      54      36      55      35      56      44
+                         SEQGP         57      43      58      42      59      48      60      47
+                         SEQGP         61      56      62      55      63      54      64      68
+                         SEQGP         65      64      66      67      67      66      68      65
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION IHEX2    ELEMENTS (ELEMENT TYPE  66) STARTING WITH ID    10101
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -2.1360995E-14
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G     -1.008730E-06   0.0           -4.993066E-07   0.0            0.0            0.0                           
+             3      G     -2.017460E-06   0.0           -9.986132E-07   0.0            0.0            0.0                           
+             4      G     -3.019118E-06  -6.026180E-06  -2.001656E-06   0.0            0.0            0.0                           
+             5      G     -5.036578E-06  -6.026180E-06  -3.000269E-06   0.0            0.0            0.0                           
+             6      G     -6.038237E-06  -1.205236E-05  -4.003312E-06   0.0            0.0            0.0                           
+             7      G     -7.046966E-06  -1.205236E-05  -4.502619E-06   0.0            0.0            0.0                           
+             8      G     -8.055697E-06  -1.205236E-05  -5.001926E-06   0.0            0.0            0.0                           
+             9      G     -9.057355E-06  -1.807854E-05  -6.004969E-06   0.0            0.0            0.0                           
+            10      G     -1.107481E-05  -1.807854E-05  -7.003582E-06   0.0            0.0            0.0                           
+            11      G     -1.207647E-05  -2.410472E-05  -8.006625E-06   0.0            0.0            0.0                           
+            12      G     -1.308520E-05  -2.410472E-05  -8.505932E-06   0.0            0.0            0.0                           
+            13      G     -1.409393E-05  -2.410472E-05  -9.005238E-06   0.0            0.0            0.0                           
+            14      G     -1.509559E-05  -3.013090E-05  -1.000828E-05   0.0            0.0            0.0                           
+            15      G     -1.711305E-05  -3.013090E-05  -1.100689E-05   0.0            0.0            0.0                           
+            16      G     -1.811471E-05  -3.615708E-05  -1.200994E-05   0.0            0.0            0.0                           
+            17      G     -1.912344E-05  -3.615708E-05  -1.250924E-05   0.0            0.0            0.0                           
+            18      G     -2.013217E-05  -3.615708E-05  -1.300855E-05   0.0            0.0            0.0                           
+            19      G     -2.113383E-05  -4.218326E-05  -1.401159E-05   0.0            0.0            0.0                           
+            20      G     -2.315129E-05  -4.218326E-05  -1.501021E-05   0.0            0.0            0.0                           
+            21      G     -2.415295E-05  -4.820944E-05  -1.601325E-05   0.0            0.0            0.0                           
+            22      G     -2.516168E-05  -4.820944E-05  -1.651256E-05   0.0            0.0            0.0                           
+            23      G     -2.617041E-05  -4.820944E-05  -1.701186E-05   0.0            0.0            0.0                           
+            24      G     -2.717207E-05  -5.423562E-05  -1.801491E-05   0.0            0.0            0.0                           
+            25      G     -2.918952E-05  -5.423562E-05  -1.901352E-05   0.0            0.0            0.0                           
+            26      G     -3.019118E-05  -6.026180E-05  -2.001656E-05   0.0            0.0            0.0                           
+            27      G     -3.119991E-05  -6.026180E-05  -2.051587E-05   0.0            0.0            0.0                           
+            28      G     -3.220864E-05  -6.026180E-05  -2.101518E-05   0.0            0.0            0.0                           
+            29      G      0.0            0.0           -1.008730E-06   0.0            0.0            0.0                           
+            30      G     -2.017460E-06   0.0           -2.007343E-06   0.0            0.0            0.0                           
+            31      G     -6.038237E-06  -1.205236E-05  -5.012042E-06   0.0            0.0            0.0                           
+            32      G     -8.055697E-06  -1.205236E-05  -6.010655E-06   0.0            0.0            0.0                           
+            33      G     -1.207647E-05  -2.410472E-05  -9.015354E-06   0.0            0.0            0.0                           
+            34      G     -1.409393E-05  -2.410472E-05  -1.001397E-05   0.0            0.0            0.0                           
+            35      G     -1.811471E-05  -3.615708E-05  -1.301867E-05   0.0            0.0            0.0                           
+            36      G     -2.013217E-05  -3.615708E-05  -1.401728E-05   0.0            0.0            0.0                           
+            37      G     -2.415295E-05  -4.820944E-05  -1.702198E-05   0.0            0.0            0.0                           
+            38      G     -2.617041E-05  -4.820944E-05  -1.802059E-05   0.0            0.0            0.0                           
+            39      G     -3.019118E-05  -6.026180E-05  -2.102529E-05   0.0            0.0            0.0                           
+            40      G     -3.220864E-05  -6.026180E-05  -2.202391E-05   0.0            0.0            0.0                           
+            41      G      0.0            0.0           -2.017460E-06   0.0            0.0            0.0                           
+            42      G     -1.008730E-06   0.0           -2.516766E-06   0.0            0.0            0.0                           
+            43      G     -2.017460E-06   0.0           -3.016073E-06   0.0            0.0            0.0                           
+            44      G     -3.019118E-06  -6.026180E-06  -4.019116E-06   0.0            0.0            0.0                           
+            45      G     -5.036578E-06  -6.026180E-06  -5.017729E-06   0.0            0.0            0.0                           
+            46      G     -6.038237E-06  -1.205236E-05  -6.020772E-06   0.0            0.0            0.0                           
+            47      G     -7.046966E-06  -1.205236E-05  -6.520078E-06   0.0            0.0            0.0                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            48      G     -8.055697E-06  -1.205236E-05  -7.019385E-06   0.0            0.0            0.0                           
+            49      G     -9.057355E-06  -1.807854E-05  -8.022428E-06   0.0            0.0            0.0                           
+            50      G     -1.107481E-05  -1.807854E-05  -9.021041E-06   0.0            0.0            0.0                           
+            51      G     -1.207647E-05  -2.410472E-05  -1.002408E-05   0.0            0.0            0.0                           
+            52      G     -1.308520E-05  -2.410472E-05  -1.052339E-05   0.0            0.0            0.0                           
+            53      G     -1.409393E-05  -2.410472E-05  -1.102270E-05   0.0            0.0            0.0                           
+            54      G     -1.509559E-05  -3.013090E-05  -1.202574E-05   0.0            0.0            0.0                           
+            55      G     -1.711305E-05  -3.013090E-05  -1.302435E-05   0.0            0.0            0.0                           
+            56      G     -1.811471E-05  -3.615708E-05  -1.402740E-05   0.0            0.0            0.0                           
+            57      G     -1.912344E-05  -3.615708E-05  -1.452670E-05   0.0            0.0            0.0                           
+            58      G     -2.013217E-05  -3.615708E-05  -1.502601E-05   0.0            0.0            0.0                           
+            59      G     -2.113383E-05  -4.218326E-05  -1.602905E-05   0.0            0.0            0.0                           
+            60      G     -2.315129E-05  -4.218326E-05  -1.702767E-05   0.0            0.0            0.0                           
+            61      G     -2.415295E-05  -4.820944E-05  -1.803071E-05   0.0            0.0            0.0                           
+            62      G     -2.516168E-05  -4.820944E-05  -1.853002E-05   0.0            0.0            0.0                           
+            63      G     -2.617041E-05  -4.820944E-05  -1.902932E-05   0.0            0.0            0.0                           
+            64      G     -2.717207E-05  -5.423562E-05  -2.003236E-05   0.0            0.0            0.0                           
+            65      G     -2.918952E-05  -5.423562E-05  -2.103098E-05   0.0            0.0            0.0                           
+            66      G     -3.019118E-05  -6.026180E-05  -2.203402E-05   0.0            0.0            0.0                           
+            67      G     -3.119991E-05  -6.026180E-05  -2.253333E-05   0.0            0.0            0.0                           
+            68      G     -3.220864E-05  -6.026180E-05  -2.303263E-05   0.0            0.0            0.0                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            26      G      7.726091E-16   8.333333E-01   2.104165E-15   0.0            0.0            0.0                           
+            27      G     -5.627817E-16  -3.333333E+00   5.091605E-15   0.0            0.0            0.0                           
+            28      G     -1.239037E-15   8.333333E-01  -4.835481E-16   0.0            0.0            0.0                           
+            39      G      3.283144E-15  -3.333333E+00   2.954980E-15   0.0            0.0            0.0                           
+            40      G     -2.913069E-15  -3.333333E+00  -1.104608E-15   0.0            0.0            0.0                           
+            66      G      6.839256E-16   8.333333E-01  -1.551861E-15   0.0            0.0            0.0                           
+            67      G      9.328560E-16  -3.333333E+00  -3.241233E-15   0.0            0.0            0.0                           
+            68      G     -4.025348E-16   8.333333E-01  -9.939418E-16   0.0            0.0            0.0                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      4.529710E-13  -8.333333E-01  -5.417888E-14   0.0            0.0            0.0                           
+             2      G      0.0            3.333333E+00   0.0            0.0            0.0            0.0                           
+             3      G      0.0           -8.333333E-01   0.0            0.0            0.0            0.0                           
+            29      G     -5.084821E-14   3.333333E+00   0.0            0.0            0.0            0.0                           
+            30      G      0.0            3.333333E+00   0.0            0.0            0.0            0.0                           
+            41      G     -3.234080E-13  -8.333333E-01   0.0            0.0            0.0            0.0                           
+            42      G      0.0            3.333333E+00   0.0            0.0            0.0            0.0                           
+            43      G      0.0           -8.333333E-01   0.0            0.0            0.0            0.0                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0   10101        1  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333338E+00   4.714052E+00            
+                    Y -1.000001E+01  YZ  0.0           B -1.000001E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101        2  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333334E+00   4.714047E+00            
+                    Y -1.000000E+01  YZ  0.0           B -1.000000E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101        3  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333330E+00   4.714041E+00            
+                    Y -9.999990E+00  YZ  0.0           B -9.999990E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101        5  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333336E+00   4.714049E+00            
+                    Y -1.000001E+01  YZ  0.0           B -1.000001E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101        8  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333341E+00   4.714056E+00            
+                    Y -1.000002E+01  YZ  0.0           B -1.000002E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101        7  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333335E+00   4.714047E+00            
+                    Y -1.000000E+01  YZ  0.0           B -1.000000E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101        6  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333328E+00   4.714037E+00            
+                    Y -9.999983E+00  YZ  0.0           B -9.999983E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101        4  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333333E+00   4.714045E+00            
+                    Y -9.999999E+00  YZ  0.0           B -9.999999E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       29  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333336E+00   4.714048E+00            
+                    Y -1.000001E+01  YZ  0.0           B -1.000001E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       30  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333338E+00   4.714051E+00            
+                    Y -1.000001E+01  YZ  0.0           B -1.000001E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       32  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333327E+00   4.714036E+00            
+                    Y -9.999982E+00  YZ  0.0           B -9.999982E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0   10101       31  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333327E+00   4.714036E+00            
+                    Y -9.999980E+00  YZ  0.0           B -9.999980E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       41  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333332E+00   4.714044E+00            
+                    Y -9.999997E+00  YZ  0.0           B -9.999997E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       42  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333338E+00   4.714052E+00            
+                    Y -1.000002E+01  YZ  0.0           B -1.000002E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       43  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333344E+00   4.714060E+00            
+                    Y -1.000003E+01  YZ  0.0           B -1.000003E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       45  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333328E+00   4.714039E+00            
+                    Y -9.999986E+00  YZ  0.0           B -9.999986E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       48  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333313E+00   4.714016E+00            
+                    Y -9.999938E+00  YZ  0.0           B -9.999938E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       47  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333319E+00   4.714025E+00            
+                    Y -9.999958E+00  YZ  0.0           B -9.999958E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       46  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333325E+00   4.714034E+00            
+                    Y -9.999975E+00  YZ  0.0           B -9.999975E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101       44  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333329E+00   4.714039E+00            
+                    Y -9.999988E+00  YZ  0.0           B -9.999988E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10101        0  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333331E+00   4.714043E+00            
+                    Y -9.999994E+00  YZ  0.0           B -9.999994E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201        6  X  0.0           XY -1.035674E-04  A  0.0           LX  0.0  0.00 0.0    3.333318E+00   4.714024E+00            
+                    Y -9.999955E+00  YZ  0.0           B -9.999955E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0   10201        7  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333330E+00   4.714041E+00            
+                    Y -9.999990E+00  YZ  0.0           B -9.999990E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201        8  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333341E+00   4.714056E+00            
+                    Y -1.000002E+01  YZ  0.0           B -1.000002E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       10  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333334E+00   4.714046E+00            
+                    Y -1.000000E+01  YZ  0.0           B -1.000000E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       13  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333326E+00   4.714035E+00            
+                    Y -9.999977E+00  YZ  0.0           B -9.999977E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       12  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333331E+00   4.714042E+00            
+                    Y -9.999993E+00  YZ  0.0           B -9.999993E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       11  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333335E+00   4.714048E+00            
+                    Y -1.000001E+01  YZ  0.0           B -1.000001E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201        9  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333327E+00   4.714036E+00            
+                    Y -9.999982E+00  YZ  0.0           B -9.999982E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       31  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333324E+00   4.714032E+00            
+                    Y -9.999971E+00  YZ  0.0           B -9.999971E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       32  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333339E+00   4.714054E+00            
+                    Y -1.000002E+01  YZ  0.0           B -1.000002E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       34  X  0.0           XY -1.141221E-04  A  0.0           LX  0.0  0.00 0.0    3.333320E+00   4.714026E+00            
+                    Y -9.999960E+00  YZ  0.0           B -9.999960E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       33  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333341E+00   4.714056E+00            
+                    Y -1.000002E+01  YZ  0.0           B -1.000002E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0   10201       46  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333328E+00   4.714038E+00            
+                    Y -9.999985E+00  YZ  0.0           B -9.999985E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       47  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333333E+00   4.714045E+00            
+                    Y -9.999999E+00  YZ  0.0           B -9.999999E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       48  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333337E+00   4.714050E+00            
+                    Y -1.000001E+01  YZ  0.0           B -1.000001E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       50  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333326E+00   4.714035E+00            
+                    Y -9.999977E+00  YZ  0.0           B -9.999977E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       53  X  0.0           XY -2.210707E-04  A  0.0           LX  0.0  0.00 0.0    3.333314E+00   4.714017E+00            
+                    Y -9.999941E+00  YZ -1.975064E-04  B -9.999941E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+0   10201       52  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333330E+00   4.714041E+00            
+                    Y -9.999990E+00  YZ  0.0           B -9.999990E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       51  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333346E+00   4.714063E+00            
+                    Y -1.000004E+01  YZ  0.0           B -1.000004E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201       49  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333338E+00   4.714051E+00            
+                    Y -1.000001E+01  YZ  0.0           B -1.000001E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10201        0  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333331E+00   4.714042E+00            
+                    Y -9.999992E+00  YZ  0.0           B -9.999992E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       11  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333361E+00   4.714085E+00            
+                    Y -1.000008E+01  YZ  0.0           B -1.000008E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       12  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333342E+00   4.714058E+00            
+                    Y -1.000003E+01  YZ  0.0           B -1.000003E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0   10301       13  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333322E+00   4.714029E+00            
+                    Y -9.999967E+00  YZ  0.0           B -9.999967E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       15  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333319E+00   4.714025E+00            
+                    Y -9.999957E+00  YZ  0.0           B -9.999957E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       18  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333315E+00   4.714020E+00            
+                    Y -9.999946E+00  YZ  0.0           B -9.999946E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       17  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333313E+00   4.714017E+00            
+                    Y -9.999940E+00  YZ  0.0           B -9.999940E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       16  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333310E+00   4.714012E+00            
+                    Y -9.999930E+00  YZ  0.0           B -9.999930E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       14  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333336E+00   4.714049E+00            
+                    Y -1.000001E+01  YZ  0.0           B -1.000001E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       33  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333334E+00   4.714046E+00            
+                    Y -1.000000E+01  YZ  0.0           B -1.000000E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       34  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333345E+00   4.714062E+00            
+                    Y -1.000003E+01  YZ  0.0           B -1.000003E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       36  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333336E+00   4.714048E+00            
+                    Y -1.000001E+01  YZ  0.0           B -1.000001E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       35  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333320E+00   4.714026E+00            
+                    Y -9.999959E+00  YZ  0.0           B -9.999959E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       51  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333306E+00   4.714007E+00            
+                    Y -9.999919E+00  YZ  0.0           B -9.999919E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0   10301       52  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333337E+00   4.714050E+00            
+                    Y -1.000001E+01  YZ  0.0           B -1.000001E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       53  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333367E+00   4.714093E+00            
+                    Y -1.000010E+01  YZ  0.0           B -1.000010E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       55  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333361E+00   4.714085E+00            
+                    Y -1.000008E+01  YZ  0.0           B -1.000008E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       58  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333355E+00   4.714076E+00            
+                    Y -1.000006E+01  YZ  0.0           B -1.000006E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       57  X  0.0           XY  1.045035E-04  A  0.0           LX  0.0  0.00 0.0    3.333342E+00   4.714057E+00            
+                    Y -1.000003E+01  YZ  0.0           B -1.000003E+01  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       56  X  0.0           XY  1.507328E-04  A  0.0           LX  0.0  0.00 0.0    3.333328E+00   4.714037E+00            
+                    Y -9.999984E+00  YZ  0.0           B -9.999984E+00  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301       54  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333318E+00   4.714023E+00            
+                    Y -9.999952E+00  YZ  0.0           B -9.999952E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10301        0  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333333E+00   4.714046E+00            
+                    Y -1.000000E+01  YZ  0.0           B -1.000000E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       16  X  0.0           XY -3.923041E-04  A  0.0           LX  0.0  0.00 0.0    3.333207E+00   4.713866E+00            
+                    Y -9.999620E+00  YZ -1.635757E-04  B -9.999620E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+0   10401       17  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333293E+00   4.713988E+00            
+                    Y -9.999879E+00  YZ  0.0           B -9.999879E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       18  X  0.0           XY  3.067409E-04  A  0.0           LX  0.0  0.00 0.0    3.333378E+00   4.714109E+00            
+                    Y -1.000013E+01  YZ  1.079207E-04  B -1.000013E+01  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0   10401       20  X  0.0           XY  1.870388E-04  A  0.0           LX  0.0  0.00 0.0    3.333353E+00   4.714074E+00            
+                    Y -1.000006E+01  YZ  1.402576E-04  B -1.000006E+01  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+0   10401       23  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333328E+00   4.714037E+00            
+                    Y -9.999984E+00  YZ  1.725945E-04  B -9.999984E+00  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+0   10401       22  X  0.0           XY  1.010189E-04  A  0.0           LX  0.0  0.00 0.0    3.333330E+00   4.714041E+00            
+                    Y -9.999990E+00  YZ  0.0           B -9.999990E+00  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       21  X  0.0           XY  1.347011E-04  A  0.0           LX  0.0  0.00 0.0    3.333331E+00   4.714042E+00            
+                    Y -9.999993E+00  YZ  0.0           B -9.999993E+00  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       19  X  0.0           XY -1.288015E-04  A  0.0           LX  0.0  0.00 0.0    3.333269E+00   4.713955E+00            
+                    Y -9.999808E+00  YZ  0.0           B -9.999808E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       35  X  0.0           XY -1.174918E-04  A  0.0           LX  0.0  0.00 0.0    3.333312E+00   4.714015E+00            
+                    Y -9.999935E+00  YZ  0.0           B -9.999935E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       36  X  0.0           XY  1.551596E-04  A  0.0           LX  0.0  0.00 0.0    3.333360E+00   4.714083E+00            
+                    Y -1.000008E+01  YZ  0.0           B -1.000008E+01  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       38  X  0.0           XY -1.393699E-04  A  0.0           LX  0.0  0.00 0.0    3.333318E+00   4.714024E+00            
+                    Y -9.999955E+00  YZ  0.0           B -9.999955E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       37  X  0.0           XY  1.544562E-04  A  0.0           LX  0.0  0.00 0.0    3.333333E+00   4.714046E+00            
+                    Y -1.000000E+01  YZ  0.0           B -1.000000E+01  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       56  X  0.0           XY  1.573205E-04  A  0.0           LX  0.0  0.00 0.0    3.333416E+00   4.714162E+00            
+                    Y -1.000025E+01  YZ  1.752240E-04  B -1.000025E+01  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+0   10401       57  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333379E+00   4.714110E+00            
+                    Y -1.000014E+01  YZ  0.0           B -1.000014E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0   10401       58  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333342E+00   4.714057E+00            
+                    Y -1.000002E+01  YZ  0.0           B -1.000002E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  1.596552E-04  C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       60  X  0.0           XY -1.712492E-04  A  0.0           LX  0.0  0.00 0.0    3.333325E+00   4.714034E+00            
+                    Y -9.999975E+00  YZ  0.0           B -9.999975E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       63  X  0.0           XY -3.460766E-04  A  0.0           LX  0.0  0.00 0.0    3.333308E+00   4.714009E+00            
+                    Y -9.999923E+00  YZ  0.0           B -9.999923E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX -1.047638E-04  C  0.0           LZ  0.0  0.00 0.0                                           
+0   10401       62  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333322E+00   4.714028E+00            
+                    Y -9.999965E+00  YZ  0.0           B -9.999965E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       61  X  0.0           XY  1.742113E-04  A  0.0           LX  0.0  0.00 0.0    3.333335E+00   4.714047E+00            
+                    Y -1.000000E+01  YZ  0.0           B -1.000000E+01  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10401       59  X  0.0           XY  1.657659E-04  A  0.0           LX  0.0  0.00 0.0    3.333376E+00   4.714105E+00            
+                    Y -1.000013E+01  YZ  1.173884E-04  B -1.000013E+01  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+0   10401        0  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333331E+00   4.714042E+00            
+                    Y -9.999992E+00  YZ  0.0           B -9.999992E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       21  X  0.0           XY -1.815047E-04  A  0.0           LX  0.0  0.00 0.0    3.333295E+00   4.713990E+00            
+                    Y -9.999884E+00  YZ  0.0           B -9.999884E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       22  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333339E+00   4.714054E+00            
+                    Y -1.000002E+01  YZ  0.0           B -1.000002E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       23  X  0.0           XY  1.737319E-04  A  0.0           LX  0.0  0.00 0.0    3.333383E+00   4.714116E+00            
+                    Y -1.000015E+01  YZ  1.363936E-04  B -1.000015E+01  LY  0.0 -1.00 0.0                                           
+                    Z  1.505077E-04  ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+0   10501       25  X  0.0           XY  1.653482E-04  A  0.0           LX  0.0  0.00 0.0    3.333332E+00   4.714044E+00            
+                    Y -9.999997E+00  YZ  0.0           B -9.999997E+00  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0   10501       28  X  0.0           XY  1.569645E-04  A  0.0           LX  0.0  0.00 0.0    3.333281E+00   4.713971E+00            
+                    Y -9.999844E+00  YZ  0.0           B -9.999843E+00  LY  0.0 -1.00 0.0                                           
+                    Z -1.412053E-04  ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       27  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333322E+00   4.714029E+00            
+                    Y -9.999967E+00  YZ  0.0           B -9.999967E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       26  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333362E+00   4.714086E+00            
+                    Y -1.000009E+01  YZ  0.0           B -1.000009E+01  LY  0.0  1.00 0.0                                           
+                    Z  1.556012E-04  ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       24  X  0.0           XY -1.019733E-04  A  0.0           LX  0.0  0.00 0.0    3.333329E+00   4.714039E+00            
+                    Y -9.999987E+00  YZ  0.0           B -9.999987E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       37  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333283E+00   4.713975E+00            
+                    Y -9.999850E+00  YZ -1.020533E-04  B -9.999850E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+0   10501       38  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333385E+00   4.714118E+00            
+                    Y -1.000015E+01  YZ  0.0           B -1.000015E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       40  X  0.0           XY -1.745008E-04  A  0.0           LX  0.0  0.00 0.0    3.333230E+00   4.713900E+00            
+                    Y -9.999691E+00  YZ -1.197447E-04  B -9.999691E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX -1.035354E-04  C  0.0           LZ  0.0  0.00 0.0                                           
+0   10501       39  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333405E+00   4.714147E+00            
+                    Y -1.000022E+01  YZ  0.0           B -1.000022E+01  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       61  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333271E+00   4.713958E+00            
+                    Y -9.999814E+00  YZ -1.816037E-04  B -9.999814E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+0   10501       62  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333329E+00   4.714039E+00            
+                    Y -9.999987E+00  YZ -1.352529E-04  B -9.999987E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.00 0.0                                           
+0   10501       63  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333386E+00   4.714119E+00            
+                    Y -1.000016E+01  YZ  0.0           B -1.000016E+01  LY  0.0  1.00 0.0                                           
+                    Z -1.038763E-04  ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+1     ANISOTROPIC IHEX2 ELEMENT PROBLEM                                     /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN TEST PROBLEM NO. T01-22-1A                                                                                            
+0                                                                                                            SUBCASE 1              
+ 
+                     S T R E S S E S   I N   I S O P A R A M E T R I C   S O L I D   ( C I H E X 2 )
+  ELEMENT     GRID           STRESSES IN BASIC COORDINATESYSTEM             DIR. COSINES
+       ID    POINT        NORMAL            SHEAR          PRINCIPAL          A    B    C    MEAN STRESS     MAX SHEAR
+0   10501       65  X  0.0           XY -2.446793E-04  A  0.0           LX  0.0  0.00 0.0    3.333283E+00   4.713974E+00            
+                    Y -9.999848E+00  YZ -1.651929E-04  B -9.999848E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX -1.022756E-04  C  0.0           LZ  0.0  0.00 0.0                                           
+0   10501       68  X  0.0           XY -5.059661E-04  A  0.0           LX  0.0  0.00 0.0    3.333179E+00   4.713827E+00            
+                    Y -9.999537E+00  YZ -2.414838E-04  B -9.999537E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX -1.831275E-04  C  0.0           LZ  0.0  0.00 0.0                                           
+0   10501       67  X  0.0           XY -1.576870E-04  A  0.0           LX  0.0  0.00 0.0    3.333313E+00   4.714017E+00            
+                    Y -9.999940E+00  YZ  0.0           B -9.999940E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       66  X  0.0           XY  1.905922E-04  A  0.0           LX  0.0  0.00 0.0    3.333447E+00   4.714206E+00            
+                    Y -1.000034E+01  YZ  0.0           B -1.000034E+01  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501       64  X  0.0           XY  1.202176E-04  A  0.0           LX  0.0  0.00 0.0    3.333360E+00   4.714083E+00            
+                    Y -1.000008E+01  YZ  0.0           B -1.000008E+01  LY  0.0 -1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+0   10501        0  X  0.0           XY  0.0           A  0.0           LX  0.0  0.0  0.0    3.333326E+00   4.714035E+00            
+                    Y -9.999977E+00  YZ  0.0           B -9.999977E+00  LY  0.0  1.00 0.0                                           
+                    Z  0.0           ZX  0.0           C  0.0           LZ  0.0  0.0  0.0                                           
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  ANISOTROPIC IHEX2 ELEMENT PROBLEM                                  
+ DATE:  5/17/95
+ END TIME: 16:34:53
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

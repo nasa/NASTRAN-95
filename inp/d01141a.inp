@@ -1,0 +1,50 @@
+ID    D01141A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   1,0                                                                       
+TIME  5                                                                         
+CEND                                                                            
+TITLE    = STATIC ANALYSIS OF A BEAM USING GENERAL ELEMENTS                     
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-14-1A                          
+DISPLACEMENT = ALL                                                              
+ELFORCE = ALL                                                                   
+SUBCASE 1                                                                       
+LABEL = AXIAL LOAD                                                              
+        LOAD = 1                                                                
+SUBCASE 2                                                                       
+LABEL = BENDING LOAD                                                            
+        LOAD = 2                                                                
+BEGIN BULK                                                                      
+CBAR    6       1       6       7       .0      1.0     .0      1               
+FORCE   1       7               1.      1.                                      
+FORCE   2       7               1.              1.                              
+GENEL   1               2       1       2       2       2       6       +G11    
++G11    Z       .1666667.0      .0      .66666671.0     2.0                     
+GENEL   2               2       1       2       2       2       6       +G21    
++G21    3       1       3       2       3       6                       +G22    
++G22    K       6.      .0      .0      -6.     .0      .0      6.      +G23    
++G23    3.      .0      -6.     3.      2.      .0      -3.     1.      +G24    
++G24    6.      .0      .0      6.      -3.     2.                              
+GENEL   3               3       1       3       2       3       6       +G31    
++G31    UD              4       1       4       2       4       6       +G32    
++G32    K       6.      .0      .0      6.      3.      2.              +G33    
++G33    S       1.      .0      .0      .0      1.      -1.     .0      +G34    
++G34    .0      1.                                                              
+GENEL   4               4       1       4       2       4       6       +G41    
++G41    UD              5       1       5       2       5       6       +G42    
++G42    K       6.      .0      .0      6.      3.      2.                      
+GENEL   5               5       1       5       2       5       6       +G51    
++G51    UD              6       1       6       2       6       6       +G52    
++G52    Z       .166666 .0      .0      .666667 -1.     2.              +G53    
++G53    S       1.      .0      .0      .0      1.      -1.     .0      +G54    
++G54    .0      1.                                                              
+GRDSET                                                  345                     
+GRID    1               .0      .0      .0              123456                  
+GRID    2               1.      .0      .0                                      
+GRID    3               2.      .0      .0                                      
+GRID    4               3.      .0      .0                                      
+GRID    5               4.      .0      .0                                      
+GRID    6               5.      .0      .0                                      
+GRID    7               6.0     .0      .0                                      
+MAT1    1       6.              .3                                              
+PBAR    1       1       1.      .083333                                         
+ENDDATA                                                                         

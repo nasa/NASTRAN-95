@@ -1,0 +1,46 @@
+NASTRAN FILES = OPTP                                                            
+ID    T04021B,NASTRAN                                                           
+$ INSERT CHECKPOINT DICTIONARY                                                  
+READFILE RSCARDS                                                                
+TIME  10                                                                        
+APP   DISP                                                                      
+SOL   3,0                                                                       
+$ INSERT HYDRO DIRECT DMAP ALTERS (COSHYD1) AFTER THIS CARD                     
+READFILE COSHYD1                                                                
+$ INSERT HYDRO DIRECT DMAP ALTERS (COSHYD1) BEFORE THIS CARD                    
+CEND                                                                            
+TITLE    = HYDROELASTIC ULLAGE PRESSURE, NORMAL MODES RESTART                   
+SUBTITLE = NASTRAN TEST PROBLEM NO. T04-02-1B                                   
+$ REFERENCE PROBLEM III.2                                                       
+DISP   = ALL                                                                    
+SPCF   = ALL                                                                    
+METHOD = 50                                                                     
+SPC    = 10                                                                     
+BEGIN BULK                                                                      
+$                                                                               
+$ *** NOTE - STRUCTURE BULK DATA IS ON RESTART TAPE                             
+$                                                                               
+GRID    1               0.0     0.0     0.0                                     
+GRID    2               6.0     0.0     0.0                                     
+GRID    3               0.0     12.0    0.0                                     
+GRID    4               6.0     12.0    0.0                                     
+GRID    5               0.0     0.0     12.0                                    
+GRID    6               6.0     0.0     12.0                                    
+GRID    7               0.0     12.0    12.0                                    
+GRID    8               6.0     12.0    12.0                                    
+CFHEX2  1       200     1       2       4       3       5       6       +C1     
++C1     8       7                                                               
+CFFREE  1       100     6                                                       
+CFLSTR  1       100     101     THRU    104                                     
+MATF    200     9.355-4                                                         
+OMIT1   4       101     103     105     107                                     
+OMIT1   456     102     104     106     108                                     
+GRAV    100             386.0   0.0     0.0     -1.0                            
+EIGR    50      GIV     0.0     20.0    6       6       0               +E12    
++E12    MAX                                                                     
+$                                                                               
+$ PARAMETERS TO TRIGGER ADDITION OF ULLAGE PRESSURE                             
+$                                                                               
+PARAM   DIFSTIF -1                                                              
+PARAM   DIFSCALE 14.7                                                           
+ENDDATA                                                                         

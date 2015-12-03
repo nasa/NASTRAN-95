@@ -1,0 +1,9 @@
+      FUNCTION KORSZ ( I )
+      COMMON / LOGOUT / LOUT
+      COMMON / LSTADD / LASTAD
+      KORSZ = LASTAD - LOCFX(I) + 1
+      CALL SSWTCH ( 13, L13 )
+      IF ( L13.NE.0 ) WRITE ( LOUT, 2000 ) KORSZ
+      RETURN
+2000  FORMAT(22X,' --- OPEN CORE =',I8,' WORDS (DECIMAL) ---')
+      END

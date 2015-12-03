@@ -1,0 +1,81 @@
+$-------------------------------------------------------------------------------
+$           RIGID FORMAT No. 9, Transient Analysis - Direct Formulation
+$    Transient Analysis of a 1000 Cell String, Traveling Wave Problem (9-2-1)
+$        Transient Analysis of a 1000 Cell String, Traveling Wave Problem
+$                                 (INPUT, 9-2-2)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the ability of NASTRAN to perform time integration
+$ studies using the structural matrices directly. At each time step the applied
+$ loads, the structural matrices, and the previous displacements are used to
+$ calculate a new set of displacements, velocities, and accelerations. Initial
+$ displacements and velocities are also allowed for all unconstrained
+$ coordinates. The INPUT module is used to generate the scalar springs and
+$ masses.
+$ 
+$ The structural model consists of a 1000 cell string under constant tension
+$ modeled by scalar elements. The string is given an initial condition at one
+$ end consisting of a triangular shaped set of initial displacements. The wave
+$ will then travel along the string, retaining its initial shape. The ends of
+$ the string are fixed, causing the wave to reflect with a sign reversal.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$                T          7
+$      k   =  -------  =  10      - scalar spring rates
+$       i     delta x
+$ 
+$      m   =  mu delta x  =  10   - scalar masses
+$       i
+$ 
+$      N   =  1000                - number of cells
+$ 
+$    where
+$ 
+$      T is the tension
+$ 
+$      delta x is the incremental length
+$ 
+$      mu is the mass per unit length
+$ 
+$ 2. Loads:
+$ 
+$    The initial displacements are;
+$ 
+$      u   =  .2               u   =  1.8
+$       2                       12
+$ 
+$      u   =  .4               u   =  1.6
+$       3                       13
+$                                 :
+$      u   =  .6                  :
+$       4                      u   = 0.0
+$         :                     21
+$         :
+$      u   =  2.0              u   = 0, i > 21
+$       11                      i
+$ 
+$ C. Theory
+$ 
+$ As shown in Reference 11, Chapter 6, the wave velocity c is,
+$ 
+$    c  =  +/- sqrt(T/mu) = +/- x sqrt(k /m ) = +/-1000 points/unit time     (1)
+$                                       i  i
+$ 
+$ The initial displacement may be divided into two waves, traveling in opposite
+$ directions. The first wave travels outward; the second wave travels toward the
+$ fixed support and reflects with a sign change.
+$ 
+$ D. Results
+$ 
+$ The theoretical and NASTRAN results are quite close, when both waves have
+$ traveled their complete width.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 11. I. S. Sokolnikoff and R. M. Redheffer, MATHEMATICS OF PHYSICS AND MODERN
+$     ENGINEERING. McGraw-Hill, 1958.
+$-------------------------------------------------------------------------------

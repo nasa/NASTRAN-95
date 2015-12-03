@@ -1,0 +1,353 @@
+$-------------------------------------------------------------------------------
+$            RIGID FORMAT No. 11, Frequency Response - Modal Analysis
+$       Frequency Response and Random Analysis of a Ten-Cell Beam (11-1-1)
+$ 
+$ A.  Description
+$ 
+$ This problem demonstrates the frequency response solution of a structure using
+$ uncoupled modal formulation. With modal formulation, the structural degrees of
+$ freedom used in the solution are the uncoupled modal displacements. The
+$ solution equations are simple and efficient. The saving in time, however, is
+$ offset by the operations necessary to extract the modes, transform the loads
+$ to modal coordinates, and transform the modal displacements to structural
+$ displacements.
+$ 
+$ This problem also illustrates the various methods of applying frequency
+$ response loads. Loads may be input as complex numbers, with phase lag angles
+$ and/or time lag factors. The loads may be added together for each subcase.
+$ 
+$ The structure to be solved consists of a beam with simple supports on the end.
+$ The parameters selected produce natural frequencies of 50, 200, 450, and 800
+$ cps. The applied loads for the three subcases are applied to the center with
+$ variations in phase angles, time lags, and input formats. The first two
+$ subcases use three loaded points which, in essence, simulate a load on the
+$ center.
+$ 
+$ Included in the structural representation is a "general element" representing
+$ the first two cells of the ten-cell bean. The flexibility matrix, [Z], of the
+$ element represents the displacements of grid points 2 and 3 when point 1 is
+$ fixed. The rigid body matrix, [S], represents the rigid body motions of points
+$ 2 and 3 when point 1 is displaced in the x, z, or theta  directions.
+$                                                        y
+$ 
+$ The random analysis data consists of a flat power spectral density function
+$ ("white noise") for the three loading subcases. The first subcase spectral
+$ density is connected to the third subcase spectral density, simulating two
+$ interdependent probability functions. The XY-plotter is used to plot the
+$ displacement and acceleration power spectral density function of grid 6
+$ (center of the beam). The displacement autocorrelation function is also
+$ plotted for the same point. All values are tabulated in the printout.
+$ 
+$ A static analysis restart of the frequency response problem is demonstrated.
+$ Gravity and element enforced deformation loads are used with a change in the
+$ single-point constraints.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    l  =  20            - length
+$ 
+$    I  =  .083          - bending inertia
+$     1
+$ 
+$    A  =  21.18922      - cross sectional area
+$ 
+$                   6
+$    E  =  10.4 x 10    - modulus of elasticity
+$ 
+$                    -3
+$    p  =  .2523 x 10    - mass density
+$ 
+$    M  =  pAl           - total mass
+$ 
+$ 2. Constraints:
+$ 
+$    u   =  theta  = theta  = 0    - all points
+$     y          x        z
+$ 
+$    u   = u   = u    = 0          - frequency response
+$     x1    z1    z11
+$ 
+$    u   = u   = u    = u    = 0   - static analysis
+$     x1    z1    x11    z11
+$ 
+$ 3. Modal Data:
+$ 
+$    Interval: 40 < f < 1000 cps
+$ 
+$    Normalization: Modal Mass  =  1.0
+$ 
+$    Number of modes used in formulation: 4
+$ 
+$                                   -4
+$    Modal Damping ratio: g = 4 x 10   f
+$ 
+$ 4. Loads, Frequency Response:
+$ 
+$    The loading functions for subcase 1 are:
+$ 
+$      P     =  50
+$       z,5
+$ 
+$      M     =  -100
+$       y,5
+$ 
+$      P     =  50 + 100 (cos 60 degrees + i sin 60 degrees)
+$       z,6          ---------------------------------------
+$                                    SET 6
+$ 
+$      P     =  50
+$       z,7
+$ 
+$      M     =  100
+$       y,7
+$ 
+$    The loading for subcase 2 is:
+$ 
+$      P     =  50
+$       z,5
+$ 
+$      M     =  -100
+$       y,5
+$ 
+$      P     =  50 + 100 (cos2f degrees - i sin2f degrees)
+$       z,6          -------------------------------------
+$                           SET 7, tau = .005555
+$ 
+$      P     =  50
+$       z,7
+$ 
+$      M     =  100
+$       y,7
+$ 
+$    The load for subcase 3 is:
+$ 
+$      P     =  2[75 + 50i(cos30 degrees - i sin30 degrees)] = 200 + 86.6i
+$       z,6
+$ 
+$    Note: At f = 30 cps the three subcases are nearly identical.
+$ 
+$ 5. Random Analysis Data
+$ 
+$    The nonzero factors for the three subcases are:
+$ 
+$      S   =  50              |
+$       11                    |
+$                             |
+$      S   =  S   =  50       |
+$       13     31             |
+$                             |   0 < f < 100
+$      S   =  100             |
+$       22                    |
+$                             |
+$      S   =  50              |
+$       33                    |
+$ 
+$      S   =  0 ,  f > 100
+$       ij
+$ 
+$    The time lags selected for the autocorrelation function calculations are:
+$ 
+$      T =  0.0, 0.001, 0.002,..., 0.1
+$ 
+$ 6. Static Loads for Restart
+$ 
+$    The problem is run first as a frequency response analysis. It is restarted
+$    as a static analysis with the following loads:
+$ 
+$      Gravity vector:       g   =  32.2
+$                             z
+$ 
+$      Element Deformation:  delta   = 0.089045 (expansion)
+$                                 10
+$ 
+$ C. Theory
+$ 
+$    1. The theoretical eigenvalue data according to Reference 8 is
+$ 
+$             2  2
+$            n pi
+$     f   =  ------- sqrt(EI/A)  =  50, 200, 450, 800 ... (natural freqs.)   (1)
+$      n           2
+$            (2pi)l
+$ 
+$     m   =  1.0    (modal mass)                                             (2)
+$      n
+$ 
+$                                             2 n pi x    -1/2
+$     phi (x)  =  [integral from o to l pA sin  ------ dx]
+$        n                                         l
+$ 
+$                      n pi x                  n pi x
+$                  sin(------) = sqrt(2/M) sin(------)  (mode shape)         (3)
+$                        l                       l
+$ 
+$    2. The theoretical frequency response at the center point is essentially
+$       the response of the first mode which is
+$ 
+$                 sum from j phi   P (w) phi
+$                               1,6 j       1,j
+$       u (w)  =  -----------------------------    (j = deg. of freedom no.) (4)
+$        6               2    2
+$                    m (w  - w  + igww )
+$                     1  i            1
+$ 
+$       At the first natural frequency of 50 cps, the response will be nearly
+$       equal to the response of the first mode. The responses at the center
+$       point for the three subcases are
+$ 
+$        1    3   94.764 + 41.033i
+$       u  = u  = ----------------     (Subcases 1 and 3)                    (5)
+$        6    6           2
+$                  (50 - f ) + if
+$ 
+$        2   23.691(3 + 2cos2f - 2i sin2f)
+$       u  = -----------------------------    (Subcase 2)                    (6)
+$        6              2
+$                (50 - f ) + if
+$ 
+$    3. The random analysis is explained in Reference 15. The power spectral
+$       response coefficients for the three subcases are given by the matrix:
+$ 
+$                     +                  +
+$                     |  0.5    0    0.5 |
+$                     |                  |
+$       [S ]  =  100  |   0    1.0    0  |                                   (7)
+$         i           |                  |
+$                     |  0.5    0    0.5 |
+$                     +                  +
+$ 
+$       If {H } is the vector of the responses of a point, i, to the three
+$            j
+$       loading cases, the power spectral response, S  is
+$                                            j
+$ 
+$               _  T                _
+$       S   =  {H } [S]{H }        (H  is the complex conjugate)             (8)
+$        j       j       j           j
+$ 
+$       or
+$ 
+$                          2     _      _            2         2
+$       S   =  100[0.5|H  | +0.5(H  H  +H  H  )+|H  | +0.5|H  | ]            (9)
+$        j              1j        1j 3j  3j 1j    2j        3j
+$ 
+$       Since H   = H  , then:
+$              1j    3j
+$ 
+$                      2           2
+$       S   =  200|H  |  + 100|H  |                                         (10)
+$        j          1j          2j
+$ 
+$       The mean square response is obtained by integrating the power spectral
+$       density over the frequency. In this particular case the frequency
+$       increments are uniform and the mean square response is simply
+$ 
+$       E   =  sum from i pi [S (f   ) - S (f )] gradient f                 (11)
+$        i                     j  i+1     j  i
+$ 
+$       The analytic solution for the displacement spectral density response of
+$       the center point due to the first mode is:
+$ 
+$                             4                3
+$                 200(1.066x10 ) + 100(.5613x10 )(13 + 12cos2f)
+$       S (f)  =  ---------------------------------------------  =
+$        j                      2    2 2    2
+$                           [(50  - f )  + f ]
+$ 
+$                         6           6
+$                 2.862x10  + .6735x10  cos2f
+$                 ---------------------------                               (12)
+$                       4        2     4
+$                     (f  - 4999f  + 50 )
+$ 
+$       The mean deviation, sigma , is
+$                                j
+$ 
+$                            E
+$                             i
+$       sigma   =  sqrt(--------------)                                     (13)
+$            j          2 pi (f  - f )
+$                              n    o
+$ 
+$       where f  and f  are the upper and lower frequency limits.
+$              n      o
+$ 
+$    4. The results of the static analysis restart are
+$ 
+$       a. The gravity load produces normal displacements (in the z direction)
+$          and element moments as follows:
+$ 
+$                    pAgx   3      2    3
+$          u (x)  =  ---- (l  - 2lx  + x )                                  (14)
+$           z        24EI
+$ 
+$                    pAg   2
+$          M (x)  =  --- (x  - lx)                                          (15)
+$           1         2
+$ 
+$       b. The element deformation produces the following axial forces and
+$          displacements:
+$ 
+$                    delta 10
+$          F   =  AE --------                                               (16)
+$           x           l
+$ 
+$                   F
+$                    x
+$          u   =  - -- x     (x < 18)                                       (17)
+$           x       AE
+$ 
+$ D. Results
+$ 
+$ The responses at the center point for Subcases 1 and 3 are:
+$ 
+$       ----------------------------------------------
+$ 
+$        f    u  (one mode)         u  (NASTRAN)
+$              6                     6
+$       ----------------------------------------------
+$        0    .0413 @ 23.42 deg.    .0429 @ 22.9 deg.
+$ 
+$       30    .0646 @ 22.34 deg.    .0668 @ 21.8 deg.
+$ 
+$       50    2.066 @ 293.42 deg.   2.074 @ 281.5 deg.
+$       ----------------------------------------------
+$ 
+$ The response at the center point for Subcase 2 is:
+$ 
+$       ----------------------------------------------
+$ 
+$        f    u  (one mode)         u  (NASTRAN)
+$              6                     6
+$       ----------------------------------------------
+$        0    .047 @ 0 deg.         .049 @ 0 deg.
+$ 
+$       30    .0646 @ -22.34 deg.   .0668 @ -23.97 deg.
+$ 
+$       50    1.565 @ 233.4 deg.    1.577 @ 223.0 deg.
+$       ----------------------------------------------
+$ 
+$ In numerical terms, the displacements of the center point (x = l/2) are:
+$ 
+$                  Theoretical         NASTRAN
+$ 
+$                          -2                    -2
+$        u    =  4.452 x 10            4.435 x 10
+$         x6
+$                          -4                    -4
+$        u    =  4.155 x 10            4.121 x 10
+$         z6
+$ 
+$ The element forces at the center of the beam are:
+$ 
+$                  Theoretical         NASTRAN
+$ 
+$                           6                     6
+$        F    =  -.9811 x 10           -.9848 x 10
+$         x5
+$ 
+$        M    =  -8.607                -8.607
+$         6
+$-------------------------------------------------------------------------------

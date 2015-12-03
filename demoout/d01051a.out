@@ -1,0 +1,891 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01051A,NASTRAN                                                           
+     TIME  35                                                                        
+     APP   DISP                                                                      
+     SOL   1,1                                                                       
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      $                                                                               
+                  2      TITLE    = NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                     
+                  3      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                          
+                  4          LOAD = 15                                                                   
+                  5        AXISYM = COSINE                                                               
+                  6      OUTPUT                                                                          
+                  7           SET 1 = 5,10,15,20,25,30,35,40,45,50,100,200                               
+                  8           SET 2 = 1,6,11,16,21,26,31,36,41,46,50                                     
+                  9            DISP = 1                                                                  
+                 10         ELFORCE = 2                                                                  
+                 11       HARMONICS = ALL                                                                
+                 12      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   148, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        AXIC    20                                                                      
+                    2-        CCONEAX 1       15      100     1                                               
+                    3-        CCONEAX 2       15      1       2                                               
+                    4-        CCONEAX 3       15      2       3                                               
+                    5-        CCONEAX 4       15      3       4                                               
+                    6-        CCONEAX 5       15      4       5                                               
+                    7-        CCONEAX 6       15      5       6                                               
+                    8-        CCONEAX 7       15      6       7                                               
+                    9-        CCONEAX 8       15      7       8                                               
+                   10-        CCONEAX 9       15      8       9                                               
+                   11-        CCONEAX 10      15      9       10                                              
+                   12-        CCONEAX 11      15      10      11                                              
+                   13-        CCONEAX 12      15      11      12                                              
+                   14-        CCONEAX 13      15      12      13                                              
+                   15-        CCONEAX 14      15      13      14                                              
+                   16-        CCONEAX 15      15      14      15                                              
+                   17-        CCONEAX 16      15      15      16                                              
+                   18-        CCONEAX 17      15      16      17                                              
+                   19-        CCONEAX 18      15      17      18                                              
+                   20-        CCONEAX 19      15      18      19                                              
+                   21-        CCONEAX 20      15      19      20                                              
+                   22-        CCONEAX 21      15      20      21                                              
+                   23-        CCONEAX 22      15      21      22                                              
+                   24-        CCONEAX 23      15      22      23                                              
+                   25-        CCONEAX 24      15      23      24                                              
+                   26-        CCONEAX 25      15      24      25                                              
+                   27-        CCONEAX 26      15      25      26                                              
+                   28-        CCONEAX 27      15      26      27                                              
+                   29-        CCONEAX 28      15      27      28                                              
+                   30-        CCONEAX 29      15      28      29                                              
+                   31-        CCONEAX 30      15      29      30                                              
+                   32-        CCONEAX 31      15      30      31                                              
+                   33-        CCONEAX 32      15      31      32                                              
+                   34-        CCONEAX 33      15      32      33                                              
+                   35-        CCONEAX 34      15      33      34                                              
+                   36-        CCONEAX 35      15      34      35                                              
+                   37-        CCONEAX 36      15      35      36                                              
+                   38-        CCONEAX 37      15      36      37                                              
+                   39-        CCONEAX 38      15      37      38                                              
+                   40-        CCONEAX 39      15      38      39                                              
+                   41-        CCONEAX 40      15      39      40                                              
+                   42-        CCONEAX 41      15      40      41                                              
+                   43-        CCONEAX 42      15      41      42                                              
+                   44-        CCONEAX 43      15      42      43                                              
+                   45-        CCONEAX 44      15      43      44                                              
+                   46-        CCONEAX 45      15      44      45                                              
+                   47-        CCONEAX 46      15      45      46                                              
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CCONEAX 47      15      46      47                                              
+                   49-        CCONEAX 48      15      47      48                                              
+                   50-        CCONEAX 49      15      48      49                                              
+                   51-        CCONEAX 50      15      49      50                                              
+                   52-        MAT1    15      91.0            .3      .5                                      
+                   53-        MOMAX   15      50      0       157.0796        2.0                             
+                   54-        MOMAX   15      50      1       157.0796        1.0                             
+                   55-        MOMAX   15      50      2       157.0796        1.0                             
+                   56-        MOMAX   15      50      3       157.0796        1.0                             
+                   57-        MOMAX   15      50      4       157.0796        1.0                             
+                   58-        MOMAX   15      50      5       157.0796        1.0                             
+                   59-        MOMAX   15      50      6       157.0796        1.0                             
+                   60-        MOMAX   15      50      7       157.0796        1.0                             
+                   61-        MOMAX   15      50      8       157.0796        1.0                             
+                   62-        MOMAX   15      50      9       157.0796        1.0                             
+                   63-        MOMAX   15      50      10      157.0796        1.0                             
+                   64-        MOMAX   15      50      11      157.0796        1.0                             
+                   65-        MOMAX   15      50      12      157.0796        1.0                             
+                   66-        MOMAX   15      50      13      157.0796        1.0                             
+                   67-        MOMAX   15      50      14      157.0796        1.0                             
+                   68-        MOMAX   15      50      15      157.0796        1.0                             
+                   69-        MOMAX   15      50      16      157.0796        1.0                             
+                   70-        MOMAX   15      50      17      157.0796        1.0                             
+                   71-        MOMAX   15      50      18      157.0796        1.0                             
+                   72-        MOMAX   15      50      19      157.0796        1.0                             
+                   73-        MOMAX   15      50      20      157.0796        1.0                             
+                   74-        MOMAX   15      100     0       157.0796        -2.0                            
+                   75-        MOMAX   15      100     1       157.0796        -1.0                            
+                   76-        MOMAX   15      100     2       157.0796        -1.0                            
+                   77-        MOMAX   15      100     3       157.0796        -1.0                            
+                   78-        MOMAX   15      100     4       157.0796        -1.0                            
+                   79-        MOMAX   15      100     5       157.0796        -1.0                            
+                   80-        MOMAX   15      100     6       157.0796        -1.0                            
+                   81-        MOMAX   15      100     7       157.0796        -1.0                            
+                   82-        MOMAX   15      100     8       157.0796        -1.0                            
+                   83-        MOMAX   15      100     9       157.0796        -1.0                            
+                   84-        MOMAX   15      100     10      157.0796        -1.0                            
+                   85-        MOMAX   15      100     11      157.0796        -1.0                            
+                   86-        MOMAX   15      100     12      157.0796        -1.0                            
+                   87-        MOMAX   15      100     13      157.0796        -1.0                            
+                   88-        MOMAX   15      100     14      157.0796        -1.0                            
+                   89-        MOMAX   15      100     15      157.0796        -1.0                            
+                   90-        MOMAX   15      100     16      157.0796        -1.0                            
+                   91-        MOMAX   15      100     17      157.0796        -1.0                            
+                   92-        MOMAX   15      100     18      157.0796        -1.0                            
+                   93-        MOMAX   15      100     19      157.0796        -1.0                            
+                   94-        MOMAX   15      100     20      157.0796        -1.0                            
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        PCONEAX 15      15      1.0     15      .083333315      1.0     .5      +PC     
+                   96-        +PC     .0      .5      .0      90.     180.                                    
+                   97-        POINTAX 200     100                                                             
+                   98-        RINGAX  1               50.0    1.0                     4                       
+                   99-        RINGAX  2               50.0    2.0                     4                       
+                  100-        RINGAX  3               50.0    3.                      4                       
+                  101-        RINGAX  4               50.0    4.                      4                       
+                  102-        RINGAX  5               50.0    5.                      4                       
+                  103-        RINGAX  6               50.0    6.                      4                       
+                  104-        RINGAX  7               50.0    7.                      4                       
+                  105-        RINGAX  8               50.0    8.                      4                       
+                  106-        RINGAX  9               50.0    9.                      4                       
+                  107-        RINGAX  10              50.0    10.                     4                       
+                  108-        RINGAX  11              50.0    11.                     4                       
+                  109-        RINGAX  12              50.0    12.                     4                       
+                  110-        RINGAX  13              50.0    13.                     4                       
+                  111-        RINGAX  14              50.0    14.                     4                       
+                  112-        RINGAX  15              50.0    15.                     4                       
+                  113-        RINGAX  16              50.0    16.                     4                       
+                  114-        RINGAX  17              50.0    17.                     4                       
+                  115-        RINGAX  18              50.0    18.                     4                       
+                  116-        RINGAX  19              50.0    19.                     4                       
+                  117-        RINGAX  20              50.0    20.                     4                       
+                  118-        RINGAX  21              50.0    21.                     4                       
+                  119-        RINGAX  22              50.0    22.                     4                       
+                  120-        RINGAX  23              50.0    23.                     4                       
+                  121-        RINGAX  24              50.0    24.                     4                       
+                  122-        RINGAX  25              50.0    25.                     4                       
+                  123-        RINGAX  26              50.0    26.                     4                       
+                  124-        RINGAX  27              50.0    27.                     4                       
+                  125-        RINGAX  28              50.0    28.                     4                       
+                  126-        RINGAX  29              50.0    29.                     4                       
+                  127-        RINGAX  30              50.0    30.                     4                       
+                  128-        RINGAX  31              50.0    31.                     4                       
+                  129-        RINGAX  32              50.0    32.                     4                       
+                  130-        RINGAX  33              50.0    33.                     4                       
+                  131-        RINGAX  34              50.0    34.                     4                       
+                  132-        RINGAX  35              50.0    35.                     4                       
+                  133-        RINGAX  36              50.0    36.                     4                       
+                  134-        RINGAX  37              50.0    37.                     4                       
+                  135-        RINGAX  38              50.0    38.                     4                       
+                  136-        RINGAX  39              50.0    39.                     4                       
+                  137-        RINGAX  40              50.0    40.                     4                       
+                  138-        RINGAX  41              50.0    41.                     4                       
+                  139-        RINGAX  42              50.0    42.                     4                       
+                  140-        RINGAX  43              50.0    43.                     4                       
+                  141-        RINGAX  44              50.0    44.                     4                       
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        RINGAX  45              50.0    45.                     4                       
+                  143-        RINGAX  46              50.0    46.                     4                       
+                  144-        RINGAX  47              50.0    47.                     4                       
+                  145-        RINGAX  48              50.0    48.                     4                       
+                  146-        RINGAX  49              50.0    49.                     4                       
+                  147-        RINGAX  50              50.0    50.                     1234                    
+                  148-        RINGAX  100             50.0    .0                      1234                    
+                              ENDDATA
+0*** USER WARNING MESSAGE, POTENTIAL SYSTEM FATAL ERROR DUE TO LARGE HARMONIC (LARGER THAN 15) ON 32-BIT WORD MACHINE
+0*** USER INFORMATION MESSAGE - GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     THE PRESENCE OF AXISYMMETRIC SOLID DATA
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT      200
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION CONEAX   ELEMENTS (ELEMENT TYPE  35) STARTING WITH ID     1001
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -3.6379900E-15
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+     SECTOR-ID
+      POINT-ID
+       RING-ID  HARMONIC        T1             T2             T3             R1             R2             R3
+           200             0.0            0.0            0.0            0.0           -5.896880E+00   0.0                           
+             5      0     -5.602123E-01   0.0            7.240845E-03   0.0            2.196875E-02   0.0                           
+            10      0     -2.665145E-01   0.0            1.460390E-02   0.0            6.418888E-02   0.0                           
+            15      0     -2.958295E-02   0.0            1.309108E-02   0.0            2.881903E-02   0.0                           
+            20      0      4.592609E-02   0.0            7.069997E-03   0.0            5.624009E-03   0.0                           
+            25      0      5.537392E-02   0.0            7.589415E-17   0.0            1.717376E-16   0.0                           
+            30      0      4.592609E-02   0.0           -7.069997E-03   0.0           -5.624009E-03   0.0                           
+            35      0     -2.958295E-02   0.0           -1.309108E-02   0.0           -2.881903E-02   0.0                           
+            40      0     -2.665145E-01   0.0           -1.460390E-02   0.0           -6.418888E-02   0.0                           
+            45      0     -5.602123E-01   0.0           -7.240845E-03   0.0           -2.196875E-02   0.0                           
+            50      0      0.0            0.0            0.0            0.0            3.307119E-01   0.0                           
+           100      0      0.0            0.0            0.0            0.0           -3.307119E-01   0.0                           
+             5      1     -5.761585E-01   2.171002E-02   7.646895E-03   0.0            1.891554E-02  -1.094837E-02                  
+            10      1     -2.949313E-01   3.104102E-02   1.487839E-02   0.0            6.240648E-02  -5.298858E-03                  
+            15      1     -6.327514E-02   3.309046E-02   1.321609E-02   0.0            2.836499E-02  -6.357495E-04                  
+            20      1      1.164692E-02   3.310905E-02   7.118431E-03   0.0            5.687605E-03   8.836140E-04                  
+            25      1      2.139612E-02   3.301223E-02   1.296706E-16   0.0           -6.201636E-17   1.085787E-03                  
+            30      1      1.164692E-02   3.310905E-02  -7.118431E-03   0.0           -5.687605E-03   8.836140E-04                  
+            35      1     -6.327514E-02   3.309046E-02  -1.321609E-02   0.0           -2.836499E-02  -6.357495E-04                  
+            40      1     -2.949313E-01   3.104102E-02  -1.487839E-02   0.0           -6.240648E-02  -5.298858E-03                  
+            45      1     -5.761585E-01   2.171002E-02  -7.646895E-03   0.0           -1.891554E-02  -1.094837E-02                  
+            50      1      0.0            0.0            0.0            0.0            3.338717E-01  -2.123022E-03                  
+           100      1      0.0            0.0            0.0            0.0           -3.338717E-01  -2.123022E-03                  
+             5      2     -6.227801E-01   4.272133E-02   8.879352E-03   0.0            9.913349E-03  -2.376496E-02                  
+            10      2     -3.788306E-01   6.161175E-02   1.574957E-02   0.0            5.696727E-02  -1.395023E-02                  
+            15      2     -1.638495E-01   6.623182E-02   1.364115E-02   0.0            2.679431E-02  -5.286187E-03                  
+            20      2     -9.164616E-02   6.662706E-02   7.291997E-03   0.0            5.730168E-03  -2.354266E-03                  
+            25      2     -8.138160E-02   6.654514E-02   3.317659E-16   0.0            2.834104E-16  -1.928851E-03                  
+            30      2     -9.164616E-02   6.662706E-02  -7.291997E-03   0.0           -5.730168E-03  -2.354266E-03                  
+            35      2     -1.638495E-01   6.623182E-02  -1.364115E-02   0.0           -2.679431E-02  -5.286187E-03                  
+            40      2     -3.788306E-01   6.161175E-02  -1.574957E-02   0.0           -5.696727E-02  -1.395023E-02                  
+            45      2     -6.227801E-01   4.272133E-02  -8.879352E-03   0.0           -9.913349E-03  -2.376496E-02                  
+            50      2      0.0            0.0            0.0            0.0            3.430619E-01  -4.396851E-03                  
+           100      2      0.0            0.0            0.0            0.0           -3.430619E-01  -4.396851E-03                  
+             5      3     -6.949153E-01   6.187053E-02   1.090705E-02   0.0           -4.277630E-03  -3.999237E-02                  
+            10      3     -5.113052E-01   9.031871E-02   1.726137E-02   0.0            4.783854E-02  -2.887978E-02                  
+            15      3     -3.259107E-01   9.824070E-02   1.443411E-02   0.0            2.364721E-02  -1.764994E-02                  
+            20      3     -2.608269E-01   9.958751E-02   7.631449E-03   0.0            5.384665E-03  -1.367553E-02                  
+            25      3     -2.508107E-01   9.970948E-02   1.991679E-16   0.0            6.071532E-17  -1.305145E-02                  
+            30      3     -2.608269E-01   9.958751E-02  -7.631449E-03   0.0           -5.384665E-03  -1.367553E-02                  
+            35      3     -3.259107E-01   9.824070E-02  -1.443411E-02   0.0           -2.364721E-02  -1.764994E-02                  
+            40      3     -5.113052E-01   9.031871E-02  -1.726137E-02   0.0           -4.783854E-02  -2.887978E-02                  
+            45      3     -6.949153E-01   6.187053E-02  -1.090705E-02   0.0            4.277630E-03  -3.999237E-02                  
+            50      3      0.0            0.0            0.0            0.0            3.571041E-01  -6.941441E-03                  
+           100      3      0.0            0.0            0.0            0.0           -3.571041E-01  -6.941441E-03                  
+             5      4     -7.774271E-01   7.672203E-02   1.334119E-02   0.0           -2.112866E-02  -5.998836E-02                  
+            10      4     -6.682619E-01   1.131085E-01   1.902118E-02   0.0            3.609492E-02  -5.113530E-02                  
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+     SECTOR-ID
+      POINT-ID
+       RING-ID  HARMONIC        T1             T2             T3             R1             R2             R3
+            15      4     -5.228862E-01   1.241799E-01   1.530530E-02   0.0            1.899602E-02  -3.936585E-02                  
+            20      4     -4.699032E-01   1.266359E-01   7.980472E-03   0.0            4.471006E-03  -3.503807E-02                  
+            25      4     -4.614506E-01   1.270287E-01   1.270143E-16   0.0           -2.705301E-15  -3.433265E-02                  
+            30      4     -4.699032E-01   1.266359E-01  -7.980472E-03   0.0           -4.471006E-03  -3.503807E-02                  
+            35      4     -5.228862E-01   1.241799E-01  -1.530530E-02   0.0           -1.899602E-02  -3.936585E-02                  
+            40      4     -6.682619E-01   1.131085E-01  -1.902118E-02   0.0           -3.609492E-02  -5.113530E-02                  
+            45      4     -7.774271E-01   7.672203E-02  -1.334119E-02   0.0            2.112866E-02  -5.998836E-02                  
+            50      4      0.0            0.0            0.0            0.0            3.727042E-01  -9.770336E-03                  
+           100      4      0.0            0.0            0.0            0.0           -3.727042E-01  -9.770336E-03                  
+             5      5     -8.369089E-01   8.328763E-02   1.496641E-02   0.0           -3.466010E-02  -8.111328E-02                  
+            10      5     -7.914025E-01   1.222912E-01   1.952992E-02   0.0            2.566624E-02  -7.649974E-02                  
+            15      5     -6.817381E-01   1.336280E-01   1.501161E-02   0.0            1.491384E-02  -6.541826E-02                  
+            20      5     -6.388470E-01   1.357392E-01   7.646537E-03   0.0            3.820874E-03  -6.105647E-02                  
+            25      5     -6.312926E-01   1.359431E-01  -1.239677E-15   0.0            3.014949E-15  -6.027813E-02                  
+            30      5     -6.388470E-01   1.357392E-01  -7.646537E-03   0.0           -3.820874E-03  -6.105647E-02                  
+            35      5     -6.817381E-01   1.336280E-01  -1.501161E-02   0.0           -1.491384E-02  -6.541826E-02                  
+            40      5     -7.914025E-01   1.222912E-01  -1.952992E-02   0.0           -2.566624E-02  -7.649974E-02                  
+            45      5     -8.369089E-01   8.328763E-02  -1.496641E-02   0.0            3.466010E-02  -8.111328E-02                  
+            50      5      0.0            0.0            0.0            0.0            3.828112E-01  -1.263768E-02                  
+           100      5      0.0            0.0            0.0            0.0           -3.828112E-01  -1.263768E-02                  
+             5      6     -8.350282E-01   7.923639E-02   1.429522E-02   0.0           -3.776878E-02  -9.745304E-02                  
+            10      6     -8.107681E-01   1.126405E-01   1.694013E-02   0.0            2.194637E-02  -9.468113E-02                  
+            15      6     -7.104898E-01   1.189940E-01   1.203857E-02   0.0            1.479233E-02  -8.266562E-02                  
+            20      6     -6.633447E-01   1.178531E-01   5.798481E-03   0.0            5.014711E-03  -7.701979E-02                  
+            25      6     -6.521218E-01   1.169279E-01  -1.589874E-15   0.0            4.479056E-15  -7.567946E-02                  
+            30      6     -6.633447E-01   1.178531E-01  -5.798481E-03   0.0           -5.014711E-03  -7.701979E-02                  
+            35      6     -7.104898E-01   1.189940E-01  -1.203857E-02   0.0           -1.479233E-02  -8.266562E-02                  
+            40      6     -8.107681E-01   1.126405E-01  -1.694013E-02   0.0           -2.194637E-02  -9.468113E-02                  
+            45      6     -8.350282E-01   7.923639E-02  -1.429522E-02   0.0            3.776878E-02  -9.745304E-02                  
+            50      6      0.0            0.0            0.0            0.0            3.794854E-01  -1.502219E-02                  
+           100      6      0.0            0.0            0.0            0.0           -3.794854E-01  -1.502219E-02                  
+             5      7     -7.708316E-01   6.817680E-02   1.152903E-02   0.0           -3.022086E-02  -1.051547E-01                  
+            10      7     -7.240698E-01   9.068445E-02   1.178754E-02   0.0            2.509840E-02  -9.905618E-02                  
+            15      7     -6.067640E-01   8.911392E-02   7.036417E-03   0.0            1.848063E-02  -8.285718E-02                  
+            20      7     -5.420821E-01   8.334614E-02   2.869090E-03   0.0            7.828345E-03  -7.393924E-02                  
+            25      7     -5.232557E-01   8.089539E-02  -1.195224E-15   0.0            4.123438E-15  -7.135262E-02                  
+            30      7     -5.420821E-01   8.334614E-02  -2.869090E-03   0.0           -7.828345E-03  -7.393924E-02                  
+            35      7     -6.067640E-01   8.911392E-02  -7.036417E-03   0.0           -1.848063E-02  -8.285718E-02                  
+            40      7     -7.240698E-01   9.068445E-02  -1.178754E-02   0.0           -2.509840E-02  -9.905618E-02                  
+            45      7     -7.708316E-01   6.817680E-02  -1.152903E-02   0.0            3.022086E-02  -1.051547E-01                  
+            50      7      0.0            0.0            0.0            0.0            3.626095E-01  -1.658444E-02                  
+           100      7      0.0            0.0            0.0            0.0           -3.626095E-01  -1.658444E-02                  
+             5      8     -6.783637E-01   5.592587E-02   8.325203E-03   0.0           -1.835339E-02  -1.058308E-01                  
+            10      8     -5.941957E-01   6.788449E-02   6.570717E-03   0.0            2.992040E-02  -9.312271E-02                  
+            15      8     -4.564036E-01   5.994575E-02   2.352050E-03   0.0            2.207983E-02  -7.148588E-02                  
+            20      8     -3.762371E-01   5.104911E-02   2.479903E-04   0.0            1.013029E-02  -5.890057E-02                  
+            25      8     -3.513096E-01   4.766582E-02  -9.016225E-16   0.0            4.406198E-15  -5.499457E-02                  
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+     SECTOR-ID
+      POINT-ID
+       RING-ID  HARMONIC        T1             T2             T3             R1             R2             R3
+            30      8     -3.762371E-01   5.104911E-02  -2.479903E-04   0.0           -1.013029E-02  -5.890057E-02                  
+            35      8     -4.564036E-01   5.994575E-02  -2.352050E-03   0.0           -2.207983E-02  -7.148588E-02                  
+            40      8     -5.941957E-01   6.788449E-02  -6.570717E-03   0.0           -2.992040E-02  -9.312271E-02                  
+            45      8     -6.783637E-01   5.592587E-02  -8.325203E-03   0.0            1.835339E-02  -1.058308E-01                  
+            50      8      0.0            0.0            0.0            0.0            3.392798E-01  -1.745022E-02                  
+           100      8      0.0            0.0            0.0            0.0           -3.392798E-01  -1.745022E-02                  
+             5      9     -5.846092E-01   4.527576E-02   5.745686E-03   0.0           -7.078635E-03  -1.025902E-01                  
+            10      9     -4.697757E-01   4.961263E-02   2.779952E-03   0.0            3.271192E-02  -8.293324E-02                  
+            15      9     -3.235339E-01   3.855956E-02  -7.113160E-04   0.0            2.313119E-02  -5.713712E-02                  
+            20      9     -2.391887E-01   2.891780E-02  -1.330918E-03   0.0            1.070232E-02  -4.224697E-02                  
+            25      9     -2.127255E-01   2.546318E-02  -2.102268E-16   0.0            7.095019E-16  -3.757953E-02                  
+            30      9     -2.391887E-01   2.891780E-02   1.330918E-03   0.0           -1.070232E-02  -4.224697E-02                  
+            35      9     -3.235339E-01   3.855956E-02   7.113160E-04   0.0           -2.313119E-02  -5.713712E-02                  
+            40      9     -4.697757E-01   4.961263E-02  -2.779952E-03   0.0           -3.271192E-02  -8.293324E-02                  
+            45      9     -5.846092E-01   4.527576E-02  -5.745686E-03   0.0            7.078635E-03  -1.025902E-01                  
+            50      9      0.0            0.0            0.0            0.0            3.151578E-01  -1.787481E-02                  
+           100      9      0.0            0.0            0.0            0.0           -3.151578E-01  -1.787481E-02                  
+             5     10     -4.995883E-01   3.660928E-02   3.932967E-03   0.0            2.019514E-03  -9.735009E-02                  
+            10     10     -3.662125E-01   3.612787E-02   4.825634E-04   0.0            3.291020E-02  -7.187898E-02                  
+            15     10     -2.244894E-01   2.452488E-02  -2.222282E-03   0.0            2.175411E-02  -4.411321E-02                  
+            20     10     -1.461309E-01   1.578673E-02  -1.960435E-03   0.0            9.799447E-03  -2.873741E-02                  
+            25     10     -1.219730E-01   1.281759E-02  -5.128276E-17   0.0            3.295975E-17  -2.399868E-02                  
+            30     10     -1.461309E-01   1.578673E-02   1.960435E-03   0.0           -9.799447E-03  -2.873741E-02                  
+            35     10     -2.244894E-01   2.452488E-02   2.222282E-03   0.0           -2.175411E-02  -4.411321E-02                  
+            40     10     -3.662125E-01   3.612787E-02  -4.825634E-04   0.0           -3.291020E-02  -7.187898E-02                  
+            45     10     -4.995883E-01   3.660928E-02  -3.932967E-03   0.0           -2.019514E-03  -9.735009E-02                  
+            50     10      0.0            0.0            0.0            0.0            2.924661E-01  -1.802015E-02                  
+           100     10      0.0            0.0            0.0            0.0           -2.924661E-01  -1.802015E-02                  
+             5     11     -4.254043E-01   2.964958E-02   2.700037E-03   0.0            8.875675E-03  -9.109813E-02                  
+            10     11     -2.838721E-01   2.634332E-02  -7.518489E-04   0.0            3.124485E-02  -6.130319E-02                  
+            15     11     -1.549072E-01   1.561006E-02  -2.707582E-03   0.0            1.899985E-02  -3.351444E-02                  
+            20     11     -8.796706E-02   8.473241E-03  -1.998386E-03   0.0            8.157096E-03  -1.905880E-02                  
+            25     11     -6.801096E-02   6.183995E-03   9.334981E-17   0.0           -3.027092E-16  -1.474893E-02                  
+            30     11     -8.796706E-02   8.473241E-03   1.998386E-03   0.0           -8.157096E-03  -1.905880E-02                  
+            35     11     -1.549072E-01   1.561006E-02   2.707582E-03   0.0           -1.899985E-02  -3.351444E-02                  
+            40     11     -2.838721E-01   2.634332E-02   7.518489E-04   0.0           -3.124485E-02  -6.130319E-02                  
+            45     11     -4.254043E-01   2.964958E-02  -2.700037E-03   0.0           -8.875675E-03  -9.109813E-02                  
+            50     11      0.0            0.0            0.0            0.0            2.718119E-01  -1.797635E-02                  
+           100     11      0.0            0.0            0.0            0.0           -2.718119E-01  -1.797635E-02                  
+             5     12     -3.617761E-01   2.407600E-02   1.852453E-03   0.0            1.381077E-02  -8.441760E-02                  
+            10     12     -2.194866E-01   1.924324E-02  -1.336011E-03   0.0            2.854415E-02  -5.170644E-02                  
+            15     12     -1.068965E-01   9.966643E-03  -2.640460E-03   0.0            1.579830E-02  -2.524449E-02                  
+            20     12     -5.281071E-02   4.506767E-03  -1.753228E-03   0.0            6.368489E-03  -1.249752E-02                  
+            25     12     -3.740108E-02   2.867601E-03  -8.733248E-17   0.0            2.281161E-16  -8.864053E-03                  
+            30     12     -5.281071E-02   4.506767E-03   1.753228E-03   0.0           -6.368489E-03  -1.249752E-02                  
+            35     12     -1.068965E-01   9.966643E-03   2.640460E-03   0.0           -1.579830E-02  -2.524449E-02                  
+            40     12     -2.194866E-01   1.924324E-02   1.336011E-03   0.0           -2.854415E-02  -5.170644E-02                  
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+     SECTOR-ID
+      POINT-ID
+       RING-ID  HARMONIC        T1             T2             T3             R1             R2             R3
+            45     12     -3.617761E-01   2.407600E-02  -1.852453E-03   0.0           -1.381077E-02  -8.441760E-02                  
+            50     12      0.0            0.0            0.0            0.0            2.532832E-01  -1.780255E-02                  
+           100     12      0.0            0.0            0.0            0.0           -2.532832E-01  -1.780255E-02                  
+             5     13     -3.077220E-01   1.961650E-02   1.256297E-03   0.0            1.719068E-02  -7.768603E-02                  
+            10     13     -1.695399E-01   1.408008E-02  -1.551156E-03   0.0            2.540998E-02  -4.325966E-02                  
+            15     13     -7.389521E-02   6.377668E-03  -2.328828E-03   0.0            1.271238E-02  -1.891228E-02                  
+            20     13     -3.179632E-02   2.378674E-03  -1.417270E-03   0.0            4.758106E-03  -8.159886E-03                  
+            25     13     -2.044057E-02   1.266764E-03   1.718460E-17   0.0            1.279359E-17  -5.257055E-03                  
+            30     13     -3.179632E-02   2.378674E-03   1.417270E-03   0.0           -4.758106E-03  -8.159886E-03                  
+            35     13     -7.389521E-02   6.377668E-03   2.328828E-03   0.0           -1.271238E-02  -1.891228E-02                  
+            40     13     -1.695399E-01   1.408008E-02   1.551156E-03   0.0           -2.540998E-02  -4.325966E-02                  
+            45     13     -3.077220E-01   1.961650E-02  -1.256297E-03   0.0           -1.719068E-02  -7.768603E-02                  
+            50     13      0.0            0.0            0.0            0.0            2.367824E-01  -1.754095E-02                  
+           100     13      0.0            0.0            0.0            0.0           -2.367824E-01  -1.754095E-02                  
+             5     14     -2.620454E-01   1.604596E-02   8.281480E-04   0.0            1.934786E-02  -7.114168E-02                  
+            10     14     -1.309701E-01   1.031892E-02  -1.567084E-03   0.0            2.221631E-02  -3.597721E-02                  
+            15     14     -5.119544E-02   4.083515E-03  -1.943715E-03   0.0            1.000459E-02  -1.411383E-02                  
+            20     14     -1.924492E-02   1.242475E-03  -1.089019E-03   0.0            3.447118E-03  -5.323359E-03                  
+            25     14     -1.114932E-02   5.195738E-04  -1.317306E-17   0.0            4.336809E-17  -3.093233E-03                  
+            30     14     -1.924492E-02   1.242475E-03   1.089019E-03   0.0           -3.447118E-03  -5.323359E-03                  
+            35     14     -5.119544E-02   4.083515E-03   1.943715E-03   0.0           -1.000459E-02  -1.411383E-02                  
+            40     14     -1.309701E-01   1.031892E-02   1.567084E-03   0.0           -2.221631E-02  -3.597721E-02                  
+            45     14     -2.620454E-01   1.604596E-02  -8.281480E-04   0.0           -1.934786E-02  -7.114168E-02                  
+            50     14      0.0            0.0            0.0            0.0            2.221310E-01  -1.722130E-02                  
+           100     14      0.0            0.0            0.0            0.0           -2.221310E-01  -1.722130E-02                  
+             5     15     -2.235372E-01   1.318034E-02   5.162609E-04   0.0            2.056481E-02  -6.492334E-02                  
+            10     15     -1.012589E-01   7.574738E-03  -1.481249E-03   0.0            1.917417E-02  -2.979007E-02                  
+            15     15     -3.555094E-02   2.611756E-03  -1.568969E-03   0.0            7.753859E-03  -1.050236E-02                  
+            20     15     -1.171862E-02   6.382932E-04  -8.089597E-04   0.0            2.443124E-03  -3.475692E-03                  
+            25     15     -6.083956E-03   1.849518E-04   1.002887E-17   0.0           -3.068292E-17  -1.811567E-03                  
+            30     15     -1.171862E-02   6.382932E-04   8.089597E-04   0.0           -2.443124E-03  -3.475692E-03                  
+            35     15     -3.555094E-02   2.611756E-03   1.568969E-03   0.0           -7.753859E-03  -1.050236E-02                  
+            40     15     -1.012589E-01   7.574738E-03   1.481249E-03   0.0           -1.917417E-02  -2.979007E-02                  
+            45     15     -2.235372E-01   1.318034E-02  -5.162609E-04   0.0           -2.056481E-02  -6.492334E-02                  
+            50     15      0.0            0.0            0.0            0.0            2.091212E-01  -1.686388E-02                  
+           100     15      0.0            0.0            0.0            0.0           -2.091212E-01  -1.686388E-02                  
+             5     16     -1.910795E-01   1.087187E-02   2.874261E-04   0.0            2.107297E-02  -5.910239E-02                  
+            10     16     -7.839178E-02   5.569051E-03  -1.348363E-03   0.0            1.639038E-02  -2.458825E-02                  
+            15     16     -2.474425E-02   1.665856E-03  -1.239510E-03   0.0            5.944951E-03  -7.797729E-03                  
+            20     16     -7.178878E-03   3.190267E-04  -5.868569E-04   0.0            1.704258E-03  -2.272741E-03                  
+            25     16     -3.325709E-03   4.409392E-05   2.209062E-18   0.0           -1.067939E-17  -1.058147E-03                  
+            30     16     -7.178878E-03   3.190267E-04   5.868569E-04   0.0           -1.704258E-03  -2.272741E-03                  
+            35     16     -2.474425E-02   1.665856E-03   1.239510E-03   0.0           -5.944951E-03  -7.797729E-03                  
+            40     16     -7.839178E-02   5.569051E-03   1.348363E-03   0.0           -1.639038E-02  -2.458825E-02                  
+            45     16     -1.910795E-01   1.087187E-02  -2.874261E-04   0.0           -2.107297E-02  -5.910239E-02                  
+            50     16      0.0            0.0            0.0            0.0            1.975463E-01  -1.648227E-02                  
+           100     16      0.0            0.0            0.0            0.0           -1.975463E-01  -1.648227E-02                  
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+     SECTOR-ID
+      POINT-ID
+       RING-ID  HARMONIC        T1             T2             T3             R1             R2             R3
+             5     17     -1.636908E-01   9.003812E-03   1.193584E-04   0.0            2.105716E-02  -5.370726E-02                  
+            10     17     -6.078759E-02   4.100231E-03  -1.198740E-03   0.0            1.390850E-02  -2.024734E-02                  
+            15     17     -1.726177E-02   1.057785E-03  -9.651373E-04   0.0            4.522748E-03  -5.779836E-03                  
+            20     17     -4.422826E-03   1.521746E-04  -4.184789E-04   0.0            1.175071E-03  -1.488675E-03                  
+            25     17     -1.822442E-03  -8.932097E-06   2.649519E-18   0.0           -8.700722E-18  -6.172227E-04                  
+            30     17     -4.422826E-03   1.521746E-04   4.184789E-04   0.0           -1.175071E-03  -1.488675E-03                  
+            35     17     -1.726177E-02   1.057785E-03   9.651373E-04   0.0           -4.522748E-03  -5.779836E-03                  
+            40     17     -6.078759E-02   4.100231E-03   1.198740E-03   0.0           -1.390850E-02  -2.024734E-02                  
+            45     17     -1.636908E-01   9.003812E-03  -1.193584E-04   0.0           -2.105716E-02  -5.370726E-02                  
+            50     17      0.0            0.0            0.0            0.0            1.872158E-01  -1.608553E-02                  
+           100     17      0.0            0.0            0.0            0.0           -1.872158E-01  -1.608553E-02                  
+             5     18     -1.405349E-01   7.484792E-03  -3.512256E-06   0.0            2.066229E-02  -4.874032E-02                  
+            10     18     -4.722084E-02   3.022328E-03  -1.048865E-03   0.0            1.173519E-02  -1.664406E-02                  
+            15     18     -1.206872E-02   6.673530E-04  -7.439200E-04   0.0            3.421140E-03  -4.278642E-03                  
+            20     18     -2.738986E-03   6.660681E-05  -2.946073E-04   0.0            8.032274E-04  -9.767350E-04                  
+            25     18     -1.001494E-03  -2.417023E-05   2.236167E-19   0.0           -2.032879E-18  -3.598296E-04                  
+            30     18     -2.738986E-03   6.660681E-05   2.946073E-04   0.0           -8.032274E-04  -9.767350E-04                  
+            35     18     -1.206872E-02   6.673530E-04   7.439200E-04   0.0           -3.421140E-03  -4.278642E-03                  
+            40     18     -4.722084E-02   3.022328E-03   1.048865E-03   0.0           -1.173519E-02  -1.664406E-02                  
+            45     18     -1.405349E-01   7.484792E-03   3.512256E-06   0.0           -2.066229E-02  -4.874032E-02                  
+            50     18      0.0            0.0            0.0            0.0            1.779618E-01  -1.567976E-02                  
+           100     18      0.0            0.0            0.0            0.0           -1.779618E-01  -1.567976E-02                  
+             5     19     -1.209118E-01   6.243576E-03  -9.241024E-05   0.0            2.000046E-02  -4.418882E-02                  
+            10     19     -3.674946E-02   2.229672E-03  -9.073571E-04   0.0            9.856595E-03  -1.366446E-02                  
+            15     19     -8.456136E-03   4.173083E-04  -5.692229E-04   0.0            2.576734E-03  -3.164292E-03                  
+            20     19     -1.704113E-03   2.408993E-05  -2.053787E-04   0.0            5.455060E-04  -6.418306E-04                  
+            25     19     -5.519878E-04  -2.455087E-05  -1.131636E-18   0.0            3.943785E-18  -2.097680E-04                  
+            30     19     -1.704113E-03   2.408993E-05   2.053787E-04   0.0           -5.455060E-04  -6.418306E-04                  
+            35     19     -8.456136E-03   4.173083E-04   5.692229E-04   0.0           -2.576734E-03  -3.164292E-03                  
+            40     19     -3.674946E-02   2.229672E-03   9.073571E-04   0.0           -9.856595E-03  -1.366446E-02                  
+            45     19     -1.209118E-01   6.243576E-03   9.241024E-05   0.0           -2.000046E-02  -4.418882E-02                  
+            50     19      0.0            0.0            0.0            0.0            1.696391E-01  -1.526912E-02                  
+           100     19      0.0            0.0            0.0            0.0           -1.696391E-01  -1.526912E-02                  
+             5     20     -1.042404E-01   5.224598E-03  -1.556100E-04   0.0            1.915754E-02  -4.003173E-02                  
+            10     20     -2.865249E-02   1.645662E-03  -7.783295E-04   0.0            8.248383E-03  -1.120737E-02                  
+            15     20     -5.937218E-03   2.578173E-04  -4.331797E-04   0.0            1.934342E-03  -2.338477E-03                  
+            20     20     -1.064654E-03   4.083483E-06  -1.420841E-04   0.0            3.686680E-04  -4.223336E-04                  
+            25     20     -3.051434E-04  -2.012450E-05   3.371191E-19   0.0           -6.166400E-19  -1.223255E-04                  
+            30     20     -1.064654E-03   4.083483E-06   1.420841E-04   0.0           -3.686680E-04  -4.223336E-04                  
+            35     20     -5.937218E-03   2.578173E-04   4.331797E-04   0.0           -1.934342E-03  -2.338477E-03                  
+            40     20     -2.865249E-02   1.645662E-03   7.783295E-04   0.0           -8.248383E-03  -1.120737E-02                  
+            45     20     -1.042404E-01   5.224598E-03   1.556100E-04   0.0           -1.915754E-02  -4.003173E-02                  
+            50     20      0.0            0.0            0.0            0.0            1.621242E-01  -1.485651E-02                  
+           100     20      0.0            0.0            0.0            0.0           -1.621242E-01  -1.485651E-02                  
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+             F O R C E S   I N   A X I S - S Y M M E T R I C   C O N I C A L   S H E L L   E L E M E N T S   (CCONEAX)
+ 
+  ELEMENT     HARMONIC    POINT           BEND-MOMENT       BEND-MOMENT      TWIST-MOMENT           SHEAR            SHEAR
+   ID.         NUMBER     ANGLE               V                 U                                     V                U
+        1        0                       9.071273E-01      2.721384E-01      0.0               1.808777E-01      0.0                
+        1        1                       9.084988E-01      2.731012E-01      2.317262E-02      1.804571E-01     -2.421218E-02       
+        1        2                       9.125664E-01      2.760531E-01      4.803424E-02      1.792045E-01     -5.075264E-02       
+        1        3                       9.190149E-01      2.811075E-01      7.593663E-02      1.771903E-01     -8.146164E-02       
+        1        4                       9.265556E-01      2.881004E-01      1.070604E-01      1.747727E-01     -1.165138E-01       
+        1        5                       9.318886E-01      2.959521E-01      1.387170E-01      1.729665E-01     -1.520579E-01       
+        1        6                       9.310224E-01      3.027056E-01      1.651555E-01      1.734104E-01     -1.800231E-01       
+        1        7                       9.238057E-01      3.073471E-01      1.826149E-01      1.771374E-01     -1.952508E-01       
+        1        8                       9.136355E-01      3.105246E-01      1.924800E-01      1.838961E-01     -1.998232E-01       
+        1        9                       9.029766E-01      3.130297E-01      1.975738E-01      1.929932E-01     -1.977893E-01       
+        1       10                       8.924997E-01      3.151410E-01      1.996851E-01      2.038078E-01     -1.917107E-01       
+        1       11                       8.822167E-01      3.169009E-01      1.998052E-01      2.158339E-01     -1.830092E-01       
+        1       12                       8.720658E-01      3.183288E-01      1.985817E-01      2.286515E-01     -1.726096E-01       
+        1       13                       8.620284E-01      3.194592E-01      1.964752E-01      2.419341E-01     -1.611642E-01       
+        1       14                       8.521100E-01      3.203344E-01      1.938090E-01      2.554410E-01     -1.491282E-01       
+        1       15                       8.423238E-01      3.209918E-01      1.908024E-01      2.690051E-01     -1.368080E-01       
+        1       16                       8.326806E-01      3.214617E-01      1.876002E-01      2.825096E-01     -1.244055E-01       
+        1       17                       8.231866E-01      3.217669E-01      1.842983E-01      2.958736E-01     -1.120529E-01       
+        1       18                       8.138462E-01      3.219258E-01      1.809590E-01      3.090404E-01     -9.983709E-02       
+        1       19                       8.046588E-01      3.219519E-01      1.776242E-01      3.219707E-01     -8.781514E-02       
+        1       20                       7.956250E-01      3.218566E-01      1.743215E-01      3.346379E-01     -7.602471E-02       
+        1                0.0000          1.845033E+01      6.440178E+00      0.0               4.751611E+00      0.0                
+        1               90.0000          8.456448E-01      2.962504E-01     -8.654614E-02      2.644415E-01      3.706797E-02       
+        1              180.0000          8.491355E-01      2.969619E-01     -7.313687E-09      2.608877E-01     -1.570370E-07       
+        6        0                       2.174275E-01      6.522825E-02      0.0               9.202290E-02      0.0                
+        6        1                       2.193124E-01      6.741084E-02     -4.021686E-03      9.167290E-02      4.006684E-03       
+        6        2                       2.248192E-01      7.453474E-02     -5.991027E-03      9.058094E-02      8.409590E-03       
+        6        3                       2.333187E-01      8.811504E-02     -4.099965E-03      8.866501E-02      1.364410E-02       
+        6        4                       2.429558E-01      1.095536E-01      2.371728E-03      8.587837E-02      2.013028E-02       
+        6        5                       2.495200E-01      1.373235E-01      1.108077E-02      8.236504E-02      2.794671E-02       
+        6        6                       2.476348E-01      1.645642E-01      1.613718E-02      7.860374E-02      3.632665E-02       
+        6        7                       2.358413E-01      1.840732E-01      1.376793E-02      7.513046E-02      4.398119E-02       
+        6        8                       2.174038E-01      1.947746E-01      6.075740E-03      7.212830E-02      5.014372E-02       
+        6        9                       1.958688E-01      1.989802E-01     -3.368914E-03      6.949425E-02      5.468297E-02       
+        6       10                       1.734016E-01      1.986504E-01     -1.257360E-02      6.704903E-02      5.770111E-02       
+        6       11                       1.513120E-01      1.950350E-01     -2.076909E-02      6.463718E-02      5.937970E-02       
+        6       12                       1.304335E-01      1.890653E-01     -2.770174E-02      6.215286E-02      5.994129E-02       
+        6       13                       1.112503E-01      1.814961E-01     -3.332743E-02      5.954027E-02      5.961084E-02       
+        6       14                       9.398319E-02      1.729202E-01     -3.770334E-02      5.679417E-02      5.859423E-02       
+        6       15                       7.867259E-02      1.637821E-01     -4.093978E-02      5.393505E-02      5.706227E-02       
+        6       16                       6.524979E-02      1.544022E-01     -4.317120E-02      5.099916E-02      5.515486E-02       
+        6       17                       5.358577E-02      1.450073E-01     -4.453814E-02      4.802513E-02      5.298269E-02       
+        6       18                       4.352294E-02      1.357555E-01     -4.517621E-02      4.505444E-02      5.063307E-02       
+        6       19                       3.489655E-02      1.267552E-01     -4.521035E-02      4.211974E-02      4.817510E-02       
+        6       20                       2.754398E-02      1.180795E-01     -4.475245E-02      3.925037E-02      4.566264E-02       
+        6                0.0000          3.247954E+00      3.065507E+00      0.0               1.416099E+00      0.0                
+        6               90.0000          1.176525E-01      8.467839E-02      2.307583E-02      6.434962E-02     -2.301238E-02       
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+             F O R C E S   I N   A X I S - S Y M M E T R I C   C O N I C A L   S H E L L   E L E M E N T S   (CCONEAX)
+ 
+  ELEMENT     HARMONIC    POINT           BEND-MOMENT       BEND-MOMENT      TWIST-MOMENT           SHEAR            SHEAR
+   ID.         NUMBER     ANGLE               V                 U                                     V                U
+        6              180.0000          1.207978E-01      8.955002E-02      8.741171E-08      6.492925E-02     -1.353741E-08       
+       11        0                      -4.455906E-02     -1.336774E-02      0.0               1.630640E-02      0.0                
+       11        1                      -4.204887E-02     -1.190503E-02     -7.074006E-03      1.662683E-02     -8.984730E-04       
+       11        2                      -3.446770E-02     -6.453559E-03     -1.299156E-02      1.749516E-02     -1.360551E-03       
+       11        3                      -2.183133E-02      5.933970E-03     -1.654045E-02      1.864338E-02     -8.028150E-04       
+       11        4                      -4.969776E-03      2.863924E-02     -1.692307E-02      1.969337E-02      1.505673E-03       
+       11        5                       1.289251E-02      6.087524E-02     -1.536557E-02      2.030945E-02      5.936027E-03       
+       11        6                       2.594665E-02      9.270798E-02     -1.587972E-02      2.039909E-02      1.151037E-02       
+       11        7                       3.058806E-02      1.124496E-01     -2.087370E-02      2.001762E-02      1.628244E-02       
+       11        8                       2.850944E-02      1.186364E-01     -2.798671E-02      1.917839E-02      1.924169E-02       
+       11        9                       2.308977E-02      1.161444E-01     -3.400183E-02      1.789570E-02      2.053583E-02       
+       11       10                       1.667348E-02      1.090980E-01     -3.760266E-02      1.628304E-02      2.060103E-02       
+       11       11                       1.053397E-02      9.981355E-02     -3.886303E-02      1.449680E-02      1.982003E-02       
+       11       12                       5.285218E-03      8.961345E-02     -3.833091E-02      1.266718E-02      1.850039E-02       
+       11       13                       1.140714E-03      7.932030E-02     -3.658426E-02      1.089239E-02      1.688337E-02       
+       11       14                      -1.918286E-03      6.944638E-02     -3.409472E-02      9.236813E-03      1.514655E-02       
+       11       15                      -4.026771E-03      6.028702E-02     -3.121104E-02      7.734060E-03      1.341122E-02       
+       11       16                      -5.360521E-03      5.198623E-02     -2.817813E-02      6.401420E-03      1.175421E-02       
+       11       17                      -6.094858E-03      4.458847E-02     -2.516130E-02      5.241394E-03      1.021910E-02       
+       11       18                      -6.385446E-03      3.807651E-02     -2.226730E-02      4.247189E-03      8.826837E-03       
+       11       19                      -6.360620E-03      3.239767E-02     -1.956081E-02      3.406942E-03      7.583842E-03       
+       11       20                      -6.122295E-03      2.748124E-02     -1.707678E-02      2.705276E-03      6.487072E-03       
+       11                0.0000         -2.948573E-02      1.205769E+00      0.0               2.798779E-01      0.0                
+       11               90.0000         -2.706571E-02      1.134258E-04      8.862025E-03      9.290744E-03     -3.618847E-03       
+       11              180.0000         -2.525088E-02      5.958887E-03     -1.002244E-09      9.348750E-03      6.719461E-09       
+       16        0                      -6.225514E-02     -1.867656E-02      0.0              -6.983310E-03      0.0                
+       16        1                      -6.097022E-02     -1.823527E-02     -2.943521E-03     -6.536126E-03     -1.054344E-03       
+       16        2                      -5.673656E-02     -1.557159E-02     -5.590694E-03     -5.260468E-03     -1.876198E-03       
+       16        3                      -4.855633E-02     -6.843999E-03     -7.451825E-03     -3.357887E-03     -1.980931E-03       
+       16        4                      -3.559771E-02      1.276074E-02     -8.028701E-03     -1.166344E-03     -5.509853E-04       
+       16        5                      -1.941526E-02      4.324083E-02     -7.915229E-03      9.365082E-04      2.954602E-03       
+       16        6                      -5.592078E-03      7.277322E-02     -9.506822E-03      2.664566E-03      7.431030E-03       
+       16        7                       1.089469E-03      8.697607E-02     -1.401490E-02      3.812790E-03      1.058865E-02       
+       16        8                       1.772493E-03      8.521000E-02     -1.926059E-02      4.257202E-03      1.154387E-02       
+       16        9                      -7.390976E-06      7.526027E-02     -2.274129E-02      4.046440E-03      1.096863E-02       
+       16       10                      -2.039194E-03      6.312601E-02     -2.373163E-02      3.407478E-03      9.691179E-03       
+       16       11                      -3.526941E-03      5.151400E-02     -2.271922E-02      2.598047E-03      8.207738E-03       
+       16       12                      -4.346989E-03      4.134335E-02     -2.050427E-02      1.804829E-03      6.760627E-03       
+       16       13                      -4.612014E-03      3.280137E-02     -1.776528E-02      1.128316E-03      5.458057E-03       
+       16       14                      -4.488487E-03      2.579966E-02     -1.495488E-02      6.026030E-04      4.339367E-03       
+       16       15                      -4.128817E-03      2.015376E-02     -1.232940E-02      2.224445E-04      3.408626E-03       
+       16       16                      -3.650323E-03      1.565570E-02     -1.000902E-02     -3.403425E-05      2.651870E-03       
+       16       17                      -3.134208E-03      1.210545E-02     -8.030545E-03     -1.938045E-04      2.047233E-03       
+       16       18                      -2.631681E-03      9.324059E-03     -6.384629E-03     -2.823174E-04      1.570553E-03       
+       16       19                      -2.171409E-03      7.158139E-03     -5.039388E-03     -3.209412E-04      1.198679E-03       
+       16       20                      -1.766786E-03      5.479849E-03     -3.954296E-03     -3.265738E-04      9.109806E-04       
+       16                0.0000         -3.227656E-01      6.013551E-01      0.0               1.019418E-03      0.0                
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+             F O R C E S   I N   A X I S - S Y M M E T R I C   C O N I C A L   S H E L L   E L E M E N T S   (CCONEAX)
+ 
+  ELEMENT     HARMONIC    POINT           BEND-MOMENT       BEND-MOMENT      TWIST-MOMENT           SHEAR            SHEAR
+   ID.         NUMBER     ANGLE               V                 U                                     V                U
+       16               90.0000         -3.435645E-02     -1.367833E-02      2.158837E-03     -3.580096E-03     -1.048574E-03       
+       16              180.0000         -3.189934E-02     -6.906177E-03     -1.085947E-08     -3.652155E-03      9.795545E-09       
+       21        0                      -2.883520E-02     -8.650560E-03      0.0              -5.781174E-03      0.0                
+       21        1                      -2.883300E-02     -8.791633E-03     -5.350758E-04     -5.553991E-03     -3.465498E-04       
+       21        2                      -2.824527E-02     -7.790832E-03     -1.093459E-03     -4.893780E-03     -6.326549E-04       
+       21        3                      -2.541539E-02     -1.469405E-03     -1.563117E-03     -3.874302E-03     -4.925877E-04       
+       21        4                      -1.835778E-02      1.564927E-02     -1.743659E-03     -2.643585E-03      8.804798E-04       
+       21        5                      -7.373683E-03      4.395555E-02     -1.871824E-03     -1.394272E-03      4.083276E-03       
+       21        6                       2.380535E-03      7.054955E-02     -3.009379E-03     -2.880096E-04      7.928371E-03       
+       21        7                       5.823240E-03      7.970589E-02     -5.588800E-03      5.178452E-04      9.981513E-03       
+       21        8                       4.207671E-03      7.181197E-02     -8.349150E-03      9.117126E-04      9.576797E-03       
+       21        9                       1.328655E-03      5.683737E-02     -9.972155E-03      9.188652E-04      7.829309E-03       
+       21       10                      -8.013062E-04      4.195441E-02     -1.016760E-02      6.771088E-04      5.840689E-03       
+       21       11                      -1.863737E-03      2.983691E-02     -9.314485E-03      3.511906E-04      4.132092E-03       
+       21       12                      -2.155188E-03      2.079872E-02     -7.927872E-03      5.483627E-05      2.832323E-03       
+       21       13                      -2.024822E-03      1.434269E-02     -6.407034E-03     -1.621842E-04      1.904011E-03       
+       21       14                      -1.717281E-03      9.833449E-03     -4.988074E-03     -2.910495E-04      1.264125E-03       
+       21       15                      -1.371160E-03      6.721086E-03     -3.777970E-03     -3.471673E-04      8.322671E-04       
+       21       16                      -1.052654E-03      4.586243E-03     -2.802946E-03     -3.521144E-04      5.446039E-04       
+       21       17                      -7.864214E-04      3.126659E-03     -2.047056E-03     -3.260076E-04      3.546551E-04       
+       21       18                      -5.760142E-04      2.130409E-03     -1.476898E-03     -2.843663E-04      2.299864E-04       
+       21       19                      -4.156432E-04      1.450997E-03     -1.055415E-03     -2.377294E-04      1.485599E-04       
+       21       20                      -2.964608E-04      9.878844E-04     -7.485328E-04     -1.925174E-04      9.559095E-05       
+       21                0.0000         -1.363809E-01      4.475766E-01      0.0              -2.319069E-02      0.0                
+       21               90.0000         -1.753027E-02     -1.149350E-02      4.666305E-04     -2.922746E-03     -7.771379E-04       
+       21              180.0000         -1.451698E-02     -3.855605E-03     -4.955657E-09     -2.975186E-03      1.229171E-08       
+       26        0                      -1.595008E-02     -4.785024E-03      0.0               6.781816E-04      0.0                
+       26        1                      -1.634900E-02     -5.069200E-03      2.866425E-05      6.469488E-04     -8.988194E-05       
+       26        2                      -1.691572E-02     -4.488793E-03      6.564241E-05      5.548000E-04     -1.690872E-04       
+       26        3                      -1.582326E-02      1.193346E-03      1.029745E-04      4.057884E-04      8.995831E-05       
+       26        4                      -1.076375E-02      1.760245E-02      1.203567E-04      2.145767E-04      1.483023E-03       
+       26        5                      -1.665305E-03      4.521585E-02      1.430809E-04      1.525879E-05      4.615426E-03       
+       26        6                       6.473951E-03      7.082117E-02      2.849698E-04     -1.239777E-04      8.271575E-03       
+       26        7                       8.547606E-03      7.834256E-02      5.860627E-04     -1.516342E-04      9.983659E-03       
+       26        8                       5.902356E-03      6.854293E-02      8.975565E-04     -7.820129E-05      9.167254E-03       
+       26        9                       2.426979E-03      5.208583E-02      1.070753E-03      3.528595E-05      7.080913E-03       
+       26       10                       5.678274E-05      3.648443E-02      1.077965E-03      1.428127E-04      4.907489E-03       
+       26       11                      -1.054971E-03      2.435862E-02      9.679124E-04      2.169609E-04      3.166229E-03       
+       26       12                      -1.342183E-03      1.579269E-02      8.027293E-04      2.530813E-04      1.941040E-03       
+       26       13                      -1.225941E-03      1.005095E-02      6.288104E-04      2.569556E-04      1.143336E-03       
+       26       14                      -9.710653E-04      6.320223E-03      4.721815E-04      2.391040E-04      6.505400E-04       
+       26       15                      -7.092968E-04      3.942695E-03      3.433311E-04      2.091825E-04      3.578402E-04       
+       26       16                      -4.915470E-04      2.446324E-03      2.434403E-04      1.748353E-04      1.896657E-04       
+       26       17                      -3.283007E-04      1.512267E-03      1.691743E-04      1.410060E-04      9.598397E-05       
+       26       18                      -2.133578E-04      9.324473E-04      1.156493E-04      1.105461E-04      4.547229E-05       
+       26       19                      -1.357631E-04      5.738909E-04      7.798598E-05      8.466840E-05      1.927326E-05       
+       26       20                      -8.494901E-05      3.527506E-04      5.198340E-05      6.359722E-05      6.369082E-06       
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+             F O R C E S   I N   A X I S - S Y M M E T R I C   C O N I C A L   S H E L L   E L E M E N T S   (CCONEAX)
+ 
+  ELEMENT     HARMONIC    POINT           BEND-MOMENT       BEND-MOMENT      TWIST-MOMENT           SHEAR            SHEAR
+   ID.         NUMBER     ANGLE               V                 U                                     V                U
+       26                0.0000         -6.061681E-02      4.222284E-01      0.0               4.089777E-03      0.0                
+       26               90.0000         -1.116074E-02     -1.011738E-02     -3.778302E-05      3.827856E-04     -7.711764E-04       
+       26              180.0000         -7.982310E-03     -2.185213E-03      5.433367E-10      3.689351E-04      1.305099E-08       
+       31        0                      -3.486022E-02     -1.045807E-02      0.0               6.788373E-03      0.0                
+       31        1                      -3.466041E-02     -1.052260E-02      8.161333E-04      6.498024E-03     -4.686052E-04       
+       31        2                      -3.350635E-02     -9.299386E-03      1.631652E-03      5.653858E-03     -8.515939E-04       
+       31        3                      -2.983131E-02     -2.645824E-03      2.287939E-03      4.349232E-03     -7.646084E-04       
+       31        4                      -2.181404E-02      1.483269E-02      2.533212E-03      2.760887E-03      6.033778E-04       
+       31        5                      -9.941339E-03      4.347802E-02      2.663970E-03      1.146317E-03      3.843546E-03       
+       31        6                       5.567521E-04      7.054527E-02      3.988445E-03     -2.155304E-04      7.781744E-03       
+       31        7                       4.621282E-03      8.049001E-02      7.057160E-03     -1.082420E-03      1.000130E-02       
+       31        8                       3.468812E-03      7.352583E-02      1.037019E-02     -1.365662E-03      9.799242E-03       
+       31        9                       8.505210E-04      5.928721E-02      1.234330E-02     -1.175404E-03      8.221209E-03       
+       31       10                      -1.186229E-03      4.477670E-02      1.261473E-02     -7.290840E-04      6.328940E-03       
+       31       11                      -2.245102E-03      3.268718E-02      1.162241E-02     -2.317429E-04      4.642457E-03       
+       31       12                      -2.556700E-03      2.343766E-02      9.972297E-03      1.862049E-04      3.311083E-03       
+       31       13                      -2.434727E-03      1.664308E-02      8.139260E-03      4.752874E-04      2.321422E-03       
+       31       14                      -2.113298E-03      1.175376E-02      6.408861E-03      6.362200E-04      1.609564E-03       
+       31       15                      -1.733853E-03      8.273603E-03      4.915098E-03      6.943047E-04      1.107294E-03       
+       31       16                      -1.370120E-03      5.811299E-03      3.695858E-03      6.813705E-04      7.572472E-04       
+       31       17                      -1.054250E-03      4.075290E-03      2.737555E-03      6.255358E-04      5.153548E-04       
+       31       18                      -7.953211E-04      2.854140E-03      2.004180E-03      5.483851E-04      3.492460E-04       
+       31       19                      -5.909288E-04      1.996571E-03      1.453808E-03      4.647709E-04      2.357764E-04       
+       31       20                      -4.338156E-04      1.395146E-03      1.046806E-03      3.838055E-04      1.586070E-04       
+       31                0.0000         -1.716306E-01      4.629376E-01      0.0               2.709273E-02      0.0                
+       31               90.0000         -2.052164E-02     -1.208597E-02     -6.361841E-04      3.541132E-03     -7.892873E-04       
+       31              180.0000         -1.759041E-02     -4.587492E-03      6.258055E-09      3.564924E-03      1.191286E-08       
+       36        0                      -6.700876E-02     -2.010262E-02      0.0               5.230308E-03      0.0                
+       36        1                      -6.541926E-02     -1.948351E-02      3.728910E-03      4.759550E-03     -1.172348E-03       
+       36        2                      -6.033200E-02     -1.632300E-02      7.030161E-03      3.419876E-03     -2.067588E-03       
+       36        3                      -5.093929E-02     -6.906852E-03      9.292625E-03      1.433372E-03     -2.173811E-03       
+       36        4                      -3.672612E-02      1.335718E-02      9.951591E-03     -8.468628E-04     -6.786585E-04       
+       36        5                      -1.957577E-02      4.433903E-02      9.698659E-03     -3.011703E-03      2.936125E-03       
+       36        6                      -5.153015E-03      7.452305E-02      1.122743E-02     -4.751205E-03      7.587433E-03       
+       36        7                       1.903698E-03      8.994348E-02      1.595595E-02     -5.843163E-03      1.103389E-02       
+       36        8                       2.767831E-03      8.974579E-02      2.161008E-02     -6.164551E-03      1.235008E-02       
+       36        9                       9.232759E-04      8.115906E-02      2.550504E-02     -5.784988E-03      1.209933E-02       
+       36       10                      -1.381114E-03      6.985578E-02      2.680950E-02     -4.940987E-03      1.103640E-02       
+       36       11                      -3.240943E-03      5.851232E-02      2.597274E-02     -3.900051E-03      9.643555E-03       
+       36       12                      -4.430830E-03      4.816733E-02      2.379353E-02     -2.862930E-03      8.184314E-03       
+       36       13                      -5.001858E-03      3.916032E-02      2.096853E-02     -1.944304E-03      6.798506E-03       
+       36       14                      -5.097091E-03      3.153459E-02      1.797823E-02     -1.190782E-03      5.555436E-03       
+       36       15                      -4.870165E-03      2.520189E-02      1.510913E-02     -6.084442E-04      4.481718E-03       
+       36       16                      -4.451774E-03      2.001775E-02      1.250912E-02     -1.813173E-04      3.579110E-03       
+       36       17                      -3.940590E-03      1.582029E-02      1.023782E-02      1.159906E-04      2.835326E-03       
+       36       18                      -3.404548E-03      1.245099E-02      8.302953E-03      3.098845E-04      2.231576E-03       
+       36       19                      -2.886595E-03      9.764994E-03      6.684339E-03      4.250705E-04      1.747128E-03       
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+             F O R C E S   I N   A X I S - S Y M M E T R I C   C O N I C A L   S H E L L   E L E M E N T S   (CCONEAX)
+ 
+  ELEMENT     HARMONIC    POINT           BEND-MOMENT       BEND-MOMENT      TWIST-MOMENT           SHEAR            SHEAR
+   ID.         NUMBER     ANGLE               V                 U                                     V                U
+       36       20                      -2.411161E-03      7.635650E-03      5.348629E-03      4.822016E-04      1.361962E-03       
+       36                0.0000         -3.406761E-01      6.683735E-01      0.0              -2.585503E-02      0.0                
+       36               90.0000         -3.689305E-02     -1.322038E-02     -2.875794E-03      2.810066E-03     -1.235535E-03       
+       36              180.0000         -3.458108E-02     -6.648534E-03      1.141980E-08      2.862304E-03      9.186866E-09       
+       41        0                      -2.002168E-02     -6.006479E-03      0.0              -2.667999E-02      0.0                
+       41        1                      -1.744604E-02     -4.332379E-03      7.591940E-03     -2.689362E-02     -4.728064E-04       
+       41        2                      -9.729564E-03      1.669571E-03      1.381838E-02     -2.745056E-02     -4.872978E-04       
+       41        3                       2.925456E-03      1.469223E-02      1.731086E-02     -2.810955E-02      5.375743E-04       
+       41        4                       1.938829E-02      3.774308E-02      1.724130E-02     -2.853394E-02      3.291309E-03       
+       41        5                       3.614223E-02      6.985441E-02      1.501721E-02     -2.846909E-02      8.093834E-03       
+       41        6                       4.740936E-02      1.015915E-01      1.501095E-02     -2.792358E-02      1.399863E-02       
+       41        7                       4.996631E-02      1.220083E-01      1.990420E-02     -2.706146E-02      1.916420E-02       
+       41        8                       4.575652E-02      1.295950E-01      2.736875E-02     -2.589607E-02      2.259254E-02       
+       41        9                       3.817335E-02      1.286526E-01      3.409368E-02     -2.438736E-02      2.434659E-02       
+       41       10                       2.956250E-02      1.228752E-01      3.862581E-02     -2.257061E-02      2.478421E-02       
+       41       11                       2.125743E-02      1.144186E-01      4.089206E-02     -2.054214E-02      2.425361E-02       
+       41       12                       1.395164E-02      1.046015E-01      4.131539E-02     -1.841450E-02      2.305907E-02       
+       41       13                       7.924661E-03      9.430642E-02      4.039016E-02     -1.627970E-02      2.145469E-02       
+       41       14                       3.198162E-03      8.412275E-02      3.854579E-02     -1.421094E-02      1.963770E-02       
+       41       15                      -3.457963E-04      7.442077E-02      3.612058E-02     -1.226139E-02      1.774931E-02       
+       41       16                      -2.883703E-03      6.541077E-02      3.336909E-02     -1.046491E-02      1.588547E-02       
+       41       17                      -4.604362E-03      5.719291E-02      3.047741E-02     -8.840203E-03      1.410648E-02       
+       41       18                      -5.683564E-03      4.979548E-02      2.757770E-02     -7.394433E-03      1.244760E-02       
+       41       19                      -6.273665E-03      4.320183E-02      2.476081E-02     -6.124735E-03      1.092657E-02       
+       41       20                      -6.501205E-03      3.736919E-02      2.208629E-02     -5.023539E-03      9.549573E-03       
+       41                0.0000          2.421663E-01      1.443183E+00      0.0              -4.135323E-01      0.0                
+       41               90.0000         -1.506707E-02      8.658437E-03     -1.141805E-02     -1.546280E-02     -5.102447E-03       
+       41              180.0000         -1.327281E-02      1.435192E-02     -7.718418E-09     -1.559383E-02      5.785056E-09       
+       46        0                       3.210647E-01      9.631940E-02      0.0              -1.130009E-01      0.0                
+       46        1                       3.226164E-01      9.846723E-02      5.823411E-04     -1.125069E-01      6.039858E-03       
+       46        2                       3.271245E-01      1.053777E-01     -9.778142E-04     -1.110039E-01      1.241839E-02       
+       46        3                       3.339568E-01      1.182584E-01     -6.520450E-03     -1.084614E-01      1.949924E-02       
+       46        4                       3.412386E-01      1.381275E-01     -1.667228E-02     -1.049137E-01      2.761567E-02       
+       46        5                       3.447446E-01      1.634140E-01     -2.881506E-02     -1.006985E-01      3.679001E-02       
+       46        6                       3.392503E-01      1.880817E-01     -3.667277E-02     -9.651947E-02      4.632533E-02       
+       46        7                       3.236912E-01      2.060642E-01     -3.620434E-02     -9.307098E-02      5.510652E-02       
+       46        8                       3.016250E-01      2.165584E-01     -2.944505E-02     -9.049416E-02      6.246805E-02       
+       46        9                       2.765925E-01      2.214886E-01     -2.000925E-02     -8.855534E-02      6.827021E-02       
+       46       10                       2.506241E-01      2.224134E-01     -1.000825E-02     -8.695412E-02      7.256901E-02       
+       46       11                       2.249182E-01      2.203165E-01     -3.827214E-04     -8.542442E-02      7.549977E-02       
+       46       12                       2.002625E-01      2.159527E-01      8.431882E-03     -8.379555E-02      7.724643E-02       
+       46       13                       1.771490E-01      2.099543E-01      1.622957E-02     -8.196163E-02      7.800269E-02       
+       46       14                       1.558378E-01      2.028317E-01      2.293700E-02     -7.987881E-02      7.795203E-02       
+       46       15                       1.364224E-01      1.949765E-01      2.856451E-02     -7.755327E-02      7.725108E-02       
+       46       16                       1.188898E-01      1.866795E-01      3.317207E-02     -7.500696E-02      7.603431E-02       
+       46       17                       1.031619E-01      1.781538E-01      3.684586E-02     -7.227945E-02      7.441056E-02       
+       46       18                       8.912538E-02      1.695551E-01      3.968273E-02     -6.940866E-02      7.247055E-02       
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+0                                                                                                                                   
+ 
+             F O R C E S   I N   A X I S - S Y M M E T R I C   C O N I C A L   S H E L L   E L E M E N T S   (CCONEAX)
+ 
+  ELEMENT     HARMONIC    POINT           BEND-MOMENT       BEND-MOMENT      TWIST-MOMENT           SHEAR            SHEAR
+   ID.         NUMBER     ANGLE               V                 U                                     V                U
+       46       19                       7.665125E-02      1.609972E-01      4.178111E-02     -6.643796E-02      7.028902E-02       
+       46       20                       6.560507E-02      1.525634E-01      4.323551E-02     -6.340480E-02      6.792796E-02       
+       46                0.0000          4.830552E+00      3.666552E+00      0.0              -1.861331E+00      0.0                
+       46               90.0000          1.867235E-01      1.179412E-01     -2.240466E-02     -8.685108E-02     -3.413220E-02       
+       46              180.0000          1.907435E-01      1.223698E-01     -1.158306E-07     -8.743119E-02     -3.073490E-08       
+       50        0                       9.071276E-01      2.721382E-01      0.0              -1.808777E-01      0.0                
+       50        1                       9.084994E-01      2.731013E-01     -2.317266E-02     -1.804585E-01     -2.421219E-02       
+       50        2                       9.125665E-01      2.760533E-01     -4.803396E-02     -1.791921E-01     -5.075265E-02       
+       50        3                       9.190161E-01      2.811075E-01     -7.593659E-02     -1.771054E-01     -8.146163E-02       
+       50        4                       9.265559E-01      2.881005E-01     -1.070640E-01     -1.745000E-01     -1.165137E-01       
+       50        5                       9.318893E-01      2.959521E-01     -1.387316E-01     -1.723862E-01     -1.520578E-01       
+       50        6                       9.310226E-01      3.027056E-01     -1.651870E-01     -1.725173E-01     -1.800233E-01       
+       50        7                       9.238050E-01      3.073469E-01     -1.826634E-01     -1.760592E-01     -1.952508E-01       
+       50        8                       9.136358E-01      3.105244E-01     -1.925415E-01     -1.827598E-01     -1.998231E-01       
+       50        9                       9.029758E-01      3.130298E-01     -1.976459E-01     -1.918502E-01     -1.977893E-01       
+       50       10                       8.924991E-01      3.151408E-01     -1.997671E-01     -2.026639E-01     -1.917108E-01       
+       50       11                       8.822162E-01      3.169008E-01     -1.998972E-01     -2.146859E-01     -1.830093E-01       
+       50       12                       8.720655E-01      3.183285E-01     -1.986840E-01     -2.274952E-01     -1.726096E-01       
+       50       13                       8.620275E-01      3.194593E-01     -1.965878E-01     -2.407699E-01     -1.611644E-01       
+       50       14                       8.521097E-01      3.203344E-01     -1.939318E-01     -2.542703E-01     -1.491284E-01       
+       50       15                       8.423240E-01      3.209918E-01     -1.909351E-01     -2.678297E-01     -1.368081E-01       
+       50       16                       8.326805E-01      3.214615E-01     -1.877426E-01     -2.813315E-01     -1.244055E-01       
+       50       17                       8.231871E-01      3.217670E-01     -1.844500E-01     -2.946949E-01     -1.120529E-01       
+       50       18                       8.138458E-01      3.219258E-01     -1.811198E-01     -3.078632E-01     -9.983715E-02       
+       50       19                       8.046587E-01      3.219520E-01     -1.777937E-01     -3.207963E-01     -8.781511E-02       
+       50       20                       7.956247E-01      3.218564E-01     -1.744995E-01     -3.334675E-01     -7.602471E-02       
+       50                0.0000          1.845034E+01      6.440178E+00      0.0              -4.733575E+00      0.0                
+       50               90.0000          8.456460E-01      2.962495E-01      8.663784E-02     -2.639249E-01      3.706796E-02       
+       50              180.0000          8.491348E-01      2.969609E-01      7.525472E-09     -2.603023E-01     -1.570365E-07       
+1     NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                      /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-05-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  NONSYMMETRIC BENDING OF A CYLINDER OF REVOLUTION                   
+ DATE:  5/17/95
+ END TIME: 14:37:26
+ TOTAL WALL CLOCK TIME      4 SEC.
+ 

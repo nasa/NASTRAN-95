@@ -1,0 +1,79 @@
+ID    T01201A,NASTRAN                                                           
+APP   HEAT                                                                      
+SOL   1,0                                                                       
+TIME  10                                                                        
+DIAG  14                                                                        
+ALTER   67,67 $                                                                 
+SSG1    HSLT,BGPDT,CSTM,HSIL,HEST,MPT,GPTT,EDT,,CASECC,DIT,/                    
+        HPG,HCFLD,REMFLD,HCCEN,NSLT/HLUSET/NSKIP $                              
+ALTER   84 $                                                                    
+EMFLD   HOEF1,HEST,CASECC,HCFLD,MPT,DIT,REMFLD,GEOM1,CSTM,HCCEN/HOEH1/          
+        V,N,HLUSET $                                                            
+ALTER   85 $                                                                    
+OFP     HOEH1,,,,,//S,N,CARDNO$                                                 
+ENDALTER $                                                                      
+CEND                                                                            
+TITLE    = ELECTRIC AND MAGNETOSTATICS PROBLEM USING 3-D ELEMENTS               
+SUBTITLE = NASTRAN TEST PROBLEM NO. T01-20-1A                                   
+DISP     = ALL                                                                  
+ELFORCE  = ALL                                                                  
+OLOAD    = ALL                                                                  
+SUBCASE  1                                                                      
+   LOAD  = 50                                                                   
+SUBCASE  2                                                                      
+   LOAD  = 51                                                                   
+SUBCASE  3                                                                      
+   LOAD  = 12                                                                   
+SUBCOM   20                                                                     
+  SUBSEQ = .5,.5,0.                                                             
+BEGIN BULK                                                                      
+CEMLOOP 12      5.      0       5.      0.      0.      1.25    3.75    +CM12   
++CM12   0.      1.25    0.      0.                                              
+CEMLOOP 12      5.      0       5.      0.      0.      1.25    3.75    +CM13   
++CM13   0.      1.25    0.      0.                                              
+MDIPOLE 12      0       5.      0.      0.      10.     10.     10.     +M1     
++M1     0.      0.                                                              
+REMFLUX 51              500.    0.      250.    16                              
+REMFLUX 51              250.    500.    750.    18                              
+REMFLUX 51              750.    1000.   500.    20                              
+REMFLUX 51              1000.   250.    750.    22                              
+CHEXA1        20       2      21      22      23      24      25      26+E1     
++E1           27      28                                                        
+CHEXA2        22       2      31      32      33      34      35      36+E2     
++E2           37      38                                                        
+CTETRA        16       2       1       2       3       4                        
+CWEDGE        18       2      11      12      13      14      15      16        
+GRID           1         1.     0.       3.             1                       
+GRID           2        2.      0.       3.                                     
+GRID           3        3.       2.      3.                                     
+GRID           4        2.      1.      5.                                      
+GRID          11        1.      2.      1.              1                       
+GRID          12         3.      1.      -3.                                    
+GRID          13        6.       2.      2.                                     
+GRID          14        1.      6.      1.                                      
+GRID          15        4.      4.       -3.                                    
+GRID          16         5.      6.      1.                                     
+GRID          21         1.     2.      1.              1                       
+GRID          22        2.      .5      3.                                      
+GRID          23        7.      2.      4.                                      
+GRID          24        5.      3.      2.                                      
+GRID          25        1.5      5.     2.                                      
+GRID          26        2.5     5.      3.                                      
+GRID          27        7.      6.      4.                                      
+GRID          28        6.      9.      3.                                      
+GRID          31        1.      2.      1.              1                       
+GRID          32        2.      .5      3.                                      
+GRID          33        7.      2.       4.                                     
+GRID          34        5.      3.      2.                                      
+GRID          35        1.5     5.      2.                                      
+GRID          36        2.5     5.      3.                                      
+GRID          37        7.      6.      4.                                      
+GRID          38        6.      9.      3.                                      
+MAT4           2 250.                                                           
+SPCFLD        50       0 2.      0.      1.            1       2       3        
+SPCFLD        50       0 2.      0.      1.            4                        
+SPCFLD        50       01.      2.      3.            11      12      13        
+SPCFLD        50       01.      2.      3.            14      15      16        
+SPCFLD        50       03.      4.      2.            21 THRU         28        
+SPCFLD        50       04.      1.      3.            31 THRU         38        
+ENDDATA                                                                         

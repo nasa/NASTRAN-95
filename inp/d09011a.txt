@@ -1,0 +1,160 @@
+$-------------------------------------------------------------------------------
+$           RIGID FORMAT No. 9, Transient Analysis - Direct Formulation
+$               Transient Analysis with Direct Matrix Input (9-1-1)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates the capability of NASTRAN to perform transient
+$ analysis on a system having nonsymmetric stiffness, damping, and mass
+$ matrices. The problem also illustrates the use of time step changes, selection
+$ of printout intervals, application of loads, initial conditions, and a simple
+$ curve plot package.
+$ 
+$ The matrices and loads used are actually the product of a transformation
+$ matrix and diagonal matrices. The resulting answers are easily calculated
+$ while the input matrices are of general form. The matrix equation solved is
+$ 
+$        ..         .
+$    [M]{u}  +  [B]{u}  +  [K]{u}  =  {P(t)}                                 (1)
+$ 
+$ The problem is actually four disjoint single degree of freedom problems which
+$ have been transformed to a general matrix problem.
+$ 
+$ The resulting diagonal matrices are pre-multiplied by the matrix:
+$ 
+$            +                    +
+$            |  2   -1     0    0 |
+$            |                    |
+$            | -1    2    -1    0 |
+$    [X]  =  |                    |                                          (2)
+$            |  0   -1     2   -1 |
+$            |                    |
+$            |  0    0    -1    2 |
+$            +                    +
+$ 
+$ The answers for the disjoint problem above will be the same as for the general
+$ matrix problem since the general case:
+$ 
+$             ..        .
+$    [X]([M ]{u} + [B ]{u} + [K ]{u}  =  [X]{P}                              (3)
+$          o         o         o
+$ 
+$ has the same results as the disjoint case:
+$ 
+$         ..        .
+$    [M ]{u} + [B ]{u} + [K ]{u}  =  {P}                                     (4)
+$      o         o         o
+$ 
+$ B. Input
+$ 
+$ 1. The actual matrix input is:
+$ 
+$            +                    +
+$            | 20   -1.5   0    0 |
+$            |                    |
+$            |-10    3.0  -4    0 |
+$    [M]  =  |                    |
+$            |  0   -1.5   8    0 |
+$            |                    |
+$            |  0    0.0  -4    0 |
+$            +                    +
+$ 
+$            +                    +
+$            |  0   -15    0    0 |
+$            |                    |
+$            |  0    30   -24   0 |
+$    [B]  =  |                    |
+$            |  0   -15    28  -2 |
+$            |                    |
+$            |  0    0    -24   4 |
+$            +                    +
+$ 
+$            +                      +
+$            | 2000   0     0    0  |
+$            |                      |
+$            | -1000  0    -100  0  |
+$    [K]  =  |                      |
+$            |   0    0     200 -20 |
+$            |                      |
+$            |   0    0    -100  40 |
+$            +                      +
+$ 
+$ 2. The initial conditions are:
+$                        .
+$    u    =  0           u    =  10.0
+$     10                  10
+$                        .
+$    u    =  0           u    =  0.5
+$     11                  11
+$                        .
+$    u    =  0           u    =  0
+$     12                  12
+$                        .
+$    u    =  -10.0       u    =  0
+$     13                  13
+$ 
+$ 3. At t = 1.0 a step load is applied to each point. The load on the uncoupled
+$    problems is:
+$ 
+$             | 0   |
+$             | 1.5 |
+$      P   =  | 4.0 |
+$       o     | 20  |
+$ 
+$    The transformed load is:
+$ 
+$                          | -1.5  |
+$                          | -1.0  |
+$      {P}  =  [X]{P }  =  | -13.5 |
+$                   o      | 36.0  |
+$ 
+$ C. Theory
+$ 
+$ The results are responses of single degree of freedom systems. Equations are
+$ given in Reference 12, Chapter 9.
+$ 
+$   0 < t < 1.0 , delta t  =  .005
+$ 
+$                                .
+$     u   = sin 10t              u   = 10 cos 10t
+$      10                         10
+$ 
+$                     -10t       .         -10t
+$     u   = 0.05(1 - e    )      u   = 0.5e
+$      11                         11
+$                                .
+$     u   = 0                    u   = 0
+$      12                         12
+$ 
+$               -10t             .         -10t
+$     u   = -10e                 u   = 100e
+$      13                         13
+$ 
+$   t > 1.0 , delta t  =  .015
+$ 
+$     u   = sin 10t
+$      10
+$                     -10t                     -10(t-1)
+$     u   = 0.05(1 - e    ) + 0.1(t - 1.1 + .1e        )
+$      11
+$                      -3t
+$     u   = 0.04 {1 - e   [cos4(t-1) + 3/4 sin4(t-1)]}
+$      12
+$ 
+$               -10t        -10(t-1)
+$     u   = -10e     + 1 - e
+$      13
+$ 
+$ D. Results
+$ 
+$ The deviations of the NASTRAN results and the theoretical response are due to
+$ the selection of time steps. For instance point 11 has a time constant equal
+$ to two time steps. The initial error in velocity due to the first step causes
+$ the displacement error to accumulate. Using a smaller time step has resulted
+$ in much better results.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 12. H. Yeh and J. I. Abram, MECHANICS OF SOLIDS AND FLUIDS. Vo1. I, Particle
+$     and Rigid Body Mechanics. NcGraw-Hill, 1960.
+$-------------------------------------------------------------------------------

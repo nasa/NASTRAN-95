@@ -1,0 +1,69 @@
+$-------------------------------------------------------------------------------
+$                  RIGID FORMAT No. 3, Real Eigenvalue Analysis
+$                        Acoustic Cavity Analysis (3-4-1)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the use of NASTRAN to determine the acoustic modes in
+$ a cavity containing both axisymmetric regions and evenly spaced radial slots.
+$ The motor cavity of Stage IlI of the Minuteman III missile is selected for
+$ analysis. The finite element model consists of six slots and a long, slender
+$ central cavity of irregular shape. The model consists of AXIF2, AXIF3, and
+$ AXIF4 finite elements in the central cavity, and SLOT3 and SLOT4 finite
+$ elements in the slotted region.
+$ 
+$ The axisymmetric radial and longitudinal acoustic modes are desired (N = 0)
+$ for this problem. The harmonic index N specifies the Fourier Series terms to
+$ be analyzed. For example, N = 1 defines the lateral motion where the velocity
+$ is normal to the center axis. Repeated runs with N = 0, 1, ...M/2 may be
+$ necessary to extract all possible modes, where M is the number of radial slots
+$ specified.
+$ 
+$ B. Input
+$ 
+$ Parameters:
+$                     -7
+$ p     =   1.143 x 10   (Fluid density)
+$ 
+$ beta  =   20.58        (Fluid bulk modulus)
+$ 
+$ N     =    0           (Harmonic index)
+$ 
+$ WD    =    4.0         (Slot width)
+$ 
+$ MD    =    6           (Number of slots)
+$ 
+$ C. Results
+$ 
+$ The vibration mode frequencies for harmonic n = 0 as determined with NASTRAN
+$ are shown in Table 1. Also shown are the vibration mode frequencies as
+$ determined with an acoustic model and reported in Reference 19.
+$ 
+$ Table 1. Natural Frequencies for the Third Stage, Minuteman III, Motor Cavity
+$ 
+$                                     Frequency, Hz
+$                                 ----------------------
+$                                   NASTRAN    Experi-
+$                           Mode               mental
+$                           ----------------------------
+$                            1        0.0         0.0
+$ 
+$                            2       90.1        93.0
+$ 
+$                            3      199.5       200.0
+$ 
+$                            4      310.4       312.0
+$ 
+$                            5      388.0       388.0
+$ 
+$                            6      449.1       466.0
+$ 
+$                            7      512.8       518.0
+$                           ----------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 19. Herting, David N.; Joseph, Jerrard A.; Kuusinen, Loren R.; and MacNeal,
+$     Richard H.: Acoustic Analysis of Solid Rocket Motor Cavities by a Finite
+$     Element Method. NASA TN X-2378, September, 1971, pp. 285-324.
+$-------------------------------------------------------------------------------

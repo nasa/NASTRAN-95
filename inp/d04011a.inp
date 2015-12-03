@@ -1,0 +1,51 @@
+ID    D04011A,NASTRAN                                                           
+APP   DISP                                                                      
+SOL   4,0                                                                       
+TIME  10                                                                        
+CEND                                                                            
+TITLE    = DIFFERENTIAL STIFFNESS ANALYSIS FOR A HANGING CABLE                  
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D04-01-1A                          
+LABEL    = INITIAL SHAPE IS A CIRCLE, FINAL SHAPE IS A CATENARY                 
+DISP = ALL                                                                      
+SPCF = ALL                                                                      
+LOAD = 32                                                                       
+SPC  = 2                                                                        
+STRESS = ALL                                                                    
+FORCE  = ALL                                                                    
+SUBCASE 1                                                                       
+OLOAD = ALL                                                                     
+LABEL = LINEAR SOLUTION                                                         
+SUBCASE 2                                                                       
+LABEL = NONLINEAR SOLUTION                                                      
+BEGIN BULK                                                                      
+BAROR                                   -1.2    1.0     0.0     1               
+CBAR    10      10      10      11                                              
+CBAR    11      10      11      12                                              
+CBAR    12      10      12      13                                              
+CBAR    13      10      13      14                                              
+CBAR    14      10      14      15                                              
+CBAR    15      10      15      16                                              
+CBAR    16      10      16      17                                              
+CBAR    17      10      17      18                                              
+CBAR    18      10      18      19                                              
+CORD2C  10      0       .0      .0      .0      .0      .0      1.0     +CS1    
++CS1    1.0     .0      .0                                                      
+GRAV    32      0       32.2    0.0     1.0     .0                              
+GRDSET          10                              0       345                     
+GRID    10              10.0    .0                                              
+GRID    11              10.0    10.0                                            
+GRID    12              10.0    20.0                                            
+GRID    13              10.0    30.0                                            
+GRID    14              10.0    40.0                                            
+GRID    15              10.0    50.0                                            
+GRID    16              10.0    60.0                                            
+GRID    17              10.0    70.0                                            
+GRID    18              10.0    80.0                                            
+GRID    19              10.0    90.0                                            
+MAT1    1       5.5+5           .3      .4                                      
+PARAM   BETAD   8                                                       DIFFSTIF
+PARAM   EPSIO   1.0-5                                                   DIFFSTIF
+PARAM   NT      18                                                      DIFFSTIF
+PBAR    10      1       .1      1.0-6   1.0-6                                   
+SPC     2       10      12      .0      19      1       .0                      
+ENDDATA                                                                         

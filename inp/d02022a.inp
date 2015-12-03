@@ -1,0 +1,40 @@
+ID    D02022A,NASTRAN                                                           
+APP   DISPLACEMENT,SUBS                                                         
+SOL   2,0                                                                       
+TIME  10                                                                         
+DIAG  23                                                                        
+CEND                                                                            
+SUBSTRUCTURE PHASE1                                                             
+  PASSWORD = DEMO                                                               
+    SOF(1) = FT18,950 $ DEC VAX                                                 
+       RUN = STEP                                                               
+    OPTION = K,M,P                                                              
+      NAME = ROOT1                                                              
+  SAVEPLOT = 1                                                                  
+  SOFP TOC                                                                      
+ENDSUBS                                                                         
+TITLE    = WINDMILL PANEL SECTIONS FOR AUTOMATED MULTI-STAGE SUBSTRUCTURING     
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D02-02-2A                          
+LABEL    = SUBSTRUCTURE 2, RUN 2, PHASE 1                                       
+    LOAD = 1                                                                    
+OUTPUT(PLOT)                                                                    
+  SET 1 = ALL                                                                   
+  CSCA  = 2.0                                                                   
+  PLOT                                                                          
+BEGIN BULK                                                                      
+CQDMEM  1       10      3       4       2       1                               
+CQDMEM  2       10      5       6       4       3                               
+CQDMEM  3       10      6       8       7       4                               
+GRDSET                                                  3456                    
+GRID    1               .0      27.5                                            
+GRID    2               5.0     27.5                                            
+GRID    3               .0      20.0                                            
+GRID    4               5.0     20.0                                            
+GRID    5               .0      15.0                                            
+GRID    6               5.0     15.0                                            
+GRID    7               12.5    12.5                                            
+GRID    8               10.0    10.0                                            
+MAT1    50      1.0+7           .25     2.5E-4  1.0E-6  70.0                    
+PQDMEM  10      50      .1                                                      
+RFORCE  1                       .1591579.0      .0      1.0                     
+ENDDATA                                                                         

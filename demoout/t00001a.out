@@ -1,0 +1,392 @@
+     NASTRAN  FILES=(INPT1,INPT2)                                                    
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T00001A,NASTRAN                                                           
+     $                                                                               
+     $     THIS DEMO PROBLEM DEMONSTRATES AN EASY WAY TO GENERATE VARIOUS            
+     $     FORMS OF NASTRAN GINO DATA BLOCKS USING THE NEW INPUTT4 MODULE,           
+     $     AND TO ALTER DATA BLOCK TRAILER BY THE NEW MATGEN, OPTION 10              
+     $                                                                               
+     $     TO COPY FROM INP1 THE FOLLOWING MATRICES                                  
+     $        A 4X4 SQUARE      MATRIX OF FORM 1 TO SQR                              
+     $        A 2X5 RECTANGULAR MATRIX OF FORM 2 TO REC                              
+     $        A 1X6 DIAGONAL    MATRIX OF FORM 3 TO DI1                              
+     $        A 5X5 DIAONGL     MATRIX OF FORM 2 TO DI5                              
+     $        A 4X4 SYMMETRIC   MATRIX OF FORM 6 TO SYM                              
+     $     TO COPY FROM INP2 THE FOLLOWING MATRICES                                  
+     $        A 1X6 ROW VECTOR         OF FORM 7 TO RV1                              
+     $        A 6X1 ROW VECTOR         OF FORM 2 TO RV6                              
+     $        A 1X4 IDENTITY    MATRIX OF FORM 8 TO ID1                              
+     $        A 4X4 IDENTITY    MATRIX OF FORM 2 TO ID4                              
+     $        A 1X6 COLUMN      MATRIX OF FORM 2 TO CMX                              
+     $     AND TO ALTER THE TRAILER OF SYM, FROM SYMMETRIC TO SQUARE                 
+     $                                                                               
+     $     NOTE - THERE IS NO DOCUMENTATION AVAILABLE IN THE USER'S MANUAL           
+     $     4/93   ABOUT THE NEW CAPABILITIES BEING PERFORMED HERE.                   
+     $          - USER CAN GENERATE GINO DATA BLOCKS THRU THE DMIG CARDS.            
+     $            HOWEVER, INPUT VIA DMIG CARDS IS LIMITED TO ONLY SQAURE            
+     $            (FORM 1), RECTANGULAR (FORM 2) AND SYMMETRIC (FORM 6)              
+     $            MATRICES                                                           
+     $                                                                               
+     APP   DMAP                                                                      
+     DIAG  8,15                                                                      
+     BEGIN $                                                                         
+     (SEE NASTRAN SOURCE PROGRAM COMPILATION FOR LISTING OF DMAP SEQUENCE)
+     END $                                                                           
+     TIME  5                                                                         
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+                                                                                                                                    
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      BEGIN                                                                           
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =     0, INCLUDING   0 COMMENT CARDS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+                                                                                                                                    
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              ENDDATA
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+                                                                                                                                    
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN $                                                                 
+
+       2  $                                                                       
+
+       2  $  CDC USER, USE FORTRAN UNITS 11(UT1) AND 12(UT2) INSTEAD OF 15(INP1)  
+
+       2  $  AND 16(INP2) HERE.                                                   
+
+       2  $  REWIND TAPE BEFORE READING, PARAMETER -1                             
+
+       2  $  INP1 & INP2 TAPES ARE ASCII FORMATTED TAPES, PARAMETERS -15 & -16    
+
+       2  $  RECORDS IN MSC/OUTPUT4 FORMAT, 80 COLUMN PER RECORD, PARAMETER -4    
+
+       2  $  (COSMIC/OUTPUT4 AND INPUTT4 USE 132-COLUMN-PER-RECORD FORMAT)        
+
+       2  $  MATPRN MUST HAVE A $ AT END OF LINE. ELSEWHERE $ SIGN IS OPTIONAL.   
+
+       2  $                                                                       
+
+       2  INPUTT4   /SQR,REC,DI1,DI5,SYM/-1/-15//-4                               
+
+       3  INPUTT4   /RV1,RV6,ID1,ID4,CMX/-1/-16//-4 $                             
+
+       4  MATPRN     SQR,REC,DI1,DI5,SYM// $                                      
+
+       5  MATPRN     RV1,RV6,ID1,ID4,CMX// $                                      
+
+       6  $                                                                       
+
+       6  MATGEN     SYM//10///1 $  OPTION 10, CHANGING THE 3RD TRAILER WORD TO 1 
+
+       7  MATPRN     SYM,,,,// $                                                  
+
+       8  END $                                                                   
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE. INPUTT4 MODULE OPENING FORTRAN TAPE  15
+ (t00001a.inp1                                )
+ FOR FORMATTED   READ.
+     READING DATA BLOCK NO.   1 - SQUARE   FROM INPUT TAPE
+     READING DATA BLOCK NO.   2 - RECTANG  FROM INPUT TAPE
+     READING DATA BLOCK NO.   3 - DIAGONAL FROM INPUT TAPE
+     READING DATA BLOCK NO.   4 - DIAGON2  FROM INPUT TAPE
+     READING DATA BLOCK NO.   5 - SYMMETRC FROM INPUT TAPE
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+                                                                                                                                    
+
+                                                                                                                                    
+
+                                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+0*** USER INFORMATION MESSAGE FROM INPUTT4 MODULE. THE FOLLOWING FILES WERE SUCCESSFULLY RECOVERED FROM USER 
+     FORMATTED   INPUT TAPE 
+t00001a.inp1                                 TO NASTRAN GINO FILES
+     SQUARE   ==COPIED TO== SQR         MATRIX TYPE = RDP ,  SIZE (     4 X     4)
+     RECTANG  ==COPIED TO== REC         MATRIX TYPE = RSP ,  SIZE (     2 X     5)
+     DIAGONAL ==COPIED TO== DI1         MATRIX TYPE = RDP ,  SIZE (     1 X     6)
+     DIAGON2  ==COPIED TO== DI5         MATRIX TYPE = RDP ,  SIZE (     5 X     5)
+     SYMMETRC ==COPIED TO== SYM         MATRIX TYPE = RDP ,  SIZE (     4 X     4)
+0*** USER INFORMATION MESSAGE. INPUTT4 MODULE OPENING FORTRAN TAPE  16
+ (t00001a.inp2                                )
+ FOR FORMATTED   READ.
+     READING DATA BLOCK NO.   1 - ROWVEC   FROM INPUT TAPE
+     READING DATA BLOCK NO.   2 - COLVEC   FROM INPUT TAPE
+     READING DATA BLOCK NO.   3 - IDENT    FROM INPUT TAPE
+     READING DATA BLOCK NO.   4 - IDENT    FROM INPUT TAPE
+     READING DATA BLOCK NO.   5 - COLMAT   FROM INPUT TAPE
+0*** USER INFORMATION MESSAGE FROM INPUTT4 MODULE. THE FOLLOWING FILES WERE SUCCESSFULLY RECOVERED FROM USER 
+     FORMATTED   INPUT TAPE 
+t00001a.inp2                                 TO NASTRAN GINO FILES
+     ROWVEC   ==COPIED TO== RV1         MATRIX TYPE = RSP ,  SIZE (     1 X     6)
+     COLVEC   ==COPIED TO== RV6         MATRIX TYPE = RDP ,  SIZE (     6 X     1)
+     IDENT    ==COPIED TO== ID1         MATRIX TYPE = RDP ,  SIZE (     1 X     4)
+     IDENT    ==COPIED TO== ID4         MATRIX TYPE = RDP ,  SIZE (     4 X     4)
+     COLMAT   ==COPIED TO== CMX         MATRIX TYPE = RDP ,  SIZE (     1 X     6)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX SQR      (GINO NAME 101 ) IS A D.P.REAL      4 COLUMN X      4 ROW SQUARE   MATRIX.
+0COLUMN      1      ROWS      1 THRU      4     --------------------------------------------------
+ 
+   1.234568D+03  2.224568D+02 -3.334568D+00 -3.456789D+00
+0COLUMN      2      ROWS      2 THRU      3     --------------------------------------------------
+ 
+   1.234568D+03 -2.234568D+03
+0COLUMN      3      ROWS      1 THRU      3     --------------------------------------------------
+ 
+   2.234568D+03  7.224568D+02 -6.334568D+00
+0COLUMN      4      ROWS      3 THRU      4     --------------------------------------------------
+ 
+  -9.034568D+02 -6.234568D+03
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =       8
+0THE DENSITY OF THIS MATRIX IS  68.75 PERCENT.
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX REC      (GINO NAME 102 ) IS A S.P.REAL      2 COLUMN X      5 ROW RECTANG  MATRIX.
+0COLUMN      1      ROWS      1 THRU      4     --------------------------------------------------
+ 
+   1.23457E+03  2.22457E+02 -3.33457E+00 -3.45679E+00
+0COLUMN      2      ROWS      3 THRU      4     --------------------------------------------------
+ 
+  -3.45679E+00 -2.23457E+03
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =       4
+0THE DENSITY OF THIS MATRIX IS  60.00 PERCENT.
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX DI1      (GINO NAME 103 ) IS A D.P.REAL      1 COLUMN X      6 ROW DIAGONAL MATRIX.
+0DIAGONAL ELEMENTS FOR COLUMNS     1 TO      6 ARE
+
+
+
+   1.100000D+03  2.200000D+02 -3.300000D+03  4.400000D+02  5.500000D+04 -6.600000D+02
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =      12
+0THE DENSITY OF THIS MATRIX IS 100.00 PERCENT.
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX DI5      (GINO NAME 104 ) IS A D.P.REAL      5 COLUMN X      5 ROW RECTANG  MATRIX.
+0COLUMN      1      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   1.111100D+03
+0COLUMN      2      ROWS      2 THRU      2     --------------------------------------------------
+ 
+   2.220000D+02
+0COLUMN      3      ROWS      3 THRU      3     --------------------------------------------------
+ 
+  -3.333333D+00
+0COLUMN      4      ROWS      4 THRU      4     --------------------------------------------------
+ 
+   4.440400D+03
+0COLUMN      5      ROWS      5 THRU      5     --------------------------------------------------
+ 
+   5.500000D+05
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =       2
+0THE DENSITY OF THIS MATRIX IS  20.00 PERCENT.
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX SYM      (GINO NAME 105 ) IS A D.P.REAL      4 COLUMN X      4 ROW SYMMETRC MATRIX.
+0COLUMN      1      ROWS      1 THRU      3     --------------------------------------------------
+ 
+   1.100000D+03  2.200000D+03 -3.300000D+03
+0COLUMN      2      ROWS      1 THRU      4     --------------------------------------------------
+ 
+   2.200000D+03 -4.400000D+02  5.500000D+04 -6.600000D+04
+0COLUMN      3      ROWS      1 THRU      4     --------------------------------------------------
+ 
+  -3.300000D+03  5.500000D+03 -7.700000D+03  8.800000D+03
+0COLUMN      4      ROWS      2 THRU      4     --------------------------------------------------
+ 
+  -6.600000D+03  8.800000D+03 -9.900000D+03
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =       8
+0THE DENSITY OF THIS MATRIX IS  87.50 PERCENT.
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX RV1      (GINO NAME 101 ) IS A S.P.REAL      6 COLUMN X      1 ROW VECTOR   MATRIX.
+0ROW ELEMENTS FOR COLUMNS     1 TO      6 ARE
+
+
+
+   1.10000E+03  2.20000E+03 -3.30000E+03  4.40000E+02  5.50000E+04 -6.60000E+02
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =       6
+0THE DENSITY OF THIS MATRIX IS 100.00 PERCENT.
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX RV6      (GINO NAME 102 ) IS A D.P.REAL      6 COLUMN X      1 ROW RECTANG  MATRIX.
+0COLUMN      1      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   9.876543D+00
+0COLUMN      2      ROWS      1 THRU      1     --------------------------------------------------
+ 
+  -8.876543D+00
+0COLUMN      3      ROWS      1 THRU      1     --------------------------------------------------
+ 
+  -7.776543D+00
+0COLUMN      4      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   6.676543D+00
+0COLUMN      5      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   5.576543D+00
+0COLUMN      6      ROWS      1 THRU      1     --------------------------------------------------
+ 
+  -4.476543D+00
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =       2
+0THE DENSITY OF THIS MATRIX IS 100.00 PERCENT.
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX ID1      (GINO NAME 103 ) IS A D.P.REAL      1 COLUMN X      4 ROW IDENTITY MATRIX.
+0IDENTITY MATRIX
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+                                                                                                                                    
+0                                                                                                                                   
+0    TABLE   ID1                                                                                                                    
+                                                                                                                                    
+                                                                                                                                    
+
+ RECORD NO.     0
+          ID1                                                                                                                       
+
+ RECORD NO.     1
+0STRING NO.    1   ROW POSITION=    1   STRING TYPE=RDP   STRING TRAILERS=YES   NUMBER OF TERMS=    4
+   1.0000000D+00  1.0000000D+00  1.0000000D+00  1.0000000D+00
+
+ RECORD NO.     2
+
+
+ END OF FILE
+0TRAILER WORD1 =       1 WORD2 =       4 WORD3 =       8 WORD4 =       2 WORD5 =       8 WORD6 =   10000
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX ID4      (GINO NAME 104 ) IS A D.P.REAL      4 COLUMN X      4 ROW RECTANG  MATRIX.
+0COLUMN      1      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   1.000000D+00
+0COLUMN      2      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   1.000000D+00
+0COLUMN      3      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   1.000000D+00
+0COLUMN      4      ROWS      1 THRU      1     --------------------------------------------------
+ 
+   1.000000D+00
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =       2
+0THE DENSITY OF THIS MATRIX IS  25.00 PERCENT.
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX CMX      (GINO NAME 105 ) IS A D.P.REAL      1 COLUMN X      6 ROW RECTANG  MATRIX.
+0COLUMN      1      ROWS      1 THRU      6     --------------------------------------------------
+ 
+   1.111000D+00  2.222200D+01  3.333330D+02 -4.440000D+01  5.500000D+00 -6.666666D+04
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =      12
+0THE DENSITY OF THIS MATRIX IS 100.00 PERCENT.
+0*** USER INFORMATION MESSAGE FROM MATGEN MODULE, OPTION 10. TRAILER OF SYM      -
+     OLD -       4      4      6      2      8   8750
+     NEW -       4      4      1      2      8   8750
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+                                                                                                                                    
+0                                                                                                                                   
+0      MATRIX SYM      (GINO NAME 101 ) IS A D.P.REAL      4 COLUMN X      4 ROW SQUARE   MATRIX.
+0COLUMN      1      ROWS      1 THRU      3     --------------------------------------------------
+ 
+   1.100000D+03  2.200000D+03 -3.300000D+03
+0COLUMN      2      ROWS      1 THRU      4     --------------------------------------------------
+ 
+   2.200000D+03 -4.400000D+02  5.500000D+04 -6.600000D+04
+0COLUMN      3      ROWS      1 THRU      4     --------------------------------------------------
+ 
+  -3.300000D+03  5.500000D+03 -7.700000D+03  8.800000D+03
+0COLUMN      4      ROWS      2 THRU      4     --------------------------------------------------
+ 
+  -6.600000D+03  8.800000D+03 -9.900000D+03
+0THE NUMBER OF NON-ZERO WORDS IN THE LONGEST RECORD =       8
+0THE DENSITY OF THIS MATRIX IS  87.50 PERCENT.
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =                                                                     
+ DATE:  5/17/95
+ END TIME: 16:31: 4
+ TOTAL WALL CLOCK TIME      1 SEC.
+ 

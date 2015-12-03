@@ -1,0 +1,1039 @@
+     NASTRAN FILES=PLT2                                                              
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D03013A,NASTRAN                                                           
+     ALTER 1 $                                                                       
+     PARAM   //C,N,NOP/V,N,TRUE=-1 $                                                 
+     INPUT,  ,GEOM2,,,/G1,G2,,G4,/C,N,3/C,N,1 $                                      
+     EQUIV   G1,GEOM1/TRUE / G2,GEOM2/TRUE / G4,GEOM4/TRUE $                         
+     ENDALTER $                                                                      
+     APP     DISPLACEMENT                                                            
+     SOL     3,1                                                                     
+     DIAG    14                                                                      
+     TIME    35                                                                      
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = VIBRATIONS OF A 10 BY 20 PLATE                                       
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                          
+                  3      $                                                                               
+                  4           SPC = 10020                                                                
+                  5        METHOD = 5 $ ENCLOSE 2 MODES - FINDS 3 ROOTS                                  
+                  6      $              ROOTS ARE AT THE FOLLOWING FREQUENCIES (THEORETICAL)             
+                  7      $       MODE    M       N       FREQ                                            
+                  8      $       1       1       1       9.068997E-1                                     
+                  9      $       2       1       2       2.267249                                        
+                 10      $       5       1       3       4.534498                                        
+                 11      $       6       3       1       4.534498                                        
+                 12      $       7       3       2       5.894848                                        
+                 13      $       9       1       4       7.708647                                        
+                 14      $                                                                               
+                 15      OUTPUT                                                                          
+                 16         SET 1 = 1 THRU 11, 34 THRU 44, 56 THRU 66, 78 THRU 88, 111 THRU 121          
+                 17         SET 2 = 1 THRU 12, 22,23,33,34,44,45,55,56,66,67,77,78,88,89,                
+                 18                 99,100, 110 THRU 121                                                 
+                 19         DISPLACEMENTS = 1                                                            
+                 20         SPCFORCE = 2                                                                 
+                 21      $                                                                               
+                 22      PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                            
+                 23      OUTPUT(PLOT)                                                                    
+                 24      PLOTTER NASTPLT                                                                 
+                 25               SET 1 INCLUDE PLOTEL                                                   
+                 26               SET 2 INCLUDE QUAD1                                                    
+                 27               MAXIMUM DEFORMATION  1.0                                               
+                 28               FIND SCALE, ORIGIN 10                                                  
+                 29      PTITLE = ALL QUADS IN THE PLATE                                                 
+                 30      PLOT ORIGIN 10, SET 2, LABELS                                                   
+                 31               FIND SCALE, ORIGIN 11                                                  
+                 32      PTITLE = MODE SHAPES USING PLOTEL ELEMENTS                                      
+                 33      PLOT MODAL DEFORMATION 1, ORIGIN 11, SHAPE                                      
+                 34      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    77, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        EIGR    2       INV     .85     .89     1       1       0               CSIMPL-I
+                    2-        +SIMPL-IMAX                                                                     
+                    3-        EIGR    3       INV     .89     1.0     1       3       0               +EIG3-1 
+                    4-        +EIG3-1 MAX                                                                     
+                    5-        EIGR    4       DET     .89     1.0     1       1       0               +EIG4-1 
+                    6-        +EIG4-1 MAX                                                                     
+                    7-        EIGR    5       INV     .89     2.4     1       3       0               +EIG5-2 
+                    8-        +EIG5-2 MAX                                                                     
+                    9-        EIGR    6       DET     .89     2.4     2       2       0               +EIG6-2 
+                   10-        +EIG6-2 MAX                                                                     
+                   11-        EIGR    7       INV     .89     6.1     5       5       0               +EIG7-5 
+                   12-        +EIG7-5 MAX                                                                     
+                   13-        EIGR    8       DET     .89     6.1     5       5       0               +EIG8-5 
+                   14-        +EIG8-5 MAX                                                                     
+                   15-        EIGR    9       INV     .89     14.5    4       10      0               +EIG9-10
+                   16-        +EIG9-10MAX                                                                     
+                   17-        EIGR    10      DET     .89     14.5    5       5       0               +EIG1010
+                   18-        +EIG1010MAX                                                                     
+                   19-        EIGR    11      INV     .89     29.0    20      20      0               +EIG1120
+                   20-        +EIG1120MAX                                                                     
+                   21-        EIGR    12      DET     .89     29.0    20      20      0               +EIG1220
+                   22-        +EIG1220MAX                                                                     
+                   23-        MAT1    2       3.0+7           .300    200.0                           +MAT1   
+                   24-        +MAT1   30000.  28000.                                                          
+                   25-        PARAM   GRDPNT  111                                                             
+                   26-        PLOTEL  300     23      1                                                       
+                   27-        PLOTEL  301     1       11              302     11      231                     
+                   28-        PLOTEL  303     231     221             304     221     199                     
+                   29-        PLOTEL  305     199     201             306     201     203                     
+                   30-        PLOTEL  307     203     205             308     205     207                     
+                   31-        PLOTEL  309     207     209             310     187     185                     
+                   32-        PLOTEL  311     185     183             312     183     181                     
+                   33-        PLOTEL  313     181     179             314     179     177                     
+                   34-        PLOTEL  315     199     177             316     177     155                     
+                   35-        PLOTEL  317     155     157             318     157     159                     
+                   36-        PLOTEL  319     159     161             320     161     163                     
+                   37-        PLOTEL  321     163     165             322     143     141                     
+                   38-        PLOTEL  323     141     139             324     139     137                     
+                   39-        PLOTEL  325     137     135             326     135     133                     
+                   40-        PLOTEL  327     155     133             328     133     111                     
+                   41-        PLOTEL  329     111     113             330     113     115                     
+                   42-        PLOTEL  331     115     117             332     117     119                     
+                   43-        PLOTEL  333     119     121             334     99      97                      
+                   44-        PLOTEL  335     97      95              336     95      93                      
+                   45-        PLOTEL  337     93      91              338     91      89                      
+                   46-        PLOTEL  339     111     89              340     89      67                      
+                   47-        PLOTEL  341     67      69              342     69      71                      
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        PLOTEL  343     71      73              344     73      75                      
+                   49-        PLOTEL  345     75      77              346     55      53                      
+                   50-        PLOTEL  347     53      51              348     51      49                      
+                   51-        PLOTEL  349     49      47              350     47      45                      
+                   52-        PLOTEL  351     67      45              352     45      23                      
+                   53-        PLOTEL  353     23      25              354     25      27                      
+                   54-        PLOTEL  355     27      29              356     29      31                      
+                   55-        PLOTEL  357     31      33              358     9       31                      
+                   56-        PLOTEL  359     31      53              360     53      75                      
+                   57-        PLOTEL  361     75      97              362     97      119                     
+                   58-        PLOTEL  363     119     141             364     141     163                     
+                   59-        PLOTEL  365     163     185             366     185     207                     
+                   60-        PLOTEL  367     207     229             368     227     205                     
+                   61-        PLOTEL  369     205     183             370     183     161                     
+                   62-        PLOTEL  371     161     139             372     139     117                     
+                   63-        PLOTEL  373     117     95              374     95      73                      
+                   64-        PLOTEL  375     73      51              376     51      29                      
+                   65-        PLOTEL  377     29      7               378     5       27                      
+                   66-        PLOTEL  379     27      49              380     49      71                      
+                   67-        PLOTEL  381     71      93              382     93      115                     
+                   68-        PLOTEL  383     115     137             384     137     159                     
+                   69-        PLOTEL  385     159     181             386     181     203                     
+                   70-        PLOTEL  387     203     225             388     223     201                     
+                   71-        PLOTEL  389     201     179             390     179     157                     
+                   72-        PLOTEL  391     157     135             392     135     113                     
+                   73-        PLOTEL  393     113     91              394     91      69                      
+                   74-        PLOTEL  395     69      47              396     47      36                      
+                   75-        PLOTEL  397     36      25              398     25      3                       
+                   76-        PQUAD1  101     2       1.0     2       .0833333                6.04393 +PQUAD1 
+                   77-        +PQUAD1 .5      .0                                                              
+                              ENDDATA
+0*** USER INFORMATION MESSAGE, THE FOLLOWING PROPERTY IDS ARE PRESENT BUT NOT USED -
+
+           101
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 03 - NORMAL MODES ANALYSIS - APR. 1995 $                  
+
+       1  PARAM   //C,N,NOP/V,N,TRUE=-1 $                                         
+
+       1  INPUT,  ,GEOM2,,,/G1,G2,,G4,/C,N,3/C,N,1 $                              
+
+       1  EQUIV   G1,GEOM1/TRUE / G2,GEOM2/TRUE / G4,GEOM4/TRUE $                 
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     LAMA=APPEND/PHIA=APPEND $                                      
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/ALWAYS=-1 $                                             
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      12  COND     P1,JUMPPLOT $                                                  
+
+      13  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      14  PRTMSG   PLTSETX// $                                                    
+
+      15  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      16  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      17  COND     P1,JUMPPLOT $                                                  
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      18  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/S,N,JUMPPLOT/S,N,PLTFLG/S,N,PFILE  $                
+
+      19  PRTMSG   PLOTX1//$                                                      
+
+      20  LABEL    P1 $                                                           
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $                              
+
+      22  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      23  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      24  COND     ERROR4,NOSIMP $                                                
+
+      25  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      26  PARAM    //*ADD*/NOMGG/1/0 $                                            
+
+      27  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/C,Y,CPROD/C,Y,CPQUAD1/     
+                   C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/C,Y,CPTUBE/C,Y,CPQDPLT/    
+                   C,Y,CPTRPLT/C,Y,CPTRBSC/C,Y,VOLUME/C,Y,SURFACE $               
+
+      28  PURGE    KGGX/NOKGGX $                                                  
+
+      29  COND     JMPKGG,NOKGGX $                                                
+
+      30  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      31  LABEL    JMPKGG $                                                       
+
+      32  COND     ERROR1,NOMGG $                                                 
+
+      33  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      34  PURGE    MDICT,MELM/ALWAYS $                                            
+
+      35  COND     LGPWG,GRDPNT $                                                 
+
+      36  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/C,Y,WTMASS $         
+
+      37  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      38  LABEL    LGPWG $                                                        
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      39  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      40  COND     LBL11,NOGENL $                                                 
+
+      41  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      42  LABEL    LBL11 $                                                        
+
+      43  GPSTGEN  KGG,SIL/GPST $                                                 
+
+      44  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      45  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,YS,USET,           
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      46  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      47  COND     ERROR3,NOL $                                                   
+
+      48  PURGE    KRR,KLR,DM,MLR,MR/REACT/GM/MPCF1/GO/OMIT/KFS/SINGLE/QG/NOSET $ 
+
+      49  EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1 $                                  
+
+      50  COND     LBL2,MPCF1 $                                                   
+
+      51  MCE1     USET,RG/GM $                                                   
+
+      52  MCE2     USET,GM,KGG,MGG,,/KNN,MNN,, $                                  
+
+      53  LABEL    LBL2 $                                                         
+
+      54  EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE $                                
+
+      55  COND     LBL3,SINGLE $                                                  
+
+      56  SCE1     USET,KNN,MNN,,/KFF,KFS,,MFF,, $                                
+
+      57  LABEL    LBL3  $                                                        
+
+      58  EQUIV    KFF,KAA/OMIT $                                                 
+
+      59  EQUIV    MFF,MAA/OMIT $                                                 
+
+      60  COND     LBL5,OMIT $                                                    
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      61  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+
+      62  SMP2     USET,GO,MFF/MAA $                                              
+
+      63  LABEL    LBL5 $                                                         
+
+      64  COND     LBL6,REACT $                                                   
+
+      65  RBMG1    USET,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                         
+
+      66  RBMG2    KLL/LLL $                                                      
+
+      67  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      68  RBMG4    DM,MLL,MLR,MRR/MR $                                            
+
+      69  LABEL    LBL6 $                                                         
+
+      70  DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,,,,,,,EED,EQDYN/         
+                   LUSET/LUSETD/NOTFL/NODLT/NOPSDL/NOFRL/                         
+                   NONLFT/NOTRL/S,N,NOEED//NOUE $                                 
+
+      71  COND     ERROR2,NOEED $                                                 
+
+      72  PARAM    //*MPY*/NEIGV/1/-1 $                                           
+
+      73  READ     KAA,MAA,MR,DM,EED,USET,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/      
+                   S,N,NEIGV $                                                    
+
+      74  OFP      OEIGS,,,,,//S,N,CARDNO $                                       
+
+      75  COND     FINIS,NEIGV $                                                  
+
+      76  OFP      LAMA,,,,,//S,N,CARDNO $                                        
+
+      77  SDR1     USET,,PHIA,,,GO,GM,,KFS,,/PHIG,,QG/1/*REIG* $                  
+
+      78  COND     NOMPCF,GRDEQ $                                                 
+
+      79  EQMCK    CASECC,EQEXIN,GPL,BGPDT,SIL,USET,KGG,GM,PHIG,LAMA,QG,CSTM/     
+                   OQM1/V,Y,OPT=0/V,Y,GRDEQ/-1 $                                  
+
+      80  OFP      OQM1,,,,,//S,N,CARDNO $                                        
+
+      81  LABEL    NOMPCF $                                                       
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      82  SDR2     CASECC,CSTM,MPT,DIT,EQEXIN,SIL,,,BGPDP,LAMA,QG,PHIG,EST,,,     
+                   PCOMPS/,OQG1,OPHIG,OES1,OEF1,PPHIG,OES1L,OEF1L/                
+                   *REIG*////COMPS $                                              
+
+      83  OFP      OPHIG,OQG1,OEF1,OES1,OEF1L,OES1L//S,N,CARDNO $                 
+
+      84  SCAN     CASECC,OES1,OEF1,OES1L,OEF1L/OESF1,OESF1L/*RF* $               
+
+      85  OFP      OESF1,OESF1L,,,,//S,N,CARDNO $                                 
+
+      86  GPFDR    CASECC,PHIG,KELM,KDICT,ECT,EQEXIN,GPECT,LAMA,/ONRGY1,/*REIG* $ 
+
+      87  OFP      ONRGY1,,,,,//S,N,CARDNO $                                      
+
+      88  PURGE    KDICT,KELM/ALWAYS $                                            
+
+      89  COND     P2,JUMPPLOT $                                                  
+
+      90  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIP,,PPHIG,GPECT,OES1,
+                   OES1L,/PLOTX2/NSIL/LUSEP/JUMPPLOT/PLTFLG/S,N,PFILE $           
+
+      91  PRTMSG   PLOTX2// $                                                     
+
+      92  LABEL    P2 $                                                           
+
+      93  JUMP     FINIS $                                                        
+
+      94  LABEL    ERROR1 $                                                       
+
+      95  PRTPARM  //-1/*MODES* $                                                 
+
+      96  LABEL    ERROR2 $                                                       
+
+      97  PRTPARM  //-2/*MODES* $                                                 
+
+      98  LABEL    ERROR3 $                                                       
+
+      99  PRTPARM  //-3/*MODES* $                                                 
+
+     100  LABEL    ERROR4 $                                                       
+
+     101  PRTPARM  //-4/*MODES* $                                                 
+
+     102  LABEL    FINIS $                                                        
+
+     103  PURGE    DUMMY/ALWAYS $                                                 
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+
+                                                                                                                                    
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+     104  END      $                                                              
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+
+
+                    * U T I L I T Y   M O D U L E   I N P U T *
+
+
+                    INPUT DATA ECHO (DATA READ VIA FORTRAN, REMEMBER TO RIGHT ADJUST)
+
+
+                    *   1  **   2  **   3  **   4  **   5  **   6  **   7  **   8  **   9  **  10  *
+
+
+
+                           10      20 1.0E+00 1.0E+00     126 0.0E+00 0.0E+00
+                           35       5      35      34       0       0
+0*** USER INFORMATION MESSAGE, PLOT FILE GOES TO PLT2
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          ORTHOGRAPHIC PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =  23.17, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 2.539654E-01                                                                                
+                                                                                                                                    
+          ORIGIN      10   -   X0 = -4.398808E-01, Y0 = -0.345970E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+                                                 PLOT        1  UNDEFORMED SHAPE                                                    
+                                                 ORIGIN     10  USED IN THIS PLOT                                                   
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD1    ELEMENTS (ELEMENT TYPE  19) STARTING WITH ID        1
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                           O U T P U T   F R O M   G R I D   P O I N T   W E I G H T   G E N E R A T O R
+0                                                     REFERENCE POINT =      111
+ 
+ 
+                                     MO - RIGID BODY MASS MATRIX IN BASIC COORDINATE SYSTEM
+                ***                                                                                             ***
+                *  4.12087860D+04  0.00000000D+00  0.00000000D+00  0.00000000D+00  0.00000000D+00  0.00000000D+00 *
+                *  0.00000000D+00  4.12087860D+04  0.00000000D+00  0.00000000D+00  0.00000000D+00  2.06043930D+05 *
+                *  0.00000000D+00  0.00000000D+00  4.12087860D+04  0.00000000D+00 -2.06043930D+05  0.00000000D+00 *
+                *  0.00000000D+00  0.00000000D+00  0.00000000D+00  1.38049433D+06  0.00000000D+00  0.00000000D+00 *
+                *  0.00000000D+00  0.00000000D+00 -2.06043930D+05  0.00000000D+00  1.38049433D+06  0.00000000D+00 *
+                *  0.00000000D+00  2.06043930D+05  0.00000000D+00  0.00000000D+00  0.00000000D+00  2.76098866D+06 *
+                ***                                                                                             ***
+                                        S - TRANSFORMATION MATRIX FOR SCALAR MASS PARTITION
+                                        ***                                             ***
+                                        *  1.00000000D+00  0.00000000D+00  0.00000000D+00 *
+                                        *  0.00000000D+00  1.00000000D+00  0.00000000D+00 *
+                                        *  0.00000000D+00  0.00000000D+00  1.00000000D+00 *
+                                        ***                                             ***
+                         DIRECTION
+                    MASS AXIS SYSTEM (S)       MASS                 X-C.G.           Y-C.G.           Z-C.G.
+                            X            4.120878601D+04      0.000000000D+00  0.000000000D+00  0.000000000D+00
+                            Y            4.120878601D+04      5.000000000D+00  0.000000000D+00  0.000000000D+00
+                            Z            4.120878601D+04      5.000000000D+00  0.000000000D+00  0.000000000D+00
+
+                                                 I(S) - INERTIAS RELATIVE TO C.G. 
+                                      ***                                                 ***
+                                      *  1.380494331D+06  0.000000000D+00  0.000000000D+00  *
+                                      *  0.000000000D+00  3.502746811D+05  0.000000000D+00  *
+                                      *  0.000000000D+00  0.000000000D+00  1.730769012D+06  *
+                                      ***                                                 ***
+                                                      I(Q) - PRINCIPAL INERTIAS
+                                      ***                                                 ***
+                                      *  1.380494331D+06                                    *
+                                      *                   3.502746811D+05                   *
+                                      *                                    1.730769012D+06  *
+                                      ***                                                 ***
+                                            Q - TRANSFORMATION MATRIX - I(Q) = QT*I(S)*Q
+                                      ***                                                 ***
+                                      *  1.000000000D+00  0.000000000D+00  0.000000000D+00  *
+                                      *  0.000000000D+00  1.000000000D+00  0.000000000D+00  *
+                                      *  0.000000000D+00  0.000000000D+00  1.000000000D+00  *
+                                      ***                                                 ***
+                        1 ROOTS BELOW   1.293333E+02
+                        2 ROOTS BELOW   2.025893E+02
+                        4 ROOTS BELOW   8.112073E+02
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (INVERSE POWER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .         3
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         3
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        26
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         4*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.00E+00
+0                                                                              . . .         0
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         0
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* 3X EST.ROOTS IN RANGE SPECIFIED.
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+
+                                     ****************************************************************
+                                     *                                                              *
+                                     *
++                                             NASTRAN INFORMATION MESSAGE 3307, POTENTIALLY         *
+                                     *         4 EIGENVALUE(S) AT LOW FREQ. END NOT FOUND           *
+                                     *                                                              *
+                                     *        (THIS MESSAGE CAN BE SUPPRESSED BY DIAG 37)           *
+                                     ****************************************************************
+
+        1         2        3.237408E+01        5.689823E+00        9.055634E-01        1.030220E+04        3.335242E+05             
+        2         1        2.022407E+02        1.422113E+01        2.263364E+00        1.030220E+04        2.083523E+06             
+        3         3        8.111597E+02        2.848087E+01        4.532870E+00        5.601166E+03        4.543440E+06             
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.323741E+02    (CYCLIC FREQUENCY =  9.055634E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            1.569410E-01   0.0            0.0                           
+             2      G      0.0            0.0            0.0            1.550088E-01   0.0            0.0                           
+             3      G      0.0            0.0            0.0            1.492598E-01   0.0            0.0                           
+             4      G      0.0            0.0            0.0            1.398354E-01   0.0            0.0                           
+             5      G      0.0            0.0            0.0            1.269680E-01   0.0            0.0                           
+             6      G      0.0            0.0            0.0            1.109741E-01   0.0            0.0                           
+             7      G      0.0            0.0            0.0            9.224761E-02   0.0            0.0                           
+             8      G      0.0            0.0            0.0            7.124973E-02   0.0            0.0                           
+             9      G      0.0            0.0            0.0            4.849744E-02   0.0            0.0                           
+            10      G      0.0            0.0            0.0            2.455098E-02   0.0            0.0                           
+            11      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            34      G      0.0            0.0            4.539905E-01   1.398354E-01   0.0            0.0                           
+            35      G      0.0            0.0            4.484011E-01   1.381139E-01   1.114591E-02   0.0                           
+            36      G      0.0            0.0            4.317706E-01   1.329914E-01   2.201737E-02   0.0                           
+            37      G      0.0            0.0            4.045085E-01   1.245943E-01   3.234670E-02   0.0                           
+            38      G      0.0            0.0            3.672860E-01   1.131293E-01   4.187954E-02   0.0                           
+            39      G      0.0            0.0            3.210197E-01   9.887860E-02   5.038116E-02   0.0                           
+            40      G      0.0            0.0            2.668489E-01   8.219323E-02   5.764224E-02   0.0                           
+            41      G      0.0            0.0            2.061074E-01   6.348398E-02   6.348398E-02   0.0                           
+            42      G      0.0            0.0            1.402908E-01   4.321153E-02   6.776251E-02   0.0                           
+            43      G      0.0            0.0            7.101975E-02   2.187509E-02   7.037253E-02   0.0                           
+            44      G      0.0            0.0            0.0            0.0            7.124973E-02   0.0                           
+            56      G      0.0            0.0            7.071067E-01   1.109741E-01   0.0            0.0                           
+            57      G      0.0            0.0            6.984012E-01   1.096078E-01   1.736017E-02   0.0                           
+            58      G      0.0            0.0            6.724985E-01   1.055426E-01   3.429287E-02   0.0                           
+            59      G      0.0            0.0            6.300367E-01   9.887860E-02   5.038116E-02   0.0                           
+            60      G      0.0            0.0            5.720614E-01   8.977990E-02   6.522890E-02   0.0                           
+            61      G      0.0            0.0            5.000000E-01   7.847050E-02   7.847050E-02   0.0                           
+            62      G      0.0            0.0            4.156269E-01   6.522890E-02   8.977990E-02   0.0                           
+            63      G      0.0            0.0            3.210197E-01   5.038116E-02   9.887860E-02   0.0                           
+            64      G      0.0            0.0            2.185080E-01   3.429287E-02   1.055426E-01   0.0                           
+            65      G      0.0            0.0            1.106159E-01   1.736017E-02   1.096078E-01   0.0                           
+            66      G      0.0            0.0            0.0            0.0            1.109741E-01   0.0                           
+            78      G      0.0            0.0            8.910065E-01   7.124973E-02   0.0            0.0                           
+            79      G      0.0            0.0            8.800368E-01   7.037253E-02   2.187509E-02   0.0                           
+            80      G      0.0            0.0            8.473975E-01   6.776251E-02   4.321153E-02   0.0                           
+            81      G      0.0            0.0            7.938926E-01   6.348398E-02   6.348398E-02   0.0                           
+            82      G      0.0            0.0            7.208394E-01   5.764224E-02   8.219323E-02   0.0                           
+            83      G      0.0            0.0            6.300367E-01   5.038116E-02   9.887860E-02   0.0                           
+            84      G      0.0            0.0            5.237205E-01   4.187954E-02   1.131293E-01   0.0                           
+            85      G      0.0            0.0            4.045085E-01   3.234670E-02   1.245943E-01   0.0                           
+            86      G      0.0            0.0            2.753361E-01   2.201737E-02   1.329914E-01   0.0                           
+            87      G      0.0            0.0            1.393841E-01   1.114591E-02   1.381139E-01   0.0                           
+            88      G      0.0            0.0            0.0            0.0            1.398354E-01   0.0                           
+           111      G      0.0            0.0            1.000000E+00  -1.489614E-11   0.0            0.0                           
+           112      G      0.0            0.0            9.876884E-01  -1.214225E-11   2.455098E-02   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.323741E+02    (CYCLIC FREQUENCY =  9.055634E-01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           113      G      0.0            0.0            9.510565E-01  -4.563531E-12   4.849744E-02   0.0                           
+           114      G      0.0            0.0            8.910065E-01   5.406898E-12   7.124973E-02   0.0                           
+           115      G      0.0            0.0            8.090169E-01   1.506906E-11   9.224761E-02   0.0                           
+           116      G      0.0            0.0            7.071067E-01   2.204741E-11   1.109741E-01   0.0                           
+           117      G      0.0            0.0            5.877852E-01   2.496322E-11   1.269680E-01   0.0                           
+           118      G      0.0            0.0            4.539905E-01   2.347477E-11   1.398354E-01   0.0                           
+           119      G      0.0            0.0            3.090170E-01   1.807140E-11   1.492598E-01   0.0                           
+           120      G      0.0            0.0            1.564345E-01   9.791383E-12   1.550088E-01   0.0                           
+           121      G      0.0            0.0            0.0            0.0            1.569410E-01   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.202241E+03    (CYCLIC FREQUENCY =  2.263364E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            3.145222E-01   0.0            0.0                           
+             2      G      0.0            0.0            0.0            3.106499E-01   0.0            0.0                           
+             3      G      0.0            0.0            0.0            2.991284E-01   0.0            0.0                           
+             4      G      0.0            0.0            0.0            2.802413E-01   0.0            0.0                           
+             5      G      0.0            0.0            0.0            2.544538E-01   0.0            0.0                           
+             6      G      0.0            0.0            0.0            2.224008E-01   0.0            0.0                           
+             7      G      0.0            0.0            0.0            1.848715E-01   0.0            0.0                           
+             8      G      0.0            0.0            0.0            1.427901E-01   0.0            0.0                           
+             9      G      0.0            0.0            0.0            9.719270E-02   0.0            0.0                           
+            10      G      0.0            0.0            0.0            4.920211E-02   0.0            0.0                           
+            11      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            34      G      0.0            0.0            8.090169E-01   1.848715E-01   0.0            0.0                           
+            35      G      0.0            0.0            7.990566E-01   1.825954E-01   1.977073E-02   0.0                           
+            36      G      0.0            0.0            7.694208E-01   1.758233E-01   3.905464E-02   0.0                           
+            37      G      0.0            0.0            7.208394E-01   1.647217E-01   5.737691E-02   0.0                           
+            38      G      0.0            0.0            6.545085E-01   1.495642E-01   7.428636E-02   0.0                           
+            39      G      0.0            0.0            5.720614E-01   1.307239E-01   8.936661E-02   0.0                           
+            40      G      0.0            0.0            4.755282E-01   1.086647E-01   1.022464E-01   0.0                           
+            41      G      0.0            0.0            3.672860E-01   8.392990E-02   1.126085E-01   0.0                           
+            42      G      0.0            0.0            2.500000E-01   5.712844E-02   1.201978E-01   0.0                           
+            43      G      0.0            0.0            1.265581E-01   2.892027E-02   1.248275E-01   0.0                           
+            44      G      0.0            0.0            0.0            0.0            1.263835E-01   0.0                           
+            56      G      0.0            0.0            1.000000E+00   3.752479E-15   0.0            0.0                           
+            57      G      0.0            0.0            9.876884E-01   8.362275E-15   2.443797E-02   0.0                           
+            58      G      0.0            0.0            9.510565E-01   2.084885E-14   4.827420E-02   0.0                           
+            59      G      0.0            0.0            8.910065E-01   3.480149E-14   7.092176E-02   0.0                           
+            60      G      0.0            0.0            8.090169E-01   4.721130E-14   9.182297E-02   0.0                           
+            61      G      0.0            0.0            7.071067E-01   5.345043E-14   1.104632E-01   0.0                           
+            62      G      0.0            0.0            5.877852E-01   5.466399E-14   1.263835E-01   0.0                           
+            63      G      0.0            0.0            4.539905E-01   4.922448E-14   1.391918E-01   0.0                           
+            64      G      0.0            0.0            3.090170E-01   3.725479E-14   1.485727E-01   0.0                           
+            65      G      0.0            0.0            1.564345E-01   2.019245E-14   1.542953E-01   0.0                           
+            66      G      0.0            0.0            0.0            0.0            1.562186E-01   0.0                           
+            78      G      0.0            0.0            8.090169E-01  -1.848715E-01   0.0            0.0                           
+            79      G      0.0            0.0            7.990566E-01  -1.825954E-01   1.977073E-02   0.0                           
+            80      G      0.0            0.0            7.694208E-01  -1.758233E-01   3.905464E-02   0.0                           
+            81      G      0.0            0.0            7.208394E-01  -1.647217E-01   5.737691E-02   0.0                           
+            82      G      0.0            0.0            6.545085E-01  -1.495642E-01   7.428636E-02   0.0                           
+            83      G      0.0            0.0            5.720614E-01  -1.307239E-01   8.936661E-02   0.0                           
+            84      G      0.0            0.0            4.755282E-01  -1.086647E-01   1.022464E-01   0.0                           
+            85      G      0.0            0.0            3.672860E-01  -8.392990E-02   1.126085E-01   0.0                           
+            86      G      0.0            0.0            2.500000E-01  -5.712844E-02   1.201978E-01   0.0                           
+            87      G      0.0            0.0            1.265581E-01  -2.892027E-02   1.248275E-01   0.0                           
+            88      G      0.0            0.0            0.0            0.0            1.263835E-01   0.0                           
+           111      G      0.0            0.0            1.052307E-12  -3.145222E-01   0.0            0.0                           
+           112      G      0.0            0.0            1.074882E-12  -3.106499E-01  -4.677274E-14   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.202241E+03    (CYCLIC FREQUENCY =  2.263364E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           113      G      0.0            0.0            1.136289E-12  -2.991284E-01  -6.421723E-14   0.0                           
+           114      G      0.0            0.0            1.183414E-12  -2.802413E-01  -2.215107E-14   0.0                           
+           115      G      0.0            0.0            1.174488E-12  -2.544538E-01   4.091110E-14   0.0                           
+           116      G      0.0            0.0            1.107346E-12  -2.224008E-01   9.098555E-14   0.0                           
+           117      G      0.0            0.0            9.944418E-13  -1.848715E-01   1.395653E-13   0.0                           
+           118      G      0.0            0.0            8.247490E-13  -1.427901E-01   2.024780E-13   0.0                           
+           119      G      0.0            0.0            5.926236E-13  -9.719270E-02   2.613617E-13   0.0                           
+           120      G      0.0            0.0            3.101129E-13  -4.920211E-02   3.017233E-13   0.0                           
+           121      G      0.0            0.0            0.0            0.0            3.159660E-13   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.811160E+03    (CYCLIC FREQUENCY =  4.532870E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0           -2.520193E-01   0.0            0.0                           
+             2      G      0.0            0.0            0.0           -2.541968E-01   0.0            0.0                           
+             3      G      0.0            0.0            0.0           -2.595249E-01   0.0            0.0                           
+             4      G      0.0            0.0            0.0           -2.646700E-01   0.0            0.0                           
+             5      G      0.0            0.0            0.0           -2.649501E-01   0.0            0.0                           
+             6      G      0.0            0.0            0.0           -2.554428E-01   0.0            0.0                           
+             7      G      0.0            0.0            0.0           -2.321781E-01   0.0            0.0                           
+             8      G      0.0            0.0            0.0           -1.931526E-01   0.0            0.0                           
+             9      G      0.0            0.0            0.0           -1.389404E-01   0.0            0.0                           
+            10      G      0.0            0.0            0.0           -7.276327E-02   0.0            0.0                           
+            11      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+            34      G      0.0            0.0           -4.799215E-01   6.946530E-04   0.0            0.0                           
+            35      G      0.0            0.0           -4.894721E-01  -4.018719E-03   1.884091E-02   0.0                           
+            36      G      0.0            0.0           -5.145187E-01  -1.701719E-02   3.057361E-02   0.0                           
+            37      G      0.0            0.0           -5.450697E-01  -3.512749E-02   2.971329E-02   0.0                           
+            38      G      0.0            0.0           -5.670359E-01  -5.384482E-02   1.366620E-02   0.0                           
+            39      G      0.0            0.0           -5.654854E-01  -6.832857E-02  -1.663638E-02   0.0                           
+            40      G      0.0            0.0           -5.281482E-01  -7.447623E-02  -5.687805E-02   0.0                           
+            41      G      0.0            0.0           -4.484011E-01  -6.984095E-02  -1.002417E-01   0.0                           
+            42      G      0.0            0.0           -3.270751E-01  -5.419214E-02  -1.388477E-01   0.0                           
+            43      G      0.0            0.0           -1.726819E-01  -2.959640E-02  -1.654323E-01   0.0                           
+            44      G      0.0            0.0            0.0            0.0           -1.749033E-01   0.0                           
+            56      G      0.0            0.0           -2.090134E-01   2.554428E-01   0.0            0.0                           
+            57      G      0.0            0.0           -2.305183E-01   2.485641E-01   4.240787E-02   0.0                           
+            58      G      0.0            0.0           -2.892550E-01   2.289113E-01   7.342280E-02   0.0                           
+            59      G      0.0            0.0           -3.691750E-01   1.992327E-01   8.418828E-02   0.0                           
+            60      G      0.0            0.0           -4.475380E-01   1.634801E-01   7.036638E-02   0.0                           
+            61      G      0.0            0.0           -5.000000E-01   1.260096E-01   3.313248E-02   0.0                           
+            62      G      0.0            0.0           -5.060984E-01   9.071678E-02  -2.103575E-02   0.0                           
+            63      G      0.0            0.0           -4.539354E-01   6.029223E-02  -8.173006E-02   0.0                           
+            64      G      0.0            0.0           -3.430314E-01   3.575867E-02  -1.368460E-01   0.0                           
+            65      G      0.0            0.0           -1.847212E-01   1.638598E-02  -1.751937E-01   0.0                           
+            66      G      0.0            0.0            0.0            0.0           -1.889171E-01   0.0                           
+            78      G      0.0            0.0            4.151546E-01   3.276548E-01   0.0            0.0                           
+            79      G      0.0            0.0            3.797029E-01   3.212236E-01   6.989671E-02   0.0                           
+            80      G      0.0            0.0            2.808347E-01   3.026109E-01   1.250322E-01   0.0                           
+            81      G      0.0            0.0            1.393841E-01   2.737288E-01   1.538512E-01   0.0                           
+            82      G      0.0            0.0           -1.499114E-02   2.373566E-01   1.505122E-01   0.0                           
+            83      G      0.0            0.0           -1.502459E-01   1.966215E-01   1.161495E-01   0.0                           
+            84      G      0.0            0.0           -2.388932E-01   1.544351E-01   5.861626E-02   0.0                           
+            85      G      0.0            0.0           -2.639473E-01   1.130057E-01  -9.236285E-03   0.0                           
+            86      G      0.0            0.0           -2.225684E-01   7.352924E-02  -7.236808E-02   0.0                           
+            87      G      0.0            0.0           -1.266173E-01   3.612101E-02  -1.168347E-01   0.0                           
+            88      G      0.0            0.0            0.0            0.0           -1.328318E-01   0.0                           
+           111      G      0.0            0.0            1.000000E+00   1.367269E-17   0.0            0.0                           
+           112      G      0.0            0.0            9.536365E-01  -1.676524E-15   9.140213E-02   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.811160E+03    (CYCLIC FREQUENCY =  4.532870E+00 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           113      G      0.0            0.0            8.231105E-01  -3.325381E-15   1.659184E-01   0.0                           
+           114      G      0.0            0.0            6.322864E-01  -4.347521E-15   2.102688E-01   0.0                           
+           115      G      0.0            0.0            4.152396E-01  -2.325889E-15   2.176016E-01   0.0                           
+           116      G      0.0            0.0            2.090134E-01   2.333879E-16   1.889171E-01   0.0                           
+           117      G      0.0            0.0            4.579712E-02   2.310383E-15   1.327858E-01   0.0                           
+           118      G      0.0            0.0           -5.377634E-02   3.148243E-15   6.342317E-02   0.0                           
+           119      G      0.0            0.0           -8.476044E-02   2.676253E-15  -2.458215E-03   0.0                           
+           120      G      0.0            0.0           -5.856040E-02   1.786816E-15  -4.933063E-02   0.0                           
+           121      G      0.0            0.0            0.0            0.0           -6.626496E-02   0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.323741E+02    (CYCLIC FREQUENCY =  9.055634E-01 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0           -1.433884E+04   0.0           -7.826680E+02   0.0                           
+             2      G      0.0            0.0           -2.832498E+04   0.0            9.970744E+01   0.0                           
+             3      G      0.0            0.0           -2.727357E+04   0.0            1.969270E+02   0.0                           
+             4      G      0.0            0.0           -2.555256E+04   0.0            2.893149E+02   0.0                           
+             5      G      0.0            0.0           -2.320054E+04   0.0            3.746189E+02   0.0                           
+             6      G      0.0            0.0           -2.027748E+04   0.0            4.506416E+02   0.0                           
+             7      G      0.0            0.0           -1.685639E+04   0.0            5.155930E+02   0.0                           
+             8      G      0.0            0.0           -1.301857E+04   0.0            5.678295E+02   0.0                           
+             9      G      0.0            0.0           -8.861663E+03   0.0            6.060587E+02   0.0                           
+            10      G      0.0            0.0           -4.485962E+03   0.0            6.294200E+02   0.0                           
+            11      G      0.0            0.0            9.514386E+04   3.186320E+02   3.186320E+02   0.0                           
+            12      G      0.0            0.0            0.0            0.0           -1.378127E+04   0.0                           
+            22      G      0.0            0.0           -4.485962E+03   6.294200E+02   0.0            0.0                           
+            23      G      0.0            0.0            0.0            0.0           -2.722528E+04   0.0                           
+            33      G      0.0            0.0           -8.861663E+03   6.060587E+02   0.0            0.0                           
+            34      G      0.0            0.0            0.0            0.0           -3.999459E+04   0.0                           
+            44      G      0.0            0.0           -1.301856E+04   5.678280E+02   0.0            0.0                           
+            45      G      0.0            0.0            0.0            0.0           -5.178103E+04   0.0                           
+            55      G      0.0            0.0           -1.685639E+04   5.155919E+02   0.0            0.0                           
+            56      G      0.0            0.0            0.0            0.0           -6.229187E+04   0.0                           
+            66      G      0.0            0.0           -2.027749E+04   4.506400E+02   0.0            0.0                           
+            67      G      0.0            0.0            0.0            0.0           -7.127343E+04   0.0                           
+            77      G      0.0            0.0           -2.320054E+04   3.746189E+02   0.0            0.0                           
+            78      G      0.0            0.0            0.0            0.0           -7.849399E+04   0.0                           
+            88      G      0.0            0.0           -2.555256E+04   2.893149E+02   0.0            0.0                           
+            89      G      0.0            0.0            0.0            0.0           -8.378493E+04   0.0                           
+            99      G      0.0            0.0           -2.727357E+04   1.969270E+02   0.0            0.0                           
+           100      G      0.0            0.0            0.0            0.0           -8.701452E+04   0.0                           
+           110      G      0.0            0.0           -2.832498E+04   9.970744E+01   0.0            0.0                           
+           111      G      0.0            0.0            0.0            0.0           -8.809728E+04   0.0                           
+           121      G      0.0            0.0           -2.867768E+04   5.829002E-06   0.0            0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.202241E+03    (CYCLIC FREQUENCY =  2.263364E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0           -6.034997E+04   0.0           -9.177875E+03   0.0                           
+             2      G      0.0            0.0           -1.192102E+05   0.0            7.796655E+02   0.0                           
+             3      G      0.0            0.0           -1.147899E+05   0.0            1.539890E+03   0.0                           
+             4      G      0.0            0.0           -1.075431E+05   0.0            2.262399E+03   0.0                           
+             5      G      0.0            0.0           -9.764775E+04   0.0            2.929282E+03   0.0                           
+             6      G      0.0            0.0           -8.534572E+04   0.0            3.523900E+03   0.0                           
+             7      G      0.0            0.0           -7.094527E+04   0.0            4.031738E+03   0.0                           
+             8      G      0.0            0.0           -5.479538E+04   0.0            4.440331E+03   0.0                           
+             9      G      0.0            0.0           -3.729831E+04   0.0            4.739575E+03   0.0                           
+            10      G      0.0            0.0           -1.888134E+04   0.0            4.922172E+03   0.0                           
+            11      G      0.0            0.0            1.909854E+05   6.566249E+02   2.491764E+03   0.0                           
+            12      G      0.0            0.0            0.0            0.0           -4.533337E+04   0.0                           
+            22      G      0.0            0.0           -2.544192E+04   1.249022E+03   0.0            0.0                           
+            23      G      0.0            0.0            0.0            0.0           -8.622433E+04   0.0                           
+            33      G      0.0            0.0           -4.839438E+04   1.062475E+03   0.0            0.0                           
+            34      G      0.0            0.0            0.0            0.0           -1.186810E+05   0.0                           
+            44      G      0.0            0.0           -6.660855E+04   7.718511E+02   0.0            0.0                           
+            45      G      0.0            0.0            0.0            0.0           -1.395158E+05   0.0                           
+            55      G      0.0            0.0           -7.830195E+04   4.058154E+02   0.0            0.0                           
+            56      G      0.0            0.0            0.0            0.0           -1.466964E+05   0.0                           
+            66      G      0.0            0.0           -8.233291E+04   1.295120E-08   0.0            0.0                           
+            67      G      0.0            0.0            0.0            0.0           -1.395158E+05   0.0                           
+            77      G      0.0            0.0           -7.830195E+04  -4.058154E+02   0.0            0.0                           
+            78      G      0.0            0.0            0.0            0.0           -1.186810E+05   0.0                           
+            88      G      0.0            0.0           -6.660855E+04  -7.718511E+02   0.0            0.0                           
+            89      G      0.0            0.0            0.0            0.0           -8.622433E+04   0.0                           
+            99      G      0.0            0.0           -4.839438E+04  -1.062475E+03   0.0            0.0                           
+           100      G      0.0            0.0            0.0            0.0           -4.533337E+04   0.0                           
+           110      G      0.0            0.0           -2.544192E+04  -1.249022E+03   0.0            0.0                           
+           111      G      0.0            0.0            0.0            0.0            5.203232E-06   0.0                           
+           121      G      0.0            0.0           -3.849894E-06  -1.313250E+03   0.0            0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.811160E+03    (CYCLIC FREQUENCY =  4.532870E+00 HZ)
+
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            7.941492E+04   0.0            2.243875E+04   0.0                           
+             2      G      0.0            0.0            1.626678E+05   0.0           -1.404194E+03   0.0                           
+             3      G      0.0            0.0            1.728195E+05   0.0           -2.830049E+03   0.0                           
+             4      G      0.0            0.0            1.855275E+05   0.0           -4.286404E+03   0.0                           
+             5      G      0.0            0.0            1.954792E+05   0.0           -5.759770E+03   0.0                           
+             6      G      0.0            0.0            1.970363E+05   0.0           -7.209116E+03   0.0                           
+             7      G      0.0            0.0            1.855519E+05   0.0           -8.568526E+03   0.0                           
+             8      G      0.0            0.0            1.584801E+05   0.0           -9.755316E+03   0.0                           
+             9      G      0.0            0.0            1.160637E+05   0.0           -1.068252E+04   0.0                           
+            10      G      0.0            0.0            6.141778E+04   0.0           -1.127379E+04   0.0                           
+            11      G      0.0            0.0           -2.881166E+05  -3.535219E+03  -5.738536E+03   0.0                           
+            12      G      0.0            0.0            0.0            0.0            3.457399E+04   0.0                           
+            22      G      0.0            0.0            6.863066E+04  -6.869414E+03   0.0            0.0                           
+            23      G      0.0            0.0            0.0            0.0            5.473893E+04   0.0                           
+            33      G      0.0            0.0            1.258981E+05  -6.296141E+03   0.0            0.0                           
+            34      G      0.0            0.0            0.0            0.0            4.939430E+04   0.0                           
+            44      G      0.0            0.0            1.628279E+05  -5.433880E+03   0.0            0.0                           
+            45      G      0.0            0.0            0.0            0.0            1.333909E+04   0.0                           
+            55      G      0.0            0.0            1.747038E+05  -4.402089E+03   0.0            0.0                           
+            56      G      0.0            0.0            0.0            0.0           -5.144681E+04   0.0                           
+            66      G      0.0            0.0            1.620123E+05  -3.332382E+03   0.0            0.0                           
+            67      G      0.0            0.0            0.0            0.0           -1.360840E+05   0.0                           
+            77      G      0.0            0.0            1.302665E+05  -2.341879E+03   0.0            0.0                           
+            78      G      0.0            0.0            0.0            0.0           -2.265988E+05   0.0                           
+            88      G      0.0            0.0            8.872896E+04  -1.510433E+03   0.0            0.0                           
+            89      G      0.0            0.0            0.0            0.0           -3.068642E+05   0.0                           
+            99      G      0.0            0.0            4.834000E+04  -8.668965E+02   0.0            0.0                           
+           100      G      0.0            0.0            0.0            0.0           -3.620159E+05   0.0                           
+           110      G      0.0            0.0            1.928358E+04  -3.864536E+02   0.0            0.0                           
+           111      G      0.0            0.0            0.0            0.0           -3.816448E+05   0.0                           
+           121      G      0.0            0.0            8.737829E+03   8.585630E-10   0.0            0.0                           
+1     VIBRATIONS OF A 10 BY 20 PLATE                                        /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                                                                                   
+0                                                                                                                                   
+                                                  MESSAGES FROM THE PLOT MODULE                                                   
+
+
+
+
+
+ P L O T T E R    D A T A                                                                                                           
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE FOR A NASTPLT MICROFILM PLOTTER WITHOUT TYPING CAPABILITY                                         
+                                                                                                                                    
+          AN END-OF-FILE MARK FOLLOWS THE LAST PLOT                                                                                 
+                                                                                                                                    
+          THE FIRST COMMAND FOR EACH PLOT CONTAINS THE PLOT NUMBER                                                                  
+                                                                                                                                    
+          CSCALE =  1.00                                                                                                            
+                                                                                                                                    
+          THE FOLLOWING PLOTS ARE REQUESTED ON PAPER ONLY                                                                           
+                                                                                                                                    
+
+
+
+
+ E N G I N E E R I N G    D A T A                                                                                                   
+                                                                                                                                    
+          ORTHOGRAPHIC PROJECTION                                                                                                   
+          ROTATIONS (DEGREES) - GAMMA =  34.27, BETA =  23.17, ALPHA =   0.00,  AXES = +X,+Y,+Z, SYMMETRIC                          
+          SCALE (OBJECT-TO-PLOT SIZE) = 2.539654E-01                                                                                
+                                                                                                                                    
+          ORIGIN      10   -   X0 = -4.398808E-01, Y0 = -0.345970E+01     (INCHES)                                                  
+          ORIGIN      11   -   X0 = -4.398808E-01, Y0 = -0.345970E+01     (INCHES)                                                  
+
+
+
+
+                                                  PLOT MODULE MESSAGES CONTINUE                                                     
+                                                                                                                                    
+          PLOT    2   MODAL  DEFORM.     1 - SUBCASE       1 - MODE   9.055634E-01 - FREQUENCY                                      
+          PLOT    3   MODAL  DEFORM.     1 - SUBCASE       2 - MODE   2.263364E+00 - FREQUENCY                                      
+          PLOT    4   MODAL  DEFORM.     1 - SUBCASE       3 - MODE   4.532870E+00 - FREQUENCY                                      
+                                                 ORIGIN     11  USED IN THIS PLOT                                                   
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  VIBRATIONS OF A 10 BY 20 PLATE                                     
+ DATE:  5/17/95
+ END TIME: 15:35:39
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

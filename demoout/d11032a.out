@@ -1,0 +1,1942 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D11032A,NASTRAN                                                           
+     APP   AERO                                                                      
+     SOL   11,0                                                                      
+     TIME  15                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = JET TRANSPORT WING DYNAMIC ANALYSIS                                  
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                          
+                  3      LABEL    = SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS           
+                  4        ECHO   = BOTH                                                                 
+                  5      $                                                                               
+                  6      $       MODEL DESCRIPTION           JET TRANSPORT WING EXAMPLE                  
+                  7      $                               SYMMETRIC RESPONSE TO A SQUARE                  
+                  8      $                               EDGE GUST WITH A STIFF AILERON                  
+                  9      $                                                                               
+                 10        SPC    = 14    $  SYM , NO PITCH                                              
+                 11        MPC    = 1                                                                    
+                 12        METHOD = 10    $  GIVENS                                                      
+                 13        SDAMP  = 2000                                                                 
+                 14        FREQ   = 40                                                                   
+                 15        TSTEP  = 41                                                                   
+                 16      $$$$$$$ TWELVE MODES AND FORTY TWO BOXES    AERO CALC THREE K VALUES            
+                 17        GUST   = 1011  $  SQUARE                                                      
+                 18        DLOAD  = 9999  $  NEEDED TO FORCE APPROACH TRANSIENT GUST                     
+                 19      OUTPUT                                                                          
+                 20      $                                                                               
+                 21      $       SOLUTION                TRANSIENT ANALYSIS USING                        
+                 22      $                               DOUBLET-LATTICE METHOD AERODYNAMICS             
+                 23      $                               AT MACH NO. OF 0.62                             
+                 24      $                                                                               
+                 25        SET 1 = 1 , 2 , 12 $                                                          
+                 26        SET 2 = 1 , 9 THRU 12 , 1040                                                  
+                 27        SET 3 = 11                                                                    
+                 28        SDISP = 1                                                                     
+                 29        DISP  = 2                                                                     
+                 30        SPCF  = 3                                                                     
+                 31      $                                                                               
+                 32      $       PRODUCES XY PAPER PLOTS OF MODAL AND GRID POINT DISPLACEMENT            
+                 33      $       AND WING ROOT BENDING MOMENT TIME HISTORIES                             
+                 34      $                                                                               
+                 35      OUTPUT(XYOUT)    $ TRANSIENT PACKAGE (REAL NUMBERS)                             
+                 36        CURVELINESYMBOL = 1                                                           
+                 37        XTITLE  =  TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                  
+                 38        TCURVE  =     FIRST MODE (PLUNGE)                                             
+                 39        YTITLE  = MODAL DEFLECTION                                                    
+                 40        XYPAPERPLOT   SDISP /   1(T1)                                                 
+                 41        TCURVE  =     SECOND MODE (WING BENDING)                                      
+                 42        XYPAPERPLOT   SDISP /   2(T1)                                                 
+                 43        TCURVE  =     TWELFTH MODE  (AILERON)                                         
+                 44        XYPAPERPLOT   SDISP /  12(T1)                                                 
+                 45        YTITLE  = PHYSICAL DEFLECTION                                                 
+                 46        TCURVE  =     WING ( 3/4 CHORD , 1/4 CHORD , STA 458 )                        
+                 47        XYPAPERPLOT   DISP /   9(T3) , 10(T3)                                         
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                 48        TCURVE  =     FUSELAGE PLUNGE                                                 
+                 49        XYPAPERPLOT   DISP /  11(T3)                                                  
+                 50        TCURVE  =     AILERON DEFLECTION                                              
+                 51        XYPAPERPLOT   DISP /  12(R2)                                                  
+                 52        TCURVE  =     AERODYNAMIC BOX NEAR TIP , PITCH                                
+                 53        XYPAPERPLOT   DISP /  1040(R2)                                                
+                 54        YTITLE  = ROTATIONAL CONSTRAINTS                                              
+                 55        TCURVE  =     WING ROOT BENDING MOMENT                                        
+                 56        XYPAPERPLOT   SPCF /  11(R3)                                                  
+                 57      BEGIN BULK                                                                      
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                             I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              AEFACT  1       0.0     .09     .21     .33     .45     .56     .66     +AE1                  
+                              +AE1    .74                                                                                   
+                              AEFACT  2       .74     .82     .90     .974                                                  
+                              AEFACT  3       .974    1.00                                                                  
+                              AEFACT  4       0.0     .375    .750    1.00                                                  
+                              AEFACT  5       0.0     .1875   .375    .625    .750    .875    1.00                          
+                              AERO    1       8360.   131.232 1.1468-71                               SYM                   
+                              CAERO1  1001    1000    0                       1       4       1       +CA01                 
+                              +CA01   78.75   0.0     0.0     225.    35.     500.    0.0     100.                          
+                              CAERO1  1022    1000    0                       2       5       1       +CA22                 
+                              +CA22   78.75   0.0     0.0     225.    35.     500.    0.0     100.                          
+                              CAERO1  1040    1000    0                       3       4       1       +CA40                 
+                              +CA40   78.75   0.0     0.0     225.    35.     500.    0.0     100.                          
+                              CELAS2  3       5142671.12      5                                                             
+                              CMASS2  2       13967.2 12      5                                                             
+                              CMASS2  121     5248.7  1       3                                                             
+                              CMASS2  122     134.9   1       3       2       3                                             
+                              CMASS2  123     790.3   2       3                                                             
+                              CMASS2  341     9727.   3       3                                                             
+                              CMASS2  342     11005.  3       3       4       3                                             
+                              CMASS2  343     473.    4       3                                                             
+                              CMASS2  561     3253.6  5       3                                                             
+                              CMASS2  562     -139.7  5       3       6       3                                             
+                              CMASS2  563     946.3   6       3                                                             
+                              CMASS2  781     2617.8  7       3                                                             
+                              CMASS2  782     21.     7       3       8       3                                             
+                              CMASS2  783     782.3   8       3                                                             
+                              CMASS2  9101    494.8   9       3                                                             
+                              CMASS2  9102    -7.3    9       3       10      3                                             
+                              CMASS2  9103    185.2   10      3                                                             
+                              CONM1   1       11                                                      +51                   
+                              +51     17400.                          4.37+7                          +52                   
+                              +52             4.35+09                                                                       
+                              CORD2R  1               0.0     0.0     0.0     0.0     0.0     -1.     +C1                   
+                              +C1     -1.     0.0     0.0                                                                   
+                              DAREA   1001    12      5       5142671.                                                      
+                              DAREA   9999    11      1       1.                                      DUMMY                 
+                              EIGR    10      GIV     0.0     1.              12                      +EIGR                 
+                              +EIGR   MAX                                                                                   
+                              FREQ1   40      0.0     .25     39                                                            
+                              GENEL   432             1       3       2       3       3       3       +01                   
+                              +01     4       3       5       3       6       3       7       3       +02                   
+                              +02     8       3       9       3       10      3                       +03                   
+                              +03     UD              11      3       11      4       11      5       +03A                  
+                              +03A    11      6                                                       +04                   
+                              +04     Z       8.7172-61.3361-61.2778-56.2720-61.6251-51.0492-52.0478-5+05                   
+                              +05     1.5630-52.4285-52.0403-53.0861-56.2720-63.2297-51.0492-53.3529-5+06                   
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+
+      SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+                                              I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              +06     1.5630-53.5021-52.0257-53.5785-52.7732-51.5726-54.8255-53.7628-5+07                   
+                              +07     7.3284-56.4338-59.5810-58.8378-56.3749-53.7628-58.0136-56.4338-5+08                   
+                              +08     1.0012-48.8378-51.1811-41.2758-41.1344-41.9350-41.8160-42.5283-4+09                   
+                              +09     2.4294-41.6999-41.8160-42.2920-42.4294-42.8249-43.6862-43.5052-4+10                   
+                              +10     5.2675-45.1171-44.2292-45.1171-45.7187-48.4840-48.2340-49.2340-4+11                   
+                              +11     S       1.0     90.0    -20.25  45.0    1.0     90.0    81.0    +12                   
+                              +12     45.0    1.0     186.0   -17.85  141.0   1.0     186.0   71.4    +13                   
+                              +13     141.0   1.0     268.0   -15.80  223.0   1.0     268.0   63.2    +14                   
+                              +14     223.0   1.0     368.0   -13.30  323.0   1.0     368.0   53.2    +15                   
+                              +15     323.0   1.0     458.0   -11.05  413.0   1.0     458.0   44.2    +16                   
+                              +16     413.0                                                                                 
+                              GRID    1               20.25   90.                     12456                                 
+                              GRID    2               -81.    90.                     12456                                 
+                              GRID    3               17.85   186.                    12456                                 
+                              GRID    4               -71.4   186.                    12456                                 
+                              GRID    5               15.8    268.                    12456                                 
+                              GRID    6               -63.2   268.                    12456                                 
+                              GRID    7               13.3    368.                    12456                                 
+                              GRID    8               -53.2   368.                    12456                                 
+                              GRID    9               11.05   458.                    12456                                 
+                              GRID    10              -44.2   458.                    12456                                 
+                              GRID    11              .0      .0                      126                                   
+                              GRID    12              -86.45  368.                    1246                                  
+                              GUST    1011    1000    1.      0.0     8360.                                                 
+                              MKAERO1 .62                                                             +MK                   
+                              +MK     .02     .10     .50                                                                   
+                              MPC     1       12      3       -1.0    8       3       1.5             +MPC1                 
+                              +MPC1           7       3       -0.5    12      5       33.25                                 
+                              PAERO1  1000                                                                                  
+                              PARAM   GUSTAERO1                                                                             
+                              PARAM   IFTM    0                                                                             
+                              PARAM   LMODES  12                                                                            
+                              PARAM   MACH    .62                                                                           
+                              PARAM   Q       4.00747                                                                       
+                              PARAM   WTMASS  .0025907                                                                      
+                              SET1    14      1       THRU    11                                                            
+                              SET1    15      8       10      12                                                            
+                              SPC     14      11      45                                                                    
+                              SPLINE1 104     1022    1026    1039    15                                                    
+                              SPLINE2 101     1001    1001    1021    14      0.0     2.      0       +SP1                  
+                              +SP1    -1.0    -1.0                                                                          
+                              SPLINE2 102     1022    1022    1037    14      0.0     2.      0       +SP2                  
+                              +SP2    -1.0    -1.0                                                                          
+                              SPLINE2 103     1040    1040    1042    14      0.0     2.      0       +SP3                  
+                              +SP3    -1.0    -1.0                                                                          
+                              SUPORT  11      3                                                                             
+                              TABDMP1 2000                                                            +T2000                
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+
+      SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+                                              I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              +T2000  0.0     .06     10.     .06     ENDT                                                  
+                              TABLED1 1003                                                            +T1003                
+                              +T1003  0.0     1.      1.      1.      1.      -1.     2.      -1.     +T1003A               
+                              +T1003A ENDT                                                                                  
+                              TLOAD1  1000    1001                    1003                                                  
+                              TLOAD1  9999    9999                    1003                            DUMIE                 
+                              TSTEP   41      40      .1      1                                                             
+                              ENDDATA                                                                                       
+
+
+                        TOTAL COUNT=    101
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        AEFACT  1       0.0     .09     .21     .33     .45     .56     .66     +AE1    
+                    2-        +AE1    .74                                                                     
+                    3-        AEFACT  2       .74     .82     .90     .974                                    
+                    4-        AEFACT  3       .974    1.00                                                    
+                    5-        AEFACT  4       0.0     .375    .750    1.00                                    
+                    6-        AEFACT  5       0.0     .1875   .375    .625    .750    .875    1.00            
+                    7-        AERO    1       8360.   131.232 1.1468-71                               SYM     
+                    8-        CAERO1  1001    1000    0                       1       4       1       +CA01   
+                    9-        +CA01   78.75   0.0     0.0     225.    35.     500.    0.0     100.            
+                   10-        CAERO1  1022    1000    0                       2       5       1       +CA22   
+                   11-        +CA22   78.75   0.0     0.0     225.    35.     500.    0.0     100.            
+                   12-        CAERO1  1040    1000    0                       3       4       1       +CA40   
+                   13-        +CA40   78.75   0.0     0.0     225.    35.     500.    0.0     100.            
+                   14-        CELAS2  3       5142671.12      5                                               
+                   15-        CMASS2  2       13967.2 12      5                                               
+                   16-        CMASS2  121     5248.7  1       3                                               
+                   17-        CMASS2  122     134.9   1       3       2       3                               
+                   18-        CMASS2  123     790.3   2       3                                               
+                   19-        CMASS2  341     9727.   3       3                                               
+                   20-        CMASS2  342     11005.  3       3       4       3                               
+                   21-        CMASS2  343     473.    4       3                                               
+                   22-        CMASS2  561     3253.6  5       3                                               
+                   23-        CMASS2  562     -139.7  5       3       6       3                               
+                   24-        CMASS2  563     946.3   6       3                                               
+                   25-        CMASS2  781     2617.8  7       3                                               
+                   26-        CMASS2  782     21.     7       3       8       3                               
+                   27-        CMASS2  783     782.3   8       3                                               
+                   28-        CMASS2  9101    494.8   9       3                                               
+                   29-        CMASS2  9102    -7.3    9       3       10      3                               
+                   30-        CMASS2  9103    185.2   10      3                                               
+                   31-        CONM1   1       11                                                      +51     
+                   32-        +51     17400.                          4.37+7                          +52     
+                   33-        +52             4.35+09                                                         
+                   34-        CORD2R  1               0.0     0.0     0.0     0.0     0.0     -1.     +C1     
+                   35-        +C1     -1.     0.0     0.0                                                     
+                   36-        DAREA   1001    12      5       5142671.                                        
+                   37-        DAREA   9999    11      1       1.                                      DUMMY   
+                   38-        EIGR    10      GIV     0.0     1.              12                      +EIGR   
+                   39-        +EIGR   MAX                                                                     
+                   40-        FREQ1   40      0.0     .25     39                                              
+                   41-        GENEL   432             1       3       2       3       3       3       +01     
+                   42-        +01     4       3       5       3       6       3       7       3       +02     
+                   43-        +02     8       3       9       3       10      3                       +03     
+                   44-        +03     UD              11      3       11      4       11      5       +03A    
+                   45-        +03A    11      6                                                       +04     
+                   46-        +04     Z       8.7172-61.3361-61.2778-56.2720-61.6251-51.0492-52.0478-5+05     
+                   47-        +05     1.5630-52.4285-52.0403-53.0861-56.2720-63.2297-51.0492-53.3529-5+06     
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+
+      SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        +06     1.5630-53.5021-52.0257-53.5785-52.7732-51.5726-54.8255-53.7628-5+07     
+                   49-        +07     7.3284-56.4338-59.5810-58.8378-56.3749-53.7628-58.0136-56.4338-5+08     
+                   50-        +08     1.0012-48.8378-51.1811-41.2758-41.1344-41.9350-41.8160-42.5283-4+09     
+                   51-        +09     2.4294-41.6999-41.8160-42.2920-42.4294-42.8249-43.6862-43.5052-4+10     
+                   52-        +10     5.2675-45.1171-44.2292-45.1171-45.7187-48.4840-48.2340-49.2340-4+11     
+                   53-        +11     S       1.0     90.0    -20.25  45.0    1.0     90.0    81.0    +12     
+                   54-        +12     45.0    1.0     186.0   -17.85  141.0   1.0     186.0   71.4    +13     
+                   55-        +13     141.0   1.0     268.0   -15.80  223.0   1.0     268.0   63.2    +14     
+                   56-        +14     223.0   1.0     368.0   -13.30  323.0   1.0     368.0   53.2    +15     
+                   57-        +15     323.0   1.0     458.0   -11.05  413.0   1.0     458.0   44.2    +16     
+                   58-        +16     413.0                                                                   
+                   59-        GRID    1               20.25   90.                     12456                   
+                   60-        GRID    2               -81.    90.                     12456                   
+                   61-        GRID    3               17.85   186.                    12456                   
+                   62-        GRID    4               -71.4   186.                    12456                   
+                   63-        GRID    5               15.8    268.                    12456                   
+                   64-        GRID    6               -63.2   268.                    12456                   
+                   65-        GRID    7               13.3    368.                    12456                   
+                   66-        GRID    8               -53.2   368.                    12456                   
+                   67-        GRID    9               11.05   458.                    12456                   
+                   68-        GRID    10              -44.2   458.                    12456                   
+                   69-        GRID    11              .0      .0                      126                     
+                   70-        GRID    12              -86.45  368.                    1246                    
+                   71-        GUST    1011    1000    1.      0.0     8360.                                   
+                   72-        MKAERO1 .62                                                             +MK     
+                   73-        +MK     .02     .10     .50                                                     
+                   74-        MPC     1       12      3       -1.0    8       3       1.5             +MPC1   
+                   75-        +MPC1           7       3       -0.5    12      5       33.25                   
+                   76-        PAERO1  1000                                                                    
+                   77-        PARAM   GUSTAERO1                                                               
+                   78-        PARAM   IFTM    0                                                               
+                   79-        PARAM   LMODES  12                                                              
+                   80-        PARAM   MACH    .62                                                             
+                   81-        PARAM   Q       4.00747                                                         
+                   82-        PARAM   WTMASS  .0025907                                                        
+                   83-        SET1    14      1       THRU    11                                              
+                   84-        SET1    15      8       10      12                                              
+                   85-        SPC     14      11      45                                                      
+                   86-        SPLINE1 104     1022    1026    1039    15                                      
+                   87-        SPLINE2 101     1001    1001    1021    14      0.0     2.      0       +SP1    
+                   88-        +SP1    -1.0    -1.0                                                            
+                   89-        SPLINE2 102     1022    1022    1037    14      0.0     2.      0       +SP2    
+                   90-        +SP2    -1.0    -1.0                                                            
+                   91-        SPLINE2 103     1040    1040    1042    14      0.0     2.      0       +SP3    
+                   92-        +SP3    -1.0    -1.0                                                            
+                   93-        SUPORT  11      3                                                               
+                   94-        TABDMP1 2000                                                            +T2000  
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+
+      SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        +T2000  0.0     .06     10.     .06     ENDT                                    
+                   96-        TABLED1 1003                                                            +T1003  
+                   97-        +T1003  0.0     1.      1.      1.      1.      -1.     2.      -1.     +T1003A 
+                   98-        +T1003A ENDT                                                                    
+                   99-        TLOAD1  1000    1001                    1003                                    
+                  100-        TLOAD1  9999    9999                    1003                            DUMIE   
+                  101-        TSTEP   41      40      .1      1                                               
+                              ENDDATA
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     SMALL PROBLEM SIZE
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+
+      SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ELAS2    ELEMENTS (ELEMENT TYPE  12) STARTING WITH ID        3
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION MASS2    ELEMENTS (ELEMENT TYPE  26) STARTING WITH ID        2
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION CONM1    ELEMENTS (ELEMENT TYPE  29) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     0, EPSILON SUB E =   2.0067149E-16
+0*** USER INFORMATION MESSAGE 2016, GIVENS TIME ESTIMATE IS        0 SECONDS.
+                                    PROBLEM SIZE IS      12, SPILL WILL OCCUR FOR THIS CORE AT A PROBLEM SIZE OF    1413 .
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y   (GIVENS METHOD)
+
+
+
+                                    NUMBER OF EIGENVALUES EXTRACTED . . . . . . .        12
+
+                                    NUMBER OF EIGENVECTORS COMPUTED . . . . . . .        12
+
+                                    NUMBER OF EIGENVALUE CONVERGENCE FAILURES . .         0
+
+                                    NUMBER OF EIGENVECTOR CONVERGENCE FAILURES. .         0
+
+
+                                    REASON FOR TERMINATION. . . . . . . . . . . .         1*
+
+
+                                    LARGEST OFF-DIAGONAL MODAL MASS TERM. . . . .  0.00E+00
+
+                                                                            . . .         0
+                                              MODE PAIR. . . . . . . . . . .
+                                                                            . . .         0
+
+                                    NUMBER OF OFF-DIAG0NAL MODAL MASS
+                                         TERMS FAILING CRITERION. . . . . . . . .         0
+
+
+                                    (* NORMAL TERMINATION)
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+        1        11        0.0                 0.0                 0.0                 1.085996E+02        0.0                      
+        2        10        2.344038E+02        1.531025E+01        2.436702E+00        7.333811E+00        1.719073E+03             
+        3         9        5.021460E+02        2.240862E+01        3.566442E+00        4.860579E+01        2.440721E+04             
+        4         8        2.873470E+03        5.360476E+01        8.531462E+00        6.036275E+00        1.734505E+04             
+        5         7        6.346819E+03        7.966693E+01        1.267939E+01        1.389629E+01        8.819726E+04             
+        6         6        8.746056E+03        9.352035E+01        1.488422E+01        3.997501E+00        3.496237E+04             
+        7         5        1.766041E+04        1.328925E+02        2.115050E+01        3.884947E+00        6.860977E+04             
+        8         4        2.401137E+04        1.549560E+02        2.466202E+01        3.570773E+00        8.573913E+04             
+        9         3        4.211877E+04        2.052286E+02        3.266314E+01        3.142323E+00        1.323508E+05             
+       10         2        6.020940E+04        2.453760E+02        3.905281E+01        1.016273E+00        6.118916E+04             
+       11         1        9.492829E+04        3.081043E+02        4.903633E+01        8.935863E+00        8.482661E+05             
+       12        12        1.421223E+05        3.769911E+02        6.000000E+01        3.618483E+01        5.142671E+06             
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+
+      SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3028      B =   21     BBAR =    3
+                                        C =   22     CBAR =   38
+                                        R =   23
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATC12 (N =    42)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =   21     BBAR =    3
+                                        C =   22     CBAR =   38
+                                        R =   23
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATC12 (N =    42)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =   21     BBAR =    3
+                                        C =   22     CBAR =   38
+                                        R =   23
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATC12 (N =    42)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =   21     BBAR =    3
+                                        C =   22     CBAR =   38
+                                        R =   23
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH5 (N =    42)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =   21     BBAR =    3
+                                        C =   22     CBAR =   38
+                                        R =   23
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH5 (N =    42)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =   21     BBAR =    3
+                                        C =   22     CBAR =   38
+                                        R =   23
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH5 (N =    42)
+     TIME ESTIMATE =        0 SECONDS
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+      POINT-ID =       1
+                                       D I S P L A C E M E N T   V E C T O R   (SOLUTION SET)
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              M      2.064302E+03                                                                                             
+   1.000000E-01     M      2.007178E+03                                                                                             
+   2.000000E-01     M      1.804343E+03                                                                                             
+   3.000000E-01     M      1.468994E+03                                                                                             
+   4.000000E-01     M      1.029565E+03                                                                                             
+   5.000000E-01     M      4.977738E+02                                                                                             
+   6.000000E-01     M     -9.984888E+01                                                                                             
+   7.000000E-01     M     -7.396495E+02                                                                                             
+   8.000001E-01     M     -1.425045E+03                                                                                             
+   9.000001E-01     M     -2.148120E+03                                                                                             
+   1.000000E+00     M     -2.891008E+03                                                                                             
+   1.100000E+00     M     -3.529493E+03                                                                                             
+   1.200000E+00     M     -3.897287E+03                                                                                             
+   1.300000E+00     M     -4.010867E+03                                                                                             
+   1.400000E+00     M     -3.927728E+03                                                                                             
+   1.500000E+00     M     -3.669541E+03                                                                                             
+   1.600000E+00     M     -3.284251E+03                                                                                             
+   1.700000E+00     M     -2.820430E+03                                                                                             
+   1.800000E+00     M     -2.270575E+03                                                                                             
+   1.900000E+00     M     -1.647163E+03                                                                                             
+   2.000000E+00     M     -9.876846E+02                                                                                             
+   2.100000E+00     M     -3.546162E+02                                                                                             
+   2.200000E+00     M      1.711103E+02                                                                                             
+   2.300000E+00     M      5.843103E+02                                                                                             
+   2.400000E+00     M      9.111294E+02                                                                                             
+   2.500000E+00     M      1.163260E+03                                                                                             
+   2.600000E+00     M      1.358389E+03                                                                                             
+   2.700000E+00     M      1.520520E+03                                                                                             
+   2.799999E+00     M      1.646492E+03                                                                                             
+   2.899999E+00     M      1.738113E+03                                                                                             
+   2.999999E+00     M      1.814391E+03                                                                                             
+   3.099999E+00     M      1.876932E+03                                                                                             
+   3.199999E+00     M      1.921834E+03                                                                                             
+   3.299999E+00     M      1.957562E+03                                                                                             
+   3.399999E+00     M      1.987032E+03                                                                                             
+   3.499999E+00     M      2.008507E+03                                                                                             
+   3.599999E+00     M      2.025710E+03                                                                                             
+   3.699999E+00     M      2.039560E+03                                                                                             
+   3.799999E+00     M      2.049129E+03                                                                                             
+   3.899998E+00     M      2.057171E+03                                                                                             
+   3.999998E+00     M      2.064302E+03                                                                                             
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+      POINT-ID =       2
+                                       D I S P L A C E M E N T   V E C T O R   (SOLUTION SET)
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              M      3.274581E+00                                                                                             
+   1.000000E-01     M     -1.394210E+02                                                                                             
+   2.000000E-01     M     -3.233884E+02                                                                                             
+   3.000000E-01     M     -2.056410E+02                                                                                             
+   4.000000E-01     M      4.530801E+00                                                                                             
+   5.000000E-01     M     -4.254552E+01                                                                                             
+   6.000000E-01     M     -1.455252E+02                                                                                             
+   7.000000E-01     M     -6.785136E+01                                                                                             
+   8.000001E-01     M      4.404564E+00                                                                                             
+   9.000001E-01     M     -3.001151E+01                                                                                             
+   1.000000E+00     M     -4.671601E+01                                                                                             
+   1.100000E+00     M      2.552000E+02                                                                                             
+   1.200000E+00     M      6.299709E+02                                                                                             
+   1.300000E+00     M      4.055769E+02                                                                                             
+   1.400000E+00     M     -2.158282E+01                                                                                             
+   1.500000E+00     M      6.732695E+01                                                                                             
+   1.600000E+00     M      2.897078E+02                                                                                             
+   1.700000E+00     M      1.361279E+02                                                                                             
+   1.800000E+00     M     -1.919180E+01                                                                                             
+   1.900000E+00     M      5.478932E+01                                                                                             
+   2.000000E+00     M      9.172913E+01                                                                                             
+   2.100000E+00     M     -9.658281E+01                                                                                             
+   2.200000E+00     M     -3.021485E+02                                                                                             
+   2.300000E+00     M     -1.950714E+02                                                                                             
+   2.400000E+00     M      2.697473E+01                                                                                             
+   2.500000E+00     M     -9.954379E+00                                                                                             
+   2.600000E+00     M     -1.414489E+02                                                                                             
+   2.700000E+00     M     -7.214790E+01                                                                                             
+   2.799999E+00     M      2.180060E+01                                                                                             
+   2.899999E+00     M     -1.844679E+01                                                                                             
+   2.999999E+00     M     -4.828806E+01                                                                                             
+   3.099999E+00     M     -1.919609E+01                                                                                             
+   3.199999E+00     M     -4.433849E+00                                                                                             
+   3.299999E+00     M     -4.865630E+00                                                                                             
+   3.399999E+00     M     -9.923538E+00                                                                                             
+   3.499999E+00     M     -1.482605E+01                                                                                             
+   3.599999E+00     M     -2.733705E+00                                                                                             
+   3.699999E+00     M      3.870281E+00                                                                                             
+   3.799999E+00     M     -7.013237E+00                                                                                             
+   3.899998E+00     M     -6.330189E+00                                                                                             
+   3.999998E+00     M      3.274910E+00                                                                                             
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+      POINT-ID =      12
+                                       D I S P L A C E M E N T   V E C T O R   (SOLUTION SET)
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              M     -1.110722E-02                                                                                             
+   1.000000E-01     M     -2.299328E-02                                                                                             
+   2.000000E-01     M     -1.959787E-02                                                                                             
+   3.000000E-01     M     -1.715913E-02                                                                                             
+   4.000000E-01     M     -1.478000E-02                                                                                             
+   5.000000E-01     M     -6.099394E-03                                                                                             
+   6.000000E-01     M     -6.095690E-03                                                                                             
+   7.000000E-01     M     -9.238105E-03                                                                                             
+   8.000001E-01     M     -3.204325E-03                                                                                             
+   9.000001E-01     M      2.945682E-04                                                                                             
+   1.000000E+00     M      1.709031E-02                                                                                             
+   1.100000E+00     M      4.383963E-02                                                                                             
+   1.200000E+00     M      3.836090E-02                                                                                             
+   1.300000E+00     M      3.214826E-02                                                                                             
+   1.400000E+00     M      2.892522E-02                                                                                             
+   1.500000E+00     M      1.209898E-02                                                                                             
+   1.600000E+00     M      1.124370E-02                                                                                             
+   1.700000E+00     M      1.879606E-02                                                                                             
+   1.800000E+00     M      7.562626E-03                                                                                             
+   1.900000E+00     M      1.079835E-03                                                                                             
+   2.000000E+00     M     -2.338416E-03                                                                                             
+   2.100000E+00     M     -1.770537E-02                                                                                             
+   2.200000E+00     M     -1.851004E-02                                                                                             
+   2.300000E+00     M     -1.365891E-02                                                                                             
+   2.400000E+00     M     -1.274790E-02                                                                                             
+   2.500000E+00     M     -5.750404E-03                                                                                             
+   2.600000E+00     M     -4.206950E-03                                                                                             
+   2.700000E+00     M     -8.766694E-03                                                                                             
+   2.799999E+00     M     -4.215205E-03                                                                                             
+   2.899999E+00     M     -1.371025E-04                                                                                             
+   2.999999E+00     M     -3.644643E-03                                                                                             
+   3.099999E+00     M     -3.141020E-03                                                                                             
+   3.199999E+00     M     -2.529959E-04                                                                                             
+   3.299999E+00     M     -1.330228E-03                                                                                             
+   3.399999E+00     M     -1.397380E-03                                                                                             
+   3.499999E+00     M     -2.492365E-04                                                                                             
+   3.599999E+00     M     -9.410278E-04                                                                                             
+   3.699999E+00     M     -7.913033E-04                                                                                             
+   3.799999E+00     M     -1.431867E-04                                                                                             
+   3.899998E+00     M     -1.237293E-03                                                                                             
+   3.999998E+00     M     -1.110661E-02                                                                                             
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      S-DISPLACEMENT  CURVE        1( 1)
+ 
+      THIS CURVE WILL BE PAPER-PLOTTED FRAME    1
+
+
+     CURVE  TITLE =     FIRST MODE (PLUNGE)                                                                                        
+      X-AXIS TITLE =  TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+      Y-AXIS TITLE = MODAL DEFLECTION                                                                                               
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -4.010867E+03 AT X =   1.300000E+00
+
+
+                              THE LARGEST  Y-VALUE =  2.064302E+03 AT X =   0.000000E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -4.010867E+03 AT X =   1.300000E+00
+
+
+                              THE LARGEST  Y-VALUE =  2.064302E+03 AT X =   0.000000E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      S-DISPLACEMENT  CURVE        2( 1)
+ 
+      THIS CURVE WILL BE PAPER-PLOTTED FRAME    2
+
+
+     CURVE  TITLE =     SECOND MODE (WING BENDING)                                                                                 
+      X-AXIS TITLE =  TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+      Y-AXIS TITLE = MODAL DEFLECTION                                                                                               
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -3.233884E+02 AT X =   2.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  6.299709E+02 AT X =   1.200000E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -3.233884E+02 AT X =   2.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  6.299709E+02 AT X =   1.200000E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      S-DISPLACEMENT  CURVE       12( 1)
+ 
+      THIS CURVE WILL BE PAPER-PLOTTED FRAME    3
+
+
+     CURVE  TITLE =     TWELFTH MODE  (AILERON)                                                                                    
+      X-AXIS TITLE =  TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+      Y-AXIS TITLE = MODAL DEFLECTION                                                                                               
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -2.299328E-02 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  4.383963E-02 AT X =   1.100000E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -2.299328E-02 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  4.383963E-02 AT X =   1.100000E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                                            F     R     A     M     E
+
+                                                           ****  ****  ****  ****   ** 
+                                                           *  *  *  *  *  *  *  *    * 
+                                                           *  *  *  *  *  *  *  *    * 
+                                                           *  *  *  *  *  *  *  *    * 
+                                                           ****  ****  ****  ****  ****
+
+0             FIRST MODE (PLUNGE)                                                                                                   
+0    X-AXIS TITLE =   TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+0
+             +---------------------------------------------------------------------------------------------------------------------+
+             I                                                                                                                     I
+             I  MODAL DEFLECTION                                                                                                   I
+             I                                                                                                                     I
+             I -5.000000E+03                                      -1.000000E+03                                       3.000000E+03 I
+             +---------------------------------------------------------------------------------------------------------------------+
+  0.0000E+00 I                                                          I                                            *             I
+  1.0000E-01 I                                                          I                                           *              I
+  2.0000E-01 I                                                          I                                        *                 I
+  3.0000E-01 I                                                          I                                   *                      I
+  4.0000E-01 I                                                          I                             *                            I
+  5.0000E-01 I                                                          I                     *                                    I
+  6.0000E-01 I                                                          I            *                                             I
+  7.0000E-01 I                                                          I   *                                                      I
+  8.0000E-01 I                                                    *     I                                                          I
+  9.0000E-01 I                                         *                I                                                          I
+  1.0000E+00 I                              *                           I                                                          I
+  1.1000E+00 I                     *                                    I                                                          I
+  1.2000E+00 I               *                                          I                                                          I
+  1.3000E+00 I              *                                           I                                                          I
+  1.4000E+00 I               *                                          I                                                          I
+  1.5000E+00 I                   *                                      I                                                          I
+  1.6000E+00 I                        *                                 I                                                          I
+  1.7000E+00 I                               *                          I                                                          I
+  1.8000E+00 I                                       *                  I                                                          I
+  1.9000E+00 I                                                *         I                                                          I
+  2.0000E+00 I                                                          *                                                          I
+  2.1000E+00 I                                                          I         *                                                I
+  2.2000E+00 I                                                          I                *                                         I
+  2.3000E+00 I                                                          I                      *                                   I
+  2.4000E+00 I                                                          I                           *                              I
+  2.5000E+00 I                                                          I                               *                          I
+  2.6000E+00 I                                                          I                                  *                       I
+  2.7000E+00 I                                                          I                                    *                     I
+  2.8000E+00 I                                                          I                                      *                   I
+  2.9000E+00 I                                                          I                                       *                  I
+1 3.0000E+00 I                                                          I                                         *                I
+  3.1000E+00 I                                                          I                                         *                I
+  3.2000E+00 I                                                          I                                          *               I
+  3.3000E+00 I                                                          I                                           *              I
+  3.4000E+00 I                                                          I                                           *              I
+  3.5000E+00 I                                                          I                                           *              I
+  3.6000E+00 I                                                          I                                            *             I
+  3.7000E+00 I                                                          I                                            *             I
+  3.8000E+00 I                                                          I                                            *             I
+  3.9000E+00 I                                                          I                                            *             I
+  4.0000E+00 I                                                          I                                            *             I
+             +---------------------------------------------------------------------------------------------------------------------+
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                                            F     R     A     M     E
+
+                                                           ****  ****  ****  ****  ****
+                                                           *  *  *  *  *  *  *  *     *
+                                                           *  *  *  *  *  *  *  *    * 
+                                                           *  *  *  *  *  *  *  *   *  
+                                                           ****  ****  ****  ****  ****
+
+0             SECOND MODE (WING BENDING)                                                                                            
+0    X-AXIS TITLE =   TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+0
+             +---------------------------------------------------------------------------------------------------------------------+
+             I                                                                                                                     I
+             I  MODAL DEFLECTION                                                                                                   I
+             I                                                                                                                     I
+             I -4.000000E+02                                       2.000000E+02                                       8.000000E+02 I
+             +---------------------------------------------------------------------------------------------------------------------+
+  0.0000E+00 I                                       *                  I                                                          I
+  1.0000E-01 I                         *                                I                                                          I
+  2.0000E-01 I       *                                                  I                                                          I
+  3.0000E-01 I                  *                                       I                                                          I
+  4.0000E-01 I                                       *                  I                                                          I
+  5.0000E-01 I                                  *                       I                                                          I
+  6.0000E-01 I                        *                                 I                                                          I
+  7.0000E-01 I                                *                         I                                                          I
+  8.0000E-01 I                                       *                  I                                                          I
+  9.0000E-01 I                                   *                      I                                                          I
+  1.0000E+00 I                                  *                       I                                                          I
+  1.1000E+00 I                                                          I    *                                                     I
+  1.2000E+00 I                                                          I                                         *                I
+  1.3000E+00 I                                                          I                   *                                      I
+  1.4000E+00 I                                    *                     I                                                          I
+  1.5000E+00 I                                             *            I                                                          I
+  1.6000E+00 I                                                          I        *                                                 I
+  1.7000E+00 I                                                    *     I                                                          I
+  1.8000E+00 I                                    *                     I                                                          I
+  1.9000E+00 I                                            *             I                                                          I
+  2.0000E+00 I                                               *          I                                                          I
+  2.1000E+00 I                             *                            I                                                          I
+  2.2000E+00 I         *                                                I                                                          I
+  2.3000E+00 I                   *                                      I                                                          I
+  2.4000E+00 I                                         *                I                                                          I
+  2.5000E+00 I                                     *                    I                                                          I
+  2.6000E+00 I                        *                                 I                                                          I
+  2.7000E+00 I                               *                          I                                                          I
+  2.8000E+00 I                                        *                 I                                                          I
+  2.9000E+00 I                                     *                    I                                                          I
+1 3.0000E+00 I                                  *                       I                                                          I
+  3.1000E+00 I                                    *                     I                                                          I
+  3.2000E+00 I                                      *                   I                                                          I
+  3.3000E+00 I                                      *                   I                                                          I
+  3.4000E+00 I                                     *                    I                                                          I
+  3.5000E+00 I                                     *                    I                                                          I
+  3.6000E+00 I                                      *                   I                                                          I
+  3.7000E+00 I                                       *                  I                                                          I
+  3.8000E+00 I                                      *                   I                                                          I
+  3.9000E+00 I                                      *                   I                                                          I
+  4.0000E+00 I                                       *                  I                                                          I
+             +---------------------------------------------------------------------------------------------------------------------+
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                                            F     R     A     M     E
+
+                                                           ****  ****  ****  ****  ****
+                                                           *  *  *  *  *  *  *  *     *
+                                                           *  *  *  *  *  *  *  *   ***
+                                                           *  *  *  *  *  *  *  *     *
+                                                           ****  ****  ****  ****  ****
+
+0             TWELFTH MODE  (AILERON)                                                                                               
+0    X-AXIS TITLE =   TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+0
+             +---------------------------------------------------------------------------------------------------------------------+
+             I                                                                                                                     I
+             I  MODAL DEFLECTION                                                                                                   I
+             I                                                                                                                     I
+             I -3.000000E-02                                       1.000000E-02                                       5.000000E-02 I
+             +---------------------------------------------------------------------------------------------------------------------+
+  0.0000E+00 I                           *                              I                                                          I
+  1.0000E-01 I         *                                                I                                                          I
+  2.0000E-01 I              *                                           I                                                          I
+  3.0000E-01 I                  *                                       I                                                          I
+  4.0000E-01 I                     *                                    I                                                          I
+  5.0000E-01 I                                  *                       I                                                          I
+  6.0000E-01 I                                  *                       I                                                          I
+  7.0000E-01 I                              *                           I                                                          I
+  8.0000E-01 I                                       *                  I                                                          I
+  9.0000E-01 I                                            *             I                                                          I
+  1.0000E+00 I                                                          I         *                                                I
+  1.1000E+00 I                                                          I                                                 *        I
+  1.2000E+00 I                                                          I                                         *                I
+  1.3000E+00 I                                                          I                                *                         I
+  1.4000E+00 I                                                          I                           *                              I
+  1.5000E+00 I                                                          I  *                                                       I
+  1.6000E+00 I                                                          I *                                                        I
+  1.7000E+00 I                                                          I            *                                             I
+  1.8000E+00 I                                                      *   I                                                          I
+  1.9000E+00 I                                             *            I                                                          I
+  2.0000E+00 I                                        *                 I                                                          I
+  2.1000E+00 I                 *                                        I                                                          I
+  2.2000E+00 I                *                                         I                                                          I
+  2.3000E+00 I                       *                                  I                                                          I
+  2.4000E+00 I                        *                                 I                                                          I
+  2.5000E+00 I                                   *                      I                                                          I
+  2.6000E+00 I                                     *                    I                                                          I
+  2.7000E+00 I                              *                           I                                                          I
+  2.8000E+00 I                                     *                    I                                                          I
+  2.9000E+00 I                                           *              I                                                          I
+1 3.0000E+00 I                                      *                   I                                                          I
+  3.1000E+00 I                                       *                  I                                                          I
+  3.2000E+00 I                                           *              I                                                          I
+  3.3000E+00 I                                         *                I                                                          I
+  3.4000E+00 I                                         *                I                                                          I
+  3.5000E+00 I                                           *              I                                                          I
+  3.6000E+00 I                                          *               I                                                          I
+  3.7000E+00 I                                          *               I                                                          I
+  3.8000E+00 I                                           *              I                                                          I
+  3.9000E+00 I                                         *                I                                                          I
+  4.0000E+00 I                           *                              I                                                          I
+             +---------------------------------------------------------------------------------------------------------------------+
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+      POINT-ID =       1
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            2.063498E+03   0.0            0.0            0.0                           
+   1.000000E-01     G      0.0            0.0            2.022883E+03   0.0            0.0            0.0                           
+   2.000000E-01     G      0.0            0.0            1.843626E+03   0.0            0.0            0.0                           
+   3.000000E-01     G      0.0            0.0            1.494639E+03   0.0            0.0            0.0                           
+   4.000000E-01     G      0.0            0.0            1.027708E+03   0.0            0.0            0.0                           
+   5.000000E-01     G      0.0            0.0            5.020403E+02   0.0            0.0            0.0                           
+   6.000000E-01     G      0.0            0.0           -8.131599E+01   0.0            0.0            0.0                           
+   7.000000E-01     G      0.0            0.0           -7.315193E+02   0.0            0.0            0.0                           
+   8.000001E-01     G      0.0            0.0           -1.426337E+03   0.0            0.0            0.0                           
+   9.000001E-01     G      0.0            0.0           -2.144231E+03   0.0            0.0            0.0                           
+   1.000000E+00     G      0.0            0.0           -2.884605E+03   0.0            0.0            0.0                           
+   1.100000E+00     G      0.0            0.0           -3.558310E+03   0.0            0.0            0.0                           
+   1.200000E+00     G      0.0            0.0           -3.973629E+03   0.0            0.0            0.0                           
+   1.300000E+00     G      0.0            0.0           -4.061571E+03   0.0            0.0            0.0                           
+   1.400000E+00     G      0.0            0.0           -3.922640E+03   0.0            0.0            0.0                           
+   1.500000E+00     G      0.0            0.0           -3.675711E+03   0.0            0.0            0.0                           
+   1.600000E+00     G      0.0            0.0           -3.321181E+03   0.0            0.0            0.0                           
+   1.700000E+00     G      0.0            0.0           -2.836856E+03   0.0            0.0            0.0                           
+   1.800000E+00     G      0.0            0.0           -2.266551E+03   0.0            0.0            0.0                           
+   1.900000E+00     G      0.0            0.0           -1.654186E+03   0.0            0.0            0.0                           
+   2.000000E+00     G      0.0            0.0           -9.994463E+02   0.0            0.0            0.0                           
+   2.100000E+00     G      0.0            0.0           -3.435209E+02   0.0            0.0            0.0                           
+   2.200000E+00     G      0.0            0.0            2.076604E+02   0.0            0.0            0.0                           
+   2.300000E+00     G      0.0            0.0            6.087262E+02   0.0            0.0            0.0                           
+   2.400000E+00     G      0.0            0.0            9.068658E+02   0.0            0.0            0.0                           
+   2.500000E+00     G      0.0            0.0            1.163298E+03   0.0            0.0            0.0                           
+   2.600000E+00     G      0.0            0.0            1.376413E+03   0.0            0.0            0.0                           
+   2.700000E+00     G      0.0            0.0            1.529460E+03   0.0            0.0            0.0                           
+   2.799999E+00     G      0.0            0.0            1.642889E+03   0.0            0.0            0.0                           
+   2.899999E+00     G      0.0            0.0            1.740427E+03   0.0            0.0            0.0                           
+   2.999999E+00     G      0.0            0.0            1.820555E+03   0.0            0.0            0.0                           
+   3.099999E+00     G      0.0            0.0            1.878949E+03   0.0            0.0            0.0                           
+   3.199999E+00     G      0.0            0.0            1.922343E+03   0.0            0.0            0.0                           
+   3.299999E+00     G      0.0            0.0            1.958206E+03   0.0            0.0            0.0                           
+   3.399999E+00     G      0.0            0.0            1.988065E+03   0.0            0.0            0.0                           
+   3.499999E+00     G      0.0            0.0            2.010374E+03   0.0            0.0            0.0                           
+   3.599999E+00     G      0.0            0.0            2.026084E+03   0.0            0.0            0.0                           
+   3.699999E+00     G      0.0            0.0            2.038916E+03   0.0            0.0            0.0                           
+   3.799999E+00     G      0.0            0.0            2.050000E+03   0.0            0.0            0.0                           
+   3.899998E+00     G      0.0            0.0            2.057991E+03   0.0            0.0            0.0                           
+   3.999998E+00     G      0.0            0.0            2.063498E+03   0.0            0.0            0.0                           
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+      POINT-ID =       9
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            2.065569E+03   0.0            0.0            0.0                           
+   1.000000E-01     G      0.0            0.0            1.864147E+03   0.0            0.0            0.0                           
+   2.000000E-01     G      0.0            0.0            1.477287E+03   0.0            0.0            0.0                           
+   3.000000E-01     G      0.0            0.0            1.260171E+03   0.0            0.0            0.0                           
+   4.000000E-01     G      0.0            0.0            1.027672E+03   0.0            0.0            0.0                           
+   5.000000E-01     G      0.0            0.0            4.521985E+02   0.0            0.0            0.0                           
+   6.000000E-01     G      0.0            0.0           -2.441459E+02   0.0            0.0            0.0                           
+   7.000000E-01     G      0.0            0.0           -8.097794E+02   0.0            0.0            0.0                           
+   8.000001E-01     G      0.0            0.0           -1.423359E+03   0.0            0.0            0.0                           
+   9.000001E-01     G      0.0            0.0           -2.177196E+03   0.0            0.0            0.0                           
+   1.000000E+00     G      0.0            0.0           -2.934821E+03   0.0            0.0            0.0                           
+   1.100000E+00     G      0.0            0.0           -3.268601E+03   0.0            0.0            0.0                           
+   1.200000E+00     G      0.0            0.0           -3.259711E+03   0.0            0.0            0.0                           
+   1.300000E+00     G      0.0            0.0           -3.599414E+03   0.0            0.0            0.0                           
+   1.400000E+00     G      0.0            0.0           -3.937007E+03   0.0            0.0            0.0                           
+   1.500000E+00     G      0.0            0.0           -3.595702E+03   0.0            0.0            0.0                           
+   1.600000E+00     G      0.0            0.0           -2.997221E+03   0.0            0.0            0.0                           
+   1.700000E+00     G      0.0            0.0           -2.680011E+03   0.0            0.0            0.0                           
+   1.800000E+00     G      0.0            0.0           -2.283676E+03   0.0            0.0            0.0                           
+   1.900000E+00     G      0.0            0.0           -1.593742E+03   0.0            0.0            0.0                           
+   2.000000E+00     G      0.0            0.0           -8.970982E+02   0.0            0.0            0.0                           
+   2.100000E+00     G      0.0            0.0           -4.514829E+02   0.0            0.0            0.0                           
+   2.200000E+00     G      0.0            0.0           -1.346823E+02   0.0            0.0            0.0                           
+   2.300000E+00     G      0.0            0.0            3.864014E+02   0.0            0.0            0.0                           
+   2.400000E+00     G      0.0            0.0            9.328888E+02   0.0            0.0            0.0                           
+   2.500000E+00     G      0.0            0.0            1.149841E+03   0.0            0.0            0.0                           
+   2.600000E+00     G      0.0            0.0            1.218463E+03   0.0            0.0            0.0                           
+   2.700000E+00     G      0.0            0.0            1.446945E+03   0.0            0.0            0.0                           
+   2.799999E+00     G      0.0            0.0            1.664918E+03   0.0            0.0            0.0                           
+   2.899999E+00     G      0.0            0.0            1.720154E+03   0.0            0.0            0.0                           
+   2.999999E+00     G      0.0            0.0            1.766351E+03   0.0            0.0            0.0                           
+   3.099999E+00     G      0.0            0.0            1.855938E+03   0.0            0.0            0.0                           
+   3.199999E+00     G      0.0            0.0            1.917106E+03   0.0            0.0            0.0                           
+   3.299999E+00     G      0.0            0.0            1.952840E+03   0.0            0.0            0.0                           
+   3.399999E+00     G      0.0            0.0            1.976445E+03   0.0            0.0            0.0                           
+   3.499999E+00     G      0.0            0.0            1.993663E+03   0.0            0.0            0.0                           
+   3.599999E+00     G      0.0            0.0            2.022904E+03   0.0            0.0            0.0                           
+   3.699999E+00     G      0.0            0.0            2.042845E+03   0.0            0.0            0.0                           
+   3.799999E+00     G      0.0            0.0            2.042119E+03   0.0            0.0            0.0                           
+   3.899998E+00     G      0.0            0.0            2.050786E+03   0.0            0.0            0.0                           
+   3.999998E+00     G      0.0            0.0            2.065570E+03   0.0            0.0            0.0                           
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+      POINT-ID =      10
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            2.069288E+03   0.0            0.0            0.0                           
+   1.000000E-01     G      0.0            0.0            1.882753E+03   0.0            0.0            0.0                           
+   2.000000E-01     G      0.0            0.0            1.495964E+03   0.0            0.0            0.0                           
+   3.000000E-01     G      0.0            0.0            1.267095E+03   0.0            0.0            0.0                           
+   4.000000E-01     G      0.0            0.0            1.042469E+03   0.0            0.0            0.0                           
+   5.000000E-01     G      0.0            0.0            4.635686E+02   0.0            0.0            0.0                           
+   6.000000E-01     G      0.0            0.0           -2.451654E+02   0.0            0.0            0.0                           
+   7.000000E-01     G      0.0            0.0           -8.037244E+02   0.0            0.0            0.0                           
+   8.000001E-01     G      0.0            0.0           -1.415128E+03   0.0            0.0            0.0                           
+   9.000001E-01     G      0.0            0.0           -2.178450E+03   0.0            0.0            0.0                           
+   1.000000E+00     G      0.0            0.0           -2.938882E+03   0.0            0.0            0.0                           
+   1.100000E+00     G      0.0            0.0           -3.301116E+03   0.0            0.0            0.0                           
+   1.200000E+00     G      0.0            0.0           -3.298004E+03   0.0            0.0            0.0                           
+   1.300000E+00     G      0.0            0.0           -3.611802E+03   0.0            0.0            0.0                           
+   1.400000E+00     G      0.0            0.0           -3.964293E+03   0.0            0.0            0.0                           
+   1.500000E+00     G      0.0            0.0           -3.619564E+03   0.0            0.0            0.0                           
+   1.600000E+00     G      0.0            0.0           -2.994708E+03   0.0            0.0            0.0                           
+   1.700000E+00     G      0.0            0.0           -2.690915E+03   0.0            0.0            0.0                           
+   1.800000E+00     G      0.0            0.0           -2.301489E+03   0.0            0.0            0.0                           
+   1.900000E+00     G      0.0            0.0           -1.592075E+03   0.0            0.0            0.0                           
+   2.000000E+00     G      0.0            0.0           -8.962755E+02   0.0            0.0            0.0                           
+   2.100000E+00     G      0.0            0.0           -4.425208E+02   0.0            0.0            0.0                           
+   2.200000E+00     G      0.0            0.0           -1.157500E+02   0.0            0.0            0.0                           
+   2.300000E+00     G      0.0            0.0            3.922905E+02   0.0            0.0            0.0                           
+   2.400000E+00     G      0.0            0.0            9.429612E+02   0.0            0.0            0.0                           
+   2.500000E+00     G      0.0            0.0            1.162097E+03   0.0            0.0            0.0                           
+   2.600000E+00     G      0.0            0.0            1.217182E+03   0.0            0.0            0.0                           
+   2.700000E+00     G      0.0            0.0            1.450146E+03   0.0            0.0            0.0                           
+   2.799999E+00     G      0.0            0.0            1.674348E+03   0.0            0.0            0.0                           
+   2.899999E+00     G      0.0            0.0            1.719919E+03   0.0            0.0            0.0                           
+   2.999999E+00     G      0.0            0.0            1.765870E+03   0.0            0.0            0.0                           
+   3.099999E+00     G      0.0            0.0            1.860885E+03   0.0            0.0            0.0                           
+   3.199999E+00     G      0.0            0.0            1.917790E+03   0.0            0.0            0.0                           
+   3.299999E+00     G      0.0            0.0            1.952415E+03   0.0            0.0            0.0                           
+   3.399999E+00     G      0.0            0.0            1.978861E+03   0.0            0.0            0.0                           
+   3.499999E+00     G      0.0            0.0            1.993899E+03   0.0            0.0            0.0                           
+   3.599999E+00     G      0.0            0.0            2.022692E+03   0.0            0.0            0.0                           
+   3.699999E+00     G      0.0            0.0            2.044492E+03   0.0            0.0            0.0                           
+   3.799999E+00     G      0.0            0.0            2.042270E+03   0.0            0.0            0.0                           
+   3.899998E+00     G      0.0            0.0            2.050609E+03   0.0            0.0            0.0                           
+   3.999998E+00     G      0.0            0.0            2.069288E+03   0.0            0.0            0.0                           
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+      POINT-ID =      11
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            2.063936E+03   0.0            0.0            0.0                           
+   1.000000E-01     G      0.0            0.0            2.032315E+03   0.0            0.0            0.0                           
+   2.000000E-01     G      0.0            0.0            1.859970E+03   0.0            0.0            0.0                           
+   3.000000E-01     G      0.0            0.0            1.503467E+03   0.0            0.0            0.0                           
+   4.000000E-01     G      0.0            0.0            1.029672E+03   0.0            0.0            0.0                           
+   5.000000E-01     G      0.0            0.0            5.058488E+02   0.0            0.0            0.0                           
+   6.000000E-01     G      0.0            0.0           -7.559833E+01   0.0            0.0            0.0                           
+   7.000000E-01     G      0.0            0.0           -7.279618E+02   0.0            0.0            0.0                           
+   8.000001E-01     G      0.0            0.0           -1.425176E+03   0.0            0.0            0.0                           
+   9.000001E-01     G      0.0            0.0           -2.143169E+03   0.0            0.0            0.0                           
+   1.000000E+00     G      0.0            0.0           -2.883321E+03   0.0            0.0            0.0                           
+   1.100000E+00     G      0.0            0.0           -3.575487E+03   0.0            0.0            0.0                           
+   1.200000E+00     G      0.0            0.0           -4.005847E+03   0.0            0.0            0.0                           
+   1.300000E+00     G      0.0            0.0           -4.078746E+03   0.0            0.0            0.0                           
+   1.400000E+00     G      0.0            0.0           -3.925650E+03   0.0            0.0            0.0                           
+   1.500000E+00     G      0.0            0.0           -3.682824E+03   0.0            0.0            0.0                           
+   1.600000E+00     G      0.0            0.0           -3.332505E+03   0.0            0.0            0.0                           
+   1.700000E+00     G      0.0            0.0           -2.843768E+03   0.0            0.0            0.0                           
+   1.800000E+00     G      0.0            0.0           -2.268671E+03   0.0            0.0            0.0                           
+   1.900000E+00     G      0.0            0.0           -1.656245E+03   0.0            0.0            0.0                           
+   2.000000E+00     G      0.0            0.0           -1.003027E+03   0.0            0.0            0.0                           
+   2.100000E+00     G      0.0            0.0           -3.373033E+02   0.0            0.0            0.0                           
+   2.200000E+00     G      0.0            0.0            2.232864E+02   0.0            0.0            0.0                           
+   2.300000E+00     G      0.0            0.0            6.169357E+02   0.0            0.0            0.0                           
+   2.400000E+00     G      0.0            0.0            9.070787E+02   0.0            0.0            0.0                           
+   2.500000E+00     G      0.0            0.0            1.165985E+03   0.0            0.0            0.0                           
+   2.600000E+00     G      0.0            0.0            1.381981E+03   0.0            0.0            0.0                           
+   2.700000E+00     G      0.0            0.0            1.532689E+03   0.0            0.0            0.0                           
+   2.799999E+00     G      0.0            0.0            1.643534E+03   0.0            0.0            0.0                           
+   2.899999E+00     G      0.0            0.0            1.741217E+03   0.0            0.0            0.0                           
+   2.999999E+00     G      0.0            0.0            1.822413E+03   0.0            0.0            0.0                           
+   3.099999E+00     G      0.0            0.0            1.880476E+03   0.0            0.0            0.0                           
+   3.199999E+00     G      0.0            0.0            1.922591E+03   0.0            0.0            0.0                           
+   3.299999E+00     G      0.0            0.0            1.958343E+03   0.0            0.0            0.0                           
+   3.399999E+00     G      0.0            0.0            1.988899E+03   0.0            0.0            0.0                           
+   3.499999E+00     G      0.0            0.0            2.010991E+03   0.0            0.0            0.0                           
+   3.599999E+00     G      0.0            0.0            2.026122E+03   0.0            0.0            0.0                           
+   3.699999E+00     G      0.0            0.0            2.039041E+03   0.0            0.0            0.0                           
+   3.799999E+00     G      0.0            0.0            2.050315E+03   0.0            0.0            0.0                           
+   3.899998E+00     G      0.0            0.0            2.058197E+03   0.0            0.0            0.0                           
+   3.999998E+00     G      0.0            0.0            2.063936E+03   0.0            0.0            0.0                           
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+      POINT-ID =      12
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            2.070141E+03   0.0           -1.110722E-02   0.0                           
+   1.000000E-01     G      0.0            0.0            1.945028E+03   0.0           -2.299328E-02   0.0                           
+   2.000000E-01     G      0.0            0.0            1.627890E+03   0.0           -1.959787E-02   0.0                           
+   3.000000E-01     G      0.0            0.0            1.347901E+03   0.0           -1.715913E-02   0.0                           
+   4.000000E-01     G      0.0            0.0            1.051156E+03   0.0           -1.478000E-02   0.0                           
+   5.000000E-01     G      0.0            0.0            4.867600E+02   0.0           -6.099394E-03   0.0                           
+   6.000000E-01     G      0.0            0.0           -1.925655E+02   0.0           -6.095690E-03   0.0                           
+   7.000000E-01     G      0.0            0.0           -7.743485E+02   0.0           -9.238105E-03   0.0                           
+   8.000001E-01     G      0.0            0.0           -1.411194E+03   0.0           -3.204325E-03   0.0                           
+   9.000001E-01     G      0.0            0.0           -2.168667E+03   0.0            2.945682E-04   0.0                           
+   1.000000E+00     G      0.0            0.0           -2.923285E+03   0.0            1.709031E-02   0.0                           
+   1.100000E+00     G      0.0            0.0           -3.413547E+03   0.0            4.383963E-02   0.0                           
+   1.200000E+00     G      0.0            0.0           -3.556476E+03   0.0            3.836090E-02   0.0                           
+   1.300000E+00     G      0.0            0.0           -3.770318E+03   0.0            3.214826E-02   0.0                           
+   1.400000E+00     G      0.0            0.0           -3.975432E+03   0.0            2.892522E-02   0.0                           
+   1.500000E+00     G      0.0            0.0           -3.660234E+03   0.0            1.209898E-02   0.0                           
+   1.600000E+00     G      0.0            0.0           -3.099033E+03   0.0            1.124370E-02   0.0                           
+   1.700000E+00     G      0.0            0.0           -2.748942E+03   0.0            1.879606E-02   0.0                           
+   1.800000E+00     G      0.0            0.0           -2.306479E+03   0.0            7.562626E-03   0.0                           
+   1.900000E+00     G      0.0            0.0           -1.610207E+03   0.0            1.079835E-03   0.0                           
+   2.000000E+00     G      0.0            0.0           -9.302241E+02   0.0           -2.338416E-03   0.0                           
+   2.100000E+00     G      0.0            0.0           -4.031586E+02   0.0           -1.770537E-02   0.0                           
+   2.200000E+00     G      0.0            0.0            8.815657E+00   0.0           -1.851004E-02   0.0                           
+   2.300000E+00     G      0.0            0.0            4.686606E+02   0.0           -1.365891E-02   0.0                           
+   2.400000E+00     G      0.0            0.0            9.400485E+02   0.0           -1.274790E-02   0.0                           
+   2.500000E+00     G      0.0            0.0            1.173980E+03   0.0           -5.750404E-03   0.0                           
+   2.600000E+00     G      0.0            0.0            1.268070E+03   0.0           -4.206950E-03   0.0                           
+   2.700000E+00     G      0.0            0.0            1.479060E+03   0.0           -8.766694E-03   0.0                           
+   2.799999E+00     G      0.0            0.0            1.672758E+03   0.0           -4.215205E-03   0.0                           
+   2.899999E+00     G      0.0            0.0            1.726080E+03   0.0           -1.371025E-04   0.0                           
+   2.999999E+00     G      0.0            0.0            1.783369E+03   0.0           -3.644643E-03   0.0                           
+   3.099999E+00     G      0.0            0.0            1.871678E+03   0.0           -3.141020E-03   0.0                           
+   3.199999E+00     G      0.0            0.0            1.919771E+03   0.0           -2.529959E-04   0.0                           
+   3.299999E+00     G      0.0            0.0            1.953756E+03   0.0           -1.330228E-03   0.0                           
+   3.399999E+00     G      0.0            0.0            1.984225E+03   0.0           -1.397380E-03   0.0                           
+   3.499999E+00     G      0.0            0.0            1.999495E+03   0.0           -2.492365E-04   0.0                           
+   3.599999E+00     G      0.0            0.0            2.023528E+03   0.0           -9.410278E-04   0.0                           
+   3.699999E+00     G      0.0            0.0            2.044230E+03   0.0           -7.913033E-04   0.0                           
+   3.799999E+00     G      0.0            0.0            2.044917E+03   0.0           -1.431867E-04   0.0                           
+   3.899998E+00     G      0.0            0.0            2.052796E+03   0.0           -1.237293E-03   0.0                           
+   3.999998E+00     G      0.0            0.0            2.070141E+03   0.0           -1.110661E-02   0.0                           
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+      POINT-ID =    1040
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0           -2.065000E+03   0.0            6.731594E-02   0.0                           
+   1.000000E-01     G      0.0            0.0           -1.840742E+03   0.0            3.367608E-01   0.0                           
+   2.000000E-01     G      0.0            0.0           -1.425894E+03   0.0            3.380474E-01   0.0                           
+   3.000000E-01     G      0.0            0.0           -1.227091E+03   0.0            1.253194E-01   0.0                           
+   4.000000E-01     G      0.0            0.0           -1.025317E+03   0.0            2.678291E-01   0.0                           
+   5.000000E-01     G      0.0            0.0           -4.442044E+02   0.0            2.057974E-01   0.0                           
+   6.000000E-01     G      0.0            0.0            2.659632E+02   0.0           -1.845288E-02   0.0                           
+   7.000000E-01     G      0.0            0.0            8.212617E+02   0.0            1.095909E-01   0.0                           
+   8.000001E-01     G      0.0            0.0            1.423959E+03   0.0            1.489908E-01   0.0                           
+   9.000001E-01     G      0.0            0.0            2.181396E+03   0.0           -2.270357E-02   0.0                           
+   1.000000E+00     G      0.0            0.0            2.940364E+03   0.0           -7.351384E-02   0.0                           
+   1.100000E+00     G      0.0            0.0            3.226108E+03   0.0           -5.885241E-01   0.0                           
+   1.200000E+00     G      0.0            0.0            3.159400E+03   0.0           -6.930916E-01   0.0                           
+   1.300000E+00     G      0.0            0.0            3.534366E+03   0.0           -2.242247E-01   0.0                           
+   1.400000E+00     G      0.0            0.0            3.934462E+03   0.0           -4.938799E-01   0.0                           
+   1.500000E+00     G      0.0            0.0            3.582230E+03   0.0           -4.319123E-01   0.0                           
+   1.600000E+00     G      0.0            0.0            2.953887E+03   0.0            4.546180E-02   0.0                           
+   1.700000E+00     G      0.0            0.0            2.657086E+03   0.0           -1.973463E-01   0.0                           
+   1.800000E+00     G      0.0            0.0            2.283748E+03   0.0           -3.224172E-01   0.0                           
+   1.900000E+00     G      0.0            0.0            1.585866E+03   0.0            3.016706E-02   0.0                           
+   2.000000E+00     G      0.0            0.0            8.836729E+02   0.0            1.488817E-02   0.0                           
+   2.100000E+00     G      0.0            0.0            4.668138E+02   0.0            1.622071E-01   0.0                           
+   2.200000E+00     G      0.0            0.0            1.827681E+02   0.0            3.426673E-01   0.0                           
+   2.300000E+00     G      0.0            0.0           -3.551424E+02   0.0            1.065937E-01   0.0                           
+   2.400000E+00     G      0.0            0.0           -9.345300E+02   0.0            1.823113E-01   0.0                           
+   2.500000E+00     G      0.0            0.0           -1.146651E+03   0.0            2.218428E-01   0.0                           
+   2.600000E+00     G      0.0            0.0           -1.197411E+03   0.0           -2.317570E-02   0.0                           
+   2.700000E+00     G      0.0            0.0           -1.435183E+03   0.0            5.793654E-02   0.0                           
+   2.799999E+00     G      0.0            0.0           -1.666672E+03   0.0            1.706786E-01   0.0                           
+   2.899999E+00     G      0.0            0.0           -1.717493E+03   0.0           -4.257983E-03   0.0                           
+   2.999999E+00     G      0.0            0.0           -1.759039E+03   0.0           -8.691429E-03   0.0                           
+   3.099999E+00     G      0.0            0.0           -1.852181E+03   0.0            8.955587E-02   0.0                           
+   3.199999E+00     G      0.0            0.0           -1.916274E+03   0.0            1.237866E-02   0.0                           
+   3.299999E+00     G      0.0            0.0           -1.952131E+03   0.0           -7.688629E-03   0.0                           
+   3.399999E+00     G      0.0            0.0           -1.974613E+03   0.0            4.373834E-02   0.0                           
+   3.499999E+00     G      0.0            0.0           -1.991376E+03   0.0            4.274166E-03   0.0                           
+   3.599999E+00     G      0.0            0.0           -2.022439E+03   0.0           -3.832736E-03   0.0                           
+   3.699999E+00     G      0.0            0.0           -2.043164E+03   0.0            2.981645E-02   0.0                           
+   3.799999E+00     G      0.0            0.0           -2.041035E+03   0.0            2.749625E-03   0.0                           
+   3.899998E+00     G      0.0            0.0           -2.049771E+03   0.0           -3.204404E-03   0.0                           
+   3.999998E+00     G      0.0            0.0           -2.065000E+03   0.0            6.731123E-02   0.0                           
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+      POINT-ID =      11
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+       TIME       TYPE          T1             T2             T3             R1             R2             R3
+   0.0              G      0.0            0.0            0.0            2.183842E+05  -3.129226E+06  -2.566727E+06                  
+   1.000000E-01     G      0.0            0.0            0.0            1.263607E+08  -3.057032E+07   1.039209E+08                  
+   2.000000E-01     G      0.0            0.0            0.0            2.625764E+08  -3.081451E+07   2.280248E+08                  
+   3.000000E-01     G      0.0            0.0            0.0            1.597191E+08  -4.173922E+06   1.394008E+08                  
+   4.000000E-01     G      0.0            0.0            0.0            1.853800E+06  -2.137149E+07  -2.679841E+06                  
+   5.000000E-01     G      0.0            0.0            0.0            4.040059E+07  -1.976332E+07   3.232064E+07                  
+   6.000000E-01     G      0.0            0.0            0.0            1.135909E+08   3.763946E+06   1.001285E+08                  
+   7.000000E-01     G      0.0            0.0            0.0            5.432721E+07  -8.480054E+06   4.685489E+07                  
+   8.000001E-01     G      0.0            0.0            0.0            2.149500E+05  -1.396424E+07  -1.649121E+06                  
+   9.000001E-01     G      0.0            0.0            0.0            2.325135E+07   2.235380E+06   2.050128E+07                  
+   1.000000E+00     G      0.0            0.0            0.0            3.209131E+07   7.879609E+05   3.316813E+07                  
+   1.100000E+00     G      0.0            0.0            0.0           -2.328166E+08   5.307592E+07  -1.909845E+08                  
+   1.200000E+00     G      0.0            0.0            0.0           -5.126238E+08   6.428876E+07  -4.450428E+08                  
+   1.300000E+00     G      0.0            0.0            0.0           -3.142871E+08   5.886246E+06  -2.746721E+08                  
+   1.400000E+00     G      0.0            0.0            0.0            7.045710E+06   3.822939E+07   1.453730E+07                  
+   1.500000E+00     G      0.0            0.0            0.0           -6.778435E+07   4.173702E+07  -5.286813E+07                  
+   1.600000E+00     G      0.0            0.0            0.0           -2.263909E+08  -8.494419E+06  -1.995502E+08                  
+   1.700000E+00     G      0.0            0.0            0.0           -1.088090E+08   1.406240E+07  -9.385458E+07                  
+   1.800000E+00     G      0.0            0.0            0.0            6.470409E+06   2.958301E+07   9.968232E+06                  
+   1.900000E+00     G      0.0            0.0            0.0           -4.408194E+07  -4.497926E+06  -3.800241E+07                  
+   2.000000E+00     G      0.0            0.0            0.0           -6.976742E+07   7.189612E+05  -6.361345E+07                  
+   2.100000E+00     G      0.0            0.0            0.0            9.006583E+07  -1.408924E+07   7.330578E+07                  
+   2.200000E+00     G      0.0            0.0            0.0            2.462900E+08  -3.313195E+07   2.140517E+08                  
+   2.300000E+00     G      0.0            0.0            0.0            1.504838E+08  -3.050910E+06   1.319378E+08                  
+   2.400000E+00     G      0.0            0.0            0.0           -1.796642E+07  -1.243421E+07  -1.939174E+07                  
+   2.500000E+00     G      0.0            0.0            0.0            1.575666E+07  -2.195534E+07   1.033126E+07                  
+   2.600000E+00     G      0.0            0.0            0.0            1.108252E+08   3.735464E+06   9.777962E+07                  
+   2.700000E+00     G      0.0            0.0            0.0            5.659907E+07  -2.733830E+06   4.928219E+07                  
+   2.799999E+00     G      0.0            0.0            0.0           -1.248469E+07  -1.562547E+07  -1.329507E+07                  
+   2.899999E+00     G      0.0            0.0            0.0            1.571370E+07   1.192700E+06   1.318122E+07                  
+   2.999999E+00     G      0.0            0.0            0.0            3.745796E+07   1.622420E+06   3.301228E+07                  
+   3.099999E+00     G      0.0            0.0            0.0            1.638992E+07  -8.416313E+06   1.375774E+07                  
+   3.199999E+00     G      0.0            0.0            0.0            3.757460E+06  -3.425045E+05   2.966170E+06                  
+   3.299999E+00     G      0.0            0.0            0.0            4.085065E+06   1.338622E+06   3.334150E+06                  
+   3.399999E+00     G      0.0            0.0            0.0            9.067496E+06  -4.423534E+06   7.534804E+06                  
+   3.499999E+00     G      0.0            0.0            0.0            1.162638E+07  -1.856149E+04   1.021557E+07                  
+   3.599999E+00     G      0.0            0.0            0.0            1.974877E+06   9.949620E+05   1.642066E+06                  
+   3.699999E+00     G      0.0            0.0            0.0           -2.116454E+06  -2.848247E+06  -2.281750E+06                  
+   3.799999E+00     G      0.0            0.0            0.0            5.799244E+06   6.555239E+03   4.975870E+06                  
+   3.899998E+00     G      0.0            0.0            0.0            5.116250E+06   1.069721E+06   4.319319E+06                  
+   3.999998E+00     G      0.0            0.0            0.0            2.178892E+05  -3.129086E+06  -2.566966E+06                  
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE        9( 3)
+ 
+      THIS CURVE WILL BE PAPER-PLOTTED FRAME    4
+
+
+     CURVE  TITLE =     WING ( 3/4 CHORD , 1/4 CHORD , STA 458 )                                                                   
+      X-AXIS TITLE =  TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+      Y-AXIS TITLE = PHYSICAL DEFLECTION                                                                                            
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -3.937007E+03 AT X =   1.400000E+00
+
+
+                              THE LARGEST  Y-VALUE =  2.065570E+03 AT X =   3.999998E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -3.937007E+03 AT X =   1.400000E+00
+
+
+                              THE LARGEST  Y-VALUE =  2.065570E+03 AT X =   3.999998E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       10( 3)
+ 
+      THIS CURVE WILL BE PAPER-PLOTTED FRAME    4
+
+
+     CURVE  TITLE =     WING ( 3/4 CHORD , 1/4 CHORD , STA 458 )                                                                   
+      X-AXIS TITLE =  TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+      Y-AXIS TITLE = PHYSICAL DEFLECTION                                                                                            
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -3.964293E+03 AT X =   1.400000E+00
+
+
+                              THE LARGEST  Y-VALUE =  2.069288E+03 AT X =   0.000000E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -3.964293E+03 AT X =   1.400000E+00
+
+
+                              THE LARGEST  Y-VALUE =  2.069288E+03 AT X =   0.000000E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       11( 3)
+ 
+      THIS CURVE WILL BE PAPER-PLOTTED FRAME    5
+
+
+     CURVE  TITLE =     FUSELAGE PLUNGE                                                                                            
+      X-AXIS TITLE =  TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+      Y-AXIS TITLE = PHYSICAL DEFLECTION                                                                                            
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -4.078746E+03 AT X =   1.300000E+00
+
+
+                              THE LARGEST  Y-VALUE =  2.063936E+03 AT X =   0.000000E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -4.078746E+03 AT X =   1.300000E+00
+
+
+                              THE LARGEST  Y-VALUE =  2.063936E+03 AT X =   0.000000E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    36
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE       12( 5)
+ 
+      THIS CURVE WILL BE PAPER-PLOTTED FRAME    6
+
+
+     CURVE  TITLE =     AILERON DEFLECTION                                                                                         
+      X-AXIS TITLE =  TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+      Y-AXIS TITLE = PHYSICAL DEFLECTION                                                                                            
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -2.299328E-02 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  4.383963E-02 AT X =   1.100000E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -2.299328E-02 AT X =   1.000000E-01
+
+
+                              THE LARGEST  Y-VALUE =  4.383963E-02 AT X =   1.100000E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    37
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      DISPLACEMENT    CURVE     1040( 5)
+ 
+      THIS CURVE WILL BE PAPER-PLOTTED FRAME    7
+
+
+     CURVE  TITLE =     AERODYNAMIC BOX NEAR TIP , PITCH                                                                           
+      X-AXIS TITLE =  TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+      Y-AXIS TITLE = PHYSICAL DEFLECTION                                                                                            
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -6.930916E-01 AT X =   1.200000E+00
+
+
+                              THE LARGEST  Y-VALUE =  3.426673E-01 AT X =   2.200000E+00
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -6.930916E-01 AT X =   1.200000E+00
+
+
+                              THE LARGEST  Y-VALUE =  3.426673E-01 AT X =   2.200000E+00
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    38
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+
+
+
+                                            X Y - O U T P U T   S U M M A R Y
+
+
+     SUBCASE         1
+      RESPONSE
+      S P C F         CURVE       11( 6)
+ 
+      THIS CURVE WILL BE PAPER-PLOTTED FRAME    8
+
+
+     CURVE  TITLE =     WING ROOT BENDING MOMENT                                                                                   
+      X-AXIS TITLE =  TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+      Y-AXIS TITLE = ROTATIONAL CONSTRAINTS                                                                                         
+
+
+
+
+
+     THE FOLLOWING INFORMATION IS FOR THE ABOVE DEFINED CURVE ONLY.
+
+
+
+      WITHIN THE FRAME X-LIMITS       (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -4.450428E+08 AT X =   1.200000E+00
+
+
+                              THE LARGEST  Y-VALUE =  2.280248E+08 AT X =   2.000000E-01
+
+
+
+
+     WITHIN THE X-LIMITS OF ALL DATA (X =  0.000000E+00 TO  X =  3.999998E+00)
+
+
+                              THE SMALLEST Y-VALUE = -4.450428E+08 AT X =   1.200000E+00
+
+
+                              THE LARGEST  Y-VALUE =  2.280248E+08 AT X =   2.000000E-01
+
+
+
+
+                                             E N D   O F   S U M M A R Y
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    39
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                                            F     R     A     M     E
+
+                                                           ****  ****  ****  ****  * * 
+                                                           *  *  *  *  *  *  *  *  * * 
+                                                           *  *  *  *  *  *  *  *  ****
+                                                           *  *  *  *  *  *  *  *    * 
+                                                           ****  ****  ****  ****    * 
+
+0             WING ( 3/4 CHORD , 1/4 CHORD , STA 458 )                                                                              
+0    X-AXIS TITLE =   TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+0
+             +---------------------------------------------------------------------------------------------------------------------+
+             I                                                                                                                     I
+             I  PHYSICAL DEFLECTION                                                                                                I
+             I                                                                                                                     I
+             I -4.000000E+03                                      -5.000000E+02                                       3.000000E+03 I
+             +---------------------------------------------------------------------------------------------------------------------+
+  0.0000E+00 I                                                          I                                          0               I
+  1.0000E-01 I                                                          I                                       0                  I
+  2.0000E-01 I                                                          I                                *0                        I
+  3.0000E-01 I                                                          I                             0                            I
+  4.0000E-01 I                                                          I                         0                                I
+  5.0000E-01 I                                                          I               0                                          I
+  6.0000E-01 I                                                          I   0                                                      I
+  7.0000E-01 I                                                     0    I                                                          I
+  8.0000E-01 I                                          *0              I                                                          I
+  9.0000E-01 I                              0                           I                                                          I
+  1.0000E+00 I                 0                                        I                                                          I
+  1.1000E+00 I           0                                              I                                                          I
+  1.2000E+00 I           0                                              I                                                          I
+  1.3000E+00 I      0                                                   I                                                          I
+  1.4000E+00 I0                                                         I                                                          I
+  1.5000E+00 I     0*                                                   I                                                          I
+  1.6000E+00 I                0                                         I                                                          I
+  1.7000E+00 I                     0                                    I                                                          I
+  1.8000E+00 I                            0                             I                                                          I
+  1.9000E+00 I                                        0                 I                                                          I
+  2.0000E+00 I                                                   0      I                                                          I
+  2.1000E+00 I                                                          I0                                                         I
+  2.2000E+00 I                                                          I     0                                                    I
+  2.3000E+00 I                                                          I              0                                           I
+  2.4000E+00 I                                                          I                       0                                  I
+  2.5000E+00 I                                                          I                           0                              I
+  2.6000E+00 I                                                          I                            0                             I
+  2.7000E+00 I                                                          I                                0                         I
+  2.8000E+00 I                                                          I                                   *0                     I
+  2.9000E+00 I                                                          I                                    0                     I
+1 3.0000E+00 I                                                          I                                     0                    I
+  3.1000E+00 I                                                          I                                       0                  I
+  3.2000E+00 I                                                          I                                        0                 I
+  3.3000E+00 I                                                          I                                        0                 I
+  3.4000E+00 I                                                          I                                         0                I
+  3.5000E+00 I                                                          I                                         0                I
+  3.6000E+00 I                                                          I                                          0               I
+  3.7000E+00 I                                                          I                                          0               I
+  3.8000E+00 I                                                          I                                          0               I
+  3.9000E+00 I                                                          I                                          0               I
+  4.0000E+00 I                                                          I                                          0               I
+             +---------------------------------------------------------------------------------------------------------------------+
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    40
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                                            F     R     A     M     E
+
+                                                           ****  ****  ****  ****  ****
+                                                           *  *  *  *  *  *  *  *  *   
+                                                           *  *  *  *  *  *  *  *  ****
+                                                           *  *  *  *  *  *  *  *     *
+                                                           ****  ****  ****  ****  ****
+
+0             FUSELAGE PLUNGE                                                                                                       
+0    X-AXIS TITLE =   TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+0
+             +---------------------------------------------------------------------------------------------------------------------+
+             I                                                                                                                     I
+             I  PHYSICAL DEFLECTION                                                                                                I
+             I                                                                                                                     I
+             I -5.000000E+03                                      -1.000000E+03                                       3.000000E+03 I
+             +---------------------------------------------------------------------------------------------------------------------+
+  0.0000E+00 I                                                          I                                            *             I
+  1.0000E-01 I                                                          I                                            *             I
+  2.0000E-01 I                                                          I                                         *                I
+  3.0000E-01 I                                                          I                                    *                     I
+  4.0000E-01 I                                                          I                             *                            I
+  5.0000E-01 I                                                          I                     *                                    I
+  6.0000E-01 I                                                          I             *                                            I
+  7.0000E-01 I                                                          I   *                                                      I
+  8.0000E-01 I                                                    *     I                                                          I
+  9.0000E-01 I                                         *                I                                                          I
+  1.0000E+00 I                              *                           I                                                          I
+  1.1000E+00 I                    *                                     I                                                          I
+  1.2000E+00 I              *                                           I                                                          I
+  1.3000E+00 I             *                                            I                                                          I
+  1.4000E+00 I               *                                          I                                                          I
+  1.5000E+00 I                  *                                       I                                                          I
+  1.6000E+00 I                        *                                 I                                                          I
+  1.7000E+00 I                               *                          I                                                          I
+  1.8000E+00 I                                       *                  I                                                          I
+  1.9000E+00 I                                                *         I                                                          I
+  2.0000E+00 I                                                          *                                                          I
+  2.1000E+00 I                                                          I         *                                                I
+  2.2000E+00 I                                                          I                 *                                        I
+  2.3000E+00 I                                                          I                       *                                  I
+  2.4000E+00 I                                                          I                           *                              I
+  2.5000E+00 I                                                          I                               *                          I
+  2.6000E+00 I                                                          I                                  *                       I
+  2.7000E+00 I                                                          I                                    *                     I
+  2.8000E+00 I                                                          I                                      *                   I
+  2.9000E+00 I                                                          I                                       *                  I
+1 3.0000E+00 I                                                          I                                         *                I
+  3.1000E+00 I                                                          I                                         *                I
+  3.2000E+00 I                                                          I                                          *               I
+  3.3000E+00 I                                                          I                                           *              I
+  3.4000E+00 I                                                          I                                           *              I
+  3.5000E+00 I                                                          I                                           *              I
+  3.6000E+00 I                                                          I                                            *             I
+  3.7000E+00 I                                                          I                                            *             I
+  3.8000E+00 I                                                          I                                            *             I
+  3.9000E+00 I                                                          I                                            *             I
+  4.0000E+00 I                                                          I                                            *             I
+             +---------------------------------------------------------------------------------------------------------------------+
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    41
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                                            F     R     A     M     E
+
+                                                           ****  ****  ****  ****  ****
+                                                           *  *  *  *  *  *  *  *  *   
+                                                           *  *  *  *  *  *  *  *  ****
+                                                           *  *  *  *  *  *  *  *  *  *
+                                                           ****  ****  ****  ****  ****
+
+0             AILERON DEFLECTION                                                                                                    
+0    X-AXIS TITLE =   TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+0
+             +---------------------------------------------------------------------------------------------------------------------+
+             I                                                                                                                     I
+             I  PHYSICAL DEFLECTION                                                                                                I
+             I                                                                                                                     I
+             I -3.000000E-02                                       1.000000E-02                                       5.000000E-02 I
+             +---------------------------------------------------------------------------------------------------------------------+
+  0.0000E+00 I                           *                              I                                                          I
+  1.0000E-01 I         *                                                I                                                          I
+  2.0000E-01 I              *                                           I                                                          I
+  3.0000E-01 I                  *                                       I                                                          I
+  4.0000E-01 I                     *                                    I                                                          I
+  5.0000E-01 I                                  *                       I                                                          I
+  6.0000E-01 I                                  *                       I                                                          I
+  7.0000E-01 I                              *                           I                                                          I
+  8.0000E-01 I                                       *                  I                                                          I
+  9.0000E-01 I                                            *             I                                                          I
+  1.0000E+00 I                                                          I         *                                                I
+  1.1000E+00 I                                                          I                                                 *        I
+  1.2000E+00 I                                                          I                                         *                I
+  1.3000E+00 I                                                          I                                *                         I
+  1.4000E+00 I                                                          I                           *                              I
+  1.5000E+00 I                                                          I  *                                                       I
+  1.6000E+00 I                                                          I *                                                        I
+  1.7000E+00 I                                                          I            *                                             I
+  1.8000E+00 I                                                      *   I                                                          I
+  1.9000E+00 I                                             *            I                                                          I
+  2.0000E+00 I                                        *                 I                                                          I
+  2.1000E+00 I                 *                                        I                                                          I
+  2.2000E+00 I                *                                         I                                                          I
+  2.3000E+00 I                       *                                  I                                                          I
+  2.4000E+00 I                        *                                 I                                                          I
+  2.5000E+00 I                                   *                      I                                                          I
+  2.6000E+00 I                                     *                    I                                                          I
+  2.7000E+00 I                              *                           I                                                          I
+  2.8000E+00 I                                     *                    I                                                          I
+  2.9000E+00 I                                           *              I                                                          I
+1 3.0000E+00 I                                      *                   I                                                          I
+  3.1000E+00 I                                       *                  I                                                          I
+  3.2000E+00 I                                           *              I                                                          I
+  3.3000E+00 I                                         *                I                                                          I
+  3.4000E+00 I                                         *                I                                                          I
+  3.5000E+00 I                                           *              I                                                          I
+  3.6000E+00 I                                          *               I                                                          I
+  3.7000E+00 I                                          *               I                                                          I
+  3.8000E+00 I                                           *              I                                                          I
+  3.9000E+00 I                                         *                I                                                          I
+  4.0000E+00 I                           *                              I                                                          I
+             +---------------------------------------------------------------------------------------------------------------------+
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    42
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                                            F     R     A     M     E
+
+                                                           ****  ****  ****  ****  ****
+                                                           *  *  *  *  *  *  *  *     *
+                                                           *  *  *  *  *  *  *  *    * 
+                                                           *  *  *  *  *  *  *  *   *  
+                                                           ****  ****  ****  ****  *   
+
+0             AERODYNAMIC BOX NEAR TIP , PITCH                                                                                      
+0    X-AXIS TITLE =   TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+0
+             +---------------------------------------------------------------------------------------------------------------------+
+             I                                                                                                                     I
+             I  PHYSICAL DEFLECTION                                                                                                I
+             I                                                                                                                     I
+             I -8.000000E-01                                      -2.000000E-01                                       4.000000E-01 I
+             +---------------------------------------------------------------------------------------------------------------------+
+  0.0000E+00 I                                                          I                         *                                I
+  1.0000E-01 I                                                          I                                                    *     I
+  2.0000E-01 I                                                          I                                                    *     I
+  3.0000E-01 I                                                          I                               *                          I
+  4.0000E-01 I                                                          I                                             *            I
+  5.0000E-01 I                                                          I                                       *                  I
+  6.0000E-01 I                                                          I                 *                                        I
+  7.0000E-01 I                                                          I                             *                            I
+  8.0000E-01 I                                                          I                                 *                        I
+  9.0000E-01 I                                                          I                *                                         I
+  1.0000E+00 I                                                          I           *                                              I
+  1.1000E+00 I                    *                                     I                                                          I
+  1.2000E+00 I          *                                               I                                                          I
+  1.3000E+00 I                                                        * I                                                          I
+  1.4000E+00 I                             *                            I                                                          I
+  1.5000E+00 I                                   *                      I                                                          I
+  1.6000E+00 I                                                          I                       *                                  I
+  1.7000E+00 I                                                          *                                                          I
+  1.8000E+00 I                                              *           I                                                          I
+  1.9000E+00 I                                                          I                      *                                   I
+  2.0000E+00 I                                                          I                    *                                     I
+  2.1000E+00 I                                                          I                                   *                      I
+  2.2000E+00 I                                                          I                                                    *     I
+  2.3000E+00 I                                                          I                             *                            I
+  2.4000E+00 I                                                          I                                     *                    I
+  2.5000E+00 I                                                          I                                        *                 I
+  2.6000E+00 I                                                          I                *                                         I
+  2.7000E+00 I                                                          I                        *                                 I
+  2.8000E+00 I                                                          I                                   *                      I
+  2.9000E+00 I                                                          I                  *                                       I
+1 3.0000E+00 I                                                          I                  *                                       I
+  3.1000E+00 I                                                          I                           *                              I
+  3.2000E+00 I                                                          I                    *                                     I
+  3.3000E+00 I                                                          I                  *                                       I
+  3.4000E+00 I                                                          I                       *                                  I
+  3.5000E+00 I                                                          I                   *                                      I
+  3.6000E+00 I                                                          I                  *                                       I
+  3.7000E+00 I                                                          I                      *                                   I
+  3.8000E+00 I                                                          I                   *                                      I
+  3.9000E+00 I                                                          I                  *                                       I
+  4.0000E+00 I                                                          I                         *                                I
+             +---------------------------------------------------------------------------------------------------------------------+
+1     JET TRANSPORT WING DYNAMIC ANALYSIS                                   /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    43
+      NASTRAN DEMONSTRATION PROBLEM NO. D11-03-2A                                                                                   
+0     SYMMETRIC RESPONSE , SQUARE EDGE GUST , TRANSIENT ANALYSIS                                                                    
+0                                                            F     R     A     M     E
+
+                                                           ****  ****  ****  ****  ****
+                                                           *  *  *  *  *  *  *  *  *  *
+                                                           *  *  *  *  *  *  *  *  ****
+                                                           *  *  *  *  *  *  *  *  *  *
+                                                           ****  ****  ****  ****  ****
+
+0             WING ROOT BENDING MOMENT                                                                                              
+0    X-AXIS TITLE =   TIME(SECONDS)         JET TRANSPORT , SQUARE GUST                                                             
+0
+             +---------------------------------------------------------------------------------------------------------------------+
+             I                                                                                                                     I
+             I  ROTATIONAL CONSTRAINTS                                                                                             I
+             I                                                                                                                     I
+             I -5.000000E+08                                      -1.000000E+08                                       3.000000E+08 I
+             +---------------------------------------------------------------------------------------------------------------------+
+  0.0000E+00 I                                                          I             *                                            I
+  1.0000E-01 I                                                          I                             *                            I
+  2.0000E-01 I                                                          I                                               *          I
+  3.0000E-01 I                                                          I                                  *                       I
+  4.0000E-01 I                                                          I             *                                            I
+  5.0000E-01 I                                                          I                   *                                      I
+  6.0000E-01 I                                                          I                             *                            I
+  7.0000E-01 I                                                          I                     *                                    I
+  8.0000E-01 I                                                          I              *                                           I
+  9.0000E-01 I                                                          I                 *                                        I
+  1.0000E+00 I                                                          I                   *                                      I
+  1.1000E+00 I                                             *            I                                                          I
+  1.2000E+00 I       *                                                  I                                                          I
+  1.3000E+00 I                                *                         I                                                          I
+  1.4000E+00 I                                                          I                *                                         I
+  1.5000E+00 I                                                          I      *                                                   I
+  1.6000E+00 I                                           *              I                                                          I
+  1.7000E+00 I                                                          I*                                                         I
+  1.8000E+00 I                                                          I               *                                          I
+  1.9000E+00 I                                                          I        *                                                 I
+  2.0000E+00 I                                                          I    *                                                     I
+  2.1000E+00 I                                                          I                         *                                I
+  2.2000E+00 I                                                          I                                             *            I
+  2.3000E+00 I                                                          I                                 *                        I
+  2.4000E+00 I                                                          I           *                                              I
+  2.5000E+00 I                                                          I               *                                          I
+  2.6000E+00 I                                                          I                            *                             I
+  2.7000E+00 I                                                          I                     *                                    I
+  2.8000E+00 I                                                          I            *                                             I
+  2.9000E+00 I                                                          I                *                                         I
+1 3.0000E+00 I                                                          I                   *                                      I
+  3.1000E+00 I                                                          I                *                                         I
+  3.2000E+00 I                                                          I              *                                           I
+  3.3000E+00 I                                                          I              *                                           I
+  3.4000E+00 I                                                          I               *                                          I
+  3.5000E+00 I                                                          I               *                                          I
+  3.6000E+00 I                                                          I              *                                           I
+  3.7000E+00 I                                                          I             *                                            I
+  3.8000E+00 I                                                          I              *                                           I
+  3.9000E+00 I                                                          I              *                                           I
+  4.0000E+00 I                                                          I             *                                            I
+             +---------------------------------------------------------------------------------------------------------------------+
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  JET TRANSPORT WING DYNAMIC ANALYSIS                                
+ DATE:  5/17/95
+ END TIME: 16:20:48
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

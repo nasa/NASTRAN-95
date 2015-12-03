@@ -1,0 +1,1258 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D10011A,NASTRAN                                                           
+     TIME  25                                                                        
+     APP   DISPLACEMENT                                                              
+     SOL   10,1                                                                      
+     DIAG  14                                                                        
+     ALTER 88 $                                                                      
+     MATGPR   GPLD,USETD,SILD,PHIA // C,N,H / C,N,A  $                               
+     ENDALTER $                                                                      
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM               
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                          
+                  3         LABEL = FLEXIBLE STRUCTURE CASE                                              
+                  4           MPC = 101                                                                  
+                  5        METHOD = 2                                                                    
+                  6           TFL =  20                                                                  
+                  7       CMETHOD =  11                                                                  
+                  8      OUTPUT                                                                          
+                  9        SET 1  =  1,100,101,1010 THRU 1090                                            
+                 10                  SVECTOR(SORT1,PHASE)  = ALL                                         
+                 11              DISPLACEMENT(SORT1,PHASE) =  1                                          
+                 12      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   135, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        BAROR                                   .0      10.0    .0      1               
+                    2-        CBAR    1       10      1       2                                               
+                    3-        CBAR    2       10      2       3                                               
+                    4-        CBAR    3       10      3       4                                               
+                    5-        CBAR    4       10      4       5                                               
+                    6-        CBAR    5       10      5       6                                               
+                    7-        CBAR    6       10      6       7                                               
+                    8-        CBAR    7       10      7       8                                               
+                    9-        CBAR    8       10      8       9                                               
+                   10-        CBAR    9       10      9       10                                              
+                   11-        CBAR    10      20      10      11                                              
+                   12-        CBAR    11      20      11      12                                              
+                   13-        CBAR    12      20      12      13                                              
+                   14-        CBAR    13      20      13      14                                              
+                   15-        CBAR    14      20      14      15                                              
+                   16-        CBAR    15      20      15      16                                              
+                   17-        CELAS4  1001    2.0261+71001            1002    32.417+71002                    
+                   18-        CELAS4  1003    164.11+71003            1004    518.68+71004                    
+                   19-        CMASS4  2001    2.5+3   1001    2001    2002    2.5+3   1002    2002            
+                   20-        CMASS4  2003    2.5+3   1003    2003    2004    2.5+3   1004    2004            
+                   21-        CONM2   101     1               3333.333                                        
+                   22-        CONM2   102     2               6666.667                                        
+                   23-        CONM2   103     3               6666.667                                        
+                   24-        CONM2   104     4               6666.667                                        
+                   25-        CONM2   105     5               6666.667                                        
+                   26-        CONM2   106     6               6666.667                                        
+                   27-        CONM2   107     7               6666.667                                        
+                   28-        CONM2   108     8               6666.667                                        
+                   29-        CONM2   109     9               6666.667                                        
+                   30-        CONM2   110     10              5000.000                                        
+                   31-        CONM2   111     11              3333.333                                        
+                   32-        CONM2   112     12              3333.333                                        
+                   33-        CONM2   113     13              3333.333                                        
+                   34-        CONM2   114     14              3333.333                                        
+                   35-        CONM2   115     15              3333.333                                        
+                   36-        CONM2   116     16              2500.0                                          
+                   37-        CONM2   117     17              1666.667                                        
+                   38-        CONM2   118     18              1666.667                                        
+                   39-        CONM2   119     19              833.333                                         
+                   40-        EIGC    11      DET     MAX                                             +EC     
+                   41-        +EC     -2.0    -1.0    -2.0    10.0    10.0    6       6                       
+                   42-        EIGC    12      INV     MAX                                             +EC1    
+                   43-        +EC1    .0      -1.0    .0      10.0    10.0    6       6                       
+                   44-        EIGC    13      INV     MAX                                             EIGC13  
+                   45-        +IGC13  -1.0    .0      -1.0    10.0    10.0    6       6                       
+                   46-        EIGP    11      .0      .0      2                                               
+                   47-        EIGR    1       INV     .0      1.0     1       2       2               +E1     
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        +E1     MASS                                                                    
+                   49-        EIGR    2       INV     .0      12.0    5       7                       +E2     
+                   50-        +E2     MASS                                                                    
+                   51-        EPOINT  1010    1011    1030    1040    1050    1060    1070    1080            
+                   52-        EPOINT  1020    1021                                                            
+                   53-        GRDSET                                                  1345                    
+                   54-        GRID    1               .0      .0      .0                                      
+                   55-        GRID    2               16.66667.0      .0                                      
+                   56-        GRID    3               33.33333.0      .0                                      
+                   57-        GRID    4               50.0    .0      .0                                      
+                   58-        GRID    5               66.66666.0      .0                                      
+                   59-        GRID    6               83.33333.0      .0                                      
+                   60-        GRID    7               100.0   .0      .0                                      
+                   61-        GRID    8               116.6667.0      .0                                      
+                   62-        GRID    9               133.3333.0      .0                                      
+                   63-        GRID    10              150.000 .0      .0                                      
+                   64-        GRID    11              166.6667.0      .0                                      
+                   65-        GRID    12              183.3333.0      .0                                      
+                   66-        GRID    13              200.00  .0      .0                                      
+                   67-        GRID    14              216.6667.0      .0                                      
+                   68-        GRID    15              233.3333.0      .0                                      
+                   69-        GRID    16              250.000 .0      .0                                      
+                   70-        GRID    17              266.6667.0      .0              123456                  
+                   71-        GRID    18              283.3333.0      .0              123456                  
+                   72-        GRID    19              300.000 .0      .0                                      
+                   73-        GRID    100             166.176 .0      .0                                      
+                   74-        GRID    101             116.176 .0      .0                                      
+                   75-        MAT1    1       10.4+6  4.0+6                                                   
+                   76-        MPC     3       16      6       -1.0    1001            .0628318        +161    
+                   77-        +161            1002            .12566371003            .1884955        +162    
+                   78-        +162            1004            .251327419      2       .02             +163    
+                   79-        +163            16      2       -.02                                            
+                   80-        MPC     3       19      6       -1.0    1001            -.062832        +191    
+                   81-        +191            1002            .12566371003            -.188496        +192    
+                   82-        +192            1004            .251327419      2       .02             +193    
+                   83-        +193            16      2       -0.02                                           
+                   84-        MPC     3       2001            1.57079616      2       1.0             +201    
+                   85-        +201            19      2       1.0                                             
+                   86-        MPC     3       2002            1.57079616      2       .5              +202    
+                   87-        +202            19      2       -0.5                                            
+                   88-        MPC     3       2003            1.57079616      2       .3333333        +203    
+                   89-        +203            19      2       .3333333                                        
+                   90-        MPC     3       2004            1.57079616      2       .25             +204    
+                   91-        +204            19      2       -0.25                                           
+                   92-        MPC     100     8       2       1.0     101     2       -1.0            +MPC2   
+                   93-        +MPC2           101     6       -.491                                           
+                   94-        MPC     100     8       6       1.0     101     6       -1.0                    
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        MPC     100     11      2       1.0     100     2       -1.0            +MPC1   
+                   96-        +MPC1           100     6       -.491                                           
+                   97-        MPC     100     11      6       1.0     100     6       -1.0                    
+                   98-        MPCADD  101     100     3                                                       
+                   99-        PARAM   GRDPNT  101                                                             
+                  100-        PARAM   LMODES  4                                                               
+                  101-        PBAR    10      1       4.0+2   6.0+4   6.0+4                                   
+                  102-        PBAR    20      1       2.0+2   2.0+4   2.0+4                                   
+                  103-        SEQGP   100     10.5    101     7.5                                             
+                  104-        SPOINT  1001    1002    1003    1004    2001    2002    2003    2004            
+                  105-        SUPORT  101     2       101     6                                               
+                  106-        TF      20      1       2       .0      .0      50.0                    +T6     
+                  107-        +T6     1       6       .0      .0      -150.0                          +T61    
+                  108-        +T61    1070    0       -4.25+6         -150.0                                  
+                  109-        TF      20      1       6                                               +T7     
+                  110-        +T7     1060            1.0                                             +T71    
+                  111-        TF      20      1010            1.0                                     +T8     
+                  112-        +T8     100     2       -1.0                                            +T81    
+                  113-        +T81    1080            -1.0    .0      .0                                      
+                  114-        TF      20      1011            1.0                                     +T9     
+                  115-        +T9     100     6       -1.0+2                                                  
+                  116-        TF      20      1020            1.0                                             
+                  117-        TF      20      1021            .01                                             
+                  118-        TF      20      1030            1.0                                     +T1     
+                  119-        +T1     1020            -16.0                                           +T11    
+                  120-        +T11    1021            -15.0                                           +T12    
+                  121-        +T12    1010            -16.0   -28.0                                   +T13    
+                  122-        +T13    1011            -15.0   -7.0                                            
+                  123-        TF      20      1040            1.0                                     +T2     
+                  124-        +T2     1030            -1.0                                            +T21    
+                  125-        +T21    1070            100.0   14.14                                           
+                  126-        TF      20      1050            1.0                                     +T3     
+                  127-        +T3     1040            -1.0                                                    
+                  128-        TF      20      1060            1.0                                     +T4     
+                  129-        +T4     1050            -500.0                                                  
+                  130-        TF      20      1070            .0      .0      500.0                   +T5     
+                  131-        +T5     1060            -1.0                                            +T51    
+                  132-        +T51    1       6       .0      .0      500.0                           +T52    
+                  133-        +T52    1       2       .0      .0      -150.0                                  
+                  134-        TF      20      1080                            8.5+4                   +TX     
+                  135-        +TX     1       6       -4.25+6                                                 
+                              ENDDATA
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+0  OPTIONS IN EFFECT GO      ERR=2   LIST    NODECK  NOREF   NOOSCAR 
+   -----------------
+
+
+       1  BEGIN    DISP 10 - MODAL COMPLEX EIGENVALUE ANALYSIS - APR. 1995 $      
+
+       2  PRECHK   ALL $                                                          
+
+       3  FILE     GOD=SAVE/GMD=SAVE/LAMA=APPEND/PHIA=APPEND $                    
+
+       4  PARAM    //*MPY*/CARDNO/0/0 $                                           
+
+       5  GP1      GEOM1,GEOM2,/GPL,EQEXIN,GPDT,CSTM,BGPDT,SIL/S,N,LUSET/         
+                   NOGPDT/MINUS1=-1 $                                             
+
+       6  ANISOP   GEOM1,EPT,BGPDT,EQEXIN,MPT/MPTA/S,N,ISOP $                     
+
+       7  EQUIV    MPTA,MPT/ISOP $                                                
+
+       8  PLTTRAN  BGPDT,SIL/BGPDP,SIP/LUSET/S,N,LUSEP $                          
+
+       9  GP2      GEOM2,EQEXIN/ECT $                                             
+
+      10  PARAML   PCDB//*PRES*////JUMPPLOT $                                     
+
+      11  PURGE    PLTSETX,PLTPAR,GPSETS,ELSETS/JUMPPLOT $                        
+
+      12  COND     P1,JUMPPLOT $                                                  
+
+      13  PLTSET   PCDB,EQEXIN,ECT,EPT/PLTSETX,PLTPAR,GPSETS,ELSETS/S,N,NSIL/     
+                   S,N,JUMPPLOT $                                                 
+
+      14  PRTMSG   PLTSETX// $                                                    
+
+      15  PARAM    //*MPY*/PLTFLG/1/1 $                                           
+
+      16  PARAM    //*MPY*/PFILE/0/0 $                                            
+
+      17  COND     P1,JUMPPLOT $                                                  
+
+      18  PLOT     PLTPAR,GPSETS,ELSETS,CASECC,BGPDT,EQEXIN,SIL,,ECT,,,,/PLOTX1/  
+                   NSIL/LUSET/JUMPPLOT/PLTFLG/S,N,PFILE $                         
+
+      19  PRTMSG   PLOTX1// $                                                     
+
+      20  LABEL    P1 $                                                           
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      21  GP3      GEOM3,EQEXIN,GEOM2/,GPTT/NOGRAV $                              
+
+      22  TA1      ECT,EPT,BGPDT,SIL,GPTT,CSTM,MPT,EQEXIN/EST,GEI,GPECT,,,MPTX,   
+                   PCOMPS,EPTX/LUSET/S,N,NOSIMP/1/S,N,NOGENL/GENEL/S,N,COMPS $    
+
+      23  EQUIV    MPTX,MPT/COMPS/EPTX,EPT/COMPS $                                
+
+      24  COND     ERROR5,NOSIMP $                                                
+
+      25  PARAM    //*ADD*/NOKGGX/1/0 $                                           
+
+      26  PARAM    //*ADD*/NOMGG/1/0 $                                            
+
+      27  EMG      EST,CSTM,MPT,DIT,GEOM2,/KELM,KDICT,MELM,MDICT,,,/S,N,NOKGGX/   
+                   S,N,NOMGG////C,Y,COUPMASS/C,Y,CPBAR/                           
+                   C,Y,CPROD/C,Y,CPQUAD1/C,Y,CPQUAD2/C,Y,CPTRIA1/C,Y,CPTRIA2/     
+                   C,Y,CPTUBE/C,Y,CPQDPLT/C,Y,CPTRPLT/C,Y,CPTRBSC/                
+                   C,Y,VOLUME/C,Y,SURFACE $                                       
+
+      28  PURGE    KGGX/NOKGGX $                                                  
+
+      29  COND     JMPKGGX,NOKGGX $                                               
+
+      30  EMA      GPECT,KDICT,KELM/KGGX $                                        
+
+      31  PURGE    KDICT,KELM/MINUS1 $                                            
+
+      32  LABEL    JMPKGGX $                                                      
+
+      33  COND     ERROR1,NOMGG $                                                 
+
+      34  EMA      GPECT,MDICT,MELM/MGG/-1/C,Y,WTMASS=1.0 $                       
+
+      35  PURGE    MDICT,MELM/MINUS1 $                                            
+
+      36  COND     LGPWG,GRDPNT $                                                 
+
+      37  GPWG     BGPDP,CSTM,EQEXIN,MGG/OGPWG/V,Y,GRDPNT=-1/C,Y,WTMASS $         
+
+      38  OFP      OGPWG,,,,,//S,N,CARDNO $                                       
+
+      39  LABEL    LGPWG $                                                        
+
+      40  EQUIV    KGGX,KGG/NOGENL $                                              
+
+      41  COND     LBL11,NOGENL $                                                 
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      42  SMA3     GEI,KGGX/KGG/LUSET/NOGENL/NOSIMP $                             
+
+      43  LABEL    LBL11 $                                                        
+
+      44  GPSTGEN  KGG,SIL/GPST                                                   
+
+      45  PARAM    //*MPY*/NSKIP/0/0 $                                            
+
+      46  GP4      CASECC,GEOM4,EQEXIN,GPDT,BGPDT,CSTM,GPST/RG,,USET,             
+                   ASET,OGPST/LUSET/S,N,MPCF1/S,N,MPCF2/S,N,SINGLE/S,N,OMIT/      
+                   S,N,REACT/S,N,NSKIP/S,N,REPEAT/S,N,NOSET/S,N,NOL/S,N,NOA/      
+                   C,Y,ASETOUT/C,Y,AUTOSPC $                                      
+
+      47  OFP      OGPST,,,,,//S,N,CARDNO $                                       
+
+      48  PARAM    //*AND*/NOSR/REACT/SINGLE $                                    
+
+      49  PURGE    GM,GMD/MPCF1/GO,GOD/OMIT/KFS/SINGLE/QPC/NOSR/KLR,KRR,MLR,MRR,  
+                   DM,MR/REACT $                                                  
+
+      50  EQUIV    KGG,KNN/MPCF1/MGG,MNN/MPCF1 $                                  
+
+      51  COND     LBL2,MPCF1 $                                                   
+
+      52  MCE1     USET,RG/GM $                                                   
+
+      53  MCE2     USET,GM,KGG,MGG,,/KNN,MNN,, $                                  
+
+      54  LABEL    LBL2 $                                                         
+
+      55  EQUIV    KNN,KFF/SINGLE/MNN,MFF/SINGLE $                                
+
+      56  COND     LBL3,SINGLE $                                                  
+
+      57  SCE1     USET,KNN,MNN,,/KFF,KFS,,MFF,, $                                
+
+      58  LABEL    LBL3 $                                                         
+
+      59  EQUIV    KFF,KAA/OMIT $                                                 
+
+      60  EQUIV    MFF,MAA/OMIT $                                                 
+
+      61  COND     LBL5,OMIT $                                                    
+
+      62  SMP1     USET,KFF,,,/GO,KAA,KOO,LOO,,,,, $                              
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+          COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+
+      63  SMP2     USET,GO,MFF/MAA $                                              
+
+      64  LABEL    LBL5 $                                                         
+
+      65  COND     LBL6,REACT $                                                   
+
+      66  RBMG1    USET,KAA,MAA/KLL,KLR,KRR,MLL,MLR,MRR $                         
+
+      67  RBMG2    KLL/LLL $                                                      
+
+      68  RBMG3    LLL,KLR,KRR/DM $                                               
+
+      69  RBMG4    DM,MLL,MLR,MRR/MR $                                            
+
+      70  LABEL    LBL6 $                                                         
+
+      71  DPD      DYNAMICS,GPL,SIL,USET/GPLD,SILD,USETD,TFPOOL,,,,,,EED,EQDYN/   
+                   LUSET/S,N,LUSETD/NOTFL/NODLT/NOPSDL/                           
+                   NOFRL/NONLFT/NOTRL/S,N,NOEED//S,N,NOUE $                       
+
+      72  COND     ERROR2,NOEED $                                                 
+
+      73  EQUIV    GO,GOD/NOUE/GM,GMD/NOUE  $                                     
+
+      74  PARAM    //*MPY*/NEIGV/1/-1 $                                           
+
+      75  READ     KAA,MAA,MR,DM,EED,USET,CASECC/LAMA,PHIA,MI,OEIGS/*MODES*/S,N,  
+                   NEIGV $                                                        
+
+      76  OFP      OEIGS,,,,,//S,N,CARDNO $                                       
+
+      77  COND     ERROR4,NEIGV $                                                 
+
+      78  OFP      LAMA,,,,,//S,N,CARDNO $                                        
+
+      79  PARAM    //*ADD*/NEVER/1/0 $                                            
+
+      80  PARAM    //*MPY*/REPEATE/1/-1 $                                         
+
+      82  PURGE    PHIH,CLAMA,OPHIH,CPHID,CPHIP,QPC,OQPC1,OCPHIP,OESC1,OEFC1,     
+                   K2PP,M2PP,B2PP,K2DD,M2DD,B2DD/NEVER $                          
+
+      83  CASE     CASECC,/CASEXX/*CEIGN*/S,N,REPEATE/S,N,NOLOOP $                
+
+      84  MTRXIN   CASEXX,MATPOOL,EQDYN,,TFPOOL/K2PP,M2PP,B2PP/LUSETD/S,N,        
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                   NOK2PP/S,N,NOM2PP/S,N,NOB2PP $                                 
+
+      85  PURGE    K2DD/NOK2PP/M2DD/NOM2PP/B2DD/NOB2PP $                          
+
+      86  EQUIV    M2PP,M2DD/NOSET/B2PP,B2DD/NOSET/K2PP,K2DD/NOSET $              
+
+      87  GKAD     USETD,GM,GO,,,,,K2PP,M2PP,B2PP/,,,GMD,GOD,K2DD,                
+                   M2DD,B2DD/*CMPLEV*/*DISP*/*MODAL*/0.0/                         
+                   0.0/0.0/NOK2PP/NOM2PP/NOB2PP/                                  
+                   MPCF1/SINGLE/OMIT/NOUE/-1/-1/                                  
+                   -1/-1 $                                                        
+
+      88  GKAM     USETD,PHIA,MI,LAMA,DIT,M2DD,B2DD,K2DD,CASEXX/MHH,BHH,KHH,PHIDH/
+                   NOUE/C,Y,LMODES=0/C,Y,LFREQ=0.0/C,Y,HFREQ=-1.0/                
+                   NOM2PP/NOB2PP/NOK2PP/S,N,NONCUP/S,N,FMODE $                    
+
+      88  MATGPR   GPLD,USETD,SILD,PHIA // C,N,H / C,N,A  $                       
+
+      89  CEAD     KHH,BHH,MHH,EED,CASEXX/PHIH,CLAMA,OCEIGS,/S,N,EIGVS $          
+
+      90  OFP      OCEIGS,,,,,//S,N,CARDNO $                                      
+
+      91  COND     LBL17,EIGVS $                                                  
+
+      92  OFP      CLAMA,,,,,//S,N,CARDNO $                                       
+
+      93  VDR      CASEXX,EQDYN,USETD,PHIH,CLAMA,,/OPHIH,/*CEIGEN*/*MODAL*/       
+                   NOSORT2/S,N,NOH/S,N,NOP/FMODE $                                
+
+      94  COND     LBL16,NOH $                                                    
+
+      95  OFP      OPHIH,,,,,//S,N,CARDNO $                                       
+
+      96  LABEL    LBL16 $                                                        
+
+      97  COND     LBL17,NOP $                                                    
+
+      98  DDR1     PHIH,PHIDH/CPHID $                                             
+
+      99  EQUIV    CPHID,CPHIP/NOA $                                              
+
+     100  COND     LBLNOA,NOA $                                                   
+
+     101  SDR1     USETD,,CPHID,,,GOD,GMD,,KFS,,/CPHIP,,QPC/1/*DYNAMICS* $        
+
+     102  LABEL    LBLNOA $                                                       
+
+     103  SDR2     CASEXX,CSTM,MPT,DIT,EQDYN,SILD,,,,CLAMA,QPC,CPHIP,EST,,,/      
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+0         COSMIC / NASTRAN DMAP COMPILER - SOURCE LISTING                                                                           
+                                                                                                                                    
+                                                                                                                                    
+                   ,OQPC1,OCPHIP,OESC1,OEFC1,,,/*CEIGEN* $                        
+
+     104  OFP      OCPHIP,OQPC1,OEFC1,OESC1,,//S,N,CARDNO $                       
+
+     105  LABEL    LBL17 $                                                        
+
+     109  JUMP     FINIS $                                                        
+
+     110  LABEL    ERROR2 $                                                       
+
+     111  PRTPARM  //-2/*MDLCEAD* $                                               
+
+     112  LABEL    ERROR1 $                                                       
+
+     113  PRTPARM  //-1/*MDLCEAD* $                                               
+
+     114  LABEL    ERROR4 $                                                       
+
+     115  PRTPARM  //-4/*MDLCEAD* $                                               
+
+     116  LABEL    ERROR5 $                                                       
+
+     117  PRTPARM  //-5/*MDLCEAD* $                                               
+
+     118  LABEL    FINIS $                                                        
+
+     119  PURGE    DUMMY/MINUS1 $                                                 
+
+     120  END      $                                                              
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     THE PRESENCE OF SEQGP CARDS
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+
+
+
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT      101
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER WARNING MESSAGE 2015, EITHER NO ELEMENTS CONNECTED TO EXTERNAL GRID POINT      100
+     OR IT IS CONNECTED TO A RIGID ELEMENT OR A GENERAL ELEMENT.
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ELAS4    ELEMENTS (ELEMENT TYPE  14) STARTING WITH ID     1001
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION MASS4    ELEMENTS (ELEMENT TYPE  28) STARTING WITH ID     2001
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION CONM2    ELEMENTS (ELEMENT TYPE  30) STARTING WITH ID      101
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+ 
+ 
+                           O U T P U T   F R O M   G R I D   P O I N T   W E I G H T   G E N E R A T O R
+0                                                     REFERENCE POINT =      101
+ 
+ 
+                                     MO - RIGID BODY MASS MATRIX IN BASIC COORDINATE SYSTEM
+                ***                                                                                             ***
+                *  8.50000010D+04  0.00000000D+00  0.00000000D+00  0.00000000D+00  0.00000000D+00  0.00000000D+00 *
+                *  0.00000000D+00  8.50000010D+04  0.00000000D+00  0.00000000D+00  0.00000000D+00  3.95741486D+01 *
+                *  0.00000000D+00  0.00000000D+00  8.50000010D+04  0.00000000D+00 -3.95741486D+01  0.00000000D+00 *
+                *  0.00000000D+00  0.00000000D+00  0.00000000D+00  0.00000000D+00  0.00000000D+00  0.00000000D+00 *
+                *  0.00000000D+00  0.00000000D+00 -3.95741486D+01  0.00000000D+00  5.02525875D+08  0.00000000D+00 *
+                *  0.00000000D+00  3.95741486D+01  0.00000000D+00  0.00000000D+00  0.00000000D+00  5.02525875D+08 *
+                ***                                                                                             ***
+                                        S - TRANSFORMATION MATRIX FOR SCALAR MASS PARTITION
+                                        ***                                             ***
+                                        *  1.00000000D+00  0.00000000D+00  0.00000000D+00 *
+                                        *  0.00000000D+00  1.00000000D+00  0.00000000D+00 *
+                                        *  0.00000000D+00  0.00000000D+00  1.00000000D+00 *
+                                        ***                                             ***
+                         DIRECTION
+                    MASS AXIS SYSTEM (S)       MASS                 X-C.G.           Y-C.G.           Z-C.G.
+                            X            8.500000098D+04      0.000000000D+00  0.000000000D+00  0.000000000D+00
+                            Y            8.500000098D+04      4.655782134D-04  0.000000000D+00  0.000000000D+00
+                            Z            8.500000098D+04      4.655782134D-04  0.000000000D+00  0.000000000D+00
+
+                                                 I(S) - INERTIAS RELATIVE TO C.G. 
+                                      ***                                                 ***
+                                      *  0.000000000D+00  0.000000000D+00  0.000000000D+00  *
+                                      *  0.000000000D+00  5.025258748D+08  0.000000000D+00  *
+                                      *  0.000000000D+00  0.000000000D+00  5.025258748D+08  *
+                                      ***                                                 ***
+                                                      I(Q) - PRINCIPAL INERTIAS
+                                      ***                                                 ***
+                                      *  0.000000000D+00                                    *
+                                      *                   5.025258748D+08                   *
+                                      *                                    5.025258748D+08  *
+                                      ***                                                 ***
+                                            Q - TRANSFORMATION MATRIX - I(Q) = QT*I(S)*Q
+                                      ***                                                 ***
+                                      *  1.000000000D+00  0.000000000D+00  0.000000000D+00  *
+                                      *  0.000000000D+00  1.000000000D+00  0.000000000D+00  *
+                                      *  0.000000000D+00  0.000000000D+00  1.000000000D+00  *
+                                      ***                                                 ***
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+
+
+
+0*** USER WARNING MESSAGE 3017
+0    ONE OR MORE POTENTIAL SINGULARITIES HAVE NOT BEEN REMOVED BY SINGLE OR MULTI-POINT CONSTRAINTS.
+     (USER COULD REQUEST NASTRAN AUTOMATIC SPC GENERATION VIA A 'PARAM AUTOSPC' BULK DATA CARD)
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+ 
+                              G R I D   P O I N T   S I N G U L A R I T Y   T A B L E      SPC        0   MPC      101
+        POINT          SINGULARITY                  LIST OF COORDINATE COMBINATIONS THAT WILL REMOVE SINGULARITY
+         ID.   TYPE       ORDER       STRONGEST COMBINATION               WEAKER COMBINATION                 WEAKEST COMBINATION
+           101   G          1          2                                                                                            
+           101   G          1          6                                                                                            
+           100   G          1          2                                                                                            
+           100   G          1          6                                                                                            
+            19   G          1          2                                                                                            
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+
+
+
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     0, EPSILON SUB E =   1.0238161E-15
+                        5 ROOTS BELOW   2.842446E+03
+                        4 ROOTS BELOW   1.737006E+03
+                        6 ROOTS BELOW   4.828913E+03
+                        3 ROOTS BELOW   5.607305E+02
+                        7 ROOTS BELOW   1.085725E+04
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (INVERSE POWER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .         7
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         5
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        35
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         7*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.00E+00
+0                                                                              . . .         0
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         0
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* 1 OR MORE ROOT OUTSIDE FR.RANGE.
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+
+                                     ****************************************************************
+                                     *                                                              *
+                                     *
++                                             NASTRAN INFORMATION MESSAGE 3307, POTENTIALLY         *
+                                     *         5 EIGENVALUE(S) AT LOW FREQ. END NOT FOUND           *
+                                     *                                                              *
+                                     *        (THIS MESSAGE CAN BE SUPPRESSED BY DIAG 37)           *
+                                     ****************************************************************
+
+        1         1        0.0                 0.0                 0.0                 1.000000E+00        0.0                      
+        2         2        0.0                 0.0                 0.0                 1.000000E+00        0.0                      
+        3         6        7.971887E+01        8.928542E+00        1.421022E+00        1.000000E+00        7.971887E+01             
+        4         5        5.795970E+02        2.407482E+01        3.831627E+00        1.000000E+00        5.795970E+02             
+        5         3        1.739272E+03        4.170459E+01        6.637491E+00        1.000000E+00        1.739272E+03             
+        6         4        4.828728E+03        6.948904E+01        1.105952E+01        1.000000E+00        4.828728E+03             
+        7         7        1.085697E+04        1.041968E+02        1.658343E+01        1.000000E+00        1.085697E+04             
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+0                PHIA                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       1- H).
+             1 T2  3.40661E-03        1 R3  3.47094E-18        2 T2  3.40661E-03        2 R3  3.47094E-18        3 T2  3.40661E-03
+             3 R3  3.29739E-18        4 T2  3.40661E-03        4 R3  3.29739E-18        5 T2  3.40661E-03        5 R3  3.12385E-18
+             6 T2  3.40661E-03        6 R3  2.60321E-18        7 T2  3.40661E-03        7 R3  1.56192E-18      101 T2  3.40661E-03
+             9 T2  3.40661E-03        9 R3  3.30933E-19       10 T2  3.40661E-03       10 R3  5.90953E-19      100 T2  3.40661E-03
+           100 R3  1.47738E-18       12 T2  3.40661E-03       12 R3  2.35199E-18       13 T2  3.40661E-03       13 R3  3.09659E-18
+            14 T2  3.40661E-03       14 R3  3.62845E-18       15 T2  3.40661E-03       15 R3  3.89438E-18       16 T2  3.40661E-03
+            19 T2  3.40661E-03     1001  S -4.19855E-18     1002  S -7.34025E-20     1003  S -2.81287E-19     1004  S -9.17517E-21
+0COLUMN       2 (       2- H).
+             1 T2 -5.12943E-03        1 R3  4.33476E-05        2 T2 -4.40697E-03        2 R3  4.33476E-05        3 T2 -3.68451E-03
+             3 R3  4.33476E-05        4 T2 -2.96205E-03        4 R3  4.33476E-05        5 T2 -2.23960E-03        5 R3  4.33476E-05
+             6 T2 -1.51714E-03        6 R3  4.33476E-05        7 T2 -7.94676E-04        7 R3  4.33476E-05      101 T2 -9.34979E-05
+           101 R3  4.33476E-05        9 T2  6.50242E-04        9 R3  4.33476E-05       10 T2  1.37270E-03       10 R3  4.33476E-05
+           100 T2  2.07388E-03      100 R3  4.33476E-05       12 T2  2.81762E-03       12 R3  4.33476E-05       13 T2  3.54008E-03
+            13 R3  4.33476E-05       14 T2  4.26254E-03       14 R3  4.33476E-05       15 T2  4.98500E-03       15 R3  4.33476E-05
+            16 T2  5.70746E-03       19 T2  7.87484E-03     1001  S -5.87829E-18     1002  S -3.24766E-19     1003  S -4.75615E-19
+          1004  S -4.05951E-20
+0COLUMN       3 (       3- H).
+             1 T2 -4.99347E-03        1 R3  7.95627E-05        2 T2 -3.66907E-03        2 R3  7.92673E-05        3 T2 -2.35692E-03
+             3 R3  7.79473E-05        4 T2 -1.08048E-03        4 R3  7.48897E-05        5 T2  1.27488E-04        5 R3  6.96880E-05
+             6 T2  1.22991E-03        6 R3  6.22294E-05        7 T2  2.19016E-03        7 R3  5.26746E-05      101 T2  2.95600E-03
+           101 R3  4.14279E-05        9 T2  3.56508E-03        9 R3  2.91008E-05       10 T2  3.94466E-03       10 R3  1.64667E-05
+           100 T2  3.92132E-03      100 R3 -2.00407E-05       12 T2  3.29407E-03       12 R3 -5.34093E-05       13 T2  2.15570E-03
+            13 R3 -8.23610E-05       14 T2  5.78611E-04       14 R3 -1.05929E-04       15 T2 -1.34264E-03       15 R3 -1.23627E-04
+            16 T2 -3.51043E-03       19 T2 -1.16033E-02     1001  S  2.64667E-04     1002  S  4.62015E-05     1003  S  1.28238E-05
+          1004  S  5.62328E-06
+0COLUMN       4 (       4- H).
+             1 T2  5.13048E-03        1 R3 -1.29009E-04        2 T2  2.99258E-03        2 R3 -1.26803E-04        3 T2  9.42525E-04
+             3 R3 -1.17611E-04        4 T2 -8.70157E-04        4 R3 -9.80477E-05        5 T2 -2.26777E-03        5 R3 -6.80522E-05
+             6 T2 -3.09560E-03        6 R3 -3.03227E-05        7 T2 -3.26119E-03        7 R3  1.05281E-05      101 T2 -2.78177E-03
+           101 R3  4.90331E-05        9 T2 -1.66855E-03        9 R3  8.00157E-05       10 T2 -1.53440E-04       10 R3  9.96695E-05
+           100 T2  1.67256E-03      100 R3  1.20042E-04       12 T2  3.64432E-03       12 R3  1.03762E-04       13 T2  5.02512E-03
+            13 R3  5.77644E-05       14 T2  5.46684E-03       14 R3 -6.76575E-06       15 T2  4.77183E-03       15 R3 -7.62933E-05
+            16 T2  2.96934E-03       19 T2 -1.24642E-02     1001  S  1.79087E-03     1002  S  2.85124E-04     1003  S  7.58856E-05
+          1004  S  3.34313E-05
+0COLUMN       5 (       5- H).
+             1 T2 -5.22129E-03        1 R3  1.76962E-04        2 T2 -2.30935E-03        2 R3  1.70225E-04        3 T2  3.44883E-04
+             3 R3  1.44052E-04        4 T2  2.35622E-03        4 R3  9.33734E-05        5 T2  3.35992E-03        5 R3  2.51610E-05
+             6 T2  3.17947E-03        6 R3 -4.58333E-05        7 T2  1.91045E-03        7 R3 -1.02732E-04      101 T2 -2.86536E-05
+           101 R3 -1.32400E-04        9 T2 -2.32554E-03        9 R3 -1.30147E-04       10 T2 -4.28925E-03       10 R3 -1.02218E-04
+           100 T2 -5.03083E-03      100 R3  1.56878E-05       12 T2 -3.82320E-03       12 R3  1.23357E-04       13 T2 -1.15833E-03
+            13 R3  1.86546E-04       14 T2  2.04075E-03       14 R3  1.85968E-04       15 T2  4.70531E-03       15 R3  1.25040E-04
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+0                PHIA                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+            16 T2  6.01853E-03       19 T2 -1.13698E-02     1001  S  4.15318E-03     1002  S  5.81170E-04     1003  S  1.45268E-04
+          1004  S  6.47650E-05
+0COLUMN       6 (       6- H).
+             1 T2  5.02201E-03        1 R3 -2.28247E-04        2 T2  1.31784E-03        2 R3 -2.10256E-04        3 T2 -1.73414E-03
+             3 R3 -1.46838E-04        4 T2 -3.34096E-03        4 R3 -4.09772E-05        5 T2 -3.06628E-03        5 R3  7.09627E-05
+             6 T2 -1.19681E-03        6 R3  1.43073E-04        7 T2  1.31187E-03        7 R3  1.44809E-04      101 T2  3.20597E-03
+           101 R3  7.69942E-05        9 T2  3.67330E-03        9 R3 -2.77290E-05       10 T2  2.38976E-03       10 R3 -1.19800E-04
+           100 T2 -7.64581E-04      100 R3 -2.40566E-04       12 T2 -4.60418E-03       12 R3 -1.76848E-04       13 T2 -6.08032E-03
+            13 R3  1.23835E-05       14 T2 -4.13207E-03       14 R3  2.12294E-04       15 T2  4.45693E-04       15 R3  3.13124E-04
+            16 T2  5.53485E-03       19 T2 -8.92146E-03     1001  S  6.85917E-03     1002  S  7.04730E-04     1003  S  1.46049E-04
+          1004  S  6.89052E-05
+0COLUMN       7 (       7- H).
+             1 T2 -5.49284E-03        1 R3  3.18052E-04        2 T2 -4.37790E-04        2 R3  2.73806E-04        3 T2  3.10323E-03
+             3 R3  1.34018E-04        4 T2  3.73722E-03        4 R3 -5.83741E-05        5 T2  1.47742E-03        5 R3 -1.93167E-04
+             6 T2 -1.91499E-03        6 R3 -1.86354E-04        7 T2 -3.98682E-03        7 R3 -4.49821E-05      101 T2 -3.26177E-03
+           101 R3  1.35869E-04        9 T2  1.18655E-04        9 R3  2.40496E-04       10 T2  4.12268E-03       10 R3  2.19340E-04
+           100 T2  5.53154E-03      100 R3 -6.63075E-05       12 T2  2.24659E-03       12 R3 -2.91810E-04       13 T2 -2.85405E-03
+            13 R3 -2.69997E-04       14 T2 -5.46088E-03       14 R3 -1.55439E-05       15 T2 -3.19606E-03       15 R3  2.70613E-04
+            16 T2  2.57352E-03       19 T2 -6.65810E-03     1001  S  8.12610E-03     1002  S  3.67233E-04     1003  S  1.26729E-05
+          1004  S  1.90941E-05
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+
+
+
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+
+
+
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+
+
+
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+
+
+
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+
+
+
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+
+      FLEXIBLE STRUCTURE CASE                                                                                                       
+
+
+
+
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+0*** USER INFORMATION MESSAGE 3028      B =    3     BBAR =    4
+                                        C =    4     CBAR =    3
+                                        R =    6
+0*** USER INFORMATION MESSAGE 3027, UNSYMMETRIC COMPLEX  DECOMPOSITION OF DATA BLOCK SCRATCH2 (N =    14)
+     TIME ESTIMATE =        0 SECONDS
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+ 
+ 
+                    C O M P L E X   E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (DETERMINANT METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .        3
+0                                       NUMBER OF PASSES THROUGH STARTING POINTS . .        2
+0                                       NUMBER OF CRITERIA CHANGES . . . . . . . . .        0
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .        0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .       39
+0                                       NUMBER OF FAILURES TO ITERATE TO A ROOT  . .        0
+0                                       NUMBER OF PREDICTIONS OUTSIDE REGION . . . .       20
+0
+0                                       REASON FOR TERMINATION . . . . . . . . . . .        2*
+
+0                                       (* EIGENVALUES OUTSIDE FREQ. RANGE 
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.7.3)
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+ 
+                    C O M P L E X   E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (DETERMINANT METHOD)
+0                                        S W E P T   D E T E R M I N A N T   F U N C T I O N
+
+                                          - P -                                   - DET(P) -
+          STARTING POINT          REAL             IMAG                    MAGNITUDE         PHASE     SCALE FACTOR
+                    1         -2.000000E+00   -6.071429E-01              7.405122E+00       359.8199         11                     
+                    2         -2.000000E+00    1.785714E-01              7.411725E+00         0.0540         11                     
+                    3         -2.000000E+00    9.642857E-01              7.394118E+00         0.2767         11                     
+                    4         -2.000000E+00    1.750000E+00              7.352310E+00         0.4380         11                     
+                    5         -2.000000E+00    2.535714E+00              7.286363E+00         0.4874         11                     
+                    6         -2.000000E+00    3.321429E+00              7.196495E+00         0.3732         11                     
+                    7         -2.000000E+00    4.107143E+00              7.083232E+00         0.0420         11                     
+                    8         -2.000000E+00    4.892857E+00              6.947610E+00       359.4387         11                     
+                    9         -2.000000E+00    5.678571E+00              6.791417E+00       358.5054         11                     
+                   10         -2.000000E+00    6.464286E+00              6.617452E+00       357.1823         11                     
+                   11         -2.000000E+00    7.250000E+00              6.429790E+00       355.4084         11                     
+                   12         -2.000000E+00    8.035714E+00              6.233998E+00       353.1243         11                     
+                   13         -2.000000E+00    8.821428E+00              6.037257E+00       350.2773         11                     
+                   14         -2.000000E+00    9.607142E+00              5.848268E+00       346.8303         11                     
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+ 
+                                        C O M P L E X   E I G E N V A L U E   S U M M A R Y
+0                ROOT     EXTRACTION                  EIGENVALUE                     FREQUENCY              DAMPING
+                  NO.        ORDER             (REAL)           (IMAG)                (CYCLES)            COEFFICIENT
+                      1           2         -1.414853E+00    -1.312848E-19              0.0                   0.0                   
+                      2           1         -5.075583E-01    -8.188429E-01          1.303229E-01          1.239697E+00              
+                      3           3          5.202224E-01     3.824517E+00          6.086907E-01         -2.720461E-01              
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+      COMPLEX EIGENVALUE = -1.414853E+00, -1.312848E-19    (CYCLIC FREQUENCY =  2.089462E-20HZ)
+                             C O M P L E X   E I G E N V E C T O R   N O .          1   (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0            1      M      2.999425E-01   4.516107E-01   1.076886E-02   1.554570E-03                                                
+                           180.0000         0.0000         0.0000       180.0000                                                    
+0         1010      E      4.698019E-04   1.917380E-03                                                                              
+                             0.0000         0.0000                                                                                  
+0         1020      E      1.788062E-21   3.828549E-19                                                                              
+                             0.0000         0.0171                                                                                  
+0         1030      E      1.323753E-03                                                                                             
+                           180.0000                                                                                                 
+0         1040      E      2.000000E-03                                                                                             
+                             0.0                                                                                                    
+0         1050      E      2.000000E-03                                                                                             
+                             0.0                                                                                                    
+0         1060      E      1.000000E+00                                                                                             
+                             0.0                                                                                                    
+0         1070      E      4.155003E-05                                                                                             
+                           180.0000                                                                                                 
+0         1080      E      5.153737E-04                                                                                             
+                             0.0000                                                                                                 
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+      COMPLEX EIGENVALUE = -5.075583E-01, -8.188429E-01    (CYCLIC FREQUENCY =  1.303229E-01HZ)
+                             C O M P L E X   E I G E N V E C T O R   N O .          2   (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0            1      M      6.302099E-01   9.488792E-01   1.080934E-02   1.520700E-03                                                
+                            64.0805       244.0806       359.8948       180.4131                                                    
+0         1010      E      2.250608E-03   4.130849E-03                                                                              
+                           124.0834       243.5831                                                                                  
+0         1020      E     -6.103754E-22   1.061599E-18                                                                              
+                             0.0000        47.9706                                                                                  
+0         1030      E      1.814407E-03                                                                                             
+                           166.0885                                                                                                 
+0         1040      E      2.000000E-03                                                                                             
+                             0.0000                                                                                                 
+0         1050      E      2.000000E-03                                                                                             
+                             0.0000                                                                                                 
+0         1060      E      1.000000E+00                                                                                             
+                             0.0                                                                                                    
+0         1070      E      4.047787E-05                                                                                             
+                           180.4945                                                                                                 
+0         1080      E      2.191593E-03                                                                                             
+                           129.0040                                                                                                 
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+      COMPLEX EIGENVALUE =  5.202224E-01,  3.824517E+00    (CYCLIC FREQUENCY =  6.086907E-01HZ)
+                             C O M P L E X   E I G E N V E C T O R   N O .          3   (SOLUTION SET)
+                                                         (MAGNITUDE/PHASE)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0            1      M      3.498182E-02   5.267026E-02   1.166434E-02   1.388280E-03                                                
+                            16.7802       196.7803       357.8045       180.8850                                                    
+0         1010      E      5.593424E-05   2.667241E-04                                                                              
+                             4.3950       194.1661                                                                                  
+0         1020      E      6.337845E-22   2.047490E-19                                                                              
+                             0.0000        48.9835                                                                                  
+0         1030      E      2.736893E-03                                                                                             
+                           228.1013                                                                                                 
+0         1040      E      2.000000E-03                                                                                             
+                             0.0000                                                                                                 
+0         1050      E      2.000000E-03                                                                                             
+                             0.0000                                                                                                 
+0         1060      E      1.000000E+00                                                                                             
+                             0.0                                                                                                    
+0         1070      E      3.607164E-05                                                                                             
+                           181.2862                                                                                                 
+0         1080      E      4.303362E-06                                                                                             
+                            48.1516                                                                                                 
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    36
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+      COMPLEX EIGENVALUE = -1.414853E+00, -1.312848E-19    (CYCLIC FREQUENCY =  2.089462E-20HZ)
+                                       C O M P L E X   E I G E N V E C T O R   NO.          1
+                                                         (MAGNITUDE/PHASE)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0            1      G      0.0            3.400044E-03   0.0            0.0            0.0            2.063359E-05                  
+                             0.0          180.0000         0.0            0.0            0.0            0.0000                      
+0          100      G      0.0            4.557195E-05   0.0            0.0            0.0            1.917380E-05                  
+                             0.0          180.0000         0.0            0.0            0.0            0.0000                      
+0          101      G      0.0            1.027854E-03   0.0            0.0            0.0            1.994614E-05                  
+                             0.0          180.0000         0.0            0.0            0.0            0.0000                      
+0         1010      E      4.698019E-04   1.917380E-03                                                                              
+                             0.0000         0.0000                                                                                  
+0         1020      E      0.0            3.828549E-19                                                                              
+                             0.0            0.0171                                                                                  
+0         1030      E      1.323753E-03                                                                                             
+                           180.0000                                                                                                 
+0         1040      E      2.000000E-03                                                                                             
+                             0.0                                                                                                    
+0         1050      E      2.000000E-03                                                                                             
+                             0.0                                                                                                    
+0         1060      E      1.000000E+00                                                                                             
+                             0.0                                                                                                    
+0         1070      E      4.155003E-05                                                                                             
+                           180.0000                                                                                                 
+0         1080      E      5.153737E-04                                                                                             
+                             0.0000                                                                                                 
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    37
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+      COMPLEX EIGENVALUE = -5.075583E-01, -8.188429E-01    (CYCLIC FREQUENCY =  1.303229E-01HZ)
+                                       C O M P L E X   E I G E N V E C T O R   NO.          2
+                                                         (MAGNITUDE/PHASE)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0            1      G      0.0            6.987349E-03   0.0            0.0            0.0            4.068120E-05                  
+                             0.0           64.5363         0.0            0.0            0.0          245.4187                      
+0          100      G      0.0            1.995967E-04   0.0            0.0            0.0            4.130849E-05                  
+                             0.0           53.7251         0.0            0.0            0.0          243.5831                      
+0          101      G      0.0            2.251623E-03   0.0            0.0            0.0            4.097108E-05                  
+                             0.0           63.2521         0.0            0.0            0.0          244.5508                      
+0         1010      E      2.250608E-03   4.130849E-03                                                                              
+                           124.0834       243.5831                                                                                  
+0         1020      E      0.0            1.061599E-18                                                                              
+                             0.0           47.9706                                                                                  
+0         1030      E      1.814407E-03                                                                                             
+                           166.0885                                                                                                 
+0         1040      E      2.000000E-03                                                                                             
+                             0.0000                                                                                                 
+0         1050      E      2.000000E-03                                                                                             
+                             0.0000                                                                                                 
+0         1060      E      1.000000E+00                                                                                             
+                             0.0                                                                                                    
+0         1070      E      4.047787E-05                                                                                             
+                           180.4945                                                                                                 
+0         1080      E      2.191593E-03                                                                                             
+                           129.0040                                                                                                 
+1     COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    38
+      NASTRAN DEMONSTRATION PROBLEM NO. D10-01-1A                                                                                   
+0     FLEXIBLE STRUCTURE CASE                                                                                                       
+      COMPLEX EIGENVALUE =  5.202224E-01,  3.824517E+00    (CYCLIC FREQUENCY =  6.086907E-01HZ)
+                                       C O M P L E X   E I G E N V E C T O R   NO.          3
+                                                         (MAGNITUDE/PHASE)
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+0            1      G      0.0            3.280733E-04   0.0            0.0            0.0            1.282192E-06                  
+                             0.0           20.4310         0.0            0.0            0.0          212.6596                      
+0          100      G      0.0            5.290975E-05   0.0            0.0            0.0            2.667242E-06                  
+                             0.0            1.1704         0.0            0.0            0.0          194.1661                      
+0          101      G      0.0            1.608827E-04   0.0            0.0            0.0            1.896691E-06                  
+                             0.0           12.4064         0.0            0.0            0.0          200.9674                      
+0         1010      E      5.593424E-05   2.667241E-04                                                                              
+                             4.3950       194.1661                                                                                  
+0         1020      E      0.0            2.047490E-19                                                                              
+                             0.0           48.9835                                                                                  
+0         1030      E      2.736893E-03                                                                                             
+                           228.1013                                                                                                 
+0         1040      E      2.000000E-03                                                                                             
+                             0.0000                                                                                                 
+0         1050      E      2.000000E-03                                                                                             
+                             0.0000                                                                                                 
+0         1060      E      1.000000E+00                                                                                             
+                             0.0                                                                                                    
+0         1070      E      3.607164E-05                                                                                             
+                           181.2862                                                                                                 
+0         1080      E      4.303362E-06                                                                                             
+                            48.1516                                                                                                 
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  COMPLEX EIGENVALUE ANALYSIS OF A ROCKET CONTROL SYSTEM             
+ DATE:  5/17/95
+ END TIME: 16:11:19
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

@@ -1,0 +1,71 @@
+NASTRAN  TITLEOPT=-1, BANDIT=-1                                                 
+ID    T01241A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   1,0                                                                       
+TIME  10                                                                        
+ALTER 58                                                                        
+    TABPT   EPT,,,,  //      $                                                  
+    MATPRN  KGGX,,,, //      $                                                  
+    PARAML  EPT //*TABLE1*/1/6      /V,N,RSP    $                               
+    PARAML  EPT //*TABLE1*/1/4     //V,N,INT    $                               
+    PARAML  EPT //*TABLE2*/1/4     //V,N,INT2   $ INTENTIONAL ERROR             
+    PARAML  EPT //*TABLE2*/1/6    ///V,N,RDP    $                               
+    PARAML  EPT //*TABLE2*/1/6      /RSPX/INTX/V,N,RDPX  $                      
+    PARAML  EPT //*TABLE1*/1/1   ////V,N,BCD    $                               
+    PARAML  EPT //*TABLE2*/1/6  /////V,N,SCPLX  $                               
+    PARAML  EPT //*TABLE2*/1/6 //////V,N,DCPLX  $                               
+    PARAML  EPT //*TABLE4*/1/6 //////V,N,DCPLX4 $                               
+    PARAML  EPT //*TABLE2*/1/9      /V,N,LAST   $                               
+    PARAML  EPT //*TABLE1*/1/9      /V,N,LAST1  $                               
+    PARAML  KGGX//*MATRIX*/7/1      /V,N,R1     $                               
+    PARAML  KGGX//*MATRIX*/3/1     //V,N,I1     $                               
+    PARAML  KGGX//*MATRIX*/1/3    ///V,N,D1     $                               
+    PARAML  KGGX//*MATRIX*/1/3   ////V,N,B1     $                               
+    PARAML  KGGX//*MATRIX*/7/13 /////V,N,CS1    $                               
+    PARAML  KGGX//*MATRIX*/13/7//////V,N,CD1    $                               
+    PARAML  KGGX//*MATRIX*/13/19  ///V,N,D13    $                               
+    SCALAR  KGGX//         1/1      /V,N,SP1    $                               
+    SCALAR  KGGX//         1/3      /V,N,SP2    $                               
+    SCALAR  KGGX//         3/1      /V,N,SP3    $                               
+    SCALAR  KGGX//         7/13     /V,N,SP4    $                               
+    SCALAR  KGGX//        19/13    //V,N,DP4    $                               
+    SCALAR  KGGX//         7/13   ///V,N,CSP4   $                               
+    SCALAR  KGGX//        13/7   ////V,N,CDP4   $                               
+    PARAMR  //*ADD*     /V,N,R1SP4  /V,N,R1    /V,N,SP4   $                     
+    PARAMR  //*SUB*     /V,N,R1SP4  /V,N,R1    /V,N,SP4   $                     
+    PARAMR  //*ABS*     /V,N,ABSR1  /V,N,R1               $                     
+    PARAMR  //*ABS*     /V,N,ABSRX //V,N,R1     $ INTENTIONAL ERROR INPUT       
+    PARAMR  //*SQRT*    /V,N,SQTR1  /V,N,R1               $                     
+    PARAMR  //*SQRT*    /V,N,SQTR1  /V,N,ABSR1            $                     
+    PARAMR  //*MPYC* ////V,N,CMPY   /V,N,SCPLX /V,N,CS1   $                     
+    PARAMR  //*COMPLEX*//V,N,R1     /V,N,SP4   /V,N,OUTC  $                     
+    PARAMR  //*LE*     //V,N,R1     /V,N,SP4////V,N,LEFLG $                     
+    PARAMD  //*MPY*     /V,N,RDPDP  /V,N,RDPX  /V,N,RDPX  $                     
+    PARAMD  //*MPY*     /V,N,RDPDX //V,N,RDPX  /V,N,RDPY  $ ERROR INPUT         
+    PARAMD  //*DIV*     /V,N,DP4X   /V,N,DP4   /V,N,RDPX  $                     
+    PARAMD  //*EXP*     /V,N,EXPX   /V,N,DP4   /V,N,RDP   $                     
+    PARAMD  //*CONJ* ////V,N,CONJX  /V,N,CDP4             $                     
+    PARAMD  //*DIVC* ////V,N,DIVCX  /V,N,DCPLX4/V,N,CDP4  $                     
+    PARAMD  //*EQ*     //V,N,EXPX   /V,N,DP4////V,N,EQFLG $                     
+    PRTPARM // 0   $                                                            
+    JUMP    FINIS  $                                                            
+ENDALTER                                                                        
+CEND                                                                            
+TITLE    = TESTING PARAML,PARAMD,PARAMR,SCALAR MODULES                          
+SUBTITLE = NASTRAN TEST PROBLEM NO. T01-24-1A                                   
+    SPC  = 1                                                                    
+    LOAD = 1                                                                    
+    DISP = ALL                                                                  
+BEGIN BULK                                                                      
+CROD    60      5       1       2       61      5       2       3               
+CROD    62      5       3       4                                               
+FORCE   1       4       0       -1.     .0      .0      100.                    
+GRDSET                                                  456                     
+GRID    1               .0      .0      .0                                      
+GRID    2               10.     .0      .0                                      
+GRID    3               30.     .0      .0                                      
+GRID    4               50.     .0      .0                                      
+PROD    5       6       2.1                                                     
+MAT1    6       1.04+7  4.+6                                                    
+SPC1    1       123     1                                                       
+ENDDATA                                                                         

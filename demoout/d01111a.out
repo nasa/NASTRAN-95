@@ -1,0 +1,1183 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01111A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   1,3                                                                       
+     TIME  9                                                                         
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT           
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                          
+                  3             SPC = 1                                                                  
+                  4      TEMP(LOAD) = 20                                                                 
+                  5         OUTPUT                                                                       
+                  6              DISPLACEMENT = ALL                                                      
+                  7              SPCFORCE     = ALL                                                      
+                  8              ELFORCE      = ALL                                                      
+                  9              STRESSES     = ALL                                                      
+                 10              STRAIN       = ALL                                                      
+                 11      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   182, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CNGRNT  1       2       THRU    59                                              
+                    2-        CORD2R  1000            .0      .0      .0      .0      .0      1.0     +COR1   
+                    3-        +COR1   1.0     .0      .0                                                      
+                    4-        CQUAD1  1       101     1       2       8       7                               
+                    5-        CQUAD1  2       101     2       3       9       8                               
+                    6-        CQUAD1  3       101     3       4       10      9                               
+                    7-        CQUAD1  4       101     4       5       11      10                              
+                    8-        CQUAD1  5       101     5       6       12      11                              
+                    9-        CQUAD1  7       101     7       8       14      13                              
+                   10-        CQUAD1  8       101     8       9       15      14                              
+                   11-        CQUAD1  9       101     9       10      16      15                              
+                   12-        CQUAD1  10      101     10      11      17      16                              
+                   13-        CQUAD1  11      101     11      12      18      17                              
+                   14-        CQUAD1  13      101     13      14      20      19                              
+                   15-        CQUAD1  14      101     14      15      21      20                              
+                   16-        CQUAD1  15      101     15      16      22      21                              
+                   17-        CQUAD1  16      101     16      17      23      22                              
+                   18-        CQUAD1  17      101     17      18      24      23                              
+                   19-        CQUAD1  19      101     19      20      26      25                              
+                   20-        CQUAD1  20      101     20      21      27      26                              
+                   21-        CQUAD1  21      101     21      22      28      27                              
+                   22-        CQUAD1  22      101     22      23      29      28                              
+                   23-        CQUAD1  23      101     23      24      30      29                              
+                   24-        CQUAD1  25      101     25      26      32      31                              
+                   25-        CQUAD1  26      101     26      27      33      32                              
+                   26-        CQUAD1  27      101     27      28      34      33                              
+                   27-        CQUAD1  28      101     28      29      35      34                              
+                   28-        CQUAD1  29      101     29      30      36      35                              
+                   29-        CQUAD1  31      101     31      32      38      37                              
+                   30-        CQUAD1  32      101     32      33      39      38                              
+                   31-        CQUAD1  33      101     33      34      40      39                              
+                   32-        CQUAD1  34      101     34      35      41      40                              
+                   33-        CQUAD1  35      101     35      36      42      41                              
+                   34-        CQUAD1  37      101     37      38      44      43                              
+                   35-        CQUAD1  38      101     38      39      45      44                              
+                   36-        CQUAD1  39      101     39      40      46      45                              
+                   37-        CQUAD1  40      101     40      41      47      46                              
+                   38-        CQUAD1  41      101     41      42      48      47                              
+                   39-        CQUAD1  43      101     43      44      50      49                              
+                   40-        CQUAD1  44      101     44      45      51      50                              
+                   41-        CQUAD1  45      101     45      46      52      51                              
+                   42-        CQUAD1  46      101     46      47      53      52                              
+                   43-        CQUAD1  47      101     47      48      54      53                              
+                   44-        CQUAD1  49      101     49      50      56      55                              
+                   45-        CQUAD1  50      101     50      51      57      56                              
+                   46-        CQUAD1  51      101     51      52      58      57                              
+                   47-        CQUAD1  52      101     52      53      59      58                              
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CQUAD1  53      101     53      54      60      59                              
+                   49-        CQUAD1  55      101     55      56      62      61                              
+                   50-        CQUAD1  56      101     56      57      63      62                              
+                   51-        CQUAD1  57      101     57      58      64      63                              
+                   52-        CQUAD1  58      101     58      59      65      64                              
+                   53-        CQUAD1  59      101     59      60      66      65                              
+                   54-        GRDSET                                                  6                       
+                   55-        GRID    1               .00     .00     .00                                     
+                   56-        GRID    2               1.00000 .00     .00                                     
+                   57-        GRID    3               2.00000 .00     .00                                     
+                   58-        GRID    4               3.00000 .00     .00                                     
+                   59-        GRID    5               4.00000 .00     .00                                     
+                   60-        GRID    6               5.00000 .00     .00                                     
+                   61-        GRID    7               .00     1.00000 .00                                     
+                   62-        GRID    8               1.00000 1.00000 .00                                     
+                   63-        GRID    9               2.00000 1.00000 .00                                     
+                   64-        GRID    10              3.00000 1.00000 .00                                     
+                   65-        GRID    11              4.00000 1.00000 .00                                     
+                   66-        GRID    12              5.00000 1.00000 .00                                     
+                   67-        GRID    13              .00     2.00000 .00                                     
+                   68-        GRID    14              1.00000 2.00000 .00                                     
+                   69-        GRID    15              2.00000 2.00000 .00                                     
+                   70-        GRID    16              3.00000 2.00000 .00                                     
+                   71-        GRID    17              4.00000 2.00000 .00                                     
+                   72-        GRID    18              5.00000 2.00000 .00                                     
+                   73-        GRID    19              .00     3.00000 .00                                     
+                   74-        GRID    20              1.00000 3.00000 .00                                     
+                   75-        GRID    21              2.00000 3.00000 .00                                     
+                   76-        GRID    22              3.00000 3.00000 .00                                     
+                   77-        GRID    23              4.00000 3.00000 .00                                     
+                   78-        GRID    24              5.00000 3.00000 .00                                     
+                   79-        GRID    25              .00     4.00000 .00                                     
+                   80-        GRID    26              1.00000 4.00000 .00                                     
+                   81-        GRID    27              2.00000 4.00000 .00                                     
+                   82-        GRID    28              3.00000 4.00000 .00                                     
+                   83-        GRID    29              4.00000 4.00000 .00                                     
+                   84-        GRID    30              5.00000 4.00000 .00                                     
+                   85-        GRID    31              .00     5.00000 .00                                     
+                   86-        GRID    32              1.00000 5.00000 .00                                     
+                   87-        GRID    33              2.00000 5.00000 .00                                     
+                   88-        GRID    34              3.00000 5.00000 .00                                     
+                   89-        GRID    35              4.00000 5.00000 .00                                     
+                   90-        GRID    36              5.00000 5.00000 .00                                     
+                   91-        GRID    37              .00     6.00000 .00                                     
+                   92-        GRID    38              1.00000 6.00000 .00                                     
+                   93-        GRID    39              2.00000 6.00000 .00                                     
+                   94-        GRID    40              3.00000 6.00000 .00                                     
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        GRID    41              4.00000 6.00000 .00                                     
+                   96-        GRID    42              5.00000 6.00000 .00                                     
+                   97-        GRID    43              .00     7.00000 .00                                     
+                   98-        GRID    44              1.00000 7.00000 .00                                     
+                   99-        GRID    45              2.00000 7.00000 .00                                     
+                  100-        GRID    46              3.00000 7.00000 .00                                     
+                  101-        GRID    47              4.00000 7.00000 .00                                     
+                  102-        GRID    48              5.00000 7.00000 .00                                     
+                  103-        GRID    49              .00     8.00000 .00                                     
+                  104-        GRID    50              1.00000 8.00000 .00                                     
+                  105-        GRID    51              2.00000 8.00000 .00                                     
+                  106-        GRID    52              3.00000 8.00000 .00                                     
+                  107-        GRID    53              4.00000 8.00000 .00                                     
+                  108-        GRID    54              5.00000 8.00000 .00                                     
+                  109-        GRID    55              .00     9.00000 .00                                     
+                  110-        GRID    56              1.00000 9.00000 .00                                     
+                  111-        GRID    57              2.00000 9.00000 .00                                     
+                  112-        GRID    58              3.00000 9.00000 .00                                     
+                  113-        GRID    59              4.00000 9.00000 .00                                     
+                  114-        GRID    60              5.00000 9.00000 .00                                     
+                  115-        GRID    61              .00     10.0000 .00                                     
+                  116-        GRID    62              1.00000 10.0000 .00                                     
+                  117-        GRID    63              2.00000 10.0000 .00                                     
+                  118-        GRID    64              3.00000 10.0000 .00                                     
+                  119-        GRID    65              4.00000 10.0000 .00                                     
+                  120-        GRID    66              5.00000 10.0000 .00                                     
+                  121-        MAT1    1       3.0+5           .3      1.0     .01     .0              +MAT1   
+                  122-        +MAT1                           1000                                            
+                  123-        PARAM   IRES    1                                                               
+                  124-        PARAM   STRESS  0                                                               
+                  125-        PQUAD1  101     1       .5      1       .0104167                        +PQUAD1 
+                  126-        +PQUAD1 .25     -0.25                                                           
+                  127-        SPC1    1       34      6       12      18      24      30      36      +SPC-34 
+                  128-        +SPC-34 42      48      54      60      66                                      
+                  129-        SPC1    1       35      61      62      63      64      65      66              
+                  130-        SPC1    1       124     1       2       3       4       5       6               
+                  131-        SPC1    1       125     7       13      19      25      31      37      +SPC-5  
+                  132-        +SPC-5  43      49      55      61      1                                       
+                  133-        TEMPP1  20      1       .0      5.90786 2.46161 -2.46161                        
+                  134-        TEMPP1  20      2       .0      5.32956 2.22065 -2.22065                        
+                  135-        TEMPP1  20      3       .0      4.22956 1.76232 -1.76232                        
+                  136-        TEMPP1  20      4       .0      2.71555 1.13148 -1.13148                        
+                  137-        TEMPP1  20      5       .0      .93571  .38988  -.38988                         
+                  138-        TEMPP1  20      7       .0      5.76239 2.40100 -2.40100                        
+                  139-        TEMPP1  20      8       .0      5.19833 2.16597 -2.16597                        
+                  140-        TEMPP1  20      9       .0      4.12542 1.71892 -1.71892                        
+                  141-        TEMPP1  20      10      .0      2.64868 1.10362 -1.10362                        
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        TEMPP1  20      11      .0      .91267  .38028  -.38028                         
+                  143-        TEMPP1  20      13      .0      5.47503 2.28126 -2.28126                        
+                  144-        TEMPP1  20      14      .0      4.93910 2.05796 -2.05796                        
+                  145-        TEMPP1  20      15      .0      3.91969 1.63320 -1.63320                        
+                  146-        TEMPP1  20      16      .0      2.51660 1.04858 -1.04858                        
+                  147-        TEMPP1  20      17      .0      .86716  .36132  -.36132                         
+                  148-        TEMPP1  20      19      .0      5.05286 2.10536 -2.10536                        
+                  149-        TEMPP1  20      20      .0      4.55825 1.89927 -1.89927                        
+                  150-        TEMPP1  20      21      .0      3.61745 1.50727 -1.50727                        
+                  151-        TEMPP1  20      22      .0      2.32254 .96773  -.96773                         
+                  152-        TEMPP1  20      23      .0      .80029  .33346  -.33346                         
+                  153-        TEMPP1  20      25      .0      4.50626 1.87761 -1.87761                        
+                  154-        TEMPP1  20      26      .0      4.06516 1.69382 -1.69382                        
+                  155-        TEMPP1  20      27      .0      3.22613 1.34422 -1.34422                        
+                  156-        TEMPP1  20      28      .0      2.07130 .86304  -.86304                         
+                  157-        TEMPP1  20      29      .0      .71372  .29738  -.29738                         
+                  158-        TEMPP1  20      31      .0      3.84871 1.60363 -1.60363                        
+                  159-        TEMPP1  20      32      .0      3.47197 1.44666 -1.44666                        
+                  160-        TEMPP1  20      33      .0      2.75537 1.14807 -1.14807                        
+                  161-        TEMPP1  20      34      .0      1.76906 .73711  -.73711                         
+                  162-        TEMPP1  20      35      .0      .60958  .25399  -.25399                         
+                  163-        TEMPP1  20      37      .0      3.09639 1.29016 -1.29016                        
+                  164-        TEMPP1  20      38      .0      2.79330 1.16387 -1.16387                        
+                  165-        TEMPP1  20      39      .0      2.21677 .92366  -.92366                         
+                  166-        TEMPP1  20      40      .0      1.42326 .59302  -.59302                         
+                  167-        TEMPP1  20      41      .0      .49042  .20434  -.20434                         
+                  168-        TEMPP1  20      43      .0      2.26783 .94493  -.94493                         
+                  169-        TEMPP1  20      44      .0      2.04584 .85243  -.85243                         
+                  170-        TEMPP1  20      45      .0      1.62359 .67650  -.67650                         
+                  171-        TEMPP1  20      46      .0      1.04241 .43434  -.43434                         
+                  172-        TEMPP1  20      47      .0      .35919  .14966  -.14966                         
+                  173-        TEMPP1  20      49      .0      1.38343 .57643  -.57643                         
+                  174-        TEMPP1  20      50      .0      1.24801 .52000  -.52000                         
+                  175-        TEMPP1  20      51      .0      .99043  .41268  -.41268                         
+                  176-        TEMPP1  20      52      .0      .63589  .26496  -.26496                         
+                  177-        TEMPP1  20      53      .0      .21911  .09130  -.09130                         
+                  178-        TEMPP1  20      55      .0      .46496  .19373  -.19373                         
+                  179-        TEMPP1  20      56      .0      .41945  .17477  -.17477                         
+                  180-        TEMPP1  20      57      .0      .33287  .13870  -.13870                         
+                  181-        TEMPP1  20      58      .0      .21372  .08905  -.08905                         
+                  182-        TEMPP1  20      59      .0      .07364  .03068  -.03068                         
+                              ENDDATA
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            8
+                                        PROFILE            481
+                                        MAX WAVEFRONT        8
+                                        AVG WAVEFRONT    7.288
+                                        RMS WAVEFRONT    7.438
+                                        RMS BANDWIDTH    7.498
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            8
+                                        PROFILE            481
+                                        MAX WAVEFRONT        8
+                                        AVG WAVEFRONT    7.288
+                                        RMS WAVEFRONT    7.438
+                                        RMS BANDWIDTH    7.498
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        8         8
+                                        PROFILE (P)                        481       481
+                                        MAXIMUM WAVEFRONT (C-MAX)            8         8
+                                        AVERAGE WAVEFRONT (C-AVG)        7.288     7.288
+                                        RMS WAVEFRONT (C-RMS)            7.438     7.438
+                                        RMS BANDWITCH (B-RMS)            7.498     7.498
+                                        NUMBER OF GRID POINTS (N)                     66
+                                        NUMBER OF ELEMENTS (NON-RIGID)                50
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                           8
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                       215
+                                        MATRIX DENSITY, PERCENT                   11.387
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+
+
+                               BANDIT FINDS GRID POINT RE-SEQUENCING NOT NECESSARY
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QUAD1    ELEMENTS (ELEMENT TYPE  19) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   1.6240146E-13
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+0                RULV                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       1-T3).
+             1 T3  1.16529E-12        2 T3  4.09273E-12        2 R2  3.52429E-12        3 T3  1.95541E-11        3 R2  7.67386E-13
+             4 T3 -6.82121E-13        4 R2  3.97904E-13        5 T3 -7.73070E-12        5 R2  2.24532E-12        6 R2  7.81597E-13
+             7 T3  4.57590E-12        7 R1  5.11591E-12        8 T3  1.77351E-11        8 R1 -3.41061E-13        8 R2  2.62901E-12
+             9 T3  9.83391E-12        9 R1 -7.95808E-12        9 R2 -2.72848E-12       10 T3  8.35598E-12       10 R1 -1.93268E-12
+            10 R2  7.24754E-12       11 T3  1.58025E-11       11 R1 -3.06954E-12       11 R2 -2.67164E-12       12 R2  3.97904E-13
+            13 T3 -2.73133E-11       13 R1  2.10321E-12       14 T3  8.18545E-12       14 R1  5.68434E-12       14 R2  5.96856E-12
+            15 T3 -2.08047E-11       15 R1 -8.81073E-12       15 R2 -1.25056E-12       16 T3  1.87583E-12       16 R1 -4.54747E-12
+            16 R2 -2.21689E-12       17 T3  1.19940E-11       17 R1 -3.86535E-12       17 R2  1.87583E-12       18 R2  5.96856E-13
+            19 T3 -4.83169E-13       19 R1 -2.55795E-13       20 T3  2.00089E-11       20 R1 -6.99174E-12       20 R2  6.93490E-12
+            21 T3  1.51203E-11       21 R1 -3.41061E-12       21 R2  3.06954E-12       22 T3  8.29914E-12       22 R1 -6.93490E-12
+            22 R2 -4.54747E-13       23 T3 -9.66338E-13       23 R1 -4.03588E-12       23 R2 -2.10321E-12       24 R2 -1.20792E-12
+            25 T3 -1.00044E-11       25 R1 -7.95808E-13       26 T3  7.41807E-12       26 R1 -6.42331E-12       26 R2  1.04592E-11
+            27 T3 -4.83169E-12       27 R1 -3.18323E-12       27 R2  1.56319E-13       28 T3  1.59730E-11       28 R1 -6.82121E-13
+            28 R2  6.30962E-12       29 T3  4.09273E-12       29 R1  6.25278E-13       29 R2  1.19371E-12       30 R2 -6.39488E-14
+            31 T3  8.07177E-12       31 R1  3.01270E-12       32 T3 -9.91918E-12       32 R1 -8.15703E-12       32 R2  1.05160E-12
+            33 T3  6.02540E-12       33 R1 -3.86535E-12       33 R2  5.91172E-12       34 T3 -6.08225E-12       34 R1 -2.89901E-12
+            34 R2  2.45848E-12       35 T3  1.25056E-11       35 R1  3.41061E-13       35 R2  1.63425E-12       36 R2  2.62901E-13
+            37 T3 -1.25908E-11       37 R1  8.66862E-13       38 T3  1.03171E-11       38 R1 -2.07478E-12       38 R2  1.54188E-12
+            39 T3  1.02318E-12       39 R1 -2.84217E-14       39 R2  1.79057E-12       40 T3 -6.59384E-12       40 R1 -3.18323E-12
+            40 R2  1.50635E-12       41 T3  6.25278E-13       41 R1 -7.38964E-13       41 R2  1.79057E-12       42 R2  2.13163E-14
+            43 T3  2.21689E-12       43 R1  2.33058E-12       44 T3 -1.89573E-11       44 R1  2.75691E-12       44 R2 -1.27898E-12
+            45 T3 -9.26548E-12       45 R1  7.95808E-13       45 R2 -8.31335E-13       46 T3  3.29692E-12       46 R1 -1.76215E-12
+            46 R2  1.42819E-12       47 T3  2.41585E-12       47 R1 -3.12639E-13       47 R2 -2.41585E-13       48 R2 -6.00409E-13
+            49 T3 -2.61835E-12       49 R1  5.08038E-13       50 T3  1.22213E-11       50 R1 -5.23670E-12       50 R2 -7.28306E-13
+            51 T3  6.86384E-12       51 R1 -1.32161E-12       51 R2  3.19744E-14       52 T3 -1.17950E-12       52 R1  3.69482E-13
+            52 R2  3.01981E-13       53 T3  5.82645E-13       53 R1  7.67386E-13       53 R2 -3.05533E-13       54 R2 -6.76792E-13
+            55 T3 -5.68434E-14       55 R1  1.09424E-12       56 T3 -5.11591E-13       56 R1 -9.94760E-14       56 R2  1.47793E-12
+            57 T3 -2.78533E-12       57 R1  2.70006E-13       57 R2  1.33582E-12       58 T3  1.96110E-12       58 R1  6.82121E-13
+            58 R2  1.27898E-13       59 T3  4.54747E-13       59 R1  6.82121E-13       59 R2 -3.69482E-13       60 R2 -1.56319E-13
+            61 R1 -1.70530E-13       62 R1 -2.80664E-13       63 R1 -4.01457E-13       64 R1  6.48370E-13       65 R1  1.13687E-13
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** USER WARNING MESSAGE 2077, SDR2 OUTPUT DATA BLOCK NO. 2 IS PURGED
+0*** USER WARNING MESSAGE 2078, SDR2 OUTPUT DATA BLOCK NO. 3 IS PURGED
+0*** SYSTEM WARNING  MESSAGE 3001
+0ATTEMPT TO OPEN DATA SET 205 IN SUBROUTINE SDR2  , WHICH WAS NOT DEFINED IN THE FIST
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            6.289829E-01   0.0            0.0            0.0                           
+             2      G      0.0            0.0            5.981983E-01   0.0            6.155673E-02   0.0                           
+             3      G      0.0            0.0            5.088579E-01   0.0            1.170879E-01   0.0                           
+             4      G      0.0            0.0            3.697069E-01   0.0            1.611577E-01   0.0                           
+             5      G      0.0            0.0            1.943664E-01   0.0            1.894522E-01   0.0                           
+             6      G      0.0            0.0            0.0            0.0            1.992018E-01   0.0                           
+             7      G      0.0            0.0            6.212391E-01  -1.547499E-02   0.0            0.0                           
+             8      G      0.0            0.0            5.908335E-01  -1.471759E-02   6.079886E-02   0.0                           
+             9      G      0.0            0.0            5.025930E-01  -1.251952E-02   1.156463E-01   0.0                           
+            10      G      0.0            0.0            3.651552E-01  -9.095970E-03   1.591735E-01   0.0                           
+            11      G      0.0            0.0            1.919734E-01  -4.782042E-03   1.871198E-01   0.0                           
+            12      G      0.0            0.0            0.0            0.0            1.967493E-01   0.0                           
+            13      G      0.0            0.0            5.981983E-01  -3.056896E-02   0.0            0.0                           
+            14      G      0.0            0.0            5.689204E-01  -2.907280E-02   5.854392E-02   0.0                           
+            15      G      0.0            0.0            4.839526E-01  -2.473081E-02   1.113572E-01   0.0                           
+            16      G      0.0            0.0            3.516122E-01  -1.796798E-02   1.532701E-01   0.0                           
+            17      G      0.0            0.0            1.848534E-01  -9.446317E-03   1.801798E-01   0.0                           
+            18      G      0.0            0.0            0.0            0.0            1.894522E-01   0.0                           
+            19      G      0.0            0.0            5.604278E-01  -4.491021E-02   0.0            0.0                           
+            20      G      0.0            0.0            5.329986E-01  -4.271215E-02   5.484745E-02   0.0                           
+            21      G      0.0            0.0            4.533957E-01  -3.633313E-02   1.043261E-01   0.0                           
+            22      G      0.0            0.0            3.294112E-01  -2.639757E-02   1.435925E-01   0.0                           
+            23      G      0.0            0.0            1.731817E-01  -1.387804E-02   1.688032E-01   0.0                           
+            24      G      0.0            0.0            0.0            0.0            1.774901E-01   0.0                           
+            25      G      0.0            0.0            5.088578E-01  -5.814566E-02   0.0            0.0                           
+            26      G      0.0            0.0            4.839526E-01  -5.529981E-02   4.980044E-02   0.0                           
+            27      G      0.0            0.0            4.116746E-01  -4.704082E-02   9.472609E-02   0.0                           
+            28      G      0.0            0.0            2.990991E-01  -3.417715E-02   1.303793E-01   0.0                           
+            29      G      0.0            0.0            1.572457E-01  -1.796798E-02   1.532700E-01   0.0                           
+            30      G      0.0            0.0            0.0            0.0            1.611576E-01   0.0                           
+            31      G      0.0            0.0            4.447580E-01  -6.994929E-02   0.0            0.0                           
+            32      G      0.0            0.0            4.229900E-01  -6.652573E-02   4.352717E-02   0.0                           
+            33      G      0.0            0.0            3.598168E-01  -5.659018E-02   8.279362E-02   0.0                           
+            34      G      0.0            0.0            2.614222E-01  -4.111516E-02   1.139557E-01   0.0                           
+            35      G      0.0            0.0            1.374378E-01  -2.161550E-02   1.339629E-01   0.0                           
+            36      G      0.0            0.0            0.0            0.0            1.408570E-01   0.0                           
+            37      G      0.0            0.0            3.697068E-01  -8.003054E-02   0.0            0.0                           
+            38      G      0.0            0.0            3.516121E-01  -7.611356E-02   3.618212E-02   0.0                           
+            39      G      0.0            0.0            2.990991E-01  -6.474605E-02   6.882253E-02   0.0                           
+            40      G      0.0            0.0            2.173082E-01  -4.704076E-02   9.472606E-02   0.0                           
+            41      G      0.0            0.0            1.142457E-01  -2.473079E-02   1.113572E-01   0.0                           
+            42      G      0.0            0.0            0.0            0.0            1.170879E-01   0.0                           
+            43      G      0.0            0.0            2.855522E-01  -8.814117E-02   0.0            0.0                           
+            44      G      0.0            0.0            2.715763E-01  -8.382725E-02   2.794615E-02   0.0                           
+            45      G      0.0            0.0            2.310166E-01  -7.130771E-02   5.315678E-02   0.0                           
+            46      G      0.0            0.0            1.678434E-01  -5.180809E-02   7.316402E-02   0.0                           
+            47      G      0.0            0.0            8.824050E-02  -2.723713E-02   8.600949E-02   0.0                           
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            48      G      0.0            0.0            0.0            0.0            9.043574E-02   0.0                           
+            49      G      0.0            0.0            1.943664E-01  -9.408151E-02   0.0            0.0                           
+            50      G      0.0            0.0            1.848534E-01  -8.947683E-02   1.902207E-02   0.0                           
+            51      G      0.0            0.0            1.572457E-01  -7.611354E-02   3.618213E-02   0.0                           
+            52      G      0.0            0.0            1.142457E-01  -5.529974E-02   4.980046E-02   0.0                           
+            53      G      0.0            0.0            6.006252E-02  -2.907281E-02   5.854395E-02   0.0                           
+            54      G      0.0            0.0            0.0            0.0            6.155673E-02   0.0                           
+            55      G      0.0            0.0            9.839460E-02  -9.770528E-02   0.0            0.0                           
+            56      G      0.0            0.0            9.357884E-02  -9.292324E-02   9.629590E-03   0.0                           
+            57      G      0.0            0.0            7.960291E-02  -7.904524E-02   1.831659E-02   0.0                           
+            58      G      0.0            0.0            5.783490E-02  -5.742973E-02   2.521062E-02   0.0                           
+            59      G      0.0            0.0            3.040560E-02  -3.019259E-02   2.963686E-02   0.0                           
+            60      G      0.0            0.0            0.0            0.0            3.116201E-02   0.0                           
+            61      G      0.0            0.0            0.0           -9.892321E-02   0.0            0.0                           
+            62      G      0.0            0.0            0.0           -9.408157E-02   0.0            0.0                           
+            63      G      0.0            0.0            0.0           -8.003056E-02   0.0            0.0                           
+            64      G      0.0            0.0            0.0           -5.814559E-02   0.0            0.0                           
+            65      G      0.0            0.0            0.0           -3.056894E-02   0.0            0.0                           
+            66      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0           -7.400122E+01   1.861396E+01   0.0                           
+             2      G      0.0            0.0            0.0           -1.407587E+02   0.0            0.0                           
+             3      G      0.0            0.0            0.0           -1.197365E+02   0.0            0.0                           
+             4      G      0.0            0.0            0.0           -8.699371E+01   0.0            0.0                           
+             5      G      0.0            0.0            0.0           -4.573529E+01   0.0            0.0                           
+             6      G      0.0            0.0           -5.925016E+00  -1.750928E+01   0.0            0.0                           
+             7      G      0.0            0.0            0.0            0.0            3.676960E+01   0.0                           
+            12      G      0.0            0.0           -1.170411E+01   8.652160E-02   0.0            0.0                           
+            13      G      0.0            0.0            0.0            0.0            3.540588E+01   0.0                           
+            18      G      0.0            0.0           -1.127010E+01   1.707948E-01   0.0            0.0                           
+            19      G      0.0            0.0            0.0            0.0            3.317041E+01   0.0                           
+            24      G      0.0            0.0           -1.055845E+01   2.511623E-01   0.0            0.0                           
+            25      G      0.0            0.0            0.0            0.0            3.011804E+01   0.0                           
+            30      G      0.0            0.0           -9.586771E+00   3.250313E-01   0.0            0.0                           
+            31      G      0.0            0.0            0.0            0.0            2.632403E+01   0.0                           
+            36      G      0.0            0.0           -8.379259E+00   3.909180E-01   0.0            0.0                           
+            37      G      0.0            0.0            0.0            0.0            2.188195E+01   0.0                           
+            42      G      0.0            0.0           -6.965311E+00   4.474613E-01   0.0            0.0                           
+            43      G      0.0            0.0            0.0            0.0            1.690109E+01   0.0                           
+            48      G      0.0            0.0           -5.379806E+00   4.926479E-01   0.0            0.0                           
+            49      G      0.0            0.0            0.0            0.0            1.150410E+01   0.0                           
+            54      G      0.0            0.0           -3.661853E+00   5.260014E-01   0.0            0.0                           
+            55      G      0.0            0.0            0.0            0.0            5.823802E+00   0.0                           
+            60      G      0.0            0.0           -1.853672E+00   5.461640E-01   0.0            0.0                           
+            61      G      0.0            0.0           -1.168273E+01   0.0            1.289775E+01   0.0                           
+            62      G      0.0            0.0           -2.222199E+01   0.0           -1.049895E+00   0.0                           
+            63      G      0.0            0.0           -1.890310E+01   0.0           -1.997354E+00   0.0                           
+            64      G      0.0            0.0           -1.373387E+01   0.0           -2.748788E+00   0.0                           
+            65      G      0.0            0.0           -7.220332E+00   0.0           -3.231655E+00   0.0                           
+            66      G      0.0            0.0            1.490416E+02   2.764740E-01  -1.698860E+00   0.0                           
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                 F O R C E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S     ( C Q U A D 1 )
+0        ELEMENT           BEND-MOMENT           BEND-MOMENT          TWIST-MOMENT             SHEAR                 SHEAR
+           ID.                 X                     Y                                           X                     Y
+               1          3.810094E+01          1.488741E+02          9.116211E-01         -1.681641E+00         -1.685547E+00      
+               2          3.437134E+01          1.343014E+02          2.645996E+00         -4.884766E+00         -1.519531E+00      
+               3          2.727718E+01          1.065821E+02          4.122559E+00         -7.611328E+00         -1.207031E+00      
+               4          1.751310E+01          6.843006E+01          5.194580E+00         -9.588867E+00         -7.734375E-01      
+               5          6.034527E+00          2.357921E+01          5.758179E+00         -1.063184E+01         -2.675781E-01      
+               7          3.716281E+01          1.452083E+02          2.712891E+00         -1.640625E+00         -5.007812E+00      
+               8          3.352502E+01          1.309944E+02          7.875000E+00         -4.765625E+00         -4.515625E+00      
+               9          2.660574E+01          1.039578E+02          1.226538E+01         -7.422852E+00         -3.583008E+00      
+              10          1.708173E+01          6.674492E+01          1.545557E+01         -9.353516E+00         -2.301758E+00      
+              11          5.885925E+00          2.299864E+01          1.713293E+01         -1.036987E+01         -7.939453E-01      
+              13          3.530957E+01          1.379671E+02          4.447754E+00         -1.560547E+00         -8.207031E+00      
+              14          3.185324E+01          1.244620E+02          1.290918E+01         -4.527344E+00         -7.400391E+00      
+              15          2.527878E+01          9.877349E+01          2.010693E+01         -7.053711E+00         -5.875977E+00      
+              16          1.623011E+01          6.341660E+01          2.533643E+01         -8.886719E+00         -3.771484E+00      
+              17          5.592537E+00          2.185180E+01          2.808569E+01         -9.853027E+00         -1.300293E+00      
+              19          3.258702E+01          1.273286E+02          6.072998E+00         -1.441406E+00         -1.120117E+01      
+              20          2.939702E+01          1.148648E+02          1.762598E+01         -4.176758E+00         -1.010938E+01      
+              21          2.332970E+01          9.115733E+01          2.745337E+01         -6.509766E+00         -8.023438E+00      
+              22          1.497841E+01          5.852643E+01          3.459338E+01         -8.201172E+00         -5.150391E+00      
+              23          5.161152E+00          2.016675E+01          3.834692E+01         -9.093018E+00         -1.775391E+00      
+              25          2.906168E+01          1.135548E+02          7.549072E+00         -1.284180E+00         -1.392773E+01      
+              26          2.621701E+01          1.024394E+02          2.190845E+01         -3.726562E+00         -1.256445E+01      
+              27          2.080591E+01          8.129636E+01          3.412378E+01         -5.805664E+00         -9.970703E+00      
+              28          1.335812E+01          5.219539E+01          4.299792E+01         -7.314453E+00         -6.402344E+00      
+              29          4.602867E+00          1.798526E+01          4.766394E+01         -8.109375E+00         -2.206543E+00      
+              31          2.482106E+01          9.698503E+01          8.839111E+00         -1.095703E+00         -1.630664E+01      
+              32          2.239125E+01          8.749140E+01          2.565161E+01         -3.182617E+00         -1.471094E+01      
+              33          1.776981E+01          6.943353E+01          3.995312E+01         -4.957031E+00         -1.167578E+01      
+              34          1.140897E+01          4.457915E+01          5.034448E+01         -6.248047E+00         -7.496582E+00      
+              35          3.931374E+00          1.536104E+01          5.580719E+01         -6.926025E+00         -2.583496E+00      
+              37          1.996918E+01          7.802699E+01          9.910645E+00         -8.808594E-01         -1.828516E+01      
+              38          1.801458E+01          7.038936E+01          2.876318E+01         -2.560547E+00         -1.649609E+01      
+              39          1.429631E+01          5.586108E+01          4.479968E+01         -3.988281E+00         -1.309082E+01      
+              40          9.178928E+00          3.586526E+01          5.645105E+01         -5.026855E+00         -8.405273E+00      
+              41          3.162741E+00          1.235822E+01          6.257642E+01         -5.572388E+00         -2.896729E+00      
+              43          1.462569E+01          5.714783E+01          1.073926E+01         -6.455078E-01         -1.981396E+01      
+              44          1.319399E+01          5.155382E+01          3.116638E+01         -1.874512E+00         -1.787402E+01      
+              45          1.047088E+01          4.091340E+01          4.854285E+01         -2.920898E+00         -1.418457E+01      
+              46          6.722740E+00          2.626803E+01          6.116754E+01         -3.681152E+00         -9.107910E+00      
+              47          2.316523E+00          9.051338E+00          6.780478E+01         -4.081116E+00         -3.138672E+00      
+              49          8.922112E+00          3.486148E+01          1.130286E+01         -3.930664E-01         -2.085400E+01      
+              50          8.048695E+00          3.144896E+01          3.280212E+01         -1.143555E+00         -1.881201E+01      
+              51          6.387611E+00          2.495819E+01          5.109064E+01         -1.782227E+00         -1.493018E+01      
+              52          4.100914E+00          1.602398E+01          6.437796E+01         -2.245605E+00         -9.585449E+00      
+              53          1.413036E+00          5.521420E+00          7.136359E+01         -2.489563E+00         -3.303101E+00      
+              55          2.998659E+00          1.171662E+01          1.158815E+01         -1.317444E-01         -2.138025E+01      
+              56          2.705261E+00          1.056990E+01          3.363035E+01         -3.840942E-01         -1.928735E+01      
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                 F O R C E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S     ( C Q U A D 1 )
+0        ELEMENT           BEND-MOMENT           BEND-MOMENT          TWIST-MOMENT             SHEAR                 SHEAR
+           ID.                 X                     Y                                           X                     Y
+              57          2.146612E+00          8.388025E+00          5.238049E+01         -5.986786E-01         -1.530640E+01      
+              58          1.378399E+00          5.385653E+00          6.600327E+01         -7.545395E-01         -9.827454E+00      
+              59          4.748776E-01          1.855652E+00          7.316516E+01         -8.366966E-01         -3.386353E+00      
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0       1    2.500000E-01     -5.134327E+03  -7.792875E+03  -2.187884E+01    -0.4715   -5.134147E+03   -7.793055E+03   1.329454E+03 
+            -2.500000E-01      5.134327E+03   7.792875E+03   2.187884E+01    89.5285    7.793055E+03    5.134147E+03   1.329454E+03 
+0       2    2.500000E-01     -4.631738E+03  -7.030051E+03  -6.350370E+01    -1.5157   -4.630058E+03   -7.031731E+03   1.200837E+03 
+            -2.500000E-01      4.631738E+03   7.030051E+03   6.350370E+01    88.4843    7.031731E+03    4.630058E+03   1.200837E+03 
+0       3    2.500000E-01     -3.675779E+03  -5.579090E+03  -9.894109E+01    -2.9678   -3.670650E+03   -5.584220E+03   9.567849E+02 
+            -2.500000E-01      3.675779E+03   5.579090E+03   9.894109E+01    87.0322    5.584220E+03    3.670650E+03   9.567849E+02 
+0       4    2.500000E-01     -2.359995E+03  -3.581999E+03  -1.246695E+02    -5.7662   -2.347406E+03   -3.594588E+03   6.235909E+02 
+            -2.500000E-01      2.359995E+03   3.581999E+03   1.246695E+02    84.2338    3.594588E+03    2.347406E+03   6.235909E+02 
+0       5    2.500000E-01     -8.131960E+02  -1.234267E+03  -1.381958E+02   -16.6405   -7.718917E+02   -1.275571E+03   2.518398E+02 
+            -2.500000E-01      8.131960E+02   1.234267E+03   1.381958E+02    73.3595    1.275571E+03    7.718917E+02   2.518398E+02 
+0       7    2.500000E-01     -5.007916E+03  -7.601000E+03  -6.510917E+01    -1.4374   -5.006282E+03   -7.602634E+03   1.298176E+03 
+            -2.500000E-01      5.007916E+03   7.601000E+03   6.510917E+01    88.5626    7.602634E+03    5.006282E+03   1.298176E+03 
+0       8    2.500000E-01     -4.517688E+03  -6.856945E+03  -1.889994E+02    -4.5895   -4.502516E+03   -6.872117E+03   1.184800E+03 
+            -2.500000E-01      4.517688E+03   6.856945E+03   1.889994E+02    85.4105    6.872117E+03    4.502516E+03   1.184800E+03 
+0       9    2.500000E-01     -3.585243E+03  -5.441688E+03  -2.943682E+02    -8.7977   -3.539685E+03   -5.487246E+03   9.737809E+02 
+            -2.500000E-01      3.585243E+03   5.441688E+03   2.943682E+02    81.2023    5.487246E+03    3.539685E+03   9.737809E+02 
+0      10    2.500000E-01     -2.301889E+03  -3.493802E+03  -3.709324E+02   -15.9494   -2.195880E+03   -3.599810E+03   7.019650E+02 
+            -2.500000E-01      2.301889E+03   3.493802E+03   3.709324E+02    74.0506    3.599810E+03    2.195880E+03   7.019650E+02 
+0      11    2.500000E-01     -7.931724E+02  -1.203876E+03  -4.111891E+02   -31.7310   -5.389094E+02   -1.458139E+03   4.596149E+02 
+            -2.500000E-01      7.931724E+02   1.203876E+03   4.111891E+02    58.2690    1.458139E+03    5.389094E+02   4.596149E+02 
+0      13    2.500000E-01     -4.758152E+03  -7.221924E+03  -1.067458E+02    -2.4762   -4.753536E+03   -7.226540E+03   1.236502E+03 
+            -2.500000E-01      4.758152E+03   7.221924E+03   1.067458E+02    87.5238    7.226540E+03    4.753536E+03   1.236502E+03 
+0      14    2.500000E-01     -4.292411E+03  -6.515015E+03  -3.098193E+02    -7.7890   -4.250032E+03   -6.557394E+03   1.153681E+03 
+            -2.500000E-01      4.292411E+03   6.515015E+03   3.098193E+02    82.2110    6.557394E+03    4.250032E+03   1.153681E+03 
+0      15    2.500000E-01     -3.406450E+03  -5.170317E+03  -4.825649E+02   -14.3430   -3.283060E+03   -5.293708E+03   1.005324E+03 
+            -2.500000E-01      3.406450E+03   5.170317E+03   4.825649E+02    75.6570    5.293708E+03    3.283060E+03   1.005324E+03 
+0      16    2.500000E-01     -2.187079E+03  -3.319551E+03  -6.080723E+02   -23.5202   -1.922427E+03   -3.584203E+03   8.308882E+02 
+            -2.500000E-01      2.187079E+03   3.319551E+03   6.080723E+02    66.4798    3.584203E+03    1.922427E+03   8.308882E+02 
+0      17    2.500000E-01     -7.536347E+02  -1.143856E+03  -6.740545E+02   -36.9282   -2.470205E+02   -1.650470E+03   7.017247E+02 
+            -2.500000E-01      7.536347E+02   1.143856E+03   6.740545E+02    53.0718    1.650470E+03    2.470205E+02   7.017247E+02 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      19    2.500000E-01     -4.391279E+03  -6.665070E+03  -1.457515E+02    -3.6528   -4.381975E+03   -6.674375E+03   1.146200E+03 
+            -2.500000E-01      4.391279E+03   6.665070E+03   1.457515E+02    86.3472    6.674375E+03    4.381975E+03   1.146200E+03 
+0      20    2.500000E-01     -3.961416E+03  -6.012635E+03  -4.230221E+02   -11.2071   -3.877601E+03   -6.096450E+03   1.109425E+03 
+            -2.500000E-01      3.961416E+03   6.012635E+03   4.230221E+02    78.7929    6.096450E+03    3.877601E+03   1.109425E+03 
+0      21    2.500000E-01     -3.143800E+03  -4.771658E+03  -6.588788E+02   -19.4952   -2.910542E+03   -5.004917E+03   1.047188E+03 
+            -2.500000E-01      3.143800E+03   4.771658E+03   6.588788E+02    70.5048    5.004917E+03    2.910542E+03   1.047188E+03 
+0      22    2.500000E-01     -2.018459E+03  -3.063608E+03  -8.302386E+02   -28.9063   -1.560024E+03   -3.522043E+03   9.810099E+02 
+            -2.500000E-01      2.018459E+03   3.063608E+03   8.302386E+02    61.0937    3.522043E+03    1.560024E+03   9.810099E+02 
+0      23    2.500000E-01     -6.955280E+02  -1.055661E+03  -9.203232E+02   -39.4648    6.217871E+01   -1.813368E+03   9.377733E+02 
+            -2.500000E-01      6.955280E+02   1.055661E+03   9.203232E+02    50.5352    1.813368E+03   -6.217871E+01   9.377733E+02 
+0      25    2.500000E-01     -3.916242E+03  -5.944071E+03  -1.811772E+02    -5.0656   -3.900182E+03   -5.960131E+03   1.029974E+03 
+            -2.500000E-01      3.916242E+03   5.944071E+03   1.811772E+02    84.9343    5.960131E+03    3.900182E+03   1.029974E+03 
+0      26    2.500000E-01     -3.532906E+03  -5.362237E+03  -5.258011E+02   -14.9464   -3.392546E+03   -5.502598E+03   1.055026E+03 
+            -2.500000E-01      3.532906E+03   5.362237E+03   5.258011E+02    75.0536    5.502598E+03    3.392546E+03   1.055026E+03 
+0      27    2.500000E-01     -2.803715E+03  -4.255481E+03  -8.189681E+02   -24.2241   -2.435242E+03   -4.623954E+03   1.094356E+03 
+            -2.500000E-01      2.803715E+03   4.255481E+03   8.189681E+02    65.7759    4.623954E+03    2.435242E+03   1.094356E+03 
+0      28    2.500000E-01     -1.800087E+03  -2.732178E+03  -1.031947E+03   -32.8476   -1.133828E+03   -3.398437E+03   1.132304E+03 
+            -2.500000E-01      1.800087E+03   2.732178E+03   1.031947E+03    57.1524    3.398437E+03    1.133828E+03   1.132304E+03 
+0      29    2.500000E-01     -6.202542E+02  -9.414305E+02  -1.143931E+03   -41.0044    3.743055E+02   -1.935990E+03   1.155148E+03 
+            -2.500000E-01      6.202542E+02   9.414305E+02   1.143931E+03    48.9956    1.935990E+03   -3.743055E+02   1.155148E+03 
+0      31    2.500000E-01     -3.344785E+03  -5.076715E+03  -2.121380E+02    -6.8824   -3.319180E+03   -5.102320E+03   8.915702E+02 
+            -2.500000E-01      3.344785E+03   5.076715E+03   2.121380E+02    83.1176    5.102320E+03    3.319180E+03   8.915702E+02 
+0      32    2.500000E-01     -3.017392E+03  -4.579791E+03  -6.156367E+02   -19.1202   -2.803965E+03   -4.793217E+03   9.946260E+02 
+            -2.500000E-01      3.017392E+03   4.579791E+03   6.156367E+02    70.8798    4.793217E+03    2.803965E+03   9.946260E+02 
+0      33    2.500000E-01     -2.394592E+03  -3.634517E+03  -9.588719E+02   -28.5576   -1.872719E+03   -4.156391E+03   1.141836E+03 
+            -2.500000E-01      2.394592E+03   3.634517E+03   9.588719E+02    61.4424    4.156391E+03    1.872719E+03   1.141836E+03 
+0      34    2.500000E-01     -1.537436E+03  -2.333518E+03  -1.208264E+03   -35.8832   -6.633378E+02   -3.207616E+03   1.272139E+03 
+            -2.500000E-01      1.537436E+03   2.333518E+03   1.208264E+03    54.1168    3.207616E+03    6.633378E+02   1.272139E+03 
+0      35    2.500000E-01     -5.297598E+02  -8.040709E+02  -1.339368E+03   -42.0766    6.794572E+02   -2.013288E+03   1.346373E+03 
+            -2.500000E-01      5.297598E+02   8.040709E+02   1.339368E+03    47.9234    2.013288E+03   -6.794572E+02   1.346373E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      37    2.500000E-01     -2.690955E+03  -4.084338E+03  -2.378547E+02    -9.4251   -2.651471E+03   -4.123822E+03   7.361752E+02 
+            -2.500000E-01      2.690955E+03   4.084338E+03   2.378547E+02    80.5749    4.123822E+03    2.651471E+03   7.361752E+02 
+0      38    2.500000E-01     -2.427541E+03  -3.684532E+03  -6.903142E+02   -23.8419   -2.122474E+03   -3.989600E+03   9.335631E+02 
+            -2.500000E-01      2.427541E+03   3.684532E+03   6.903142E+02    66.1581    3.989600E+03    2.122474E+03   9.335631E+02 
+0      39    2.500000E-01     -1.926542E+03  -2.924094E+03  -1.075189E+03   -32.5568   -1.240072E+03   -3.610564E+03   1.185246E+03 
+            -2.500000E-01      1.926542E+03   2.924094E+03   1.075189E+03    57.4432    3.610564E+03    1.240072E+03   1.185246E+03 
+0      40    2.500000E-01     -1.236886E+03  -1.877356E+03  -1.354821E+03   -38.3506   -1.649684E+02   -2.949274E+03   1.392153E+03 
+            -2.500000E-01      1.236886E+03   1.877356E+03   1.354821E+03    51.6494    2.949274E+03    1.649684E+02   1.392153E+03 
+0      41    2.500000E-01     -4.261984E+02  -6.468893E+02  -1.501829E+03   -42.8989    9.693336E+02   -2.042421E+03   1.505877E+03 
+            -2.500000E-01      4.261984E+02   6.468893E+02   1.501829E+03    47.1011    2.042421E+03   -9.693336E+02   1.505877E+03 
+0      43    2.500000E-01     -1.970898E+03  -2.991426E+03  -2.577414E+02   -13.3995   -1.909497E+03   -3.052826E+03   5.716643E+02 
+            -2.500000E-01      1.970898E+03   2.991426E+03   2.577414E+02    76.6005    3.052826E+03    1.909497E+03   5.716643E+02 
+0      44    2.500000E-01     -1.777955E+03  -2.698587E+03  -7.479908E+02   -29.1958   -1.359988E+03   -3.116554E+03   8.782832E+02 
+            -2.500000E-01      1.777955E+03   2.698587E+03   7.479908E+02    60.8042    3.116554E+03    1.359988E+03   8.782832E+02 
+0      45    2.500000E-01     -1.411025E+03  -2.141644E+03  -1.165025E+03   -36.2952   -5.553785E+02   -2.997291E+03   1.220956E+03 
+            -2.500000E-01      1.411025E+03   2.141644E+03   1.165025E+03    53.7048    2.997291E+03    5.553785E+02   1.220956E+03 
+0      46    2.500000E-01     -9.059346E+02  -1.375020E+03  -1.468016E+03   -40.4613    3.461572E+02   -2.627112E+03   1.486635E+03 
+            -2.500000E-01      9.059346E+02   1.375020E+03   1.468016E+03    49.5387    2.627112E+03   -3.461572E+02   1.486635E+03 
+0      47    2.500000E-01     -3.121500E+02  -4.737850E+02  -1.627310E+03   -43.5784    1.236348E+03   -2.022283E+03   1.629315E+03 
+            -2.500000E-01      3.121500E+02   4.737850E+02   1.627310E+03    46.4216    2.022283E+03   -1.236348E+03   1.629315E+03 
+0      49    2.500000E-01     -1.202298E+03  -1.824841E+03  -2.712677E+02   -20.5358   -1.100682E+03   -1.926457E+03   4.128875E+02 
+            -2.500000E-01      1.202298E+03   1.824841E+03   2.712677E+02    69.4642    1.926457E+03    1.100682E+03   4.128875E+02 
+0      50    2.500000E-01     -1.084586E+03  -1.646190E+03  -7.872485E+02   -35.1846   -5.295591E+02   -2.201217E+03   8.358290E+02 
+            -2.500000E-01      1.084586E+03   1.646190E+03   7.872485E+02    54.8154    2.201217E+03    5.295591E+02   8.358290E+02 
+0      51    2.500000E-01     -8.607558E+02  -1.306448E+03  -1.226171E+03   -39.8497    1.626550E+02   -2.329859E+03   1.246257E+03 
+            -2.500000E-01      8.607558E+02   1.306448E+03   1.226171E+03    50.1503    2.329859E+03   -1.626550E+02   1.246257E+03 
+0      52    2.500000E-01     -5.526537E+02  -8.388065E+02  -1.545066E+03   -42.3547    8.559465E+02   -2.247407E+03   1.551677E+03 
+            -2.500000E-01      5.526537E+02   8.388065E+02   1.545066E+03    47.6453    2.247407E+03   -8.559465E+02   1.551677E+03 
+0      53    2.500000E-01     -1.904378E+02  -2.890386E+02  -1.712721E+03   -44.1756    1.473692E+03   -1.953168E+03   1.713430E+03 
+            -2.500000E-01      1.904378E+02   2.890386E+02   1.712721E+03    45.8244    1.953168E+03   -1.473692E+03   1.713430E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT      FIBRE               STRESSES IN ELEMENT COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.       DISTANCE           NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      55    2.500000E-01     -4.040676E+02  -6.132980E+02  -2.781147E+02   -34.6929   -2.115428E+02   -8.058227E+02   2.971399E+02 
+            -2.500000E-01      4.040676E+02   6.132980E+02   2.781147E+02    55.3071    8.058227E+02    2.115428E+02   2.971399E+02 
+0      56    2.500000E-01     -3.645296E+02  -5.532803E+02  -8.071258E+02   -41.6654    3.537197E+02   -1.271530E+03   8.126246E+02 
+            -2.500000E-01      3.645296E+02   5.532803E+02   8.071258E+02    48.3346    1.271530E+03   -3.537197E+02   8.126246E+02 
+0      57    2.500000E-01     -2.893006E+02  -4.390941E+02  -1.257128E+03   -43.2952    8.951595E+02   -1.623554E+03   1.259357E+03 
+            -2.500000E-01      2.893006E+02   4.390941E+02   1.257128E+03    46.7048    1.623554E+03   -8.951595E+02   1.259357E+03 
+0      58    2.500000E-01     -1.857386E+02  -2.819124E+02  -1.584073E+03   -44.1306    1.350978E+03   -1.818629E+03   1.584803E+03 
+            -2.500000E-01      1.857386E+02   2.819124E+02   1.584073E+03    45.8694    1.818629E+03   -1.350978E+03   1.584803E+03 
+0      59    2.500000E-01     -6.398275E+01  -9.712123E+01  -1.755958E+03   -44.7297    1.675484E+03   -1.836589E+03   1.756036E+03 
+            -2.500000E-01      6.398275E+01   9.712123E+01   1.755958E+03    45.2703    1.836589E+03   -1.675484E+03   1.756036E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN MATERIAL COORDINATE SYSTEM)
+
+  ELEMENT    MAT. COORD. SYS.      STRESSES IN MATERIAL COORD SYSTEM            PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.      ID./OUTPUT CODE     NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0       1           1000      -5.134327E+03  -7.792875E+03  -2.187884E+01    -0.4715   -5.134147E+03   -7.793055E+03   1.329454E+03 
+                       1       5.134327E+03   7.792875E+03   2.187884E+01    89.5285    7.793055E+03    5.134147E+03   1.329454E+03 
+0       2           1000      -4.631738E+03  -7.030051E+03  -6.350370E+01    -1.5157   -4.630058E+03   -7.031731E+03   1.200837E+03 
+                       1       4.631738E+03   7.030051E+03   6.350370E+01    88.4843    7.031731E+03    4.630058E+03   1.200837E+03 
+0       3           1000      -3.675779E+03  -5.579090E+03  -9.894109E+01    -2.9678   -3.670650E+03   -5.584220E+03   9.567849E+02 
+                       1       3.675779E+03   5.579090E+03   9.894109E+01    87.0322    5.584220E+03    3.670650E+03   9.567849E+02 
+0       4           1000      -2.359995E+03  -3.581999E+03  -1.246695E+02    -5.7662   -2.347406E+03   -3.594588E+03   6.235909E+02 
+                       1       2.359995E+03   3.581999E+03   1.246695E+02    84.2338    3.594588E+03    2.347406E+03   6.235909E+02 
+0       5           1000      -8.131960E+02  -1.234267E+03  -1.381958E+02   -16.6405   -7.718917E+02   -1.275571E+03   2.518398E+02 
+                       1       8.131960E+02   1.234267E+03   1.381958E+02    73.3595    1.275571E+03    7.718917E+02   2.518398E+02 
+0       7           1000      -5.007916E+03  -7.601000E+03  -6.510917E+01    -1.4374   -5.006282E+03   -7.602634E+03   1.298176E+03 
+                       1       5.007916E+03   7.601000E+03   6.510917E+01    88.5626    7.602634E+03    5.006282E+03   1.298176E+03 
+0       8           1000      -4.517688E+03  -6.856945E+03  -1.889994E+02    -4.5895   -4.502516E+03   -6.872117E+03   1.184800E+03 
+                       1       4.517688E+03   6.856945E+03   1.889994E+02    85.4105    6.872117E+03    4.502516E+03   1.184800E+03 
+0       9           1000      -3.585243E+03  -5.441688E+03  -2.943682E+02    -8.7977   -3.539685E+03   -5.487246E+03   9.737809E+02 
+                       1       3.585243E+03   5.441688E+03   2.943682E+02    81.2023    5.487246E+03    3.539685E+03   9.737809E+02 
+0      10           1000      -2.301889E+03  -3.493802E+03  -3.709324E+02   -15.9494   -2.195880E+03   -3.599810E+03   7.019650E+02 
+                       1       2.301889E+03   3.493802E+03   3.709324E+02    74.0506    3.599810E+03    2.195880E+03   7.019650E+02 
+0      11           1000      -7.931724E+02  -1.203876E+03  -4.111891E+02   -31.7310   -5.389094E+02   -1.458139E+03   4.596149E+02 
+                       1       7.931724E+02   1.203876E+03   4.111891E+02    58.2690    1.458139E+03    5.389094E+02   4.596149E+02 
+0      13           1000      -4.758152E+03  -7.221924E+03  -1.067458E+02    -2.4762   -4.753536E+03   -7.226540E+03   1.236502E+03 
+                       1       4.758152E+03   7.221924E+03   1.067458E+02    87.5238    7.226540E+03    4.753536E+03   1.236502E+03 
+0      14           1000      -4.292411E+03  -6.515015E+03  -3.098193E+02    -7.7890   -4.250032E+03   -6.557394E+03   1.153681E+03 
+                       1       4.292411E+03   6.515015E+03   3.098193E+02    82.2110    6.557394E+03    4.250032E+03   1.153681E+03 
+0      15           1000      -3.406450E+03  -5.170317E+03  -4.825649E+02   -14.3430   -3.283060E+03   -5.293708E+03   1.005324E+03 
+                       1       3.406450E+03   5.170317E+03   4.825649E+02    75.6570    5.293708E+03    3.283060E+03   1.005324E+03 
+0      16           1000      -2.187079E+03  -3.319551E+03  -6.080723E+02   -23.5202   -1.922427E+03   -3.584203E+03   8.308882E+02 
+                       1       2.187079E+03   3.319551E+03   6.080723E+02    66.4798    3.584203E+03    1.922427E+03   8.308882E+02 
+0      17           1000      -7.536347E+02  -1.143856E+03  -6.740545E+02   -36.9282   -2.470205E+02   -1.650470E+03   7.017247E+02 
+                       1       7.536347E+02   1.143856E+03   6.740545E+02    53.0718    1.650470E+03    2.470205E+02   7.017247E+02 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN MATERIAL COORDINATE SYSTEM)
+
+  ELEMENT    MAT. COORD. SYS.      STRESSES IN MATERIAL COORD SYSTEM            PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.      ID./OUTPUT CODE     NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      19           1000      -4.391279E+03  -6.665070E+03  -1.457515E+02    -3.6528   -4.381975E+03   -6.674375E+03   1.146200E+03 
+                       1       4.391279E+03   6.665070E+03   1.457515E+02    86.3472    6.674375E+03    4.381975E+03   1.146200E+03 
+0      20           1000      -3.961416E+03  -6.012635E+03  -4.230221E+02   -11.2071   -3.877601E+03   -6.096450E+03   1.109425E+03 
+                       1       3.961416E+03   6.012635E+03   4.230221E+02    78.7929    6.096450E+03    3.877601E+03   1.109425E+03 
+0      21           1000      -3.143800E+03  -4.771658E+03  -6.588788E+02   -19.4952   -2.910542E+03   -5.004917E+03   1.047188E+03 
+                       1       3.143800E+03   4.771658E+03   6.588788E+02    70.5048    5.004917E+03    2.910542E+03   1.047188E+03 
+0      22           1000      -2.018459E+03  -3.063608E+03  -8.302386E+02   -28.9063   -1.560024E+03   -3.522043E+03   9.810099E+02 
+                       1       2.018459E+03   3.063608E+03   8.302386E+02    61.0937    3.522043E+03    1.560024E+03   9.810099E+02 
+0      23           1000      -6.955280E+02  -1.055661E+03  -9.203232E+02   -39.4648    6.217871E+01   -1.813368E+03   9.377733E+02 
+                       1       6.955280E+02   1.055661E+03   9.203232E+02    50.5352    1.813368E+03   -6.217871E+01   9.377733E+02 
+0      25           1000      -3.916242E+03  -5.944071E+03  -1.811772E+02    -5.0656   -3.900182E+03   -5.960131E+03   1.029974E+03 
+                       1       3.916242E+03   5.944071E+03   1.811772E+02    84.9343    5.960131E+03    3.900182E+03   1.029974E+03 
+0      26           1000      -3.532906E+03  -5.362237E+03  -5.258011E+02   -14.9464   -3.392546E+03   -5.502598E+03   1.055026E+03 
+                       1       3.532906E+03   5.362237E+03   5.258011E+02    75.0536    5.502598E+03    3.392546E+03   1.055026E+03 
+0      27           1000      -2.803715E+03  -4.255481E+03  -8.189681E+02   -24.2241   -2.435242E+03   -4.623954E+03   1.094356E+03 
+                       1       2.803715E+03   4.255481E+03   8.189681E+02    65.7759    4.623954E+03    2.435242E+03   1.094356E+03 
+0      28           1000      -1.800087E+03  -2.732178E+03  -1.031947E+03   -32.8476   -1.133828E+03   -3.398437E+03   1.132304E+03 
+                       1       1.800087E+03   2.732178E+03   1.031947E+03    57.1524    3.398437E+03    1.133828E+03   1.132304E+03 
+0      29           1000      -6.202542E+02  -9.414305E+02  -1.143931E+03   -41.0044    3.743055E+02   -1.935990E+03   1.155148E+03 
+                       1       6.202542E+02   9.414305E+02   1.143931E+03    48.9956    1.935990E+03   -3.743055E+02   1.155148E+03 
+0      31           1000      -3.344785E+03  -5.076715E+03  -2.121380E+02    -6.8824   -3.319180E+03   -5.102320E+03   8.915702E+02 
+                       1       3.344785E+03   5.076715E+03   2.121380E+02    83.1176    5.102320E+03    3.319180E+03   8.915702E+02 
+0      32           1000      -3.017392E+03  -4.579791E+03  -6.156367E+02   -19.1202   -2.803965E+03   -4.793217E+03   9.946260E+02 
+                       1       3.017392E+03   4.579791E+03   6.156367E+02    70.8798    4.793217E+03    2.803965E+03   9.946260E+02 
+0      33           1000      -2.394592E+03  -3.634517E+03  -9.588719E+02   -28.5576   -1.872719E+03   -4.156391E+03   1.141836E+03 
+                       1       2.394592E+03   3.634517E+03   9.588719E+02    61.4424    4.156391E+03    1.872719E+03   1.141836E+03 
+0      34           1000      -1.537436E+03  -2.333518E+03  -1.208264E+03   -35.8832   -6.633378E+02   -3.207616E+03   1.272139E+03 
+                       1       1.537436E+03   2.333518E+03   1.208264E+03    54.1168    3.207616E+03    6.633378E+02   1.272139E+03 
+0      35           1000      -5.297598E+02  -8.040709E+02  -1.339368E+03   -42.0766    6.794572E+02   -2.013288E+03   1.346373E+03 
+                       1       5.297598E+02   8.040709E+02   1.339368E+03    47.9234    2.013288E+03   -6.794572E+02   1.346373E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN MATERIAL COORDINATE SYSTEM)
+
+  ELEMENT    MAT. COORD. SYS.      STRESSES IN MATERIAL COORD SYSTEM            PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.      ID./OUTPUT CODE     NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      37           1000      -2.690955E+03  -4.084338E+03  -2.378547E+02    -9.4251   -2.651471E+03   -4.123822E+03   7.361752E+02 
+                       1       2.690955E+03   4.084338E+03   2.378547E+02    80.5749    4.123822E+03    2.651471E+03   7.361752E+02 
+0      38           1000      -2.427541E+03  -3.684532E+03  -6.903142E+02   -23.8419   -2.122474E+03   -3.989600E+03   9.335631E+02 
+                       1       2.427541E+03   3.684532E+03   6.903142E+02    66.1581    3.989600E+03    2.122474E+03   9.335631E+02 
+0      39           1000      -1.926542E+03  -2.924094E+03  -1.075189E+03   -32.5568   -1.240072E+03   -3.610564E+03   1.185246E+03 
+                       1       1.926542E+03   2.924094E+03   1.075189E+03    57.4432    3.610564E+03    1.240072E+03   1.185246E+03 
+0      40           1000      -1.236886E+03  -1.877356E+03  -1.354821E+03   -38.3506   -1.649684E+02   -2.949274E+03   1.392153E+03 
+                       1       1.236886E+03   1.877356E+03   1.354821E+03    51.6494    2.949274E+03    1.649684E+02   1.392153E+03 
+0      41           1000      -4.261984E+02  -6.468893E+02  -1.501829E+03   -42.8989    9.693336E+02   -2.042421E+03   1.505877E+03 
+                       1       4.261984E+02   6.468893E+02   1.501829E+03    47.1011    2.042421E+03   -9.693336E+02   1.505877E+03 
+0      43           1000      -1.970898E+03  -2.991426E+03  -2.577414E+02   -13.3995   -1.909497E+03   -3.052826E+03   5.716643E+02 
+                       1       1.970898E+03   2.991426E+03   2.577414E+02    76.6005    3.052826E+03    1.909497E+03   5.716643E+02 
+0      44           1000      -1.777955E+03  -2.698587E+03  -7.479908E+02   -29.1958   -1.359988E+03   -3.116554E+03   8.782832E+02 
+                       1       1.777955E+03   2.698587E+03   7.479908E+02    60.8042    3.116554E+03    1.359988E+03   8.782832E+02 
+0      45           1000      -1.411025E+03  -2.141644E+03  -1.165025E+03   -36.2952   -5.553785E+02   -2.997291E+03   1.220956E+03 
+                       1       1.411025E+03   2.141644E+03   1.165025E+03    53.7048    2.997291E+03    5.553785E+02   1.220956E+03 
+0      46           1000      -9.059346E+02  -1.375020E+03  -1.468016E+03   -40.4613    3.461572E+02   -2.627112E+03   1.486635E+03 
+                       1       9.059346E+02   1.375020E+03   1.468016E+03    49.5387    2.627112E+03   -3.461572E+02   1.486635E+03 
+0      47           1000      -3.121500E+02  -4.737850E+02  -1.627310E+03   -43.5784    1.236348E+03   -2.022283E+03   1.629315E+03 
+                       1       3.121500E+02   4.737850E+02   1.627310E+03    46.4216    2.022283E+03   -1.236348E+03   1.629315E+03 
+0      49           1000      -1.202298E+03  -1.824841E+03  -2.712677E+02   -20.5358   -1.100682E+03   -1.926457E+03   4.128875E+02 
+                       1       1.202298E+03   1.824841E+03   2.712677E+02    69.4642    1.926457E+03    1.100682E+03   4.128875E+02 
+0      50           1000      -1.084586E+03  -1.646190E+03  -7.872485E+02   -35.1846   -5.295591E+02   -2.201217E+03   8.358290E+02 
+                       1       1.084586E+03   1.646190E+03   7.872485E+02    54.8154    2.201217E+03    5.295591E+02   8.358290E+02 
+0      51           1000      -8.607558E+02  -1.306448E+03  -1.226171E+03   -39.8497    1.626550E+02   -2.329859E+03   1.246257E+03 
+                       1       8.607558E+02   1.306448E+03   1.226171E+03    50.1503    2.329859E+03   -1.626550E+02   1.246257E+03 
+0      52           1000      -5.526537E+02  -8.388065E+02  -1.545066E+03   -42.3547    8.559465E+02   -2.247407E+03   1.551677E+03 
+                       1       5.526537E+02   8.388065E+02   1.545066E+03    47.6453    2.247407E+03   -8.559465E+02   1.551677E+03 
+0      53           1000      -1.904378E+02  -2.890386E+02  -1.712721E+03   -44.1756    1.473692E+03   -1.953168E+03   1.713430E+03 
+                       1       1.904378E+02   2.890386E+02   1.712721E+03    45.8244    1.953168E+03   -1.473692E+03   1.713430E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                  S T R E S S E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN MATERIAL COORDINATE SYSTEM)
+
+  ELEMENT    MAT. COORD. SYS.      STRESSES IN MATERIAL COORD SYSTEM            PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.      ID./OUTPUT CODE     NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      55           1000      -4.040676E+02  -6.132980E+02  -2.781147E+02   -34.6929   -2.115428E+02   -8.058227E+02   2.971399E+02 
+                       1       4.040676E+02   6.132980E+02   2.781147E+02    55.3071    8.058227E+02    2.115428E+02   2.971399E+02 
+0      56           1000      -3.645296E+02  -5.532803E+02  -8.071258E+02   -41.6654    3.537197E+02   -1.271530E+03   8.126246E+02 
+                       1       3.645296E+02   5.532803E+02   8.071258E+02    48.3346    1.271530E+03   -3.537197E+02   8.126246E+02 
+0      57           1000      -2.893006E+02  -4.390941E+02  -1.257128E+03   -43.2952    8.951595E+02   -1.623554E+03   1.259357E+03 
+                       1       2.893006E+02   4.390941E+02   1.257128E+03    46.7048    1.623554E+03   -8.951595E+02   1.259357E+03 
+0      58           1000      -1.857386E+02  -2.819124E+02  -1.584073E+03   -44.1306    1.350978E+03   -1.818629E+03   1.584803E+03 
+                       1       1.857386E+02   2.819124E+02   1.584073E+03    45.8694    1.818629E+03   -1.350978E+03   1.584803E+03 
+0      59           1000      -6.398275E+01  -9.712123E+01  -1.755958E+03   -44.7297    1.675484E+03   -1.836589E+03   1.756036E+03 
+                       1       6.398275E+01   9.712123E+01   1.755958E+03    45.2703    1.836589E+03   -1.675484E+03   1.756036E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                                           S T R E S S E S   A T   G R I D   P O I N T S
+                                                  (IN MATERIAL COORDINATE SYSTEM)
+
+   POINT     MAT. COORD. SYS.      STRESSES INMATERIAL COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.      ID./OUTPUT CODE     NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0       1           1000      -5.412447E+03  -8.215008E+03   1.159304E+02     2.3647   -5.407660E+03   -8.219795E+03   1.406068E+03 
+                     503       5.412447E+03   8.215008E+03  -1.159304E+02   -87.6353    8.219795E+03    5.407660E+03   1.406068E+03 
+0       2           1000      -4.975675E+03  -7.552078E+03   1.322150E-02     0.0003   -4.975676E+03   -7.552078E+03   1.288201E+03 
+                     503       4.975675E+03   7.552078E+03  -1.322150E-02   -89.9997    7.552078E+03    4.975676E+03   1.288201E+03 
+0       3           1000      -4.239363E+03  -6.434500E+03  -3.953982E+00    -0.1032   -4.239355E+03   -6.434507E+03   1.097575E+03 
+                     503       4.239363E+03   6.434500E+03   3.953982E+00    89.8968    6.434507E+03    4.239355E+03   1.097575E+03 
+0       4           1000      -3.087997E+03  -4.686955E+03  -1.473942E+01    -0.5281   -3.087861E+03   -4.687091E+03   7.996147E+02 
+                     503       3.087997E+03   4.686955E+03   1.473942E+01    89.4719    4.687091E+03    3.087861E+03   7.996147E+02 
+0       5           1000      -1.609170E+03  -2.442397E+03  -1.440378E+01    -0.9901   -1.608921E+03   -2.442646E+03   4.168622E+02 
+                     503       1.609170E+03   2.442397E+03   1.440378E+01    89.0099    2.442646E+03    1.608921E+03   4.168622E+02 
+0       6           1000      -2.973753E+02  -4.513539E+02  -8.367082E+01   -23.6907   -2.606625E+02   -4.880666E+02   1.137021E+02 
+                     503       2.973753E+02   4.513539E+02   8.367082E+01    66.3093    4.880666E+02    2.606625E+02   1.137021E+02 
+0       7           1000      -5.238118E+03  -7.950405E+03   5.388284E+01     1.1377   -5.237048E+03   -7.951476E+03   1.357214E+03 
+                     503       5.238118E+03   7.950405E+03  -5.388284E+01   -88.8624    7.951476E+03    5.237048E+03   1.357214E+03 
+0       8           1000      -4.875125E+03  -7.399459E+03  -9.774213E+01    -2.2141   -4.871346E+03   -7.403238E+03   1.265946E+03 
+                     503       4.875125E+03   7.399459E+03   9.774213E+01    87.7859    7.403238E+03    4.871346E+03   1.265946E+03 
+0       9           1000      -4.162800E+03  -6.318296E+03  -1.614362E+02    -4.2595   -4.150776E+03   -6.330320E+03   1.089772E+03 
+                     503       4.162800E+03   6.318296E+03   1.614362E+02    85.7405    6.330320E+03    4.150776E+03   1.089772E+03 
+0      10           1000      -3.030241E+03  -4.599297E+03  -2.258318E+02    -8.0294   -2.998384E+03   -4.631154E+03   8.163850E+02 
+                     503       3.030241E+03   4.599297E+03   2.258318E+02    81.9706    4.631154E+03    2.998384E+03   8.163850E+02 
+0      11           1000      -1.548027E+03  -2.349593E+03  -2.552258E+02   -16.2449   -1.473661E+03   -2.423960E+03   4.751495E+02 
+                     503       1.548027E+03   2.349593E+03   2.552258E+02    73.7551    2.423960E+03    1.473661E+03   4.751495E+02 
+0      12           1000      -2.115782E+02  -3.211316E+02  -3.183424E+02   -40.1184    5.666577E+01   -5.893756E+02   3.230207E+02 
+                     503       2.115782E+02   3.211316E+02   3.183424E+02    49.8816    5.893756E+02   -5.666577E+01   3.230207E+02 
+0      13           1000      -5.010431E+03  -7.604823E+03   2.322411E+01     0.5128   -5.010223E+03   -7.605031E+03   1.297404E+03 
+                     503       5.010431E+03   7.604823E+03  -2.322411E+01   -89.4872    7.605031E+03    5.010223E+03   1.297404E+03 
+0      14           1000      -4.704003E+03  -7.139728E+03  -1.760344E+02    -4.1124   -4.691346E+03   -7.152384E+03   1.230519E+03 
+                     503       4.704003E+03   7.139728E+03   1.760344E+02    85.8876    7.152384E+03    4.691346E+03   1.230519E+03 
+0      15           1000      -4.010997E+03  -6.087896E+03  -3.219900E+02    -8.6135   -3.962223E+03   -6.136670E+03   1.087223E+03 
+                     503       4.010997E+03   6.087896E+03   3.219900E+02    81.3865    6.136670E+03    3.962223E+03   1.087223E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                                           S T R E S S E S   A T   G R I D   P O I N T S
+                                                  (IN MATERIAL COORDINATE SYSTEM)
+
+   POINT     MAT. COORD. SYS.      STRESSES INMATERIAL COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.      ID./OUTPUT CODE     NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      16           1000      -2.921089E+03  -4.433632E+03  -4.466739E+02   -15.2836   -2.799030E+03   -4.555691E+03   8.783304E+02 
+                     503       2.921089E+03   4.433632E+03   4.466739E+02    74.7164    4.555691E+03    2.799030E+03   8.783304E+02 
+0      17           1000      -1.497415E+03  -2.272773E+03  -5.177765E+02   -26.5882   -1.238266E+03   -2.531923E+03   6.468287E+02 
+                     503       1.497415E+03   2.272773E+03   5.177765E+02    63.4118    2.531923E+03    1.238266E+03   6.468287E+02 
+0      18           1000      -1.779182E+02  -2.700389E+02  -5.759235E+02   -42.7137    3.537838E+02   -8.017410E+02   5.777624E+02 
+                     503       1.779182E+02   2.700389E+02   5.759235E+02    47.2863    8.017410E+02   -3.537838E+02   5.777624E+02 
+0      19           1000      -4.681554E+03  -7.105657E+03   1.672077E+00     0.0395   -4.681553E+03   -7.105658E+03   1.212052E+03 
+                     503       4.681554E+03   7.105657E+03  -1.672077E+00   -89.9605    7.105658E+03    4.681553E+03   1.212052E+03 
+0      20           1000      -4.412221E+03  -6.696860E+03  -2.509875E+02    -6.1960   -4.384973E+03   -6.724108E+03   1.169568E+03 
+                     503       4.412221E+03   6.696860E+03   2.509875E+02    83.8040    6.724108E+03    4.384973E+03   1.169568E+03 
+0      21           1000      -3.758303E+03  -5.704352E+03  -4.751817E+02   -13.0144   -3.648472E+03   -5.814182E+03   1.082855E+03 
+                     503       3.758303E+03   5.704352E+03   4.751817E+02    76.9856    5.814182E+03    3.648472E+03   1.082855E+03 
+0      22           1000      -2.737074E+03  -4.154333E+03  -6.558763E+02   -21.3930   -2.480132E+03   -4.411276E+03   9.655722E+02 
+                     503       2.737074E+03   4.154333E+03   6.558763E+02    68.6070    4.411276E+03    2.480132E+03   9.655722E+02 
+0      23           1000      -1.408172E+03  -2.137314E+03  -7.665382E+02   -32.2819   -9.239246E+02   -2.621562E+03   8.488186E+02 
+                     503       1.408172E+03   2.137314E+03   7.665382E+02    57.7181    2.621562E+03    9.239246E+02   8.488186E+02 
+0      24           1000      -1.507021E+02  -2.287276E+02  -8.269897E+02   -43.6496    6.381945E+02   -1.017624E+03   8.279094E+02 
+                     503       1.507021E+02   2.287276E+02   8.269897E+02    46.3504    1.017624E+03   -6.381945E+02   8.279094E+02 
+0      25           1000      -4.248349E+03  -6.448138E+03  -1.547431E+01    -0.4030   -4.248240E+03   -6.448246E+03   1.100003E+03 
+                     503       4.248349E+03   6.448138E+03   1.547431E+01    89.5970    6.448246E+03    4.248240E+03   1.100003E+03 
+0      26           1000      -4.007302E+03  -6.082276E+03  -3.213080E+02    -8.6038   -3.958687E+03   -6.130892E+03   1.086103E+03 
+                     503       4.007302E+03   6.082276E+03   3.213080E+02    81.3962    6.130892E+03    3.958687E+03   1.086103E+03 
+0      27           1000      -3.412460E+03  -5.179430E+03  -6.164155E+02   -17.4519   -3.218674E+03   -5.373216E+03   1.077271E+03 
+                     503       3.412460E+03   5.179430E+03   6.164155E+02    72.5481    5.373216E+03    3.218674E+03   1.077271E+03 
+0      28           1000      -2.484400E+03  -3.770823E+03  -8.484420E+02   -26.4170   -2.062917E+03   -4.192306E+03   1.064694E+03 
+                     503       2.484400E+03   3.770823E+03   8.484420E+02    63.5830    4.192306E+03    2.062917E+03   1.064694E+03 
+0      29           1000      -1.281956E+03  -1.945751E+03  -9.946729E+02   -35.7737   -5.652692E+02   -2.662439E+03   1.048585E+03 
+                     503       1.281956E+03   1.945751E+03   9.946729E+02    54.2263    2.662439E+03    5.652692E+02   1.048585E+03 
+0      30           1000      -1.211170E+02  -1.838302E+02  -1.061139E+03   -44.1537    9.091285E+02   -1.214076E+03   1.061602E+03 
+                     503       1.211170E+02   1.838302E+02   1.061139E+03    45.8463    1.214076E+03   -9.091285E+02   1.061602E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                                           S T R E S S E S   A T   G R I D   P O I N T S
+                                                  (IN MATERIAL COORDINATE SYSTEM)
+
+   POINT     MAT. COORD. SYS.      STRESSES INMATERIAL COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.      ID./OUTPUT CODE     NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      31           1000      -3.718076E+03  -5.643295E+03  -2.960088E+01    -0.8807   -3.717621E+03   -5.643750E+03   9.630649E+02 
+                     503       3.718076E+03   5.643295E+03   2.960088E+01    89.1193    5.643750E+03    3.717621E+03   9.630649E+02 
+0      32           1000      -3.501687E+03  -5.314855E+03  -3.844437E+02   -11.4899   -3.423542E+03   -5.393000E+03   9.847296E+02 
+                     503       3.501687E+03   5.314855E+03   3.844437E+02    78.5101    5.393000E+03    3.423542E+03   9.847296E+02 
+0      33           1000      -2.983081E+03  -4.527717E+03  -7.422441E+02   -21.9312   -2.684230E+03   -4.826567E+03   1.071168E+03 
+                     503       2.983081E+03   4.527717E+03   7.422441E+02    68.0688    4.826567E+03    2.684230E+03   1.071168E+03 
+0      34           1000      -2.170286E+03  -3.294063E+03  -1.020220E+03   -30.5781   -1.567456E+03   -3.896893E+03   1.164718E+03 
+                     503       2.170286E+03   3.294063E+03   1.020220E+03    59.4219    3.896893E+03    1.567456E+03   1.164718E+03 
+0      35           1000      -1.124092E+03  -1.706151E+03  -1.197585E+03   -38.1706   -1.826814E+02   -2.647562E+03   1.232440E+03 
+                     503       1.124092E+03   1.706151E+03   1.197585E+03    51.8294    2.647562E+03    1.826814E+02   1.232440E+03 
+0      36           1000      -8.655007E+01  -1.313699E+02  -1.271597E+03   -44.4952    1.162834E+03   -1.380754E+03   1.271794E+03 
+                     503       8.655007E+01   1.313699E+02   1.271597E+03    45.5048    1.380754E+03   -1.162834E+03   1.271794E+03 
+0      37           1000      -3.102701E+03  -4.709281E+03  -4.141850E+01    -1.4758   -3.101634E+03   -4.710348E+03   8.043571E+02 
+                     503       3.102701E+03   4.709281E+03   4.141850E+01    88.5242    4.710348E+03    3.101634E+03   8.043571E+02 
+0      38           1000      -2.908363E+03  -4.414317E+03  -4.384298E+02   -15.1053   -2.790022E+03   -4.532658E+03   8.713182E+02 
+                     503       2.908363E+03   4.414317E+03   4.384298E+02    74.8947    4.532658E+03    2.790022E+03   8.713182E+02 
+0      39           1000      -2.480795E+03  -3.765349E+03  -8.496696E+02   -26.4569   -2.057962E+03   -4.188181E+03   1.065109E+03 
+                     503       2.480795E+03   3.765349E+03   8.496696E+02    63.5431    4.188181E+03    2.057962E+03   1.065109E+03 
+0      40           1000      -1.802366E+03  -2.735630E+03  -1.167071E+03   -34.1034   -1.012097E+03   -3.525899E+03   1.256901E+03 
+                     503       1.802366E+03   2.735630E+03   1.167071E+03    55.8966    3.525899E+03    1.012097E+03   1.256901E+03 
+0      41           1000      -9.395004E+02  -1.425978E+03  -1.370510E+03   -39.9680    2.091882E+02   -2.574667E+03   1.391928E+03 
+                     503       9.395004E+02   1.425978E+03   1.370510E+03    50.0320    2.574667E+03   -2.091882E+02   1.391928E+03 
+0      42           1000      -4.526099E+01  -6.870167E+01  -1.452950E+03   -44.7689    1.396016E+03   -1.509979E+03   1.452997E+03 
+                     503       4.526099E+01   6.870167E+01   1.452950E+03    45.2311    1.509979E+03   -1.396016E+03   1.452997E+03 
+0      43           1000      -2.418063E+03  -3.670136E+03  -5.153229E+01    -2.3529   -2.415946E+03   -3.672253E+03   6.281537E+02 
+                     503       2.418063E+03   3.670136E+03   5.153229E+01    87.6471    3.672253E+03    2.415946E+03   6.281537E+02 
+0      44           1000      -2.241295E+03  -3.401845E+03  -4.815924E+02   -19.8453   -2.067481E+03   -3.575659E+03   7.540891E+02 
+                     503       2.241295E+03   3.401845E+03   4.815924E+02    70.1547    3.575659E+03    2.067481E+03   7.540891E+02 
+0      45           1000      -1.917746E+03  -2.910753E+03  -9.360900E+02   -31.0292   -1.354636E+03   -3.473863E+03   1.059613E+03 
+                     503       1.917746E+03   2.910753E+03   9.360900E+02    58.9708    3.473863E+03    1.354636E+03   1.059613E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                                           S T R E S S E S   A T   G R I D   P O I N T S
+                                                  (IN MATERIAL COORDINATE SYSTEM)
+
+   POINT     MAT. COORD. SYS.      STRESSES INMATERIAL COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.      ID./OUTPUT CODE     NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      46           1000      -1.389427E+03  -2.108866E+03  -1.285354E+03   -37.1826   -4.144058E+02   -3.083887E+03   1.334741E+03 
+                     503       1.389427E+03   2.108866E+03   1.285354E+03    52.8174    3.083887E+03    4.144058E+02   1.334741E+03 
+0      47           1000      -7.338983E+02  -1.113914E+03  -1.508995E+03   -41.4116    5.970037E+02   -2.444816E+03   1.520910E+03 
+                     503       7.338983E+02   1.113914E+03   1.508995E+03    48.5884    2.444816E+03   -5.970037E+02   1.520910E+03 
+0      48           1000       4.863134E+00   7.375687E+00  -1.601109E+03   -45.0225    1.607229E+03   -1.594991E+03   1.601110E+03 
+                     503      -4.863134E+00  -7.375687E+00   1.601109E+03    44.9775    1.594991E+03   -1.607229E+03   1.601110E+03 
+0      49           1000      -1.683967E+03  -2.555920E+03  -6.084562E+01    -3.9725   -1.679742E+03   -2.560146E+03   4.402021E+02 
+                     503       1.683967E+03   2.555920E+03   6.084562E+01    86.0275    2.560146E+03    1.679742E+03   4.402021E+02 
+0      50           1000      -1.513944E+03  -2.297867E+03  -5.121187E+02   -26.2853   -1.261003E+03   -2.550808E+03   6.449025E+02 
+                     503       1.513944E+03   2.297867E+03   5.121187E+02    63.7147    2.550808E+03    1.261003E+03   6.449025E+02 
+0      51           1000      -1.306063E+03  -1.982343E+03  -9.990259E+02   -35.6503   -5.895033E+02   -2.698902E+03   1.054700E+03 
+                     503       1.306063E+03   1.982343E+03   9.990259E+02    54.3497    2.698902E+03    5.895033E+02   1.054700E+03 
+0      52           1000      -9.415195E+02  -1.429027E+03  -1.371778E+03   -39.9621    2.079935E+02   -2.578540E+03   1.393267E+03 
+                     503       9.415195E+02   1.429027E+03   1.371778E+03    50.0379    2.578540E+03   -2.079935E+02   1.393267E+03 
+0      53           1000      -5.147592E+02  -7.812952E+02  -1.608785E+03   -42.6323    9.662677E+02   -2.262322E+03   1.614295E+03 
+                     503       5.147592E+02   7.812952E+02   1.608785E+03    47.3677    2.262322E+03   -9.662677E+02   1.614295E+03 
+0      54           1000       6.787238E+01   1.030137E+02  -1.713586E+03   -45.2937    1.799119E+03   -1.628233E+03   1.713676E+03 
+                     503      -6.787238E+01  -1.030137E+02   1.713586E+03    44.7063    1.628233E+03   -1.799119E+03   1.713676E+03 
+0      55           1000      -9.308094E+02  -1.412781E+03  -7.235959E+01    -8.3566   -9.201802E+02   -1.423410E+03   2.516150E+02 
+                     503       9.308094E+02   1.412781E+03   7.235959E+01    81.6434    1.423410E+03    9.201802E+02   2.516150E+02 
+0      56           1000      -7.462652E+02  -1.132682E+03  -5.294288E+02   -34.9755   -3.758918E+02   -1.503055E+03   5.635817E+02 
+                     503       7.462652E+02   1.132682E+03   5.294288E+02    55.0245    1.503055E+03    3.758918E+02   5.635817E+02 
+0      57           1000      -6.603292E+02  -1.002245E+03  -1.036352E+03   -40.3164    2.190710E+02   -1.881645E+03   1.050358E+03 
+                     503       6.603292E+02   1.002245E+03   1.036352E+03    49.6836    1.881645E+03   -2.190710E+02   1.050358E+03 
+0      58           1000      -4.720674E+02  -7.164954E+02  -1.423694E+03   -42.5468    8.346487E+02   -2.023211E+03   1.428930E+03 
+                     503       4.720674E+02   7.164954E+02   1.423694E+03    47.4532    2.023211E+03   -8.346487E+02   1.428930E+03 
+0      59           1000      -2.858381E+02  -4.338409E+02  -1.667309E+03   -43.7293    1.309111E+03   -2.028790E+03   1.668951E+03 
+                     503       2.858381E+02   4.338409E+02   1.667309E+03    46.2707    2.028790E+03   -1.309111E+03   1.668951E+03 
+0      60           1000       1.575309E+02   2.390941E+02  -1.791454E+03   -45.6520    1.990231E+03   -1.593606E+03   1.791919E+03 
+                     503      -1.575309E+02  -2.390941E+02   1.791454E+03    44.3480    1.593606E+03   -1.990231E+03   1.791919E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+                                           S T R E S S E S   A T   G R I D   P O I N T S
+                                                  (IN MATERIAL COORDINATE SYSTEM)
+
+   POINT     MAT. COORD. SYS.      STRESSES INMATERIAL COORD SYSTEM             PRINCIPAL STRESSES (ZERO SHEAR)            MAX
+    ID.      ID./OUTPUT CODE     NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR          SHEAR
+0      61           1000      -2.446324E+02  -3.713096E+02  -1.017026E+02   -29.0430   -1.881579E+02   -4.277842E+02   1.198131E+02 
+                     503       2.446324E+02   3.713096E+02   1.017026E+02    60.9570    4.277842E+02    1.881579E+02   1.198131E+02 
+0      62           1000      -4.210839E+01  -6.391433E+01  -5.503413E+02   -44.4325    4.974379E+02   -6.034606E+02   5.504493E+02 
+                     503       4.210839E+01   6.391433E+01   5.503413E+02    45.5675    6.034606E+02   -4.974379E+02   5.504493E+02 
+0      63           1000      -4.309179E+01  -6.540018E+01  -1.056104E+03   -44.6974    1.001917E+03   -1.110409E+03   1.056163E+03 
+                     503       4.309179E+01   6.540018E+01   1.056104E+03    45.3026    1.110409E+03   -1.001917E+03   1.056163E+03 
+0      64           1000      -1.158768E+01  -1.758555E+01  -1.449877E+03   -44.9407    1.435293E+03   -1.464467E+03   1.449880E+03 
+                     503       1.158768E+01   1.758555E+01   1.449877E+03    45.0593    1.464467E+03   -1.435293E+03   1.449880E+03 
+0      65           1000       9.407043E-03   6.347656E-03  -1.701701E+03   -45.0000    1.701709E+03   -1.701693E+03   1.701701E+03 
+                     503      -9.407043E-03  -6.347656E-03   1.701701E+03    45.0000    1.701693E+03   -1.701709E+03   1.701701E+03 
+0      66           1000       3.389859E+02   5.144959E+02  -1.851078E+03   -46.3571    2.279898E+03   -1.426416E+03   1.853157E+03 
+                     503      -3.389859E+02  -5.144959E+02   1.851078E+03    43.6429    1.426416E+03   -2.279898E+03   1.853157E+03 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+    S T R A I N S / C U R V A T U R E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT        STRAIN        STRNS./CURVS. IN ELEMENT COORD SYSTEM      PRIN. STRNS./CURVS. (ZERO SHEAR/TWIST)       MAXIMUM
+    ID.         CURVATURE       NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR       SHEAR/TWIST
+0       1                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -6.117778E-02  -1.509628E-02   7.591248E-04    89.5281   -1.509315E-02   -6.118090E-02   4.608775E-02 
+0       2                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -5.518931E-02  -1.361854E-02   2.201796E-03    88.4841   -1.358941E-02   -5.521844E-02   4.162904E-02 
+0       3                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -4.379847E-02  -1.080774E-02   3.430128E-03    87.0321   -1.071882E-02   -4.388739E-02   3.316857E-02 
+0       4                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.812038E-02  -6.939002E-03   4.321814E-03    84.2339   -6.720795E-03   -2.833859E-02   2.161779E-02 
+0       5                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -9.689569E-03  -2.391021E-03   4.790783E-03    73.3595   -1.675081E-03   -1.040551E-02   8.730429E-03 
+0       7                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -5.967138E-02  -1.472457E-02   2.257586E-03    88.5623   -1.469625E-02   -5.969971E-02   4.500346E-02 
+0       8                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -5.383037E-02  -1.328324E-02   6.552458E-03    85.4101   -1.302022E-02   -5.409338E-02   4.107316E-02 
+0       9                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -4.272002E-02  -1.054164E-02   1.020479E-02    81.2023   -9.751953E-03   -4.350970E-02   3.375775E-02 
+0      10                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.742796E-02  -6.768140E-03   1.285911E-02    74.0505   -4.930627E-03   -2.926547E-02   2.433484E-02 
+0      11                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -9.450994E-03  -2.332138E-03   1.425445E-02    58.2691    2.075044E-03   -1.385818E-02   1.593322E-02 
+0      13                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -5.669567E-02  -1.399029E-02   3.701210E-03    87.5233   -1.391024E-02   -5.677571E-02   4.286547E-02 
+0      14                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -5.114594E-02  -1.262083E-02   1.074076E-02    82.2108   -1.188620E-02   -5.188056E-02   3.999436E-02 
+0      15                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -4.058964E-02  -1.001595E-02   1.672912E-02    75.6568   -7.877143E-03   -4.272845E-02   3.485131E-02 
+0      16                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.606016E-02  -6.430654E-03   2.107990E-02    66.4798   -1.843329E-03   -3.064749E-02   2.880416E-02 
+0      17                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -8.979693E-03  -2.215862E-03   2.336723E-02    53.0718    6.565453E-03   -1.776101E-02   2.432646E-02 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+    S T R A I N S / C U R V A T U R E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT        STRAIN        STRNS./CURVS. IN ELEMENT COORD SYSTEM      PRIN. STRNS./CURVS. (ZERO SHEAR/TWIST)       MAXIMUM
+    ID.         CURVATURE       NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR       SHEAR/TWIST
+0      19                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -5.232393E-02  -1.291154E-02   5.053043E-03    86.3470   -1.275024E-02   -5.248523E-02   3.973499E-02 
+0      20                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -4.720213E-02  -1.164766E-02   1.466465E-02    78.7930   -1.019489E-02   -4.865490E-02   3.846000E-02 
+0      21                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -3.745983E-02  -9.243628E-03   2.284098E-02    70.5049   -5.200529E-03   -4.150293E-02   3.630240E-02 
+0      22                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.405068E-02  -5.934753E-03   2.878141E-02    61.0938    2.011377E-03   -3.199681E-02   3.400818E-02 
+0      23                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -8.287281E-03  -2.044971E-03   3.190458E-02    50.5352    1.108863E-02   -2.142088E-02   3.250952E-02 
+0      25                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -4.666379E-02  -1.151477E-02   6.280899E-03    84.9343   -1.123638E-02   -4.694217E-02   3.570579E-02 
+0      26                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -4.209603E-02  -1.038763E-02   1.822805E-02    75.0535   -7.954644E-03   -4.452902E-02   3.657437E-02 
+0      27                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -3.340762E-02  -8.243671E-03   2.839112E-02    65.7758   -1.856724E-03   -3.979457E-02   3.793785E-02 
+0      28                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.144899E-02  -5.292756E-03   3.577423E-02    57.1524    6.255765E-03   -3.299751E-02   3.925328E-02 
+0      29                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -7.390812E-03  -1.823756E-03   3.965628E-02    48.9956    1.541528E-02   -2.462985E-02   4.004513E-02 
+0      31                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -3.985463E-02  -9.834521E-03   7.354259E-03    83.1175   -9.390675E-03   -4.029848E-02   3.090780E-02 
+0      32                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -3.595342E-02  -8.871842E-03   2.134204E-02    70.8798   -5.172458E-03   -3.965280E-02   3.448034E-02 
+0      33                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.853277E-02  -7.040728E-03   3.324115E-02    61.4423    2.005180E-03   -3.757868E-02   3.958386E-02 
+0      34                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -1.831919E-02  -4.520444E-03   4.188657E-02    54.1167    1.063063E-02   -3.347027E-02   4.410091E-02 
+0      35                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -6.312374E-03  -1.557647E-03   4.643142E-02    47.9234    1.940211E-02   -2.727213E-02   4.667424E-02 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+    S T R A I N S / C U R V A T U R E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT        STRAIN        STRNS./CURVS. IN ELEMENT COORD SYSTEM      PRIN. STRNS./CURVS. (ZERO SHEAR/TWIST)       MAXIMUM
+    ID.         CURVATURE       NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR       SHEAR/TWIST
+0      37                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -3.206413E-02  -7.912155E-03   8.245945E-03    80.5746   -7.227720E-03   -3.274857E-02   2.552084E-02 
+0      38                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.892550E-02  -7.137667E-03   2.393103E-02    66.1580   -1.849776E-03   -3.421339E-02   3.236362E-02 
+0      39                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.295538E-02  -5.664488E-03   3.727329E-02    57.4432    6.234366E-03   -3.485423E-02   4.108860E-02 
+0      40                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -1.473830E-02  -3.636822E-03   4.696703E-02    51.6494    1.494305E-02   -3.331817E-02   4.826121E-02 
+0      41                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -5.078472E-03  -1.253165E-03   5.206341E-02    47.1011    2.293606E-02   -2.926769E-02   5.220375E-02 
+0      43                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.348410E-02  -5.794950E-03   8.935213E-03    76.6003   -4.730639E-03   -2.454841E-02   1.981777E-02 
+0      44                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.118533E-02  -5.227700E-03   2.593040E-02    60.8041    2.017083E-03   -2.843012E-02   3.044720E-02 
+0      45                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -1.681278E-02  -4.148740E-03   4.038739E-02    53.7048    1.068241E-02   -3.164393E-02   4.232634E-02 
+0      46                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -1.079448E-02  -2.663663E-03   5.089128E-02    49.5387    1.903928E-02   -3.249742E-02   5.153671E-02 
+0      47                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -3.719518E-03  -9.178389E-04   5.641344E-02    46.4216    2.592281E-02   -3.056016E-02   5.648297E-02 
+0      49                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -1.432582E-02  -3.535084E-03   9.404004E-03    69.4641   -1.773721E-03   -1.608719E-02   1.431347E-02 
+0      50                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -1.292352E-02  -3.189050E-03   2.729130E-02    54.8153    6.431423E-03   -2.254400E-02   2.897542E-02 
+0      51                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -1.025618E-02  -2.530843E-03   4.250735E-02    50.1503    1.520832E-02   -2.799534E-02   4.320365E-02 
+0      52                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -6.584862E-03  -1.624880E-03   5.356231E-02    47.6453    2.279087E-02   -3.100061E-02   5.379147E-02 
+0      53                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.268968E-03  -5.598860E-04   5.937433E-02    45.8244    2.828503E-02   -3.111389E-02   5.939892E-02 
+1     SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-11-1A                                                                                   
+0                                                                                                                                   
+ 
+    S T R A I N S / C U R V A T U R E S   I N   G E N E R A L   Q U A D R I L A T E R A L   E L E M E N T S      ( C Q U A D 1 )
+                                                  (IN ELEMENT COORDINATE SYSTEM)
+
+  ELEMENT        STRAIN        STRNS./CURVS. IN ELEMENT COORD SYSTEM      PRIN. STRNS./CURVS. (ZERO SHEAR/TWIST)       MAXIMUM
+    ID.         CURVATURE       NORMAL-X       NORMAL-Y      SHEAR-XY       ANGLE         MAJOR           MINOR       SHEAR/TWIST
+0      55                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -4.814792E-03  -1.188125E-03   9.641312E-03    55.3071    2.148969E-03   -8.151887E-03   1.030086E-02 
+0      56                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -4.343497E-03  -1.071822E-03   2.798040E-02    48.3346    1.137785E-02   -1.679317E-02   2.817103E-02 
+0      57                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -3.447015E-03  -8.505806E-04   4.358041E-02    46.7048    1.968004E-02   -2.397764E-02   4.365768E-02 
+0      58                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -2.213120E-03  -5.461071E-04   5.491451E-02    45.8694    2.609029E-02   -2.884951E-02   5.493980E-02 
+0      59                      0.0            0.0            0.0              0.0       0.0             0.0            0.0          
+                              -7.625768E-04  -1.881756E-04   6.087321E-02    45.2703    2.996258E-02   -3.091334E-02   6.087592E-02 
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  SIMPLY SUPPORTED RECTANGULAR PLATE WITH A THERMAL GRADIENT         
+ DATE:  5/17/95
+ END TIME: 15: 1:48
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

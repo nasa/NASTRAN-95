@@ -1,0 +1,61 @@
+$-------------------------------------------------------------------------------
+$               RIGID FORMAT No. 10 (APP AERO), Aeroelastic Analysis
+$          Aeroelastic Flutter Analysis of a 15 Degree Swept Wing (10-2-1)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates the use of the aeroelastic analysis to determine
+$ flutter frequencies and mode shapes for an untapered wing having 15 degree
+$ sweep and an aspect ratio of 5.34.
+$ 
+$ B. Input
+$ 
+$ Bulk data cards used include CAERO1, PAERO1, SPLINE2, SET1, AERO, MKAERO1,
+$ FLUTTER, and FLFACT as illustrated in User's Manual Section 1.11.
+$ 
+$ C. Theory
+$ 
+$ Reference 22 specifies the reduced frequency k = .1314 (p.17) frequency
+$ ratio w/w      = 0.51 (p.35) and torsion frequency w      = 1488 (p.17).
+$          alpha                                      alpha
+$ 
+$ The flutter velocity is found from
+$ 
+$                 REFC              w
+$                 ---- x w      x ------
+$                  2      alpha   w
+$          bw                      alpha
+$    V  =  --  =  -----------------------  =  5980 in/sec.                   (1)
+$          k                 k
+$ 
+$ where REFC is the reference length input on the AERO bulk data card.
+$ 
+$ The flutter frequency is found from
+$ 
+$                     w
+$          w      x ------
+$           alpha   w
+$                    alpha
+$    f  =  ----------------  =  121 Hz                                       (2)
+$              2 pi
+$ 
+$ D. Results
+$ 
+$ The results obtained are compared with both theoretical results using the
+$ modified strip analysis method and with experimental results. The flutter
+$ velocity is in good agreement.
+$ 
+$ Frequencies are automatically output while mode shapes used in the modal
+$ formulation are obtained using an ALTER to the Rigid Format following the Real
+$ Eigenvalue Analysis Module.
+$ 
+$ Mode shapes for all points in the model may be obtained by checkpointing the
+$ problem using the Normal Mode Analysis (Rigid Format 3) and subsequently
+$ restarting using the Aeroelastic Analysis.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 22. Yates. E. C. and R. M. Bennett, "Use of Aerodynamic Parameters From
+$     Nonlinear Theory in Modified-Strip-Analysis Flutter Calculations for
+$     Finite-Span Wings at Supersonic Speeds"; NASA TN D-l824, July 1963.
+$-------------------------------------------------------------------------------

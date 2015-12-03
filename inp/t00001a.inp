@@ -1,0 +1,148 @@
+NASTRAN  FILES=(INPT1,INPT2)                                                    
+ID    T00001A,NASTRAN                                                           
+$                                                                               
+$     THIS DEMO PROBLEM DEMONSTRATES AN EASY WAY TO GENERATE VARIOUS            
+$     FORMS OF NASTRAN GINO DATA BLOCKS USING THE NEW INPUTT4 MODULE,           
+$     AND TO ALTER DATA BLOCK TRAILER BY THE NEW MATGEN, OPTION 10              
+$                                                                               
+$     TO COPY FROM INP1 THE FOLLOWING MATRICES                                  
+$        A 4X4 SQUARE      MATRIX OF FORM 1 TO SQR                              
+$        A 2X5 RECTANGULAR MATRIX OF FORM 2 TO REC                              
+$        A 1X6 DIAGONAL    MATRIX OF FORM 3 TO DI1                              
+$        A 5X5 DIAONGL     MATRIX OF FORM 2 TO DI5                              
+$        A 4X4 SYMMETRIC   MATRIX OF FORM 6 TO SYM                              
+$     TO COPY FROM INP2 THE FOLLOWING MATRICES                                  
+$        A 1X6 ROW VECTOR         OF FORM 7 TO RV1                              
+$        A 6X1 ROW VECTOR         OF FORM 2 TO RV6                              
+$        A 1X4 IDENTITY    MATRIX OF FORM 8 TO ID1                              
+$        A 4X4 IDENTITY    MATRIX OF FORM 2 TO ID4                              
+$        A 1X6 COLUMN      MATRIX OF FORM 2 TO CMX                              
+$     AND TO ALTER THE TRAILER OF SYM, FROM SYMMETRIC TO SQUARE                 
+$                                                                               
+$     NOTE - THERE IS NO DOCUMENTATION AVAILABLE IN THE USER'S MANUAL           
+$     4/93   ABOUT THE NEW CAPABILITIES BEING PERFORMED HERE.                   
+$          - USER CAN GENERATE GINO DATA BLOCKS THRU THE DMIG CARDS.            
+$            HOWEVER, INPUT VIA DMIG CARDS IS LIMITED TO ONLY SQAURE            
+$            (FORM 1), RECTANGULAR (FORM 2) AND SYMMETRIC (FORM 6)              
+$            MATRICES                                                           
+$                                                                               
+APP   DMAP                                                                      
+DIAG  8,15                                                                      
+BEGIN $                                                                         
+$                                                                               
+$  CDC USER, USE FORTRAN UNITS 11(UT1) AND 12(UT2) INSTEAD OF 15(INP1)          
+$  AND 16(INP2) HERE.                                                           
+$  REWIND TAPE BEFORE READING, PARAMETER -1                                     
+$  INP1 & INP2 TAPES ARE ASCII FORMATTED TAPES, PARAMETERS -15 & -16            
+$  RECORDS IN MSC/OUTPUT4 FORMAT, 80 COLUMN PER RECORD, PARAMETER -4            
+$  (COSMIC/OUTPUT4 AND INPUTT4 USE 132-COLUMN-PER-RECORD FORMAT)                
+$  MATPRN MUST HAVE A $ AT END OF LINE. ELSEWHERE $ SIGN IS OPTIONAL.           
+$                                                                               
+INPUTT4   /SQR,REC,DI1,DI5,SYM/-1/-15//-4                                       
+INPUTT4   /RV1,RV6,ID1,ID4,CMX/-1/-16//-4 $                                     
+MATPRN     SQR,REC,DI1,DI5,SYM// $                                              
+MATPRN     RV1,RV6,ID1,ID4,CMX// $                                              
+$                                                                               
+MATGEN     SYM//10///1 $  OPTION 10, CHANGING THE 3RD TRAILER WORD TO 1         
+MATPRN     SYM,,,,// $                                                          
+END $                                                                           
+TIME  5                                                                         
+CEND                                                                            
+BEGIN                                                                           
+ENDDATA                                                                         
+$                                                                               
+$  MOVE THE FOLLWING DATA TO T00001A.INP1.                                      
+$  (INTEGERS IN 3I8, BCD IN 2A4, AND REAL IN 5E16.9 OR 5F16.X)                  
+       4       4       1       2SQUARE                                          
+       1       1       4                                                        
+ 1.234567890E+03 2.224567890E+02-3.334567890E+00-0.034567890E+02                
+       2       2       3                                                        
+ 1.234567890E+03-2.234567890E+03                                                
+       3       1       3                                                        
+ 2.234567890E+03 7.224567890E+02-6.334567890E+00                                
+       4       3       4                                                        
+-9.034567890E+02-6.234567890E+03                                                
+       5       1       1                                                        
+ 0.000000000E+00                                                                
+       2       5       2       1RECTANG                                         
+       1       1       4                                                        
+ 1.234567890E+03 2.224567890E+02-3.334567890E+00-0.034567890E+02                
+       2       3       4                                                        
+-0.034567890E+02-2.234567890E+03                                                
+       3       1       1                                                        
+ 1.000000000E+03                                                                
+       1       6       3       2DIAGONAL                                        
+       1       1       6                                                        
+ 1100.           220.           -3300.0          440.            55000.         
+-660.0                                                                          
+       2       1       1                                                        
+ 0.0                                                                            
+       5       5       2       2DIAGON2                                         
+       1       1       1                                                        
+ 1111.1                                                                         
+       2       2       1                                                        
+ 222.                                                                           
+       3       3       1                                                        
+-3.333333                                                                       
+       4       4       1                                                        
+ 4440.4                                                                         
+       5       5       1                                                        
+ 550000.                                                                        
+       6       1       1                                                        
+ 0.0                                                                            
+       4       4       6       2SYMMETRC                                        
+       1       1       3                                                        
+ 1.100000000E+03 2.200000000E+03-3.300000000E+03                                
+       2       1       4                                                        
+ 2.200000000E+03-4.400000000E+02 5.500000000E+04-6.600000000E+04                
+       3       1       4                                                        
+-3.300000000E+03 5.500000000E+03-7.700000000E+03 8.800000000E+03                
+       4       2       4                                                        
+-6.600000000E+03 8.800000000E+03-9.900000000E+03                                
+       5       1       1                                                        
+ 0.000000000E+00                                                                
+                                                                                
+$  MOVE THE FOLLWING DATA TO T00001A.INP2.                                      
+       1       6       7       1ROWVEC                                          
+       1       1       6                                                        
+ 1.100000000E+03 2.200000000E+03-3.300000000E+03 4.400000000E+02 5.500000000E+04
+-6.600000000E+02                                                                
+       2       1       1                                                        
+ 1.000000000E+03                                                                
+       6       1       2       2COLVEC                                          
+       1       1       1                                                        
+ 9.876543210                                                                    
+       2       1       1                                                        
+-8.876543210                                                                    
+       3       1       1                                                        
+-7.776543210                                                                    
+       4       1       1                                                        
+ 6.676543210                                                                    
+       5       1       1                                                        
+ 5.576543210                                                                    
+       6       1       1                                                        
+-4.476543210                                                                    
+       7       1       1                                                        
+-3.376543210                                                                    
+       1       4       8       2IDENT                                           
+       1       1       4                                                        
+ 1.0             1.0             1.0             1.0                            
+       2       1       1                                                        
+ .0                                                                             
+       4       4       2       2IDENT                                           
+       1       1       1                                                        
+ 1.0                                                                            
+       2       1       1                                                        
+ 1.0                                                                            
+       3       1       1                                                        
+ 1.0                                                                            
+       4       1       1                                                        
+ 1.0                                                                            
+       5       1       1                                                        
+ 0.0                                                                            
+       1       6       2       2COLMAT                                          
+       1       1       6                                                        
+ 1.111           22.222          333.333        -44.4            5.5            
+-66666.666                                                                      
+       2       1       1                                                        
+ 0.0                                                                            

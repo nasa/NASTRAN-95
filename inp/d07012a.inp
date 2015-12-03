@@ -1,0 +1,25 @@
+ID    D07012A,NASTRAN                                                           
+TIME  15                                                                        
+APP   DISP                                                                      
+SOL   7,1                                                                       
+DIAG  14                                                                        
+ALTER 1 $                                                                       
+PARAM   //C,N,NOP/V,N,TRUE=-1 $                                                 
+INPUT,  ,,,,/,G2,,,/C,N,5 $                                                     
+EQUIV   G2,GEOM2/TRUE $                                                         
+ENDALTER $                                                                      
+CEND                                                                            
+TITLE    = COMPLEX EIGENVALUES OF A 500 CELL STRING                             
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D07-01-2A                          
+ CMETHOD = 1 $ FEER                                                             
+OUTPUT                                                                          
+   SET 1 = 1,51,101,151,201,251,301,351,401,451,501                             
+    DISP = 1                                                                    
+BEGIN BULK                                                                      
+EIGC    1       FEER    MAX                                             +CFEER  
++CFEER  -1.0    12.0                                                            
+EIGC    7       DET     MAX                     1.0-5                   +EIGC7  
++EIGC7  -.5     5.0     -.9     16.0    10.0    2       2                       
+PARAM   G       .10                                                             
+ENDDATA                                                                         
+     500 1.0E+07 0.0     1.0E+01 6.3E+00                                        

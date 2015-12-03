@@ -1,0 +1,3 @@
+      SUBROUTINE DEFCOR
+      RETURN
+      END

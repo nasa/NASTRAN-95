@@ -1,0 +1,797 @@
+     NASTRAN  FILES=NPTP                                                             
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D01011A,NASTRAN                                                           
+     CHKPNT   YES                                                                    
+     DIAG 15                                                                         
+     APP      DISPLACEMENT                                                           
+     SOL      1,1                                                                    
+     TIME     15                                                                     
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+0ECHO OF FIRST CARD IN CHECKPOINT DICTIONARY TO BE PUNCHED OUT FOR THIS PROBLEM
+0   RESTART   D01011A ,NASTRAN , 5/17/95,   50446,
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = DELTA WING WITH BICONVEX CROSS SECTION                               
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                          
+                  3      LABEL    = LOAD ON TRAILING EDGE                                                
+                  4           SPC = 1                                                                    
+                  5          LOAD = 1                                                                    
+                  6      OUTPUT                                                                          
+                  7      $   SET 1  HAS GRIDS ON THE UPPER SURFACE  * * * * * * * * * * * * * * *        
+                  8      $   SET 2  HAS TOP SURFACE ELEMENTS, SHEAR(TRAILING AND LEADING EDGE),          
+                  9      $   SHEAR(CENTERLINE - BOTH DIRECTIONS), SHEAR(TIP)   * * * * * * * *           
+                 10      $                                                                               
+                 11              SET 1 = 11 THRU 16,31 THRU 36,51 THRU 55,71 THRU 74,91 THRU 93          
+                 12              SET 2 = 1 THRU 22,28 THRU 31, 35, 36, 41 THRU 44, 50                    
+                 13      $                                                                               
+                 14         DISPLACEMENTS = 1                                                            
+                 15              SPCFORCE = ALL                                                          
+                 16              ELSTRESS = 2                                                            
+                 17      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   169, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CONROD  100     11      12      1       .035                                    
+                    2-        CONROD  101     12      13      1       .035                                    
+                    3-        CONROD  102     13      14      1       .0344                                   
+                    4-        CONROD  103     14      15      1       .0325                                   
+                    5-        CONROD  104     15      16      1       .03                                     
+                    6-        CONROD  105     31      32      1       .091                                    
+                    7-        CONROD  106     32      33      1       .091                                    
+                    8-        CONROD  107     33      34      1       .088                                    
+                    9-        CONROD  108     34      35      1       .0719                                   
+                   10-        CONROD  109     35      36      1       .0453                                   
+                   11-        CONROD  110     51      52      1       .11                                     
+                   12-        CONROD  111     52      53      1       .11                                     
+                   13-        CONROD  112     53      54      1       .094                                    
+                   14-        CONROD  113     54      55      1       .0563                                   
+                   15-        CONROD  114     71      72      1       .091                                    
+                   16-        CONROD  115     72      73      1       .091                                    
+                   17-        CONROD  116     73      74      1       .0649                                   
+                   18-        CONROD  117     91      92      1       .035                                    
+                   19-        CONROD  118     92      93      1       .035                                    
+                   20-        CONROD  119     12      32      1       .063                                    
+                   21-        CONROD  120     32      52      1       .1002                                   
+                   22-        CONROD  121     52      72      1       .1002                                   
+                   23-        CONROD  122     72      92      1       .063                                    
+                   24-        CONROD  123     13      33      1       .063                                    
+                   25-        CONROD  124     33      53      1       .1002                                   
+                   26-        CONROD  125     53      73      1       .1002                                   
+                   27-        CONROD  126     73      93      1       .063                                    
+                   28-        CONROD  127     14      34      1       .0572                                   
+                   29-        CONROD  128     34      54      1       .0805                                   
+                   30-        CONROD  129     54      74      1       .0572                                   
+                   31-        CONROD  130     15      35      1       .0474                                   
+                   32-        CONROD  131     35      55      1       .0474                                   
+                   33-        CONROD  132     16      36      1       .028                                    
+                   34-        CONROD  133     93      74      1       .0344                                   
+                   35-        CONROD  134     74      55      1       .0325                                   
+                   36-        CONROD  135     55      36      1       .03                                     
+                   37-        CQDMEM  1       1       11      12      32      31                              
+                   38-        CQDMEM  2       1       12      13      33      32                              
+                   39-        CQDMEM  3       1       13      14      34      33                              
+                   40-        CQDMEM  4       1       14      15      35      34                              
+                   41-        CQDMEM  5       1       15      16      36      35                              
+                   42-        CQDMEM  6       1       31      32      52      51                              
+                   43-        CQDMEM  7       1       32      33      53      52                              
+                   44-        CQDMEM  8       1       33      34      54      53                              
+                   45-        CQDMEM  9       1       34      35      55      54                              
+                   46-        CQDMEM  11      1       51      52      72      71                              
+                   47-        CQDMEM  12      1       52      53      73      72                              
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+
+      LOAD ON TRAILING EDGE                                                                                                         
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CQDMEM  13      1       53      54      74      73                              
+                   49-        CQDMEM  15      1       71      72      92      91                              
+                   50-        CQDMEM  16      1       72      73      93      92                              
+                   51-        CROD    60      5       1       11      61      6       2       12              
+                   52-        CROD    62      8       3       13      63      8       4       14              
+                   53-        CROD    64      8       5       15      65      6       6       16              
+                   54-        CROD    66      6       21      31      67      7       22      32              
+                   55-        CROD    68      9       23      33      69      9       24      34              
+                   56-        CROD    70      9       25      35      71      8       26      36              
+                   57-        CROD    72      6       41      51      73      7       42      52              
+                   58-        CROD    74      9       43      53      75      9       44      54              
+                   59-        CROD    76      9       45      55      77      6       61      71              
+                   60-        CROD    78      7       62      72      79      9       63      73              
+                   61-        CROD    80      9       64      74      81      5       81      91              
+                   62-        CROD    82      6       82      92      83      8       83      93              
+                   63-        CSHEAR  18      2       1       2       12      11                              
+                   64-        CSHEAR  19      2       2       3       13      12                              
+                   65-        CSHEAR  20      2       3       4       14      13                              
+                   66-        CSHEAR  21      2       4       5       15      14                              
+                   67-        CSHEAR  22      2       5       6       16      15                              
+                   68-        CSHEAR  23      2       21      22      32      31                              
+                   69-        CSHEAR  24      2       22      23      33      32                              
+                   70-        CSHEAR  25      2       23      24      34      33                              
+                   71-        CSHEAR  26      2       24      25      35      34                              
+                   72-        CSHEAR  27      2       25      26      36      35                              
+                   73-        CSHEAR  28      2       41      42      52      51                              
+                   74-        CSHEAR  29      2       42      43      53      52                              
+                   75-        CSHEAR  30      2       43      44      54      53                              
+                   76-        CSHEAR  31      2       44      45      55      54                              
+                   77-        CSHEAR  32      2       61      62      72      71                              
+                   78-        CSHEAR  33      2       62      63      73      72                              
+                   79-        CSHEAR  34      2       63      64      74      73                              
+                   80-        CSHEAR  35      2       81      82      92      91                              
+                   81-        CSHEAR  36      2       82      83      93      92                              
+                   82-        CSHEAR  37      2       2       22      32      12                              
+                   83-        CSHEAR  38      2       22      42      52      32                              
+                   84-        CSHEAR  39      2       42      62      72      52                              
+                   85-        CSHEAR  40      2       62      82      92      72                              
+                   86-        CSHEAR  41      2       3       23      33      13                              
+                   87-        CSHEAR  42      2       23      43      53      33                              
+                   88-        CSHEAR  43      2       43      63      73      53                              
+                   89-        CSHEAR  44      2       63      83      93      73                              
+                   90-        CSHEAR  45      2       4       24      34      14                              
+                   91-        CSHEAR  46      2       24      44      54      34                              
+                   92-        CSHEAR  47      2       44      64      74      54                              
+                   93-        CSHEAR  48      2       5       25      35      15                              
+                   94-        CSHEAR  49      2       25      45      55      35                              
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+
+      LOAD ON TRAILING EDGE                                                                                                         
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CSHEAR  50      2       6       26      36      16                              
+                   96-        CSHEAR  51      2       26      45      55      36                              
+                   97-        CSHEAR  52      2       45      64      74      55                              
+                   98-        CSHEAR  53      2       64      83      93      74                              
+                   99-        CTRMEM  10      3       35      36      55                                      
+                  100-        CTRMEM  14      3       54      55      74                                      
+                  101-        CTRMEM  17      3       73      74      93                                      
+                  102-        FORCE   1       16      0       -1.     .0      .0      500.                    
+                  103-        FORCE   2       36              -1.0    .0      .0      500.0                   
+                  104-        GRDSET                                                  456                     
+                  105-        GRID    1               .0      .0      .0                                      
+                  106-        GRID    2               10.     .0      .0                                      
+                  107-        GRID    3               30.     .0      .0                                      
+                  108-        GRID    4               50.     .0      .0                                      
+                  109-        GRID    5               70.     .0      .0                                      
+                  110-        GRID    6               90.     .0      .0                                      
+                  111-        GRID    11              .0      .0      .82                                     
+                  112-        GRID    12              10.     .0      .82                                     
+                  113-        GRID    13              30.     .0      .82                                     
+                  114-        GRID    14              50.     .0      .795                                    
+                  115-        GRID    15              70.     .0      .754                                    
+                  116-        GRID    16              90.     .0      .67                                     
+                  117-        GRID    21              .0      20.     .0                                      
+                  118-        GRID    22              10.     20.     .0                                      
+                  119-        GRID    23              30.     20.     .0                                      
+                  120-        GRID    24              50.     20.     .0                                      
+                  121-        GRID    25              70.     20.     .0                                      
+                  122-        GRID    26              90.     20.     .0                                      
+                  123-        GRID    31              .0      20.     2.02                                    
+                  124-        GRID    32              10.     20.     2.02                                    
+                  125-        GRID    33              30.     20.     2.02                                    
+                  126-        GRID    34              50.     20.     1.795                                   
+                  127-        GRID    35              70.     20.     1.42                                    
+                  128-        GRID    36              90.     20.     .67                                     
+                  129-        GRID    41              .0      40.     .0                                      
+                  130-        GRID    42              10.     40.     .0                                      
+                  131-        GRID    43              30.     40.     .0                                      
+                  132-        GRID    44              50.     40.     .0                                      
+                  133-        GRID    45              70.     40.     .0                                      
+                  134-        GRID    51              .0      40.     2.42                                    
+                  135-        GRID    52              10.     40.     2.42                                    
+                  136-        GRID    53              30.     40.     2.42                                    
+                  137-        GRID    54              50.     40.     1.795                                   
+                  138-        GRID    55              70.     40.     .754                                    
+                  139-        GRID    61              .0      60.     .0                                      
+                  140-        GRID    62              10.     60.     .0                                      
+                  141-        GRID    63              30.     60.     .0                                      
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+
+      LOAD ON TRAILING EDGE                                                                                                         
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        GRID    64              50.     60.     .0                                      
+                  143-        GRID    71              .0      60.     2.02                                    
+                  144-        GRID    72              10.     60.     2.02                                    
+                  145-        GRID    73              30.     60.     2.02                                    
+                  146-        GRID    74              50.     60.     .795                                    
+                  147-        GRID    81              .0      80.     .0                                      
+                  148-        GRID    82              10.     80.     .0                                      
+                  149-        GRID    83              30.     80.     .0                                      
+                  150-        GRID    91              .0      80.     .82                                     
+                  151-        GRID    92              10.     80.     .82                                     
+                  152-        GRID    93              30.     80.     .82                                     
+                  153-        MAT1    1       10.4  +64.   +6                                                 
+                  154-        MAT1    2       1.04+7  4.+6            .2523-3                                 
+                  155-        PARAM   IRES    1                                                               
+                  156-        PQDMEM  1       2       .16     .0                                              
+                  157-        PROD    5       1       2.1                                                     
+                  158-        PROD    6       1       3.5                                                     
+                  159-        PROD    7       1       4.91                                                    
+                  160-        PROD    8       1       4.2                                                     
+                  161-        PROD    9       1       5.6                                                     
+                  162-        PSHEAR  2       2       .14     .0                                              
+                  163-        PTRMEM  3       2       .16     .0                                              
+                  164-        SPC1    1       1       11      31      51      71      91                      
+                  165-        SPC1    1       3       13      33      53      73      93                      
+                  166-        SPC1    1       12      1       2       3       4       5       6       +SPC-A  
+                  167-        +SPC-A  21      22      23      24      25      26      41      42      +SPC-B  
+                  168-        +SPC-B  43      44      45      61      62      63      64      81      +SPC-C  
+                  169-        +SPC-C  82      83                                                              
+                              ENDDATA
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+         CONTINUATION OF CHECKPOINT DICTIONARY
+ 
+         1,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =      5
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH           19
+                                        PROFILE            509
+                                        MAX WAVEFRONT       17
+                                        AVG WAVEFRONT   10.604
+                                        RMS WAVEFRONT   11.331
+                                        RMS BANDWIDTH   12.060
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH           15
+                                        PROFILE            486
+                                        MAX WAVEFRONT       15
+                                        AVG WAVEFRONT   10.125
+                                        RMS WAVEFRONT   10.743
+                                        RMS BANDWIDTH   10.914
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                       19        15
+                                        PROFILE (P)                        509       486
+                                        MAXIMUM WAVEFRONT (C-MAX)           17        15
+                                        AVERAGE WAVEFRONT (C-AVG)       10.604    10.125
+                                        RMS WAVEFRONT (C-RMS)           11.331    10.743
+                                        RMS BANDWITCH (B-RMS)           12.060    10.914
+                                        NUMBER OF GRID POINTS (N)                     48
+                                        NUMBER OF ELEMENTS (NON-RIGID)               113
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                          13
+                                        MINIMUM NODAL DEGREE                           3
+                                        NUMBER OF UNIQUE EDGES                       200
+                                        MATRIX DENSITY, PERCENT                   19.444
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF SEQGP CARDS GENERATED                  12
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       1       2       4       3      11       4      13
+                         SEQGP          5       7       6       2      11       3      12       5
+                         SEQGP         13      12      14      14      15      10      16       6
+                         SEQGP         21      27      22      18      23      24      24      25
+                         SEQGP         25      15      26       8      31      16      32      17
+                         SEQGP         33      19      34      23      35      20      36       9
+                         SEQGP         41      37      42      30      43      32      44      26
+                         SEQGP         45      21      51      28      52      29      53      31
+                         SEQGP         54      33      55      22      61      44      62      40
+                         SEQGP         63      36      64      34      71      38      72      39
+                         SEQGP         73      41      74      35      81      48      82      47
+                         SEQGP         83      42      91      45      92      46      93      43
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+         2,   REENTER AT DMAP SEQUENCE NUMBER    12
+         3,   GPL     ,   FLAGS = 0,   REEL =  1,   FILE =      6
+         4,   EQEXIN  ,   FLAGS = 0,   REEL =  1,   FILE =      7
+         5,   GPDT    ,   FLAGS = 0,   REEL =  1,   FILE =      8
+         6,   BGPDT   ,   FLAGS = 0,   REEL =  1,   FILE =      9
+         7,   SIL     ,   FLAGS = 0,   REEL =  1,   FILE =     10
+         8,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     11
+         9,   CSTM    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        10,   REENTER AT DMAP SEQUENCE NUMBER    13
+        11,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     12
+        12,   MPTA    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        13,   REENTER AT DMAP SEQUENCE NUMBER    14
+        14,   MPT     ,   FLAGS = 0,   REEL =  1,   FILE =     13
+        15,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     14
+ 
+        16,   REENTER AT DMAP SEQUENCE NUMBER    15
+        17,   BGPDP   ,   FLAGS = 0,   REEL =  1,   FILE =     15
+        18,   SIP     ,   FLAGS = 0,   REEL =  1,   FILE =     16
+        19,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     17
+ 
+        20,   REENTER AT DMAP SEQUENCE NUMBER    16
+        21,   ECT     ,   FLAGS = 0,   REEL =  1,   FILE =     18
+        22,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     19
+ 
+        23,   REENTER AT DMAP SEQUENCE NUMBER    18
+        24,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     20
+        25,   PLTSETX ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        26,   PLTPAR  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        27,   GPSETS  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        28,   ELSETS  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        29,   REENTER AT DMAP SEQUENCE NUMBER    28
+        30,   SLT     ,   FLAGS = 0,   REEL =  1,   FILE =     21
+        31,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     22
+        32,   GPTT    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        33,   REENTER AT DMAP SEQUENCE NUMBER    30
+        34,   EST     ,   FLAGS = 0,   REEL =  1,   FILE =     23
+        35,   GPECT   ,   FLAGS = 0,   REEL =  1,   FILE =     24
+        36,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     25
+        37,   GEI     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        38,   MPTX    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        39,   PCOMPS  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+        40,   EPTX    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        41,   REENTER AT DMAP SEQUENCE NUMBER    31
+        42,   MPT     ,   FLAGS = 0,   REEL =  1,   FILE =     26
+        43,   EPT     ,   FLAGS = 0,   REEL =  1,   FILE =     27
+        44,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     28
+ 
+        45,   REENTER AT DMAP SEQUENCE NUMBER    34
+        46,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     29
+        47,   KGGX    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        48,   REENTER AT DMAP SEQUENCE NUMBER    35
+        49,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     30
+        50,   OPTP1   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        51,   REENTER AT DMAP SEQUENCE NUMBER    39
+        52,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     31
+        53,   OPTP2   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        54,   EST1    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION CONROD   ELEMENTS (ELEMENT TYPE  10) STARTING WITH ID      100
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION QDMEM    ELEMENTS (ELEMENT TYPE  16) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ROD      ELEMENTS (ELEMENT TYPE   1) STARTING WITH ID       60
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION SHEAR    ELEMENTS (ELEMENT TYPE   4) STARTING WITH ID       18
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TRMEM    ELEMENTS (ELEMENT TYPE   9) STARTING WITH ID       10
+ 
+        55,   REENTER AT DMAP SEQUENCE NUMBER    40
+        56,   KELM    ,   FLAGS = 0,   REEL =  1,   FILE =     32
+        57,   KDICT   ,   FLAGS = 0,   REEL =  1,   FILE =     33
+        58,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     34
+        59,   MELM    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        60,   MDICT   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        61,   REENTER AT DMAP SEQUENCE NUMBER    42
+        62,   KGGX    ,   FLAGS = 0,   REEL =  1,   FILE =     35
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+        63,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     36
+ 
+        64,   REENTER AT DMAP SEQUENCE NUMBER    44
+        65,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     37
+        66,   MGG     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        67,   REENTER AT DMAP SEQUENCE NUMBER    54
+        68,   KGGX    ,   FLAGS = 4,   REEL =  1,   FILE =     35
+        69,   KGG     ,   FLAGS = 4,   REEL =  1,   FILE =     35
+        70,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     38
+ 
+        71,   REENTER AT DMAP SEQUENCE NUMBER    58
+        72,   GPST    ,   FLAGS = 0,   REEL =  1,   FILE =     39
+        73,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     40
+ 
+        74,   REENTER AT DMAP SEQUENCE NUMBER    61
+        75,   YS      ,   FLAGS = 0,   REEL =  1,   FILE =     41
+        76,   USET    ,   FLAGS = 0,   REEL =  1,   FILE =     42
+        77,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     43
+        78,   RG      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        79,   ASET    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        80,   OGPST   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        81,   REENTER AT DMAP SEQUENCE NUMBER    65
+        82,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     44
+        83,   KRR     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        84,   KLR     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        85,   QR      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        86,   DM      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        87,   GM      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        88,   GO      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        89,   KOO     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        90,   LOO     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        91,   PO      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        92,   UOOV    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        93,   RUOV    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        94,   PS      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        95,   KFS     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        96,   KSS     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+        97,   QG      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+        98,   REENTER AT DMAP SEQUENCE NUMBER    66
+        99,   KNN     ,   FLAGS = 4,   REEL =  1,   FILE =     35
+       100,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     45
+ 
+       101,   REENTER AT DMAP SEQUENCE NUMBER    71
+       102,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     46
+       103,   KFF     ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       104,   REENTER AT DMAP SEQUENCE NUMBER    73
+       105,   KFF     ,   FLAGS = 0,   REEL =  1,   FILE =     47
+       106,   KFS     ,   FLAGS = 0,   REEL =  1,   FILE =     48
+       107,   KSS     ,   FLAGS = 0,   REEL =  1,   FILE =     49
+       108,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     50
+ 
+       109,   REENTER AT DMAP SEQUENCE NUMBER    75
+       110,   KFF     ,   FLAGS = 4,   REEL =  1,   FILE =     47
+       111,   KAA     ,   FLAGS = 4,   REEL =  1,   FILE =     47
+       112,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     51
+ 
+       113,   REENTER AT DMAP SEQUENCE NUMBER    79
+       114,   KLL     ,   FLAGS = 4,   REEL =  1,   FILE =     47
+       115,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     52
+ 
+       116,   REENTER AT DMAP SEQUENCE NUMBER    83
+       117,   LLL     ,   FLAGS = 0,   REEL =  1,   FILE =     53
+       118,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     54
+ 
+       119,   REENTER AT DMAP SEQUENCE NUMBER    87
+       120,   PG      ,   FLAGS = 0,   REEL =  1,   FILE =     55
+       121,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     56
+ 
+       122,   REENTER AT DMAP SEQUENCE NUMBER    88
+       123,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     57
+       124,   PL      ,   FLAGS = 0,   REEL =  0,   FILE =      0
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       125,   REENTER AT DMAP SEQUENCE NUMBER    90
+       126,   PS      ,   FLAGS = 0,   REEL =  1,   FILE =     58
+       127,   PL      ,   FLAGS = 0,   REEL =  1,   FILE =     59
+       128,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     60
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   2.9361567E-12
+ 
+       129,   REENTER AT DMAP SEQUENCE NUMBER    92
+       130,   ULV     ,   FLAGS = 0,   REEL =  1,   FILE =     61
+       131,   RULV    ,   FLAGS = 0,   REEL =  1,   FILE =     62
+       132,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     63
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0                RULV                                                                                                               
+         POINT          VALUE     POINT          VALUE     P0INT          VALUE     POINT          VALUE      POINT          VALUE  
+                                                                                                                                    
+0COLUMN       1 (       1-T3).
+             1 T3 -7.03722E-11        6 T3  1.51408E-09       11 T2 -1.70530E-13       11 T3  3.87956E-11        2 T3  1.45121E-10
+            12 T1  7.81597E-13       12 T2  2.04636E-12       12 T3 -3.06954E-11       16 T1  2.11458E-11       16 T2 -3.63798E-11
+            16 T3  3.46632E-10        5 T3  5.13410E-10       26 T3 -1.55973E-09       36 T1 -3.63798E-12       36 T2 -1.45519E-11
+            36 T3 -1.25812E-09       15 T1 -3.05818E-11       15 T2  2.84217E-12       15 T3 -3.03367E-09        3 T3 -2.85397E-14
+            13 T1  7.95808E-12       13 T2  3.34510E-13        4 T3 -1.52158E-09       14 T1  5.79803E-12       14 T2  5.45697E-12
+            14 T3 -9.03015E-10       25 T3 -2.40846E-09       31 T2 -4.54747E-13       31 T3  1.05387E-10       32 T1  2.37321E-12
+            32 T2  2.27374E-13       32 T3  5.13403E-11       22 T3  1.21645E-11       33 T1 -5.74119E-12       33 T2  1.53477E-12
+            35 T1 -4.04441E-11       35 T2  2.66027E-11       35 T3  3.18244E-09       45 T3  1.50906E-09       55 T1  5.91172E-12
+            55 T2  2.04636E-11       55 T3 -9.34293E-10       34 T1 -8.18545E-12       34 T2  1.09139E-11       34 T3  2.75008E-10
+            23 T3 -3.30520E-13       24 T3 -3.13321E-10       44 T3 -3.72765E-10       21 T3 -2.32831E-10       51 T2  1.70530E-13
+            51 T3 -3.15898E-11       52 T1  1.13687E-12       52 T2  2.16005E-12       52 T3  1.33653E-11       42 T3 -3.27418E-11
+            53 T1  1.32402E-12       53 T2  2.41585E-13       43 T3  3.48166E-13       54 T1 -9.94049E-12       54 T2  7.44849E-13
+            54 T3  4.15166E-11       64 T3  1.45990E-11       74 T1 -3.29692E-12       74 T2  2.78533E-12       74 T3  1.22363E-10
+            63 T3  3.01981E-14       71 T2  2.84217E-14       71 T3  1.14238E-11       72 T1  3.69482E-13       72 T2  1.81899E-12
+            72 T3 -8.65725E-11       62 T3  2.85638E-11       73 T1 -1.70530E-12       73 T2  1.70530E-13       83 T3  1.42109E-14
+            93 T1 -1.36424E-12       93 T2  2.84217E-13       61 T3  5.82077E-11       91 T2  2.27374E-13       91 T3  5.82077E-11
+            92 T1 -1.81899E-12       92 T2  4.54747E-13       92 T3  9.42464E-11       82 T3 -2.21689E-11       81 T3  5.82077E-11
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       133,   REENTER AT DMAP SEQUENCE NUMBER    97
+       134,   UGV     ,   FLAGS = 0,   REEL =  1,   FILE =     64
+       135,   PGG     ,   FLAGS = 0,   REEL =  1,   FILE =     65
+       136,   QG      ,   FLAGS = 0,   REEL =  1,   FILE =     66
+       137,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     67
+ 
+       138,   REENTER AT DMAP SEQUENCE NUMBER   104
+       139,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     68
+       140,   ONRGY1  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       141,   OGPFB1  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       142,   REENTER AT DMAP SEQUENCE NUMBER   105
+       143,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     69
+       144,   KDICT   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       145,   KELM    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+ 
+       146,   REENTER AT DMAP SEQUENCE NUMBER   111
+       147,   OQG1    ,   FLAGS = 0,   REEL =  1,   FILE =     70
+       148,   OUGV1   ,   FLAGS = 0,   REEL =  1,   FILE =     71
+       149,   OES1    ,   FLAGS = 0,   REEL =  1,   FILE =     72
+       150,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     73
+       151,   OPG1    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       152,   OEF1    ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       153,   PUGV1   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       154,   OES1L   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       155,   OEF1L   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       156,   REENTER AT DMAP SEQUENCE NUMBER   115
+       157,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     74
+       158,   OES1M   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       159,   REENTER AT DMAP SEQUENCE NUMBER   121
+       160,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     75
+       161,   OES1A   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       162,   REENTER AT DMAP SEQUENCE NUMBER   141
+       163,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     76
+       164,   OUGV2   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            11      G      0.0            6.326195E-04   3.889221E-02   0.0            0.0            0.0                           
+            12      G      6.110347E-04   5.786690E-04   3.516638E-02   0.0            0.0            0.0                           
+            13      G      2.246047E-03   2.291722E-04   0.0            0.0            0.0            0.0                           
+            14      G      4.135543E-03  -5.312650E-04  -8.153134E-02   0.0            0.0            0.0                           
+            15      G      6.438577E-03  -2.061774E-03  -2.213399E-01   0.0            0.0            0.0                           
+            16      G      7.125177E-03  -4.191895E-03  -4.237940E-01   0.0            0.0            0.0                           
+            31      G      0.0            6.583068E-04   3.027513E-02   0.0            0.0            0.0                           
+            32      G      1.397886E-03   6.218933E-04   2.684338E-02   0.0            0.0            0.0                           
+            33      G      4.495833E-03  -1.921513E-04   0.0            0.0            0.0            0.0                           
+            34      G      7.184171E-03  -1.908943E-03  -6.307607E-02   0.0            0.0            0.0                           
+            35      G      8.284863E-03  -4.174031E-03  -1.619760E-01   0.0            0.0            0.0                           
+            36      G      4.867467E-03  -3.979917E-03  -2.926660E-01   0.0            0.0            0.0                           
+            51      G      0.0            3.229334E-04   2.358343E-02   0.0            0.0            0.0                           
+            52      G      1.327153E-03   3.639649E-04   2.089395E-02   0.0            0.0            0.0                           
+            53      G      3.920446E-03  -3.346661E-04   0.0            0.0            0.0            0.0                           
+            54      G      4.837958E-03  -1.793201E-03  -4.258112E-02   0.0            0.0            0.0                           
+            55      G      2.893602E-03  -1.783306E-03  -1.044655E-01   0.0            0.0            0.0                           
+            71      G      0.0           -2.613379E-05   1.925292E-02   0.0            0.0            0.0                           
+            72      G      9.031846E-04   6.687018E-05   1.707610E-02   0.0            0.0            0.0                           
+            73      G      2.238884E-03  -1.884281E-04   0.0            0.0            0.0            0.0                           
+            74      G      1.161988E-03  -4.283132E-04  -2.486472E-02   0.0            0.0            0.0                           
+            91      G      0.0           -2.217726E-04   1.909140E-02   0.0            0.0            0.0                           
+            92      G      4.337606E-04  -1.089645E-04   1.644652E-02   0.0            0.0            0.0                           
+            93      G      7.280685E-04   6.026249E-05   0.0            0.0            0.0            0.0                           
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      3.456080E-10   0.0            0.0            0.0            0.0            0.0                           
+             2      G      9.074130E+01  -3.683558E+01   0.0            0.0            0.0            0.0                           
+             3      G      7.913966E+02  -7.238023E+01   0.0            0.0            0.0            0.0                           
+             4      G      1.619174E+03   1.084571E+02   0.0            0.0            0.0            0.0                           
+             5      G      4.264385E+03  -5.589730E+02   0.0            0.0            0.0            0.0                           
+             6      G      3.345866E+03  -2.564445E+03   0.0            0.0            0.0            0.0                           
+            11      G     -9.288416E+02   0.0            0.0            0.0            0.0            0.0                           
+            13      G      0.0            0.0            2.728490E+01   0.0            0.0            0.0                           
+            21      G     -7.994647E+00   0.0            0.0            0.0            0.0            0.0                           
+            22      G     -6.603453E+02   3.854870E+02   0.0            0.0            0.0            0.0                           
+            23      G     -1.369353E+02   5.911785E+02   0.0            0.0            0.0            0.0                           
+            24      G      1.262641E+03   1.446680E+02   0.0            0.0            0.0            0.0                           
+            25      G      2.098824E+03  -1.315867E+03   0.0            0.0            0.0            0.0                           
+            26      G      1.005600E+03  -2.218446E+03   0.0            0.0            0.0            0.0                           
+            31      G     -5.060130E+03   0.0            0.0            0.0            0.0            0.0                           
+            33      G      0.0            0.0            4.848077E+02   0.0            0.0            0.0                           
+            41      G     -1.477332E+01   0.0            0.0            0.0            0.0            0.0                           
+            42      G     -2.356820E+02   9.478534E+02   0.0            0.0            0.0            0.0                           
+            43      G      6.493493E+01   1.322354E+03   0.0            0.0            0.0            0.0                           
+            44      G      6.273634E+02  -1.207967E+02   0.0            0.0            0.0            0.0                           
+            45      G     -2.655376E+02  -1.498364E+02   0.0            0.0            0.0            0.0                           
+            51      G     -4.865197E+03   0.0            0.0            0.0            0.0            0.0                           
+            53      G      0.0            0.0            2.645033E+02   0.0            0.0            0.0                           
+            61      G     -1.647111E+01   0.0            0.0            0.0            0.0            0.0                           
+            62      G      4.090248E+02   7.843605E+02   0.0            0.0            0.0            0.0                           
+            63      G      6.220519E+02   9.110595E+02   0.0            0.0            0.0            0.0                           
+            64      G     -6.780111E+02   7.175596E+02   0.0            0.0            0.0            0.0                           
+            71      G     -3.306838E+03   0.0            0.0            0.0            0.0            0.0                           
+            73      G      0.0            0.0           -9.256940E+01   0.0            0.0            0.0                           
+            81      G      6.084520E-10   0.0            0.0            0.0            0.0            0.0                           
+            82      G      6.376050E+02   2.588298E+02   0.0            0.0            0.0            0.0                           
+            83      G      2.409647E+01   8.657728E+02   0.0            0.0            0.0            0.0                           
+            91      G     -6.869459E+02   0.0            0.0            0.0            0.0            0.0                           
+            93      G      0.0            0.0           -1.840265E+02   0.0            0.0            0.0                           
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                     S T R E S S E S   I N   Q U A D R I L A T E R A L   M E M B R A N E S      ( C Q D M E M )
+  ELEMENT           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+        1        1.067032E+03   7.464526E+01  -2.523309E+01       -1.4556       1.067674E+03   7.400409E+01   4.968348E+02          
+        2        1.277331E+03   1.558731E+02  -1.844174E+02       -9.1027       1.306879E+03   1.263251E+02   5.902769E+02          
+        3        1.464351E+03   2.120861E+02  -5.238947E+02      -19.9599       1.654617E+03   2.181940E+01   8.163989E+02          
+        4        1.532354E+03   3.064197E+02  -9.642474E+02      -28.7780       2.061972E+03  -2.231987E+02   1.142586E+03          
+        5        8.677583E+02   2.805625E+02  -1.185906E+03      -38.0474       1.795869E+03  -6.475483E+02   1.221709E+03          
+        6        1.484669E+03   2.254963E+02  -3.062851E+01       -1.3926       1.485414E+03   2.247518E+02   6.303311E+02          
+        7        1.581563E+03   3.394707E+02  -3.112921E+02      -13.3109       1.655212E+03   2.658219E+02   6.946951E+02          
+        8        1.609814E+03   4.759346E+02  -7.585593E+02      -26.6130       1.989887E+03   9.586169E+01   9.470127E+02          
+        9        1.259379E+03   5.328748E+02  -1.007006E+03      -35.0822       1.966647E+03  -1.743931E+02   1.070520E+03          
+       11        1.233078E+03   2.443430E+02   3.874672E+00        0.2245       1.233094E+03   2.443279E+02   4.943829E+02          
+       12        1.116186E+03   3.154936E+02  -2.299598E+02      -14.9366       1.177531E+03   2.541488E+02   4.616911E+02          
+       13        8.234872E+02   4.113317E+02  -5.510374E+02      -34.7476       1.205721E+03   2.909808E+01   5.883113E+02          
+       15        7.362961E+02   1.369492E+02   5.198694E+01        4.9208       7.407720E+02   1.324733E+02   3.041494E+02          
+       16        4.751649E+02   1.712104E+02  -5.485458E+00       -1.0336       4.752639E+02   1.711114E+02   1.520762E+02          
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                                        S T R E S S E S   I N   S H E A R   P A N E L S      ( C S H E A R )
+         ELEMENT            MAX            AVG        SAFETY         ELEMENT            MAX            AVG        SAFETY
+           ID.             SHEAR          SHEAR       MARGIN           ID.             SHEAR          SHEAR       MARGIN
+              18        9.765625E-04  -9.765625E-04                       19        6.481470E+01  -6.481470E+01                     
+              20        5.004673E+02  -5.004673E+02                       21        6.560859E+02  -6.560859E+02                     
+              22        2.389902E+03  -2.389902E+03                       28        2.110498E+01   2.110498E+01                     
+              29        1.577919E+02   1.577919E+02                       30        2.752647E+02  -2.133537E+02                     
+              31        5.807382E+02  -3.416038E+02                       35        2.441406E-04  -2.441406E-04                     
+              36        4.554319E+02  -4.554319E+02                       41        1.273588E+02   7.417298E+01                     
+              42        5.678261E+02  -4.817272E+02                       43        5.637499E+02  -4.782690E+02                     
+              44        4.438794E+02  -2.585127E+02                       50        1.831746E+03   1.831746E+03                     
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+ 
+                      S T R E S S E S   I N   T R I A N G U L A R   M E M B R A N E S      ( C T R M E M )
+  ELEMENT           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL           PRINCIPAL STRESSES            MAX
+    ID.           NORMAL-X       NORMAL-Y       SHEAR-XY      STRESS ANGLE         MAJOR          MINOR          SHEAR
+       10        9.285977E+02   5.275767E+02  -6.003485E+02      -35.7656       1.361035E+03   9.513947E+01   6.329477E+02          
+       14        8.101731E+02   4.935635E+02  -2.993453E+02      -31.0642       9.904950E+02   3.132416E+02   3.386267E+02          
+       17        2.965867E+02   2.183271E+02  -5.222508E+01      -26.5787       3.227149E+02   1.921989E+02   6.525797E+01          
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+
+      LOAD ON TRAILING EDGE                                                                                                         
+
+
+
+
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK ONRGY1   MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+1     DELTA WING WITH BICONVEX CROSS SECTION                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D01-01-1A                                                                                   
+0     LOAD ON TRAILING EDGE                                                                                                         
+0        ADDITIONS TO CHECKPOINT DICTIONARY                                                                                         
+                                                                                                                                    
+                                                                                                                                    
+ 
+       165,   REENTER AT DMAP SEQUENCE NUMBER   149
+       166,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     77
+       167,   OESF1X  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+       168,   OESF1Y  ,   FLAGS = 0,   REEL =  0,   FILE =      0
+ 
+       169,   REENTER AT DMAP SEQUENCE NUMBER   172
+       170,   XVPS    ,   FLAGS = 0,   REEL =  1,   FILE =     78
+       171,   DUMMY   ,   FLAGS = 0,   REEL =  0,   FILE =      0
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  DELTA WING WITH BICONVEX CROSS SECTION                             
+ DATE:  5/17/95
+ END TIME: 14: 1: 4
+ TOTAL WALL CLOCK TIME      4 SEC.
+ 

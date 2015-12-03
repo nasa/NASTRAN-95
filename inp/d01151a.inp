@@ -1,0 +1,330 @@
+NASTRAN FILE=PLT2                                                               
+ID    D01151A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   1,1                                                                       
+TIME  90                                                                        
+CEND                                                                            
+TITLE    = ASYMMETRIC PRESSURE LOADING OF AN AXISYMMETRIC CYLINDRICAL SHELL     
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D01-15-1A                          
+AXISYM   = COSINE                                                               
+  LOAD   = 20                                                                   
+  SET 10 = 11 THRU 34, 111 THRU 231, 235, 241, 245, 251, 255, 261,              
+           265, 271, 275, 281, 285, 291, 295, 301, 305, 311, 315,               
+           321, 325, 331, 335, 341, 345, 351, 355, 361, 365, 371,               
+           375, 381, 385, 391, 395, 401, 405, 411 THRU 415                      
+  SET  9 = 111 THRU 227, 231, 234, 241, 244, 251, 254, 261, 264, 271,           
+           274, 281, 284, 291, 294, 301, 304, 311, 314, 321, 324, 331,          
+           334, 341, 344, 351, 354, 361, 364, 371, 374, 381, 384, 391,          
+           394, 401 THRU 404                                                    
+HARMONICS = ALL                                                                 
+DISPLACEMENT = 10                                                               
+OLOAD  = ALL                                                                    
+STRESS = 9                                                                      
+ELFORCE= 9                                                                      
+PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D01-15-1A                            
+OUTPUT(PLOT)                                                                    
+PLOTTER NASTPLT                                                                 
+SET 1  = ALL                                                                    
+$                                                                               
+$ CONVERT IDS TO NASTRAN IDS FOR ELEMENTS 111 THRU 227 (ID*1000+N)              
+$                                                                               
+SET 2 INCLUDE ELEMENTS 111001 THRU 227001                                       
+AXES Z, X, Y                                                                    
+VIEW 0.0, 0.0, 0.0                                                              
+FIND SCALE, ORIGIN 1, SET 1                                                     
+PTITLE = FULL MODEL                                                             
+PLOT SET 1, ORIGIN 1                                                            
+FIND SCALE, ORIGIN 2, SET 2                                                     
+PTITLE = LOADED SECTION (TRAPAX) AND TRANSITION SECTION (TRIAAX)                
+PLOT SET 2, ORIGIN 2                                                            
+BEGIN BULK                                                                      
+AXIC    10                                                                      
+CTRAPAX 111     5       111     112     122     121                             
+CTRAPAX 112     5       112     113     123     122                             
+CTRAPAX 113     5       113     114     124     123                             
+CTRAPAX 121     5       121     122     132     131                             
+CTRAPAX 122     5       122     123     133     132                             
+CTRAPAX 123     5       123     124     134     133                             
+CTRAPAX 131     5       131     132     142     141                             
+CTRAPAX 132     5       132     133     143     142                             
+CTRAPAX 133     5       133     134     144     143                             
+CTRAPAX 141     5       141     142     152     151                             
+CTRAPAX 142     5       142     143     153     152                             
+CTRAPAX 143     5       143     144     154     153                             
+CTRAPAX 151     5       151     152     162     161                             
+CTRAPAX 152     5       152     153     163     162                             
+CTRAPAX 153     5       153     154     164     163                             
+CTRAPAX 161     5       161     162     172     171                             
+CTRAPAX 162     5       162     163     173     172                             
+CTRAPAX 163     5       163     164     174     173                             
+CTRAPAX 171     5       171     172     182     181                             
+CTRAPAX 172     5       172     173     183     182                             
+CTRAPAX 173     5       173     174     184     183                             
+CTRAPAX 231     5       231     232     242     241                             
+CTRAPAX 232     5       232     233     243     242                             
+CTRAPAX 233     5       233     234     244     243                             
+CTRAPAX 234     5       234     235     245     244                             
+CTRAPAX 241     5       241     242     252     251                             
+CTRAPAX 242     5       242     243     253     252                             
+CTRAPAX 243     5       243     244     254     253                             
+CTRAPAX 244     5       244     245     255     254                             
+CTRAPAX 251     5       251     252     262     261                             
+CTRAPAX 252     5       252     253     263     262                             
+CTRAPAX 253     5       253     254     264     263                             
+CTRAPAX 254     5       254     255     265     264                             
+CTRAPAX 261     5       261     262     272     271                             
+CTRAPAX 262     5       262     263     273     272                             
+CTRAPAX 263     5       263     264     274     273                             
+CTRAPAX 264     5       264     265     275     274                             
+CTRAPAX 271     5       271     272     282     281                             
+CTRAPAX 272     5       272     273     283     282                             
+CTRAPAX 273     5       273     274     284     283                             
+CTRAPAX 274     5       274     275     285     284                             
+CTRAPAX 281     5       281     282     292     291                             
+CTRAPAX 282     5       282     283     293     292                             
+CTRAPAX 283     5       283     284     294     293                             
+CTRAPAX 284     5       284     285     295     294                             
+CTRAPAX 291     5       291     292     302     301                             
+CTRAPAX 292     5       292     293     303     302                             
+CTRAPAX 293     5       293     294     304     303                             
+CTRAPAX 294     5       294     295     305     304                             
+CTRAPAX 301     5       301     302     312     311                             
+CTRAPAX 302     5       302     303     313     312                             
+CTRAPAX 303     5       303     304     314     313                             
+CTRAPAX 304     5       304     305     315     314                             
+CTRAPAX 311     5       311     312     322     321                             
+CTRAPAX 312     5       312     313     323     322                             
+CTRAPAX 313     5       313     314     324     323                             
+CTRAPAX 314     5       314     315     325     324                             
+CTRAPAX 321     5       321     322     332     331                             
+CTRAPAX 322     5       322     323     333     332                             
+CTRAPAX 323     5       323     324     334     333                             
+CTRAPAX 324     5       324     325     335     334                             
+CTRAPAX 331     5       331     332     342     341                             
+CTRAPAX 332     5       332     333     343     342                             
+CTRAPAX 333     5       333     334     344     343                             
+CTRAPAX 334     5       334     335     345     344                             
+CTRAPAX 341     5       341     342     352     351                             
+CTRAPAX 342     5       342     343     353     352                             
+CTRAPAX 343     5       343     344     354     353                             
+CTRAPAX 344     5       344     345     355     354                             
+CTRAPAX 351     5       351     352     362     361                             
+CTRAPAX 352     5       352     353     363     362                             
+CTRAPAX 353     5       353     354     364     363                             
+CTRAPAX 354     5       354     355     365     364                             
+CTRAPAX 361     5       361     362     372     371                             
+CTRAPAX 362     5       362     363     373     372                             
+CTRAPAX 363     5       363     364     374     373                             
+CTRAPAX 364     5       364     365     375     374                             
+CTRAPAX 371     5       371     372     382     381                             
+CTRAPAX 372     5       372     373     383     382                             
+CTRAPAX 373     5       373     374     384     383                             
+CTRAPAX 374     5       374     375     385     384                             
+CTRAPAX 381     5       381     382     392     391                             
+CTRAPAX 382     5       382     383     393     392                             
+CTRAPAX 383     5       383     384     394     393                             
+CTRAPAX 384     5       384     385     395     394                             
+CTRAPAX 391     5       391     392     402     401                             
+CTRAPAX 392     5       392     393     403     402                             
+CTRAPAX 393     5       393     394     404     403                             
+CTRAPAX 394     5       394     395     405     404                             
+CTRAPAX 401     5       401     402     412     411                             
+CTRAPAX 402     5       402     403     413     412                             
+CTRAPAX 403     5       403     404     414     413                             
+CTRAPAX 404     5       404     405     415     414                             
+CTRIAAX 181     10      181     192     191                                     
+CTRIAAX 182     10      181     182     192                                     
+CTRIAAX 183     10      182     193     192                                     
+CTRIAAX 184     10      182     183     193                                     
+CTRIAAX 185     10      183     194     193                                     
+CTRIAAX 186     10      183     184     194                                     
+CTRIAAX 187     10      184     195     194                                     
+CTRIAAX 191     10      191     192     201                                     
+CTRIAAX 192     10      192     202     201                                     
+CTRIAAX 193     10      192     203     202                                     
+CTRIAAX 194     10      192     193     203                                     
+CTRIAAX 195     10      193     194     203                                     
+CTRIAAX 196     10      194     204     203                                     
+CTRIAAX 197     10      194     205     204                                     
+CTRIAAX 198     10      194     195     205                                     
+CTRIAAX 201     10      201     212     211                                     
+CTRIAAX 202     10      201     203     212                                     
+CTRIAAX 203     10      202     203     212                                     
+CTRIAAX 204     10      212     203     213                                     
+CTRIAAX 205     10      203     214     213                                     
+CTRIAAX 206     10      203     204     214                                     
+CTRIAAX 207     10      204     205     214                                     
+CTRIAAX 208     10      214     205     215                                     
+CTRIAAX 211     10      211     212     221                                     
+CTRIAAX 212     10      221     212     222                                     
+CTRIAAX 213     10      212     213     222                                     
+CTRIAAX 214     10      222     213     223                                     
+CTRIAAX 215     10      213     214     223                                     
+CTRIAAX 216     10      223     214     224                                     
+CTRIAAX 217     10      214     215     224                                     
+CTRIAAX 221     10      221     232     231                                     
+CTRIAAX 222     10      221     222     232                                     
+CTRIAAX 223     10      232     222     233                                     
+CTRIAAX 224     10      222     223     233                                     
+CTRIAAX 225     10      223     234     233                                     
+CTRIAAX 226     10      223     224     234                                     
+CTRIAAX 227     10      234     224     235                                     
+MAT1    15      66666.7         .3                                              
+POINTAX 11      111     .0                                                      
+POINTAX 14      114     .0                                                      
+POINTAX 21      121     .0                                                      
+POINTAX 34      134     .0                                                      
+PRESAX  20      -7.11111114     124     -7.162  7.162                           
+PRESAX  20      -7.11111124     134     -7.162  7.162                           
+PRESAX  20      -7.11111134     144     -7.162  7.162                           
+PRESAX  20      -7.11111144     154     -7.162  7.162                           
+PRESAX  20      -7.11111154     164     -7.162  7.162                           
+PTRAPAX 5               15      .0      7.1                                     
+PTRIAAX 10              15      .0      3.581   7.162                           
+RINGAX  111             14.5    .0                      3456                    
+RINGAX  112             14.7    .0                      3456                    
+RINGAX  113             15.3    .0                      3456                    
+RINGAX  114             15.5    .0                      3456                    
+RINGAX  121             14.5    .375                    456                     
+RINGAX  122             14.8    .375                    456                     
+RINGAX  123             15.2    .375                    456                     
+RINGAX  124             15.5    .375                    456                     
+RINGAX  131             14.5    .75                     456                     
+RINGAX  132             14.7    .75                     456                     
+RINGAX  133             15.3    .75                     456                     
+RINGAX  134             15.5    .75                     456                     
+RINGAX  141             14.5    1.125                   456                     
+RINGAX  142             14.8    1.125                   456                     
+RINGAX  143             15.2    1.125                   456                     
+RINGAX  144             15.5    1.125                   456                     
+RINGAX  151             14.5    1.5                     456                     
+RINGAX  152             14.7    1.5                     456                     
+RINGAX  153             15.3    1.5                     456                     
+RINGAX  154             15.5    1.5                     456                     
+RINGAX  161             14.5    1.875                   456                     
+RINGAX  162             14.8    1.875                   456                     
+RINGAX  163             15.2    1.875                   456                     
+RINGAX  164             15.5    1.875                   456                     
+RINGAX  171             14.5    2.25                    456                     
+RINGAX  172             14.7    2.25                    456                     
+RINGAX  173             15.3    2.25                    456                     
+RINGAX  174             15.5    2.25                    456                     
+RINGAX  181             14.5    2.625                   456                     
+RINGAX  182             14.8    2.625                   456                     
+RINGAX  183             15.2    2.625                   456                     
+RINGAX  184             15.5    2.625                   456                     
+RINGAX  191             14.5    3.0                     456                     
+RINGAX  192             14.75   3.0                     456                     
+RINGAX  193             15.0    3.0                     456                     
+RINGAX  194             15.25   3.0                     456                     
+RINGAX  195             15.5    3.0                     456                     
+RINGAX  201             14.5    3.375                   456                     
+RINGAX  202             14.75   3.375                   456                     
+RINGAX  203             15.0    3.375                   456                     
+RINGAX  204             15.25   3.375                   456                     
+RINGAX  205             15.5    3.375                   456                     
+RINGAX  211             14.5    3.75                    456                     
+RINGAX  212             14.75   3.75                    456                     
+RINGAX  213             15.0    3.75                    456                     
+RINGAX  214             15.25   3.75                    456                     
+RINGAX  215             15.5    3.75                    456                     
+RINGAX  221             14.5    4.125                   456                     
+RINGAX  222             14.8    4.125                   456                     
+RINGAX  223             15.2    4.125                   456                     
+RINGAX  224             15.5    4.125                   456                     
+RINGAX  231             14.5    4.5                     456                     
+RINGAX  232             14.7    4.5                     456                     
+RINGAX  233             15.0    4.5                     456                     
+RINGAX  234             15.3    4.5                     456                     
+RINGAX  235             15.5    4.5                     456                     
+RINGAX  241             14.5    5.5                     456                     
+RINGAX  242             14.8    5.5                     456                     
+RINGAX  243             15.0    5.5                     456                     
+RINGAX  244             15.2    5.5                     456                     
+RINGAX  245             15.5    5.5                     456                     
+RINGAX  251             14.5    6.5                     456                     
+RINGAX  252             14.7    6.5                     456                     
+RINGAX  253             15.0    6.5                     456                     
+RINGAX  254             15.3    6.5                     456                     
+RINGAX  255             15.5    6.5                     456                     
+RINGAX  261             14.5    7.5                     456                     
+RINGAX  262             14.8    7.5                     456                     
+RINGAX  263             15.0    7.5                     456                     
+RINGAX  264             15.2    7.5                     456                     
+RINGAX  265             15.5    7.5                     456                     
+RINGAX  271             14.5    8.5                     456                     
+RINGAX  272             14.7    8.5                     456                     
+RINGAX  273             15.0    8.5                     456                     
+RINGAX  274             15.3    8.5                     456                     
+RINGAX  275             15.5    8.5                     456                     
+RINGAX  281             14.5    9.5                     456                     
+RINGAX  282             14.8    9.5                     456                     
+RINGAX  283             15.0    9.5                     456                     
+RINGAX  284             15.2    9.5                     456                     
+RINGAX  285             15.5    9.5                     456                     
+RINGAX  291             14.5    10.5                    456                     
+RINGAX  292             14.7    10.5                    456                     
+RINGAX  293             15.0    10.5                    456                     
+RINGAX  294             15.3    10.5                    456                     
+RINGAX  295             15.5    10.5                    456                     
+RINGAX  301             14.5    11.5                    456                     
+RINGAX  302             14.8    11.5                    456                     
+RINGAX  303             15.0    11.5                    456                     
+RINGAX  304             15.2    11.5                    456                     
+RINGAX  305             15.5    11.5                    456                     
+RINGAX  311             14.5    12.5                    456                     
+RINGAX  312             14.7    12.5                    456                     
+RINGAX  313             15.0    12.5                    456                     
+RINGAX  314             15.3    12.5                    456                     
+RINGAX  315             15.5    12.5                    456                     
+RINGAX  321             14.5    13.5                    456                     
+RINGAX  322             14.8    13.5                    456                     
+RINGAX  323             15.0    13.5                    456                     
+RINGAX  324             15.2    13.5                    456                     
+RINGAX  325             15.5    13.5                    456                     
+RINGAX  331             14.5    14.5                    456                     
+RINGAX  332             14.7    14.5                    456                     
+RINGAX  333             15.0    14.5                    456                     
+RINGAX  334             15.3    14.5                    456                     
+RINGAX  335             15.5    14.5                    456                     
+RINGAX  341             14.5    15.5                    456                     
+RINGAX  342             14.8    15.5                    456                     
+RINGAX  343             15.0    15.5                    456                     
+RINGAX  344             15.2    15.5                    456                     
+RINGAX  345             15.5    15.5                    456                     
+RINGAX  351             14.5    16.5                    456                     
+RINGAX  352             14.7    16.5                    456                     
+RINGAX  353             15.0    16.5                    456                     
+RINGAX  354             15.3    16.5                    456                     
+RINGAX  355             15.5    16.5                    456                     
+RINGAX  361             14.5    17.5                    456                     
+RINGAX  362             14.8    17.5                    456                     
+RINGAX  363             15.0    17.5                    456                     
+RINGAX  364             15.2    17.5                    456                     
+RINGAX  365             15.5    17.5                    456                     
+RINGAX  371             14.5    18.5                    456                     
+RINGAX  372             14.7    18.5                    456                     
+RINGAX  373             15.0    18.5                    456                     
+RINGAX  374             15.3    18.5                    456                     
+RINGAX  375             15.5    18.5                    456                     
+RINGAX  381             14.5    19.5                    456                     
+RINGAX  382             14.8    19.5                    456                     
+RINGAX  383             15.0    19.5                    456                     
+RINGAX  384             15.2    19.5                    456                     
+RINGAX  385             15.5    19.5                    456                     
+RINGAX  391             14.5    20.5                    456                     
+RINGAX  392             14.7    20.5                    456                     
+RINGAX  393             15.0    20.5                    456                     
+RINGAX  394             15.3    20.5                    456                     
+RINGAX  395             15.5    20.5                    456                     
+RINGAX  401             14.5    21.5                    456                     
+RINGAX  402             14.8    21.5                    456                     
+RINGAX  403             15.0    21.5                    456                     
+RINGAX  404             15.2    21.5                    456                     
+RINGAX  405             15.5    21.5                    456                     
+RINGAX  411             14.5    22.5                    12456                   
+RINGAX  412             14.7    22.5                    12456                   
+RINGAX  413             15.0    22.5                    12456                   
+RINGAX  414             15.3    22.5                    12456                   
+RINGAX  415             15.5    22.5                    12456                   
+ENDDATA                                                                         

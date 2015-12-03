@@ -1,0 +1,125 @@
+$-------------------------------------------------------------------------------
+$                  RIGID FORMAT No. 6, Piecewise Linear Analysis
+$              Piecewise Linear Analysis of a Cracked Plate (6-1-1)
+$ 
+$ A. Description
+$ 
+$ This problem illustrates elastic-plastic deformation of a thin plate
+$ uniaxially loaded across a crack at the center of the plate. The same problem
+$ was solved by J. L. Swedlow (Reference 10).
+$ 
+$ Piecewise Linear Analysis involves loading the plate in increments and
+$ recalculating the material properties for each element as a function of the
+$ element stresses for the last load increment.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$    L  =   9.0 inch (Total length of plate)
+$ 
+$    W  =   6.0 inch (Total width of plate)
+$ 
+$    w  =   2.0 inch (Total width of crack)
+$ 
+$    t    = 1.0 inch (thickness)
+$ 
+$                    6      2
+$    E    = 10.8 x 10  lb/in  (Modulus of elasticity at zero strain)
+$     o
+$ 
+$    v    = .3333 (Poisson's Ratio at zero strain)
+$     o
+$            _____
+$ 2. Loads:  sigma is the applied load.
+$ 
+$                  _____      2                      _____      2
+$    Load Factor   sigma lb/in       Load Factor     sigma lb/in
+$ 
+$         1          2,300                14           7,000
+$         2          2,500                15           7,500
+$         3          2,800                I6           8,000
+$         4          3,100                17           8,500
+$         5          3,400                18           9,000
+$         6          3,700                19           9,500
+$         7          4,000                20          10,000
+$         8          4,400                21          10,500
+$         9          4,800                22          11,000
+$        10          5,200                23          11,500
+$        11          5,600                24          12,000
+$        12          6,000                25          12,500
+$        13          6,500                26          13,000
+$ 
+$ 3. Constraints:
+$ 
+$    a) All grid points are constrained in u , theta , theta , and theta .
+$                                           z       x       y           z
+$ 
+$    b) Grid points along the Y-axis are constrained in the u  direction.
+$                                                            x
+$ 
+$    c) Grid points along the X-axis from the crack tip (x = 1.0) to the edge
+$       (x = 3.0) are constrained in the u  direction.
+$                                         y
+$ 
+$ C. Theory
+$ 
+$ The finite element model utilizes two planes of symmetry, so only one quarter
+$ of the structure (the first quadrant) is modeled. All membrane elements use
+$ stress-dependent materials, duplicating the model in Reference 10.
+$ 
+$ The octahedral stress used in the determination of the material properties was
+$ defined in Reference 10 as:
+$ 
+$           sqrt(2)            2                        2          2
+$    tau  = ------- sqrt( sigma  - sigma  sigma  + sigma  + 3 sigma   )      (1)
+$       o      3               x        x      y        y          xy
+$ 
+$ The octahedral strain was defined by:
+$ 
+$                +
+$                | tau (1+v )/E                 tau <= tau
+$                |    o    o   o                   o      limit
+$    epsilon   = |                                                           (2)
+$           o    | tau (1+v )/E + epsilon       tau > tau
+$                |    o    o   o         p         o     limit
+$                +
+$ 
+$ where
+$ 
+$                          -3               -1 1/0.3964
+$    epsilon   = 9.716 x 10   (tau /tau       )
+$           p                     o    limit
+$ 
+$    tau       = (sqrt(2/3)) sigma
+$       limit                     limit
+$ 
+$                            2
+$    sigma     = 11,500 lb/in
+$         limit
+$ 
+$ NASTRAN uses an equivalent uniaxia1 stress-strain curve defined by
+$ 
+$    sigma  =  3/sqrt(2) tau                                                 (3)
+$                           o
+$ 
+$ and
+$ 
+$    epsilon   =  sigma/E + sqrt(2) epsilon p                                (4)
+$ 
+$ A complete discussion of the equations may be found in Reference 10.
+$ 
+$ D. Results
+$ 
+$ In the NASTRAN analysis, the octahedral stress is calculated for each load
+$ factor as a function of the current values of the stresses. In Reference 10
+$ the current value of the octahedral stress is obtained by accumulating
+$ incremental values of the octahedral stress. This procedure results in a
+$ generally more flexible model. The resulting differences in calculated
+$ stresses are particularly noticeable at the higher load levels.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 10. J. L. Swedlow, "The Thickness Effect and Plastic Flow in Cracked Plates",
+$     Office of Aerospace Research, USAF, APL 65-216.
+$-------------------------------------------------------------------------------

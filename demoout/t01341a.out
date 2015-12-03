@@ -1,0 +1,236 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    T01341A,NASTRAN                                                           
+     APP   DISP                                                                      
+     SOL   1                                                                         
+     TIME  30                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     TESTING ENFORCE DISPLACEMENT WITH SPCD                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN TEST PROBLEM NO. T01-34-1A                                                                                            
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = TESTING ENFORCE DISPLACEMENT WITH SPCD                               
+                  2      SUBTITLE = NASTRAN TEST PROBLEM NO. T01-34-1A                                   
+                  3      ECHO     = BOTH                                                                 
+                  4      LOAD     = 10                                                                   
+                  5      SPC      = 1                                                                    
+                  6      SPCFORCE = ALL                                                                  
+                  7      DISP     = ALL                                                                  
+                  8      STRESS   = ALL                                                                  
+                  9      BEGIN BULK                                                                      
+1     TESTING ENFORCE DISPLACEMENT WITH SPCD                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN TEST PROBLEM NO. T01-34-1A                                                                                            
+0                                                                                                                                   
+0                                             I N P U T   B U L K   D A T A   D E C K   E C H O                                     
+                                                                                                                                    
+                                  ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                              -FF-    GRDSET,8)246                                                                                  
+                              -FF-    GRID,10,,0.0, 0.0, 0.0                                                                        
+                              -FF-    =(9),*(-1),,*(10.),==                                                                         
+                              -FF-    SPC1,1,13,10                                                                                  
+                              -FF-    SPC1,1,3,1 THRU 9                                                                             
+                              -FF-    CBAR,1,2,1,2, 0.0,1.0,0.0,1                                                                   
+                              -FF-    =(8),*(1),=,*(1),/,==                                                                         
+                              -FF-    PBAR,2,6061,100.,100.,100.,100.                                                               
+                              -FF-    ,-1.0,1.0,1.0,1.0,1.0,-1.0,-1.0,-1.0                                                          
+                              -FF-    MAT1,6061,1.+7,,0.3,0.1                                                                       
+                              -FF-    SPCD,10,1,3,-1.00                                                                             
+                              -FF-    SPCD,10,2,3,-0.82                                                                             
+                              -FF-    SPCD,10,3,3,-0.74                                                                             
+                              -FF-    SPCD,10,4,3,-0.58                                                                             
+                              -FF-    SPCD,10,5,3,-0.40                                                                             
+                              -FF-    SPCD,10,6,3,-0.29                                                                             
+                              -FF-    SPCD,10,7,3,-0.16                                                                             
+                              -FF-    SPCD,10,8,3,-0.07                                                                             
+                              -FF-    SPCD,10,9,3,-0.01                                                                             
+                              -FF-    FORCE,10,1,,110.0,0.0,0.0,-1.0                                                                
+                              ENDDATA                                                                                       
+
+
+                        TOTAL COUNT=     20
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     TESTING ENFORCE DISPLACEMENT WITH SPCD                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN TEST PROBLEM NO. T01-34-1A                                                                                            
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CBAR    1       2       1       2       0.0     1.0     0.0     1               
+                    2-        CBAR    2       2       2       3       0.0     1.0     0.0     1               
+                    3-        CBAR    3       2       3       4       0.0     1.0     0.0     1               
+                    4-        CBAR    4       2       4       5       0.0     1.0     0.0     1               
+                    5-        CBAR    5       2       5       6       0.0     1.0     0.0     1               
+                    6-        CBAR    6       2       6       7       0.0     1.0     0.0     1               
+                    7-        CBAR    7       2       7       8       0.0     1.0     0.0     1               
+                    8-        CBAR    8       2       8       9       0.0     1.0     0.0     1               
+                    9-        CBAR    9       2       9       10      0.0     1.0     0.0     1               
+                   10-        FORCE   10      1               110.0   0.0     0.0     -1.0                    
+                   11-        GRDSET                                                  246                     
+                   12-        GRID    1               90.     0.0     0.0                                     
+                   13-        GRID    2               80.     0.0     0.0                                     
+                   14-        GRID    3               70.     0.0     0.0                                     
+                   15-        GRID    4               60.     0.0     0.0                                     
+                   16-        GRID    5               50.     0.0     0.0                                     
+                   17-        GRID    6               40.     0.0     0.0                                     
+                   18-        GRID    7               30.     0.0     0.0                                     
+                   19-        GRID    8               20.     0.0     0.0                                     
+                   20-        GRID    9               10.     0.0     0.0                                     
+                   21-        GRID    10              0.0     0.0     0.0                                     
+                   22-        MAT1    6061    1.+7            0.3     0.1                                     
+                   23-        PBAR    2       6061    100.    100.    100.    100.                    +C0N0001
+                   24-        +C0N0001-1.0    1.0     1.0     1.0     1.0     -1.0    -1.0    -1.0            
+                   25-        SPC1    1       3       1       THRU    9                                       
+                   26-        SPC1    1       13      10                                                      
+                   27-        SPCD    10      1       3       -1.00                                           
+                   28-        SPCD    10      2       3       -0.82                                           
+                   29-        SPCD    10      3       3       -0.74                                           
+                   30-        SPCD    10      4       3       -0.58                                           
+                   31-        SPCD    10      5       3       -0.40                                           
+                   32-        SPCD    10      6       3       -0.29                                           
+                   33-        SPCD    10      7       3       -0.16                                           
+                   34-        SPCD    10      8       3       -0.07                                           
+                   35-        SPCD    10      9       3       -0.01                                           
+                              ENDDATA
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     SMALL PROBLEM SIZE
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     TESTING ENFORCE DISPLACEMENT WITH SPCD                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN TEST PROBLEM NO. T01-34-1A                                                                                            
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION BAR      ELEMENTS (ELEMENT TYPE  34) STARTING WITH ID        1
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =  -2.2697815E-18
+1     TESTING ENFORCE DISPLACEMENT WITH SPCD                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN TEST PROBLEM NO. T01-34-1A                                                                                            
+0                                                                                                                                   
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0           -1.000000E+00   0.0            2.117524E-02   0.0                           
+             2      G      0.0            0.0           -8.200000E-01   0.0            1.164952E-02   0.0                           
+             3      G      0.0            0.0           -7.400000E-01   0.0            1.022666E-02   0.0                           
+             4      G      0.0            0.0           -5.800000E-01   0.0            1.944383E-02   0.0                           
+             5      G      0.0            0.0           -4.000000E-01   0.0            1.399803E-02   0.0                           
+             6      G      0.0            0.0           -2.900000E-01   0.0            1.156407E-02   0.0                           
+             7      G      0.0            0.0           -1.600000E-01   0.0            1.174571E-02   0.0                           
+             8      G      0.0            0.0           -7.000000E-02   0.0            7.453077E-03   0.0                           
+             9      G      0.0            0.0           -1.000000E-02   0.0            3.441978E-03   0.0                           
+            10      G      0.0            0.0            0.0            0.0           -2.209891E-04   0.0                           
+1     TESTING ENFORCE DISPLACEMENT WITH SPCD                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN TEST PROBLEM NO. T01-34-1A                                                                                            
+0                                                                                                                                   
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0           -1.904043E+05   0.0            0.0            0.0                           
+             2      G      0.0            0.0            5.430857E+05   0.0            0.0            0.0                           
+             3      G      0.0            0.0           -4.923422E+05   0.0            0.0            0.0                           
+             4      G      0.0            0.0           -1.371762E+04   0.0            0.0            0.0                           
+             5      G      0.0            0.0            3.672138E+05   0.0            0.0            0.0                           
+             6      G      0.0            0.0           -3.751385E+05   0.0            0.0            0.0                           
+             7      G      0.0            0.0            2.333406E+05   0.0            0.0            0.0                           
+             8      G      0.0            0.0           -1.382242E+05   0.0            0.0            0.0                           
+             9      G      0.0            0.0            1.395561E+05   0.0            0.0            0.0                           
+            10      G      0.0            0.0           -7.325934E+04   0.0            0.0            0.0                           
+1     TESTING ENFORCE DISPLACEMENT WITH SPCD                                /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN TEST PROBLEM NO. T01-34-1A                                                                                            
+0                                                                                                                                   
+ 
+                                 S T R E S S E S   I N   B A R   E L E M E N T S          ( C B A R )
+  ELEMENT        SA1            SA2            SA3            SA4           AXIAL          SA-MAX         SA-MIN     M.S.-T
+    ID.          SB1            SB2            SB3            SB4           STRESS         SB-MAX         SB-MIN     M.S.-C
+0      1     0.0            0.0            0.0            0.0            0.0            0.0            0.0                          
+            -1.905150E+04  -1.905150E+04   1.905150E+04   1.905150E+04                  1.905150E+04  -1.905150E+04                 
+0      2    -1.905140E+04  -1.905140E+04   1.905140E+04   1.905140E+04   0.0            1.905140E+04  -1.905140E+04                 
+             1.620580E+04   1.620580E+04  -1.620580E+04  -1.620580E+04                  1.620580E+04  -1.620580E+04                 
+0      3     1.620572E+04   1.620572E+04  -1.620572E+04  -1.620572E+04   0.0            1.620572E+04  -1.620572E+04                 
+             2.228620E+03   2.228620E+03  -2.228620E+03  -2.228620E+03                  2.228620E+03  -2.228620E+03                 
+0      4     2.228620E+03   2.228620E+03  -2.228620E+03  -2.228620E+03   0.0            2.228620E+03  -2.228620E+03                 
+            -1.312023E+04  -1.312023E+04   1.312023E+04   1.312023E+04                  1.312023E+04  -1.312023E+04                 
+0      5    -1.312022E+04  -1.312022E+04   1.312022E+04   1.312022E+04   0.0            1.312022E+04  -1.312022E+04                 
+             8.252305E+03   8.252305E+03  -8.252305E+03  -8.252305E+03                  8.252305E+03  -8.252305E+03                 
+0      6     8.252300E+03   8.252300E+03  -8.252300E+03  -8.252300E+03   0.0            8.252300E+03  -8.252300E+03                 
+            -7.889025E+03  -7.889025E+03   7.889025E+03   7.889025E+03                  7.889025E+03  -7.889025E+03                 
+0      7    -7.889010E+03  -7.889010E+03   7.889010E+03   7.889010E+03   0.0            7.889010E+03  -7.889010E+03                 
+            -6.962600E+02  -6.962600E+02   6.962600E+02   6.962600E+02                  6.962600E+02  -6.962600E+02                 
+0      8    -6.962637E+02  -6.962637E+02   6.962637E+02   6.962637E+02   0.0            6.962637E+02  -6.962637E+02                 
+            -7.325933E+03  -7.325933E+03   7.325933E+03   7.325933E+03                  7.325933E+03  -7.325933E+03                 
+0      9    -7.325934E+03  -7.325934E+03   7.325934E+03   7.325934E+03   0.0            7.325934E+03  -7.325934E+03                 
+             0.0            0.0            0.0            0.0                           0.0            0.0                          
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  TESTING ENFORCE DISPLACEMENT WITH SPCD                             
+ DATE:  5/17/95
+ END TIME: 16:42:58
+ TOTAL WALL CLOCK TIME      2 SEC.
+ 

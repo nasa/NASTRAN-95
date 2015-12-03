@@ -1,0 +1,186 @@
+$-------------------------------------------------------------------------------
+$      RIGID FORMAT No. 7, Complex Eigenvalue Analysis - Direct Formulation
+$            Complex Eigenvalue Analysis of a 500-Cell String (7-1-1)
+$         Complex Eigenvalue Analysis of a 500-Cell String (INPUT, 7-1-2)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates both the use of direct complex eigenvalue analysis
+$ and the various methods of supplying damping to the structure. The simulated
+$ model is a string under tension having uniform viscous and structural damping.
+$ The stiffness due to tension is modeled with scalar springs, the mass is
+$ represented by scalar masses, and the viscous damping is provided by scalar
+$ dampers connected on one end to the points and fixed on the other end. The
+$ structural damping is provided by the scalar springs and an overall damping
+$ factor, g . The INPUT module is used to generate the scalar springs, dampers,
+$          3
+$ and masses.
+$ 
+$ B. Input
+$ 
+$ 1. Parameters:
+$ 
+$                   7
+$    k   =  1.0 x 10    (scalar springs)
+$     i
+$ 
+$    m   =  10.0        (scalar masses)
+$     i
+$ 
+$    b   =  6.28318     (scalar dampers)
+$     i
+$ 
+$    g   =  0.05        (structural element damping)
+$     s
+$ 
+$    g   =  0.05        (overall damping parameter)
+$     3
+$ 
+$    N   =  500         (number of scalar springs)
+$ 
+$ 2. Constraints:
+$ 
+$    The end scalar springs are fixed on the outer ends so constraints are
+$    unnecessary.
+$ 
+$ 3. Eigenvalue ExtractIon Data:
+$ 
+$    Method: FEER
+$ 
+$    Center Point: (r,i) = (-1.0, 15.0)
+$ 
+$    Normalization: Maximum deflection
+$ 
+$ C. Theory
+$ 
+$ Complex Eigenvalue Analysis is used to solve the following general matrix
+$ equation:
+$ 
+$         2
+$    ([M]p  + [B]p + [K]){u}  =  0                                           (1)
+$ 
+$ where
+$ 
+$    p     is the complex root
+$ 
+$    [M]   is the complex mass matrix
+$ 
+$    [B]   is the complex damping matrix for viscous damping
+$ 
+$    [K]   is the complex stiffness matrix which contains imaginary components
+$          representing the structural damping.
+$ 
+$ According to Reference 11, Chapter 6, the differential equation for a string
+$ under tension is
+$ 
+$       2           2
+$      a u         a u         au
+$    T ---  =  -mu ---  - beta --                                            (2)
+$        2            2        at
+$      ax           at
+$ 
+$ where
+$ 
+$     T    is the string tension
+$ 
+$     mu   is the mass per unit length
+$ 
+$     beta is the viscous damping per unit length
+$ 
+$ The finite difference representation for this equation is
+$ 
+$                                       2
+$                                      d  u         du
+$       T                                  i          i
+$    -------- (u   - 2u  + u   ) = -mu -----  -beta ---                      (3)
+$           2   i-1    i    i+1           2         dt
+$    delta x                            dt
+$ 
+$ The equation of the finite element model which corresponds to this equation is
+$ 
+$      ..     .
+$    m u  + b u  + (1 + ig)k  (u    - 2u  + u   )  =  F                      (4)
+$     i i    i i            i   i-1     i    i+1       i
+$ 
+$ where
+$ 
+$    g  =  g  + g         (additional structural damping defined for the
+$           3    s         NASTRAN solution)
+$ 
+$    m   =  mu delta x    (element mass)
+$     i
+$ 
+$    b   =  beta delta x  (element vi scorns damping)
+$     i
+$ 
+$              T
+$    k   =  --------      (element stiffness)
+$     i            2
+$           delta x
+$ 
+$ The natural frequency for an undamped string, according to Reference 11, is
+$ 
+$           pi n              pi n
+$    w   =  ---- sqrt(T/mu) = ---- sqrt(k /m )  = 2 pi n                     (5)
+$     n      l                  N        i  i
+$ 
+$ Its deflection shape is
+$ 
+$                 n pi x
+$    u(x)  =  sin -------                                                    (6)
+$                    l
+$ 
+$ and
+$ 
+$                  n pi i
+$    phi    =  sin ------                                                    (7)
+$       in            N
+$ 
+$ The modal masses are
+$ 
+$                                                        m N
+$                                    2          mu l      i
+$    M   =  integral from o to l mu u (x)dx  =  ----  =  ---                 (8)
+$     n                                           2       2
+$ 
+$ Substituting the real eigenvectors and eigenvalues into the complex equation
+$ for complex roots we obtain for each mode, n,
+$ 
+$       2                           2
+$    M p  + (b /m ) M p + (1 + ig) w  M  = 0                                 (9)
+$     n       i  i   n              n  n
+$ 
+$ The solution is
+$ 
+$            b
+$             i                     2          2
+$    p  =  - ----  +/- sqrt((b /2m )  - (1+ig)w  )                          (10)
+$            2m               i   i            n
+$              i
+$ 
+$ D. Results
+$ 
+$ The theoretical and NASTRAN complex roots are presented below in Table 1. The
+$ eigenvectors, which are the same as the real eigenvectors, are nearly exact
+$ for the finite element model.
+$ 
+$                   Table 1. NASTRAN and Analytical Complex Roots
+$        -------------------------------------------------------------------
+$             Real Natural
+$              Frequency        Theoretical Roots          NASTRAN Roots
+$        n        (Hz)        (radians per second)     (radians per second)
+$        -------------------------------------------------------------------
+$        1        1.0          - .6283 +/- 6.2832i      - .6283 +/- 6.2832i
+$ 
+$        2        2.0          - .9419 +/- 12.578i      - .9419 +/- 12.578i
+$ 
+$        3        3.0          -1.2556 +/- 18.870i      -1.2556 +/- 18.870i
+$ 
+$        4        4.0          -1.5693 +/- 25.162i      -1.5693 +/- 25.161i
+$        -------------------------------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 11. I. S. Sokolnikoff and R. M. Redheffer, MATHEMATICS OF PHYSICS AND MODERN
+$     ENGINEERING. McGraw-Hill, 1958.
+$-------------------------------------------------------------------------------

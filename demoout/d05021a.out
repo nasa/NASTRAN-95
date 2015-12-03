@@ -1,0 +1,399 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D05021A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   5,0                                                                       
+     TIME  10                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0      CONCENTRATED  LOAD  AT THE CENTER ALONG Y-AXIS                                                                               
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    =  BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                 
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                          
+                  3      LABEL    =  CONCENTRATED  LOAD  AT THE CENTER ALONG Y-AXIS                      
+                  4      OUTPUT                                                                          
+                  5      DISP  =  ALL                                                                    
+                  6      ELSTRESS = ALL                                                                  
+                  7      SPC   =  2                                                                      
+                  8      SUBCASE 1                                                                       
+                  9      LABEL = STATIC SOLUTION                                                         
+                 10      LOAD  = 3                                                                       
+                 11      OLOAD = ALL                                                                     
+                 12      SUBCASE 2                                                                       
+                 13      LABEL = BUCKLING SOLUTION                                                       
+                 14      METHOD= 4                                                                       
+                 15      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    44, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0      CONCENTRATED  LOAD  AT THE CENTER ALONG Y-AXIS                                                                               
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CTRSHL  1       6       1       2       3       5       7       4       +TR1    
+                    2-        +TR1                                                                            
+                    3-        CTRSHL  2       7       9       8       7       5       3       6       +TR2    
+                    4-        +TR2                                                                            
+                    5-        CTRSHL  3       8       7       8       9       11      13      10      +TR3    
+                    6-        +TR3                                                                            
+                    7-        CTRSHL  4       9       15      14      13      11      9       12      +TR4    
+                    8-        +TR4                                                                            
+                    9-        EIGB    4       INV     .0      10.0    1       1       0               +ABC    
+                   10-        +ABC    MAX                                                                     
+                   11-        FORCE   3       13              1.6666+2        -1.0                            
+                   12-        FORCE   3       14              6.6666+2        -1.0                            
+                   13-        FORCE   3       15              1.6666+2        -1.0                            
+                   14-        GRDSET                                                  56                      
+                   15-        GRID    1               .0      .0      .0                                      
+                   16-        GRID    2                                                                       
+                   17-        GRID    3               1.495349.0      .0                                      
+                   18-        GRID    4                                                                       
+                   19-        GRID    5                                                                       
+                   20-        GRID    6                                                                       
+                   21-        GRID    7               .0      1.5     .0                                      
+                   22-        GRID    8                                                                       
+                   23-        GRID    9               1.2476741.5     .0                                      
+                   24-        GRID    10                                                                      
+                   25-        GRID    11                                                                      
+                   26-        GRID    12                                                                      
+                   27-        GRID    13              .0      3.0     .0                                      
+                   28-        GRID    14                                                                      
+                   29-        GRID    15              1.0     3.0     .0                                      
+                   30-        MAT1    5       3.0+7   1.5+7                                                   
+                   31-        PTRSHL  6       5       2.990698        2.4953485       2.229135        +PT1    
+                   32-        +PT1    1.294828                                                        +PT2    
+                   33-        +PT2                                                                            
+                   34-        PTRSHL  7       5       2.495348        2.9906985       1.294828        +PT3    
+                   35-        +PT3    2.229135                                                        +PT4    
+                   36-        +PT4                                                                            
+                   37-        PTRSHL  8       5       2.495348        2.0     5       1.294828        +PT5    
+                   38-        +PT5    .666667                                                         +PT6    
+                   39-        +PT6                                                                            
+                   40-        PTRSHL  9       5       2.0             2.4953485       .666667         +PT7    
+                   41-        +PT7    1.294828                                                        +PT8    
+                   42-        +PT8                                                                            
+                   43-        SPC1    2       1       4       7       10      13                              
+                   44-        SPC1    2       1234    1       2       3                                       
+                              ENDDATA
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0      CONCENTRATED  LOAD  AT THE CENTER ALONG Y-AXIS                                                                               
+0*** USER INFORMATION MESSAGES FROM RESEQUENCING PROCESSOR - BANDIT     (CRI= 1,  MTH= 3,  MPC= 0,  DEP=-1,  PCH=-1)
+
+                               BEFORE RESEQUENCING - - -
+                                        BANDWIDTH            7
+                                        PROFILE             72
+                                        MAX WAVEFRONT        7
+                                        AVG WAVEFRONT    4.800
+                                        RMS WAVEFRONT    5.086
+                                        RMS BANDWIDTH    5.138
+
+                               AFTER RESEQUENCING BY GIBBS-POOLE-STOCKMEYER (GPS) ALGORITHM - - -
+                                        BANDWIDTH            7
+                                        PROFILE             69
+                                        MAX WAVEFRONT        7
+                                        AVG WAVEFRONT    4.600
+                                        RMS WAVEFRONT    4.865
+                                        RMS BANDWIDTH    4.892
+
+
+                                                     *** BANDIT SUMMARY ***
+
+                                                                        BEFORE     AFTER
+                                        BANDWIDTH (B)                        7         7
+                                        PROFILE (P)                         72        69
+                                        MAXIMUM WAVEFRONT (C-MAX)            7         7
+                                        AVERAGE WAVEFRONT (C-AVG)        4.800     4.600
+                                        RMS WAVEFRONT (C-RMS)            5.086     4.865
+                                        RMS BANDWITCH (B-RMS)            5.138     4.892
+                                        NUMBER OF GRID POINTS (N)                     15
+                                        NUMBER OF ELEMENTS (NON-RIGID)                 4
+                                        NUMBER OF RIGID ELEMENTS PROCESSED*            0
+                                        NUMBER OF MPC  EQUATIONS PROCESSED*            0
+                                        NUMBER OF COMPONENTS                           1
+                                        MAXIMUM NODAL DEGREE                          11
+                                        MINIMUM NODAL DEGREE                           5
+                                        NUMBER OF UNIQUE EDGES                        51
+                                        MATRIX DENSITY, PERCENT                   52.000
+                                        NUMBER OF POINTS OF ZERO DEGREE                0
+                                        BANDIT OPEN CORE                         1998969
+                                        CRITERION*                         RMS WAVEFRONT
+                                        METHOD USED*                                 GPS
+                                        NO. OF SEQGP CARDS GENERATED                   4
+
+                               (* THESE DEFAULT OPTIONS CAN BE OVERRIDDEN BY THE NASTRAN CARD)
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0      CONCENTRATED  LOAD  AT THE CENTER ALONG Y-AXIS                                                                               
+
+
+                                   S Y S T E M  G E N E R A T E D  S E Q G P  C A R D S
+
+                         SEQGP          1       1       2       2       3       4       4       3
+                         SEQGP          5       5       6       7       7       6       8       8
+                         SEQGP          9      10      10       9      11      11      12      15
+                         SEQGP         13      12      14      14      15      13
+0         **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION TRSHL    ELEMENTS (ELEMENT TYPE  75) STARTING WITH ID        1
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK MGG      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** SYSTEM WARNING MESSAGE 3022
++                                 (SEE PROG. MANUAL SEC. 4.9.7, OR USERS' MANUAL P. 6.5-3)
+     DATA BLOCK MGG      MAY BE REQUIRED AS INPUT AND IS NOT OUTPUT BY A PREVIOUS MODULE IN THE CURRENT DMAP ROUTE.
+0*** USER INFORMATION MESSAGE 3035
+     FOR SUBCASE NUMBER     1, EPSILON SUB E =   9.3527906E-16
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0     STATIC SOLUTION                                                                                        SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             3      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             4      G      0.0           -5.992832E-06   0.0            0.0            0.0            0.0                           
+             5      G      3.807299E-07  -5.575588E-06   0.0            0.0            0.0            0.0                           
+             6      G      7.487714E-07  -5.337256E-06   0.0            0.0            0.0            0.0                           
+             7      G      0.0           -1.312869E-05   0.0            0.0            0.0            0.0                           
+             8      G      2.120722E-07  -1.226996E-05   0.0            0.0            0.0            0.0                           
+             9      G     -2.428727E-08  -1.007003E-05   0.0            0.0            0.0            0.0                           
+            10      G      0.0           -2.223141E-05   0.0            0.0            0.0            0.0                           
+            11      G     -7.072856E-08  -2.034450E-05   0.0            0.0            0.0            0.0                           
+            12      G     -1.304273E-07  -1.810257E-05   0.0            0.0            0.0            0.0                           
+            13      G      0.0           -3.487301E-05   0.0            0.0            0.0            0.0                           
+            14      G     -2.971972E-06  -3.098459E-05   0.0            0.0            0.0            0.0                           
+            15      G     -5.150994E-06  -2.503208E-05   0.0            0.0            0.0            0.0                           
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0     STATIC SOLUTION                                                                                        SUBCASE 1              
+ 
+                                                     L O A D   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            13      G      0.0           -1.666600E+02   0.0            0.0            0.0            0.0                           
+            14      G      0.0           -6.666600E+02   0.0            0.0            0.0            0.0                           
+            15      G      0.0           -1.666600E+02   0.0            0.0            0.0            0.0                           
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0     STATIC SOLUTION                                                                                        SUBCASE 1              
+ 
+                  S T R E S S E S   I N   T R I A N G U L A R   T H I N   S H E L L   E L E M E N T S   ( C T R S H L )
+0 ELEMENT  POINT     FIBER           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL STRESSES (ZERO SHEAR)           MAX
+   ID.      NO.     DISTANCE       NORMAL-X      NORMAL-Y      SHEAR-XY        ANGLE         MAJOR         MINOR          SHEAR
+0       1    1    0.0            0.0          -2.168527E+02  0.0            0.0           0.0          -2.168527E+02   1.084263E+02 
+                  0.0            0.0          -2.168527E+02  0.0            0.0           0.0          -2.168527E+02   1.084263E+02 
+             3    0.0            0.0          -1.834732E+02  1.522919E+01   4.712855E+00  1.255508E+00 -1.847287E+02   9.299212E+01 
+                  0.0            0.0          -1.834732E+02  1.522919E+01   4.712855E+00  1.255508E+00 -1.847287E+02   9.299212E+01 
+             5    0.0            3.055312E+01 -3.082949E+02  1.674164E+01   2.821681E+00  3.137828E+01 -3.091201E+02   1.702492E+02 
+                  0.0            3.055312E+01 -3.082949E+02  1.674164E+01   2.821681E+00  3.137828E+01 -3.091201E+02   1.702492E+02 
+             C    1.412791E+00   1.018437E+01 -2.362070E+02  1.065694E+01   2.472009E+00  1.064445E+01 -2.366671E+02   1.236557E+02 
+                 -1.412791E+00   1.018437E+01 -2.362070E+02  1.065694E+01   2.472009E+00  1.064445E+01 -2.366671E+02   1.236557E+02 
+0       2    1    0.0           -2.214884E+01 -1.544285E+02  3.651297E+01   1.445061E+01 -1.273951E+01 -1.638378E+02   7.554916E+01 
+                  0.0           -2.214884E+01 -1.544285E+02  3.651297E+01   1.445061E+01 -1.273951E+01 -1.638378E+02   7.554916E+01 
+             3    0.0            2.098088E+01 -3.326553E+02 -2.478417E-01  -4.015503E-02  2.098103E+01 -3.326555E+02   1.768183E+02 
+                  0.0            2.098088E+01 -3.326553E+02 -2.478417E-01  -4.015503E-02  2.098103E+01 -3.326555E+02   1.768183E+02 
+             5    0.0            3.598183E+01 -2.339383E+02  7.853348E+00   1.665147E+00  3.621014E+01 -2.341666E+02   1.351884E+02 
+                  0.0            3.598183E+01 -2.339383E+02  7.853348E+00   1.665147E+00  3.621014E+01 -2.341666E+02   1.351884E+02 
+             C    1.330232E+00   1.160462E+01 -2.403408E+02  1.470619E+01   3.329316E+00  1.246014E+01 -2.411963E+02   1.268282E+02 
+                 -1.330232E+00   1.160462E+01 -2.403408E+02  1.470619E+01   3.329316E+00  1.246014E+01 -2.411963E+02   1.268282E+02 
+0       3    1    0.0            2.098087E+01 -2.933313E+02  4.523544E+00   8.243666E-01  2.104596E+01 -2.933964E+02   1.572212E+02 
+                  0.0            2.098087E+01 -2.933313E+02  4.523544E+00   8.243666E-01  2.104596E+01 -2.933964E+02   1.572212E+02 
+             3    0.0           -2.214883E+01 -2.110770E+02  5.770906E+01   1.571059E+01 -5.916039E+00 -2.273098E+02   1.106969E+02 
+                  0.0           -2.214883E+01 -2.110770E+02  5.770906E+01   1.571059E+01 -5.916039E+00 -2.273098E+02   1.106969E+02 
+             5    0.0           -6.218619E+00 -5.764418E+02  5.396814E+01   5.359289E+00 -1.155823E+00 -5.815046E+02   2.901744E+02 
+                  0.0           -6.218619E+00 -5.764418E+02  5.396814E+01   5.359289E+00 -1.155823E+00 -5.815046E+02   2.901744E+02 
+             C    1.165116E+00  -2.462194E+00 -3.602833E+02  3.873361E+01   6.107920E+00  1.682663E+00 -3.644282E+02   1.830554E+02 
+                 -1.165116E+00  -2.462194E+00 -3.602833E+02  3.873361E+01   6.107920E+00  1.682663E+00 -3.644282E+02   1.830554E+02 
+0       4    1    0.0           -1.069529E+02 -1.859252E+02  5.115073E+01   2.616670E+01 -8.182048E+01 -2.110575E+02   6.461853E+01 
+                  0.0           -1.069529E+02 -1.859252E+02  5.115073E+01   2.616670E+01 -8.182048E+01 -2.110575E+02   6.461853E+01 
+             3    0.0           -2.021068E+02 -5.236680E+02  4.223232E+00   7.523227E-01 -2.020514E+02 -5.237234E+02   1.608360E+02 
+                  0.0           -2.021068E+02 -5.236680E+02  4.223232E+00   7.523227E-01 -2.020514E+02 -5.237234E+02   1.608360E+02 
+             5    0.0            1.473660E+02 -3.476870E+02  4.608984E+01   5.273887E+00  1.516205E+02 -3.519415E+02   2.517810E+02 
+                  0.0            1.473660E+02 -3.476870E+02  4.608984E+01   5.273887E+00  1.516205E+02 -3.519415E+02   2.517810E+02 
+             C    1.082558E+00  -5.389786E+01 -3.524266E+02  3.382141E+01   6.383460E+00 -5.011406E+01 -3.562104E+02   1.530482E+02 
+                 -1.082558E+00  -5.389786E+01 -3.524266E+02  3.382141E+01   6.383460E+00 -5.011406E+01 -3.562104E+02   1.530482E+02 
+                        0 ROOTS BELOW   5.000000E+00
+                        0 ROOTS BELOW   1.714400E+04
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0      CONCENTRATED  LOAD  AT THE CENTER ALONG Y-AXIS                                                                               
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (INVERSE POWER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .         1
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         2
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        12
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         7*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.00E+00
+0                                                                              . . .         0
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         0
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* 1 OR MORE ROOT OUTSIDE FR.RANGE.
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0      CONCENTRATED  LOAD  AT THE CENTER ALONG Y-AXIS                                                                               
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+
+                                     ****************************************************************
+                                     *                                                              *
+                                     *
++                                       NASTRAN INFORMATION MESSAGE 3308, LOWEST EIGENVALUE FOUND   *
+                                     *  AS INDICATED BY THE STURM'S SEQUENCE OF THE DYNAMIC MATRIX  *
+                                     *                                                              *
+                                     *        (THIS MESSAGE CAN BE SUPPRESSED BY DIAG 37)           *
+                                     ****************************************************************
+
+        1         1        1.714425E+04        1.309360E+02        2.083912E+01        0.0                 0.0                      
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0     BUCKLING SOLUTION                                                                                      SUBCASE 2              
+      EIGENVALUE =  0.171442E+05    (CYCLIC FREQUENCY =  2.083912E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             2      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             3      G      0.0            0.0            0.0            0.0            0.0            0.0                           
+             4      G      0.0            3.300937E-15   5.489956E-02   1.487820E-01   0.0            0.0                           
+             5      G     -2.809953E-15  -1.879220E-16   5.599702E-02   1.489336E-01   0.0            0.0                           
+             6      G     -4.282085E-15  -1.694891E-15   5.622306E-02   1.539915E-01   0.0            0.0                           
+             7      G      0.0            1.064478E-14   2.308899E-01   3.299996E-01   0.0            0.0                           
+             8      G     -4.639889E-15   1.652585E-15   2.311183E-01   3.248821E-01   0.0            0.0                           
+             9      G     -8.322388E-15  -4.812174E-15   2.310203E-01   3.040076E-01   0.0            0.0                           
+            10      G      0.0            1.690316E-14   5.543922E-01   5.289490E-01   0.0            0.0                           
+            11      G      5.476993E-15   6.433272E-15   5.553837E-01   5.377403E-01   0.0            0.0                           
+            12      G      1.093953E-14  -1.604526E-14   5.563720E-01   5.331293E-01   0.0            0.0                           
+            13      G      0.0            2.000533E-14   1.000000E+00   6.190717E-01   0.0            0.0                           
+            14      G      1.317487E-14   7.085228E-15   9.983684E-01   6.228292E-01   0.0            0.0                           
+            15      G      2.264062E-14  -1.258609E-14   9.993376E-01   6.217160E-01   0.0            0.0                           
+1      BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE                  /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D05-02-1A                                                                                   
+0     BUCKLING SOLUTION                                                                                      SUBCASE 2              
+      EIGENVALUE =  0.171442E+05    (CYCLIC FREQUENCY =  2.083912E+01 HZ)
+
+                  S T R E S S E S   I N   T R I A N G U L A R   T H I N   S H E L L   E L E M E N T S   ( C T R S H L )
+0 ELEMENT  POINT     FIBER           STRESSES IN ELEMENT COORD SYSTEM            PRINCIPAL STRESSES (ZERO SHEAR)           MAX
+   ID.      NO.     DISTANCE       NORMAL-X      NORMAL-Y      SHEAR-XY        ANGLE         MAJOR         MINOR          SHEAR
+0       1    1    0.0            0.0           5.117947E-08  0.0            9.000000E+01  5.117947E-08  0.0            2.558973E-08 
+                  0.0            0.0           5.117947E-08  0.0            9.000000E+01  5.117947E-08  0.0            2.558973E-08 
+             3    0.0            0.0          -2.279293E-07 -1.123981E-07  -2.230175E+01  4.610182E-08 -2.740311E-07   1.600664E-07 
+                  0.0            0.0          -2.279293E-07 -1.123981E-07  -2.230175E+01  4.610182E-08 -2.740311E-07   1.600664E-07 
+             5    0.0           -2.254954E-07  3.746116E-07 -1.399884E-07  -7.749442E+01  4.056606E-07 -2.565444E-07   3.311025E-07 
+                  0.0           -2.254954E-07  3.746116E-07 -1.399884E-07  -7.749442E+01  4.056606E-07 -2.565444E-07   3.311025E-07 
+             C    1.412791E+00   1.141763E+04 -8.502552E+06 -1.238360E+05  -8.331341E-01  1.321850E+04 -8.504352E+06   4.258786E+06 
+                 -1.412791E+00  -1.141763E+04  8.502552E+06  1.238360E+05   8.916686E+01  8.504352E+06 -1.321850E+04   4.258786E+06 
+0       2    1    0.0           -1.540691E-07 -1.944373E-07 -2.161656E-07  -4.233279E+01  4.285266E-08 -3.913592E-07   2.171059E-07 
+                  0.0           -1.540691E-07 -1.944373E-07 -2.161656E-07  -4.233279E+01  4.285266E-08 -3.913592E-07   2.171059E-07 
+             3    0.0           -2.461501E-07  1.620482E-07 -2.568959E-07  -6.423325E+01  2.860527E-07 -3.701545E-07   3.281036E-07 
+                  0.0           -2.461501E-07  1.620482E-07 -2.568959E-07  -6.423325E+01  2.860527E-07 -3.701545E-07   3.281036E-07 
+             5    0.0            5.852144E-08 -1.912653E-09  3.013164E-08   2.245946E+01  7.097740E-08 -1.436862E-08   4.267301E-08 
+                  0.0            5.852144E-08 -1.912653E-09  3.013164E-08   2.245946E+01  7.097740E-08 -1.436862E-08   4.267301E-08 
+             C    1.330232E+00  -2.427988E+05 -9.202873E+06 -3.868189E+05  -2.467419E+00 -2.261305E+05 -9.219542E+06   4.496706E+06 
+                 -1.330232E+00   2.427988E+05  9.202873E+06  3.868189E+05   8.753259E+01  9.219542E+06  2.261305E+05   4.496706E+06 
+0       3    1    0.0           -2.461501E-07  3.134599E-07 -2.466006E-07  -6.930465E+01  4.066196E-07 -3.393099E-07   3.729648E-07 
+                  0.0           -2.461501E-07  3.134599E-07 -2.466006E-07  -6.930465E+01  4.066196E-07 -3.393099E-07   3.729648E-07 
+             3    0.0           -1.540692E-07  1.952440E-07  2.796175E-07   6.099500E+01  3.502703E-07 -3.090956E-07   3.296830E-07 
+                  0.0           -1.540692E-07  1.952440E-07  2.796175E-07   6.099500E+01  3.502703E-07 -3.090956E-07   3.296830E-07 
+             5    0.0            7.268812E-07  6.096218E-08 -3.176625E-07  -2.182657E+01  8.541081E-07 -6.626465E-08   4.601864E-07 
+                  0.0            7.268812E-07  6.096218E-08 -3.176625E-07  -2.182657E+01  8.541081E-07 -6.626465E-08   4.601864E-07 
+             C    1.165116E+00   2.815825E+05 -9.590976E+06 -1.433773E+05  -8.318617E-01  2.836645E+05 -9.593058E+06   4.938361E+06 
+                 -1.165116E+00  -2.815825E+05  9.590976E+06  1.433773E+05   8.916814E+01  9.593058E+06 -2.836645E+05   4.938361E+06 
+0       4    1    0.0            4.566724E-07  2.038867E-07 -4.952920E-07  -3.784215E+01  8.414442E-07 -1.808851E-07   5.111647E-07 
+                  0.0            4.566724E-07  2.038867E-07 -4.952920E-07  -3.784215E+01  8.414442E-07 -1.808851E-07   5.111647E-07 
+             3    0.0            9.017651E-07  1.130778E-07 -2.136017E-07  -1.422140E+01  9.558996E-07  5.894339E-08   4.484781E-07 
+                  0.0            9.017651E-07  1.130778E-07 -2.136017E-07  -1.422140E+01  9.558996E-07  5.894339E-08   4.484781E-07 
+             5    0.0           -2.371428E-08 -1.027116E-06 -4.009517E-07  -1.931566E+01  1.168200E-07 -1.167650E-06   6.422351E-07 
+                  0.0           -2.371428E-08 -1.027116E-06 -4.009517E-07  -1.931566E+01  1.168200E-07 -1.167650E-06   6.422351E-07 
+             C    1.082558E+00  -3.133684E+05 -4.851619E+06 -2.431370E+04  -3.069506E-01 -3.132382E+05 -4.851749E+06   2.269256E+06 
+                 -1.082558E+00   3.133684E+05  4.851619E+06  2.431370E+04   8.969305E+01  4.851749E+06  3.132382E+05   2.269256E+06 
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =   BUCKLING  OF  A TAPERED  COLUMN FIXED  AT THE  BASE               
+ DATE:  5/17/95
+ END TIME: 15:49:16
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

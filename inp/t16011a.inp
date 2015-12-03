@@ -1,0 +1,558 @@
+NASTRAN FILES = PLT2                                                            
+ID    T16011A,NASTRAN                                                           
+APP   DISPLACEMENT                                                              
+SOL   16                                                                        
+DIAG  14                                                                        
+TIME  20                                                                        
+CEND                                                                            
+TITLE    = STATIC AEROTHERMOELASTIC ANALYSIS OF A ROTOR BLADE                   
+SUBTITLE = NASTRAN TEST PROBLEM NO. T16-01-1A                                   
+SPC    = 500                                                                    
+MPC    = 600                                                                    
+LOAD   = 1                                                                      
+DISP   = ALL                                                                    
+SPCF   = ALL                                                                    
+OLOAD  = ALL                                                                    
+STRESS = ALL                                                                    
+FORCE  = ALL                                                                    
+SUBCASE 1                                                                       
+LABEL  = LINEAR SOLUTION OF ROTOR BLADE                                         
+SUBCASE 2                                                                       
+LABEL  = NONLINEAR SOLUTION OF ROTOR BLADE                                      
+GPFORCE= ALL                                                                    
+OUTPUT(PLOT)                                                                    
+PLOTTER NASTPLT D,0                                                             
+PAPER SIZE 10.0 X 10.0                                                          
+SET 1  = ALL                                                                    
+ORTHOGRAPHIC PROJECTION                                                         
+MAXIMUM DEFORMATION 0.5                                                         
+AXES X,Y,Z                                                                      
+VIEW 0.0,0.0,0.0                                                                
+FIND SCALE, ORIGIN 1, SET 1                                                     
+PLOT SET 1, ORIGIN 1, LABEL                                                     
+AXES Y,Z,X                                                                      
+FIND SCALE, ORIGIN 2, SET 1                                                     
+PLOT SET 1, ORIGIN 2, LABEL                                                     
+AXES Z,X,Y                                                                      
+FIND SCALE, ORIGIN 3, SET 1                                                     
+PLOT SET 1, ORIGIN 3, LABEL                                                     
+AXES X,Y,Z                                                                      
+VIEW 34.27,23.17,0.0                                                            
+FIND SCALE, ORIGIN 4, SET 1                                                     
+PLOT STATIC DEFORMATION 0,   SET 1, ORIGIN 4, LABEL                             
+AXES Z,X,Y                                                                      
+VIEW 0.0,0.0,0.0                                                                
+FIND SCALE, ORIGIN 5, SET 1                                                     
+PLOT STATIC DEFORMATION 0,   SET 1, ORIGIN 5, LABEL                             
+BEGIN BULK                                                                      
+CHEXA1  201     1       101     103     104     108     113     115     +CH1    
++CH1    116     120                                                             
+CHEXA1  202     1       108     104     105     107     120     116     +CH2    
++CH2    117     119                                                             
+CHEXA1  203     1       121     123     124     128     101     103     +CH3    
++CH3    104     108                                                             
+CHEXA1  204     1       128     124     125     127     108     104     +CH4    
++CH4    105     107                                                             
+CORD2C  1               0.      0.      0.      1.0     0.      0.      +CD1    
++CD1    0.      0.      1.                                                      
+CTRIA2         1    2000       1       5       4                                
+CTRIA2         2    2000       1       2       5                                
+CTRIA2         3    2005       2       6       5                                
+CTRIA2         4    2005       2       3       6                                
+CTRIA2         5    2010       4       8       7                                
+CTRIA2         6    2010       4       5       8                                
+CTRIA2         7    2015       5       9       8                                
+CTRIA2         8    2015       5       6       9                                
+CTRIA2         9    2020       7      11      10                                
+CTRIA2        10    2020       7       8      11                                
+CTRIA2        11    2025       8      12      11                                
+CTRIA2        12    2025       8       9      12                                
+DTI     ALGDB          0     135       0       0       0       0       0+AL    0
++AL    0ENDREC                                                          +AL    1
+DTI     ALGDB          1NASA LEWIS EXPERIMENTAL FAN                     +AL    2
++AL    2                        ENDREC                                  +AL    3
+DTI     ALGDB          2       1       1       0       0       0       0+AL    4
++AL    4       0       0       0       0       0       0       0       0+AL    5
++AL    5       0       0       0       0       0       0       0       0+AL    6
++AL    6       0       0ENDREC                                          +AL    7
+DTI     ALGDB          3GRID GENERATION                                 +AL    8
++AL    8                        ENDREC                                  +AL    9
+DTI     ALGDB          4       4       5       3       4      30      43+AL   10
++AL   10       2       0       2       1       0       3       0       0+AL   11
++AL   11       2       4       1       0       0       0       0       0+AL   12
++AL   12       0       0ENDREC                                          +AL   13
+DTI*    ALGDB                          5 0.438399982E 01 0.999999905E 01+AL   14
+*AL   14 0.999999940E 00               0 0.109999990E 02               0+AL   15
++AL   15ENDREC                                                          +AL   16
+DTI     ALGDB          6       2       0       0       0       0       0+AL   17
++AL   17       0       0       0       0       0       0       0       0+AL   18
++AL   18       0       0       0       0       0       0       0       0+AL   19
++AL   19       0       0ENDREC                                          +AL   20
+DTI*    ALGDB                          7-0.199999905E 01 0.359999943E 01+AL   21
+*AL   21               0               0               0               0+AL   22
++AL   22ENDREC                                                          +AL   23
+DTI*    ALGDB                          8-0.199999905E 01 0.100400000E 02+AL   24
+*AL   24               0               0               0               0+AL   25
++AL   25ENDREC                                                          +AL   26
+DTI*    ALGDB                          9 0.359999943E 01               0+AL   27
+*AL   27               0               0               0               0+AL   28
++AL   28ENDREC                                                          +AL   29
+DTI*    ALGDB                         10 0.549999905E 01               0+AL   30
+*AL   30               0               0               0               0+AL   31
++AL   31ENDREC                                                          +AL   32
+DTI*    ALGDB                         11 0.739999962E 01               0+AL   33
+*AL   33               0               0               0               0+AL   34
++AL   34ENDREC                                                          +AL   35
+DTI*    ALGDB                         12 0.100400000E 02               0+AL   36
+*AL   36               0               0               0               0+AL   37
++AL   37ENDREC                                                          +AL   38
+DTI     ALGDB         13       4       1ENDREC                          +AL   39
+DTI*    ALGDB                         14-0.898070633E 00 0.378958511E 01+AL   40
+*AL   40ENDREC                                                          +AL   41
+DTI*    ALGDB                         15-0.765281737E 00 0.547675800E 01+AL   42
+*AL   42ENDREC                                                          +AL   43
+DTI*    ALGDB                         16-0.638598502E 00 0.736359024E 01+AL   44
+*AL   44ENDREC                                                          +AL   45
+DTI*    ALGDB                         17-0.405804217E 00 0.995540905E 01+AL   46
+*AL   46ENDREC                                                          +AL   47
+DTI*    ALGDB                         18 0.378958511E 01               0+AL   48
+*AL   48ENDREC                                                          +AL   49
+DTI*    ALGDB                         19 0.547675800E 01               0+AL   50
+*AL   50ENDREC                                                          +AL   51
+DTI*    ALGDB                         20 0.736359024E 01               0+AL   52
+*AL   52ENDREC                                                          +AL   53
+DTI*    ALGDB                         21 0.995540905E 01               0+AL   54
+*AL   54ENDREC                                                          +AL   55
+DTI     ALGDB         22       4       1ENDREC                          +AL   56
+DTI*    ALGDB                         23-0.707454019E-04 0.399898529E 01+AL   57
+*AL   57ENDREC                                                          +AL   58
+DTI*    ALGDB                         24-0.459544128E-03 0.549857426E 01+AL   59
+*AL   59ENDREC                                                          +AL   60
+DTI*    ALGDB                         25-0.911400467E-02 0.739762974E 01+AL   61
+*AL   61ENDREC                                                          +AL   62
+DTI*    ALGDB                         26-0.106336363E-01 0.999707603E 01+AL   63
+*AL   63ENDREC                                                          +AL   64
+DTI*    ALGDB                         27 0.399898529E 01               0+AL   65
+*AL   65ENDREC                                                          +AL   66
+DTI*    ALGDB                         28 0.549857426E 01               0+AL   67
+*AL   67ENDREC                                                          +AL   68
+DTI*    ALGDB                         29 0.739762974E 01               0+AL   69
+*AL   69ENDREC                                                          +AL   70
+DTI*    ALGDB                         30 0.999707603E 01               0+AL   71
+*AL   71ENDREC                                                          +AL   72
+DTI     ALGDB         31       4       1ENDREC                          +AL   73
+DTI*    ALGDB                         32 0.897929192E 00 0.419198513E 01+AL   74
+*AL   74ENDREC                                                          +AL   75
+DTI*    ALGDB                         33 0.779861093E 00 0.549377537E 01+AL   76
+*AL   76ENDREC                                                          +AL   77
+DTI*    ALGDB                         34 0.623993874E 00 0.736712265E 01+AL   78
+*AL   78ENDREC                                                          +AL   79
+DTI*    ALGDB                         35 0.413974285E 00 0.996370506E 01+AL   80
+*AL   80ENDREC                                                          +AL   81
+DTI*    ALGDB                         36 0.419198513E 01               0+AL   82
+*AL   82ENDREC                                                          +AL   83
+DTI*    ALGDB                         37 0.549377537E 01               0+AL   84
+*AL   84ENDREC                                                          +AL   85
+DTI*    ALGDB                         38 0.736712265E 01               0+AL   86
+*AL   86ENDREC                                                          +AL   87
+DTI*    ALGDB                         39 0.996370506E 01               0+AL   88
+*AL   88ENDREC                                                          +AL   89
+DTI     ALGDB         40       2       0       0       0       0       0+AL   90
++AL   90       0       0       0       0       0       0       0       0+AL   91
++AL   91       0       0       0       0       0       0       0       0+AL   92
++AL   92       0       0ENDREC                                          +AL   93
+DTI*    ALGDB                         41 0.199999905E 01 0.439999962E 01+AL   94
+*AL   94               0               0               0               0+AL   95
++AL   95ENDREC                                                          +AL   96
+DTI*    ALGDB                         42 0.199999905E 01 0.100400000E 02+AL   97
+*AL   97               0               0               0               0+AL   98
++AL   98ENDREC                                                          +AL   99
+DTI*    ALGDB                         43 0.439999962E 01               0+AL  100
+*AL  100               0               0               0               0+AL  101
++AL  101ENDREC                                                          +AL  102
+DTI*    ALGDB                         44 0.549999905E 01               0+AL  103
+*AL  103               0               0               0               0+AL  104
++AL  104ENDREC                                                          +AL  105
+DTI*    ALGDB                         45 0.739999962E 01               0+AL  106
+*AL  106               0               0               0               0+AL  107
++AL  107ENDREC                                                          +AL  108
+DTI*    ALGDB                         46 0.100400000E 02               0+AL  109
+*AL  109               0               0               0               0+AL  110
++AL  110ENDREC                                                          +AL  111
+DTI*    ALGDB                         47 0.999999940E 00-0.381756897E 02+AL  112
+*AL  112 0.329245758E 02               0               0 0.161499977E-01+AL  113
++AL  113ENDREC                                                          +AL  114
+DTI*    ALGDB                         48 0.979999900E-01 0.155899972E-01+AL  115
+*AL  115 0.559999943E 00 0.179599857E 01 0.471492521E-01-0.222556889E-01+AL  116
++AL  116ENDREC                                                          +AL  117
+DTI*    ALGDB                         49 0.199999905E 01-0.437350769E 02+AL  118
+*AL  118-0.468236637E 01               0               0 0.124260001E-01+AL  119
++AL  119ENDREC                                                          +AL  120
+DTI*    ALGDB                         50 0.734763145E-01 0.135056563E-01+AL  121
+*AL  121 0.539999962E 00 0.185159492E 01 0.676045194E-02-0.272210650E-01+AL  122
++AL  122ENDREC                                                          +AL  123
+DTI*    ALGDB                         51 0.299999905E 01-0.524065857E 02+AL  124
+*AL  124-0.400783386E 02               0               0 0.912010297E-02+AL  125
++AL  125ENDREC                                                          +AL  126
+DTI*    ALGDB                         52 0.360004082E-01 0.966010615E-02+AL  127
+*AL  127 0.489999950E 00 0.186397648E 01-0.834399834E-02 0.131941922E-01+AL  128
++AL  128ENDREC                                                          +AL  129
+DTI*    ALGDB                         53 0.399999905E 01-0.724938965E 02+AL  130
+*AL  130-0.592066498E 02               0               0 0.482162833E-02+AL  131
++AL  131ENDREC                                                          +AL  132
+DTI*    ALGDB                         54 0.268090703E-01 0.429144874E-02+AL  133
+*AL  133 0.479999959E 00 0.186236858E 01-0.373036265E-01 0.498055629E-01+AL  134
++AL  134ENDREC                                                          +AL  135
+DTI     ALGDB         55       1       5       1       2       2       4+AL  136
++AL  136       0       0       0       0       0       0       0       0+AL  137
++AL  137       0       0       0       0       0       0       0       0+AL  138
++AL  138       0       0ENDREC                                          +AL  139
+DTI*    ALGDB                         56 0.999999940E 00 0.160427969E 05+AL  140
+*AL  140               0               0               0               0+AL  141
++AL  141ENDREC                                                          +AL  142
+DTI     ALGDB         57       0       0      10       0       0       0+AL  143
++AL  143       0       0       0       0       0       0       0       0+AL  144
++AL  144       0       0       0       0       0       0       0       0+AL  145
++AL  145       0       0ENDREC                                          +AL  146
+DTI     ALGDB         58       1       0       0       4      -1      -1+AL  147
++AL  147       0       1       0       0       0       0       0     -43+AL  148
++AL  148       0       0       0       0       0       0       0       0+AL  149
++AL  149       0       0ENDREC                                          +AL  150
+DTI     ALGDB         59       0       0       0       0       0       0+AL  151
++AL  151       0       0       0       0       0       0       0       0+AL  152
++AL  152       0       0       0       0       0       0       0       0+AL  153
++AL  153       0       0ENDREC                                          +AL  154
+DTI     ALGDB         60       8       0       0       1      -2      -2+AL  155
++AL  155      -1       0       0       2       0       0      20     -43+AL  156
++AL  156       0       0       0       0       0       0       0       0+AL  157
++AL  157       0       0ENDREC                                          +AL  158
+DTI*    ALGDB                         61 0.419999981E 01 0.499999970E-01+AL  159
+*AL  159               0               0               0               0+AL  160
++AL  160ENDREC                                                          +AL  161
+DTI*    ALGDB                         62 0.461999989E 01 0.499999970E-01+AL  162
+*AL  162               0               0               0               0+AL  163
++AL  163ENDREC                                                          +AL  164
+DTI*    ALGDB                         63 0.549999905E 01 0.499999970E-01+AL  165
+*AL  165               0               0               0               0+AL  166
++AL  166ENDREC                                                          +AL  167
+DTI*    ALGDB                         64 0.649999905E 01 0.499999970E-01+AL  168
+*AL  168               0               0               0               0+AL  169
++AL  169ENDREC                                                          +AL  170
+DTI*    ALGDB                         65 0.739999962E 01 0.499999970E-01+AL  171
+*AL  171               0               0               0               0+AL  172
++AL  172ENDREC                                                          +AL  173
+DTI*    ALGDB                         66 0.839999962E 01 0.499999970E-01+AL  174
+*AL  174               0               0               0               0+AL  175
++AL  175ENDREC                                                          +AL  176
+DTI*    ALGDB                         67 0.949999905E 01 0.499999970E-01+AL  177
+*AL  177               0               0               0               0+AL  178
++AL  178ENDREC                                                          +AL  179
+DTI*    ALGDB                         68 0.999999905E 01 0.499999970E-01+AL  180
+*AL  180               0               0               0               0+AL  181
++AL  181ENDREC                                                          +AL  182
+DTI     ALGDB         69       0       0       0       0       0       0+AL  183
++AL  183       0       0       0       0       0       0       0       0+AL  184
++AL  184       0       0       0       0       0       0       0       0+AL  185
++AL  185       0       0ENDREC                                          +AL  186
+DTI     ALGDB         70       0       0       0       0       0       0+AL  187
++AL  187       0       0       0       0       0       0       0       0+AL  188
++AL  188       0       0       0       0       0       0       0       0+AL  189
++AL  189       0       0ENDREC                                          +AL  190
+DTI*    ALGDB                         71 0.249999940E 00 0.249999940E 00+AL  191
+*AL  191               0               0               0               0+AL  192
++AL  192ENDREC                                                          +AL  193
+DTI*    ALGDB                         72 0.499999940E 00 0.499999940E 00+AL  194
+*AL  194               0               0               0               0+AL  195
++AL  195ENDREC                                                          +AL  196
+DTI*    ALGDB                         73 0.749999940E 00 0.749999940E 00+AL  197
+*AL  197               0               0               0               0+AL  198
++AL  198ENDREC                                                          +AL  199
+DTI*    ALGDB                         74 0.999999940E 00 0.999999940E 00+AL  200
+*AL  200               0               0               0               0+AL  201
++AL  201ENDREC                                                          +AL  202
+DTI*    ALGDB                         75               0               0+AL  203
+*AL  203 0.499999940E 00               0               0               0+AL  204
++AL  204       0       0       0       0       0       0       0       0+AL  205
++AL  205       0       0       0       0       0       0       0       0+AL  206
++AL  206       0       0ENDREC                                          +AL  207
+DTI     ALGDB         76AERODYNAMIC ANALYSIS OF NASA LEWIS BLADE        +AL  208
++AL  208                        ENDREC                                  +AL  209
+DTI     ALGDB         77       0       0       0       0       0       0+AL  210
++AL  210       0       0       0       0       0       0       0       0+AL  211
++AL  211       0       0       0       0       0       0       0       0+AL  212
++AL  212       0       0ENDREC                                          +AL  213
+DTI     ALGDB         78       7       4       0      40       0       0+AL  214
++AL  214       0       1       1       0       0       0       0       0+AL  215
++AL  215       0       3       0       0       3       5       1       0+AL  216
++AL  216       0       0ENDREC                                          +AL  217
+DTI     ALGDB         79       3       4       5       0       0       0+AL  218
++AL  218       0       0       0       0       0       0       0       0+AL  219
++AL  219       0       0       0       0       0       0       0       0+AL  220
++AL  220       0       0ENDREC                                          +AL  221
+DTI*    ALGDB                         80               0               0+AL  222
+*AL  222               0 0.999999931E-03               0               0+AL  223
++AL  223       0       0       0       0       0       0       0       0+AL  224
++AL  224       0       0       0       0       0       0       0       0+AL  225
++AL  225       0       0ENDREC                                          +AL  226
+DTI*    ALGDB                         81 0.999999940E 00 0.999999940E 00+AL  227
+*AL  227 0.399999905E 01               0 0.699999988E 00 0.799999905E 01+AL  228
++AL  228ENDREC                                                          +AL  229
+DTI     ALGDB         82       0       0       0       0       0       0+AL  230
++AL  230       0       0       0       0       0       0       0       0+AL  231
++AL  231       0       0       0       0       0       0       0       0+AL  232
++AL  232       0       0ENDREC                                          +AL  233
+DTI*    ALGDB                         83 0.731459961E 02 0.999999940E 00+AL  234
+*AL  234               0               0               0               0+AL  235
++AL  235ENDREC                                                          +AL  236
+DTI     ALGDB         84       2       0       0       0       0       0+AL  237
++AL  237       0       0       0       0       0       0       0       0+AL  238
++AL  238       0       0       0       0       0       0       0       0+AL  239
++AL  239       0       0ENDREC                                          +AL  240
+DTI*    ALGDB                         85-0.399999905E 01 0.324999905E 01+AL  241
+*AL  241               0               0               0               0+AL  242
++AL  242ENDREC                                                          +AL  243
+DTI*    ALGDB                         86-0.399999905E 01 0.100400000E 02+AL  244
+*AL  244               0               0               0               0+AL  245
++AL  245ENDREC                                                          +AL  246
+DTI     ALGDB         87       2       0       0       0       0       0+AL  247
++AL  247       0       0       0       0       0       0       0       0+AL  248
++AL  248       0       0       0       0       0       0       0       0+AL  249
++AL  249       0       0ENDREC                                          +AL  250
+DTI*    ALGDB                         88-0.199999905E 01 0.359999943E 01+AL  251
+*AL  251               0               0               0               0+AL  252
++AL  252ENDREC                                                          +AL  253
+DTI*    ALGDB                         89-0.199999905E 01 0.100400000E 02+AL  254
+*AL  254               0               0               0               0+AL  255
++AL  255ENDREC                                                          +AL  256
+DTI     ALGDB         90       4ENDREC                                  +AL  257
+DTI*    ALGDB                         91-0.898070633E 00 0.378958511E 01+AL  258
+*AL  258ENDREC                                                          +AL  259
+DTI*    ALGDB                         92-0.765281737E 00 0.547675800E 01+AL  260
+*AL  260ENDREC                                                          +AL  261
+DTI*    ALGDB                         93-0.638598502E 00 0.736359024E 01+AL  262
+*AL  262ENDREC                                                          +AL  263
+DTI*    ALGDB                         94-0.405804217E 00 0.995540905E 01+AL  264
+*AL  264ENDREC                                                          +AL  265
+DTI     ALGDB         95       4ENDREC                                  +AL  266
+DTI*    ALGDB                         96-0.707454019E-04 0.399898529E 01+AL  267
+*AL  267ENDREC                                                          +AL  268
+DTI*    ALGDB                         97-0.459544128E-03 0.549857426E 01+AL  269
+*AL  269ENDREC                                                          +AL  270
+DTI*    ALGDB                         98-0.911400467E-02 0.739762974E 01+AL  271
+*AL  271ENDREC                                                          +AL  272
+DTI*    ALGDB                         99-0.106336363E-01 0.999707603E 01+AL  273
+*AL  273ENDREC                                                          +AL  274
+DTI     ALGDB        100       4ENDREC                                  +AL  275
+DTI*    ALGDB                        101 0.897929192E 00 0.419198513E 01+AL  276
+*AL  276ENDREC                                                          +AL  277
+DTI*    ALGDB                        102 0.779861093E 00 0.549377537E 01+AL  278
+*AL  278ENDREC                                                          +AL  279
+DTI*    ALGDB                        103 0.623993874E 00 0.736712265E 01+AL  280
+*AL  280ENDREC                                                          +AL  281
+DTI*    ALGDB                        104 0.413974285E 00 0.996370506E 01+AL  282
+*AL  282ENDREC                                                          +AL  283
+DTI     ALGDB        105       2       0       0       0       0       0+AL  284
++AL  284       0       0       0       0       0       0       0       0+AL  285
++AL  285       0       0       0       0       0       0       0       0+AL  286
++AL  286       0       0ENDREC                                          +AL  287
+DTI*    ALGDB                        106 0.199999905E 01 0.439999962E 01+AL  288
+*AL  288               0               0               0               0+AL  289
++AL  289ENDREC                                                          +AL  290
+DTI*    ALGDB                        107 0.199999905E 01 0.100400000E 02+AL  291
+*AL  291               0               0               0               0+AL  292
++AL  292ENDREC                                                          +AL  293
+DTI     ALGDB        108       2       0       0       0       0       0+AL  294
++AL  294       0       0       0       0       0       0       0       0+AL  295
++AL  295       0       0       0       0       0       0       0       0+AL  296
++AL  296       0       0ENDREC                                          +AL  297
+DTI*    ALGDB                        109 0.399999905E 01 0.474999905E 01+AL  298
+*AL  298               0               0               0               0+AL  299
++AL  299ENDREC                                                          +AL  300
+DTI*    ALGDB                        110 0.399999905E 01 0.100400000E 02+AL  301
+*AL  301               0               0               0               0+AL  302
++AL  302ENDREC                                                          +AL  303
+DTI     ALGDB        111       1       0       0       0       0       0+AL  304
++AL  304       0       0       0       0       0       0       0       0+AL  305
++AL  305       0       0       0       0       0       0       0       0+AL  306
++AL  306       0       0ENDREC                                          +AL  307
+DTI*    ALGDB                        112 0.324999905E 01 0.146999998E 02+AL  308
+*AL  308 0.518699951E 03               0               0               0+AL  309
++AL  309ENDREC                                                          +AL  310
+DTI     ALGDB        113       0       0       0       0       0       0+AL  311
++AL  311       0       0       0       0       0       0       0       0+AL  312
++AL  312       0       0       0       0       0       0       0       0+AL  313
++AL  313       0       0ENDREC                                          +AL  314
+DTI*    ALGDB                        114 0.399999905E 01               0+AL  315
+*AL  315               0               0               0               0+AL  316
++AL  316ENDREC                                                          +AL  317
+DTI*    ALGDB                        115 0.999999905E 01 0.999999940E 00+AL  318
+*AL  318               0               0               0               0+AL  319
++AL  319ENDREC                                                          +AL  320
+DTI     ALGDB        116       0       0       0       0       0       0+AL  321
++AL  321       0       0       0       0       0       0       0       0+AL  322
++AL  322       0       0       0       0       0       0       0       0+AL  323
++AL  323       0       0ENDREC                                          +AL  324
+DTI     ALGDB        117       0       0       0       0       0       0+AL  325
++AL  325       0       0       0       0       0       0       0       0+AL  326
++AL  326       0       0       0       0       0       0       0       0+AL  327
++AL  327       0       0ENDREC                                          +AL  328
+DTI     ALGDB        118       0       0       0       0       0       0+AL  329
++AL  329       0       0       0       0       0       0       0       0+AL  330
++AL  330       0       0       0       0       0       0       0       0+AL  331
++AL  331       0       0ENDREC                                          +AL  332
+DTI     ALGDB        119       0       0       0       0       0       0+AL  333
++AL  333       0       0       0       0       0       0       0       0+AL  334
++AL  334       0       0       0       0       0       0       0       0+AL  335
++AL  335       0       0ENDREC                                          +AL  336
+DTI     ALGDB        120       0       0       0       0       0       0+AL  337
++AL  337       0       0       0       0       0       0       0       0+AL  338
++AL  338       0       0       0       0       0       0       0       0+AL  339
++AL  339       0       0ENDREC                                          +AL  340
+DTI     ALGDB        121       0       0       0       0       0       0+AL  341
++AL  341       0       0       0       0       0       0       0       0+AL  342
++AL  342       0       0       0       0       0       0       0       0+AL  343
++AL  343       0       0ENDREC                                          +AL  344
+DTI     ALGDB        122       0       0       0       0       0       0+AL  345
++AL  345       0       0       0       0       0       0       0       0+AL  346
++AL  346       0       0       0       0       0       0       0       0+AL  347
++AL  347       0       0ENDREC                                          +AL  348
+DTI     ALGDB        123       0       0       0       0       0       0+AL  349
++AL  349       0       0       0       0       0       0       0       0+AL  350
++AL  350       0       0       0       0       0       0       0       0+AL  351
++AL  351       0       0ENDREC                                          +AL  352
+DTI     ALGDB        124       0       0       0       0       0       0+AL  353
++AL  353       0       0       0       0       0       0       0       0+AL  354
++AL  354       0       0       0       0       0       0       0       0+AL  355
++AL  355       0       0ENDREC                                          +AL  356
+DTI     ALGDB        125       6       0       0       0       0       0+AL  357
++AL  357       0       0       0       0       0       0       0       0+AL  358
++AL  358       0       0       0       0       0       0       0       0+AL  359
++AL  359       0       0ENDREC                                          +AL  360
+DTI*    ALGDB                        126               0 0.599999726E-02+AL  361
+*AL  361 0.599999726E-02 0.599999726E-02               0               0+AL  362
++AL  362       0       0       0       0       0       0       0       0+AL  363
++AL  363       0       0       0       0       0       0       0       0+AL  364
++AL  364       0       0ENDREC                                          +AL  365
+DTI*    ALGDB                        127 0.199999988E 00 0.699999928E-02+AL  366
+*AL  366 0.699999928E-02 0.699999928E-02               0               0+AL  367
++AL  367ENDREC                                                          +AL  368
+DTI*    ALGDB                        128 0.399999976E 00 0.139999986E-01+AL  369
+*AL  369 0.139999986E-01 0.139999986E-01               0               0+AL  370
++AL  370ENDREC                                                          +AL  371
+DTI*    ALGDB                        129 0.599999964E 00 0.299999975E-01+AL  372
+*AL  372 0.309999995E-01 0.309999995E-01               0               0+AL  373
++AL  373ENDREC                                                          +AL  374
+DTI*    ALGDB                        130 0.799999952E 00 0.599999987E-01+AL  375
+*AL  375 0.599999987E-01 0.599999987E-01               0               0+AL  376
++AL  376ENDREC                                                          +AL  377
+DTI*    ALGDB                        131 0.999999940E 00 0.124999940E 00+AL  378
+*AL  378 0.124999940E 00 0.124999940E 00               0               0+AL  379
++AL  379ENDREC                                                          +AL  380
+DTI     ALGDB        132       2       1       0       0       0       0+AL  381
++AL  381       0       0       0       0       0       0       0       0+AL  382
++AL  382       0       0       0       0       0       0       0       0+AL  383
++AL  383       0       0ENDREC                                          +AL  384
+DTI     ALGDB        133       0       0       0       0       0       0+AL  385
++AL  385       0       0       0       0       0       0       0       0+AL  386
++AL  386       0       0       0       0       0       0       0       0+AL  387
++AL  387       0       0ENDREC                                          +AL  388
+DTI     ALGDB        134       0       0       0       0       0       0+AL  389
++AL  389       0       0       0       0       0       0       0       0+AL  390
++AL  390       0       0       0       0       0       0       0       0+AL  391
++AL  391       0       0ENDREC                                          +AL  392
+DTI*    ALGDB                        135 0.999999940E 00               0+AL  393
+*AL  393               0               0               0               0+AL  394
++AL  394ENDREC                                                          +AL  395
+GRID           1         -0.8981 -0.2755  3.7796                                
+GRID           2         -0.0001  0.0540  3.9986                                
+GRID           3          0.8979 -0.2464  4.1847                                
+GRID           4         -0.7653 -0.4830  5.4554                                
+GRID           5         -0.0005  0.0209  5.4985                                
+GRID           6          0.7799  0.2307  5.4889                                
+GRID           7         -0.6386 -0.7217  7.3281                                
+GRID           8         -0.0091  0.0155  7.3976                                
+GRID           9          0.6240  0.6123  7.3416                                
+GRID          10         -0.4058 -1.1351  9.8905                                
+GRID          11         -0.0106 -0.0236  9.9970                                
+GRID          12          0.4140  0.8134  9.9304                                
+GRID    101     1       2.375   4.186   -0.987  1                               
+GRID    103     1       2.375   4.186   0.987   1                               
+GRID    104     1       2.375   0.0     0.987   1                               
+GRID    105     1       2.375   -4.186  0.987   1                               
+GRID    107     1       2.375   -4.186  -0.987  1                               
+GRID    108     1       2.375   0.0     -0.987  1                               
+GRID    113     1       3.982   4.186   -0.987  1                               
+GRID    115     1       4.539   4.186   0.987   1                               
+GRID    116     1       4.539   0.0     0.987                                   
+GRID    117     1       4.539   -4.186  0.987   1                               
+GRID    119     1       3.982   -4.186  -0.987  1                               
+GRID    120     1       3.982   0.0     -0.987                                  
+GRID    121     1       0.905   4.186   -0.987  1                               
+GRID    123     1       0.905   4.186   0.987   1                               
+GRID    124     1       0.905   0.0     0.987   1                               
+GRID    125     1       0.905   -4.186  0.987   1                               
+GRID    127     1       0.905   -4.186  -0.987  1                               
+GRID    128     1       0.905   0.0     -0.987  1                               
+MAT1    1       31.0E6          0.3     7.300E-4                                
+MPC     600     1       1       1.0     2       1       -1.0                    
+MPC     600     1       2       1.0     2       2       -1.0                    
+MPC     600     1       3       1.0     2       3       -1.0                    
+MPC     600     1       4       1.0     2       4       -1.0                    
+MPC     600     1       5       1.0     2       5       -1.0                    
+MPC     600     1       6       1.0     2       6       -1.0                    
+MPC     600     3       1       1.0     2       1       -1.0                    
+MPC     600     3       2       1.0     2       2       -1.0                    
+MPC     600     3       3       1.0     2       3       -1.0                    
+MPC     600     3       4       1.0     2       4       -1.0                    
+MPC     600     3       5       1.0     2       5       -1.0                    
+MPC     600     3       6       1.0     2       6       -1.0                    
+MPC     600     116     1       1.0     2       1       -1.0                    
+MPC     600     116     2       1.0     2       2       -1.0                    
+MPC     600     116     3       1.0     2       3       -1.0                    
+MPC     600     120     1       1.0     2       1       -1.0                    
+MPC     600     120     2       1.0     2       2       -1.0                    
+MPC     600     120     3       1.0     2       3       -1.0                    
+MPC     600     121     1       1.0     127     1       -1.0                    
+MPC     600     101     1       1.0     107     1       -1.0                    
+MPC     600     101     2       1.0     107     2       -1.0                    
+MPC     600     101     3       1.0     107     3       -1.0                    
+MPC     600     113     1       1.0     119     1       -1.0                    
+MPC     600     113     2       1.0     119     2       -1.0                    
+MPC     600     113     3       1.0     119     3       -1.0                    
+MPC     600     123     1       1.0     125     1       -1.0                    
+MPC     600     103     1       1.0     105     1       -1.0                    
+MPC     600     103     2       1.0     105     2       -1.0                    
+MPC     600     103     3       1.0     105     3       -1.0                    
+MPC     600     115     1       1.0     117     1       -1.0                    
+MPC     600     115     2       1.0     117     2       -1.0                    
+MPC     600     115     3       1.0     117     3       -1.0                    
+PARAM   APRESS  1                                                               
+PARAM   ATEMP   1                                                               
+PARAM   FXCOOR  1.0                                                             
+PARAM   FYCOOR  1.0                                                             
+PARAM   FZCOOR  1.0                                                             
+PARAM   IPRTCF  1                                                               
+PARAM   IPRTCI  1                                                               
+PARAM   IPRTCL  0                                                               
+PARAM   KTOUT   -1                                                              
+PARAM   PGEOM   1                                                               
+PARAM   SIGN    +1.0                                                            
+PARAM   STREAML 2                                                               
+PARAM   ZORIGN  0.0                                                             
+PTRIA2      2000       1  0.1040      0.                                        
+PTRIA2      2005       1  0.1040      0.                                        
+PTRIA2      2010       1  0.0707      0.                                        
+PTRIA2      2015       1  0.0707      0.                                        
+PTRIA2      2020       1  0.0422      0.                                        
+PTRIA2      2025       1  0.0422      0.                                        
+RFORCE  1       0       0       267.367  1.0    0.0     0.0                     
+SPC1    500     23      121     123     124     125     127     128             
+SPC1    500     45      7       10      12                                      
+SPC1    500     456     101     103     104     105     107     108             
+SPC1    500     456     113     115     116     117     119     120             
+SPC1    500     456     121     123     124     125     127     128             
+STREAML1       1       1 THRU          3                                        
+STREAML1       2       4 THRU          6                                        
+STREAML1       3       7 THRU          9                                        
+STREAML1       4      10 THRU         12                                        
+ENDDATA                                                                         

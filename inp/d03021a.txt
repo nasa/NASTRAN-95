@@ -1,0 +1,128 @@
+$-------------------------------------------------------------------------------
+$                  RIGID FORMAT No. 3, Real Eigenvalue Analysis
+$        Vibration of a Compressible Gas in a Rigid Spherical Tank (3-2-1)
+$ 
+$ A. Description
+$ 
+$ This problem demonstrates a compressible gas in a rigid spherical container.
+$ In NASTRAN a rigid boundary is the default for the fluid and, as such, no
+$ elements or boundary lists are necessary to model the container.
+$ 
+$ Aside from the NASTRAN bulk data cards currently implemented, this problem
+$ demonstrates the use of the hydroelastic data cards: AXIF, CFLUID2, CFLUID3,
+$ and RINGFL.
+$ 
+$ The lowest mode frequencies and their mode shapes for n = 0, 1, and 2 are
+$ analyzed where n is the Fourier harmonic number. Only the cosine series is
+$ analyzed.
+$ 
+$ B. Model
+$ 
+$ 1. Parameters
+$ 
+$    R = 10.0 m              (Radius of sphere)
+$ 
+$                -3     3
+$    p = 1.0 x 10   Kg/m     (Mass density of fluid)
+$ 
+$                3         2
+$    B = 1.0 x 10  Newton/m  (Bulk modulus of fluid)
+$ 
+$ 2. The last 3 digits of the RINGFL identification number correspond
+$    approximately to the angle, theta, from the polar axis along a meridian.
+$ 
+$ C. Theory
+$ 
+$ From Reference 18, the pressure in the cylinder is proportional to a series
+$ of functions:
+$ 
+$             J      (X)
+$              m+1/2        n
+$    Q     =  -----------  p  (cos theta) cos n phi ,   n <= m               (1)
+$     n,m      sqrt(X)      m                           m = 0,1,2
+$ 
+$ 
+$ where:
+$ 
+$    Q       Pressure coefficient for each mode
+$     n,m
+$                                     w
+$                                      mk
+$    X       Nondimensional radius  = ---- r
+$                                      a
+$ 
+$    w       Natural frequency for the kth mode number and mth radial number in
+$     mk     radlans per second
+$ 
+$ 
+$    J       Bessel function of the first kind
+$     m+1/2
+$ 
+$    r       radius
+$ 
+$    a = sqrt(B/p)  speed of sound in the gas
+$ 
+$     n
+$    p       associated Legendre functions
+$     m
+$ 
+$    theta   meridional angle
+$ 
+$    phi     circumferential angle
+$ 
+$    n       harmonic number
+$ 
+$    m       number of radial node lines
+$ 
+$ The solution for X and hence w   is found by the use of the boundary
+$                               mk
+$ condition that the flow through the container is zero.
+$ 
+$    +       +             + +
+$    |       | J      (X)  | |
+$    |  d    |  m+1/2      | |
+$    | ---   | ----------- | |      = 0.0                                    (2)
+$    |  dX   |  sqrt(X)    | |
+$    +       +             + + r=R
+$ 
+$ where R is the outer radius.
+$ 
+$ This results in zero frequency for the first root. Multiple roots for other
+$ modes can be seen in Table 1. The finite element model assumes different
+$ pressure distributions in the two angular directions, which causes the
+$ difference in frequencies.
+$ 
+$ D. Results
+$ 
+$ Table 1 summarizes the NASTRAN and analytic results for the lowest nonzero
+$ root in each harmonic. Table 1 lists the theoretical natural frequencies, the
+$ NASTRAN frequencies, the percent error in frequency, and the maximum percent
+$ error in pressure at the wall as compared to the maximum value. Theoretical
+$                                                              0
+$ pressure distributions correspond to the Legendre functions P  (cos theta),
+$                                                              o
+$  1                   2
+$ P  (cos theta), and P  (cos theta), which are proportiomal to cos theta,
+$  o                   o
+$                   2
+$ sin theta, and sin theta, respectively.
+$ 
+$              Table 1. Comparison of NASTRAN and Analytical Results.
+$ 
+$             ---------------------------------------------------------
+$                           Natural Frequency (Hertz)
+$                        --------------------------------  Pressure
+$                                                          Max. % Error
+$             Harmonic   Analytical  NASTRAN    % Error    at Wall
+$             ---------------------------------------------------------
+$               0        33.1279     33.2383     0.33        1.19
+$ 
+$               1        33.1279     33.2060     0.24        0.47
+$ 
+$               2        53.1915     53.3352     0.27        0.91
+$             ---------------------------------------------------------
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 18. B. Raylelgh, THE THEORY OF SOUND. Section 330, 331, MacMillan Co., 1945.
+$-------------------------------------------------------------------------------

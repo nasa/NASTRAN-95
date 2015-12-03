@@ -1,0 +1,77 @@
+$-------------------------------------------------------------------------------
+$              RIGID FORMAT No. 11 (APP AERO), Aeroelastic Response
+$        Jet Transport Wing Dynamic Analysis, Frequency Response (11-3-1)
+$        Jet Transport Wing Dynamic Analysis, Transient Response (11-3-2)
+$ 
+$ A. Description
+$ 
+$ This example illustrates the use of the aeroelastic response analysis to
+$ perform frequency, random, and transient response calculations for a structure
+$ excited by aerodynamic loadings. This problem is also discussed in Section
+$ 1.11.5 of the User's Manual.
+$ 
+$ For this demonstration problem, the aileron is locked and the fuselage to
+$ which the wing is attached is a rigid body represented by grid point 11. Only
+$ out-of-plane motions are retained in the model. The wing is modeled with GENEL
+$ data defining the flexibility matrix, [Z], and a free-body matrix, [S]. The
+$ aileron also is modeled as a rigid body with the hinge line at point 8. The
+$ vertical flap deflection at point 12 is defined by an MPC equation.
+$ 
+$ The aerodynamic model consists of 42 doublet lattice aerodynamic boxes,
+$ forming one coupled group. Three CAERO1 aerodynamic elements are used to
+$ define the areas of uniform mesh on the wing. The aerodynamic degrees of
+$ freedom, implicitly defined by the CAERO data, are coupled to the structure
+$ with surface splines defined on SPLINE2 data cards.
+$ 
+$ B. Input
+$ 
+$ Two separate analyses are performed with this structural model. Problem 11-3-1
+$ performs a frequency response analysis for a smooth gust shape and generates
+$ spectral density output plots for a random gust magnitude. Problem 11-3-2
+$ produces a transient response solution using a Fourier transform of the
+$ frequency response solution.
+$ 
+$ 1. Parameters:
+$ 
+$    V = 5183.2         (Airstream velocity)
+$ 
+$    M = 0.62           (Airstream mach number)
+$ 
+$                   -7
+$    p = 1.1468 x 1O    (Air density)
+$ 
+$    g = 0.06           (Structural damping)
+$ 
+$ 2. Constraints:
+$ 
+$    theta  = theta  = 0    Grid 11 (No fuselage isolation)
+$         y        z
+$ 
+$    u  = u  = theta  = 0   All Grids
+$     x    y        z
+$ 
+$    theta  = theta  = 0    All Grids except 11 and 12
+$         x        y
+$ 
+$ 3. Loads:
+$ 
+$    Problem 11-3-1. Frequency Response Analysis
+$ 
+$             8360
+$      V   =  ---- (1 - cos 2 pi t)     (t < 1)   Gust Velocity
+$       g      2
+$ 
+$    Problem 11-3-2. Transient Analysis
+$ 
+$                8360 t < 1.0
+$      V   =                        Gust Velocity
+$       g      -16720 t > 1.0
+$ 
+$ C. Theory
+$ 
+$ No theoretical results are available to confirm the NASTRAN results.
+$ 
+$ D. Results
+$ 
+$ ??? (fig. refs. only)
+$-------------------------------------------------------------------------------

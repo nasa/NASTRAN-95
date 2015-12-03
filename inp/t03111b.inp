@@ -1,0 +1,42 @@
+NASTRAN BANDIT = -1, FILES = OPTP                                               
+ID    T03111B,NASTRAN                                                           
+$                                                                               
+$ NOTES - FOLLOWING STEPS MUST BE DONE FIRST BEFORE RUNNING THIS DEMO.          
+$     (1) REFER TO COSMIC/NASTRAN DMAP COMPILER SOURCE LISTING IN T03111A       
+$         AND LOCATE THE DMAP NUMBER OF 'LABEL NEWM' (ASSUME IT IS NO. M)       
+$     (2) LOOK FOR THE 'REENTER AT DMAP SEQUENCE NUMBER  N' IN THE T03111A      
+$         CHECKPOINT DICTIONARY DECK (T03111A.PCH OR .DIC), WHERE N IS          
+$         GREATER THAN THE LOCATION M OF (1)                                    
+$     (3) REMOVE ALL THE CARDS FROM THIS 'REENTER AT DMAP SEQ. NO. N' TO        
+$         THE END OF THE T03111A CHECKPOINT DICTIONARY DECK.                    
+$         THE LAST '$ END OF CHECKPOINT DICTIONARY' IS OPTIONAL.                
+$     (4) FATAL ERROR IN QOPEN IF THESE CARDS WERE NOT REMOVED.                 
+$     (5) IN 1993 VERSION, M IN (1) IS 67, AND N IN (2) IS 69                   
+$                                                                               
+READFILE RSCARDS                                                                
+TIME  20                                                                        
+SOL   3,0                                                                       
+APP   DISP                                                                      
+$ INSERT HYDRO DIRECT DMAP ALTERS (COSHYD1) AFTER THIS CARD                     
+READFILE COSHYD1                                                                
+$ INSERT HYDRO DIRECT DMAP ALTERS (COSHYD1) BEFORE THIS CARD                    
+CEND                                                                            
+TITLE    = HYDROELASTIC DIRECT FORMULATION RESTART FOR ADDITIONAL MODES         
+SUBTITLE = NASTRAN TEST PROBLEM NO. T03-11-1B                                   
+$ REFERENCE PROBLEM I.2                                                         
+DISP = ALL                                                                      
+SPCF = ALL                                                                      
+METHOD = 50                                                                     
+SPC  = 10                                                                       
+BEGIN BULK                                                                      
+$                                                                               
+$ NEW EIGR CARD FOR DIFFERENT MODES                                             
+$                                                                               
+/       9       10                                                              
+EIGR    50      GIV     100.0   2500.0                  0               +E1     
++E1     MAX                                                                     
+$                                                                               
+$ PARAMETER TO SKIP UNNEEDED DMAP                                               
+$                                                                               
+PARAM   NEWMODE -1                                                              
+ENDDATA                                                                         

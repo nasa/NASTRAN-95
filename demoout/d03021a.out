@@ -1,0 +1,739 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D03021A,NASTRAN                                                           
+     APP   DISPLACEMENT                                                              
+     SOL   3,3                                                                       
+     TIME  20                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.           
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                          
+                  3              METHOD = 1                                                              
+                  4              AXISYMMETRIC = FLUID                                                    
+                  5        OUTPUT                                                                        
+                  6              HARMONICS = ALL                                                         
+                  7              SET 1 = 1000 THRU 2030, 2090,2150,3022,3090,3157,4018,4090,             
+                  8                      4162,5015,5090,5165,6012,6089,6167,7011,7090,7168,              
+                  9                      8010,8090,8170,9009,9090,9171,10000 THRU 10180                  
+                 10              PRESSURE = 1                                                            
+                 11      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =   289, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        AXIF    100             .001    1.0+3   NO                              +AXIF   
+                    2-        +AXIF   0       THRU    2                                                       
+                    3-        CFLUID2 1       1090    1045                                                    
+                    4-        CFLUID2 2       1135    1090                                                    
+                    5-        CFLUID2 3       1045    2030                                                    
+                    6-        CFLUID2 10      2150    1135                                                    
+                    7-        CFLUID2 11      2030    3022                                                    
+                    8-        CFLUID2 22      3157    2150                                                    
+                    9-        CFLUID2 23      3022    4018                                                    
+                   10-        CFLUID2 38      4162    3157                                                    
+                   11-        CFLUID2 39      4018    5015                                                    
+                   12-        CFLUID2 58      5165    4162                                                    
+                   13-        CFLUID2 59      5015    6012                                                    
+                   14-        CFLUID2 82      6167    5165                                                    
+                   15-        CFLUID2 83      6012    7011                                                    
+                   16-        CFLUID2 110     7168    6167                                                    
+                   17-        CFLUID2 111     7011    8010                                                    
+                   18-        CFLUID2 142     8170    7168                                                    
+                   19-        CFLUID2 143     8010    9009                                                    
+                   20-        CFLUID2 178     9171    8170                                                    
+                   21-        CFLUID2 179     9009    10008                                                   
+                   22-        CFLUID2 218     10171   9171                                                    
+                   23-        CFLUID3 4       2060    2030    1045                                            
+                   24-        CFLUID3 5       1045    1090    2060                                            
+                   25-        CFLUID3 6       2090    2060    1090                                            
+                   26-        CFLUID3 7       2120    2090    1090                                            
+                   27-        CFLUID3 8       1090    1135    2120                                            
+                   28-        CFLUID3 9       2150    2120    1135                                            
+                   29-        CFLUID3 12      3045    3022    2030                                            
+                   30-        CFLUID3 13      2030    2060    3045                                            
+                   31-        CFLUID3 14      3067    3045    2060                                            
+                   32-        CFLUID3 15      2060    2090    3067                                            
+                   33-        CFLUID3 16      3090    3067    2090                                            
+                   34-        CFLUID3 17      3112    3090    2090                                            
+                   35-        CFLUID3 18      2090    2120    3112                                            
+                   36-        CFLUID3 19      3135    3112    2120                                            
+                   37-        CFLUID3 20      2120    2150    3135                                            
+                   38-        CFLUID3 21      3157    3135    2150                                            
+                   39-        CFLUID3 24      4036    4018    3022                                            
+                   40-        CFLUID3 25      3022    3045    4036                                            
+                   41-        CFLUID3 26      4054    4036    3045                                            
+                   42-        CFLUID3 27      3045    3067    4054                                            
+                   43-        CFLUID3 28      4072    4054    3067                                            
+                   44-        CFLUID3 29      3067    3090    4072                                            
+                   45-        CFLUID3 30      4090    4072    3090                                            
+                   46-        CFLUID3 31      4108    4090    3090                                            
+                   47-        CFLUID3 32      3090    3112    4108                                            
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   48-        CFLUID3 33      4126    4108    3112                                            
+                   49-        CFLUID3 34      3112    3135    4126                                            
+                   50-        CFLUID3 35      4144    4126    3135                                            
+                   51-        CFLUID3 36      3135    3157    4144                                            
+                   52-        CFLUID3 37      4162    4144    3157                                            
+                   53-        CFLUID3 40      5030    5015    4018                                            
+                   54-        CFLUID3 41      4018    4036    5030                                            
+                   55-        CFLUID3 42      5045    5030    4036                                            
+                   56-        CFLUID3 43      4036    4054    5045                                            
+                   57-        CFLUID3 44      5060    5045    4054                                            
+                   58-        CFLUID3 45      4054    4072    5060                                            
+                   59-        CFLUID3 46      5075    5060    4072                                            
+                   60-        CFLUID3 47      4072    4090    5075                                            
+                   61-        CFLUID3 48      5090    5075    4090                                            
+                   62-        CFLUID3 49      5105    5090    4090                                            
+                   63-        CFLUID3 50      4090    4108    5105                                            
+                   64-        CFLUID3 51      5120    5105    4108                                            
+                   65-        CFLUID3 52      4108    4126    5120                                            
+                   66-        CFLUID3 53      5135    5120    4126                                            
+                   67-        CFLUID3 54      4126    4144    5135                                            
+                   68-        CFLUID3 55      5150    5135    4144                                            
+                   69-        CFLUID3 56      4144    4162    5150                                            
+                   70-        CFLUID3 57      5165    5150    4162                                            
+                   71-        CFLUID3 60      6025    6012    5015                                            
+                   72-        CFLUID3 61      5015    5030    6025                                            
+                   73-        CFLUID3 62      6038    6025    5030                                            
+                   74-        CFLUID3 63      5030    5045    6038                                            
+                   75-        CFLUID3 64      6051    6038    5045                                            
+                   76-        CFLUID3 65      5045    5060    6051                                            
+                   77-        CFLUID3 66      6064    6051    5060                                            
+                   78-        CFLUID3 67      5060    5075    6064                                            
+                   79-        CFLUID3 68      6077    6064    5075                                            
+                   80-        CFLUID3 69      5075    5090    6077                                            
+                   81-        CFLUID3 70      6089    6077    5090                                            
+                   82-        CFLUID3 71      6102    6089    5090                                            
+                   83-        CFLUID3 72      5090    5105    6102                                            
+                   84-        CFLUID3 73      6115    6102    5105                                            
+                   85-        CFLUID3 74      5105    5120    6115                                            
+                   86-        CFLUID3 75      6128    6115    5120                                            
+                   87-        CFLUID3 76      5120    5135    6128                                            
+                   88-        CFLUID3 77      6141    6128    5135                                            
+                   89-        CFLUID3 78      5135    5150    6141                                            
+                   90-        CFLUID3 79      6154    6141    5150                                            
+                   91-        CFLUID3 80      5150    5165    6154                                            
+                   92-        CFLUID3 81      6167    6154    5165                                            
+                   93-        CFLUID3 84      7022    7011    6012                                            
+                   94-        CFLUID3 85      6012    6025    7022                                            
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                   95-        CFLUID3 86      7033    7022    6025                                            
+                   96-        CFLUID3 87      6025    6038    7033                                            
+                   97-        CFLUID3 88      7045    7033    6038                                            
+                   98-        CFLUID3 89      6038    6051    7045                                            
+                   99-        CFLUID3 90      7056    7045    6051                                            
+                  100-        CFLUID3 91      6051    6064    7056                                            
+                  101-        CFLUID3 92      7067    7056    6064                                            
+                  102-        CFLUID3 93      6064    6077    7067                                            
+                  103-        CFLUID3 94      7078    7067    6077                                            
+                  104-        CFLUID3 95      6077    6089    7078                                            
+                  105-        CFLUID3 96      7090    7078    6089                                            
+                  106-        CFLUID3 97      7101    7090    6089                                            
+                  107-        CFLUID3 98      6089    6102    7101                                            
+                  108-        CFLUID3 99      7112    7101    6102                                            
+                  109-        CFLUID3 100     6102    6115    7112                                            
+                  110-        CFLUID3 101     7123    7112    6115                                            
+                  111-        CFLUID3 102     6115    6128    7123                                            
+                  112-        CFLUID3 103     7135    7123    6128                                            
+                  113-        CFLUID3 104     6128    6141    7135                                            
+                  114-        CFLUID3 105     7146    7135    6141                                            
+                  115-        CFLUID3 106     6141    6154    7146                                            
+                  116-        CFLUID3 107     7157    7146    6154                                            
+                  117-        CFLUID3 108     6154    6167    7157                                            
+                  118-        CFLUID3 109     7168    7157    6167                                            
+                  119-        CFLUID3 112     8020    8010    7011                                            
+                  120-        CFLUID3 113     7011    7022    8020                                            
+                  121-        CFLUID3 114     8030    8020    7022                                            
+                  122-        CFLUID3 115     7022    7033    8030                                            
+                  123-        CFLUID3 116     8040    8030    7033                                            
+                  124-        CFLUID3 117     7033    7045    8040                                            
+                  125-        CFLUID3 118     8050    8040    7045                                            
+                  126-        CFLUID3 119     7045    7056    8050                                            
+                  127-        CFLUID3 120     8060    8050    7056                                            
+                  128-        CFLUID3 121     7056    7067    8060                                            
+                  129-        CFLUID3 122     8070    8060    7067                                            
+                  130-        CFLUID3 123     7067    7078    8070                                            
+                  131-        CFLUID3 124     8080    8070    7078                                            
+                  132-        CFLUID3 125     7078    7090    8080                                            
+                  133-        CFLUID3 126     8090    8080    7090                                            
+                  134-        CFLUID3 127     8100    8090    7090                                            
+                  135-        CFLUID3 128     7090    7101    8100                                            
+                  136-        CFLUID3 129     8110    8100    7101                                            
+                  137-        CFLUID3 130     7101    7112    8110                                            
+                  138-        CFLUID3 131     8120    8110    7112                                            
+                  139-        CFLUID3 132     7112    7123    8120                                            
+                  140-        CFLUID3 133     8130    8120    7123                                            
+                  141-        CFLUID3 134     7123    7135    8130                                            
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  142-        CFLUID3 135     8140    8130    7135                                            
+                  143-        CFLUID3 136     7135    7146    8140                                            
+                  144-        CFLUID3 137     8150    8140    7146                                            
+                  145-        CFLUID3 138     7146    7157    8150                                            
+                  146-        CFLUID3 139     8160    8150    7157                                            
+                  147-        CFLUID3 140     7157    7168    8160                                            
+                  148-        CFLUID3 141     8170    8160    7168                                            
+                  149-        CFLUID3 144     9018    9009    8010                                            
+                  150-        CFLUID3 145     8010    8020    9018                                            
+                  151-        CFLUID3 146     9027    9018    8020                                            
+                  152-        CFLUID3 147     8020    8030    9027                                            
+                  153-        CFLUID3 148     9036    9027    8030                                            
+                  154-        CFLUID3 149     8030    8040    9036                                            
+                  155-        CFLUID3 150     9045    9036    8040                                            
+                  156-        CFLUID3 151     8040    8050    9045                                            
+                  157-        CFLUID3 152     9054    9045    8050                                            
+                  158-        CFLUID3 153     8050    8060    9054                                            
+                  159-        CFLUID3 154     9063    9054    8060                                            
+                  160-        CFLUID3 155     8060    8070    9063                                            
+                  161-        CFLUID3 156     9072    9063    8070                                            
+                  162-        CFLUID3 157     8070    8080    9072                                            
+                  163-        CFLUID3 158     9081    9072    8080                                            
+                  164-        CFLUID3 159     8080    8090    9081                                            
+                  165-        CFLUID3 160     9090    9081    8090                                            
+                  166-        CFLUID3 161     9099    9090    8090                                            
+                  167-        CFLUID3 162     8090    8100    9099                                            
+                  168-        CFLUID3 163     9108    9099    8100                                            
+                  169-        CFLUID3 164     8100    8110    9108                                            
+                  170-        CFLUID3 165     9117    9108    8110                                            
+                  171-        CFLUID3 166     8110    8120    9117                                            
+                  172-        CFLUID3 167     9126    9117    8120                                            
+                  173-        CFLUID3 168     8120    8130    9126                                            
+                  174-        CFLUID3 169     9135    9126    8130                                            
+                  175-        CFLUID3 170     8130    8140    9135                                            
+                  176-        CFLUID3 171     9144    9135    8140                                            
+                  177-        CFLUID3 172     8140    8150    9144                                            
+                  178-        CFLUID3 173     9153    9144    8150                                            
+                  179-        CFLUID3 174     8150    8160    9153                                            
+                  180-        CFLUID3 175     9162    9153    8160                                            
+                  181-        CFLUID3 176     8160    8170    9162                                            
+                  182-        CFLUID3 177     9171    9162    8170                                            
+                  183-        CFLUID3 180     10016   10008   9009                                            
+                  184-        CFLUID3 181     9009    9018    10016                                           
+                  185-        CFLUID3 182     10024   10016   9018                                            
+                  186-        CFLUID3 183     9018    9027    10024                                           
+                  187-        CFLUID3 184     10032   10024   9027                                            
+                  188-        CFLUID3 185     9027    9036    10032                                           
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  189-        CFLUID3 186     10040   10032   9036                                            
+                  190-        CFLUID3 187     9036    9045    10040                                           
+                  191-        CFLUID3 188     10049   10040   9045                                            
+                  192-        CFLUID3 189     9045    9054    10049                                           
+                  193-        CFLUID3 190     10057   10049   9054                                            
+                  194-        CFLUID3 191     9054    9063    10057                                           
+                  195-        CFLUID3 192     10065   10057   9063                                            
+                  196-        CFLUID3 193     9063    9072    10065                                           
+                  197-        CFLUID3 194     10073   10065   9072                                            
+                  198-        CFLUID3 195     9072    9081    10073                                           
+                  199-        CFLUID3 196     10081   10073   9081                                            
+                  200-        CFLUID3 197     9081    9090    10081                                           
+                  201-        CFLUID3 198     10089   10081   9090                                            
+                  202-        CFLUID3 199     10098   10089   9090                                            
+                  203-        CFLUID3 200     9090    9099    10098                                           
+                  204-        CFLUID3 201     10106   10098   9099                                            
+                  205-        CFLUID3 202     9099    9108    10106                                           
+                  206-        CFLUID3 203     10114   10106   9108                                            
+                  207-        CFLUID3 204     9108    9117    10114                                           
+                  208-        CFLUID3 205     10122   10114   9117                                            
+                  209-        CFLUID3 206     9117    9126    10122                                           
+                  210-        CFLUID3 207     10130   10122   9126                                            
+                  211-        CFLUID3 208     9126    9135    10130                                           
+                  212-        CFLUID3 209     10139   10130   9135                                            
+                  213-        CFLUID3 210     9135    9144    10139                                           
+                  214-        CFLUID3 211     10147   10139   9144                                            
+                  215-        CFLUID3 212     9144    9153    10147                                           
+                  216-        CFLUID3 213     10155   10147   9153                                            
+                  217-        CFLUID3 214     9153    9162    10155                                           
+                  218-        CFLUID3 215     10163   10155   9162                                            
+                  219-        CFLUID3 216     9162    9171    10163                                           
+                  220-        CFLUID3 217     10171   10163   9171                                            
+                  221-        CORD2S  100     0       .0      .0      10.0    .0      .0      20.0    +CORD2S 
+                  222-        +CORD2S .0      1.0     .0                                                      
+                  223-        EIGR    1       INV     14.0    60.0    2       7               1.0-6   +EIGR-1 
+                  224-        +EIGR-1 MAX                                                                     
+                  225-        RINGFL  1045    1.00000 45.0000         1090    1.00000 90.0000                 
+                  226-        RINGFL  1135    1.00000 135.000                                                 
+                  227-        RINGFL  2030    2.00000 30.0000         2060    2.00000 60.0000                 
+                  228-        RINGFL  2090    2.00000 90.0000         2120    2.00000 120.000                 
+                  229-        RINGFL  2150    2.00000 150.000                                                 
+                  230-        RINGFL  3022    3.00000 22.5000         3045    3.00000 45.0000                 
+                  231-        RINGFL  3067    3.00000 67.5000         3090    3.00000 90.0000                 
+                  232-        RINGFL  3112    3.00000 112.500         3135    3.00000 135.000                 
+                  233-        RINGFL  3157    3.00000 157.500                                                 
+                  234-        RINGFL  4018    4.00000 18.0000         4036    4.00000 36.0000                 
+                  235-        RINGFL  4054    4.00000 54.0000         4072    4.00000 72.0000                 
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  236-        RINGFL  4090    4.00000 90.0000         4108    4.00000 108.000                 
+                  237-        RINGFL  4126    4.00000 126.000         4144    4.00000 144.000                 
+                  238-        RINGFL  4162    4.00000 162.000                                                 
+                  239-        RINGFL  5015    5.00000 15.0000         5030    5.00000 30.0000                 
+                  240-        RINGFL  5045    5.00000 45.0000         5060    5.00000 60.0000                 
+                  241-        RINGFL  5075    5.00000 75.0000         5090    5.00000 90.0000                 
+                  242-        RINGFL  5105    5.00000 105.000         5120    5.00000 120.000                 
+                  243-        RINGFL  5135    5.00000 135.000         5150    5.00000 150.000                 
+                  244-        RINGFL  5165    5.00000 165.000                                                 
+                  245-        RINGFL  6012    6.00000 12.8571         6025    6.00000 25.7143                 
+                  246-        RINGFL  6038    6.00000 38.5714         6051    6.00000 51.4286                 
+                  247-        RINGFL  6064    6.00000 64.2857         6077    6.00000 77.1429                 
+                  248-        RINGFL  6089    6.00000 90.0000         6102    6.00000 102.857                 
+                  249-        RINGFL  6115    6.00000 115.714         6128    6.00000 128.571                 
+                  250-        RINGFL  6141    6.00000 141.429         6154    6.00000 154.286                 
+                  251-        RINGFL  6167    6.00000 167.143                                                 
+                  252-        RINGFL  7011    7.00000 11.2500         7022    7.00000 22.5000                 
+                  253-        RINGFL  7033    7.00000 33.7500         7045    7.00000 45.0000                 
+                  254-        RINGFL  7056    7.00000 56.2500         7067    7.00000 67.5000                 
+                  255-        RINGFL  7078    7.00000 78.7500         7090    7.00000 90.0000                 
+                  256-        RINGFL  7101    7.00000 101.250         7112    7.00000 112.500                 
+                  257-        RINGFL  7123    7.00000 123.750         7135    7.00000 135.000                 
+                  258-        RINGFL  7146    7.00000 146.250         7157    7.00000 157.500                 
+                  259-        RINGFL  7168    7.00000 168.750                                                 
+                  260-        RINGFL  8010    8.00000 10.0000         8020    8.00000 20.0000                 
+                  261-        RINGFL  8030    8.00000 30.0000         8040    8.00000 40.0000                 
+                  262-        RINGFL  8050    8.00000 50.0000         8060    8.00000 60.0000                 
+                  263-        RINGFL  8070    8.00000 70.0000         8080    8.00000 80.0000                 
+                  264-        RINGFL  8090    8.00000 90.0000         8100    8.00000 100.000                 
+                  265-        RINGFL  8110    8.00000 110.000         8120    8.00000 120.000                 
+                  266-        RINGFL  8130    8.00000 130.000         8140    8.00000 140.000                 
+                  267-        RINGFL  8150    8.00000 150.000         8160    8.00000 160.000                 
+                  268-        RINGFL  8170    8.00000 170.000                                                 
+                  269-        RINGFL  9009    9.00000 9.00000         9018    9.00000 18.0000                 
+                  270-        RINGFL  9027    9.00000 27.0000         9036    9.00000 36.0000                 
+                  271-        RINGFL  9045    9.00000 45.0000         9054    9.00000 54.0000                 
+                  272-        RINGFL  9063    9.00000 63.0000         9072    9.00000 72.0000                 
+                  273-        RINGFL  9081    9.00000 81.0000         9090    9.00000 90.0000                 
+                  274-        RINGFL  9099    9.00000 99.0000         9108    9.00000 108.000                 
+                  275-        RINGFL  9117    9.00000 117.000         9126    9.00000 126.000                 
+                  276-        RINGFL  9135    9.00000 135.000         9144    9.00000 144.000                 
+                  277-        RINGFL  9153    9.00000 153.000         9162    9.00000 162.000                 
+                  278-        RINGFL  9171    9.00000 171.000                                                 
+                  279-        RINGFL  10008   10.0000 8.18182         10016   10.0000 16.3636                 
+                  280-        RINGFL  10024   10.0000 24.5455         10032   10.0000 32.7273                 
+                  281-        RINGFL  10040   10.0000 40.9091         10049   10.0000 49.0909                 
+                  282-        RINGFL  10057   10.0000 57.2727         10065   10.0000 65.4545                 
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+
+                                                                                                                                    
+
+                                                  S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                  283-        RINGFL  10073   10.0000 73.6364         10081   10.0000 81.8182                 
+                  284-        RINGFL  10089   10.0000 90.0000         10098   10.0000 98.1818                 
+                  285-        RINGFL  10106   10.0000 106.364         10114   10.0000 114.545                 
+                  286-        RINGFL  10122   10.0000 122.727         10130   10.0000 130.909                 
+                  287-        RINGFL  10139   10.0000 139.091         10147   10.0000 147.273                 
+                  288-        RINGFL  10155   10.0000 155.455         10163   10.0000 163.636                 
+                  289-        RINGFL  10171   10.0000 171.818                                                 
+                              ENDDATA
+0*** USER INFORMATION MESSAGE - GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     THE PRESENCE OF AXISYMMETRIC FLUID DATA
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION FLUID2   ELEMENTS (ELEMENT TYPE  43) STARTING WITH ID     1002
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION FLUID3   ELEMENTS (ELEMENT TYPE  44) STARTING WITH ID     4002
+                        3 ROOTS BELOW   7.493005E+04
+                        1 ROOTS BELOW   4.301296E+04
+                        2 ROOTS BELOW   4.353066E+04
+                        1 ROOTS BELOW   4.199647E+04
+                        2 ROOTS BELOW   4.361502E+04
+                        4 ROOTS BELOW   1.123079E+05
+                        5 ROOTS BELOW   1.128807E+05
+                        6 ROOTS BELOW   1.130724E+05
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+0                                                                                                                                   
+ 
+ 
+                              E I G E N V A L U E   A N A L Y S I S   S U M M A R Y     (INVERSE POWER METHOD)
+0
+0                                       NUMBER OF EIGENVALUES EXTRACTED  . . . . . .         6
+0                                       NUMBER OF STARTING POINTS USED . . . . . . .         1
+0                                       NUMBER OF STARTING POINT MOVES . . . . . . .         0
+0                                       NUMBER OF TRIANGULAR DECOMPOSITIONS  . . . .         9
+0                                       TOTAL NUMBER OF VECTOR ITERATIONS  . . . . .        63
+
+0                                       REASON FOR TERMINATION . . . . . . . . . . .         4*
+
+0                                       LARGEST OFF-DIAGONAL MODAL MASS TERM . . . .  0.11E-07
+0                                                                              . . .         6
+                                                  MODE PAIR . . . . . . . . . .
+                                                                               . . .         3
+0                                       NUMBER OF OFF-DIAGONAL MODAL MASS
+                                             TERMS FAILING CRITERION . . . . . . . .         0
+
+0                                       (* 3X EST.ROOTS IN RANGE SPECIFIED.
+                                         SEE NASTRAN U.M. VOL II, SECTION 2.3.3)
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+0                                                                                                                                   
+ 
+                                              R E A L   E I G E N V A L U E S
+
+   MODE    EXTRACTION       EIGENVALUE            RADIAN              CYCLIC           GENERALIZED         GENERALIZED
+    NO.       ORDER                              FREQUENCY           FREQUENCY            MASS              STIFFNESS
+
+
+                                     ****************************************************************
+                                     *                                                              *
+                                     *
++                                             NASTRAN INFORMATION MESSAGE 3307, POTENTIALLY         *
+                                     *         6 EIGENVALUE(S) AT LOW FREQ. END NOT FOUND           *
+                                     *                                                              *
+                                     *        (THIS MESSAGE CAN BE SUPPRESSED BY DIAG 37)           *
+                                     ****************************************************************
+
+        1         6       -9.941588E-07        9.970751E-04        1.586894E-04        4.167041E+00       -4.142700E-06             
+        2         1        4.353046E+04        2.086395E+02        3.320601E+01        1.124695E+00        4.895847E+04             
+        3         2        4.361502E+04        2.088421E+02        3.323825E+01        1.141329E+00        4.977908E+04             
+        4         3        1.123020E+05        3.351149E+02        5.333519E+01        7.769185E-01        8.724948E+04             
+        5         5        1.125953E+05        3.355523E+02        5.340480E+01        7.691594E-01        8.660377E+04             
+        6         4        1.130695E+05        3.362581E+02        5.351714E+01        6.095798E-01        6.892491E+04             
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE = -0.994159E-06    (CYCLIC FREQUENCY =  1.586894E-04 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          1
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           0      1045   1.000000E+00    1090   1.000000E+00    1135   1.000000E+00    2030   1.000000E+00    2090   1.000000E+00
+           0      2150   1.000000E+00    3022   1.000000E+00    3090   1.000000E+00    3157   1.000000E+00    4018   1.000000E+00
+           0      4090   1.000000E+00    4162   1.000000E+00    5015   1.000000E+00    5090   1.000000E+00    5165   1.000000E+00
+           0      6012   1.000000E+00    6089   1.000000E+00    6167   1.000000E+00    7011   1.000000E+00    7090   1.000000E+00
+           0      7168   1.000000E+00    8010   1.000000E+00    8090   1.000000E+00    8170   1.000000E+00    9009   1.000000E+00
+           0      9090   1.000000E+00    9171   1.000000E+00   10008   1.000000E+00   10016   1.000000E+00   10024   1.000000E+00
+           0     10032   1.000000E+00   10040   1.000000E+00   10049   1.000000E+00   10057   1.000000E+00   10065   1.000000E+00
+           0     10073   1.000000E+00   10081   1.000000E+00   10089   1.000000E+00   10098   1.000000E+00   10106   1.000000E+00
+           0     10114   1.000000E+00   10122   1.000000E+00   10130   1.000000E+00   10139   1.000000E+00   10147   1.000000E+00
+           0     10155   1.000000E+00   10163   1.000000E+00   10171   1.000000E+00
+           1      1045  -3.653751E-09    1090  -3.540433E-15    1135   3.653725E-09    2030  -1.277524E-08    2090   1.955348E-14
+           1      2150   1.277512E-08    3022  -2.272239E-08    3090   9.625901E-14    3157   2.272207E-08    4018  -3.186292E-08
+           1      4090   2.378945E-13    4162   3.186234E-08    5015  -3.944346E-08    5090   4.403702E-13    5165   3.944260E-08
+           1      6012  -4.502592E-08    6089   6.741148E-13    6167   4.502439E-08    7011  -4.836513E-08    7090   9.229295E-13
+           1      7168   4.836373E-08    8010  -4.936317E-08    8090   1.139151E-12    8170   4.936168E-08    9009  -4.802225E-08
+           1      9090   1.281022E-12    9171   4.802072E-08   10008  -4.432538E-08   10016  -8.512284E-08   10024  -1.189447E-07
+           1     10032  -1.430077E-07   10040  -1.554446E-07   10049  -1.553174E-07   10057  -1.426613E-07   10065  -1.184814E-07
+           1     10073  -8.469764E-08   10081  -4.404997E-08   10089   1.310011E-12   10098   4.405229E-08   10106   8.470116E-08
+           1     10114   1.184799E-07   10122   1.426596E-07   10130   1.553150E-07   10139   1.554413E-07   10147   1.430034E-07
+           1     10155   1.189395E-07   10163   8.512209E-08   10171   4.432493E-08
+           2      1045  -1.205501E-15    1090  -7.619798E-18    1135   1.152390E-15    2030  -7.479918E-15    2090   6.527036E-17
+           2      2150   6.966643E-15    3022  -1.558781E-14    3090   7.151159E-16    3157   1.406919E-14    4018  -2.349885E-14
+           2      4090   2.518874E-15    4162   2.054454E-14    5015  -3.008151E-14    5090   5.856665E-15    5165   2.551782E-14
+           2      6012  -3.462894E-14    6089   1.066709E-14    6167   2.858179E-14    7011  -3.674640E-14    7090   1.634069E-14
+           2      7168   2.962382E-14    8010  -3.630254E-14    8090   2.179055E-14    8170   2.872264E-14    9009  -3.333526E-14
+           2      9090   2.567681E-14    9171   2.604411E-14   10008  -2.767009E-14   10016  -1.116832E-13   10024  -2.323951E-13
+           2     10032  -3.611595E-13   10040  -4.688630E-13   10049  -5.305632E-13   10057  -5.298421E-13   10065  -4.615526E-13
+           2     10073  -3.326305E-13   10081  -1.610116E-13   10089   2.668502E-14   10098   2.076726E-13   10106   3.565302E-13
+           2     10114   4.540413E-13   10122   4.912864E-13   10130   4.695992E-13   10139   3.994467E-13   10147   2.981793E-13
+           2     10155   1.870944E-13   10163   8.819979E-14   10171   2.153377E-14
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.435305E+05    (CYCLIC FREQUENCY =  3.320601E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          2
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           0      1045  -7.503082E-11    1090   4.516317E-18    1135   7.503082E-11    2030  -1.817122E-10    2090   8.652946E-18
+           0      2150   1.817122E-10    3022  -2.848692E-10    3090   1.222971E-17    3157   2.848692E-10    4018  -3.794896E-10
+           0      4090   1.498396E-17    4162   3.794896E-10    5015  -4.631611E-10    5090   1.632069E-17    5165   4.631611E-10
+           0      6012  -5.340182E-10    6089   3.616319E-17    6167   5.340184E-10    7011  -5.905459E-10    7090   3.432387E-17
+           0      7168   5.905459E-10    8010  -6.315894E-10    8090   3.705749E-17    8170   6.315894E-10    9009  -6.563555E-10
+           0      9090   3.659512E-17    9171   6.563555E-10   10008  -6.643496E-10   10016  -6.453745E-10   10024  -6.122522E-10
+           0     10032  -5.663993E-10   10040  -5.089481E-10   10049  -4.411320E-10   10057  -3.643342E-10   10065  -2.800886E-10
+           0     10073  -1.900684E-10   10081  -9.607495E-11   10089   2.225831E-17   10098   9.607484E-11   10106   1.900732E-10
+           0     10114   2.800831E-10   10122   3.643311E-10   10130   4.411310E-10   10139   5.089489E-10   10147   5.664011E-10
+           0     10155   6.122548E-10   10163   6.453731E-10   10171   6.643492E-10
+           1      1045   1.081122E-01    1090   1.602669E-01    1135   1.081122E-01    2030   1.581246E-01    2090   3.154834E-01
+           1      2150   1.581246E-01    3022   1.779600E-01    3090   4.627793E-01    3157   1.779600E-01    4018   1.858444E-01
+           1      4090   5.979627E-01    4162   1.858444E-01    5015   1.869842E-01    5090   7.176726E-01    5165   1.869842E-01
+           1      6012   1.836022E-01    6089   8.189964E-01    6167   1.836007E-01    7011   1.768773E-01    7090   8.995367E-01
+           1      7168   1.768773E-01    8010   1.675098E-01    8090   9.574427E-01    8170   1.675099E-01    9009   1.558782E-01
+           1      9090   9.913404E-01    9171   1.558783E-01   10008   1.418859E-01   10016   2.823497E-01   10024   4.171494E-01
+           1     10032   5.432471E-01   10040   6.581464E-01   10049   7.595927E-01   10057   8.455684E-01   10065   9.142971E-01
+           1     10073   9.642134E-01   10081   9.937338E-01   10089   1.000000E+00   10098   9.937338E-01   10106   9.642115E-01
+           1     10114   9.143009E-01   10122   8.455713E-01   10130   7.595940E-01   10139   6.581451E-01   10147   5.432428E-01
+           1     10155   4.171412E-01   10163   2.823568E-01   10171   1.418893E-01
+           2      1045  -2.412837E-28    1090  -6.502677E-28    1135  -2.412837E-28    2030  -6.195159E-28    2090  -2.671918E-27
+           2      2150  -6.195161E-28    3022  -7.906310E-28    3090  -5.856119E-27    3157  -7.906311E-28    4018  -8.674287E-28
+           2      4090  -9.866251E-27    4162  -8.674290E-28    5015  -8.842254E-28    5090  -1.431115E-26    5165  -8.842278E-28
+           2      6012  -8.592982E-28    6089  -1.875868E-26    6167  -8.592808E-28    7011  -8.041078E-28    7090  -2.277217E-26
+           2      7168  -8.041080E-28    8010  -7.265484E-28    8090  -2.594682E-26    8170  -7.265489E-28    9009  -6.313835E-28
+           2      9090  -2.793836E-26    9171  -6.313812E-28   10008  -5.157671E-28   10016  -2.194439E-27   10024  -4.895238E-27
+           2     10032  -8.364663E-27   10040  -1.231326E-26   10049  -1.642054E-26   10057  -2.035634E-26   10065  -2.380267E-26
+           2     10073  -2.647293E-26   10081  -2.811828E-26   10089  -2.847128E-26   10098  -2.811827E-26   10106  -2.647282E-26
+           2     10114  -2.380287E-26   10122  -2.035647E-26   10130  -1.642059E-26   10139  -1.231321E-26   10147  -8.364523E-27
+           2     10155  -4.895045E-27   10163  -2.194556E-27   10171  -5.157964E-28
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.436150E+05    (CYCLIC FREQUENCY =  3.323825E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          3
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           0      1045   1.129387E-01    1090  -6.794975E-09    1135  -1.129387E-01    2030   2.735190E-01    2090  -1.302178E-08
+           0      2150  -2.735190E-01    3022   4.287940E-01    3090  -1.840591E-08    3157  -4.287941E-01    4018   5.712197E-01
+           0      4090  -2.255191E-08    4162  -5.712197E-01    5015   6.971647E-01    5090  -2.456421E-08    5165  -6.971647E-01
+           0      6012   8.038210E-01    6089  -5.443193E-08    6167  -8.038214E-01    7011   8.889084E-01    7090  -5.166337E-08
+           0      7168  -8.889084E-01    8010   9.506882E-01    8090  -5.577805E-08    8170  -9.506882E-01    9009   9.879670E-01
+           0      9090  -5.508199E-08    9171  -9.879670E-01   10008   1.000000E+00   10016   9.714382E-01   10024   9.215813E-01
+           0     10032   8.525621E-01   10040   7.660847E-01   10049   6.640058E-01   10057   5.484073E-01   10065   4.215983E-01
+           0     10073   2.860970E-01   10081   1.446151E-01   10089  -3.350176E-08   10098  -1.446149E-01   10106  -2.861042E-01
+           0     10114  -4.215899E-01   10122  -5.484027E-01   10130  -6.640043E-01   10139  -7.660858E-01   10147  -8.525649E-01
+           0     10155  -9.215852E-01   10163  -9.714361E-01   10171  -9.999995E-01
+           1      1045   7.288661E-11    1090   1.080480E-10    1135   7.288661E-11    2030   1.066037E-10    2090   2.126911E-10
+           1      2150   1.066037E-10    3022   1.199762E-10    3090   3.119944E-10    3157   1.199763E-10    4018   1.252917E-10
+           1      4090   4.031317E-10    4162   1.252917E-10    5015   1.260601E-10    5090   4.838372E-10    5165   1.260601E-10
+           1      6012   1.237801E-10    6089   5.521472E-10    6167   1.237791E-10    7011   1.192463E-10    7090   6.064454E-10
+           1      7168   1.192463E-10    8010   1.129310E-10    8090   6.454843E-10    8170   1.129310E-10    9009   1.050892E-10
+           1      9090   6.683372E-10    9171   1.050893E-10   10008   9.565596E-11   10016   1.903532E-10   10024   2.812318E-10
+           1     10032   3.662438E-10   10040   4.437061E-10   10049   5.120987E-10   10057   5.700614E-10   10065   6.163965E-10
+           1     10073   6.500490E-10   10081   6.699508E-10   10089   6.741754E-10   10098   6.699508E-10   10106   6.500476E-10
+           1     10114   6.163992E-10   10122   5.700633E-10   10130   5.120995E-10   10139   4.437052E-10   10147   3.662409E-10
+           1     10155   2.812263E-10   10163   1.903580E-10   10171   9.565825E-11
+           2      1045   2.010157E-30    1090   5.417442E-30    1135   2.010157E-30    2030   5.161244E-30    2090   2.226001E-29
+           2      2150   5.161247E-30    3022   6.586820E-30    3090   4.878788E-29    3157   6.586823E-30    4018   7.226629E-30
+           2      4090   8.219667E-29    4162   7.226633E-30    5015   7.366563E-30    5090   1.192275E-28    5165   7.366586E-30
+           2      6012   7.158893E-30    6089   1.562804E-28    6167   7.158751E-30    7011   6.699095E-30    7090   1.897171E-28
+           2      7168   6.699101E-30    8010   6.052941E-30    8090   2.161654E-28    8170   6.052948E-30    9009   5.260114E-30
+           2      9090   2.327571E-28    9171   5.260097E-30   10008   4.296903E-30   10016   1.828208E-29   10024   4.078268E-29
+           2     10032   6.968678E-29   10040   1.025829E-28   10049   1.368010E-28   10057   1.695906E-28   10065   1.983022E-28
+           2     10073   2.205485E-28   10081   2.342560E-28   10089   2.371969E-28   10098   2.342560E-28   10106   2.205475E-28
+           2     10114   1.983039E-28   10122   1.695917E-28   10130   1.368015E-28   10139   1.025825E-28   10147   6.968565E-29
+           2     10155   4.078109E-29   10163   1.828306E-29   10171   4.297150E-30
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.112302E+06    (CYCLIC FREQUENCY =  5.333519E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          4
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           0      1045   3.107230E-14    1090  -1.992457E-14    1135   3.107230E-14    2030   1.721223E-13    2090  -1.186894E-13
+           0      2150   1.721223E-13    3022   4.327658E-13    3090  -2.665629E-13    3157   4.327658E-13    4018   7.817540E-13
+           0      4090  -4.515453E-13    4162   7.817541E-13    5015   1.180750E-12    5090  -6.563953E-13    5165   1.180750E-12
+           0      6012   1.588300E-12    6089  -8.615034E-13    6167   1.588303E-12    7011   1.962800E-12    7090  -1.046785E-12
+           0      7168   1.962801E-12    8010   2.265711E-12    8090  -1.193377E-12    8170   2.265711E-12    9009   2.464481E-12
+           0      9090  -1.284847E-12    9171   2.464481E-12   10008   2.534484E-12   10016   2.313257E-12   10024   1.947028E-12
+           0     10032   1.473422E-12   10040   9.327953E-13   10049   3.693156E-13   10057  -1.715398E-13   10065  -6.459514E-13
+           0     10073  -1.014628E-12   10081  -1.244706E-12   10089  -1.307108E-12   10098  -1.244706E-12   10106  -1.014612E-12
+           0     10114  -6.459787E-13   10122  -1.715595E-13   10130   3.693078E-13   10139   9.328023E-13   10147   1.473441E-12
+           0     10155   1.947056E-12   10163   2.313241E-12   10171   2.534480E-12
+           1      1045   5.310666E-12    1090   1.713602E-19    1135  -5.310665E-12    2030   1.856857E-11    2090  -1.375775E-18
+           1      2150  -1.856857E-11    3022   3.302649E-11    3090  -5.065784E-18    3157  -3.302649E-11    4018   4.631195E-11
+           1      4090  -1.109302E-17    4162  -4.631195E-11    5015   5.732996E-11    5090  -1.967400E-17    5165  -5.732999E-11
+           1      6012   6.544380E-11    6089  -1.637133E-17    6167  -6.544327E-11    7011   7.029713E-11    7090  -2.406947E-17
+           1      7168  -7.029713E-11    8010   7.174767E-11    8090  -2.991237E-17    8170  -7.174773E-11    9009   6.979864E-11
+           1      9090  -3.053565E-17    9171  -6.979869E-11   10008   6.442535E-11   10016   1.237231E-10   10024   1.728823E-10
+           1     10032   2.078574E-10   10040   2.259346E-10   10049   2.257503E-10   10057   2.073557E-10   10065   1.722116E-10
+           1     10073   1.231082E-10   10081   6.402782E-11   10089  -2.133715E-17   10098  -6.402776E-11   10106  -1.231110E-10
+           1     10114  -1.722088E-10   10122  -2.073547E-10   10130  -2.257502E-10   10139  -2.259344E-10   10147  -2.078564E-10
+           1     10155  -1.728796E-10   10163  -1.237259E-10   10171  -6.442683E-11
+           2      1045   8.474633E-03    1090   2.283943E-02    1135   8.474633E-03    2030   2.175933E-02    2090   9.384611E-02
+           2      2150   2.175933E-02    3022   2.776942E-02    3090   2.056852E-01    3157   2.776943E-02    4018   3.046679E-02
+           2      4090   3.465335E-01    4162   3.046681E-02    5015   3.105674E-02    5090   5.026521E-01    5165   3.105684E-02
+           2      6012   3.018122E-02    6089   6.588634E-01    6167   3.018062E-02    7011   2.824276E-02    7090   7.998295E-01
+           2      7168   2.824278E-02    8010   2.551864E-02    8090   9.113330E-01    8170   2.551866E-02    9009   2.217615E-02
+           2      9090   9.812821E-01    9171   2.217608E-02   10008   1.811534E-02   10016   7.707553E-02   10024   1.719359E-01
+           2     10032   2.937930E-01   10040   4.324801E-01   10049   5.767404E-01   10057   7.149779E-01   10065   8.360236E-01
+           2     10073   9.298117E-01   10081   9.876014E-01   10089   1.000000E+00   10098   9.876013E-01   10106   9.298078E-01
+           2     10114   8.360308E-01   10122   7.149829E-01   10130   5.767422E-01   10139   4.324783E-01   10147   2.937882E-01
+           2     10155   1.719293E-01   10163   7.707966E-02   10171   1.811638E-02
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.112595E+06    (CYCLIC FREQUENCY =  5.340480E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          5
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           0      1045   2.867420E-08    1090   2.867896E-08    1135   2.867463E-08    2030   2.866235E-08    2090   2.868956E-08
+           0      2150   2.866339E-08    3022   2.864039E-08    3090   2.870549E-08    3157   2.864208E-08    4018   2.861103E-08
+           0      4090   2.872545E-08    4162   2.861345E-08    5015   2.857757E-08    5090   2.874758E-08    5165   2.858079E-08
+           0      6012   2.854351E-08    6089   2.876974E-08    6167   2.854762E-08    7011   2.851228E-08    7090   2.878975E-08
+           0      7168   2.851733E-08    8010   2.848705E-08    8090   2.880555E-08    8170   2.849297E-08    9009   2.847047E-08
+           0      9090   2.881537E-08    9171   2.847704E-08   10008   2.846459E-08   10016   2.848400E-08   10024   2.851633E-08
+           0     10032   2.855866E-08   10040   2.860774E-08   10049   2.865977E-08   10057   2.871052E-08   10065   2.875562E-08
+           0     10073   2.879086E-08   10081   2.881262E-08   10089   2.881778E-08   10098   2.881082E-08   10106   2.878765E-08
+           0     10114   2.875177E-08   10122   2.870692E-08   10130   2.865725E-08   10139   2.860697E-08   10147   2.856003E-08
+           0     10155   2.851992E-08   10163   2.848954E-08   10171   2.847144E-08
+           1      1045   2.350533E-02    1090   7.959166E-10    1135  -2.350532E-02    2030   8.218563E-02    2090  -6.029243E-09
+           1      2150  -8.218562E-02    3022   1.461772E-01    3090  -2.230979E-08    3157  -1.461772E-01    4018   2.049795E-01
+           1      4090  -4.885820E-08    4162  -2.049795E-01    5015   2.537459E-01    5090  -8.665619E-08    5165  -2.537460E-01
+           1      6012   2.896582E-01    6089  -7.182760E-08    6167  -2.896558E-01    7011   3.111393E-01    7090  -1.056234E-07
+           1      7168  -3.111393E-01    8010   3.175595E-01    8090  -1.311970E-07    8170  -3.175598E-01    9009   3.089330E-01
+           1      9090  -1.337586E-07    9171  -3.089332E-01   10008   2.851505E-01   10016   5.476059E-01   10024   7.651873E-01
+           1     10032   9.199893E-01   10040   1.000000E+00   10049   9.991844E-01   10057   9.177691E-01   10065   7.622187E-01
+           1     10073   5.448841E-01   10081   2.833910E-01   10089  -9.298151E-08   10098  -2.833907E-01   10106  -5.448967E-01
+           1     10114  -7.622067E-01   10122  -9.177644E-01   10130  -9.991838E-01   10139  -9.999993E-01   10147  -9.199851E-01
+           1     10155  -7.651756E-01   10163  -5.476183E-01   10171  -2.851571E-01
+           2      1045  -1.894755E-12    1090  -5.108678E-12    1135  -1.896425E-12    2030  -4.861979E-12    2090  -2.099131E-11
+           2      2150  -4.872210E-12    3022  -6.200944E-12    3090  -4.600722E-11    3157  -6.221941E-12    4018  -6.799230E-12
+           2      4090  -7.751184E-11    4162  -6.830406E-12    5015  -6.927140E-12    5090  -1.124320E-10    5165  -6.966500E-12
+           2      6012  -6.728652E-12    6089  -1.473729E-10    6167  -6.773228E-12    7011  -6.293975E-12    7090  -1.789037E-10
+           2      7168  -6.340909E-12    8010  -5.685139E-12    8090  -2.038444E-10    8170  -5.731111E-12    9009  -4.939492E-12
+           2      9090  -2.194903E-10    9171  -4.981442E-12   10008  -4.034751E-12   10016  -1.716997E-11   10024  -3.831097E-11
+           2     10032  -6.548322E-11   10040  -9.643061E-11   10049  -1.286515E-10   10057  -1.595642E-10   10065  -1.866760E-10
+           2     10073  -2.077339E-10   10081  -2.207732E-10   10089  -2.236770E-10   10098  -2.210346E-10   10106  -2.082215E-10
+           2     10114  -1.873264E-10   10122  -1.602885E-10   10130  -1.293600E-10   10139  -9.704466E-11   10147  -6.594853E-11
+           2     10155  -3.860609E-11   10163  -1.731218E-11   10171  -4.069755E-12
+1     VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D03-02-1A                                                                                   
+0                                                                                                                                   
+      EIGENVALUE =  0.113070E+06    (CYCLIC FREQUENCY =  5.351714E+01 HZ)
+
+                                         R E A L   E I G E N V E C T O R   N O .          6
+ 
+     HARMONIC   POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1        POINT-ID     T1
+           0      1045   1.225981E-02    1090  -7.861394E-03    1135   1.225981E-02    2030   6.791216E-02    2090  -4.682980E-02
+           0      2150   6.791217E-02    3022   1.707511E-01    3090  -1.051744E-01    3157   1.707511E-01    4018   3.084470E-01
+           0      4090  -1.781606E-01    4162   3.084470E-01    5015   4.658738E-01    5090  -2.589858E-01    5165   4.658739E-01
+           0      6012   6.266761E-01    6089  -3.399128E-01    6167   6.266771E-01    7011   7.744378E-01    7090  -4.130169E-01
+           0      7168   7.744380E-01    8010   8.939535E-01    8090  -4.708562E-01    8170   8.939535E-01    9009   9.723797E-01
+           0      9090  -5.069464E-01    9171   9.723797E-01   10008   1.000000E+00   10016   9.127131E-01   10024   7.682149E-01
+           0     10032   5.813501E-01   10040   3.680416E-01   10049   1.457163E-01   10057  -6.768236E-02   10065  -2.548651E-01
+           0     10073  -4.003292E-01   10081  -4.911083E-01   10089  -5.157294E-01   10098  -4.911083E-01   10106  -4.003231E-01
+           0     10114  -2.548758E-01   10122  -6.769010E-02   10130   1.457132E-01   10139   3.680443E-01   10147   5.813575E-01
+           0     10155   7.682257E-01   10163   9.127070E-01   10171   9.999986E-01
+           1      1045   4.339818E-12    1090  -6.164450E-20    1135  -4.339818E-12    2030   1.517404E-11    2090  -1.521245E-18
+           1      2150  -1.517404E-11    3022   2.698889E-11    3090  -4.721988E-18    3157  -2.698889E-11    4018   3.784563E-11
+           1      4090  -9.817484E-18    4162  -3.784562E-11    5015   4.684941E-11    5090  -1.698054E-17    5165  -4.684944E-11
+           1      6012   5.347996E-11    6089  -1.440933E-17    6167  -5.347952E-11    7011   5.744605E-11    7090  -2.080171E-17
+           1      7168  -5.744604E-11    8010   5.863141E-11    8090  -2.564949E-17    8170  -5.863145E-11    9009   5.703868E-11
+           1      9090  -2.620141E-17    9171  -5.703872E-11   10008   5.264769E-11   10016   1.011052E-10   10024   1.412775E-10
+           1     10032   1.698588E-10   10040   1.846313E-10   10049   1.844807E-10   10057   1.694488E-10   10065   1.407294E-10
+           1     10073   1.006026E-10   10081   5.232283E-11   10089  -1.869533E-17   10098  -5.232279E-11   10106  -1.006050E-10
+           1     10114  -1.407272E-10   10122  -1.694480E-10   10130  -1.844805E-10   10139  -1.846311E-10   10147  -1.698580E-10
+           1     10155  -1.412753E-10   10163  -1.011074E-10   10171  -5.264890E-11
+           2      1045  -1.685255E-14    1090  -4.541819E-14    1135  -1.685255E-14    2030  -4.327031E-14    2090  -1.866212E-13
+           2      2150  -4.327034E-14    3022  -5.522191E-14    3090  -4.090228E-13    3157  -5.522194E-14    4018  -6.058587E-14
+           2      4090  -6.891121E-13    4162  -6.058592E-14    5015  -6.175904E-14    5090  -9.995676E-13    5165  -6.175923E-14
+           2      6012  -6.001800E-14    6089  -1.310207E-12    6167  -6.001680E-14    7011  -5.616319E-14    7090  -1.590531E-12
+           2      7168  -5.616324E-14    8010  -5.074604E-14    8090  -1.812265E-12    8170  -5.074609E-14    9009  -4.409921E-14
+           2      9090  -1.951365E-12    9171  -4.409906E-14   10008  -3.602394E-14   10016  -1.532714E-13   10024  -3.419096E-13
+           2     10032  -5.842330E-13   10040  -8.600245E-13   10049  -1.146899E-12   10057  -1.421796E-12   10065  -1.662506E-12
+           2     10073  -1.849012E-12   10081  -1.963932E-12   10089  -1.988587E-12   10098  -1.963931E-12   10106  -1.849004E-12
+           2     10114  -1.662520E-12   10122  -1.421806E-12   10130  -1.146902E-12   10139  -8.600208E-13   10147  -5.842234E-13
+           2     10155  -3.418963E-13   10163  -1.532796E-13   10171  -3.602600E-14
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  VIBRATION OF A COMPRESSIBLE GAS IN A RIGID SPHERICAL TANK.         
+ DATE:  5/17/95
+ END TIME: 15:39:57
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 

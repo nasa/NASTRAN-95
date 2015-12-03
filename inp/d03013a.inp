@@ -1,0 +1,126 @@
+NASTRAN FILES=PLT2                                                              
+ID    D03013A,NASTRAN                                                           
+ALTER 1 $                                                                       
+PARAM   //C,N,NOP/V,N,TRUE=-1 $                                                 
+INPUT,  ,GEOM2,,,/G1,G2,,G4,/C,N,3/C,N,1 $                                      
+EQUIV   G1,GEOM1/TRUE / G2,GEOM2/TRUE / G4,GEOM4/TRUE $                         
+ENDALTER $                                                                      
+APP     DISPLACEMENT                                                            
+SOL     3,1                                                                     
+DIAG    14                                                                      
+TIME    35                                                                      
+CEND                                                                            
+TITLE    = VIBRATIONS OF A 10 BY 20 PLATE                                       
+SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                          
+$                                                                               
+     SPC = 10020                                                                
+  METHOD = 5 $ ENCLOSE 2 MODES - FINDS 3 ROOTS                                  
+$              ROOTS ARE AT THE FOLLOWING FREQUENCIES (THEORETICAL)             
+$       MODE    M       N       FREQ                                            
+$       1       1       1       9.068997E-1                                     
+$       2       1       2       2.267249                                        
+$       5       1       3       4.534498                                        
+$       6       3       1       4.534498                                        
+$       7       3       2       5.894848                                        
+$       9       1       4       7.708647                                        
+$                                                                               
+OUTPUT                                                                          
+   SET 1 = 1 THRU 11, 34 THRU 44, 56 THRU 66, 78 THRU 88, 111 THRU 121          
+   SET 2 = 1 THRU 12, 22,23,33,34,44,45,55,56,66,67,77,78,88,89,                
+           99,100, 110 THRU 121                                                 
+   DISPLACEMENTS = 1                                                            
+   SPCFORCE = 2                                                                 
+$                                                                               
+PLOTID = NASTRAN DEMONSTRATION PROBLEM NO. D03-01-3A                            
+OUTPUT(PLOT)                                                                    
+PLOTTER NASTPLT                                                                 
+         SET 1 INCLUDE PLOTEL                                                   
+         SET 2 INCLUDE QUAD1                                                    
+         MAXIMUM DEFORMATION  1.0                                               
+         FIND SCALE, ORIGIN 10                                                  
+PTITLE = ALL QUADS IN THE PLATE                                                 
+PLOT ORIGIN 10, SET 2, LABELS                                                   
+         FIND SCALE, ORIGIN 11                                                  
+PTITLE = MODE SHAPES USING PLOTEL ELEMENTS                                      
+PLOT MODAL DEFORMATION 1, ORIGIN 11, SHAPE                                      
+BEGIN BULK                                                                      
+EIGR    2       INV     .85     .89     1       1       0               CSIMPL-I
++SIMPL-IMAX                                                                     
+EIGR    3       INV     .89     1.0     1       3       0               +EIG3-1 
++EIG3-1 MAX                                                                     
+EIGR    4       DET     .89     1.0     1       1       0               +EIG4-1 
++EIG4-1 MAX                                                                     
+EIGR    5       INV     .89     2.4     1       3       0               +EIG5-2 
++EIG5-2 MAX                                                                     
+EIGR    6       DET     .89     2.4     2       2       0               +EIG6-2 
++EIG6-2 MAX                                                                     
+EIGR    7       INV     .89     6.1     5       5       0               +EIG7-5 
++EIG7-5 MAX                                                                     
+EIGR    8       DET     .89     6.1     5       5       0               +EIG8-5 
++EIG8-5 MAX                                                                     
+EIGR    9       INV     .89     14.5    4       10      0               +EIG9-10
++EIG9-10MAX                                                                     
+EIGR    10      DET     .89     14.5    5       5       0               +EIG1010
++EIG1010MAX                                                                     
+EIGR    11      INV     .89     29.0    20      20      0               +EIG1120
++EIG1120MAX                                                                     
+EIGR    12      DET     .89     29.0    20      20      0               +EIG1220
++EIG1220MAX                                                                     
+MAT1    2       3.0+7           .300    200.0                           +MAT1   
++MAT1   30000.  28000.                                                          
+PARAM   GRDPNT  111                                                             
+PLOTEL  300     23      1                                                       
+PLOTEL  301     1       11              302     11      231                     
+PLOTEL  303     231     221             304     221     199                     
+PLOTEL  305     199     201             306     201     203                     
+PLOTEL  307     203     205             308     205     207                     
+PLOTEL  309     207     209             310     187     185                     
+PLOTEL  311     185     183             312     183     181                     
+PLOTEL  313     181     179             314     179     177                     
+PLOTEL  315     199     177             316     177     155                     
+PLOTEL  317     155     157             318     157     159                     
+PLOTEL  319     159     161             320     161     163                     
+PLOTEL  321     163     165             322     143     141                     
+PLOTEL  323     141     139             324     139     137                     
+PLOTEL  325     137     135             326     135     133                     
+PLOTEL  327     155     133             328     133     111                     
+PLOTEL  329     111     113             330     113     115                     
+PLOTEL  331     115     117             332     117     119                     
+PLOTEL  333     119     121             334     99      97                      
+PLOTEL  335     97      95              336     95      93                      
+PLOTEL  337     93      91              338     91      89                      
+PLOTEL  339     111     89              340     89      67                      
+PLOTEL  341     67      69              342     69      71                      
+PLOTEL  343     71      73              344     73      75                      
+PLOTEL  345     75      77              346     55      53                      
+PLOTEL  347     53      51              348     51      49                      
+PLOTEL  349     49      47              350     47      45                      
+PLOTEL  351     67      45              352     45      23                      
+PLOTEL  353     23      25              354     25      27                      
+PLOTEL  355     27      29              356     29      31                      
+PLOTEL  357     31      33              358     9       31                      
+PLOTEL  359     31      53              360     53      75                      
+PLOTEL  361     75      97              362     97      119                     
+PLOTEL  363     119     141             364     141     163                     
+PLOTEL  365     163     185             366     185     207                     
+PLOTEL  367     207     229             368     227     205                     
+PLOTEL  369     205     183             370     183     161                     
+PLOTEL  371     161     139             372     139     117                     
+PLOTEL  373     117     95              374     95      73                      
+PLOTEL  375     73      51              376     51      29                      
+PLOTEL  377     29      7               378     5       27                      
+PLOTEL  379     27      49              380     49      71                      
+PLOTEL  381     71      93              382     93      115                     
+PLOTEL  383     115     137             384     137     159                     
+PLOTEL  385     159     181             386     181     203                     
+PLOTEL  387     203     225             388     223     201                     
+PLOTEL  389     201     179             390     179     157                     
+PLOTEL  391     157     135             392     135     113                     
+PLOTEL  393     113     91              394     91      69                      
+PLOTEL  395     69      47              396     47      36                      
+PLOTEL  397     36      25              398     25      3                       
+PQUAD1  101     2       1.0     2       .0833333                6.04393 +PQUAD1 
++PQUAD1 .5      .0                                                              
+ENDDATA                                                                         
+      10      20 1.0E+00 1.0E+00     126 0.0     0.0                            
+      35       5      35      34       0       0                                

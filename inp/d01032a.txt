@@ -1,0 +1,74 @@
+$-------------------------------------------------------------------------------
+$                       RIGID FORMAT No. 1, Static Analysis
+$           Free Rectangular (QDMEM) Plate with Thermal Loading (1-3-1)
+$          Free Rectangular (QDMEM1) Plate with Thermal Loading (1-3-2)
+$          Free Rectangular (QDMEM2) Plate with Thermal Loading (1-3-3)
+$ 
+$ A. Description
+$ 
+$ Problem 1-3-1 demonstrates the use of thermal loading conditions and
+$ temperature-dependent materials. The model, a rectangular plate, is given a
+$ temperature gradient which causes internal loads and elastic deflections.
+$ Since there are two planes of symmetry, only one-quarter of the structure
+$ needs to be modeled. The analysis has been performed using three different
+$ NASTRAN membrane plate elements. The two variations of this problem are
+$ obtained by replacing the quadrilateral membrane elements, QDMEM, with QDMEM1
+$ and QDMEM2 membrane elements to illustrate their application to this type of
+$ problem (Problems 1-3-2 and 1-3-3, respectively).
+$ 
+$ B. Input
+$ 
+$ The temperature load is constant in the y direction and symmetric about the y-
+$ axis. Since membrane elements are used to model the structure, it is necessary
+$ to remove all rotational degrees of freedom and translational degrees of
+$ freedom normal to the membrane. The symmetric boundary conditions were modeled
+$ by constraining the displacements normal to the planes of symmetry. The
+$ material used has temperature-dependent elasticity (as defined in Reference
+$ 5); therefore, the INPUT module cannot be used for this application. The
+$ CNGRNT bulk data card can be used if the congruency is defined in one
+$ direction.
+$ 
+$ 1. Parameters
+$ 
+$      L =  36.0 in                   (length)
+$ 
+$      W =  24.0 in                   (width)
+$ 
+$      t =   0.25 in                  (thickness)
+$ 
+$                     6      2
+$      E =  10.4  x 10  lb/in         (modulus of elasticity at T )
+$                                                                o
+$      v =   0.3                      (Poisson's ratio)
+$                     -6
+$  alpha =  12.7  x l0   in/in/deg. F (thermal expansion coefficient)
+$ 
+$      T  = 75.0  deg. F              (thermal expansion reference temperature)
+$       o
+$ 
+$ 2. Constraints
+$ 
+$      u  = 0.0 at x = 0.0
+$       x
+$ 
+$      u  = 0.0 at y = 0.0
+$       y
+$ 
+$      u  = theta sub x = theta sub y = theta sub z = 0.0  at all Grids
+$       z
+$ 
+$ 3. Loads
+$ 
+$ The thermal loading is specified with TEMP Bulk Data cards. Young's modulus is
+$ specified as a function of temperature with MATT1 and TABLEM1 cards.
+$ 
+$ C. Results
+$ 
+$ There is no theoretical solution to this problem. However, this problem
+$ represents a model of a laboratory experiment described in Reference 5.
+$ 
+$ APPLICABLE REFERENCES
+$ 
+$ 5. Richard R. Heldenfels and William M. Roberts, "Experimental and Theoretical
+$    Determination of Thermal Stresses in a Flat Plate", NACA TN 2769, 1952.
+$-------------------------------------------------------------------------------

@@ -1,0 +1,1121 @@
+
+
+
+
+
+
+                                  ****
+                                *      *
+                               *        *
+                               *  N A S T R A N
+                               *        *
+                                *      *
+                                  ****
+
+
+                             SUN COMPUTER SYSTEMS    
+                                SOLARIS VERSION
+
+                          SYSTEM RELEASE -  1995 ED.
+
+                                DISTRIBUTED BY
+
+         COMPUTER SOFTWARE MANAGEMENT AND INFORMATION CENTER (COSMIC)
+                 UNIVERSITY OF GEORGIA, ATHENS, GEORGIA 30602
+                 PHONE: (706)542-3265      FAX: (706)542-4807
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     2
+                                                                                                                                    
+0                                                                                                                                   
+                                                                                                         
+                                                                                                         
+                         INSTALLATION CENTER USER INFORMATION GIVEN IN THIS SECTION                      
+                                                                                                         
+                                     *********************************************                       
+                                     *                                           *                       
+                                     *  PLEASE READ THE COMMENT IN DEMO PROBLEM  *                       
+                                     *  D01002A ABOUT SYSTEM TIMING CONSTANTS    *                       
+                                     *                                           *                       
+                                     *********************************************                       
+                                                                                                         
+                         ===X=    TOP OF PAGE REQUEST IF 'X' IS REPLACED BY '='                          
+                                                                                                         
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0*** USER INFORMATION MESSAGE 225, GINO TIME CONSTANTS ARE BEING COMPUTED
+     (SEE NASINFO FILE FOR ELIMINATION OF THESE COMPUTATIONS)
+1                                                                           /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     4
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    D E C K    E C H O                                                  
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     ID    D09041A,NASTRAN                                                           
+     APP   HEAT                                                                      
+     SOL   9,1                                                                       
+     TIME  10                                                                        
+     CEND                                                                            
+
+
+0*** USER INFORMATION MESSAGE, TURN DIAG 48 ON FOR NASTRAN RELEASE NEWS, DIAG DEFINITION, NEW DMAP
+         MODULES AND NEW BULKDATA CARDS INFORMATION
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     5
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L   D E C K   E C H O                                               
+                 CARD                                                                                                               
+                 COUNT                                                                                                              
+                  1      TITLE    = LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                           
+                  2      SUBTITLE = NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                          
+                  3      TEMP(MATERIAL) = 60                                                             
+                  4      SPC    = 21                                                                     
+                  5      IC     = 60                                                                     
+                  6      DLOAD  = 70                                                                     
+                  7      TSTEP  = 80                                                                     
+                  8      SET 21 = 21                                                                     
+                  9      OUTPUT                                                                          
+                 10      THERMAL= ALL                                                                    
+                 11      OLOAD  = ALL                                                                    
+                 12      SPCF   = 21                                                                     
+                 13      BEGIN BULK                                                                      
+
+
+                        (NO. OF UNSORTED BULK DATA CARDS READ =    25, INCLUDING   0 COMMENT CARDS)
+0*** USER INFORMATION MESSAGE 207, BULK DATA DECK IS NOT SORTED. NASTRAN WILL RE-ORDER THE INPUT DECK.
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     6
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+0                                                 S O R T E D   B U L K    D A T A    E C H O                                       
+                     CARD                                                                                                           
+                     COUNT        ---1--- +++2+++ ---3--- +++4+++ ---5--- +++6+++ ---7--- +++8+++ ---9--- +++10+++                  
+                    1-        CELAS2  28      3.0+8   20      1       21      1                               
+                    2-        CHBDY   31      2       LINE    10      12                                      
+                    3-        CHBDY   33      2       LINE    12      14                                      
+                    4-        CHBDY   35      2       LINE    14      16                                      
+                    5-        CHBDY   37      2       LINE    16      18                                      
+                    6-        CHBDY   39      2       LINE    18      20                                      
+                    7-        CROD    11      1       10      12      13      1       12      14              
+                    8-        CROD    15      1       14      16      17      1       16      18              
+                    9-        CROD    19      1       18      20                                              
+                   10-        DAREA   70      20      0       1.5+8                                           
+                   11-        GRID    10              .0      .0      .0                                      
+                   12-        GRID    12              .2      .0      .0                                      
+                   13-        GRID    14              .4      .0      .0                                      
+                   14-        GRID    16              .6      .0      .0                                      
+                   15-        GRID    18              .8      .0      .0                                      
+                   16-        GRID    20              1.0     .0      .0                                      
+                   17-        GRID    21              1.0                                                     
+                   18-        MAT4    1       1.0     2.4674                                                  
+                   19-        PHBDY   2               1.0                                                     
+                   20-        PROD    1       1       1.0                                                     
+                   21-        QBDY1   70      100.0   31      33      35      37      39                      
+                   22-        SPC     21      21      1                                                       
+                   23-        TEMPD   60      .0                                                              
+                   24-        TLOAD2  70      70      0               .0      100.0                           
+                   25-        TSTEP   80      100     .05     2                                               
+                              ENDDATA
+0*** USER INFORMATION MESSAGE -  GRID-POINT RESEQUENCING PROCESSOR BANDIT IS NOT USED DUE TO
+     SMALL PROBLEM SIZE
+0          **NO ERRORS FOUND - EXECUTE NASTRAN PROGRAM**
+0*** USER INFORMATION MESSAGE 238, TURN DIAG 38 ON FOR ADDITIONAL ELEMENT PROCESSING INFORMATION
+
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     7
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+
+                                                                                                                                    
+
+
+
+
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ELAS2    ELEMENTS (ELEMENT TYPE  12) STARTING WITH ID       28
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION HBDY     ELEMENTS (ELEMENT TYPE  52) STARTING WITH ID       31
+0*** USER INFORMATION MESSAGE 3113,
+     EMG MODULE PROCESSING DOUBLE PRECISION ROD      ELEMENTS (ELEMENT TYPE   1) STARTING WITH ID       11
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     8
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      10
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      1.000000E+01                                                                                             
+   1.000000E-01     S      1.000000E+01                                                                                             
+   2.000000E-01     S      1.000000E+01                                                                                             
+   3.000000E-01     S      1.000000E+01                                                                                             
+   4.000000E-01     S      1.000000E+01                                                                                             
+   5.000001E-01     S      1.000000E+01                                                                                             
+   6.000001E-01     S      1.000000E+01                                                                                             
+   7.000001E-01     S      1.000000E+01                                                                                             
+   8.000001E-01     S      1.000000E+01                                                                                             
+   9.000002E-01     S      1.000000E+01                                                                                             
+   1.000000E+00     S      1.000000E+01                                                                                             
+   1.100000E+00     S      1.000000E+01                                                                                             
+   1.200000E+00     S      1.000000E+01                                                                                             
+   1.300000E+00     S      1.000000E+01                                                                                             
+   1.400000E+00     S      1.000000E+01                                                                                             
+   1.500000E+00     S      1.000000E+01                                                                                             
+   1.600000E+00     S      1.000000E+01                                                                                             
+   1.699999E+00     S      1.000000E+01                                                                                             
+   1.799999E+00     S      1.000000E+01                                                                                             
+   1.899999E+00     S      1.000000E+01                                                                                             
+   1.999999E+00     S      1.000000E+01                                                                                             
+   2.099999E+00     S      1.000000E+01                                                                                             
+   2.199999E+00     S      1.000000E+01                                                                                             
+   2.299999E+00     S      1.000000E+01                                                                                             
+   2.399999E+00     S      1.000000E+01                                                                                             
+   2.499999E+00     S      1.000000E+01                                                                                             
+   2.599999E+00     S      1.000000E+01                                                                                             
+   2.699999E+00     S      1.000000E+01                                                                                             
+   2.799999E+00     S      1.000000E+01                                                                                             
+   2.899998E+00     S      1.000000E+01                                                                                             
+   2.999998E+00     S      1.000000E+01                                                                                             
+   3.099998E+00     S      1.000000E+01                                                                                             
+   3.199998E+00     S      1.000000E+01                                                                                             
+   3.299998E+00     S      1.000000E+01                                                                                             
+   3.399998E+00     S      1.000000E+01                                                                                             
+   3.499998E+00     S      1.000000E+01                                                                                             
+   3.599998E+00     S      1.000000E+01                                                                                             
+   3.699998E+00     S      1.000000E+01                                                                                             
+   3.799998E+00     S      1.000000E+01                                                                                             
+   3.899997E+00     S      1.000000E+01                                                                                             
+   3.999997E+00     S      1.000000E+01                                                                                             
+   4.099998E+00     S      1.000000E+01                                                                                             
+   4.199998E+00     S      1.000000E+01                                                                                             
+   4.299998E+00     S      1.000000E+01                                                                                             
+   4.399999E+00     S      1.000000E+01                                                                                             
+   4.499999E+00     S      1.000000E+01                                                                                             
+   4.599999E+00     S      1.000000E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE     9
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      10
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      1.000000E+01                                                                                             
+   4.800000E+00     S      1.000000E+01                                                                                             
+   4.900001E+00     S      1.000000E+01                                                                                             
+   5.000001E+00     S      1.000000E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    10
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      12
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      2.000000E+01                                                                                             
+   1.000000E-01     S      2.000000E+01                                                                                             
+   2.000000E-01     S      2.000000E+01                                                                                             
+   3.000000E-01     S      2.000000E+01                                                                                             
+   4.000000E-01     S      2.000000E+01                                                                                             
+   5.000001E-01     S      2.000000E+01                                                                                             
+   6.000001E-01     S      2.000000E+01                                                                                             
+   7.000001E-01     S      2.000000E+01                                                                                             
+   8.000001E-01     S      2.000000E+01                                                                                             
+   9.000002E-01     S      2.000000E+01                                                                                             
+   1.000000E+00     S      2.000000E+01                                                                                             
+   1.100000E+00     S      2.000000E+01                                                                                             
+   1.200000E+00     S      2.000000E+01                                                                                             
+   1.300000E+00     S      2.000000E+01                                                                                             
+   1.400000E+00     S      2.000000E+01                                                                                             
+   1.500000E+00     S      2.000000E+01                                                                                             
+   1.600000E+00     S      2.000000E+01                                                                                             
+   1.699999E+00     S      2.000000E+01                                                                                             
+   1.799999E+00     S      2.000000E+01                                                                                             
+   1.899999E+00     S      2.000000E+01                                                                                             
+   1.999999E+00     S      2.000000E+01                                                                                             
+   2.099999E+00     S      2.000000E+01                                                                                             
+   2.199999E+00     S      2.000000E+01                                                                                             
+   2.299999E+00     S      2.000000E+01                                                                                             
+   2.399999E+00     S      2.000000E+01                                                                                             
+   2.499999E+00     S      2.000000E+01                                                                                             
+   2.599999E+00     S      2.000000E+01                                                                                             
+   2.699999E+00     S      2.000000E+01                                                                                             
+   2.799999E+00     S      2.000000E+01                                                                                             
+   2.899998E+00     S      2.000000E+01                                                                                             
+   2.999998E+00     S      2.000000E+01                                                                                             
+   3.099998E+00     S      2.000000E+01                                                                                             
+   3.199998E+00     S      2.000000E+01                                                                                             
+   3.299998E+00     S      2.000000E+01                                                                                             
+   3.399998E+00     S      2.000000E+01                                                                                             
+   3.499998E+00     S      2.000000E+01                                                                                             
+   3.599998E+00     S      2.000000E+01                                                                                             
+   3.699998E+00     S      2.000000E+01                                                                                             
+   3.799998E+00     S      2.000000E+01                                                                                             
+   3.899997E+00     S      2.000000E+01                                                                                             
+   3.999997E+00     S      2.000000E+01                                                                                             
+   4.099998E+00     S      2.000000E+01                                                                                             
+   4.199998E+00     S      2.000000E+01                                                                                             
+   4.299998E+00     S      2.000000E+01                                                                                             
+   4.399999E+00     S      2.000000E+01                                                                                             
+   4.499999E+00     S      2.000000E+01                                                                                             
+   4.599999E+00     S      2.000000E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    11
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      12
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      2.000000E+01                                                                                             
+   4.800000E+00     S      2.000000E+01                                                                                             
+   4.900001E+00     S      2.000000E+01                                                                                             
+   5.000001E+00     S      2.000000E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    12
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      14
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      2.000000E+01                                                                                             
+   1.000000E-01     S      2.000000E+01                                                                                             
+   2.000000E-01     S      2.000000E+01                                                                                             
+   3.000000E-01     S      2.000000E+01                                                                                             
+   4.000000E-01     S      2.000000E+01                                                                                             
+   5.000001E-01     S      2.000000E+01                                                                                             
+   6.000001E-01     S      2.000000E+01                                                                                             
+   7.000001E-01     S      2.000000E+01                                                                                             
+   8.000001E-01     S      2.000000E+01                                                                                             
+   9.000002E-01     S      2.000000E+01                                                                                             
+   1.000000E+00     S      2.000000E+01                                                                                             
+   1.100000E+00     S      2.000000E+01                                                                                             
+   1.200000E+00     S      2.000000E+01                                                                                             
+   1.300000E+00     S      2.000000E+01                                                                                             
+   1.400000E+00     S      2.000000E+01                                                                                             
+   1.500000E+00     S      2.000000E+01                                                                                             
+   1.600000E+00     S      2.000000E+01                                                                                             
+   1.699999E+00     S      2.000000E+01                                                                                             
+   1.799999E+00     S      2.000000E+01                                                                                             
+   1.899999E+00     S      2.000000E+01                                                                                             
+   1.999999E+00     S      2.000000E+01                                                                                             
+   2.099999E+00     S      2.000000E+01                                                                                             
+   2.199999E+00     S      2.000000E+01                                                                                             
+   2.299999E+00     S      2.000000E+01                                                                                             
+   2.399999E+00     S      2.000000E+01                                                                                             
+   2.499999E+00     S      2.000000E+01                                                                                             
+   2.599999E+00     S      2.000000E+01                                                                                             
+   2.699999E+00     S      2.000000E+01                                                                                             
+   2.799999E+00     S      2.000000E+01                                                                                             
+   2.899998E+00     S      2.000000E+01                                                                                             
+   2.999998E+00     S      2.000000E+01                                                                                             
+   3.099998E+00     S      2.000000E+01                                                                                             
+   3.199998E+00     S      2.000000E+01                                                                                             
+   3.299998E+00     S      2.000000E+01                                                                                             
+   3.399998E+00     S      2.000000E+01                                                                                             
+   3.499998E+00     S      2.000000E+01                                                                                             
+   3.599998E+00     S      2.000000E+01                                                                                             
+   3.699998E+00     S      2.000000E+01                                                                                             
+   3.799998E+00     S      2.000000E+01                                                                                             
+   3.899997E+00     S      2.000000E+01                                                                                             
+   3.999997E+00     S      2.000000E+01                                                                                             
+   4.099998E+00     S      2.000000E+01                                                                                             
+   4.199998E+00     S      2.000000E+01                                                                                             
+   4.299998E+00     S      2.000000E+01                                                                                             
+   4.399999E+00     S      2.000000E+01                                                                                             
+   4.499999E+00     S      2.000000E+01                                                                                             
+   4.599999E+00     S      2.000000E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    13
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      14
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      2.000000E+01                                                                                             
+   4.800000E+00     S      2.000000E+01                                                                                             
+   4.900001E+00     S      2.000000E+01                                                                                             
+   5.000001E+00     S      2.000000E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    14
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      16
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      2.000000E+01                                                                                             
+   1.000000E-01     S      2.000000E+01                                                                                             
+   2.000000E-01     S      2.000000E+01                                                                                             
+   3.000000E-01     S      2.000000E+01                                                                                             
+   4.000000E-01     S      2.000000E+01                                                                                             
+   5.000001E-01     S      2.000000E+01                                                                                             
+   6.000001E-01     S      2.000000E+01                                                                                             
+   7.000001E-01     S      2.000000E+01                                                                                             
+   8.000001E-01     S      2.000000E+01                                                                                             
+   9.000002E-01     S      2.000000E+01                                                                                             
+   1.000000E+00     S      2.000000E+01                                                                                             
+   1.100000E+00     S      2.000000E+01                                                                                             
+   1.200000E+00     S      2.000000E+01                                                                                             
+   1.300000E+00     S      2.000000E+01                                                                                             
+   1.400000E+00     S      2.000000E+01                                                                                             
+   1.500000E+00     S      2.000000E+01                                                                                             
+   1.600000E+00     S      2.000000E+01                                                                                             
+   1.699999E+00     S      2.000000E+01                                                                                             
+   1.799999E+00     S      2.000000E+01                                                                                             
+   1.899999E+00     S      2.000000E+01                                                                                             
+   1.999999E+00     S      2.000000E+01                                                                                             
+   2.099999E+00     S      2.000000E+01                                                                                             
+   2.199999E+00     S      2.000000E+01                                                                                             
+   2.299999E+00     S      2.000000E+01                                                                                             
+   2.399999E+00     S      2.000000E+01                                                                                             
+   2.499999E+00     S      2.000000E+01                                                                                             
+   2.599999E+00     S      2.000000E+01                                                                                             
+   2.699999E+00     S      2.000000E+01                                                                                             
+   2.799999E+00     S      2.000000E+01                                                                                             
+   2.899998E+00     S      2.000000E+01                                                                                             
+   2.999998E+00     S      2.000000E+01                                                                                             
+   3.099998E+00     S      2.000000E+01                                                                                             
+   3.199998E+00     S      2.000000E+01                                                                                             
+   3.299998E+00     S      2.000000E+01                                                                                             
+   3.399998E+00     S      2.000000E+01                                                                                             
+   3.499998E+00     S      2.000000E+01                                                                                             
+   3.599998E+00     S      2.000000E+01                                                                                             
+   3.699998E+00     S      2.000000E+01                                                                                             
+   3.799998E+00     S      2.000000E+01                                                                                             
+   3.899997E+00     S      2.000000E+01                                                                                             
+   3.999997E+00     S      2.000000E+01                                                                                             
+   4.099998E+00     S      2.000000E+01                                                                                             
+   4.199998E+00     S      2.000000E+01                                                                                             
+   4.299998E+00     S      2.000000E+01                                                                                             
+   4.399999E+00     S      2.000000E+01                                                                                             
+   4.499999E+00     S      2.000000E+01                                                                                             
+   4.599999E+00     S      2.000000E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    15
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      16
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      2.000000E+01                                                                                             
+   4.800000E+00     S      2.000000E+01                                                                                             
+   4.900001E+00     S      2.000000E+01                                                                                             
+   5.000001E+00     S      2.000000E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    16
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      18
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      2.000000E+01                                                                                             
+   1.000000E-01     S      2.000000E+01                                                                                             
+   2.000000E-01     S      2.000000E+01                                                                                             
+   3.000000E-01     S      2.000000E+01                                                                                             
+   4.000000E-01     S      2.000000E+01                                                                                             
+   5.000001E-01     S      2.000000E+01                                                                                             
+   6.000001E-01     S      2.000000E+01                                                                                             
+   7.000001E-01     S      2.000000E+01                                                                                             
+   8.000001E-01     S      2.000000E+01                                                                                             
+   9.000002E-01     S      2.000000E+01                                                                                             
+   1.000000E+00     S      2.000000E+01                                                                                             
+   1.100000E+00     S      2.000000E+01                                                                                             
+   1.200000E+00     S      2.000000E+01                                                                                             
+   1.300000E+00     S      2.000000E+01                                                                                             
+   1.400000E+00     S      2.000000E+01                                                                                             
+   1.500000E+00     S      2.000000E+01                                                                                             
+   1.600000E+00     S      2.000000E+01                                                                                             
+   1.699999E+00     S      2.000000E+01                                                                                             
+   1.799999E+00     S      2.000000E+01                                                                                             
+   1.899999E+00     S      2.000000E+01                                                                                             
+   1.999999E+00     S      2.000000E+01                                                                                             
+   2.099999E+00     S      2.000000E+01                                                                                             
+   2.199999E+00     S      2.000000E+01                                                                                             
+   2.299999E+00     S      2.000000E+01                                                                                             
+   2.399999E+00     S      2.000000E+01                                                                                             
+   2.499999E+00     S      2.000000E+01                                                                                             
+   2.599999E+00     S      2.000000E+01                                                                                             
+   2.699999E+00     S      2.000000E+01                                                                                             
+   2.799999E+00     S      2.000000E+01                                                                                             
+   2.899998E+00     S      2.000000E+01                                                                                             
+   2.999998E+00     S      2.000000E+01                                                                                             
+   3.099998E+00     S      2.000000E+01                                                                                             
+   3.199998E+00     S      2.000000E+01                                                                                             
+   3.299998E+00     S      2.000000E+01                                                                                             
+   3.399998E+00     S      2.000000E+01                                                                                             
+   3.499998E+00     S      2.000000E+01                                                                                             
+   3.599998E+00     S      2.000000E+01                                                                                             
+   3.699998E+00     S      2.000000E+01                                                                                             
+   3.799998E+00     S      2.000000E+01                                                                                             
+   3.899997E+00     S      2.000000E+01                                                                                             
+   3.999997E+00     S      2.000000E+01                                                                                             
+   4.099998E+00     S      2.000000E+01                                                                                             
+   4.199998E+00     S      2.000000E+01                                                                                             
+   4.299998E+00     S      2.000000E+01                                                                                             
+   4.399999E+00     S      2.000000E+01                                                                                             
+   4.499999E+00     S      2.000000E+01                                                                                             
+   4.599999E+00     S      2.000000E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    17
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      18
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      2.000000E+01                                                                                             
+   4.800000E+00     S      2.000000E+01                                                                                             
+   4.900001E+00     S      2.000000E+01                                                                                             
+   5.000001E+00     S      2.000000E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    18
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      20
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      1.500000E+08                                                                                             
+   1.000000E-01     S      1.500000E+08                                                                                             
+   2.000000E-01     S      1.500000E+08                                                                                             
+   3.000000E-01     S      1.500000E+08                                                                                             
+   4.000000E-01     S      1.500000E+08                                                                                             
+   5.000001E-01     S      1.500000E+08                                                                                             
+   6.000001E-01     S      1.500000E+08                                                                                             
+   7.000001E-01     S      1.500000E+08                                                                                             
+   8.000001E-01     S      1.500000E+08                                                                                             
+   9.000002E-01     S      1.500000E+08                                                                                             
+   1.000000E+00     S      1.500000E+08                                                                                             
+   1.100000E+00     S      1.500000E+08                                                                                             
+   1.200000E+00     S      1.500000E+08                                                                                             
+   1.300000E+00     S      1.500000E+08                                                                                             
+   1.400000E+00     S      1.500000E+08                                                                                             
+   1.500000E+00     S      1.500000E+08                                                                                             
+   1.600000E+00     S      1.500000E+08                                                                                             
+   1.699999E+00     S      1.500000E+08                                                                                             
+   1.799999E+00     S      1.500000E+08                                                                                             
+   1.899999E+00     S      1.500000E+08                                                                                             
+   1.999999E+00     S      1.500000E+08                                                                                             
+   2.099999E+00     S      1.500000E+08                                                                                             
+   2.199999E+00     S      1.500000E+08                                                                                             
+   2.299999E+00     S      1.500000E+08                                                                                             
+   2.399999E+00     S      1.500000E+08                                                                                             
+   2.499999E+00     S      1.500000E+08                                                                                             
+   2.599999E+00     S      1.500000E+08                                                                                             
+   2.699999E+00     S      1.500000E+08                                                                                             
+   2.799999E+00     S      1.500000E+08                                                                                             
+   2.899998E+00     S      1.500000E+08                                                                                             
+   2.999998E+00     S      1.500000E+08                                                                                             
+   3.099998E+00     S      1.500000E+08                                                                                             
+   3.199998E+00     S      1.500000E+08                                                                                             
+   3.299998E+00     S      1.500000E+08                                                                                             
+   3.399998E+00     S      1.500000E+08                                                                                             
+   3.499998E+00     S      1.500000E+08                                                                                             
+   3.599998E+00     S      1.500000E+08                                                                                             
+   3.699998E+00     S      1.500000E+08                                                                                             
+   3.799998E+00     S      1.500000E+08                                                                                             
+   3.899997E+00     S      1.500000E+08                                                                                             
+   3.999997E+00     S      1.500000E+08                                                                                             
+   4.099998E+00     S      1.500000E+08                                                                                             
+   4.199998E+00     S      1.500000E+08                                                                                             
+   4.299998E+00     S      1.500000E+08                                                                                             
+   4.399999E+00     S      1.500000E+08                                                                                             
+   4.499999E+00     S      1.500000E+08                                                                                             
+   4.599999E+00     S      1.500000E+08                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    19
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      20
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      1.500000E+08                                                                                             
+   4.800000E+00     S      1.500000E+08                                                                                             
+   4.900001E+00     S      1.500000E+08                                                                                             
+   5.000001E+00     S      1.500000E+08                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    20
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      21
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      0.0                                                                                                      
+   1.000000E-01     S      0.0                                                                                                      
+   2.000000E-01     S      0.0                                                                                                      
+   3.000000E-01     S      0.0                                                                                                      
+   4.000000E-01     S      0.0                                                                                                      
+   5.000001E-01     S      0.0                                                                                                      
+   6.000001E-01     S      0.0                                                                                                      
+   7.000001E-01     S      0.0                                                                                                      
+   8.000001E-01     S      0.0                                                                                                      
+   9.000002E-01     S      0.0                                                                                                      
+   1.000000E+00     S      0.0                                                                                                      
+   1.100000E+00     S      0.0                                                                                                      
+   1.200000E+00     S      0.0                                                                                                      
+   1.300000E+00     S      0.0                                                                                                      
+   1.400000E+00     S      0.0                                                                                                      
+   1.500000E+00     S      0.0                                                                                                      
+   1.600000E+00     S      0.0                                                                                                      
+   1.699999E+00     S      0.0                                                                                                      
+   1.799999E+00     S      0.0                                                                                                      
+   1.899999E+00     S      0.0                                                                                                      
+   1.999999E+00     S      0.0                                                                                                      
+   2.099999E+00     S      0.0                                                                                                      
+   2.199999E+00     S      0.0                                                                                                      
+   2.299999E+00     S      0.0                                                                                                      
+   2.399999E+00     S      0.0                                                                                                      
+   2.499999E+00     S      0.0                                                                                                      
+   2.599999E+00     S      0.0                                                                                                      
+   2.699999E+00     S      0.0                                                                                                      
+   2.799999E+00     S      0.0                                                                                                      
+   2.899998E+00     S      0.0                                                                                                      
+   2.999998E+00     S      0.0                                                                                                      
+   3.099998E+00     S      0.0                                                                                                      
+   3.199998E+00     S      0.0                                                                                                      
+   3.299998E+00     S      0.0                                                                                                      
+   3.399998E+00     S      0.0                                                                                                      
+   3.499998E+00     S      0.0                                                                                                      
+   3.599998E+00     S      0.0                                                                                                      
+   3.699998E+00     S      0.0                                                                                                      
+   3.799998E+00     S      0.0                                                                                                      
+   3.899997E+00     S      0.0                                                                                                      
+   3.999997E+00     S      0.0                                                                                                      
+   4.099998E+00     S      0.0                                                                                                      
+   4.199998E+00     S      0.0                                                                                                      
+   4.299998E+00     S      0.0                                                                                                      
+   4.399999E+00     S      0.0                                                                                                      
+   4.499999E+00     S      0.0                                                                                                      
+   4.599999E+00     S      0.0                                                                                                      
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    21
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      21
+                                                     L O A D   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      0.0                                                                                                      
+   4.800000E+00     S      0.0                                                                                                      
+   4.900001E+00     S      0.0                                                                                                      
+   5.000001E+00     S      0.0                                                                                                      
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    22
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      21
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      TIME        TYPE        VALUE
+   0.0              S      0.0                                                                                                      
+   1.000000E-01     S     -1.500000E+08                                                                                             
+   2.000000E-01     S     -1.500001E+08                                                                                             
+   3.000000E-01     S     -1.500000E+08                                                                                             
+   4.000000E-01     S     -1.500000E+08                                                                                             
+   5.000001E-01     S     -1.500000E+08                                                                                             
+   6.000001E-01     S     -1.500000E+08                                                                                             
+   7.000001E-01     S     -1.500000E+08                                                                                             
+   8.000001E-01     S     -1.500000E+08                                                                                             
+   9.000002E-01     S     -1.500000E+08                                                                                             
+   1.000000E+00     S     -1.500000E+08                                                                                             
+   1.100000E+00     S     -1.500000E+08                                                                                             
+   1.200000E+00     S     -1.500000E+08                                                                                             
+   1.300000E+00     S     -1.500000E+08                                                                                             
+   1.400000E+00     S     -1.500000E+08                                                                                             
+   1.500000E+00     S     -1.500000E+08                                                                                             
+   1.600000E+00     S     -1.500000E+08                                                                                             
+   1.699999E+00     S     -1.500000E+08                                                                                             
+   1.799999E+00     S     -1.500000E+08                                                                                             
+   1.899999E+00     S     -1.500000E+08                                                                                             
+   1.999999E+00     S     -1.500000E+08                                                                                             
+   2.099999E+00     S     -1.500000E+08                                                                                             
+   2.199999E+00     S     -1.500000E+08                                                                                             
+   2.299999E+00     S     -1.500000E+08                                                                                             
+   2.399999E+00     S     -1.500000E+08                                                                                             
+   2.499999E+00     S     -1.500000E+08                                                                                             
+   2.599999E+00     S     -1.500000E+08                                                                                             
+   2.699999E+00     S     -1.500000E+08                                                                                             
+   2.799999E+00     S     -1.500000E+08                                                                                             
+   2.899998E+00     S     -1.500000E+08                                                                                             
+   2.999998E+00     S     -1.500000E+08                                                                                             
+   3.099998E+00     S     -1.500000E+08                                                                                             
+   3.199998E+00     S     -1.500000E+08                                                                                             
+   3.299998E+00     S     -1.500001E+08                                                                                             
+   3.399998E+00     S     -1.500001E+08                                                                                             
+   3.499998E+00     S     -1.500001E+08                                                                                             
+   3.599998E+00     S     -1.500001E+08                                                                                             
+   3.699998E+00     S     -1.500001E+08                                                                                             
+   3.799998E+00     S     -1.500001E+08                                                                                             
+   3.899997E+00     S     -1.500001E+08                                                                                             
+   3.999997E+00     S     -1.500001E+08                                                                                             
+   4.099998E+00     S     -1.500001E+08                                                                                             
+   4.199998E+00     S     -1.500001E+08                                                                                             
+   4.299998E+00     S     -1.500001E+08                                                                                             
+   4.399999E+00     S     -1.500001E+08                                                                                             
+   4.499999E+00     S     -1.500001E+08                                                                                             
+   4.599999E+00     S     -1.500001E+08                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    23
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      21
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S     -1.500001E+08                                                                                             
+   4.800000E+00     S     -1.500001E+08                                                                                             
+   4.900001E+00     S     -1.500001E+08                                                                                             
+   5.000001E+00     S     -1.500001E+08                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    24
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      10
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      0.0                                                                                                      
+   1.000000E-01     S      3.138144E+00                                                                                             
+   2.000000E-01     S      7.147243E+00                                                                                             
+   3.000000E-01     S      1.101120E+01                                                                                             
+   4.000000E-01     S      1.463225E+01                                                                                             
+   5.000001E-01     S      1.796781E+01                                                                                             
+   6.000001E-01     S      2.101374E+01                                                                                             
+   7.000001E-01     S      2.378349E+01                                                                                             
+   8.000001E-01     S      2.629698E+01                                                                                             
+   9.000002E-01     S      2.857572E+01                                                                                             
+   1.000000E+00     S      3.064066E+01                                                                                             
+   1.100000E+00     S      3.251144E+01                                                                                             
+   1.200000E+00     S      3.420613E+01                                                                                             
+   1.300000E+00     S      3.574123E+01                                                                                             
+   1.400000E+00     S      3.713172E+01                                                                                             
+   1.500000E+00     S      3.839123E+01                                                                                             
+   1.600000E+00     S      3.953207E+01                                                                                             
+   1.699999E+00     S      4.056544E+01                                                                                             
+   1.799999E+00     S      4.150144E+01                                                                                             
+   1.899999E+00     S      4.234925E+01                                                                                             
+   1.999999E+00     S      4.311718E+01                                                                                             
+   2.099999E+00     S      4.381277E+01                                                                                             
+   2.199999E+00     S      4.444282E+01                                                                                             
+   2.299999E+00     S      4.501350E+01                                                                                             
+   2.399999E+00     S      4.553043E+01                                                                                             
+   2.499999E+00     S      4.599865E+01                                                                                             
+   2.599999E+00     S      4.642275E+01                                                                                             
+   2.699999E+00     S      4.680689E+01                                                                                             
+   2.799999E+00     S      4.715485E+01                                                                                             
+   2.899998E+00     S      4.747001E+01                                                                                             
+   2.999998E+00     S      4.775549E+01                                                                                             
+   3.099998E+00     S      4.801407E+01                                                                                             
+   3.199998E+00     S      4.824828E+01                                                                                             
+   3.299998E+00     S      4.846043E+01                                                                                             
+   3.399998E+00     S      4.865259E+01                                                                                             
+   3.499998E+00     S      4.882665E+01                                                                                             
+   3.599998E+00     S      4.898430E+01                                                                                             
+   3.699998E+00     S      4.912711E+01                                                                                             
+   3.799998E+00     S      4.925646E+01                                                                                             
+   3.899997E+00     S      4.937362E+01                                                                                             
+   3.999997E+00     S      4.947975E+01                                                                                             
+   4.099998E+00     S      4.957587E+01                                                                                             
+   4.199998E+00     S      4.966294E+01                                                                                             
+   4.299998E+00     S      4.974181E+01                                                                                             
+   4.399999E+00     S      4.981324E+01                                                                                             
+   4.499999E+00     S      4.987794E+01                                                                                             
+   4.599999E+00     S      4.993655E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    25
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      10
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      4.998963E+01                                                                                             
+   4.800000E+00     S      5.003772E+01                                                                                             
+   4.900001E+00     S      5.008127E+01                                                                                             
+   5.000001E+00     S      5.012072E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    26
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      12
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      0.0                                                                                                      
+   1.000000E-01     S      3.133965E+00                                                                                             
+   2.000000E-01     S      7.102941E+00                                                                                             
+   3.000000E-01     S      1.086757E+01                                                                                             
+   4.000000E-01     S      1.435395E+01                                                                                             
+   5.000001E-01     S      1.754525E+01                                                                                             
+   6.000001E-01     S      2.045044E+01                                                                                             
+   7.000001E-01     S      2.308827E+01                                                                                             
+   8.000001E-01     S      2.548033E+01                                                                                             
+   9.000002E-01     S      2.764824E+01                                                                                             
+   1.000000E+00     S      2.961241E+01                                                                                             
+   1.100000E+00     S      3.139176E+01                                                                                             
+   1.200000E+00     S      3.300356E+01                                                                                             
+   1.300000E+00     S      3.446355E+01                                                                                             
+   1.400000E+00     S      3.578601E+01                                                                                             
+   1.500000E+00     S      3.698387E+01                                                                                             
+   1.600000E+00     S      3.806888E+01                                                                                             
+   1.699999E+00     S      3.905167E+01                                                                                             
+   1.799999E+00     S      3.994186E+01                                                                                             
+   1.899999E+00     S      4.074817E+01                                                                                             
+   1.999999E+00     S      4.147852E+01                                                                                             
+   2.099999E+00     S      4.214006E+01                                                                                             
+   2.199999E+00     S      4.273928E+01                                                                                             
+   2.299999E+00     S      4.328204E+01                                                                                             
+   2.399999E+00     S      4.377365E+01                                                                                             
+   2.499999E+00     S      4.421895E+01                                                                                             
+   2.599999E+00     S      4.462230E+01                                                                                             
+   2.699999E+00     S      4.498765E+01                                                                                             
+   2.799999E+00     S      4.531857E+01                                                                                             
+   2.899998E+00     S      4.561831E+01                                                                                             
+   2.999998E+00     S      4.588982E+01                                                                                             
+   3.099998E+00     S      4.613573E+01                                                                                             
+   3.199998E+00     S      4.635849E+01                                                                                             
+   3.299998E+00     S      4.656025E+01                                                                                             
+   3.399998E+00     S      4.674301E+01                                                                                             
+   3.499998E+00     S      4.690855E+01                                                                                             
+   3.599998E+00     S      4.705849E+01                                                                                             
+   3.699998E+00     S      4.719431E+01                                                                                             
+   3.799998E+00     S      4.731732E+01                                                                                             
+   3.899997E+00     S      4.742875E+01                                                                                             
+   3.999997E+00     S      4.752968E+01                                                                                             
+   4.099998E+00     S      4.762110E+01                                                                                             
+   4.199998E+00     S      4.770391E+01                                                                                             
+   4.299998E+00     S      4.777891E+01                                                                                             
+   4.399999E+00     S      4.784685E+01                                                                                             
+   4.499999E+00     S      4.790838E+01                                                                                             
+   4.599999E+00     S      4.796413E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    27
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      12
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      4.801461E+01                                                                                             
+   4.800000E+00     S      4.806034E+01                                                                                             
+   4.900001E+00     S      4.810177E+01                                                                                             
+   5.000001E+00     S      4.813929E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    28
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      14
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      0.0                                                                                                      
+   1.000000E-01     S      3.109555E+00                                                                                             
+   2.000000E-01     S      6.901321E+00                                                                                             
+   3.000000E-01     S      1.031607E+01                                                                                             
+   4.000000E-01     S      1.337816E+01                                                                                             
+   5.000001E-01     S      1.613534E+01                                                                                             
+   6.000001E-01     S      1.862523E+01                                                                                             
+   7.000001E-01     S      2.087721E+01                                                                                             
+   8.000001E-01     S      2.291557E+01                                                                                             
+   9.000002E-01     S      2.476124E+01                                                                                             
+   1.000000E+00     S      2.643274E+01                                                                                             
+   1.100000E+00     S      2.794664E+01                                                                                             
+   1.200000E+00     S      2.931784E+01                                                                                             
+   1.300000E+00     S      3.055984E+01                                                                                             
+   1.400000E+00     S      3.168481E+01                                                                                             
+   1.500000E+00     S      3.270378E+01                                                                                             
+   1.600000E+00     S      3.362676E+01                                                                                             
+   1.699999E+00     S      3.446276E+01                                                                                             
+   1.799999E+00     S      3.522001E+01                                                                                             
+   1.899999E+00     S      3.590590E+01                                                                                             
+   1.999999E+00     S      3.652718E+01                                                                                             
+   2.099999E+00     S      3.708992E+01                                                                                             
+   2.199999E+00     S      3.759964E+01                                                                                             
+   2.299999E+00     S      3.806133E+01                                                                                             
+   2.399999E+00     S      3.847953E+01                                                                                             
+   2.499999E+00     S      3.885833E+01                                                                                             
+   2.599999E+00     S      3.920144E+01                                                                                             
+   2.699999E+00     S      3.951221E+01                                                                                             
+   2.799999E+00     S      3.979371E+01                                                                                             
+   2.899998E+00     S      4.004869E+01                                                                                             
+   2.999998E+00     S      4.027964E+01                                                                                             
+   3.099998E+00     S      4.048884E+01                                                                                             
+   3.199998E+00     S      4.067833E+01                                                                                             
+   3.299998E+00     S      4.084995E+01                                                                                             
+   3.399998E+00     S      4.100542E+01                                                                                             
+   3.499998E+00     S      4.114623E+01                                                                                             
+   3.599998E+00     S      4.127378E+01                                                                                             
+   3.699998E+00     S      4.138932E+01                                                                                             
+   3.799998E+00     S      4.149396E+01                                                                                             
+   3.899997E+00     S      4.158874E+01                                                                                             
+   3.999997E+00     S      4.167460E+01                                                                                             
+   4.099998E+00     S      4.175237E+01                                                                                             
+   4.199998E+00     S      4.182280E+01                                                                                             
+   4.299998E+00     S      4.188660E+01                                                                                             
+   4.399999E+00     S      4.194440E+01                                                                                             
+   4.499999E+00     S      4.199674E+01                                                                                             
+   4.599999E+00     S      4.204416E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    29
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      14
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      4.208710E+01                                                                                             
+   4.800000E+00     S      4.212600E+01                                                                                             
+   4.900001E+00     S      4.216124E+01                                                                                             
+   5.000001E+00     S      4.219316E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    30
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      16
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      0.0                                                                                                      
+   1.000000E-01     S      2.997884E+00                                                                                             
+   2.000000E-01     S      6.269045E+00                                                                                             
+   3.000000E-01     S      8.959939E+00                                                                                             
+   4.000000E-01     S      1.127363E+01                                                                                             
+   5.000001E-01     S      1.331530E+01                                                                                             
+   6.000001E-01     S      1.514104E+01                                                                                             
+   7.000001E-01     S      1.678449E+01                                                                                             
+   8.000001E-01     S      1.826862E+01                                                                                             
+   9.000002E-01     S      1.961096E+01                                                                                             
+   1.000000E+00     S      2.082598E+01                                                                                             
+   1.100000E+00     S      2.192616E+01                                                                                             
+   1.200000E+00     S      2.292251E+01                                                                                             
+   1.300000E+00     S      2.382493E+01                                                                                             
+   1.400000E+00     S      2.464229E+01                                                                                             
+   1.500000E+00     S      2.538262E+01                                                                                             
+   1.600000E+00     S      2.605320E+01                                                                                             
+   1.699999E+00     S      2.666060E+01                                                                                             
+   1.799999E+00     S      2.721077E+01                                                                                             
+   1.899999E+00     S      2.770910E+01                                                                                             
+   1.999999E+00     S      2.816049E+01                                                                                             
+   2.099999E+00     S      2.856934E+01                                                                                             
+   2.199999E+00     S      2.893967E+01                                                                                             
+   2.299999E+00     S      2.927512E+01                                                                                             
+   2.399999E+00     S      2.957895E+01                                                                                             
+   2.499999E+00     S      2.985416E+01                                                                                             
+   2.599999E+00     S      3.010345E+01                                                                                             
+   2.699999E+00     S      3.032924E+01                                                                                             
+   2.799999E+00     S      3.053376E+01                                                                                             
+   2.899998E+00     S      3.071901E+01                                                                                             
+   2.999998E+00     S      3.088681E+01                                                                                             
+   3.099998E+00     S      3.103880E+01                                                                                             
+   3.199998E+00     S      3.117647E+01                                                                                             
+   3.299998E+00     S      3.130116E+01                                                                                             
+   3.399998E+00     S      3.141411E+01                                                                                             
+   3.499998E+00     S      3.151642E+01                                                                                             
+   3.599998E+00     S      3.160909E+01                                                                                             
+   3.699998E+00     S      3.169303E+01                                                                                             
+   3.799998E+00     S      3.176906E+01                                                                                             
+   3.899997E+00     S      3.183793E+01                                                                                             
+   3.999997E+00     S      3.190030E+01                                                                                             
+   4.099998E+00     S      3.195680E+01                                                                                             
+   4.199998E+00     S      3.200798E+01                                                                                             
+   4.299998E+00     S      3.205434E+01                                                                                             
+   4.399999E+00     S      3.209632E+01                                                                                             
+   4.499999E+00     S      3.213436E+01                                                                                             
+   4.599999E+00     S      3.216880E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    31
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      16
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      3.220001E+01                                                                                             
+   4.800000E+00     S      3.222827E+01                                                                                             
+   4.900001E+00     S      3.225388E+01                                                                                             
+   5.000001E+00     S      3.227707E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    32
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      18
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      0.0                                                                                                      
+   1.000000E-01     S      2.510051E+00                                                                                             
+   2.000000E-01     S      4.543471E+00                                                                                             
+   3.000000E-01     S      6.056288E+00                                                                                             
+   4.000000E-01     S      7.311525E+00                                                                                             
+   5.000001E-01     S      8.401373E+00                                                                                             
+   6.000001E-01     S      9.368353E+00                                                                                             
+   7.000001E-01     S      1.023547E+01                                                                                             
+   8.000001E-01     S      1.101707E+01                                                                                             
+   9.000002E-01     S      1.172338E+01                                                                                             
+   1.000000E+00     S      1.236241E+01                                                                                             
+   1.100000E+00     S      1.294091E+01                                                                                             
+   1.200000E+00     S      1.346478E+01                                                                                             
+   1.300000E+00     S      1.393923E+01                                                                                             
+   1.400000E+00     S      1.436895E+01                                                                                             
+   1.500000E+00     S      1.475817E+01                                                                                             
+   1.600000E+00     S      1.511072E+01                                                                                             
+   1.699999E+00     S      1.543005E+01                                                                                             
+   1.799999E+00     S      1.571929E+01                                                                                             
+   1.899999E+00     S      1.598128E+01                                                                                             
+   1.999999E+00     S      1.621858E+01                                                                                             
+   2.099999E+00     S      1.643353E+01                                                                                             
+   2.199999E+00     S      1.662823E+01                                                                                             
+   2.299999E+00     S      1.680458E+01                                                                                             
+   2.399999E+00     S      1.696431E+01                                                                                             
+   2.499999E+00     S      1.710900E+01                                                                                             
+   2.599999E+00     S      1.724006E+01                                                                                             
+   2.699999E+00     S      1.735876E+01                                                                                             
+   2.799999E+00     S      1.746629E+01                                                                                             
+   2.899998E+00     S      1.756368E+01                                                                                             
+   2.999998E+00     S      1.765189E+01                                                                                             
+   3.099998E+00     S      1.773180E+01                                                                                             
+   3.199998E+00     S      1.780418E+01                                                                                             
+   3.299998E+00     S      1.786973E+01                                                                                             
+   3.399998E+00     S      1.792911E+01                                                                                             
+   3.499998E+00     S      1.798290E+01                                                                                             
+   3.599998E+00     S      1.803162E+01                                                                                             
+   3.699998E+00     S      1.807575E+01                                                                                             
+   3.799998E+00     S      1.811572E+01                                                                                             
+   3.899997E+00     S      1.815193E+01                                                                                             
+   3.999997E+00     S      1.818472E+01                                                                                             
+   4.099998E+00     S      1.821442E+01                                                                                             
+   4.199998E+00     S      1.824133E+01                                                                                             
+   4.299998E+00     S      1.826570E+01                                                                                             
+   4.399999E+00     S      1.828778E+01                                                                                             
+   4.499999E+00     S      1.830777E+01                                                                                             
+   4.599999E+00     S      1.832588E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    33
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      18
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      1.834229E+01                                                                                             
+   4.800000E+00     S      1.835714E+01                                                                                             
+   4.900001E+00     S      1.837060E+01                                                                                             
+   5.000001E+00     S      1.838279E+01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    34
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      20
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      0.0                                                                                                      
+   1.000000E-01     S      5.000001E-01                                                                                             
+   2.000000E-01     S      5.000002E-01                                                                                             
+   3.000000E-01     S      5.000002E-01                                                                                             
+   4.000000E-01     S      5.000001E-01                                                                                             
+   5.000001E-01     S      5.000001E-01                                                                                             
+   6.000001E-01     S      5.000001E-01                                                                                             
+   7.000001E-01     S      5.000001E-01                                                                                             
+   8.000001E-01     S      5.000001E-01                                                                                             
+   9.000002E-01     S      5.000001E-01                                                                                             
+   1.000000E+00     S      5.000001E-01                                                                                             
+   1.100000E+00     S      5.000001E-01                                                                                             
+   1.200000E+00     S      5.000001E-01                                                                                             
+   1.300000E+00     S      5.000001E-01                                                                                             
+   1.400000E+00     S      5.000001E-01                                                                                             
+   1.500000E+00     S      5.000001E-01                                                                                             
+   1.600000E+00     S      5.000001E-01                                                                                             
+   1.699999E+00     S      5.000001E-01                                                                                             
+   1.799999E+00     S      5.000001E-01                                                                                             
+   1.899999E+00     S      5.000001E-01                                                                                             
+   1.999999E+00     S      5.000002E-01                                                                                             
+   2.099999E+00     S      5.000002E-01                                                                                             
+   2.199999E+00     S      5.000002E-01                                                                                             
+   2.299999E+00     S      5.000002E-01                                                                                             
+   2.399999E+00     S      5.000002E-01                                                                                             
+   2.499999E+00     S      5.000002E-01                                                                                             
+   2.599999E+00     S      5.000002E-01                                                                                             
+   2.699999E+00     S      5.000002E-01                                                                                             
+   2.799999E+00     S      5.000002E-01                                                                                             
+   2.899998E+00     S      5.000002E-01                                                                                             
+   2.999998E+00     S      5.000002E-01                                                                                             
+   3.099998E+00     S      5.000002E-01                                                                                             
+   3.199998E+00     S      5.000002E-01                                                                                             
+   3.299998E+00     S      5.000002E-01                                                                                             
+   3.399998E+00     S      5.000003E-01                                                                                             
+   3.499998E+00     S      5.000003E-01                                                                                             
+   3.599998E+00     S      5.000003E-01                                                                                             
+   3.699998E+00     S      5.000003E-01                                                                                             
+   3.799998E+00     S      5.000003E-01                                                                                             
+   3.899997E+00     S      5.000003E-01                                                                                             
+   3.999997E+00     S      5.000003E-01                                                                                             
+   4.099998E+00     S      5.000003E-01                                                                                             
+   4.199998E+00     S      5.000003E-01                                                                                             
+   4.299998E+00     S      5.000003E-01                                                                                             
+   4.399999E+00     S      5.000003E-01                                                                                             
+   4.499999E+00     S      5.000003E-01                                                                                             
+   4.599999E+00     S      5.000003E-01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    35
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      20
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      5.000003E-01                                                                                             
+   4.800000E+00     S      5.000003E-01                                                                                             
+   4.900001E+00     S      5.000003E-01                                                                                             
+   5.000001E+00     S      5.000003E-01                                                                                             
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    36
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      21
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   0.0              S      0.0                                                                                                      
+   1.000000E-01     S      0.0                                                                                                      
+   2.000000E-01     S      0.0                                                                                                      
+   3.000000E-01     S      0.0                                                                                                      
+   4.000000E-01     S      0.0                                                                                                      
+   5.000001E-01     S      0.0                                                                                                      
+   6.000001E-01     S      0.0                                                                                                      
+   7.000001E-01     S      0.0                                                                                                      
+   8.000001E-01     S      0.0                                                                                                      
+   9.000002E-01     S      0.0                                                                                                      
+   1.000000E+00     S      0.0                                                                                                      
+   1.100000E+00     S      0.0                                                                                                      
+   1.200000E+00     S      0.0                                                                                                      
+   1.300000E+00     S      0.0                                                                                                      
+   1.400000E+00     S      0.0                                                                                                      
+   1.500000E+00     S      0.0                                                                                                      
+   1.600000E+00     S      0.0                                                                                                      
+   1.699999E+00     S      0.0                                                                                                      
+   1.799999E+00     S      0.0                                                                                                      
+   1.899999E+00     S      0.0                                                                                                      
+   1.999999E+00     S      0.0                                                                                                      
+   2.099999E+00     S      0.0                                                                                                      
+   2.199999E+00     S      0.0                                                                                                      
+   2.299999E+00     S      0.0                                                                                                      
+   2.399999E+00     S      0.0                                                                                                      
+   2.499999E+00     S      0.0                                                                                                      
+   2.599999E+00     S      0.0                                                                                                      
+   2.699999E+00     S      0.0                                                                                                      
+   2.799999E+00     S      0.0                                                                                                      
+   2.899998E+00     S      0.0                                                                                                      
+   2.999998E+00     S      0.0                                                                                                      
+   3.099998E+00     S      0.0                                                                                                      
+   3.199998E+00     S      0.0                                                                                                      
+   3.299998E+00     S      0.0                                                                                                      
+   3.399998E+00     S      0.0                                                                                                      
+   3.499998E+00     S      0.0                                                                                                      
+   3.599998E+00     S      0.0                                                                                                      
+   3.699998E+00     S      0.0                                                                                                      
+   3.799998E+00     S      0.0                                                                                                      
+   3.899997E+00     S      0.0                                                                                                      
+   3.999997E+00     S      0.0                                                                                                      
+   4.099998E+00     S      0.0                                                                                                      
+   4.199998E+00     S      0.0                                                                                                      
+   4.299998E+00     S      0.0                                                                                                      
+   4.399999E+00     S      0.0                                                                                                      
+   4.499999E+00     S      0.0                                                                                                      
+   4.599999E+00     S      0.0                                                                                                      
+1     LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                            /    95 SUN SOLARIS NASTRAN    / MAY 17, 95 / PAGE    37
+      NASTRAN DEMONSTRATION PROBLEM NO. D09-04-1A                                                                                   
+0                                                                                                                                   
+      POINT-ID =      21
+                                              T E M P E R A T U R E   V E C T O R
+ 
+      TIME        TYPE        VALUE
+   4.700000E+00     S      0.0                                                                                                      
+   4.800000E+00     S      0.0                                                                                                      
+   4.900001E+00     S      0.0                                                                                                      
+   5.000001E+00     S      0.0                                                                                                      
+
+
+
+
+                                        * * * END OF JOB * * *
+1
+ JOB TITLE =  LINEAR TRANSIENT HEAT ANALYSIS  OF A PLATE                         
+ DATE:  5/17/95
+ END TIME: 16:10:45
+ TOTAL WALL CLOCK TIME      3 SEC.
+ 
