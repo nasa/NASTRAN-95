@@ -1,5 +1,11 @@
       SUBROUTINE PEXIT
 C
+CDME  19 JAN 2016
+CDME  D. Everhart
+CDME  EXTERNAL statement to remove collision with GFORTRAN
+CDME  implementation of LINK function.
+      EXTERNAL LINK
+CDME
       INTEGER         HH,SS,DATE(3)
       COMMON /OUTPUT/ LE(17)
       COMMON /MACHIN/ MACH
