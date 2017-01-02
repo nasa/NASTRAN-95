@@ -44,7 +44,7 @@ lib/libnasmds.a: $(MDSOBJ)
 	$(AR) cr $@ $^
 lib/libnasbd.a: $(BDOBJ)
 	$(AR) cr $@ $^
-lib/libnas.a: lib/libnasmis.a lib/libnasmds.a lib/libnasbd.a
+lib/libnas.a: lib/libnasmis.a lib/libnasmds.a lib/libnasbd.a lib/libnassys.a
 	$(AR) crT $@ $^
 bin/nastran.x: obj/nastrn.o
 	$(F77) $(FLAGS) $^ -lnas -o $@    # Note that "-lnas" is after "$^"!

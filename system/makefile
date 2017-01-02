@@ -50,7 +50,7 @@ ifdef INCDIR
 FLAGS+=-I$(INCDIR)
 endif
 
-system: $(OBJDIR) $(LIBDIR) $(LIBDIR)/libsystem.a
+libnassys: $(OBJDIR) $(LIBDIR) $(LIBDIR)/libnassys.a
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
@@ -65,7 +65,7 @@ F90=$(wildcard $(SRCDIR)/*.f90)
 OBJ=$(patsubst $(SRCDIR)/%.f,$(OBJDIR)/%.o,$(SRC))
 OBJ+=$(patsubst $(SRCDIR)/%.f90,$(OBJDIR)/%.o,$(F90))
 ################################################################################
-$(LIBDIR)/libsystem.a: $(OBJ)
+$(LIBDIR)/libnassys.a: $(OBJ)
 	$(AR) $(ARFLAGS) $@ $^
 ################################################################################
 $(OBJDIR)/%.o : src/%.f

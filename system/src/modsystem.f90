@@ -28,41 +28,44 @@
 ! Eventually, these values will all be named, and accessed through the more  modern F90 way.
 ! Comments for parameter descriptions taken from bd/semdbd.f DATA BLOCK routine.  Eventually, initiallization  of these values
 ! should take place here instead of the DATA BLOCK and BTSTRP subroutine.
+! 
+! Parameters are initialized as in the bd/semdbd.f.  Some are initialized as they will be set in BTSTRP, though BTSTRP still runs
+! and sets these values.  Other commons such as MACHIN should be aded to this module and initialized similarly.
 !----------------------------------------------------------------------------------------------------------------------------------+
 MODULE MODSYSTEM
 !----------------------------------------------------------------------------------------------------------------------------------+
                                                           IMPLICIT NONE
 !----------------------------------------------------------------------------------------------------------------------------------+
-INTEGER(KIND=4)               ::      BUFFER_LENGTH, SYSBUF            ! (MACH DEP) NO. OF WORDS IN A GINO BUFFER.
-INTEGER(KIND=4)               ::  PRINT_OUTPUT_UNIT, OUTTAP            ! (MACH DEP) FORTRAN LOGICAL UNIT NO. FOR SYSTEM PRINT OUTPUT
-INTEGER(KIND=4)               ::   EXEC_STATUS_NOGO, NOGO              ! FLAG DEFINING EXECUTION STATUS DURING -FRONT END-.
-INTEGER(KIND=4)               ::    INPUT_DATA_UNIT, INTP              ! (MACH DEP) FORT LOGICAL UNIT NO. FOR SYSTEM INPUT
-INTEGER(KIND=4)               ::                     MPC               ! MULTI-POINT CONSTRAINT SET ID  FOR CURRENT SUBCASE.
-INTEGER(KIND=4)               ::                     SPC               ! SINGLE-POINT CONSTR SET ID  FOR CURRENT SUBCASE.
-INTEGER(KIND=4)               ::                     LOGFL             ! CONSOLE/LOGFILE MESSAGE CONTROL. USED ONLY IN MSFC,
+INTEGER(KIND=4)               ::      BUFFER_LENGTH, SYSBUF  =    1028 ! (MACH DEP) NO. OF WORDS IN A GINO BUFFER.
+INTEGER(KIND=4)               ::  PRINT_OUTPUT_UNIT, OUTTAP  =       6 ! (MACH DEP) FORTRAN LOGICAL UNIT NO. FOR SYSTEM PRINT OUTPUT
+INTEGER(KIND=4)               ::   EXEC_STATUS_NOGO, NOGO    =       0 ! FLAG DEFINING EXECUTION STATUS DURING -FRONT END-.
+INTEGER(KIND=4)               ::    INPUT_DATA_UNIT, INTP    =       5 ! (MACH DEP) FORT LOGICAL UNIT NO. FOR SYSTEM INPUT
+INTEGER(KIND=4)               ::                     MPC     =       0 ! MULTI-POINT CONSTRAINT SET ID  FOR CURRENT SUBCASE.
+INTEGER(KIND=4)               ::                     SPC     =       0 ! SINGLE-POINT CONSTR SET ID  FOR CURRENT SUBCASE.
+INTEGER(KIND=4)               ::                     LOGFL   =       0 ! CONSOLE/LOGFILE MESSAGE CONTROL. USED ONLY IN MSFC,
                                                                        !   UNIVAC VER - LOGFL = 190
-INTEGER(KIND=4)               ::                     LOAD              ! POINTER TO FIRST RECORD IN CASE CONTROL DATA BLOCK FOR
+INTEGER(KIND=4)               ::                     LOAD    =       1 ! POINTER TO FIRST RECORD IN CASE CONTROL DATA BLOCK FOR
                                                                        !   CURRENT SUBCASE.
-INTEGER(KIND=4)               ::     LINES_PER_PAGE, NLPP              ! (MACH DEP) NUMBER OF LINES PER PAGE OF PRINTED OUTPUT.
-INTEGER(KIND=4)               ::                     MTEMP             ! MATERIAL TEMPERATURE SET ID.
-INTEGER(KIND=4)               :: CURRENT_PAGE_COUNT, NPAGES            ! CURRENT  PAGE COUNT.
-INTEGER(KIND=4)               ::                     NLINES            ! CURRENT NUMBER OF LINES ON CURRENT PAGE.
-INTEGER(KIND=4)               ::                     TLINES            ! TOTAL NUMBER OF LINES PRINTED IN JOB.
-INTEGER(KIND=4)               ::                     MXLINS            ! MAX NO. OF LINES OF PRINTED OUTPUT FOR THE PROBLEM.
-INTEGER(KIND=4),DIMENSION( 3) ::                     DATE              ! TODAY-S DATE, INTEGERS, 2 DIGITS EACH
-   REAL(KIND=4)               ::     CPU_START_TIME, TIMEZ             ! CPU TIME IN SECONDS, WHEN PROBLEM BEGAN. NOT NECESSARILY
+INTEGER(KIND=4)               ::     LINES_PER_PAGE, NLPP    =      55 ! (MACH DEP) NUMBER OF LINES PER PAGE OF PRINTED OUTPUT.
+INTEGER(KIND=4)               ::                     MTEMP   =       0 ! MATERIAL TEMPERATURE SET ID.
+INTEGER(KIND=4)               :: CURRENT_PAGE_COUNT, NPAGES  =       0 ! CURRENT  PAGE COUNT.
+INTEGER(KIND=4)               ::                     NLINES  =       0 ! CURRENT NUMBER OF LINES ON CURRENT PAGE.
+INTEGER(KIND=4)               ::                     TLINES  =       0 ! TOTAL NUMBER OF LINES PRINTED IN JOB.
+INTEGER(KIND=4)               ::                     MXLINS  =   20000 ! MAX NO. OF LINES OF PRINTED OUTPUT FOR THE PROBLEM.
+INTEGER(KIND=4),DIMENSION( 3) ::                     DATE    =       0 ! TODAY-S DATE, INTEGERS, 2 DIGITS EACH
+   REAL(KIND=4)               ::     CPU_START_TIME, TIMEZ   =       0 ! CPU TIME IN SECONDS, WHEN PROBLEM BEGAN. NOT NECESSARILY
                                                                        !   ZERO. USED IN TMTOGO
-INTEGER(KIND=4)               ::                     ECHOF             ! NUMBER INDICATING FORM OF BULK DATA ECHO.
-INTEGER(KIND=4)               ::                     PLOTF             ! FLAG INDICATING REQUEST FOR STRUCT PLOTS
+INTEGER(KIND=4)               ::                     ECHOF   =       2 ! NUMBER INDICATING FORM OF BULK DATA ECHO.
+INTEGER(KIND=4)               ::                     PLOTF   =       0 ! FLAG INDICATING REQUEST FOR STRUCT PLOTS
                                                                        !   (NON-ZERO = PLOT, SEE PLOTOPT IN SUB NASCAR FOR DETAILS)
-INTEGER(KIND=4)               ::                     APPRCH            ! APPROACH FLAG (1=FORCE, 2=DISPL , 3=DMAP). APPRCH .LT. 0
+INTEGER(KIND=4)               ::                     APPRCH  =       0 ! APPROACH FLAG (1=FORCE, 2=DISPL , 3=DMAP). APPRCH .LT. 0
                                                                        ! INDICATES A RESTART.
-INTEGER(KIND=4)               ::        LINK_NUMBER, LINKNO            ! CURRENT LINK NO. (IN BCD, E.G. NSXX)  INITIALLY SET TO
+INTEGER(KIND=4)               ::        LINK_NUMBER, LINKNO  =       0 ! CURRENT LINK NO. (IN BCD, E.G. NSXX)  INITIALLY SET TO
                                                                        !   NS01 IN SUBROUTINE BTSTRP. SUBSEQUENTLY SET TO THE
                                                                        !   CORRECT LINK NO. IN SUBROUTINE ENDSYS. 
                                                                        ! = WAS THE MACHINE TYPE, MACH (LEVEL 17 AND EARLIER VERSION)
-INTEGER(KIND=4)               ::                     LSYSTM            ! LENGTH OF SYSTEM COMMON BLOCK.
-INTEGER(KIND=4)               ::                     ICFIAT            ! REPLACES (EDTUMF) FLAG HERE, WHICH IS NO LONGER USED.
+INTEGER(KIND=4)               ::                     LSYSTM  =     180 ! LENGTH OF SYSTEM COMMON BLOCK.
+INTEGER(KIND=4)               ::                     ICFIAT  =      11 ! REPLACES (EDTUMF) FLAG HERE, WHICH IS NO LONGER USED.
                                                                        ! ICFIAT IS THE NUMBER OF WORDS PER FIAT ENTRY.
                                                                        !  . IF ICFIAT=8, DATA BLOCK GINO TRAILER 6 WORDS ARE PACKED
                                                                        !    INTO 4TH, 5TH, AND 6TH WORDS OF EACH FIAT ENTRY.
@@ -78,80 +81,83 @@ INTEGER(KIND=4)               ::                     ICFIAT            ! REPLACE
                                                                        !    NOT AFFECTED SINCE THE 7TH AND 8TH WORDS OF THE FIAT
                                                                        !    ENTRY REMAIN UNCHANGED.
                                                                        !  = WAS EDTUMF FLAG, USED IN PRE-1987 NASTRAN VER.
-INTEGER(KIND=4)               ::                     RFFLAG            ! RIGID FORMAT FLAG
-INTEGER(KIND=4)               ::                     CPPGCT            ! PAGE COUNT USED BY XCHK ROUTINE
-INTEGER(KIND=4)               ::                     MN                ! NUMBER OF RINGS/NUMBER OF HARMONICS FOR AXISYMMETRIC SHELL.
-INTEGER(KIND=4)               ::                     DUMMYI            ! (UNUSED WORD)
-INTEGER(KIND=4)               ::                     MAXFIL            ! MAXIMUM NUMBER OF UNITS TO BE ALLOCATED TO FIAT.
-INTEGER(KIND=4)               ::                     MAXOPN            ! MAXIMUM NUMBER OF FILES OPEN AT ONE TIME.
-INTEGER(KIND=4)               ::                     HICORE            ! HI-CORE LENGTH FOR UNIVAC AND VAX (GETS RESET TO 50,000 BY
+INTEGER(KIND=4)               ::                     RFFLAG  =       0 ! RIGID FORMAT FLAG
+INTEGER(KIND=4)               ::                     CPPGCT  =       0 ! PAGE COUNT USED BY XCHK ROUTINE
+INTEGER(KIND=4)               ::                     MN      =       0 ! NUMBER OF RINGS/NUMBER OF HARMONICS FOR AXISYMMETRIC SHELL.
+INTEGER(KIND=4)               ::                     DUMMYI  =       0 ! (UNUSED WORD)
+INTEGER(KIND=4)               ::                     MAXFIL  =      35 ! MAXIMUM NUMBER OF UNITS TO BE ALLOCATED TO FIAT.
+INTEGER(KIND=4)               ::                     MAXOPN  =      16 ! MAXIMUM NUMBER OF FILES OPEN AT ONE TIME.
+INTEGER(KIND=4)               ::                     HICORE  =   85000 ! HI-CORE LENGTH FOR UNIVAC AND VAX (GETS RESET TO 50,000 BY
                                                                        !   BTSTRP FOR VAX)
-INTEGER(KIND=4)               :: PROBLEM_START_TIME, TIMEW             ! PROBLEM START TIME (INTEGR SECONDS AFTER MIDNITE)
-INTEGER(KIND=4)               ::                     OFPFLG            ! OFP OPERATE FLAG - SET NON-ZERO WHEN OFP OPERATES
-INTEGER(KIND=4)               ::                     NBRCBU            ! (CDC ONLY) LENGTH OF FET + DUMMY INDEX UNIVAC DRUM FILE
+INTEGER(KIND=4)               :: PROBLEM_START_TIME, TIMEW   =       0 ! PROBLEM START TIME (INTEGR SECONDS AFTER MIDNITE)
+INTEGER(KIND=4)               ::                     OFPFLG  =       0 ! OFP OPERATE FLAG - SET NON-ZERO WHEN OFP OPERATES
+INTEGER(KIND=4)               ::                     NBRCBU  =      15 ! (CDC ONLY) LENGTH OF FET + DUMMY INDEX UNIVAC DRUM FILE
                                                                        !   ALLOCATION (1 FOR POSITION, 2 FOR TRACK)
-INTEGER(KIND=4)               ::                     LPRUS             ! (CDC ONLY) NUMBER OF WORDS PER PHYSICAL RECORD UNIT (PRU)
-INTEGER(KIND=4)               ::                     NPRUS             ! (CDC ONLY) NUMBER OF PRU-S PER GINO RECORD BLOCK
-INTEGER(KIND=4)               ::                     KSYS37            ! ERROR CONTROL WORD, USED LOCALLY BY QPARMD AND QPARMR.
+INTEGER(KIND=4)               ::                     LPRUS   =      64 ! (CDC ONLY) NUMBER OF WORDS PER PHYSICAL RECORD UNIT (PRU)
+INTEGER(KIND=4)               ::                     NPRUS   =       0 ! (CDC ONLY) NUMBER OF PRU-S PER GINO RECORD BLOCK
+INTEGER(KIND=4)               ::                     KSYS37  =       0 ! ERROR CONTROL WORD, USED LOCALLY BY QPARMD AND QPARMR.
                                                                        !   ALSO USED LOCALLY IN LINK1 FOR NASINFO FILE UNIT NO.
-INTEGER(KIND=4)               ::                     QQ                ! HYDROELASTIC PROBLEM FLAG.
-INTEGER(KIND=4)               ::      BITS_PER_CHAR, NBPC              ! (MACH DEP) NO. OF BITS PER CHARACTER.
-INTEGER(KIND=4)               ::      BITS_PER_WORD, NBPW              ! (MACH DEP) NO. OF BITS PER WORD.
-INTEGER(KIND=4)               ::     CHARS_PER_WORD, NCPW              ! (MACH DEP) NO. OF CHARACTERS PER WORDS.
+INTEGER(KIND=4)               ::                     QQ      =       0 ! HYDROELASTIC PROBLEM FLAG.
+INTEGER(KIND=4)               ::      BITS_PER_CHAR, NBPC    =       8 ! (MACH DEP) NO. OF BITS PER CHARACTER.
+INTEGER(KIND=4)               ::      BITS_PER_WORD, NBPW    =      32 ! (MACH DEP) NO. OF BITS PER WORD.
+INTEGER(KIND=4)               ::     CHARS_PER_WORD, NCPW    =       4 ! (MACH DEP) NO. OF CHARACTERS PER WORDS.
 INTEGER(KIND=4),DIMENSION( 3) ::                     SYSDAT            ! THREE BCD WORD ARRAY CONTAINING MONTH, ' 19', AND LAST
                                                                        !   TWO DIGITS OF YEAR OF SYSTEM GENERATION DATE.
                                                                        !   THESE CELLS ARE SET BY SUBROUTINE NASCAR.
-INTEGER(KIND=4)               ::                     TAPFLG            ! WORD SET BY NASTRAN CARD TO INDICATE FILES TO BE TAPES
+CHARACTER(LEN=12)             ::        SYSTEM_DATE  = 'APR. 19 95  '  ! System date in CHARACTER form to be EQUIVALENCEd with
+                                                      ! | 1|| 2|| 3|   !   SYSDAT above. It looks weird because of word alignment.
+INTEGER(KIND=4)               ::                     TAPFLG  =       0 ! WORD SET BY NASTRAN CARD TO INDICATE FILES TO BE TAPES
                                                                        !   WHETHER OR NOT THEY ARE ON DISK.  BITS TURNED ON COUNTING
                                                                        !   FROM RIGHT REPRESENT THE FILES IN XXFIAT.
-INTEGER(KIND=4),DIMENSION( 9) ::                     ADUMEL            ! NINE WORD ARRAY CONTAINING DATA EXTRACTED FROM THE ADUM-I
+INTEGER(KIND=4),DIMENSION( 9) ::                     ADUMEL  =       0 ! NINE WORD ARRAY CONTAINING DATA EXTRACTED FROM THE ADUM-I
                                                                        !   CARDS BY IFP.
-INTEGER(KIND=4)               ::     PRECISION_FLAG, IPREC             ! PRECISION FLAG, 1=SP, 2=DP.
-INTEGER(KIND=4)               ::                     ITHRML            ! THERMAL ANALYSIS FLAG:  0 = STRUCTURAL ANALYSIS,
+INTEGER(KIND=4)               ::     PRECISION_FLAG, IPREC   =       2 ! PRECISION FLAG, 1=SP, 2=DP.
+INTEGER(KIND=4)               ::                     ITHRML  =       0 ! THERMAL ANALYSIS FLAG:  0 = STRUCTURAL ANALYSIS,
                                                                        !                         1 = THERMAL ANALYSIS.
-INTEGER(KIND=4),DIMENSION( 9) ::                     MODCOM            ! NINE WORD ARRAY FOR MODULE COMMUNICATIONS. SYSTEM(58),
+INTEGER(KIND=4),DIMENSION( 9) ::                     MODCOM  =       0 ! NINE WORD ARRAY FOR MODULE COMMUNICATIONS. SYSTEM(58),
                                                                        !   PRE-SELECT METHOD FOR MPYAD (1,2,3,DEFAULT=0) SYSTEM(59),
                                                                        !   PLOT TAPE TRACK SIZE
-INTEGER(KIND=4),DIMENSION( 3) ::                     HDY               ! THREE WORD ARRAY ALA SEW
-INTEGER(KIND=4)               ::                     SSCELL            ! MULTILEVEL SUBSTRUCTURE ANALYSIS COMMUNICATION CELL.
-   REAL(KIND=4)               ::                     TOLEL             ! SINGULARITY TOLERANCE FOR SMA1,EMG. RESET BY NASCAR.
-INTEGER(KIND=4)               ::                     MESDAY            ! DAYFILE MESSAGE FLAG
-LOGICAL(KIND=4)               ::                     BITPAS            ! CDC TAPE PROCESSING BIT - FALSE FOR LINK1 ONLY
-LOGICAL(KIND=4)               ::                     PASS              ! CDC MESSAGE AND TIMING FLAG - FALSE FOR LINK1 ONLY
-INTEGER(KIND=4)               ::                     ITIME             ! WAS: WALL TIME ELAPSED SINCE PROBLEM START (SECONDS)
+INTEGER(KIND=4),DIMENSION( 3) ::                     HDY     =       0 ! THREE WORD ARRAY ALA SEW
+INTEGER(KIND=4)               ::                     SSCELL  =       0 ! MULTILEVEL SUBSTRUCTURE ANALYSIS COMMUNICATION CELL.
+   REAL(KIND=4)               ::                     TOLEL   =    0.01 ! SINGULARITY TOLERANCE FOR SMA1,EMG. RESET BY NASCAR.
+INTEGER(KIND=4)               ::                     MESDAY  =       0 ! DAYFILE MESSAGE FLAG
+LOGICAL(KIND=4)               ::                     BITPAS  = .FALSE. ! CDC TAPE PROCESSING BIT - FALSE FOR LINK1 ONLY
+LOGICAL(KIND=4)               ::                     PASS    = .FALSE. ! CDC MESSAGE AND TIMING FLAG - FALSE FOR LINK1 ONLY
+INTEGER(KIND=4)               ::                     ITIME   =       0 ! WAS: WALL TIME ELAPSED SINCE PROBLEM START (SECONDS)
                                                                        ! IS : PROBLEM START TIME IN SECONDS SINCE JAN-1-1970,
                                                                        !      GREENWICH-MEAN-TIME (GMT)
-INTEGER(KIND=4)               ::                     CTIME             ! WAS: CENTRAL PROCESSOR TIME SINCE PROBLEM START (SECONDS)
+INTEGER(KIND=4)               ::                     CTIME   =       0 ! WAS: CENTRAL PROCESSOR TIME SINCE PROBLEM START (SECONDS)
                                                                        ! IS : PRINT FLAG FOR DMAP SEQUENCE NO. AND NAME, ALL LINKS
                                                                        !      (SEE NASTRN OR NAST01.MDS)
-INTEGER(KIND=4)               ::                     NOSBE             ! (CDC ONLY) FLAG FOR NOS(0) OR NOSBE(1)
-INTEGER(KIND=4)               ::                     BANDIT            ! BANDIT OPTION FLAG (SEE BANDIT FOR MORE DETAILS)
-INTEGER(KIND=4)               ::                     PZEL              ! PIEZOELECTRIC PROBLEM FLAG (INPUT VIA NASTRAN SYSTEM(78))
-INTEGER(KIND=4),DIMENSION( 3) ::                     SWITCH            ! SENSE SWITCH BITS FOR DIAG CARD AND USED BY SSWTCH
-INTEGER(KIND=4)               ::                     ICPFLG            ! CHECKPOINT FLAG (0 = NO CHECKPOINT, 1 = CHECKPOINT)
-INTEGER(KIND=4)               ::                     JRUN              ! JRUN FOR VARIAN  (HEAT PROBLEM)
-INTEGER(KIND=4)               ::                     JMAX              ! JMAX FOR VARIAN  (HEAT PROBLEM)
-INTEGER(KIND=4)               ::                     LINTC             ! MAX. ALLOWABLE LINES OF INTERSECTION USED IN HDPLOT
-INTEGER(KIND=4)               ::                     INTRA             ! INTERACTIVE REQUEST FLAG FOR PLOT, OUTPUT, AND SCAN
+INTEGER(KIND=4)               ::                     NOSBE   =       0 ! (CDC ONLY) FLAG FOR NOS(0) OR NOSBE(1)
+INTEGER(KIND=4)               ::                     BANDIT  =       0 ! BANDIT OPTION FLAG (SEE BANDIT FOR MORE DETAILS)
+INTEGER(KIND=4)               ::                     PZEL    =       0 ! PIEZOELECTRIC PROBLEM FLAG (INPUT VIA NASTRAN SYSTEM(78))
+INTEGER(KIND=4),DIMENSION( 3) ::                     SWITCH  =       0 ! SENSE SWITCH BITS FOR DIAG CARD AND USED BY SSWTCH
+INTEGER(KIND=4)               ::                     ICPFLG  =       0 ! CHECKPOINT FLAG (0 = NO CHECKPOINT, 1 = CHECKPOINT)
+INTEGER(KIND=4)               ::                     JRUN    =       0 ! JRUN FOR VARIAN  (HEAT PROBLEM)
+INTEGER(KIND=4)               ::                     JMAX    =       0 ! JMAX FOR VARIAN  (HEAT PROBLEM)
+INTEGER(KIND=4)               ::                     LINTC   =     800 ! MAX. ALLOWABLE LINES OF INTERSECTION USED IN HDPLOT
+INTEGER(KIND=4)               ::                     INTRA   =       0 ! INTERACTIVE REQUEST FLAG FOR PLOT, OUTPUT, AND SCAN
                                                                        !   (0=NONE, 1=PLOT ONLY, 2=OUTPUT PRINT AND SCAN ONLY,
                                                                        !    3=BOTH)
-INTEGER(KIND=4)               ::                     OSPCNT            ! BAR OFFSET WARNING MESSAGE IF OFFSET BAR LENGTH EXCEEDS
+INTEGER(KIND=4)               ::                     OSPCNT  =      15 ! BAR OFFSET WARNING MESSAGE IF OFFSET BAR LENGTH EXCEEDS
                                                                        !   NON-OFFEST LENGTH BY THIS LIMIT (DEFAULT IS 15 PERCENT)
-INTEGER(KIND=4),DIMENSION( 3) ::                     K8890             ! 3 WORDS RESERVED FOR USER. WILL NOT BE USED BY COSMIC
-INTEGER(KIND=4)               ::  PUNCH_OUTPUT_UNIT, LPCH              ! (MACH DEP) FORTRAN LOGICAL UNIT NO. FOR PUNCH
-INTEGER(KIND=4)               ::                     LDICT             ! FORTRAN LOGICAL UNIT NO. FOR RESTART DICTIONARY PUNCH
+INTEGER(KIND=4),DIMENSION( 3) ::                     K8890   =       0 ! 3 WORDS RESERVED FOR USER. WILL NOT BE USED BY COSMIC
+INTEGER(KIND=4)               ::  PUNCH_OUTPUT_UNIT, LPCH    =       1 ! (MACH DEP) FORTRAN LOGICAL UNIT NO. FOR PUNCH
+INTEGER(KIND=4),PARAMETER     ::           RESTART_DICT_UNIT =       4 ! FORTRAN LOGICAL UNIT NO. FOR RESTART DICTIONARY PUNCH
+INTEGER(KIND=4)               ::              LDICT= RESTART_DICT_UNIT ! FORTRAN LOGICAL UNIT NO. FOR RESTART DICTIONARY PUNCH
                                                                        ! FIXME Is this the same as IRDICT below?
-INTEGER(KIND=4)               ::                     IAEROT            ! INTEGER FLAG INDICATING AERODYNAMIC THEORY (SPECIFIED
+INTEGER(KIND=4)               ::                     IAEROT  =       0 ! INTEGER FLAG INDICATING AERODYNAMIC THEORY (SPECIFIED
                                                                        !   VIA NASTRAN CARD AND USED ONLY IN APDB MODULE
                                                                        !     0 FOR COMPRESSOR BLADES, THEORY 6, DEFAULT,
                                                                        !     1 FOR SWEPT TURBOPROP. BLADES, THEORY 7)
-INTEGER(KIND=4)               ::                     KSYS94            ! FLAG FOR REMOVALS OF MPYDRI(1), MPY4T(10), NEW FBS(100),
+INTEGER(KIND=4)               ::                     KSYS94  =       0 ! FLAG FOR REMOVALS OF MPYDRI(1), MPY4T(10), NEW FBS(100),
                                                                        !   TRNSPS(1000), AND NEW FBS IN FEER(10000)
-INTEGER(KIND=4)               ::         SUPER_LINK, SPERLK            ! NASTRAN SUPERLINK FLAG. SET BY SEMDBD OR NASTRN FOR
+INTEGER(KIND=4)               ::         SUPER_LINK, SPERLK  =       1 ! NASTRAN SUPERLINK FLAG. SET BY SEMDBD OR NASTRN FOR
                                                                        !   UNIX MACHINE
-INTEGER(KIND=4),DIMENSION(56) ::                     LEFT              ! (85 UNUSED WORDS).  KSYS99 USED IN ERRTRC (SEE LEFT2)
-INTEGER(KIND=4)               ::                     LOGLIN            !
-INTEGER(KIND=4),DIMENSION(28) ::                     LEFT2             !
+INTEGER(KIND=4),DIMENSION(56) ::                     LEFT    =       0 ! (85 UNUSED WORDS).  KSYS99 USED IN ERRTRC (SEE LEFT2)
+INTEGER(KIND=4)               ::                     LOGLIN  =       0 !
+INTEGER(KIND=4),DIMENSION(28) ::                     LEFT2   =       0 !
 !----------------------------------------------------------------------------------------------------------------------------------+
 PRIVATE :: SYSBUF, OUTTAP,   NOGO,   INTP,    MPC,    SPC,  LOGFL,   LOAD,   NLPP,  MTEMP, NPAGES, NLINES, &
            TLINES, MXLINS,   DATE,  TIMEZ,  ECHOF,  PLOTF, APPRCH, LINKNO, LSYSTM, ICFIAT, RFFLAG, CPPGCT, &
@@ -201,7 +207,7 @@ EQUIVALENCE (SYSTEM_CELL(  38 ),     QQ                         )  !
 EQUIVALENCE (SYSTEM_CELL(  39 ),   NBPC, BITS_PER_CHAR          )  !          
 EQUIVALENCE (SYSTEM_CELL(  40 ),   NBPW, BITS_PER_WORD          )  !          
 EQUIVALENCE (SYSTEM_CELL(  41 ),   NCPW, CHARS_PER_WORD         )  !          
-EQUIVALENCE (SYSTEM_CELL(  42 ), SYSDAT                         )  !  THRU  44
+EQUIVALENCE (SYSTEM_CELL(  42 ), SYSDAT, SYSTEM_DATE            )  !  THRU  44
 EQUIVALENCE (SYSTEM_CELL(  45 ), TAPFLG                         )  !          
 EQUIVALENCE (SYSTEM_CELL(  46 ), ADUMEL                         )  !  THRU  54
 EQUIVALENCE (SYSTEM_CELL(  55 ),  IPREC, PRECISION_FLAG         )  !          
