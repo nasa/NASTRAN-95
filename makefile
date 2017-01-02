@@ -6,10 +6,11 @@ FLAGS+=-g -fno-range-check -fno-automatic -std=legacy -Iinclude -Llib
 all:       jobs nastran nasthelp nastplot chkfil ff
 nasinfo:   NASINFO
 nastran:   obj bin libnas nasinfo bin/nastran.x
-libnas:    lib libnasmis libnasmds libnasbd lib/libnas.a
+libnas:    lib libnasmis libnasmds libnasbd libnassys lib/libnas.a
 libnasmis: lib lib/libnasmis.a
 libnasmds: lib lib/libnasmds.a
 libnasbd:  lib lib/libnasbd.a
+libnassys: lib lib/libnassys.a
 nasthelp:  obj bin bin/nasthelp.x
 nastplot:  obj bin bin/nastplot.x
 chkfil:    obj bin bin/chkfil.x
@@ -35,13 +36,15 @@ MISOBJ+=$(patsubst mis/%.f,obj/%.o,$(wildcard mis/*.f))
 MDSOBJ+=$(patsubst mds/%.f,obj/%.o,$(wildcard mds/*.f))
 BDOBJ+=$(patsubst bd/%.f,obj/%.o,$(wildcard bd/*.f))
 ################################################################################
+lib/libnassys.a:
+	make -C system LIBDIR=../lib OBJDIR=../obj INCDIR=../include
 lib/libnasmis.a: $(MISOBJ)
 	$(AR) cr $@ $^
 lib/libnasmds.a: $(MDSOBJ)
 	$(AR) cr $@ $^
 lib/libnasbd.a: $(BDOBJ)
 	$(AR) cr $@ $^
-lib/libnas.a: lib/libnasmis.a lib/libnasmds.a lib/libnasbd.a
+lib/libnas.a: lib/libnasmis.a lib/libnasmds.a lib/libnasbd.a lib/libnassys.a
 	$(AR) crT $@ $^
 bin/nastran.x: obj/nastrn.o
 	$(F77) $(FLAGS) $^ -lnas -o $@    # Note that "-lnas" is after "$^"!
