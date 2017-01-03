@@ -1,5 +1,25 @@
       PROGRAM NASTRN        
 C        
+CDE   D. Everhart
+CDE   03 JAN 2017
+CDE   Changes made to remove any reference to the DOSNAM common
+CDE   (NASNAMES.COM).
+CDE   
+CDE   Additionally, a do loop was corrected.  (See DO 20.....)
+CDE   The size of the DSNMAES array specified in DSIOF.COM and
+CDE   NASNAMES.COM is only 89.  This loop was looping to 90 resulting
+CDE   in overwriting memory somewhere else. This overwriting did not
+CDE   appear to cause any errors before, but when removing the
+CDE   NASNAMES.COM inclusion from GNFIAT, a wierd error occurred in a
+CDE   seemingly unrelated place in the DBM common.  Anyway, it is
+CDE   almost as if changing how GNFIAT accesses the DBM common changed
+CDE   common alignment and now overwriting below causes a segfault.
+CDE
+CDE   All of the GETENV calls to set up file names were condensed
+CDE   in to one-liners.
+CDE
+CDE   Update the scr file numbers to be I0.2
+CDE
       CHARACTER*80    VALUE
       CHARACTER*5     TMP
       INTEGER         SPERLK
@@ -14,7 +34,8 @@ C
      &,                 NBLOCK, LENALC, IOCODE, IFILEX, NAME,   MAXALC
      &,                 MAXBLK, MAXDSK, IDBLEN, IDBADR, IBASBF, INDDIR
      &,                 NUMOPN, NUMCLS, NUMWRI, NUMREA, LENOPC
-      INCLUDE 'NASNAMES.COM'
+      COMMON / DSNAME / DSNAMES(89)
+      CHARACTER * 80    DSNAMES
       CHARACTER*80    SDSN
       EQUIVALENCE    ( ISYSTM, SYSTM )
       LENOPC = 14000000
@@ -47,71 +68,41 @@ C
       SPERLK = 1        
       ISYSTM(11) = 1        
       VALUE = ' '
-      CALL GETENV ( 'RFDIR',  RFDIR  )
-      VALUE = ' '
-      CALL GETENV ( 'DIRCTY', DIRTRY )
-      LEN = INDEX( DIRTRY, ' ' ) - 1
-      DO 20 I = 1, 90
-      IF ( I .LE. 9 ) WRITE ( TMP, 901 ) I
-      IF ( I .GT. 9 ) WRITE ( TMP, 902 ) I
-901   FORMAT('scr',I1)
-902   FORMAT('scr',I2)
-      DSNAMES( I ) = DIRTRY(1:LEN)//'/'//TMP
+      CALL GETENV ( 'DIRCTY', VALUE )
+      LEN = INDEX( VALUE, ' ' ) - 1
+      DO 20 I = 1, 89
+      WRITE ( TMP, '(A3,I0.2)' ) 'scr',I
+      DSNAMES( I ) = VALUE(1:LEN)//'/'//TMP
 20    CONTINUE
-      CALL GETENV ( 'LOGNM', LOG )
-      DSNAMES(3) = LOG
-      CALL GETENV ( 'OPTPNM', OPTP )
-      DSNAMES(7)  = OPTP
-      CALL GETENV ( 'NPTPNM', NPTP )
-      DSNAMES(8)  = NPTP
-      CALL GETENV ( 'FTN11', OUT11 )
-      DSNAMES(11) = OUT11
-      CALL GETENV ( 'FTN12', IN12 )
-      DSNAMES(12) = IN12
-      CALL GETENV ( 'FTN13', VALUE )
-      DSNAMES(13) = VALUE
-      CALL GETENV ( 'FTN14', VALUE )
-      DSNAMES(14) = VALUE
-      CALL GETENV ( 'FTN15', VALUE )
-      DSNAMES(15) = VALUE
-      CALL GETENV ( 'FTN16', VALUE )
-      DSNAMES(16) = VALUE
-      CALL GETENV ( 'FTN17', VALUE )
-      DSNAMES(17) = VALUE
-      CALL GETENV ( 'FTN18', VALUE )
-      DSNAMES(18) = VALUE
-      CALL GETENV ( 'FTN19', VALUE )
-      DSNAMES(19) = VALUE
-      CALL GETENV ( 'FTN20', VALUE )
-      DSNAMES(20) = VALUE
-      CALL GETENV ( 'FTN21', VALUE )
-      DSNAMES(21) = VALUE
-      CALL GETENV ( 'PLTNM', PLOT )
-      DSNAMES(10) = PLOT
-      CALL GETENV ( 'DICTNM', DIC )
-      DSNAMES(4) = DIC
-      CALL GETENV ( 'PUNCHNM', PUNCH )
-      DSNAMES(1) = PUNCH 
-      CALL GETENV ( 'SOF1', VALUE )
-      SDSN(1) = VALUE
-      CALL GETENV ( 'SOF2', VALUE )
-      SDSN(2) = VALUE
-      CALL GETENV ( 'SOF3', VALUE )
-      SDSN(3) = VALUE
-      CALL GETENV ( 'SOF4', VALUE )
-      SDSN(4) = VALUE
-      CALL GETENV ( 'SOF5', VALUE )
-      SDSN(5) = VALUE
-      CALL GETENV ( 'SOF6', VALUE )
-      SDSN(6) = VALUE
-      CALL GETENV ( 'SOF7', VALUE )
-      SDSN(7) = VALUE
-      CALL GETENV ( 'SOF8', VALUE )
-      SDSN(8) = VALUE
-      CALL GETENV ( 'SOF9', VALUE )
-      SDSN(9) = VALUE
-      CALL GETENV ( 'SOF10', VALUE )
-      SDSN(10) = VALUE
+C
+      CALL GETENV ( 'LOGNM',   DSNAMES(3)  )
+      CALL GETENV ( 'OPTPNM',  DSNAMES(7)  )
+      CALL GETENV ( 'NPTPNM',  DSNAMES(8)  )
+      CALL GETENV ( 'FTN11',   DSNAMES(11) )
+      CALL GETENV ( 'FTN12',   DSNAMES(12) )
+      CALL GETENV ( 'FTN13',   DSNAMES(13) )
+      CALL GETENV ( 'FTN14',   DSNAMES(14) )
+      CALL GETENV ( 'FTN15',   DSNAMES(15) )
+      CALL GETENV ( 'FTN16',   DSNAMES(16) )
+      CALL GETENV ( 'FTN17',   DSNAMES(17) )
+      CALL GETENV ( 'FTN18',   DSNAMES(18) )
+      CALL GETENV ( 'FTN19',   DSNAMES(19) )
+      CALL GETENV ( 'FTN20',   DSNAMES(20) )
+      CALL GETENV ( 'FTN21',   DSNAMES(21) )
+      CALL GETENV ( 'PLTNM',   DSNAMES(10) )
+      CALL GETENV ( 'DICTNM',  DSNAMES(4)  )
+      CALL GETENV ( 'PUNCHNM', DSNAMES(1)  )
+      CALL GETENV ( 'SOF1',    SDSN(1)     )
+      CALL GETENV ( 'SOF2',    SDSN(2)     )
+      CALL GETENV ( 'SOF3',    SDSN(3)     )
+      CALL GETENV ( 'SOF4',    SDSN(4)     )
+      CALL GETENV ( 'SOF5',    SDSN(5)     )
+      CALL GETENV ( 'SOF6',    SDSN(6)     )
+      CALL GETENV ( 'SOF7',    SDSN(7)     )
+      CALL GETENV ( 'SOF8',    SDSN(8)     )
+      CALL GETENV ( 'SOF9',    SDSN(9)     )
+      CALL GETENV ( 'SOF10',   SDSN(10)    )
+C
       OPEN (  3, FILE=DSNAMES(3) ,STATUS='UNKNOWN')
       IF ( DSNAMES(11) .NE. 'none' )
      & OPEN ( 11, FILE=DSNAMES(11),STATUS='UNKNOWN')
@@ -123,6 +114,8 @@ C
      & OPEN ( 4, FILE=DSNAMES(4),STATUS='UNKNOWN')
       IF ( DSNAMES(1) .NE. 'none' )
      & OPEN ( 1, FILE=DSNAMES(1),STATUS='UNKNOWN')
+C
       CALL XSEM00       
+C
       STOP
       END        
