@@ -1,7 +1,7 @@
 ################################################################################
 F77=gfortran
 AR=ar
-FLAGS+=-g -fno-range-check -fno-automatic -std=legacy -Iinclude -Llib
+FLAGS+=-g -fno-range-check -fno-automatic -std=legacy -Iinclude -Llib -Jobj
 ################################################################################
 all:       jobs nastran nasthelp nastplot chkfil ff
 nasinfo:   NASINFO

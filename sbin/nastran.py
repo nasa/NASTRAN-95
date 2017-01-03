@@ -52,8 +52,8 @@ def main(args):
     bname = os.path.splitext(os.path.split(args.input)[1])[0]
   if len(bname) < 1: raise ValueError('Valid input file not provided.')
 
-  DIRCTY  = '{0}/{1}'  .format(sdir,str(uuid.uuid4()).split('-')[0])
-  RFDIR   = '{0}/rf'   .format(nastran_home)
+  SCRATCH_DIRECTORY  = '{0}/{1}'  .format(sdir,str(uuid.uuid4()).split('-')[0])
+  RIGID_FORMAT_DIRECTORY   = '{0}/rf'   .format(nastran_home)
 
   NPTPNM  = '{0}.nptp' .format(bname)
   PLTNM   = '{0}.plt'  .format(bname)
@@ -136,8 +136,8 @@ def main(args):
   jobscr += '\n#PBS -q nas'
   jobscr += '\n#PBS -N {0}'.format(bname)
   jobscr += '\n#PBS -k n'
-  jobscr += '\nexport DIRCTY={0}'.format(DIRCTY)
-  jobscr += '\nexport RFDIR={0}'.format(RFDIR)
+  jobscr += '\nexport SCRATCH_DIRECTORY={0}'.format(SCRATCH_DIRECTORY)
+  jobscr += '\nexport RIGID_FORMAT_DIRECTORY={0}'.format(RIGID_FORMAT_DIRECTORY)
 
   jobscr += '\nexport NPTPNM={0}'.format(NPTPNM)
   jobscr += '\nexport PLTNM={0}'.format(PLTNM)
@@ -170,12 +170,12 @@ def main(args):
   jobscr += '\nexport OCMEM={0}'.format(2000000)
 
   jobscr += '\ncd {0}'.format(workdir)
-  jobscr += '\nmkdir -p {0}'.format(DIRCTY)
+  jobscr += '\nmkdir -p {0}'.format(SCRATCH_DIRECTORY)
   jobscr += '\n{0} {1} <{2} >{3}'.format(nastran_x,
                                        ' '.join(alist),
                                            args.input,
                                            F06)
-  jobscr += '\nrm -rf   {0}'.format(DIRCTY)
+  jobscr += '\nrm -rf   {0}'.format(SCRATCH_DIRECTORY)
   jobscr += '\nEOF'
 
   if args.no_run:

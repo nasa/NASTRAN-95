@@ -1,4 +1,5 @@
       PROGRAM NASTRN        
+      USE MODFILESYS
 C        
 CDE   D. Everhart
 CDE   03 JAN 2017
@@ -26,7 +27,6 @@ CDE
       REAL            SYSTM(94)
       COMMON / LSTADD / LASTAD
       COMMON / SYSTEM / ISYSTM(94),SPERLK
-      COMMON / SOFDSN / SDSN(10)
       COMMON / LOGOUT / LOUT
       COMMON / RESDIC / IRDICT, IROPEN
       COMMON / ZZZZZZ / IZ(14000000)
@@ -36,7 +36,6 @@ CDE
      &,                 NUMOPN, NUMCLS, NUMWRI, NUMREA, LENOPC
       COMMON / DSNAME / DSNAMES(89)
       CHARACTER * 80    DSNAMES
-      CHARACTER*80    SDSN
       EQUIVALENCE    ( ISYSTM, SYSTM )
       LENOPC = 14000000
 C        
@@ -67,41 +66,8 @@ C
       IRDICT = 4
       SPERLK = 1        
       ISYSTM(11) = 1        
-      VALUE = ' '
-      CALL GETENV ( 'DIRCTY', VALUE )
-      LEN = INDEX( VALUE, ' ' ) - 1
-      DO 20 I = 1, 89
-      WRITE ( TMP, '(A3,I0.2)' ) 'scr',I
-      DSNAMES( I ) = VALUE(1:LEN)//'/'//TMP
-20    CONTINUE
 C
-      CALL GETENV ( 'LOGNM',   DSNAMES(3)  )
-      CALL GETENV ( 'OPTPNM',  DSNAMES(7)  )
-      CALL GETENV ( 'NPTPNM',  DSNAMES(8)  )
-      CALL GETENV ( 'FTN11',   DSNAMES(11) )
-      CALL GETENV ( 'FTN12',   DSNAMES(12) )
-      CALL GETENV ( 'FTN13',   DSNAMES(13) )
-      CALL GETENV ( 'FTN14',   DSNAMES(14) )
-      CALL GETENV ( 'FTN15',   DSNAMES(15) )
-      CALL GETENV ( 'FTN16',   DSNAMES(16) )
-      CALL GETENV ( 'FTN17',   DSNAMES(17) )
-      CALL GETENV ( 'FTN18',   DSNAMES(18) )
-      CALL GETENV ( 'FTN19',   DSNAMES(19) )
-      CALL GETENV ( 'FTN20',   DSNAMES(20) )
-      CALL GETENV ( 'FTN21',   DSNAMES(21) )
-      CALL GETENV ( 'PLTNM',   DSNAMES(10) )
-      CALL GETENV ( 'DICTNM',  DSNAMES(4)  )
-      CALL GETENV ( 'PUNCHNM', DSNAMES(1)  )
-      CALL GETENV ( 'SOF1',    SDSN(1)     )
-      CALL GETENV ( 'SOF2',    SDSN(2)     )
-      CALL GETENV ( 'SOF3',    SDSN(3)     )
-      CALL GETENV ( 'SOF4',    SDSN(4)     )
-      CALL GETENV ( 'SOF5',    SDSN(5)     )
-      CALL GETENV ( 'SOF6',    SDSN(6)     )
-      CALL GETENV ( 'SOF7',    SDSN(7)     )
-      CALL GETENV ( 'SOF8',    SDSN(8)     )
-      CALL GETENV ( 'SOF9',    SDSN(9)     )
-      CALL GETENV ( 'SOF10',   SDSN(10)    )
+      CALL MODFILESYS_INIT_FILENAMES
 C
       OPEN (  3, FILE=DSNAMES(3) ,STATUS='UNKNOWN')
       IF ( DSNAMES(11) .NE. 'none' )

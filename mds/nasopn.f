@@ -8,7 +8,7 @@ CDE   rid of this common, RFDIR is simply pulled from the environment
 CDE   variable with the same name.
 CDE   INCLUDE 'NASNAMES.COM'
       LOGICAL IEXIST
-      CALL GETENV('RFDIR', RFDIR)
+      CALL GETENV('RIGID_FORMAT_DIRECTORY', RFDIR)
       KLEN = INDEX( RFDIR, ' ' )
       IFILE = RFDIR(1:KLEN-1) // '/NASINFO'
       DSN = IFILE
