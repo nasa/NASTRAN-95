@@ -69,13 +69,7 @@ C
 C
 C     -------------------     / SEM    /     ---------------------------
 C
-C     SEM DEFINES DATA FOR THE LINK DRIVERS (XSEMI).
-C     MASK   = OSCAR MASK
-C     MASK2,MASK3 =  OSCAR MASKS (MACHINE DEPENDENT).
-C     NAME   = ARRAY OF LINK NAMES
-C
-CWKBR COMMON /SEM   / MASK, MASK2, MASK3, NAME(15)
-      COMMON /SEM   / MASK, MASK2, MASK3, NAME(30)
+C                      Moved to module MODSEMLNK.
 C
 C     -------------------     / SYSTEM /     ---------------------------
 C
@@ -396,12 +390,7 @@ C
 C
 C     -------------------     / SEM    /     ---------------------------
 C
-      DATA    MASK  / 65535/, MASK2 , MASK3 / 2*0  /,         NAME  /
-     1        4HNS01, 4HNS02, 4HNS03, 4HNS04, 4HNS05, 4HNS06, 4HNS07,
-     2        4HNS08, 4HNS09, 4HNS10, 4HNS11, 4HNS12, 4HNS13, 4HNS14,
-     3        4HNS15, 4HNS16, 4HNS17, 4HNS18, 4HNS19, 4HNS20, 4HNS21,
-     4        4HNS22, 4HNS23, 4HNS24, 4HNS25, 4HNS26, 4HNS27, 4HNS28,
-     5        4HNS29, 4HNS30 /
+C                      Moved to module MODSEMLNK.
 C
 C     -------------------     / SYSTEM /     ---------------------------
 C
