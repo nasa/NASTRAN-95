@@ -243,26 +243,5 @@ EQUIVALENCE (SYSTEM_CELL( 153 ),  LEFT2                         )  !  THRU 180
 !----------------------------------------------------------------------------------------------------------------------------------+
 COMMON /SYSTEM/ SYSTEM_CELL
 !----------------------------------------------------------------------------------------------------------------------------------+
-INTEGER(KIND=4),PARAMETER     ::         LOGFILE_UNIT =            3 ! FORT LOGICAL UNIT NO. FOR SYSTEM LOGFILE
-INTEGER(KIND=4)               ::         LOUT         = LOGFILE_UNIT ! FORT LOGICAL UNIT NO. FOR SYSTEM LOGFILE (used to be set by
-                                                                     ! main program.
-PRIVATE :: LOUT
-COMMON /LOGOUT/ LOUT
-!----------------------------------------------------------------------------------------------------------------------------------+
-INTEGER(KIND=4)               ::               IRDICT = RESTART_DICT_UNIT ! FORT LOGICAL UNIT NO. For system restart dictionary? 
-                                                                          !   Was set in main program to 4.  This is the same as the
-                                                                          !   restart dictionary, so we are assuming that it is the
-                                                                          !   same here.
-INTEGER(KIND=4)               ::               IROPEN                     ! Appears to be a flag relating to the restart dictionary.
-                                                                          !   See subroutines: XCHK, XGPIMW, & XCSA.  This value 
-                                                                          !   appears to only be set in XGPIMW. It does not appear
-                                                                          !   to be initialized anywhere.  In XGPIMW, it is checked
-                                                                          !   against the value of 1 before it is then assigned the
-                                                                          !   value of 1.  It appears that the system depends on
-                                                                          !   this value not accidentally being 1 at program
-                                                                          !   initialization.
-PRIVATE :: IRDICT,IROPEN
-COMMON /RESDIC/ IRDICT,IROPEN
-!----------------------------------------------------------------------------------------------------------------------------------+
 END MODULE MODSYSTEM                        
 !----------------------------------------------------------------------------------------------------------------------------------+
