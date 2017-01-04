@@ -148,7 +148,16 @@ C
 *                 SOF   = 90
 * /////////////////////////////////////////////////////////////////
 C
-        INCLUDE           'NASNAMES.COM'
+CDE  D. Everhart
+CDE  21 Dec 2016
+CDE  The only that appears to be used from the DOSNAM common is
+CDE  the NPTP & OPTP terms which are in the DSNAMES common.  We will get
+CDE  this value from the DSNAME common ( The 7th,8th names ).  This 
+CDE  is already defined int he DSIOF.COM file as MDSNAM.  Furthermore
+CDE  the only thing done here is assignment of  MDSNAM(8) = NPTP and 
+CDE  MDSNAM(7) = OPTP.
+CDE     INCLUDE           'NASNAMES.COM'
+CDE 
         INCLUDE           'DSIOF.COM'
         INCLUDE           'GINOX.COM'
         COMMON / XFIAT  / IFUFA   , IFMXE   , IFCAE   , FIAT(640)
@@ -184,16 +193,25 @@ C
         DO 30 I =1, 220
         IUNIT( I ) = 0
    30   CONTINUE
-        IF (ANDF(4, IPERM) .EQ. 0) GO TO 40
-        MDSNAM( 8 ) = NPTP
-   40   MDSNAM( 7 ) = OPTP
+CDE  D. Everhart
+CDE  03 JAN 2017
+CDE  This operation is already done in the main program.
+CDE     IF (ANDF(4, IPERM) .EQ. 0) GO TO 40
+CDE     MDSNAM( 8 ) = NPTP
+CDE40   MDSNAM( 7 ) = OPTP
+CDE 
         DO 50 I = 1, NPFIST
         XFIAT( I ) = 4095
    50   CONTINUE
         DO 60 I = 7, 22
-        IF ( DSNAMES( I ) .EQ. 'none' ) GO TO 60
-        IF ( DSNAMES( I ) .EQ. 'NONE' ) GO TO 60
-        CALL DSINQR ( DSNAMES( I ), ISTAT, ISIZE )
+CDE  D. Everhart
+CDE  03 JAN 2017
+CDE  MDSNAME , was DSNAMES which is the name given in the NASNAMES.COM
+CDE  includ file.
+        IF ( MDSNAM( I ) .EQ. 'none' ) GO TO 60
+        IF ( MDSNAM( I ) .EQ. 'NONE' ) GO TO 60
+        CALL DSINQR ( MDSNAM( I ), ISTAT, ISIZE )
+CDE 
         IF (ISTAT.EQ.0) GO TO 60
         FCB( 3,I ) = 6
         FCB( 4,I ) = 1

@@ -1,0 +1,1 @@
+      COMMON / ZZZZZZ / IBASE(700000)
