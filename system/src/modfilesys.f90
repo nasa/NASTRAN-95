@@ -100,5 +100,15 @@ CALL GETENV (   'SOF10',    SDSN(10) )
 
 END SUBROUTINE MODFILESYS_INIT_FILENAMES
 !----------------------------------------------------------------------------------------------------------------------------------+
+SUBROUTINE MODFILESYS_OPEN_SYSTEM_FILES
+IMPLICIT NONE
+                                        OPEN (  3, FILE=SYSTEM_FILENAMES( 3),STATUS='UNKNOWN')
+IF ( SYSTEM_FILENAMES(11) .NE. 'none' ) OPEN ( 11, FILE=SYSTEM_FILENAMES(11),STATUS='UNKNOWN')
+IF ( SYSTEM_FILENAMES(12) .NE. 'none' ) OPEN ( 12, FILE=SYSTEM_FILENAMES(12),STATUS='UNKNOWN')
+IF ( SYSTEM_FILENAMES(10) .NE. 'none' ) OPEN ( 10, FILE=SYSTEM_FILENAMES(10),STATUS='UNKNOWN')
+IF ( SYSTEM_FILENAMES( 4) .NE. 'none' ) OPEN (  4, FILE=SYSTEM_FILENAMES( 4),STATUS='UNKNOWN')
+IF ( SYSTEM_FILENAMES( 1) .NE. 'none' ) OPEN (  1, FILE=SYSTEM_FILENAMES( 1),STATUS='UNKNOWN')
+END SUBROUTINE MODFILESYS_OPEN_SYSTEM_FILES
+!----------------------------------------------------------------------------------------------------------------------------------+
 END MODULE MODFILESYS                        
 !----------------------------------------------------------------------------------------------------------------------------------+
