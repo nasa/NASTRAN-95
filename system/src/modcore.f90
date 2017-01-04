@@ -30,7 +30,13 @@ MODULE MODCORE
 !----------------------------------------------------------------------------------------------------------------------------------+
 INTEGER(KIND=4),PARAMETER                   :: SYSTEM_CORE_SIZE = 14000000 ! Size of the system core in words.
 INTEGER(KIND=4),DIMENSION(SYSTEM_CORE_SIZE) :: SYSTEM_CORE
-COMMON / ZZZZZZ / SYSTEM_CORE
+COMMON /ZZZZZZ/ SYSTEM_CORE
+!----------------------------------------------------------------------------------------------------------------------------------+
+INTEGER(KIND=4)                             :: CORE_LAST_ADDRESS           ! Last address allowed in the core memory. Currently
+                                                                           ! set in main program and used in KORSZ only.
+                                                                           ! TODO checkout KORSZ, and see if we need to move it to
+                                                                           ! this module.
+COMMON /LSTADD/ CORE_LAST_ADDRESS
 !----------------------------------------------------------------------------------------------------------------------------------+
 END MODULE MODCORE
 !----------------------------------------------------------------------------------------------------------------------------------+

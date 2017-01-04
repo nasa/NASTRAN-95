@@ -68,6 +68,8 @@ OBJ+=$(patsubst $(SRCDIR)/%.f90,$(OBJDIR)/%.o,$(F90))
 $(LIBDIR)/libnassys.a: $(OBJ)
 	$(AR) $(ARFLAGS) $@ $^
 ################################################################################
+$(OBJDIR)/moddbmem.o: $(OBJDIR)/modsystem.o $(OBJDIR)/modcore.o
+################################################################################
 $(OBJDIR)/%.o : src/%.f
 	$(F77) $(FLAGS) -c $< -o $@
 $(OBJDIR)/%.o : src/%.f90
