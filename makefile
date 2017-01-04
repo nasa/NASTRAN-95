@@ -46,7 +46,7 @@ lib/libnasbd.a: $(BDOBJ)
 	$(AR) cr $@ $^
 lib/libnas.a: lib/libnasmis.a lib/libnasmds.a lib/libnasbd.a lib/libnassys.a
 	$(AR) crT $@ $^
-bin/nastran.x: obj/nastrn.o
+bin/nastran.x: obj/nastran.o
 	$(F77) $(FLAGS) $^ -lnas -o $@    # Note that "-lnas" is after "$^"!
 bin/nasthelp.x: obj/nasthelp.o
 	$(F77) $(FLAGS) $^ -o $@
@@ -66,6 +66,8 @@ obj/%.o : mds/%.f
 obj/%.o : mis/%.f
 	$(F77) $(FLAGS) -c $< -o $@
 obj/%.o : src/%.f
+	$(F77) $(FLAGS) -c $< -o $@
+obj/%.o : src/%.f90
 	$(F77) $(FLAGS) -c $< -o $@
 ################################################################################
 JOBS+=$(patsubst inp/%.inp,OUTPUT/%.f06,$(wildcard inp/*.inp))
