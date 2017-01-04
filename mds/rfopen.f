@@ -57,7 +57,7 @@ C
       GO TO 130        
 50    CONTINUE
       RFDIR = ' '
-      CALL GETENV ( 'RFDIR', RFDIR )
+      CALL GETENV ( 'RIGID_FORMAT_DIRECTORY', RFDIR )
       DO 55 I = 44, 1, -1
       IF ( RFDIR( I:I ) .EQ. ' ' ) GO TO 55
       LENR = I

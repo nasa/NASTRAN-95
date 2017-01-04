@@ -1,7 +1,7 @@
 !----------------------------------------------------------------------------------------------------------------------------------+
-!                                                        M O D C O R E                                                             |
+!                                                        N A S T R A N                                                             |
 !                                                                                                                      D. Everhart |
-!                                                                                                                      02 JAN 2017 |
+!                                                                                                                      03 JAN 2017 |
 !----------------------------------------------------------------------------------------------------------------------------------+
 ! The MIT License (MIT)
 ! 
@@ -19,24 +19,30 @@
 ! LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 ! IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 !----------------------------------------------------------------------------------------------------------------------------------+
-!
-! This module is a FORTRAN 90 wrapper for the /ZZZZZZ/ common.  Currently, the nastrn.f main program sizes this to 14,000,000 
-! words.
-!
+! This is the main program.  It is all new code.  It is loosely based on the original nastrn.f program file.  Everything has been
+! migrated to FORTRAN 90 here, and it employs the use of MODULES instead of COMMON blocks.  The license is MIT, though it the
+! NASA Open Source Agreement still applies to the rest of the code.
 !----------------------------------------------------------------------------------------------------------------------------------+
-MODULE MODCORE
-!----------------------------------------------------------------------------------------------------------------------------------+
-                                                          IMPLICIT NONE
-!----------------------------------------------------------------------------------------------------------------------------------+
-INTEGER(KIND=4),PARAMETER                   :: SYSTEM_CORE_SIZE = 14000000 ! Size of the system core in words.
-INTEGER(KIND=4),DIMENSION(SYSTEM_CORE_SIZE) :: SYSTEM_CORE
-COMMON /ZZZZZZ/ SYSTEM_CORE
-!----------------------------------------------------------------------------------------------------------------------------------+
-INTEGER(KIND=4)                             :: CORE_LAST_ADDRESS           ! Last address allowed in the core memory. Currently
-                                                                           ! set in main program and used in KORSZ only.
-                                                                           ! TODO checkout KORSZ, and see if we need to move it to
-                                                                           ! this module.
-COMMON /LSTADD/ CORE_LAST_ADDRESS
-!----------------------------------------------------------------------------------------------------------------------------------+
-END MODULE MODCORE
+PROGRAM NASTRAN        
+USE MODFILESYS
+USE MODDBMEM
+IMPLICIT NONE
+   
+CPU_START_TIME = 0
+CALL SECOND (CPU_START_TIME)
+CALL WALTIM (PROBLEM_START_TIME)        
+   
+CALL BTSTRP
+CALL MODDBMEM_INITIALIZE
+
+SUPER_LINK = 1        
+CURRENT_PAGE_COUNT = 1        
+
+CALL MODFILESYS_INIT_FILENAMES
+CALL MODFILESYS_OPEN_SYSTEM_FILES
+
+CALL XSEM00       
+
+STOP
+END PROGRAM NASTRAN
 !----------------------------------------------------------------------------------------------------------------------------------+
