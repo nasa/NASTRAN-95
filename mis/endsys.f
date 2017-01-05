@@ -7,6 +7,12 @@ C          IF SPERLK = 0, WE ARE IN NASTRAN MULTI-LINK COMPUTATION
 C          IF SPERLK = NON-ZERO, WE ARE IN NASTRAN SUPERLINK
 C          SPERLK IS THE 95TH WORD OF /SYSTEM/
 C
+CDME  19 Jan 2016
+CDME  D. Everhart
+CDME  This function collides with a GFORTRAN intrinsic, and needs
+CDME  to be declared.
+      EXTERNAL        LINK
+CDME
       EXTERNAL        LSHIFT,RSHIFT,ANDF,ORF
       LOGICAL         BITPAS
       INTEGER         ANDF,FIST,SAVE,SCRN1,SCRN2,THCRMK,POOL,SPERLK,
