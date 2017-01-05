@@ -37,17 +37,15 @@ MODULE MODSEMLNK
 INTEGER(KIND=4)                ::  MASK        = 65535
 INTEGER(KIND=4)                ::  MASK2       =     0
 INTEGER(KIND=4)                ::  MASK3       =     0
-!INTEGER(KIND=4),DIMENSION(30)  ::  LNKNOS
+INTEGER(KIND=4),DIMENSION(30)  ::  LNKNOS
 CHARACTER(LEN=4),DIMENSION(30) ::  LINK_NAMES  = (/  'NS01', 'NS02', 'NS03', 'NS04', 'NS05', 'NS06',     &
                                                      'NS07', 'NS08', 'NS09', 'NS10', 'NS11', 'NS12',     &
                                                      'NS13', 'NS14', 'NS15', 'NS16', 'NS17', 'NS18',     &
                                                      'NS19', 'NS20', 'NS21', 'NS22', 'NS23', 'NS24',     &
                                                      'NS25', 'NS26', 'NS27', 'NS28', 'NS29', 'NS30' /)
-!EQUIVALENCE (LNKNOS, LINK_NAMES)
-PRIVATE ::   MASK, MASK2, MASK3, LINK_NAMES
-COMMON /SEM/ MASK, MASK2, MASK3, LINK_NAMES
+EQUIVALENCE (LNKNOS, LINK_NAMES)
 !PRIVATE ::   MASK, MASK2, MASK3, LNKNOS, LINK_NAMES
-!COMMON /SEM/ MASK, MASK2, MASK3, LNKNOS
+COMMON /SEM/ MASK, MASK2, MASK3, LNKNOS
 !----------------------------------------------------------------------------------------------------------------------------------+
 !                                                         CONTAINS
 !----------------------------------------------------------------------------------------------------------------------------------+

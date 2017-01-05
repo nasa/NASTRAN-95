@@ -69,6 +69,7 @@ $(LIBDIR)/libnassys.a: $(OBJ)
 	$(AR) $(ARFLAGS) $@ $^
 ################################################################################
 $(OBJDIR)/moddbmem.o: $(OBJDIR)/modsystem.o $(OBJDIR)/modcore.o
+$(OBJDIR)/bootstrap.o: $(OBJDIR)/modsystem.o $(OBJDIR)/modsemlnk.o
 ################################################################################
 $(OBJDIR)/%.o : src/%.f
 	$(F77) $(FLAGS) -c $< -o $@

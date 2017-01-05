@@ -79,6 +79,111 @@ INTEGER(KIND=4)               ::               IROPEN                     ! Appe
 PRIVATE :: IRDICT,IROPEN
 COMMON /RESDIC/ IRDICT,IROPEN
 !----------------------------------------------------------------------------------------------------------------------------------+
+INTEGER(KIND=4)                     ::                    IEOR            
+INTEGER(KIND=4)                     ::                   IOERR            
+INTEGER(KIND=4)                     ::                  IPRVOP
+INTEGER(KIND=4)                     ::                  IRETRN
+INTEGER(KIND=4)                     ::                  IRWORD
+INTEGER(KIND=4)                     ::                  IDATAD          
+INTEGER(KIND=4)                     ::                    IDSN  
+INTEGER(KIND=4)                     ::                     LCW   
+INTEGER(KIND=4)                     ::                  LWORDS
+INTEGER(KIND=4)                     ::                  MASKH1
+INTEGER(KIND=4)                     ::                  MASKH2          
+INTEGER(KIND=4)                     ::                  MASKE1
+INTEGER(KIND=4)                     ::                  MASKE2
+INTEGER(KIND=4)                     ::                  MASKE3
+INTEGER(KIND=4)                     ::                  MASKE4
+INTEGER(KIND=4)                     ::                  MAXDSN
+INTEGER(KIND=4)                     ::                  NWORDS          
+INTEGER(KIND=4)                     ::                   NBUFF 
+INTEGER(KIND=4)                     ::                   IOBLK 
+INTEGER(KIND=4)                     ::                    NBFZ  
+INTEGER(KIND=4)                     ::                     NLR             
+INTEGER(KIND=4)                     ::                  MASKQ1
+INTEGER(KIND=4)                     ::                  MASKQ2
+INTEGER(KIND=4)                     ::                  MASKQ3
+INTEGER(KIND=4)                     ::                  MASKQ4
+INTEGER(KIND=4)                     ::                    IDSX  
+INTEGER(KIND=4)                     ::                    IDSP            
+INTEGER(KIND=4)                     ::                    IDSC  
+INTEGER(KIND=4)                     ::                   IDSRH 
+INTEGER(KIND=4)                     ::                   IDSRT 
+INTEGER(KIND=4)                     ::                   IDSSB 
+INTEGER(KIND=4)                     ::                   IDSSE 
+INTEGER(KIND=4)                     ::                   IDSCH           
+INTEGER(KIND=4)                     ::                   IDSCT 
+INTEGER(KIND=4)                     ::                   IDSSH 
+INTEGER(KIND=4)                     ::                   IDSST 
+INTEGER(KIND=4)                     ::                   IDSSD 
+INTEGER(KIND=4)                     ::                   IDSEB 
+INTEGER(KIND=4)                     ::                   IDSEF           
+INTEGER(KIND=4)                     ::                  IBLOCK
+INTEGER(KIND=4)                     ::                  LASNAM
+INTEGER(KIND=4)                     ::                  MCBMAS
+INTEGER(KIND=4)                     ::                   MULQ1 
+INTEGER(KIND=4)                     ::                   MULQ2 
+INTEGER(KIND=4)                     ::                   MULQ3
+INTEGER(KIND=4)                     ::                   LHALF
+INTEGER(KIND=4)                     ::                  LENDSP
+INTEGER(KIND=4)                     ::                  LENWPB
+INTEGER(KIND=4),DIMENSION(4)        ::                  NWRDEL
+INTEGER(KIND=4),DIMENSION(52)       ::              DSIOF_CELL
+PRIVATE ::   IEOR, IOERR,IPRVOP,IRETRN,IRWORD,IDATAD,  IDSN,   LCW,LWORDS,MASKH1,MASKH2,MASKE1,MASKE2,MASKE3,MASKE4,  &
+           MAXDSN,NWORDS, NBUFF, IOBLK,  NBFZ,   NLR,MASKQ1,MASKQ2,MASKQ3,MASKQ4,  IDSX,  IDSP,  IDSC, IDSRH, IDSRT,  &
+            IDSSB, IDSSE, IDSCH, IDSCT, IDSSH, IDSST, IDSSD, IDSEB, IDSEF,IBLOCK,LASNAM,MCBMAS, MULQ1, MULQ2, MULQ3,  &
+            LHALF,LENDSP,LENWPB,NWRDEL,DSIOF_CELL
+EQUIVALENCE ( DSIOF_CELL(   1 ),    IEOR  )                                                                           !           
+EQUIVALENCE ( DSIOF_CELL(   2 ),   IOERR  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(   3 ),  IPRVOP  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(   4 ),  IRETRN  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(   5 ),  IRWORD  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(   6 ),  IDATAD  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(   7 ),    IDSN  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(   8 ),     LCW  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(   9 ),  LWORDS  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  10 ),  MASKH1  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  11 ),  MASKH2  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  12 ),  MASKE1  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  13 ),  MASKE2  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  14 ),  MASKE3  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  15 ),  MASKE4  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  16 ),  MAXDSN  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  17 ),  NWORDS  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  18 ),   NBUFF  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  19 ),   IOBLK  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  20 ),    NBFZ  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  21 ),     NLR  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  22 ),  MASKQ1  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  23 ),  MASKQ2  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  24 ),  MASKQ3  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  25 ),  MASKQ4  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  26 ),    IDSX  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  27 ),    IDSP  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  28 ),    IDSC  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  29 ),   IDSRH  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  30 ),   IDSRT  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  31 ),   IDSSB  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  32 ),   IDSSE  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  33 ),   IDSCH  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  34 ),   IDSCT  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  35 ),   IDSSH  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  36 ),   IDSST  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  37 ),   IDSSD  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  38 ),   IDSEB  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  39 ),   IDSEF  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  40 ),  IBLOCK  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  41 ),  LASNAM  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  42 ),  MCBMAS  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  43 ),   MULQ1  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  44 ),   MULQ2  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  45 ),   MULQ3  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  46 ),   LHALF  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  47 ),  LENDSP  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  48 ),  LENWPB  )                                                                           !
+EQUIVALENCE ( DSIOF_CELL(  49 ),  NWRDEL  )                                                                           !  THRU 52
+COMMON /  DSIO/ DSIOF_CELL
+!----------------------------------------------------------------------------------------------------------------------------------+
                                                           CONTAINS
 !----------------------------------------------------------------------------------------------------------------------------------+
 SUBROUTINE MODFILESYS_INIT_FILENAMES

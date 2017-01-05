@@ -243,5 +243,166 @@ EQUIVALENCE (SYSTEM_CELL( 153 ),  LEFT2                         )  !  THRU 180
 !----------------------------------------------------------------------------------------------------------------------------------+
 COMMON /SYSTEM/ SYSTEM_CELL
 !----------------------------------------------------------------------------------------------------------------------------------+
+!                             The last two words of this common are not documented here.... FIXME
+INTEGER(KIND=4)               ::       HOST_MACHINE,   MACH  =      19 ! Host machine. ANY SUBROUTINE, THAT USES 'MACHX' INSTEAD
+                                                                       !   OF 'MACH' IN LABEL COMMON /MACHIN/, CONTAINES MACHINE
+                                                                       !   CONSTANTS THAT ARE USED LOCALLY.  was set in BTSTRP.
+                                                                       !   19 indicates PC MS/DOS
+INTEGER(KIND=4)               :: BITS_PER_HALF_WORD,  IHALF  =      16 ! Number of bits per half word.
+INTEGER(KIND=4)               ::     MASK_HALF_WORD,  JHALF  =   65535 ! All bits high for lower half of word.
+                                                                       !   Sometimes, this is calculated by 2**IHALF-1.            
+                                                                       !   2**IHALF   = 00000000 00000001 00000000 00000000        
+                                                                       !   2**IHALF-1 = 00000000 00000000 11111111 11111111
+INTEGER(KIND=4)               :: LOCF_QP_RECL_ORDER,   LQRO  =       0 ! Packs 4 values into one word:  LOCF, QP, RECL, & ORDER
+                                                                       ! Set in SYSTEM_BOOTSTRAP.
+                                                                       !   LOCF  (X1000) - Location flag telling LOCFX how to
+                                                                       !                   system LOC function returns address for
+                                                                       !                   pointer arithmetic. That is to say that
+                                                                       !                   LOCF=1 means that LOCFX will return     
+                                                                       !                          address in terms of words.      
+                                                                       !                   LOCF=NCPW means that LOCFX will return
+                                                                       !                          address in terms of bytes.      
+                                                                       !   QP    (X 100) - REAL*16 precision flag. (1=yes, 0=no)
+                                                                       !   RECL  (X  10) - DIRECT FILE RECORD LENGTH (USED IN
+                                                                       !                   FORTRAN OPEN STATEMENT) BY WORDS (= 1),
+                                                                       !                   OR BYTE (= NCPW)     
+                                                                       !   ORDER (X   1) - BCD WORD (NOT CHARACTER WORD) STORAGE
+                                                                       !                   ORDER. IF 'ABCD' IS STORED INTERNALLY
+                                                                       !                   IN A-B-C-D ORDER, SET ORDER TO 0, OR 
+                                                                       !                   IF IT IS STORED IN REVERSED ORDER,
+                                                                       !                   D-C-B-A,  SET ORDER TO 1   
+INTEGER(KIND=4),DIMENSION( 6) :: MACHINE_CELL
+!----------------------------------------------------------------------------------------------------------------------------------+
+PRIVATE :: MACH,IHALF,JHALF,LQRO
+!----------------------------------------------------------------------------------------------------------------------------------+
+EQUIVALENCE (MACHINE_CELL(  1),   MACH,         HOST_MACHINE)
+EQUIVALENCE (MACHINE_CELL(  2),  IHALF,   BITS_PER_HALF_WORD)
+EQUIVALENCE (MACHINE_CELL(  3),  JHALF,       MASK_HALF_WORD)
+EQUIVALENCE (MACHINE_CELL(  4),   LQRO,   LOCF_QP_RECL_ORDER)
+!----------------------------------------------------------------------------------------------------------------------------------+
+COMMON /MACHIN/ MACHINE_CELL
+!----------------------------------------------------------------------------------------------------------------------------------+
+INTEGER(KIND=4)               ::  LOWER_POWER_LIMIT,  LOWPW  =     -37 ! Minimum exponent for single precision real number.
+                                                                       !   Set to -37 by BTSTRP.
+INTEGER(KIND=4)               ::  UPPER_POWER_LIMIT, HIGHPW  =      38 ! Maximum exponent for single precision real number.
+                                                                       !   Set to  38 by BTSTRP.
+INTEGER(KIND=4)               ::     WORDS_PER_CARD,  NWPIC  =       0 ! Number of words per input card.  Used only in XGPIBS.
+                                                                       !   At some point, XGPIBS should be followed to see if it is
+                                                                       !   a candidate for pruning.  This is set to 0 by BTSTRP for
+                                                                       !   most platforms
+INTEGER(KIND=4)               ::  UNDERFLOW_CONTROL, NUDFLW  =      16 ! Floaing number underflow control used only by FQRW and
+                                                                       !   FQRWV.  Another line to check to see if this is even
+                                                                       !   necessary or some cruft.  Set to 16 for most platforms
+                                                                       !   in BTSTRP.
+INTEGER(KIND=4)               ::      MAXIMUM_FILES,   MXFL  =      75 ! Maximum files MAXFIL can request via the NASTRAN CARD.
+                                                                       !   Used only in NASCAR.  Set to 75 for most platforms in
+                                                                       !   BTSTRP.
+INTEGER(KIND=4)               ::       SHIFT_COUNTS, KSHIFT  =    4096 ! Shift counts used in a divide to convert a GINO LOC
+                                                                       !   returned from SAVPOS to GINO BLOCK NUMBER used in EMA.
+                                                                       !   Set to 4096 for most platforms in BTSTRP.
+INTEGER(KIND=4)               ::      MANTISSA_BITS, MTISA   =    2355 ! Mantissa bits used only in SDCMPS.  Set to 2355 for
+                                                                       !   most platforms by BTSTRP.  IF PRECISION_FLAG=1, then
+                                                                       !   the 23 part is used ( /100).  If PRECISION_FLAG=2, then
+                                                                       !   the 55 part is used ( MOD( ,100)).  This logic is 
+                                                                       !   performed in BTSTRP right now.
+INTEGER(KIND=4),DIMENSION( 7) :: LHPWX_CELL
+!----------------------------------------------------------------------------------------------------------------------------------+
+PRIVATE :: LOWPW,HIGHPW,NWPIC,NUDFLW,MXFL,KSHIFT,MTISA
+!----------------------------------------------------------------------------------------------------------------------------------+
+EQUIVALENCE (LHPWX_CELL(   1 ),   LOWPW,   LOWER_POWER_LIMIT )          
+EQUIVALENCE (LHPWX_CELL(   2 ),  HIGHPW,   UPPER_POWER_LIMIT )         
+EQUIVALENCE (LHPWX_CELL(   3 ),   NWPIC,      WORDS_PER_CARD )         
+EQUIVALENCE (LHPWX_CELL(   4 ),  NUDFLW,   UNDERFLOW_CONTROL )         
+EQUIVALENCE (LHPWX_CELL(   5 ),    MXFL,       MAXIMUM_FILES )         
+EQUIVALENCE (LHPWX_CELL(   6 ),  KSHIFT,        SHIFT_COUNTS )         
+EQUIVALENCE (LHPWX_CELL(   7 ),   MTISA,       MANTISSA_BITS )         
+!----------------------------------------------------------------------------------------------------------------------------------+
+COMMON /LHPWX / LHPWX_CELL
+!----------------------------------------------------------------------------------------------------------------------------------+
+CHARACTER(LEN=11)                     :: MACHINE_NAME, MCHNAM  = 'Intel-x86  ' ! 11 character name of machine left justified.
+CHARACTER(LEN= 7)                     ::   MACHINE_OS, MACHOS  = 'GNU/GGC'     ! 7 character name of os left justified.
+PRIVATE :: MCHNAM,MACHOS
+EQUIVALENCE (MCHNAM, MACHINE_NAME),  (MACHOS, MACHINE_OS)
+COMMON /CHMACH/ MCHNAM,MACHOS
+!----------------------------------------------------------------------------------------------------------------------------------+
+!     TWO(1)  = LSHIFT(1,31), IS MACHINE DEPENDENT (SET BY BTSTRP)
+!     MZERO   = WILL BE SET TO LSHIFT(1,NBPW-1) BY BTSTRP
+!
+!     TWO DEFINES THE BITS IN A 32-BIT COMPUTER WORD (FROM LEFT TO RT).
+!     MZERO = WILL BE SET TO -0.0 (= LSHIFT(1,NBPW-1) = SIGN BIT ON) BY
+!             BTSTRP, AND WILL BE USED BY NUMTYP
+!
+INTEGER(KIND=4)                ::  MZERO = 0
+INTEGER(KIND=4),DIMENSION(32)  ::  TWO   = (/                         0,                                  &
+                                                             1073741824, 536870912, 268435456, 134217728, &
+                                                               67108864,  33554432,  16777216,   8388608, &
+                                                                4194304,   2097152,   1048576,    524288, &
+                                                                 262144,    131072,     65536,     32768, &
+                                                                  16384,      8192,      4096,      2048, &
+                                                                   1024,       512,       256,       128, &
+                                                                     64,        32,        16,         8, &
+                                                                      4,         2,         1                /)
+COMMON /TWO/ TWO,MZERO
+!----------------------------------------------------------------------------------------------------------------------------------+
+!     INFLAG AND INSAVE ARE USED IN READFILE COMMAND. IRRX USED IN FFREAD
+!
+INTEGER(KIND=4)               :: INFLAG
+INTEGER(KIND=4)               :: INSAVE
+INTEGER(KIND=4)               :: IBMCDC
+INTEGER(KIND=4),DIMENSION( 3) :: IXXR  
+INTEGER(KIND=4),DIMENSION( 5) :: XXREAD_CELL  = 0
+EQUIVALENCE (XXREAD_CELL(  1), INFLAG     )
+EQUIVALENCE (XXREAD_CELL(  2), INSAVE     )
+EQUIVALENCE (XXREAD_CELL(  3),   IXXR(1)  )
+EQUIVALENCE (XXREAD_CELL(  4), IBMCDC     )
+COMMON /XXREAD/ XXREAD_CELL
+!----------------------------------------------------------------------------------------------------------------------------------+
+!     COMMONLY USED PHYSICAL CONSTANTS
+!
+!     THE /CONDAD/ COMMON BLOCK CONTAINS COMMONLY USED PHYSICAL
+!     CONSTANTS IN DOUBLE PRECISION FORM.
+!
+!     THE /CONDAS/ COMMON BLOCK CONTAINS COMMONLY USED PHYSICAL
+!     CONSTANTS IN SINGLE PRECISION FORM.
+!
+!     THE FOLLOWING IS A PARTIAL LIST OF ROUTINES THAT USE CONSTANTS
+!     FROM ONE OF THESE COMMON BLOCKS
+!              CDETM    ,CEAD1A   ,CONE     ,DETM5    ,DS1A     ,
+!              DTRIA    ,FRRD1A   ,GKAM     ,GP1      ,INPUT    ,
+!              KTUBE    ,MCONE    ,MFREE    ,MTUBE    ,PLA32    ,
+!              PLA42    ,PRESAX   ,QDMEM    ,RAND3    ,RAND8    ,
+!              REIG     ,RFORCE   ,ROD      ,SCONE1   ,SDR2C    ,
+!              STUBE1   ,TR1A     ,VDRB
+!
+!----------------------------------------------------------------------------------------------------------------------------------+
+REAL(KIND=8),PARAMETER ::              PI =  3.141592653589793238462643D0 ! VALUE OF PI
+REAL(KIND=8),PARAMETER ::          TWO_PI =  6.283185307179586476925287D0 ! VALUE OF 2*PI
+REAL(KIND=8),PARAMETER ::      RAD_TO_DEG = 57.295779513082320876798155D0 ! CONVERSION FACTOR FROM RADIANS TO DEGREES
+REAL(KIND=8),PARAMETER ::      DEG_TO_RAD =  0.017453292519943295769237D0 ! CONVERSION FACTOR FROM DEGREES TO RADIANS
+REAL(KIND=8),PARAMETER :: FOUR_PI_SQUARED = 39.478417604357434475337964D0 ! VALUE OF 4*PI**2
+!----------------------------------------------------------------------------------------------------------------------------------+
+REAL(KIND=4)           ::          SPI    =                            PI ! VALUE OF PI
+REAL(KIND=4)           ::          S2PI   =                        TWO_PI ! VALUE OF 2*PI
+REAL(KIND=4)           ::          SRADEG =                    RAD_TO_DEG ! CONVERSION FACTOR FROM RADIANS TO DEGREES
+REAL(KIND=4)           ::          DEGRAS =                    DEG_TO_RAD ! CONVERSION FACTOR FROM DEGREES TO RADIANS
+REAL(KIND=4)           ::          S4PISQ =               FOUR_PI_SQUARED ! VALUE OF 4*PI**2
+!----------------------------------------------------------------------------------------------------------------------------------+
+REAL(KIND=8)           ::          DPI    =                            PI ! VALUE OF PI
+REAL(KIND=8)           ::          D2PI   =                        TWO_PI ! VALUE OF 2*PI
+REAL(KIND=8)           ::          RADDEG =                    RAD_TO_DEG ! CONVERSION FACTOR FROM RADIANS TO DEGREES
+REAL(KIND=8)           ::          DEGRAD =                    DEG_TO_RAD ! CONVERSION FACTOR FROM DEGREES TO RADIANS
+REAL(KIND=8)           ::          D4PISQ =               FOUR_PI_SQUARED ! VALUE OF 4*PI**2
+!----------------------------------------------------------------------------------------------------------------------------------+
+PRIVATE ::      SPI,S2PI,SRADEG,DEGRAS,S4PISQ, &
+                DPI,D2PI,RADDEG,DEGRAD,D4PISQ
+!----------------------------------------------------------------------------------------------------------------------------------+
+COMMON /CONDAS/ SPI,S2PI,SRADEG,DEGRAS,S4PISQ
+COMMON /CONDAD/ DPI,D2PI,RADDEG,DEGRAD,D4PISQ
+!----------------------------------------------------------------------------------------------------------------------------------+
+INTEGER(KIND=4)                     ::                 NUMDEV
+CHARACTER(LEN= 2),DIMENSION(10)     ::                    DEV
+PRIVATE :: NUMDEV, DEV
+COMMON /DSDEVC/ NUMDEV, DEV
+!----------------------------------------------------------------------------------------------------------------------------------+
 END MODULE MODSYSTEM                        
 !----------------------------------------------------------------------------------------------------------------------------------+

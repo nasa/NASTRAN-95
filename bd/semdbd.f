@@ -219,11 +219,7 @@ C     COMMON /DESCRP/ LENGTH, BLOCK(50)
 C
 C     -------------------     / TWO    /     ---------------------------
 C
-C     TWO DEFINES THE BITS IN A 32-BIT COMPUTER WORD (FROM LEFT TO RT).
-C     MZERO = WILL BE SET TO -0.0 (= LSHIFT(1,NBPW-1) = SIGN BIT ON) BY
-C             BTSTRP, AND WILL BE USED BY NUMTYP
-C
-      COMMON /TWO   / TWO(32),MZERO
+C                      Moved to module MODSYSTEM.
 C
 C     -------------------     / NAMES  /     ---------------------------
 C
@@ -279,10 +275,7 @@ C
 C
 C     --------------------    / XXREAD /     ---------------------------
 C
-C     INFLAG AND INSAVE ARE USED IN READFILE COMMAND. IRRX USED IN
-C     FFREAD
-C
-      COMMON /XXREAD/ INFLAG, INSAVE, IXXR(3)
+C                      Moved to module MODSYSTEM.
 C
 C     --------------     /XECHOX/ AND /XREADX/     ---------------------
 C
@@ -302,12 +295,7 @@ C
 C
 C     --------------     /MACHIN/ AND /LHPWX/     ---------------------
 C
-C     6 MACHINE CONSTANTS IN /MACHIN/ AND 7 IN /LHPWX/ WILL BE
-C     INITIALZED BY BTSTRP. THESE CONSTANTS NEED TO BE SAVED IN THE ROOT
-C     LEVEL OF ALL LINKS
-C
-      COMMON /MACHIN/ MA(6)
-      COMMON /LHPWX / LH(7)
+C                      Moved to module MODSYSTEM.
 C
 C
 C     ==================================================================
@@ -501,19 +489,7 @@ C     DATA    LENGTH / 50 /,   BLOCK / 50*0 /
 C
 C     -------------------     / TWO    /     ---------------------------
 C
-C     TWO(1)  = LSHIFT(1,31), IS MACHINE DEPENDENT (SET BY BTSTRP)
-C     MZERO   = WILL BE SET TO LSHIFT(1,NBPW-1) BY BTSTRP
-C
-      DATA    TWO   /          0,
-     1                1073741824, 536870912, 268435456, 134217728,
-     2                  67108864,  33554432,  16777216,   8388608,
-     3                   4194304,   2097152,   1048576,    524288,
-     4                    262144,    131072,     65536,     32768,
-     5                     16384,      8192,      4096,      2048,
-     6                      1024,       512,       256,       128,
-     7                        64,        32,        16,         8,
-     8                         4,         2,         1/
-      DATA    MZERO / 0 /
+C                      Moved to module MODSYSTEM.
 C
 C     -------------------     / NAMES  /     ---------------------------
 C
@@ -562,7 +538,7 @@ C
 C
 C     --------------------    / XXREAD /     ---------------------------
 C
-      DATA    INFLAG, INSAVE, IXXR / 5*0 /
+C                      Moved to module MODSYSTEM.
 C
 C     --------------     /XECHOX/ AND /XREADX/     ---------------------
 C
@@ -573,6 +549,7 @@ C
 C
 C     --------------     /MACHIN/ AND /LHPWX/     ---------------------
 C
-      DATA    MA    / 6*0 /,  LH / 7*0 /
+C                      Moved to module MODSYSTEM.
+C
 C
       END
