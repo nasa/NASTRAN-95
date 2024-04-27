@@ -76,8 +76,11 @@ C     NOTE - THE CURRENT CALL TO CPUTIM MUST GIVE A TIME VALUE BIGGER
 C     THAN PREVIOUS CPUTIME CALL. OTHERWISE, CALLING ROUTINE MAY GET    
 C     INTO TROUBLE, SUCH AS DIVIDED BY ZERO.        
 C        
-      REAL ARRAY(2)        
-      CALL ETIME(ARRAY)
+
+    	REAL ARRAY(2)
+      REAL Time_dummy        
+      CALL ETIME(ARRAY, Time_dummy)
+
       T=ARRAY(2)
       IF (IFLAG .NE. 0) GO TO 30        
       ICPUSC = T + .49        

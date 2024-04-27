@@ -9,7 +9,11 @@
         DATA              NWORDS / 1,2,2,4/                                     
         IWRD1   = NWORDS( ITIN )                                                
         IF ( ITIN .NE. ITOUT ) GO TO 20                                         
+
+!DEC$ IF DEFINED(CRAY_COMPILER)
 CDIR$ NEXTSCALAR                                                                
+!DEC$ ENDIF
+
         DO 10 K = 1, IWRD1                                                      
         B( K )  = A( K )                                                        
 10      CONTINUE                                                                
@@ -22,7 +26,11 @@ CDIR$ NEXTSCALAR
 30      ITOUT2 = ITOUT - 64                                                     
         IWRD2  = NWORDS( ITOUT2 )                                               
         SSIGN  = -1.0                                                           
+
+!DEC$ IF DEFINED(CRAY_COMPILER)
 CDIR$ NEXTSCALAR                                                                
+!DEC$ ENDIF
+
 40      DO 50 K = 1, IWRD1                                                      
         AA( K ) = A( K )                                                        
 50      CONTINUE                                                                
@@ -71,7 +79,11 @@ CDIR$ NEXTSCALAR
 4400    RD2 = SSIGN * RD1                                                       
         RDI2 = SSIGN * RDI1                                                     
         GO TO 7000                                                              
+
+!DEC$ IF DEFINED(CRAY_COMPILER)
 CDIR$ NEXTSCALAR                                                                
+!DEC$ ENDIF
+
 7000    DO 7200 K = 1, IWRD2                                                    
         B( K ) = BB( K )                                                        
 7200    CONTINUE                                                                

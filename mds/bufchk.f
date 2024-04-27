@@ -13,11 +13,11 @@ C
      1                 6       ,  'BUFCHK@','II,B(L)=' /        
 C VAX:        
       DATA             RECTRL  ,  RCTRLL   , RCTRLC  , COLHDR, COLTRL / 
-     1                 '1'X    ,  '2'X     , '3'X    , '4'X  , '8'X   / 
+     1                 Z'1'    ,  Z'2'     , Z'3'    , Z'4'  , Z'8'   / 
       DATA             RECHDR  ,  RCHDST   , STRDUM  , EOBSTR   /       
-     1                 'F1111'X,  'F2222'X , 'FAAAA'X, 'FBBBB'X /       
+     1                 Z'F1111',  Z'F2222' , Z'FAAAA', Z'FBBBB' /       
       DATA             EOB     ,  EOF      , STRHDR  , STRTRL   /       
-     1                 'F5555'X,  'F7777'X , 'F8888'X, 'F9999'X /       
+     1                 Z'F5555',  Z'F7777' , Z'F8888', Z'F9999' /       
 C UNIX:        
 C     DATA             RECTRL  ,  RCTRLL   , RCTRLC  , COLHDR, COLTRL / 
 C    1                 X'1'    ,  X'2'     , X'3'    , X'4'  , X'8'   / 

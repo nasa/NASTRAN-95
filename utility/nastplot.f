@@ -589,7 +589,7 @@ C
       IF (ADOT) GO TO 560        
       IF (ALL .EQ. YES) IF (LUOPEN) 590,555,590        
   555 NA1(DOT) = A1Z(NPLOT)        
-      GO TO 585        
+      GOTO 585
   560 KNUM1  = KB        
       KNUM(2)= KB        
       IF (ALL .EQ. YES) IF (LUOPEN) 590,580,590        
@@ -600,8 +600,7 @@ C
   580 NA1(DOT+2) = KNUM1        
       NA1(DOT+3) = KNUM(2)        
       NA1(DOT+4) = KB        
-  585 OPEN (UNIT=LU,FILE=NAM32,FORM='FORMATTED',STATUS='NEW',ERR=870    
-C    1     )        
+  585 OPEN (UNIT=LU,FILE=NAM32,FORM='FORMATTED',STATUS='NEW',ERR=870        
      1     ,CARRIAGECONTROL='LIST')   ! RECOMMANDED FOR VAX TO GENERATE 
 C                                     ! STANDARD LIST FILE        
       LUOPEN = 1        

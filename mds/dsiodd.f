@@ -5,13 +5,13 @@
       LHALF  = 16                                                               
       LENDSP = 0                                                                
       LENWPB = 0                                                                
-      MASKH1 = 'FFFF0000'X                                                     
-      MASKH2 = '0000FFFF'X                                                     
-      MASKE1 = 'FF000000'X                                                     
-      MASKE2 = '00FF0000'X                                                     
-      MASKE3 = '0000FF00'X                                                      
-      MASKE4 = '000000FF'X                                                      
-      MCBMAS = '40000000'X                                                      
+      DATA MASKH1 /Z'FFFF0000'/                                                     
+      DATA MASKH2 /Z'0000FFFF'/                                                     
+      DATA MASKE1 /Z'FF000000'/                                                     
+      DATA MASKE2 /Z'00FF0000'/                                                     
+      DATA MASKE3 /Z'0000FF00'/                                                      
+      DATA MASKE4 /Z'000000FF'/                                                      
+      DATA MCBMAS /Z'40000000'/                                                      
       MAXDSN = NUMFCB                                                           
       MASKQ1 = MASKE1                                                           
       MASKQ2 = MASKE2                                                           
@@ -20,20 +20,20 @@
       MULQ1  = 2**24                                                            
       MULQ2  = 2**16                                                            
       MULQ3  = 2**8                                                             
-      IDSX   = '00EE0000'X                                                      
-      IDSP   = '000E0000'X                                                      
-      IDSC   = '000C0000'X                                                      
-      IDSRH  = '11000000'X                                                      
-      IDSRT  = '77000000'X                                                      
-      IDSSB  = '22000000'X                                                      
-      IDSSE  = '7F000000'X                                                      
-      IDSCH  = '3B000000'X                                                      
-      IDSCT  = '3F000000'X                                                      
-      IDSSH  = '4B000000'X                                                      
-      IDSST  = '4F000000'X                                                      
-      IDSSD  = 'DD000000'X                                                      
-      IDSEB  = 'EB000000'X                                                      
-      IDSEF  = 'EF000000'X                                                      
+      DATA IDSX  /Z'00EE0000'/                                                      
+      DATA IDSP  /Z'000E0000'/                                                      
+      DATA IDSC  /Z'000C0000'/                                                      
+      DATA IDSRH /Z'11000000'/                                                      
+      DATA IDSRT /Z'77000000'/                                                      
+      DATA IDSSB /Z'22000000'/                                                      
+      DATA IDSSE /Z'7F000000'/                                                      
+      DATA IDSCH /Z'3B000000'/                                                      
+      DATA IDSCT /Z'3F000000'/                                                      
+      DATA IDSSH /Z'4B000000'/                                                      
+      DATA IDSST /Z'4F000000'/                                                      
+      DATA IDSSD /Z'DD000000'/                                                      
+      DATA IDSEB /Z'EB000000'/                                                      
+      DATA IDSEF /Z'EF000000'/                                                      
       NWRDEL( 1 ) = 1                                                           
       NWRDEL( 2 ) = 2                                                           
       NWRDEL( 3 ) = 2                                                           

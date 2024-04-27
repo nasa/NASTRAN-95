@@ -5,8 +5,12 @@ C********************************************************************
       INCLUDE  'DSIOF.COM'                                                      
       INCLUDE  'ZZZZZZ.COM'
       COMMON / SYSTEM / ISYSBF, IWR                                             
-      INTEGER           SCRATCH(2)                                              
-      DATA              SCRATCH / 'SCRA','TCHX' /                               
+
+      INTEGER           SCRATCH(2)  
+C This was total garbage -> initialize with 0 now                                            
+C      DATA              SCRATCH / 'SCRA','TCHX' /   
+      DATA SCRATCH / 0, 0 /                            
+
       IBLKSZ = ISYSBF - 4                                                       
       ITOTI  = 0                                                                
       ITOTX  = 0                                                                
